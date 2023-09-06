@@ -11,12 +11,12 @@
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* ViewController.swift */; };
 		F177F7F42AA793BE00C1EB32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F177F7F22AA793BE00C1EB32 /* Main.storyboard */; };
-		F177F7F72AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F52AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodeld */; };
+		F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */; };
 		F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F177F7F82AA793C000C1EB32 /* Assets.xcassets */; };
 		F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F177F7FA2AA793C000C1EB32 /* LaunchScreen.storyboard */; };
-		F177F8072AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.swift */; };
-		F177F8112AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.swift */; };
-		F177F8132AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift */; };
+		F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */; };
+		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
+		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,32 +25,32 @@
 			containerPortal = F177F7E12AA793BE00C1EB32 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F177F7E82AA793BE00C1EB32;
-			remoteInfo = AvaliacaoGeriatricaAmplaApp;
+			remoteInfo = CGAssessment;
 		};
 		F177F80D2AA793C000C1EB32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F177F7E12AA793BE00C1EB32 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F177F7E82AA793BE00C1EB32;
-			remoteInfo = AvaliacaoGeriatricaAmplaApp;
+			remoteInfo = CGAssessment;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F177F7E92AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvaliacaoGeriatricaAmplaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F177F7F02AA793BE00C1EB32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F177F7F32AA793BE00C1EB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F177F7F62AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AvaliacaoGeriatricaAmplaApp.xcdatamodel; sourceTree = "<group>"; };
+		F177F7F62AA793BE00C1EB32 /* CGAssessment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CGAssessment.xcdatamodel; sourceTree = "<group>"; };
 		F177F7F82AA793C000C1EB32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F177F7FB2AA793C000C1EB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F177F7FD2AA793C000C1EB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F177F8022AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvaliacaoGeriatricaAmplaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F177F8062AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoGeriatricaAmplaAppTests.swift; sourceTree = "<group>"; };
-		F177F80C2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvaliacaoGeriatricaAmplaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F177F8102AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoGeriatricaAmplaAppUITests.swift; sourceTree = "<group>"; };
-		F177F8122AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F177F8022AA793C000C1EB32 /* CGAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentTests.swift; sourceTree = "<group>"; };
+		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
+		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +81,9 @@
 		F177F7E02AA793BE00C1EB32 = {
 			isa = PBXGroup;
 			children = (
-				F177F7EB2AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */,
-				F177F8052AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests */,
-				F177F80F2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests */,
+				F177F7EB2AA793BE00C1EB32 /* CGAssessment */,
+				F177F8052AA793C000C1EB32 /* CGAssessmentTests */,
+				F177F80F2AA793C000C1EB32 /* CGAssessmentUITests */,
 				F177F7EA2AA793BE00C1EB32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,51 +91,131 @@
 		F177F7EA2AA793BE00C1EB32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F177F7E92AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.app */,
-				F177F8022AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.xctest */,
-				F177F80C2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.xctest */,
+				F177F7E92AA793BE00C1EB32 /* CGAssessment.app */,
+				F177F8022AA793C000C1EB32 /* CGAssessmentTests.xctest */,
+				F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F177F7EB2AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */ = {
+		F177F7EB2AA793BE00C1EB32 /* CGAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F177F8202AA8295500C1EB32 /* Business */,
+				F177F81F2AA8294100C1EB32 /* Infrastructure */,
+				F177F8212AA8295E00C1EB32 /* Models */,
+				F177F8222AA8298B00C1EB32 /* Resources */,
+				F177F8232AA8299C00C1EB32 /* Scenes */,
+				F177F8242AA829A500C1EB32 /* System */,
+			);
+			path = CGAssessment;
+			sourceTree = "<group>";
+		};
+		F177F8052AA793C000C1EB32 /* CGAssessmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
+			);
+			path = CGAssessmentTests;
+			sourceTree = "<group>";
+		};
+		F177F80F2AA793C000C1EB32 /* CGAssessmentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */,
+				F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */,
+			);
+			path = CGAssessmentUITests;
+			sourceTree = "<group>";
+		};
+		F177F81F2AA8294100C1EB32 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F177F8282AA82A3800C1EB32 /* LocalizedStrings */,
+				F177F8272AA82A2C00C1EB32 /* Extensions */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F177F8202AA8295500C1EB32 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		F177F8212AA8295E00C1EB32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F177F8222AA8298B00C1EB32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F177F7F82AA793C000C1EB32 /* Assets.xcassets */,
+				F177F7FD2AA793C000C1EB32 /* Info.plist */,
+				F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F177F8232AA8299C00C1EB32 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F177F8262AA829F400C1EB32 /* Dashboard */,
+				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F177F8242AA829A500C1EB32 /* System */ = {
 			isa = PBXGroup;
 			children = (
 				F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */,
 				F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		F177F8252AA829DA00C1EB32 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F177F7FA2AA793C000C1EB32 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		F177F8262AA829F400C1EB32 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
 				F177F7F02AA793BE00C1EB32 /* ViewController.swift */,
 				F177F7F22AA793BE00C1EB32 /* Main.storyboard */,
-				F177F7F82AA793C000C1EB32 /* Assets.xcassets */,
-				F177F7FA2AA793C000C1EB32 /* LaunchScreen.storyboard */,
-				F177F7FD2AA793C000C1EB32 /* Info.plist */,
-				F177F7F52AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodeld */,
 			);
-			path = AvaliacaoGeriatricaAmplaApp;
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		F177F8052AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests */ = {
+		F177F8272AA82A2C00C1EB32 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F177F8062AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.swift */,
 			);
-			path = AvaliacaoGeriatricaAmplaAppTests;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F177F80F2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests */ = {
+		F177F8282AA82A3800C1EB32 /* LocalizedStrings */ = {
 			isa = PBXGroup;
 			children = (
-				F177F8102AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.swift */,
-				F177F8122AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift */,
 			);
-			path = AvaliacaoGeriatricaAmplaAppUITests;
+			path = LocalizedStrings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F177F7E82AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */ = {
+		F177F7E82AA793BE00C1EB32 /* CGAssessment */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F177F8162AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaApp" */;
+			buildConfigurationList = F177F8162AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessment" */;
 			buildPhases = (
 				F177F7E52AA793BE00C1EB32 /* Sources */,
 				F177F7E62AA793BE00C1EB32 /* Frameworks */,
@@ -145,14 +225,14 @@
 			);
 			dependencies = (
 			);
-			name = AvaliacaoGeriatricaAmplaApp;
-			productName = AvaliacaoGeriatricaAmplaApp;
-			productReference = F177F7E92AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.app */;
+			name = CGAssessment;
+			productName = CGAssessment;
+			productReference = F177F7E92AA793BE00C1EB32 /* CGAssessment.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F177F8012AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests */ = {
+		F177F8012AA793C000C1EB32 /* CGAssessmentTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F177F8192AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaAppTests" */;
+			buildConfigurationList = F177F8192AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessmentTests" */;
 			buildPhases = (
 				F177F7FE2AA793C000C1EB32 /* Sources */,
 				F177F7FF2AA793C000C1EB32 /* Frameworks */,
@@ -163,14 +243,14 @@
 			dependencies = (
 				F177F8042AA793C000C1EB32 /* PBXTargetDependency */,
 			);
-			name = AvaliacaoGeriatricaAmplaAppTests;
-			productName = AvaliacaoGeriatricaAmplaAppTests;
-			productReference = F177F8022AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.xctest */;
+			name = CGAssessmentTests;
+			productName = CGAssessmentTests;
+			productReference = F177F8022AA793C000C1EB32 /* CGAssessmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F177F80B2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests */ = {
+		F177F80B2AA793C000C1EB32 /* CGAssessmentUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F177F81C2AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaAppUITests" */;
+			buildConfigurationList = F177F81C2AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessmentUITests" */;
 			buildPhases = (
 				F177F8082AA793C000C1EB32 /* Sources */,
 				F177F8092AA793C000C1EB32 /* Frameworks */,
@@ -181,9 +261,9 @@
 			dependencies = (
 				F177F80E2AA793C000C1EB32 /* PBXTargetDependency */,
 			);
-			name = AvaliacaoGeriatricaAmplaAppUITests;
-			productName = AvaliacaoGeriatricaAmplaAppUITests;
-			productReference = F177F80C2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.xctest */;
+			name = CGAssessmentUITests;
+			productName = CGAssessmentUITests;
+			productReference = F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -209,7 +289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F177F7E42AA793BE00C1EB32 /* Build configuration list for PBXProject "AvaliacaoGeriatricaAmplaApp" */;
+			buildConfigurationList = F177F7E42AA793BE00C1EB32 /* Build configuration list for PBXProject "CGAssessment" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -222,9 +302,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F177F7E82AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */,
-				F177F8012AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests */,
-				F177F80B2AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests */,
+				F177F7E82AA793BE00C1EB32 /* CGAssessment */,
+				F177F8012AA793C000C1EB32 /* CGAssessmentTests */,
+				F177F80B2AA793C000C1EB32 /* CGAssessmentUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -261,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F177F7F72AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodeld in Sources */,
+				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* ViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
@@ -272,7 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F177F8072AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppTests.swift in Sources */,
+				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F177F8112AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITests.swift in Sources */,
-				F177F8132AA793C000C1EB32 /* AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift in Sources */,
+				F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */,
+				F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,12 +370,12 @@
 /* Begin PBXTargetDependency section */
 		F177F8042AA793C000C1EB32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F177F7E82AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */;
+			target = F177F7E82AA793BE00C1EB32 /* CGAssessment */;
 			targetProxy = F177F8032AA793C000C1EB32 /* PBXContainerItemProxy */;
 		};
 		F177F80E2AA793C000C1EB32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F177F7E82AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp */;
+			target = F177F7E82AA793BE00C1EB32 /* CGAssessment */;
 			targetProxy = F177F80D2AA793C000C1EB32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -370,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -424,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -443,18 +523,20 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AvaliacaoGeriatricaAmplaApp/Info.plist;
+				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -471,18 +553,20 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AvaliacaoGeriatricaAmplaApp/Info.plist;
+				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -501,12 +585,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvaliacaoGeriatricaAmplaApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvaliacaoGeriatricaAmplaApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CGAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CGAssessment";
 			};
 			name = Debug;
 		};
@@ -521,12 +605,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvaliacaoGeriatricaAmplaApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvaliacaoGeriatricaAmplaApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CGAssessment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CGAssessment";
 			};
 			name = Release;
 		};
@@ -539,12 +623,12 @@
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessmentUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AvaliacaoGeriatricaAmplaApp;
+				TEST_TARGET_NAME = CGAssessment;
 			};
 			name = Debug;
 		};
@@ -557,19 +641,19 @@
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.AvaliacaoGeriatricaAmplaAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.portogeriatrico.CGAssessmentUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AvaliacaoGeriatricaAmplaApp;
+				TEST_TARGET_NAME = CGAssessment;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F177F7E42AA793BE00C1EB32 /* Build configuration list for PBXProject "AvaliacaoGeriatricaAmplaApp" */ = {
+		F177F7E42AA793BE00C1EB32 /* Build configuration list for PBXProject "CGAssessment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F177F8142AA793C000C1EB32 /* Debug */,
@@ -578,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F177F8162AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaApp" */ = {
+		F177F8162AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F177F8172AA793C000C1EB32 /* Debug */,
@@ -587,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F177F8192AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaAppTests" */ = {
+		F177F8192AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessmentTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F177F81A2AA793C000C1EB32 /* Debug */,
@@ -596,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F177F81C2AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "AvaliacaoGeriatricaAmplaAppUITests" */ = {
+		F177F81C2AA793C000C1EB32 /* Build configuration list for PBXNativeTarget "CGAssessmentUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F177F81D2AA793C000C1EB32 /* Debug */,
@@ -608,13 +692,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F177F7F52AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodeld */ = {
+		F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F177F7F62AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodel */,
+				F177F7F62AA793BE00C1EB32 /* CGAssessment.xcdatamodel */,
 			);
-			currentVersion = F177F7F62AA793BE00C1EB32 /* AvaliacaoGeriatricaAmplaApp.xcdatamodel */;
-			path = AvaliacaoGeriatricaAmplaApp.xcdatamodeld;
+			currentVersion = F177F7F62AA793BE00C1EB32 /* CGAssessment.xcdatamodel */;
+			path = CGAssessment.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
