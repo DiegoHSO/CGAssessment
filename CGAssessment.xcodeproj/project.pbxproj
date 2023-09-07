@@ -299,6 +299,8 @@
 				F177F7E52AA793BE00C1EB32 /* Sources */,
 				F177F7E62AA793BE00C1EB32 /* Frameworks */,
 				F177F7E72AA793BE00C1EB32 /* Resources */,
+				F1AEEB972AA99A3A0038968E /* SwiftLint */,
+				F1AEEB982AA99B550038968E /* LocalizedStrings */,
 			);
 			buildRules = (
 			);
@@ -418,6 +420,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F1AEEB972AA99A3A0038968E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint &> /dev/null; then\n    swiftlint lint --fix --format\n    swiftlint\nelse\n    export PATH=\"$PATH:/opt/homebrew/bin\"\n    if command -v swiftlint &> /dev/null; then\n        swiftlint lint --fix --format\n        swiftlint\n    else\n        echo \"ERROR: You should install SwiftLint to build this project, download it from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
+		};
+		F1AEEB982AA99B550038968E /* LocalizedStrings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = LocalizedStrings;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\npython3 validateLocalizableStrings.py\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F177F7E52AA793BE00C1EB32 /* Sources */ = {

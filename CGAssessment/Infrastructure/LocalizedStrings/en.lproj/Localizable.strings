@@ -7,9 +7,6 @@
 */
 
 "cga_key" = "Comprehensive Geriatric Assessment";
-
-// MARK: - Dashboard
-
 "most_recent_application_key" = "Most recent application";
 "years_key" = "years";
 "missing_domains_key" = "%DOMAIN_NUMBER domains left to complete";
