@@ -17,6 +17,8 @@
 		F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */; };
 		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
 		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
+		F1AEEB692AA94F000038968E /* FeatureComponentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB672AA94F000038968E /* FeatureComponentCollectionViewCell.swift */; };
+		F1AEEB6A2AA94F000038968E /* FeatureComponentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB682AA94F000038968E /* FeatureComponentCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,26 @@
 		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
 		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1AEEB672AA94F000038968E /* FeatureComponentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1AEEB682AA94F000038968E /* FeatureComponentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureComponentCollectionViewCell.xib; sourceTree = "<group>"; };
+		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		F1AEEB6D2AA9508D0038968E /* SF-Compact-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		F1AEEB6E2AA9508D0038968E /* SF-Compact-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
+		F1AEEB702AA9508E0038968E /* SF-Compact-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Heavy.otf"; sourceTree = "<group>"; };
+		F1AEEB712AA9508E0038968E /* SF-Compact-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Light.otf"; sourceTree = "<group>"; };
+		F1AEEB722AA9508E0038968E /* SF-Compact-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Medium.otf"; sourceTree = "<group>"; };
+		F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Black.otf"; sourceTree = "<group>"; };
+		F1AEEB742AA9508E0038968E /* SF-Compact-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Thin.otf"; sourceTree = "<group>"; };
+		F1AEEB752AA9508F0038968E /* SF-Compact-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		F1AEEB762AA9508F0038968E /* SF-Compact-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		F1AEEB772AA9508F0038968E /* SF-Compact-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Black.otf"; sourceTree = "<group>"; };
+		F1AEEB782AA9508F0038968E /* SF-Compact-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Light.otf"; sourceTree = "<group>"; };
+		F1AEEB792AA9508F0038968E /* SF-Compact-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		F1AEEB7A2AA950900038968E /* SF-Compact-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		F1AEEB7B2AA950900038968E /* SF-Compact-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Bold.otf"; sourceTree = "<group>"; };
+		F1AEEB7C2AA950900038968E /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +176,7 @@
 		F177F8222AA8298B00C1EB32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F1AEEB6B2AA94F150038968E /* Fonts */,
 				F177F7F82AA793C000C1EB32 /* Assets.xcassets */,
 				F177F7FD2AA793C000C1EB32 /* Info.plist */,
 				F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */,
@@ -190,6 +213,7 @@
 		F177F8262AA829F400C1EB32 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				F1AEEB662AA94EBA0038968E /* Components */,
 				F177F7F02AA793BE00C1EB32 /* ViewController.swift */,
 				F177F7F22AA793BE00C1EB32 /* Main.storyboard */,
 			);
@@ -208,6 +232,40 @@
 			children = (
 			);
 			path = LocalizedStrings;
+			sourceTree = "<group>";
+		};
+		F1AEEB662AA94EBA0038968E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1AEEB672AA94F000038968E /* FeatureComponentCollectionViewCell.swift */,
+				F1AEEB682AA94F000038968E /* FeatureComponentCollectionViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F1AEEB6B2AA94F150038968E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F1AEEB772AA9508F0038968E /* SF-Compact-Display-Black.otf */,
+				F1AEEB7B2AA950900038968E /* SF-Compact-Display-Bold.otf */,
+				F1AEEB702AA9508E0038968E /* SF-Compact-Display-Heavy.otf */,
+				F1AEEB712AA9508E0038968E /* SF-Compact-Display-Light.otf */,
+				F1AEEB722AA9508E0038968E /* SF-Compact-Display-Medium.otf */,
+				F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */,
+				F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */,
+				F1AEEB742AA9508E0038968E /* SF-Compact-Display-Thin.otf */,
+				F1AEEB792AA9508F0038968E /* SF-Compact-Display-Ultralight.otf */,
+				F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */,
+				F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */,
+				F1AEEB752AA9508F0038968E /* SF-Compact-Rounded-Heavy.otf */,
+				F1AEEB782AA9508F0038968E /* SF-Compact-Rounded-Light.otf */,
+				F1AEEB6D2AA9508D0038968E /* SF-Compact-Rounded-Medium.otf */,
+				F1AEEB6E2AA9508D0038968E /* SF-Compact-Rounded-Regular.otf */,
+				F1AEEB7A2AA950900038968E /* SF-Compact-Rounded-Semibold.otf */,
+				F1AEEB7C2AA950900038968E /* SF-Compact-Rounded-Thin.otf */,
+				F1AEEB762AA9508F0038968E /* SF-Compact-Rounded-Ultralight.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */,
+				F1AEEB6A2AA94F000038968E /* FeatureComponentCollectionViewCell.xib in Resources */,
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Main.storyboard in Resources */,
 			);
@@ -343,6 +402,7 @@
 			files = (
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* ViewController.swift in Sources */,
+				F1AEEB692AA94F000038968E /* FeatureComponentCollectionViewCell.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 			);
