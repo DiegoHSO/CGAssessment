@@ -16,6 +16,7 @@ class RecentApplicationView: UIView {
     @IBOutlet private weak var pacientDataLabel: UILabel?
     @IBOutlet private weak var missingParametersLabel: UILabel?
     @IBOutlet private weak var progressBarView: CircularProgressBarView?
+    @IBOutlet private weak var percentageLabel: UILabel?
 
     // MARK: - Init
 
@@ -24,8 +25,8 @@ class RecentApplicationView: UIView {
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         commonInit()
     }
 
@@ -39,6 +40,11 @@ class RecentApplicationView: UIView {
     // MARK: - Public Methods
 
     func setup(pacientName: String, pacientAge: Int, missingDomains: Int) {
+        let progress: Double = Double(missingDomains) / 9
+
+        percentageLabel?.text = String(format: "%.2f", progress * 100)
+        progressBarView?.progressAnimation(duration: 1, progress: progress)
+
         recentApplicationLabel?.text = LocalizedTable.Dashboard.mostRecentApplication.localized
         pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.Dashboard.years.localized)"
 
@@ -52,8 +58,6 @@ class RecentApplicationView: UIView {
         }
 
         missingParametersLabel?.text = missingParametersText
-
-        // TODO: Setup ProgressBar progress
     }
 
 }
