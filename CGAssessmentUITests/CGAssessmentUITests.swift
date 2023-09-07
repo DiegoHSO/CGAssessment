@@ -1,13 +1,13 @@
 //
-//  AvaliacaoGeriatricaAmplaAppUITests.swift
-//  AvaliacaoGeriatricaAmplaAppUITests
+//  CGAssessmentUITests.swift
+//  CGAssessmentUITests
 //
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //
 
 import XCTest
 
-final class AvaliacaoGeriatricaAmplaAppUITests: XCTestCase {
+final class CGAssessmentUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

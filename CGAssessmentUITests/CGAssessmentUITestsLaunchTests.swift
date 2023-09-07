@@ -1,13 +1,13 @@
 //
-//  AvaliacaoGeriatricaAmplaAppUITestsLaunchTests.swift
-//  AvaliacaoGeriatricaAmplaAppUITests
+//  CGAssessmentUITestsLaunchTests.swift
+//  CGAssessmentUITests
 //
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //
 
 import XCTest
 
-final class AvaliacaoGeriatricaAmplaAppUITestsLaunchTests: XCTestCase {
+final class CGAssessmentUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
