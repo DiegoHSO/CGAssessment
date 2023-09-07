@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Medium.otf">
+            <string>SFCompactDisplay-Medium</string>
+        </array>
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecentApplicationView" customModule="CGAssessment" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="FF7-p1-zPN"/>
+                <outlet property="missingParametersLabel" destination="eM1-Bl-A7l" id="RGP-cB-VSN"/>
+                <outlet property="pacientDataLabel" destination="QsX-Nz-buD" id="J9m-wL-Avo"/>
+                <outlet property="progressBarView" destination="EPu-A6-wLj" id="0it-2m-oEc"/>
+                <outlet property="recentApplicationLabel" destination="cYF-hK-K7U" id="GgP-hK-Qgr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="346" height="96"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="POj-9F-NlM">
+                    <rect key="frame" x="13" y="13" width="320" height="70"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8bD-ko-Iuo">
+                            <rect key="frame" x="0.0" y="3" width="225" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aplicação mais recente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYF-hK-K7U">
+                                    <rect key="frame" x="0.0" y="0.0" width="225" height="18"/>
+                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
+                                    <color key="textColor" name="Label-1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-Nz-buD">
+                                    <rect key="frame" x="0.0" y="23" width="225" height="18"/>
+                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                                    <color key="textColor" name="Label-1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Falta completar 3 domínios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM1-Bl-A7l">
+                                    <rect key="frame" x="0.0" y="46" width="225" height="18"/>
+                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                                    <color key="textColor" name="Label-1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPu-A6-wLj" customClass="CircularProgressBarView" customModule="CGAssessment" customModuleProvider="target">
+                            <rect key="frame" x="250" y="0.0" width="70" height="70"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="0eX-iS-5dJ"/>
+                                <constraint firstAttribute="width" constant="70" id="VFs-NU-raO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="Background-3"/>
+            <constraints>
+                <constraint firstItem="POj-9F-NlM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="13" id="6mi-k5-vgA"/>
+                <constraint firstItem="POj-9F-NlM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="BSg-pa-dqc"/>
+                <constraint firstAttribute="trailing" secondItem="POj-9F-NlM" secondAttribute="trailing" constant="13" id="HWG-ui-pkG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="POj-9F-NlM" secondAttribute="bottom" constant="13" id="YbC-Zf-NCk"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-9.1603053435114496" y="-261.26760563380282"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background-3">
+            <color red="0.64313725490196083" green="0.88235294117647056" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.016000000759959221" green="0.21600000560283661" blue="0.059000000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
