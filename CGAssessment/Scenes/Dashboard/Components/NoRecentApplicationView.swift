@@ -40,7 +40,7 @@ class NoRecentApplicationView: UIView {
         addSubview(contentView ?? UIView())
         contentView?.frame = self.bounds
         contentView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        callToActionButton?.layer.borderColor = UIColor(named: "Label-3")?.cgColor
+        callToActionButton?.layer.borderColor = UIColor(named: "Label-3")?.withAlphaComponent(0.5).cgColor
         callToActionButton?.layer.borderWidth = 2
     }
 

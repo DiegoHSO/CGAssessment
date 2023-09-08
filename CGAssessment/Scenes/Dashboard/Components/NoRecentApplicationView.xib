@@ -34,27 +34,28 @@
                     <rect key="frame" x="13" y="10" width="319" height="76"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sem aplicações da AGA registradas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ib4-zZ-dwa">
-                            <rect key="frame" x="41" y="0.0" width="237" height="17.666666666666668"/>
+                            <rect key="frame" x="41" y="0.0" width="237" height="18.333333333333332"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
                             <color key="textColor" name="Label-1"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Que tal iniciar sua primeira avaliação?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pFo-dK-EyJ">
-                            <rect key="frame" x="35" y="22.666666666666671" width="249" height="17.333333333333329"/>
+                            <rect key="frame" x="35" y="23.333333333333329" width="249" height="18.666666666666671"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                             <color key="textColor" name="Label-1"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-fX-Fml">
-                            <rect key="frame" x="81.666666666666686" y="45" width="156" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-fX-Fml">
+                            <rect key="frame" x="63.666666666666686" y="47" width="192" height="29"/>
                             <color key="backgroundColor" name="Background-6"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Ver exemplo de AGA">
-                                <fontDescription key="titleFontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
-                                <color key="baseForegroundColor" name="Label-3"/>
-                            </buttonConfiguration>
+                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="30" minY="5" maxX="30" maxY="5"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Ver exemplo de AGA">
+                                <color key="titleColor" name="Label-3"/>
+                            </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="10"/>
@@ -78,6 +79,11 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="135.1145038167939" y="19.718309859154932"/>
         </view>
     </objects>
