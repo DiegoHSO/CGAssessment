@@ -43,6 +43,8 @@
 		F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB912AA995600038968E /* Localizable.strings */; };
 		F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB932AA995AA0038968E /* LocalizedTable.swift */; };
 		F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */; };
+		F1F2957D2AAACE4200E52B92 /* NoRecentApplicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */; };
+		F1F2957F2AAACE5600E52B92 /* NoRecentApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		F1AEEB922AA9956E0038968E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1AEEB932AA995AA0038968E /* LocalizedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTable.swift; sourceTree = "<group>"; };
 		F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedTable+Dashboard.swift"; sourceTree = "<group>"; };
+		F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecentApplicationView.xib; sourceTree = "<group>"; };
+		F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecentApplicationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +282,8 @@
 				F1AEEB7E2AA986420038968E /* RecentApplicationView.swift */,
 				F1AEEB802AA986690038968E /* RecentApplicationView.xib */,
 				F1AEEB822AA98BCF0038968E /* CircularProgressBarView.swift */,
+				F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */,
+				F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				F1A9FBD92AAA60170048E31F /* SF-Compact-Display-Heavy.otf in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
+				F1F2957D2AAACE4200E52B92 /* NoRecentApplicationView.xib in Resources */,
 				F1AEEB6A2AA94F000038968E /* FeatureComponentCollectionViewCell.xib in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
@@ -506,6 +513,7 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F1AEEB7F2AA986420038968E /* RecentApplicationView.swift in Sources */,
 				F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */,
+				F1F2957F2AAACE5600E52B92 /* NoRecentApplicationView.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* ViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentCollectionViewCell.swift in Sources */,

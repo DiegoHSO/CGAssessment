@@ -11,3 +11,6 @@
 "years_key" = "anos";
 "missing_domains_key" = "Falta completar %DOMAIN_NUMBER domínios";
 "no_missing_domains_key" = "Todos os domínios avaliados";
+"no_registered_applications_key" = "Sem aplicações da AGA registradas";
+"begin_first_cga_key" = "Que tal iniciar sua primeira avaliação?";
+"see_cga_example_key" = "Ver exemplo de AGA";

@@ -11,3 +11,6 @@
 "years_key" = "years";
 "missing_domains_key" = "%DOMAIN_NUMBER domains left to complete";
 "no_missing_domains_key" = "All domains were evaluated";
+"no_registered_applications_key" = "No registered CGA applications";
+"begin_first_cga_key" = "What about starting your first evaluation?";
+"see_cga_example_key" = "See CGA example";

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Medium.otf">
+            <string>SFCompactDisplay-Medium</string>
+        </array>
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoRecentApplicationView" customModule="CGAssessment" customModuleProvider="target">
+            <connections>
+                <outlet property="callToActionButton" destination="X8g-fX-Fml" id="yqW-cG-sjw"/>
+                <outlet property="callToActionLabel" destination="pFo-dK-EyJ" id="JGh-7N-mc5"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="w9W-d2-pVa"/>
+                <outlet property="noRegisteredApplications" destination="Ib4-zZ-dwa" id="jFT-nY-aD9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="96"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fZP-kT-OmE">
+                    <rect key="frame" x="13" y="10" width="319" height="76"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sem aplicações da AGA registradas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ib4-zZ-dwa">
+                            <rect key="frame" x="41" y="0.0" width="237" height="17.666666666666668"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
+                            <color key="textColor" name="Label-1"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Que tal iniciar sua primeira avaliação?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pFo-dK-EyJ">
+                            <rect key="frame" x="35" y="22.666666666666671" width="249" height="17.333333333333329"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                            <color key="textColor" name="Label-1"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-fX-Fml">
+                            <rect key="frame" x="81.666666666666686" y="45" width="156" height="31"/>
+                            <color key="backgroundColor" name="Background-6"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Ver exemplo de AGA">
+                                <fontDescription key="titleFontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                                <color key="baseForegroundColor" name="Label-3"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="callToAction:" destination="-1" eventType="touchUpInside" id="8g3-0d-fPI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="Background-3"/>
+            <constraints>
+                <constraint firstItem="fZP-kT-OmE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="18g-LY-GQc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fZP-kT-OmE" secondAttribute="bottom" constant="10" id="Jz3-Fd-TxA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fZP-kT-OmE" secondAttribute="trailing" constant="13" id="p8p-l2-b4e"/>
+                <constraint firstItem="fZP-kT-OmE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="13" id="q35-jl-Cf9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="135.1145038167939" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background-3">
+            <color red="0.64313725490196083" green="0.88235294117647056" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.016000000759959221" green="0.21600000560283661" blue="0.059000000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-3">
+            <color red="0.098039215686274508" green="0.38823529411764707" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

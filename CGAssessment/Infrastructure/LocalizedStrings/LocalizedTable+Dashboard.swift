@@ -13,5 +13,9 @@ extension LocalizedTable {
         case years = "years_key"
         case missingDomains = "missing_domains_key"
         case noMissingDomains = "no_missing_domains_key"
+        case noRegisteredApplications = "no_registered_applications_key"
+        case beginFirstCGA = "begin_first_cga_key"
+        case seeCGAExample = "see_cga_example_key"
+
     }
 }
