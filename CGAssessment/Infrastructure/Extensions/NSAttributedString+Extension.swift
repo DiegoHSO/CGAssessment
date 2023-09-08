@@ -21,4 +21,3 @@ extension NSAttributedString {
         lhs = multableAttributedString
     }
 }
-

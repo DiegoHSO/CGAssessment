@@ -24,3 +24,7 @@
 "altered_domains_key" = "domínios alterados";
 "none_key" = "Nenhum";
 "last_application_key" = "Última AGA aplicada em";
+"no_reapplications_next_key" = "Não há reaplicações próximas";
+"up_to_date_key" = "Avaliações em dia!";
+"revise_cgas_key" = "Que tal revisar as já feitas?";
+"revise_cgas_action_key" = "Revisar AGAs aplicadas";

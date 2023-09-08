@@ -24,3 +24,7 @@
 "altered_domains_key" = "altered domains";
 "none_key" = "None";
 "last_application_key" = "Last CGA applied in";
+"no_reapplications_next_key" = "There are no reapplications next";
+"up_to_date_key" = "Evaluations up to date!";
+"revise_cgas_key" = "What about revising the done ones?";
+"revise_cgas_action_key" = "Review applied CGAs";
