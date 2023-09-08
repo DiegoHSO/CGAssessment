@@ -45,6 +45,11 @@
 		F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */; };
 		F1F2957D2AAACE4200E52B92 /* NoRecentApplicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */; };
 		F1F2957F2AAACE5600E52B92 /* NoRecentApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */; };
+		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
+		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
+		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
+		F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295862AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift */; };
+		F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295872AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +115,11 @@
 		F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedTable+Dashboard.swift"; sourceTree = "<group>"; };
 		F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecentApplicationView.xib; sourceTree = "<group>"; };
 		F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecentApplicationView.swift; sourceTree = "<group>"; };
+		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
+		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		F1F295862AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		F1F295872AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoTodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +270,7 @@
 		F177F8272AA82A2C00C1EB32 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,6 +295,10 @@
 				F1AEEB822AA98BCF0038968E /* CircularProgressBarView.swift */,
 				F1F2957C2AAACE4200E52B92 /* NoRecentApplicationView.xib */,
 				F1F2957E2AAACE5600E52B92 /* NoRecentApplicationView.swift */,
+				F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */,
+				F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */,
+				F1F295862AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift */,
+				F1F295872AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -441,8 +456,10 @@
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
 				F1A9FBD72AAA60170048E31F /* SF-Compact-Rounded-Regular.otf in Resources */,
 				F1AEEB812AA986690038968E /* RecentApplicationView.xib in Resources */,
+				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
 				F1A9FBDC2AAA60170048E31F /* SF-Compact-Display-Thin.otf in Resources */,
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
+				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Main.storyboard in Resources */,
 				F1A9FBD52AAA60170048E31F /* SF-Compact-Rounded-Semibold.otf in Resources */,
 			);
@@ -510,7 +527,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
+				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1AEEB7F2AA986420038968E /* RecentApplicationView.swift in Sources */,
 				F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */,
 				F1F2957F2AAACE5600E52B92 /* NoRecentApplicationView.swift in Sources */,
@@ -518,6 +537,7 @@
 				F177F7F12AA793BE00C1EB32 /* ViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentCollectionViewCell.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
+				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 			);
