@@ -14,3 +14,13 @@
 "no_registered_applications_key" = "Sem aplicações da AGA registradas";
 "begin_first_cga_key" = "Que tal iniciar sua primeira avaliação?";
 "see_cga_example_key" = "Ver exemplo de AGA";
+"in_key" = "Em";
+"day_key" = "dia";
+"days_key" = "dias";
+"month_key" = "mês";
+"months_key" = "meses";
+"today_key" = "Hoje";
+"altered_domain_key" = "domínio alterado";
+"altered_domains_key" = "domínios alterados";
+"none_key" = "Nenhum";
+"last_application_key" = "Última AGA aplicada em";
