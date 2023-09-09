@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Medium.otf">
+            <string>SFCompactDisplay-Medium</string>
+        </array>
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+        <array key="SF-Compact-Rounded-Black.otf">
+            <string>SFCompactRounded-Black</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="RecentApplicationTableViewCell" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="386" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="386" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsb-b2-gfU">
+                        <rect key="frame" x="20" y="0.0" width="346" height="96"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w50-5O-6qt">
+                                <rect key="frame" x="13" y="13" width="313" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-P9-YUl">
+                                        <rect key="frame" x="0.0" y="3" width="218" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aplicação mais recente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-8W-amJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="218" height="18"/>
+                                                <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
+                                                <color key="textColor" name="Label-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-4t-5Qg">
+                                                <rect key="frame" x="0.0" y="23" width="218" height="18"/>
+                                                <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                                                <color key="textColor" name="Label-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Falta completar 3 domínios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbu-w6-4VG">
+                                                <rect key="frame" x="0.0" y="46" width="218" height="18"/>
+                                                <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                                                <color key="textColor" name="Label-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSy-eQ-cEm" customClass="CircularProgressBarView" customModule="CGAssessment" customModuleProvider="target">
+                                        <rect key="frame" x="243" y="0.0" width="70" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72.7%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEF-Lc-qLs">
+                                                <rect key="frame" x="13.666666666666686" y="26" width="43" height="18"/>
+                                                <fontDescription key="fontDescription" name="SFCompactRounded-Black" family="SF Compact Rounded" pointSize="15"/>
+                                                <color key="textColor" name="Label-2"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="zEF-Lc-qLs" firstAttribute="centerX" secondItem="YSy-eQ-cEm" secondAttribute="centerX" id="6Oq-i8-MGA"/>
+                                            <constraint firstAttribute="width" constant="70" id="O8Y-Nk-Rqy"/>
+                                            <constraint firstItem="zEF-Lc-qLs" firstAttribute="centerY" secondItem="YSy-eQ-cEm" secondAttribute="centerY" id="al1-SN-ni1"/>
+                                            <constraint firstAttribute="height" constant="70" id="zYe-ny-IIP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background-3"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="w50-5O-6qt" secondAttribute="bottom" constant="13" id="Pdl-sk-vbR"/>
+                            <constraint firstAttribute="trailing" secondItem="w50-5O-6qt" secondAttribute="trailing" constant="20" id="kNv-BD-Vje"/>
+                            <constraint firstItem="w50-5O-6qt" firstAttribute="leading" secondItem="Dsb-b2-gfU" secondAttribute="leading" constant="13" id="m77-D3-YUs"/>
+                            <constraint firstItem="w50-5O-6qt" firstAttribute="top" secondItem="Dsb-b2-gfU" secondAttribute="top" constant="13" id="zWY-2f-2zb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Dsb-b2-gfU" secondAttribute="bottom" id="KbX-4m-l3Y"/>
+                    <constraint firstItem="Dsb-b2-gfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="S1z-Sp-iBD"/>
+                    <constraint firstItem="Dsb-b2-gfU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ayV-C8-BbW"/>
+                    <constraint firstAttribute="trailing" secondItem="Dsb-b2-gfU" secondAttribute="trailing" constant="20" id="bN6-Gg-C9r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="missingParametersLabel" destination="dbu-w6-4VG" id="rkf-Nb-2Sa"/>
+                <outlet property="pacientDataLabel" destination="CgK-4t-5Qg" id="fqi-VQ-h1G"/>
+                <outlet property="percentageLabel" destination="zEF-Lc-qLs" id="WcZ-q9-wIy"/>
+                <outlet property="progressBarView" destination="YSy-eQ-cEm" id="p5r-BS-h41"/>
+                <outlet property="recentApplicationLabel" destination="2aa-8W-amJ" id="7ed-OR-Ao0"/>
+            </connections>
+            <point key="canvasLocation" x="131.29770992366412" y="38.732394366197184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Background-3">
+            <color red="0.64313725490196083" green="0.88235294117647056" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-2">
+            <color red="0.31372549019607843" green="0.65098039215686276" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
