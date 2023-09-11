@@ -54,6 +54,8 @@
 		F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9B92AACE85E0006075F /* FeatureComponentView.xib */; };
 		F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9BB2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift */; };
 		F1F2E9BE2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9BC2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib */; };
+		F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9BF2AAE6B330006075F /* FeaturesTableViewCell.swift */; };
+		F1F2E9C22AAE6B330006075F /* FeaturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9C02AAE6B330006075F /* FeaturesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		F1F2E9B92AACE85E0006075F /* FeatureComponentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureComponentView.xib; sourceTree = "<group>"; };
 		F1F2E9BB2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecentApplicationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F2E9BC2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecentApplicationTableViewCell.xib; sourceTree = "<group>"; };
+		F1F2E9BF2AAE6B330006075F /* FeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesTableViewCell.swift; sourceTree = "<group>"; };
+		F1F2E9C02AAE6B330006075F /* FeaturesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +315,8 @@
 				F1F295872AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib */,
 				F1F2E9B12AACDBC40006075F /* TitleHeaderView.swift */,
 				F1F2E9B32AACDBD30006075F /* TitleHeaderView.xib */,
+				F1F2E9BF2AAE6B330006075F /* FeaturesTableViewCell.swift */,
+				F1F2E9C02AAE6B330006075F /* FeaturesTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				F1A9FBDA2AAA60170048E31F /* SF-Compact-Rounded-Light.otf in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
 				F1A9FBD32AAA60170048E31F /* SF-Compact-Display-Ultralight.otf in Resources */,
+				F1F2E9C22AAE6B330006075F /* FeaturesTableViewCell.xib in Resources */,
 				F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */,
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
 				F1A9FBE22AAA60170048E31F /* SF-Compact-Rounded-Ultralight.otf in Resources */,
@@ -540,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */,
 				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
