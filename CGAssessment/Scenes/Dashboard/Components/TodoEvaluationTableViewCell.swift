@@ -11,6 +11,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
+    @IBOutlet private weak var timeLeftView: UIView?
     @IBOutlet private weak var timeLeftLabel: UILabel?
     @IBOutlet private weak var pacientDataLabel: UILabel?
     @IBOutlet private weak var alteredDomainsLabel: UILabel?
@@ -24,6 +25,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
         timeLeftLabel?.text = setupTimeLeftText(nextApplicationDate)
         pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.Dashboard.years.localized)"
         alteredDomainsLabel?.attributedText = setupAlteredDomainsText(alteredDomains)
+        timeLeftView?.backgroundColor = getAlteredDomainsColor(alteredDomains)
 
         var lastApplicationDateText = "\(LocalizedTable.Dashboard.lastApplication.localized) "
         lastApplicationDateText += "\(lastApplicationDate.formatted(date: .numeric, time: .omitted))"
@@ -67,7 +69,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
             alteredDomainsColor = UIColor(named: alteredDomains < 5 ? "Label-5" : "Label-6") ?? .clear
         }
 
-        let font: UIFont = UIFont(name: "SF-Compact-Display-Medium", size: 15) ?? .systemFont(ofSize: 15)
+        let font: UIFont = UIFont(name: "SFCompactDisplay-Medium", size: 15) ?? .systemFont(ofSize: 15)
         let alteredDomainsString = NSAttributedString(string: alteredDomainsText,
                                                       attributes: [.font: font, .foregroundColor: alteredDomainsColor])
         let secondaryAlteredDomainsString = NSAttributedString(string: secondaryAlteredDomainsText,
@@ -75,6 +77,10 @@ class TodoEvaluationTableViewCell: UITableViewCell {
                                                                             .foregroundColor: UIColor(named: "Label-1") ?? .clear])
 
         return alteredDomainsString + secondaryAlteredDomainsString
+    }
+
+    private func getAlteredDomainsColor(_ alteredDomains: Int) -> UIColor? {
+        return UIColor(named: alteredDomains == 0 ? "Background-7" : alteredDomains < 5 ? "Background-9" : "Background-10") ?? .clear
     }
 
 }
