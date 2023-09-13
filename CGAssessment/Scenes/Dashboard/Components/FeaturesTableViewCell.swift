@@ -16,6 +16,13 @@ class FeaturesTableViewCell: UITableViewCell {
     @IBOutlet private weak var thirdComponentView: FeatureComponentView?
     @IBOutlet private weak var fourthComponentView: FeatureComponentView?
 
+    // MARK: - Life Cycle
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+
     // MARK: - Public Methods
 
     func setupFirstComponent(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {

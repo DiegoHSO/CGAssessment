@@ -18,6 +18,8 @@ class DashboardViewController: UIViewController {
     private var initialBackgroundViewHeight: CGFloat? = -1
     private var isStatusBarHidden: Bool = false
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -26,6 +28,10 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return isStatusBarHidden
     }
 
     // MARK: - Private Methods
@@ -50,27 +56,85 @@ class DashboardViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate and UITableViewDataSource extensions
+
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         return
     }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 0 ? UITableView.automaticDimension : .leastNormalMagnitude
+    }
 }
 
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //        return section == 2 ? 3 : 1
         return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NoTodoEvaluationTableViewCell.className,
-                                                       for: indexPath) as? NoTodoEvaluationTableViewCell else {
+        switch indexPath.section {
+        case 0:
+            /*
+             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentApplicationTableViewCell.className,
+             for: indexPath) as? RecentApplicationTableViewCell else {
+             return UITableViewCell()
+             }
+
+             cell.setup(pacientName: "Danilinho", pacientAge: 30, missingDomains: 4)
+             */
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NoRecentApplicationTableViewCell.className,
+                                                           for: indexPath) as? NoRecentApplicationTableViewCell else {
+                return UITableViewCell()
+            }
+
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FeaturesTableViewCell.className,
+                                                           for: indexPath) as? FeaturesTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setupFirstComponent(title: "Iniciar nova AGA", iconSymbol: "􀑇", identifier: "new_cga", delegate: nil)
+            cell.setupSecondComponent(title: "Pacientes", iconSymbol: "􀝋", identifier: "pacients", delegate: nil)
+            cell.setupThirdComponent(title: "Parâmetros da AGA", iconSymbol: "􀜟", identifier: "parameters", delegate: nil)
+            cell.setupFourthComponent(title: "Relatórios", iconSymbol: "􀥵", identifier: "reports", delegate: nil)
+            return cell
+        case 2:
+            /*
+             guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoEvaluationTableViewCell.className,
+             for: indexPath) as? TodoEvaluationTableViewCell else {
+             return UITableViewCell()
+             }
+
+             cell.setup(nextApplicationDate: Date(timeIntervalSinceNow: 1063400),
+             pacientName: "Danilo de Souza Pinto", pacientAge: 30,
+             alteredDomains: 6, lastApplicationDate: Date(timeIntervalSinceNow: 63400))
+             */
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NoTodoEvaluationTableViewCell.className,
+                                                           for: indexPath) as? NoTodoEvaluationTableViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        default:
             return UITableViewCell()
         }
         /*
+         guard let cell = tableView.dequeueReusableCell(withIdentifier: NoTodoEvaluationTableViewCell.className,
+         for: indexPath) as? NoTodoEvaluationTableViewCell else {
+         return UITableViewCell()
+         }
          guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoEvaluationTableViewCell.className,
          for: indexPath) as? TodoEvaluationTableViewCell else {
          return UITableViewCell()
@@ -108,28 +172,36 @@ extension DashboardViewController: UITableViewDataSource {
          for: indexPath) as? NoRecentApplicationTableViewCell else {
          return UITableViewCell()
          }
-         */
 
-        return cell
+         return cell
+         */
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TitleHeaderView
-                                                                        .className) as? TitleHeaderView else {
-            return nil
+        if section == 0 || section == 2 {
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TitleHeaderView
+                                                                            .className) as? TitleHeaderView else {
+                return nil
+            }
+
+            if section == 0 { header.setup(title: "Olá, Diego", textColor: UIColor.white) }
+            if section == 2 { header.setup(title: "Avaliações a reaplicar",
+                                           backgroundColor: UIColor(named: "Primary")) }
+
+            return header
         }
 
-        //         header.setup(title: "Olá, Diego", textColor: UIColor.white)
-        header.setup(title: "Avaliações a reaplicar")
+        return nil
 
-        return header
     }
 
 }
+
+// MARK: - UIScrollViewDelegate extension
 
 extension DashboardViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

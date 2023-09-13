@@ -15,9 +15,11 @@ class TitleHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - Public Methods
 
-    func setup(title: String, textColor: UIColor? = UIColor(named: "Label-1")) {
+    func setup(title: String, textColor: UIColor? = UIColor(named: "Label-1"),
+               backgroundColor: UIColor? = .clear) {
         titleLabel?.text = title
         titleLabel?.textColor = textColor
+        contentView.backgroundColor = backgroundColor
     }
 
 }

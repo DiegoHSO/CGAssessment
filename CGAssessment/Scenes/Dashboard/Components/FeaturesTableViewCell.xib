@@ -15,7 +15,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="FeaturesTableViewCell" customModule="CGAssessment" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -57,7 +57,7 @@
                     <constraint firstItem="vPS-5g-0f6" firstAttribute="top" secondItem="z7P-TO-oId" secondAttribute="bottom" constant="38" id="8Kw-tQ-iSq"/>
                     <constraint firstItem="z7P-TO-oId" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Sl3-8V-4Kb"/>
                     <constraint firstItem="z7P-TO-oId" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="WsQ-lq-V30"/>
-                    <constraint firstAttribute="bottom" secondItem="vPS-5g-0f6" secondAttribute="bottom" constant="30" id="a8P-QN-3k9"/>
+                    <constraint firstAttribute="bottom" secondItem="vPS-5g-0f6" secondAttribute="bottom" constant="10" id="a8P-QN-3k9"/>
                     <constraint firstAttribute="trailing" secondItem="vPS-5g-0f6" secondAttribute="trailing" constant="20" id="aQN-8b-Zy6"/>
                     <constraint firstAttribute="trailing" secondItem="z7P-TO-oId" secondAttribute="trailing" constant="20" id="rgt-89-lfF"/>
                     <constraint firstItem="vPS-5g-0f6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="tXw-mN-OiO"/>
@@ -69,6 +69,7 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="firstComponentView" destination="zJH-1p-eEy" id="XRw-lU-Xsw"/>
                 <outlet property="fourthComponentView" destination="1JB-JJ-niS" id="Fax-fn-68M"/>
