@@ -7,6 +7,13 @@
 
 import UIKit
 
+// TODO: - Move to Models file
+typealias Tabs = (
+    home: UIViewController?,
+    cgas: UIViewController?,
+    preferences: UIViewController?
+)
+
 class DashboardViewController: UIViewController {
 
     // MARK: - Private Properties
@@ -188,9 +195,8 @@ extension DashboardViewController: UITableViewDataSource {
                 return nil
             }
 
-            if section == 0 { header.setup(title: "Olá, Diego", textColor: UIColor.white) }
-            if section == 2 { header.setup(title: "Avaliações a reaplicar",
-                                           backgroundColor: UIColor(named: "Primary")) }
+            if section == 0 { header.setup(title: "Olá, Diego", textColor: .white) }
+            if section == 2 { header.setup(title: "Avaliações a reaplicar", backgroundColor: .primary) }
 
             return header
         }

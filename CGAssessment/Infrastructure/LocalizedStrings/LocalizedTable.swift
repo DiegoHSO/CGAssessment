@@ -20,4 +20,7 @@ extension Localizable {
 
 enum LocalizedTable: String, Localizable {
     case cga = "cga_key"
+    case home = "home_key"
+    case cgas = "cgas_key"
+    case preferences = "preferences_key"
 }

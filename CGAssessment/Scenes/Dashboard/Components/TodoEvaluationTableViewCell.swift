@@ -62,11 +62,11 @@ class TodoEvaluationTableViewCell: UITableViewCell {
         if alteredDomains == 0 {
             alteredDomainsText = "\(LocalizedTable.Dashboard.none.localized)"
             secondaryAlteredDomainsText = " \(LocalizedTable.Dashboard.alteredDomain.localized)"
-            alteredDomainsColor = UIColor(named: "Label-4") ?? .clear
+            alteredDomainsColor = .label4 ?? .clear
         } else {
             alteredDomainsText = "\(alteredDomains)"
             secondaryAlteredDomainsText = " \(alteredDomains == 1 ? secondaryAlteredDomainsText : LocalizedTable.Dashboard.alteredDomains.localized)"
-            alteredDomainsColor = UIColor(named: alteredDomains < 5 ? "Label-5" : "Label-6") ?? .clear
+            alteredDomainsColor = (alteredDomains < 5 ? .label5 : .label6) ?? .clear
         }
 
         let font: UIFont = UIFont(name: "SFCompactDisplay-Medium", size: 15) ?? .systemFont(ofSize: 15)
@@ -74,13 +74,13 @@ class TodoEvaluationTableViewCell: UITableViewCell {
                                                       attributes: [.font: font, .foregroundColor: alteredDomainsColor])
         let secondaryAlteredDomainsString = NSAttributedString(string: secondaryAlteredDomainsText,
                                                                attributes: [.font: font,
-                                                                            .foregroundColor: UIColor(named: "Label-1") ?? .clear])
+                                                                            .foregroundColor: UIColor.label1 ?? .clear])
 
         return alteredDomainsString + secondaryAlteredDomainsString
     }
 
     private func getAlteredDomainsColor(_ alteredDomains: Int) -> UIColor? {
-        return UIColor(named: alteredDomains == 0 ? "Background-7" : alteredDomains < 5 ? "Background-9" : "Background-10") ?? .clear
+        return alteredDomains == 0 ? .background7 : alteredDomains < 5 ? .background9 : .background10
     }
 
 }

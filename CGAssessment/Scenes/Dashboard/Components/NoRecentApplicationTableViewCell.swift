@@ -33,7 +33,7 @@ class NoRecentApplicationTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
-        callToActionButton?.layer.borderColor = UIColor(named: "Label-3")?.withAlphaComponent(0.5).cgColor
+        callToActionButton?.layer.borderColor = UIColor.label3?.withAlphaComponent(0.5).cgColor
         callToActionButton?.layer.borderWidth = 2
     }
 
