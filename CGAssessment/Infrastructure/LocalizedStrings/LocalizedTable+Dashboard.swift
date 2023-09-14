@@ -26,7 +26,7 @@ extension LocalizedTable {
         case alteredDomains = "altered_domains_key"
         case none = "none_key"
         case lastApplication = "last_application_key"
-        case noReapplicationsNext = "no_reaplications_next_key"
+        case noReapplicationsNext = "no_reapplications_next_key"
         case upToDate = "up_to_date_key"
         case reviseCGAs = "revise_cgas_key"
         case reviseCGAsAction = "revise_cgas_action_key"

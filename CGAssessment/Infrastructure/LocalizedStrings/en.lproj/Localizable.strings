@@ -28,3 +28,6 @@
 "up_to_date_key" = "Evaluations up to date!";
 "revise_cgas_key" = "What about revising the done ones?";
 "revise_cgas_action_key" = "Review applied CGAs";
+"home_key" = "Home";
+"cgas_key" = "CGAs";
+"preferences_key" = "Preferences";
