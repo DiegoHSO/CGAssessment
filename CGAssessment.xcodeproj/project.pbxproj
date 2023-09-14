@@ -63,6 +63,13 @@
 		F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9D02AB28BFC0006075F /* DashboardBuilder.swift */; };
 		F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9D42AB298CC0006075F /* NavigationBuilder.swift */; };
 		F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9D62AB2996B0006075F /* UIColor+Extension.swift */; };
+		F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9D92AB342400006075F /* SelectableView.xib */; };
+		F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9DD2AB355130006075F /* SelectableView.swift */; };
+		F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9DF2AB355C90006075F /* SelectableKeys.swift */; };
+		F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9E32AB35E570006075F /* SelectableModels.swift */; };
+		F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9E82AB36A540006075F /* SelectableTableViewCell.swift */; };
+		F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */; };
+		F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +153,13 @@
 		F1F2E9D02AB28BFC0006075F /* DashboardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBuilder.swift; sourceTree = "<group>"; };
 		F1F2E9D42AB298CC0006075F /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
 		F1F2E9D62AB2996B0006075F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F1F2E9D92AB342400006075F /* SelectableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableView.xib; sourceTree = "<group>"; };
+		F1F2E9DD2AB355130006075F /* SelectableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableView.swift; sourceTree = "<group>"; };
+		F1F2E9DF2AB355C90006075F /* SelectableKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableKeys.swift; sourceTree = "<group>"; };
+		F1F2E9E32AB35E570006075F /* SelectableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableModels.swift; sourceTree = "<group>"; };
+		F1F2E9E82AB36A540006075F /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
+		F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
+		F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +257,7 @@
 		F177F8212AA8295E00C1EB32 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F1F2E9DF2AB355C90006075F /* SelectableKeys.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +276,7 @@
 		F177F8232AA8299C00C1EB32 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F1F2E9D82AB341F20006075F /* Common */,
 				F1F2E9D22AB2989D0006075F /* TabBar */,
 				F177F8262AA829F400C1EB32 /* Dashboard */,
 				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
@@ -304,6 +320,7 @@
 				F1F2E9B72AACE3890006075F /* UITableView+Extension.swift */,
 				F1F2E9CE2AB2794F0006075F /* UIImage+Extension.swift */,
 				F1F2E9D62AB2996B0006075F /* UIColor+Extension.swift */,
+				F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,14 +345,14 @@
 				F1AEEB822AA98BCF0038968E /* CircularProgressBarView.swift */,
 				F1F2E9BC2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib */,
 				F1F2E9BB2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift */,
-				F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */,
 				F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */,
-				F1F295862AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift */,
+				F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */,
 				F1F295872AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib */,
-				F1F2E9B12AACDBC40006075F /* TitleHeaderView.swift */,
+				F1F295862AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift */,
 				F1F2E9B32AACDBD30006075F /* TitleHeaderView.xib */,
-				F1F2E9BF2AAE6B330006075F /* FeaturesTableViewCell.swift */,
+				F1F2E9B12AACDBC40006075F /* TitleHeaderView.swift */,
 				F1F2E9C02AAE6B330006075F /* FeaturesTableViewCell.xib */,
+				F1F2E9BF2AAE6B330006075F /* FeaturesTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -381,6 +398,26 @@
 				F1F2E9D42AB298CC0006075F /* NavigationBuilder.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F1F2E9D82AB341F20006075F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F1F2E9E72AB36A020006075F /* Selectable */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F1F2E9E72AB36A020006075F /* Selectable */ = {
+			isa = PBXGroup;
+			children = (
+				F1F2E9D92AB342400006075F /* SelectableView.xib */,
+				F1F2E9DD2AB355130006075F /* SelectableView.swift */,
+				F1F2E9E32AB35E570006075F /* SelectableModels.swift */,
+				F1F2E9E82AB36A540006075F /* SelectableTableViewCell.swift */,
+				F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */,
+			);
+			path = Selectable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,10 +545,12 @@
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
+				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
 				F1A9FBD72AAA60170048E31F /* SF-Compact-Rounded-Regular.otf in Resources */,
 				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
+				F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */,
 				F1F2E9B42AACDBD30006075F /* TitleHeaderView.xib in Resources */,
 				F1A9FBDC2AAA60170048E31F /* SF-Compact-Display-Thin.otf in Resources */,
 				F1F2E9BE2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib in Resources */,
@@ -591,6 +630,7 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
+				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
@@ -601,11 +641,15 @@
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
+				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
+				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
+				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
+				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 			);

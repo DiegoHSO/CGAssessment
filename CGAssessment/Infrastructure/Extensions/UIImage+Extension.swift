@@ -12,8 +12,8 @@ extension UIImage {
     typealias ImageAndColor = (image: UIImage?, color: UIColor?)
 
     struct TabBar {
-        private static let symbolConfiguration: SymbolConfiguration = .init(font: UIFont(name: "SFCompactDisplay-Medium", size: 18) ??
-                                                                                .systemFont(ofSize: 18), scale: .default)
+        private static let symbolConfiguration: SymbolConfiguration = .init(font: .compactDisplay(withStyle: .medium, size: 18),
+                                                                            scale: .default)
 
         static var dashboardNormal: UIImage? {
             UIImage(systemName: "house")?

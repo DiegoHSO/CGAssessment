@@ -41,6 +41,15 @@ class FeatureComponentView: UIView {
         setupGesture()
     }
 
+    // MARK: - Public Methods
+
+    func setup(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+        titleLabel?.text = title
+        iconLabel?.text = iconSymbol
+        componentIdentifier = identifier
+        self.delegate = delegate
+    }
+
     // MARK: - Private Methods
 
     func setupGesture() {
@@ -50,14 +59,5 @@ class FeatureComponentView: UIView {
 
     @objc func didTapComponent() {
         delegate?.didTapComponent(identifier: componentIdentifier)
-    }
-
-    // MARK: - Public Methods
-
-    func setup(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
-        titleLabel?.text = title
-        iconLabel?.text = iconSymbol
-        componentIdentifier = identifier
-        self.delegate = delegate
     }
 }

@@ -69,7 +69,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
             alteredDomainsColor = (alteredDomains < 5 ? .label5 : .label6) ?? .clear
         }
 
-        let font: UIFont = UIFont(name: "SFCompactDisplay-Medium", size: 15) ?? .systemFont(ofSize: 15)
+        let font: UIFont = .compactDisplay(withStyle: .medium, size: 15)
         let alteredDomainsString = NSAttributedString(string: alteredDomainsText,
                                                       attributes: [.font: font, .foregroundColor: alteredDomainsColor])
         let secondaryAlteredDomainsString = NSAttributedString(string: secondaryAlteredDomainsText,
