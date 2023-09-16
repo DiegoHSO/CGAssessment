@@ -58,6 +58,8 @@ class TextFieldTableViewCell: UITableViewCell {
 
 }
 
+// MARK: - UITextFieldDelegate extension
+
 extension TextFieldTableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
