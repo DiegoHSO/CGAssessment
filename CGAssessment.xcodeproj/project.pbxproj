@@ -71,6 +71,9 @@
 		F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */; };
 		F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */; };
 		F1F2E9EF2AB39F5A0006075F /* CGAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9EE2AB39F5A0006075F /* CGAs.swift */; };
+		F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */; };
+		F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */; };
+		F1F2E9F72AB567A00006075F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1F2E9F62AB567A00006075F /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +165,8 @@
 		F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		F1F2E9EE2AB39F5A0006075F /* CGAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAs.swift; sourceTree = "<group>"; };
+		F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F2E9F72AB567A00006075F /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +412,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F1F2E9F02AB557400006075F /* TextField */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
 			);
 			path = Common;
@@ -421,6 +428,15 @@
 				F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */,
 			);
 			path = Selectable;
+			sourceTree = "<group>";
+		};
+		F1F2E9F02AB557400006075F /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */,
+				F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +457,9 @@
 			dependencies = (
 			);
 			name = CGAssessment;
+			packageProductDependencies = (
+				F1F2E9F62AB567A00006075F /* IQKeyboardManagerSwift */,
+			);
 			productName = CGAssessment;
 			productReference = F177F7E92AA793BE00C1EB32 /* CGAssessment.app */;
 			productType = "com.apple.product-type.application";
@@ -514,6 +533,9 @@
 				"pt-BR",
 			);
 			mainGroup = F177F7E02AA793BE00C1EB32;
+			packageReferences = (
+				F1F2E9F52AB567A00006075F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = F177F7EA2AA793BE00C1EB32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -553,6 +575,7 @@
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
 				F1A9FBD72AAA60170048E31F /* SF-Compact-Rounded-Regular.otf in Resources */,
 				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
+				F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */,
 				F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */,
 				F1F2E9B42AACDBD30006075F /* TitleHeaderView.xib in Resources */,
 				F1A9FBDC2AAA60170048E31F /* SF-Compact-Display-Thin.otf in Resources */,
@@ -646,6 +669,7 @@
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
+				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
@@ -1020,6 +1044,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1F2E9F52AB567A00006075F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1F2E9F62AB567A00006075F /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1F2E9F52AB567A00006075F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */ = {
