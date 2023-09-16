@@ -7,9 +7,15 @@
 
 import Foundation
 
-enum SelectableKeys {
-    case firstOption
-    case secondOption
-    case thirdOption
-    case fourthOption
+enum SelectableKeys: Int, Comparable {
+
+    case none = 0
+    case firstOption = 1
+    case secondOption = 2
+    case thirdOption = 3
+    case fourthOption = 4
+
+    static func < (lhs: SelectableKeys, rhs: SelectableKeys) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }

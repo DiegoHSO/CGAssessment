@@ -19,9 +19,9 @@ class SelectableView: UIView {
     @IBOutlet private weak var circleView: UIView?
     @IBOutlet private weak var innerCircleView: UIView?
     @IBOutlet private weak var textLabel: UILabel?
-    private var componentIdentifier: SelectableKeys?
     private var isSelected: Bool = false
     private weak var delegate: SelectableViewDelegate?
+    var componentIdentifier: SelectableKeys?
 
     // MARK: - Init
 
@@ -45,7 +45,7 @@ class SelectableView: UIView {
 
     // MARK: - Public Methods
 
-    func setup(viewModel: SelectableModels.ViewModel) {
+    func setup(viewModel: SelectableModels.ComponentViewModel) {
         componentIdentifier = viewModel.identifier
         delegate = viewModel.delegate
         isSelected = viewModel.isSelected
@@ -56,11 +56,11 @@ class SelectableView: UIView {
 
     // MARK: - Private Methods
 
-    func setupViews() {
+    private func setupViews() {
         circleView?.layer.borderWidth = 1
         circleView?.layer.borderColor = UIColor.label1?.cgColor
-        circleView?.layer.cornerRadius = (circleView?.frame.size.width) ?? 0 / 2
-        innerCircleView?.layer.cornerRadius = (innerCircleView?.frame.size.width) ?? 0 / 2
+        circleView?.layer.cornerRadius = (circleView?.frame.size.width ?? 0) / 2
+        innerCircleView?.layer.cornerRadius = (innerCircleView?.frame.size.width ?? 0) / 2
         innerCircleView?.isHidden = !isSelected
     }
 

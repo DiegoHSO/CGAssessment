@@ -70,6 +70,7 @@
 		F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9E82AB36A540006075F /* SelectableTableViewCell.swift */; };
 		F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */; };
 		F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */; };
+		F1F2E9EF2AB39F5A0006075F /* CGAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9EE2AB39F5A0006075F /* CGAs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		F1F2E9E82AB36A540006075F /* SelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableTableViewCell.swift; sourceTree = "<group>"; };
 		F1F2E9E92AB36A540006075F /* SelectableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableTableViewCell.xib; sourceTree = "<group>"; };
 		F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		F1F2E9EE2AB39F5A0006075F /* CGAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F2E9DF2AB355C90006075F /* SelectableKeys.swift */,
+				F1F2E9EE2AB39F5A0006075F /* CGAs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
+				F1F2E9EF2AB39F5A0006075F /* CGAs.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,

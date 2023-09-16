@@ -9,10 +9,17 @@ import Foundation
 
 struct SelectableModels {
 
-    struct ViewModel {
+    struct QuestionsViewModel {
+        let title: String?
+        let questions: Questions
+        let delegate: SelectableViewDelegate?
+        let selectedQuestion: SelectableKeys
+    }
+
+    struct ComponentViewModel {
         let text: String
         let identifier: SelectableKeys
-        let delegate: SelectableViewDelegate
+        let delegate: SelectableViewDelegate?
         let isSelected: Bool
     }
 }
