@@ -127,6 +127,7 @@ iOSInjectionProject/
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata/
 /*.gcno
 !*/xcshareddata/WorkspaceSettings.xcsettings
 
