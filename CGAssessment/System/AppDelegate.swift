@@ -5,14 +5,16 @@
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //
 
-import UIKit
 import CoreData
+import IQKeyboardManagerSwift
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupDependencies()
         return true
     }
 
@@ -77,6 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+
+    // MARK: - Private Methods
+
+    private func setupDependencies() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
 
 }

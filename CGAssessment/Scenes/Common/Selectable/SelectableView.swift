@@ -21,7 +21,7 @@ class SelectableView: UIView {
     @IBOutlet private weak var textLabel: UILabel?
     private var isSelected: Bool = false
     private weak var delegate: SelectableViewDelegate?
-    var componentIdentifier: SelectableKeys?
+    private var componentIdentifier: SelectableKeys?
 
     // MARK: - Init
 
