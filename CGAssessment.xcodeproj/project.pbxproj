@@ -40,6 +40,9 @@
 		F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB912AA995600038968E /* Localizable.strings */; };
 		F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB932AA995AA0038968E /* LocalizedTable.swift */; };
 		F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */; };
+		F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */; };
+		F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */; };
+		F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F732AB608AA00250B69 /* Date+Extension.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -134,6 +137,9 @@
 		F1AEEB922AA9956E0038968E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1AEEB932AA995AA0038968E /* LocalizedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTable.swift; sourceTree = "<group>"; };
 		F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedTable+Dashboard.swift"; sourceTree = "<group>"; };
+		F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
+		F1BE9F732AB608AA00250B69 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 				F1F2E9CE2AB2794F0006075F /* UIImage+Extension.swift */,
 				F1F2E9D62AB2996B0006075F /* UIColor+Extension.swift */,
 				F1F2E9EC2AB36AD00006075F /* UIFont+Extension.swift */,
+				F1BE9F732AB608AA00250B69 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,6 +398,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F1BE9F6A2AB6020500250B69 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */,
+				F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +428,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F1BE9F6A2AB6020500250B69 /* Picker */,
 				F1F2E9F02AB557400006075F /* TextField */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
 			);
@@ -565,6 +582,7 @@
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
 				F1A9FBE22AAA60170048E31F /* SF-Compact-Rounded-Ultralight.otf in Resources */,
 				F1A9FBDD2AAA60170048E31F /* SF-Compact-Display-Light.otf in Resources */,
+				F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */,
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
 				F1A9FBD92AAA60170048E31F /* SF-Compact-Display-Heavy.otf in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
@@ -672,6 +690,8 @@
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
+				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
+				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
