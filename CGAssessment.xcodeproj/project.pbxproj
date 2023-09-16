@@ -43,6 +43,8 @@
 		F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */; };
 		F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */; };
 		F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F732AB608AA00250B69 /* Date+Extension.swift */; };
+		F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F762AB6552C00250B69 /* SearchBarTableViewCell.swift */; };
+		F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F772AB6552C00250B69 /* SearchBarTableViewCell.xib */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -140,6 +142,8 @@
 		F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
 		F1BE9F732AB608AA00250B69 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		F1BE9F762AB6552C00250B69 /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
+		F1BE9F772AB6552C00250B69 /* SearchBarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -407,6 +411,15 @@
 			path = Picker;
 			sourceTree = "<group>";
 		};
+		F1BE9F752AB6550B00250B69 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				F1BE9F762AB6552C00250B69 /* SearchBarTableViewCell.swift */,
+				F1BE9F772AB6552C00250B69 /* SearchBarTableViewCell.xib */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +441,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F1BE9F752AB6550B00250B69 /* SearchBar */,
 				F1BE9F6A2AB6020500250B69 /* Picker */,
 				F1F2E9F02AB557400006075F /* TextField */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
@@ -574,6 +588,7 @@
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
+				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBDA2AAA60170048E31F /* SF-Compact-Rounded-Light.otf in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
 				F1A9FBD32AAA60170048E31F /* SF-Compact-Display-Ultralight.otf in Resources */,
@@ -674,6 +689,7 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
+				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1AEEB962AA996340038968E /* LocalizedTable+Dashboard.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
