@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  AvaliacaoGeriatricaAmplaApp
+//  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //

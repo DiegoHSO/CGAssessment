@@ -14,12 +14,12 @@ class NavigationBuilder {
     static func build(rootView: UIViewController) -> UINavigationController {
         let textStyleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.label1 ?? .clear,
-            .font: UIFont(name: "SFCompactDisplay-Bold", size: 22) ?? .systemFont(ofSize: 22)
+            .font: UIFont.compactDisplay(withStyle: .bold, size: 22)
         ]
 
         let largeTextStyleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.label1 ?? .clear,
-            .font: UIFont(name: "SFCompactDisplay-Bold", size: 34) ?? .systemFont(ofSize: 34)
+            .font: UIFont.compactDisplay(withStyle: .bold, size: 34)
         ]
 
         let navigationController = UINavigationController(rootViewController: rootView)

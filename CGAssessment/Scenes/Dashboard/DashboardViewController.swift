@@ -1,13 +1,13 @@
 //
 //  DashboardViewController.swift
-//  AvaliacaoGeriatricaAmplaApp
+//  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //
 
 import UIKit
 
-// TODO: - Move to Models file
+// TODO: Move to Models file
 typealias Tabs = (
     home: UIViewController?,
     cgas: UIViewController?,

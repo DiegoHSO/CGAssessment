@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Medium.otf">
+            <string>SFCompactDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectableView" customModule="CGAssessment" customModuleProvider="target">
+            <connections>
+                <outlet property="circleView" destination="HPM-Zb-cjZ" id="bYw-Fk-Fma"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="JeR-4m-Dpu"/>
+                <outlet property="innerCircleView" destination="xtc-5z-S8h" id="BRw-Sy-6pm"/>
+                <outlet property="textLabel" destination="JtK-ni-VSz" id="xxy-oz-bmd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="203" height="51"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtK-ni-VSz">
+                    <rect key="frame" x="30" y="16.666666666666668" width="173" height="18.000000000000004"/>
+                    <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
+                    <color key="textColor" name="Label-1"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPM-Zb-cjZ">
+                    <rect key="frame" x="0.0" y="15.666666666666664" width="20" height="20"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-5z-S8h">
+                            <rect key="frame" x="5" y="5.0000000000000018" width="10" height="10"/>
+                            <color key="backgroundColor" name="Label-1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="Mgf-wO-A7Q"/>
+                                <constraint firstAttribute="height" constant="10" id="gcY-Rf-aVM"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Background-6"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="S0z-m7-mbR"/>
+                        <constraint firstItem="xtc-5z-S8h" firstAttribute="centerX" secondItem="HPM-Zb-cjZ" secondAttribute="centerX" id="cxD-Or-NKc"/>
+                        <constraint firstAttribute="height" constant="20" id="fpA-Lx-YM5"/>
+                        <constraint firstItem="xtc-5z-S8h" firstAttribute="centerY" secondItem="HPM-Zb-cjZ" secondAttribute="centerY" id="fw0-lY-lot"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHK-cy-Qp0">
+                    <rect key="frame" x="0.0" y="0.0" width="203" height="51"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapComponent:" destination="-1" eventType="touchUpInside" id="FB9-XX-gBw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="JtK-ni-VSz" firstAttribute="leading" secondItem="HPM-Zb-cjZ" secondAttribute="trailing" constant="10" id="52m-K6-O4M"/>
+                <constraint firstItem="qHK-cy-Qp0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HBe-QF-QvR"/>
+                <constraint firstItem="qHK-cy-Qp0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LZj-Lf-gFU"/>
+                <constraint firstAttribute="trailing" secondItem="JtK-ni-VSz" secondAttribute="trailing" id="Ljo-yU-HBa"/>
+                <constraint firstItem="JtK-ni-VSz" firstAttribute="centerY" secondItem="HPM-Zb-cjZ" secondAttribute="centerY" id="aRl-Un-U0E"/>
+                <constraint firstAttribute="bottom" secondItem="qHK-cy-Qp0" secondAttribute="bottom" id="jkc-pR-miX"/>
+                <constraint firstItem="HPM-Zb-cjZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mPc-Sy-FbV"/>
+                <constraint firstAttribute="trailing" secondItem="qHK-cy-Qp0" secondAttribute="trailing" id="nsF-IY-Pkp"/>
+                <constraint firstItem="HPM-Zb-cjZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="orn-vd-Exh"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-8.3969465648854964" y="-262.32394366197184"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
