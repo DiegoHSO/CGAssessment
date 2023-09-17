@@ -47,6 +47,10 @@
 		F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F772AB6552C00250B69 /* SearchBarTableViewCell.xib */; };
 		F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F7B2AB66F1700250B69 /* ActionButtonTableViewCell.swift */; };
 		F1BE9F7E2AB66F1700250B69 /* ActionButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F7C2AB66F1700250B69 /* ActionButtonTableViewCell.xib */; };
+		F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */; };
+		F1BE9F842AB677E300250B69 /* ResumedPacientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F822AB677E300250B69 /* ResumedPacientTableViewCell.xib */; };
+		F1BE9F862AB6814E00250B69 /* LocalizedTable+NewCGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F852AB6814E00250B69 /* LocalizedTable+NewCGA.swift */; };
+		F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F872AB6846300250B69 /* NewCGAModels.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -148,6 +152,10 @@
 		F1BE9F772AB6552C00250B69 /* SearchBarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarTableViewCell.xib; sourceTree = "<group>"; };
 		F1BE9F7B2AB66F1700250B69 /* ActionButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonTableViewCell.swift; sourceTree = "<group>"; };
 		F1BE9F7C2AB66F1700250B69 /* ActionButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionButtonTableViewCell.xib; sourceTree = "<group>"; };
+		F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumedPatientTableViewCell.swift; sourceTree = "<group>"; };
+		F1BE9F822AB677E300250B69 /* ResumedPacientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResumedPacientTableViewCell.xib; sourceTree = "<group>"; };
+		F1BE9F852AB6814E00250B69 /* LocalizedTable+NewCGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedTable+NewCGA.swift"; sourceTree = "<group>"; };
+		F1BE9F872AB6846300250B69 /* NewCGAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAModels.swift; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 		F177F8232AA8299C00C1EB32 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F1BE9F7F2AB6770000250B69 /* NewCGA */,
 				F1F2E9D82AB341F20006075F /* Common */,
 				F1F2E9D22AB2989D0006075F /* TabBar */,
 				F177F8262AA829F400C1EB32 /* Dashboard */,
@@ -354,6 +363,7 @@
 			children = (
 				F1AEEB912AA995600038968E /* Localizable.strings */,
 				F1AEEB932AA995AA0038968E /* LocalizedTable.swift */,
+				F1BE9F852AB6814E00250B69 /* LocalizedTable+NewCGA.swift */,
 				F1AEEB952AA996340038968E /* LocalizedTable+Dashboard.swift */,
 			);
 			path = LocalizedStrings;
@@ -431,6 +441,24 @@
 				F1BE9F7C2AB66F1700250B69 /* ActionButtonTableViewCell.xib */,
 			);
 			path = ActionButton;
+			sourceTree = "<group>";
+		};
+		F1BE9F7F2AB6770000250B69 /* NewCGA */ = {
+			isa = PBXGroup;
+			children = (
+				F1BE9F802AB677B200250B69 /* Components */,
+				F1BE9F872AB6846300250B69 /* NewCGAModels.swift */,
+			);
+			path = NewCGA;
+			sourceTree = "<group>";
+		};
+		F1BE9F802AB677B200250B69 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */,
+				F1BE9F822AB677E300250B69 /* ResumedPacientTableViewCell.xib */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
@@ -621,6 +649,7 @@
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
+				F1BE9F842AB677E300250B69 /* ResumedPacientTableViewCell.xib in Resources */,
 				F1A9FBD72AAA60170048E31F /* SF-Compact-Rounded-Regular.otf in Resources */,
 				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
 				F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */,
@@ -711,6 +740,7 @@
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
+				F1BE9F862AB6814E00250B69 /* LocalizedTable+NewCGA.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAs.swift in Sources */,
@@ -720,6 +750,7 @@
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
+				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
@@ -729,6 +760,7 @@
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
+				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
