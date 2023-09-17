@@ -8,3 +8,8 @@
 import Foundation
 
 typealias Questions = [SelectableKeys: String]
+
+enum Gender: String {
+    case male = "man"
+    case female = "woman"
+}

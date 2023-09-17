@@ -52,12 +52,12 @@ class FeatureComponentView: UIView {
 
     // MARK: - Private Methods
 
-    func setupGesture() {
+    private func setupGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapComponent))
         addGestureRecognizer(tapGesture)
     }
 
-    @objc func didTapComponent() {
+    @objc private func didTapComponent() {
         delegate?.didTapComponent(identifier: componentIdentifier)
     }
 }
