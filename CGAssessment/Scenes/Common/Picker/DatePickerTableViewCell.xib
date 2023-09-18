@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="IPu-ot-bke">
-                                <rect key="frame" x="0.0" y="31" width="260" height="34"/>
+                                <rect key="frame" x="0.0" y="30.666666666666668" width="260" height="34.333333333333329"/>
                                 <color key="tintColor" name="Label-3"/>
                                 <connections>
                                     <action selector="didSelectDate:" destination="KGk-i7-Jjw" eventType="valueChanged" id="N1B-3p-u46"/>
@@ -53,6 +53,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="datePicker" destination="IPu-ot-bke" id="O9O-pk-f0B"/>
+                <outlet property="stackViewLeadingConstraint" destination="M7U-F4-1ib" id="Ec5-8B-izp"/>
                 <outlet property="titleLabel" destination="cWQ-Ml-nyg" id="9wf-bx-GOy"/>
             </connections>
             <point key="canvasLocation" x="6" y="21"/>

@@ -27,7 +27,7 @@ class TabBarRouter {
 
 extension TabBarRouter {
 
-    static func tabs(usingSubmodules submodules: Submodules) -> Tabs {
+    static func tabs(usingSubmodules submodules: Submodules) -> CGAModels.Tabs {
         let homeTabBarItem = UITabBarItem(title: LocalizedTable.home.localized,
                                           image: UIImage.TabBar.dashboardNormal,
                                           selectedImage: UIImage.TabBar.dashboardSelected)

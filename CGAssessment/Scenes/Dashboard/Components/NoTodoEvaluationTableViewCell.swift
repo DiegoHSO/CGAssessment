@@ -35,9 +35,9 @@ class NoTodoEvaluationTableViewCell: UITableViewCell {
     }
 
     private func setupLabels() {
-        noReapplicationsNextLabel?.text = LocalizedTable.Dashboard.noReapplicationsNext.localized
-        upToDateLabel?.text = LocalizedTable.Dashboard.upToDate.localized
-        callToActionLabel?.text = LocalizedTable.Dashboard.reviseCGAs.localized
-        callToActionButton?.setTitle(LocalizedTable.Dashboard.reviseCGAsAction.localized, for: .normal)
+        noReapplicationsNextLabel?.text = LocalizedTable.noReapplicationsNext.localized
+        upToDateLabel?.text = LocalizedTable.upToDate.localized
+        callToActionLabel?.text = LocalizedTable.reviseCGAs.localized
+        callToActionButton?.setTitle(LocalizedTable.reviseCGAsAction.localized, for: .normal)
     }
 }

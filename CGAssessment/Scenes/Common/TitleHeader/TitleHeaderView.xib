@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="192" height="55"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-hD-VAd">
-                    <rect key="frame" x="20" y="20" width="49" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-hD-VAd">
+                    <rect key="frame" x="20" y="20" width="152" height="15"/>
                     <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="20"/>
                     <color key="textColor" name="Label-1"/>
                     <nil key="highlightedColor"/>
@@ -29,6 +29,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="azJ-hD-VAd" secondAttribute="trailing" constant="20" id="1Bw-W8-hy7"/>
                 <constraint firstItem="azJ-hD-VAd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="4RO-eK-rcB"/>
                 <constraint firstItem="azJ-hD-VAd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4cV-IC-fwf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="azJ-hD-VAd" secondAttribute="bottom" constant="20" id="PWl-uF-be3"/>
@@ -37,6 +38,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="labelLeadingConstraint" destination="4RO-eK-rcB" id="C6V-rx-onF"/>
                 <outlet property="titleLabel" destination="azJ-hD-VAd" id="6Ki-ln-oU2"/>
             </connections>
             <point key="canvasLocation" x="-206.10687022900763" y="-268.66197183098592"/>

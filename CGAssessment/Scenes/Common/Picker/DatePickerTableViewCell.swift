@@ -17,6 +17,7 @@ class DatePickerTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var datePicker: UIDatePicker?
+    @IBOutlet private weak var stackViewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: DatePickerDelegate?
 
     // MARK: - Life Cycle
@@ -28,14 +29,15 @@ class DatePickerTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(title: String?, date: Date?, minimumDate: Date?, maximumDate: Date?, delegate: DatePickerDelegate?) {
-        titleLabel?.text = title
+    func setup(viewModel: CGAModels.DatePickerViewModel) {
+        titleLabel?.text = viewModel.title
+        stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 
-        if let date { datePicker?.setDate(date, animated: true) }
-        if let minimumDate { datePicker?.minimumDate = minimumDate}
-        if let maximumDate { datePicker?.maximumDate = maximumDate }
+        if let date = viewModel.date { datePicker?.setDate(date, animated: true) }
+        if let minimumDate = viewModel.minimumDate { datePicker?.minimumDate = minimumDate}
+        if let maximumDate = viewModel.maximumDate { datePicker?.maximumDate = maximumDate }
 
-        self.delegate = delegate
+        delegate = viewModel.delegate
     }
 
     // MARK: - Private Methods

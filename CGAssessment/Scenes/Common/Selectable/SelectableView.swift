@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectableViewDelegate: AnyObject {
-    func didSelect(option: SelectableKeys)
+    func didSelect(option: SelectableKeys, value: LocalizedTable)
 }
 
 class SelectableView: UIView {
@@ -20,8 +20,9 @@ class SelectableView: UIView {
     @IBOutlet private weak var innerCircleView: UIView?
     @IBOutlet private weak var textLabel: UILabel?
     private var isSelected: Bool = false
-    private weak var delegate: SelectableViewDelegate?
     private var componentIdentifier: SelectableKeys?
+    private var componentValue: LocalizedTable?
+    private weak var delegate: SelectableViewDelegate?
 
     // MARK: - Init
 
@@ -47,10 +48,12 @@ class SelectableView: UIView {
 
     func setup(viewModel: SelectableModels.ComponentViewModel) {
         componentIdentifier = viewModel.identifier
+        componentValue = viewModel.textKey
         delegate = viewModel.delegate
         isSelected = viewModel.isSelected
 
-        textLabel?.text = viewModel.text
+        textLabel?.text = viewModel.textKey.localized
+        textLabel?.font = .compactDisplay(withStyle: viewModel.textStyle, size: 15)
         innerCircleView?.isHidden = !viewModel.isSelected
     }
 
@@ -65,9 +68,9 @@ class SelectableView: UIView {
     }
 
     @IBAction private func didTapComponent(_ sender: UIButton) {
-        if let componentIdentifier, !isSelected {
+        if let componentIdentifier, let componentValue, !isSelected {
             innerCircleView?.isHidden = false
-            delegate?.didSelect(option: componentIdentifier)
+            delegate?.didSelect(option: componentIdentifier, value: componentValue)
         }
     }
 }

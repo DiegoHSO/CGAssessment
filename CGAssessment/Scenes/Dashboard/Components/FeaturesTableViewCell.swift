@@ -25,19 +25,19 @@ class FeaturesTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setupFirstComponent(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+    func setupFirstComponent(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         firstComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate)
     }
 
-    func setupSecondComponent(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+    func setupSecondComponent(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         secondComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate)
     }
 
-    func setupThirdComponent(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+    func setupThirdComponent(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         thirdComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate)
     }
 
-    func setupFourthComponent(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+    func setupFourthComponent(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         fourthComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate)
     }
 }
