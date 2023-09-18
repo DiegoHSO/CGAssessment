@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TextFieldDelegate: AnyObject {
-    func didChangeText(text: String?)
+    func didChangeText(text: String)
 }
 
 class TextFieldTableViewCell: UITableViewCell {
@@ -17,8 +17,9 @@ class TextFieldTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var textField: UITextField?
+    @IBOutlet private weak var stackViewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: TextFieldDelegate?
-    private var currentText: String?
+    private var currentText: String = ""
 
     // MARK: - Life Cycle
 
@@ -29,12 +30,13 @@ class TextFieldTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(title: String?, text: String?, placeholder: String?, delegate: TextFieldDelegate?) {
-        titleLabel?.text = title
-        textField?.placeholder = placeholder
-        textField?.text = text
+    func setup(viewModel: CGAModels.TextFieldViewModel) {
+        titleLabel?.text = viewModel.title
+        textField?.placeholder = viewModel.placeholder
+        textField?.text = viewModel.text
+        stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 
-        self.delegate = delegate
+        delegate = viewModel.delegate
     }
 
     // MARK: - Private Methods
@@ -48,14 +50,7 @@ class TextFieldTableViewCell: UITableViewCell {
         textField?.layer.borderWidth = 2
         textField?.layer.borderColor = UIColor.label1?.withAlphaComponent(0.5).cgColor
         textField?.backgroundColor = .background6?.withAlphaComponent(0.4)
-        textField?.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
-    @objc private func textFieldDidChange(_ textField: UITextField) {
-        self.currentText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        delegate?.didChangeText(text: currentText)
-    }
-
 }
 
 // MARK: - UITextFieldDelegate extension
@@ -63,11 +58,15 @@ class TextFieldTableViewCell: UITableViewCell {
 extension TextFieldTableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+
+        self.currentText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        delegate?.didChangeText(text: currentText)
+
         return true
     }
 
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        currentText = nil
-        return true
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.currentText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        delegate?.didChangeText(text: currentText)
     }
 }

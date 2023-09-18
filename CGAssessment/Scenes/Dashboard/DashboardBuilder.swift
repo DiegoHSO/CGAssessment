@@ -15,6 +15,13 @@ class DashboardBuilder {
                 .instantiateInitialViewController(storyboard)() as? DashboardViewController else {
             return nil
         }
+
+        let presenter = DashboardPresenter(viewController: viewController)
+        let interactor = DashboardInteractor(presenter: presenter)
+        let router = DashboardRouter(viewController: viewController)
+
+        viewController.setupArchitecture(interactor: interactor, router: router)
+
         return factory(viewController)
     }
 }

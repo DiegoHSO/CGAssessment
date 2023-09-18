@@ -38,8 +38,8 @@ class NoRecentApplicationTableViewCell: UITableViewCell {
     }
 
     private func setupLabels() {
-        noRegisteredApplications?.text = LocalizedTable.Dashboard.noRegisteredApplications.localized
-        callToActionLabel?.text = LocalizedTable.Dashboard.beginFirstCGA.localized
-        callToActionButton?.setTitle(LocalizedTable.Dashboard.seeCGAExample.localized, for: .normal)
+        noRegisteredApplications?.text = LocalizedTable.noRegisteredApplications.localized
+        callToActionLabel?.text = LocalizedTable.beginFirstCGA.localized
+        callToActionButton?.setTitle(LocalizedTable.seeCGAExample.localized, for: .normal)
     }
 }

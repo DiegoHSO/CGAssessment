@@ -52,6 +52,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="optionsStackView" destination="Tom-OQ-mma" id="Ybp-A4-SvP"/>
+                <outlet property="stackViewLeadingConstraint" destination="SdG-2b-Kjp" id="ida-Hh-wew"/>
                 <outlet property="titleLabel" destination="Bhe-PS-x6m" id="101-4b-aIX"/>
             </connections>
             <point key="canvasLocation" x="154.96183206106869" y="38.732394366197184"/>

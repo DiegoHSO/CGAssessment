@@ -25,16 +25,16 @@ class RecentApplicationTableViewCell: UITableViewCell {
         percentageLabel?.text = String(format: "%.1f", progress * 100) + "%"
         progressBarView?.progressAnimation(duration: 1, progress: progress)
 
-        recentApplicationLabel?.text = LocalizedTable.Dashboard.mostRecentApplication.localized
-        pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.Dashboard.years.localized)"
+        recentApplicationLabel?.text = LocalizedTable.mostRecentApplication.localized
+        pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.years.localized)"
 
         var missingParametersText: String
 
         if missingDomains == 0 {
-            missingParametersText = LocalizedTable.Dashboard.noMissingDomains.localized
+            missingParametersText = LocalizedTable.noMissingDomains.localized
         } else {
-            missingParametersText = LocalizedTable.Dashboard.missingDomains.localized.replacingOccurrences(of: "%DOMAIN_NUMBER",
-                                                                                                           with: String(missingDomains))
+            missingParametersText = LocalizedTable.missingDomains.localized.replacingOccurrences(of: "%DOMAIN_NUMBER",
+                                                                                                 with: String(missingDomains))
         }
 
         missingParametersLabel?.text = missingParametersText

@@ -14,7 +14,7 @@ class NavigationBuilder {
     static func build(rootView: UIViewController) -> UINavigationController {
         let textStyleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.label1 ?? .clear,
-            .font: UIFont.compactDisplay(withStyle: .bold, size: 22)
+            .font: UIFont.compactDisplay(withStyle: .semibold, size: 17)
         ]
 
         let largeTextStyleAttributes: [NSAttributedString.Key: Any] = [
@@ -24,11 +24,12 @@ class NavigationBuilder {
 
         let navigationController = UINavigationController(rootViewController: rootView)
         navigationController.navigationBar.barTintColor = .primary
-        navigationController.navigationBar.tintColor = .systemGreen
+        navigationController.navigationBar.tintColor = .background2
         navigationController.navigationBar.titleTextAttributes = textStyleAttributes
         navigationController.navigationBar.largeTitleTextAttributes = largeTextStyleAttributes
-        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.isTranslucent = true
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationItem.largeTitleDisplayMode = .automatic
 
         return navigationController
     }

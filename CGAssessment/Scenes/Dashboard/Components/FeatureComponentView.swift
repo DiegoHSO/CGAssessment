@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FeatureComponentDelegate: AnyObject {
-    func didTapComponent(identifier: String) // TODO: Change type
+    func didTapComponent(identifier: DashboardModels.MenuOption)
 }
 
 class FeatureComponentView: UIView {
@@ -18,7 +18,7 @@ class FeatureComponentView: UIView {
     @IBOutlet private var contentView: UIView?
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var iconLabel: UILabel?
-    private var componentIdentifier: String = ""
+    private var componentIdentifier: DashboardModels.MenuOption?
     private weak var delegate: FeatureComponentDelegate?
 
     // MARK: - Init
@@ -43,7 +43,7 @@ class FeatureComponentView: UIView {
 
     // MARK: - Public Methods
 
-    func setup(title: String, iconSymbol: String, identifier: String, delegate: FeatureComponentDelegate?) {
+    func setup(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         titleLabel?.text = title
         iconLabel?.text = iconSymbol
         componentIdentifier = identifier
@@ -58,6 +58,7 @@ class FeatureComponentView: UIView {
     }
 
     @objc private func didTapComponent() {
+        guard let componentIdentifier else { return }
         delegate?.didTapComponent(identifier: componentIdentifier)
     }
 }

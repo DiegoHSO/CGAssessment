@@ -19,6 +19,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel?
     @IBOutlet private weak var ageLabel: UILabel?
     @IBOutlet private weak var genderImageView: UIImageView?
+    @IBOutlet private weak var viewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: ResumedPatientDelegate?
     private var patientId: Int = -1
 
@@ -33,8 +34,10 @@ class ResumedPatientTableViewCell: UITableViewCell {
 
     func setup(viewModel: NewCGAModels.ResumedPatientViewModel) {
         nameLabel?.text = viewModel.pacientName
-        ageLabel?.text = "\(viewModel.pacientAge) \(LocalizedTable.NewCGA.age.localized)"
+        ageLabel?.text = "\(viewModel.pacientAge) \(LocalizedTable.age.localized)"
         genderImageView?.image = UIImage(named: viewModel.gender.rawValue)
+        viewLeadingConstraint?.constant = viewModel.leadingConstraint
+
         patientId = viewModel.id
         delegate = viewModel.delegate
         isSelected = viewModel.isSelected
@@ -56,6 +59,8 @@ class ResumedPatientTableViewCell: UITableViewCell {
         } else {
             componentView?.layer.borderWidth = 0
         }
+
+        layoutIfNeeded()
     }
 
     @objc private func didTapComponent() {
