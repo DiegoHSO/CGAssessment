@@ -38,5 +38,5 @@ struct CGAModels {
         let delegate: TextFieldDelegate?
         var leadingConstraint: CGFloat = 30
     }
-    
+
 }
