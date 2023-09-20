@@ -53,3 +53,4 @@
 "cga_parameters_key" = "CGA parameters";
 "reports_key" = "Reports";
 "hows_going_key" = "how are you?";
+"done_tests_key" = "%DONE_TESTS out of %TOTAL_TESTS tests done";
