@@ -10,13 +10,13 @@ import UIKit
 class TooltipTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var tooltipTextLabel: UILabel?
-    
+
     // MARK: - Public Methods
-    
+
     func setup(text: String) {
         tooltipTextLabel?.text = text
     }
-    
+
 }
