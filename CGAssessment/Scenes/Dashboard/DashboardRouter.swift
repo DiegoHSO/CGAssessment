@@ -12,7 +12,7 @@ protocol DashboardRoutingLogic {
     func routeToPacients()
     func routeToReports()
     func routeToCGAs()
-    func routeToCGAParameters()
+    func routeToCGADomains()
     func routeToCGA(cgaId: Int)
 }
 
@@ -58,8 +58,20 @@ class DashboardRouter: DashboardRoutingLogic {
         // Not implemented
     }
 
-    func routeToCGAParameters() {
-        // Not implemented
+    func routeToCGADomains() {
+        let storyboard = UIStoryboard(name: "CGADomains", bundle: Bundle.main)
+        guard let cgaDomainsController = UIStoryboard
+                .instantiateInitialViewController(storyboard)() as? CGADomainsViewController else {
+            return
+        }
+
+        let presenter = CGADomainsPresenter(viewController: cgaDomainsController)
+        let interactor = CGADomainsInteractor(presenter: presenter)
+        let router = CGADomainsRouter(viewController: cgaDomainsController)
+
+        cgaDomainsController.setupArchitecture(interactor: interactor, router: router)
+
+        viewController?.navigationController?.pushViewController(cgaDomainsController, animated: true)
     }
 
     func routeToCGA(cgaId: Int) {

@@ -24,6 +24,13 @@
 		F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097852ABB9C9C00E92005 /* TestNameView.xib */; };
 		F14097882ABBA24600E92005 /* TestNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097872ABBA24600E92005 /* TestNameView.swift */; };
 		F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */; };
+		F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F140978C2ABBC51500E92005 /* CGADomains.storyboard */; };
+		F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140978E2ABBC52300E92005 /* CGADomainsViewController.swift */; };
+		F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097902ABBC53000E92005 /* CGADomainsInteractor.swift */; };
+		F14097932ABBC53C00E92005 /* CGADomainsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097922ABBC53C00E92005 /* CGADomainsPresenter.swift */; };
+		F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097942ABBC55700E92005 /* CGADomainsRouter.swift */; };
+		F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097982ABBE7A200E92005 /* TooltipHeaderView.swift */; };
+		F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F140979A2ABBE7CD00E92005 /* TooltipHeaderView.xib */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -141,6 +148,13 @@
 		F14097852ABB9C9C00E92005 /* TestNameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestNameView.xib; sourceTree = "<group>"; };
 		F14097872ABBA24600E92005 /* TestNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNameView.swift; sourceTree = "<group>"; };
 		F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsModels.swift; sourceTree = "<group>"; };
+		F140978C2ABBC51500E92005 /* CGADomains.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CGADomains.storyboard; sourceTree = "<group>"; };
+		F140978E2ABBC52300E92005 /* CGADomainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsViewController.swift; sourceTree = "<group>"; };
+		F14097902ABBC53000E92005 /* CGADomainsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsInteractor.swift; sourceTree = "<group>"; };
+		F14097922ABBC53C00E92005 /* CGADomainsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsPresenter.swift; sourceTree = "<group>"; };
+		F14097942ABBC55700E92005 /* CGADomainsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsRouter.swift; sourceTree = "<group>"; };
+		F14097982ABBE7A200E92005 /* TooltipHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipHeaderView.swift; sourceTree = "<group>"; };
+		F140979A2ABBE7CD00E92005 /* TooltipHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TooltipHeaderView.xib; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +281,8 @@
 		F140977A2ABB615900E92005 /* Tooltip */ = {
 			isa = PBXGroup;
 			children = (
+				F140979A2ABBE7CD00E92005 /* TooltipHeaderView.xib */,
+				F14097982ABBE7A200E92005 /* TooltipHeaderView.swift */,
 				F140977B2ABB616C00E92005 /* TooltipTableViewCell.swift */,
 				F140977C2ABB616C00E92005 /* TooltipTableViewCell.xib */,
 			);
@@ -277,7 +293,12 @@
 			isa = PBXGroup;
 			children = (
 				F14097802ABB964B00E92005 /* Components */,
+				F140978C2ABBC51500E92005 /* CGADomains.storyboard */,
+				F140978E2ABBC52300E92005 /* CGADomainsViewController.swift */,
+				F14097902ABBC53000E92005 /* CGADomainsInteractor.swift */,
+				F14097922ABBC53C00E92005 /* CGADomainsPresenter.swift */,
 				F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */,
+				F14097942ABBC55700E92005 /* CGADomainsRouter.swift */,
 			);
 			path = CGADomains;
 			sourceTree = "<group>";
@@ -729,6 +750,7 @@
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
+				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBDA2AAA60170048E31F /* SF-Compact-Rounded-Light.otf in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
@@ -746,6 +768,7 @@
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
+				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
@@ -828,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
@@ -838,6 +862,7 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
+				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
@@ -853,11 +878,13 @@
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
+				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
+				F14097932ABBC53C00E92005 /* CGADomainsPresenter.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
@@ -875,6 +902,7 @@
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
+				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,

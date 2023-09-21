@@ -70,8 +70,8 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
 
     func route(toRoute route: NewCGAModels.Routing) {
         switch route {
-        case .cgaParameters:
-            router?.routeToCGAParameters()
+        case .cgaDomains:
+            router?.routeToCGADomains()
         }
     }
 

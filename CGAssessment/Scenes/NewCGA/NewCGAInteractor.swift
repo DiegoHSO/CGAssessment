@@ -113,7 +113,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
                             ResumedPatientDelegate, ActionButtonDelegate {
 
     func didTapActionButton() {
-        presenter?.route(toRoute: .cgaParameters)
+        presenter?.route(toRoute: .cgaDomains)
     }
 
     func didSelect(pacientId: Int) {

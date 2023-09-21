@@ -24,7 +24,8 @@ class CGADomainTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(viewModel: CGADomainsModels.DomainViewModel) {
-        var doneTestsText = LocalizedTable.doneTests.localized
+        var doneTestsText = viewModel.tests.count == 1 ? LocalizedTable.doneTestsSingular.localized :
+            LocalizedTable.doneTestsPlural.localized
 
         doneTestsText = doneTestsText.replacingOccurrences(of: "%DONE_TESTS",
                                                            with: String(viewModel.tests.filter { $0.isDone == true }.count))
@@ -54,28 +55,3 @@ class CGADomainTableViewCell: UITableViewCell {
     }
 
 }
-
-/*
- Mock code:
- 
- private typealias Test = CGADomainsModels.Test
-
- tableView?.register(cellType: CGADomainTableViewCell.self)
- 
- guard let cell = tableView.dequeueReusableCell(withIdentifier: CGADomainTableViewCell.className,
-                                                for: indexPath) as? CGADomainTableViewCell else {
-     return UITableViewCell()
- }
-
- let tests: [Test] = [Test(name: "Timed up-and-go", isDone: false),
-                      Test(name: "Velocidade de marcha", isDone: false),
-                      Test(name: "Circunferência da panturrilha", isDone: true),
-                      Test(name: "Força de preensão palmar", isDone: false),
-                      Test(name: "Avaliação de sarcopenia", isDone: true)]
-
- let viewModel = CGADomainsModels.DomainViewModel(name: "Equilíbrio, mobilidade e risco de quedas",
-                                                  symbol: "􀵮", tests: tests)
-
- cell.setup(viewModel: viewModel)
- 
- */

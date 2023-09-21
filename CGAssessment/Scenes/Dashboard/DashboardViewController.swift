@@ -61,8 +61,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
             router?.routeToNewCGA()
         case .patients:
             router?.routeToPacients()
-        case .cgaParameters:
-            router?.routeToCGAParameters()
+        case .cgaDomains:
+            router?.routeToCGADomains()
         case .reports:
             router?.routeToReports()
         case .cgas:
@@ -163,9 +163,9 @@ extension DashboardViewController: UITableViewDataSource {
                                       identifier: DashboardModels.MenuOption.patients,
                                       delegate: interactor)
 
-            cell.setupThirdComponent(title: LocalizedTable.cgaParameters.localized,
+            cell.setupThirdComponent(title: LocalizedTable.cgaDomains.localized,
                                      iconSymbol: "􀜟",
-                                     identifier: DashboardModels.MenuOption.cgaParameters,
+                                     identifier: DashboardModels.MenuOption.cgaDomains,
                                      delegate: interactor)
 
             cell.setupFourthComponent(title: LocalizedTable.reports.localized,

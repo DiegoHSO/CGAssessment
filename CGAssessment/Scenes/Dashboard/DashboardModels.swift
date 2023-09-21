@@ -20,7 +20,7 @@ struct DashboardModels {
         case lastCGA
         case newCGA
         case patients
-        case cgaParameters
+        case cgaDomains
         case reports
         case evaluation(id: Int)
         case cgas
@@ -36,7 +36,7 @@ struct DashboardModels {
         case cga(cgaId: Int)
         case newCGA
         case patients
-        case cgaParameters
+        case cgaDomains
         case reports
         case cgas
     }

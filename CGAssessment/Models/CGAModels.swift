@@ -39,4 +39,10 @@ struct CGAModels {
         var leadingConstraint: CGFloat = 30
     }
 
+    enum TestStatus {
+        case done
+        case incomplete
+        case notStarted
+    }
+
 }

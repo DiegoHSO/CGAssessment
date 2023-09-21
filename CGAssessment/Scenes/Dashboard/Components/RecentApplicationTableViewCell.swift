@@ -13,7 +13,7 @@ class RecentApplicationTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var recentApplicationLabel: UILabel?
     @IBOutlet private weak var pacientDataLabel: UILabel?
-    @IBOutlet private weak var missingParametersLabel: UILabel?
+    @IBOutlet private weak var missingDomainsLabel: UILabel?
     @IBOutlet private weak var progressBarView: CircularProgressBarView?
     @IBOutlet private weak var percentageLabel: UILabel?
 
@@ -28,16 +28,16 @@ class RecentApplicationTableViewCell: UITableViewCell {
         recentApplicationLabel?.text = LocalizedTable.mostRecentApplication.localized
         pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.years.localized)"
 
-        var missingParametersText: String
+        var missingDomainsText: String
 
         if missingDomains == 0 {
-            missingParametersText = LocalizedTable.noMissingDomains.localized
+            missingDomainsText = LocalizedTable.noMissingDomains.localized
         } else {
-            missingParametersText = LocalizedTable.missingDomains.localized.replacingOccurrences(of: "%DOMAIN_NUMBER",
-                                                                                                 with: String(missingDomains))
+            missingDomainsText = LocalizedTable.missingDomains.localized.replacingOccurrences(of: "%DOMAIN_NUMBER",
+                                                                                              with: String(missingDomains))
         }
 
-        missingParametersLabel?.text = missingParametersText
+        missingDomainsLabel?.text = missingDomainsText
     }
 
 }

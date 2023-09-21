@@ -41,8 +41,8 @@ class DashboardInteractor: DashboardLogic {
             presenter?.route(toRoute: .patients)
         case .reports:
             presenter?.route(toRoute: .reports)
-        case .cgaParameters:
-            presenter?.route(toRoute: .cgaParameters)
+        case .cgaDomains:
+            presenter?.route(toRoute: .cgaDomains)
         case .cgaExample:
             presenter?.route(toRoute: .cga(cgaId: -1))
         case .evaluation(let id):
@@ -76,8 +76,8 @@ extension DashboardInteractor: FeatureComponentDelegate {
             presenter?.route(toRoute: .newCGA)
         case .reports:
             presenter?.route(toRoute: .reports)
-        case .cgaParameters:
-            presenter?.route(toRoute: .cgaParameters)
+        case .cgaDomains:
+            presenter?.route(toRoute: .cgaDomains)
         default:
             return
         }
