@@ -67,6 +67,6 @@ struct NewCGAModels {
     }
 
     enum Routing {
-        case cgaParameters
+        case cgaDomains
     }
 }
