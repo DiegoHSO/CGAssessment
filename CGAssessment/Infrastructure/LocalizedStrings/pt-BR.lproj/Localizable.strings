@@ -53,3 +53,4 @@
 "cga_parameters_key" = "Parâmetros da AGA";
 "reports_key" = "Relatórios";
 "hows_going_key" = "tudo bem?";
+"done_tests_key" = "%DONE_TESTS de %TOTAL_TESTS testes realizados";

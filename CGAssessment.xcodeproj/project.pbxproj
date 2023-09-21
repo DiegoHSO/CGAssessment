@@ -19,6 +19,11 @@
 		F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097782AB7F3BE00E92005 /* String+Extension.swift */; };
 		F140977D2ABB616C00E92005 /* TooltipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140977B2ABB616C00E92005 /* TooltipTableViewCell.swift */; };
 		F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F140977C2ABB616C00E92005 /* TooltipTableViewCell.xib */; };
+		F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097812ABB965B00E92005 /* CGADomainTableViewCell.swift */; };
+		F14097842ABB965B00E92005 /* CGADomainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097822ABB965B00E92005 /* CGADomainTableViewCell.xib */; };
+		F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097852ABB9C9C00E92005 /* TestNameView.xib */; };
+		F14097882ABBA24600E92005 /* TestNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097872ABBA24600E92005 /* TestNameView.swift */; };
+		F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -131,6 +136,11 @@
 		F14097782AB7F3BE00E92005 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F140977B2ABB616C00E92005 /* TooltipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipTableViewCell.swift; sourceTree = "<group>"; };
 		F140977C2ABB616C00E92005 /* TooltipTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TooltipTableViewCell.xib; sourceTree = "<group>"; };
+		F14097812ABB965B00E92005 /* CGADomainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainTableViewCell.swift; sourceTree = "<group>"; };
+		F14097822ABB965B00E92005 /* CGADomainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CGADomainTableViewCell.xib; sourceTree = "<group>"; };
+		F14097852ABB9C9C00E92005 /* TestNameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestNameView.xib; sourceTree = "<group>"; };
+		F14097872ABBA24600E92005 /* TestNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNameView.swift; sourceTree = "<group>"; };
+		F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsModels.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +273,26 @@
 			path = Tooltip;
 			sourceTree = "<group>";
 		};
+		F140977F2ABB963D00E92005 /* CGADomains */ = {
+			isa = PBXGroup;
+			children = (
+				F14097802ABB964B00E92005 /* Components */,
+				F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */,
+			);
+			path = CGADomains;
+			sourceTree = "<group>";
+		};
+		F14097802ABB964B00E92005 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F14097812ABB965B00E92005 /* CGADomainTableViewCell.swift */,
+				F14097822ABB965B00E92005 /* CGADomainTableViewCell.xib */,
+				F14097852ABB9C9C00E92005 /* TestNameView.xib */,
+				F14097872ABBA24600E92005 /* TestNameView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F177F7E02AA793BE00C1EB32 = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +387,7 @@
 				F1F2E9D22AB2989D0006075F /* TabBar */,
 				F177F8262AA829F400C1EB32 /* Dashboard */,
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
+				F140977F2ABB963D00E92005 /* CGADomains */,
 				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
 			);
 			path = Scenes;
@@ -711,6 +742,7 @@
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
 				F1A9FBD92AAA60170048E31F /* SF-Compact-Display-Heavy.otf in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
+				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
@@ -724,6 +756,7 @@
 				F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */,
 				F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */,
 				F1F2E9B42AACDBD30006075F /* TitleHeaderView.xib in Resources */,
+				F14097842ABB965B00E92005 /* CGADomainTableViewCell.xib in Resources */,
 				F1A9FBDC2AAA60170048E31F /* SF-Compact-Display-Thin.otf in Resources */,
 				F1F2E9BE2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib in Resources */,
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
@@ -810,6 +843,7 @@
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
+				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
@@ -826,6 +860,8 @@
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
+				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
+				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
