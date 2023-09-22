@@ -1,5 +1,5 @@
 //
-//  DomainTestsModels.swift
+//  SingleDomainModels.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 22/09/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DomainTestsModels {
+struct SingleDomainModels {
 
     struct TestViewModel {
         let title: String
