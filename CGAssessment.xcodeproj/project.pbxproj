@@ -415,7 +415,7 @@
 				F177F8262AA829F400C1EB32 /* Dashboard */,
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
 				F140977F2ABB963D00E92005 /* CGADomains */,
-				F1F1E3702ABE289400BC610E /* DomainTests */,
+				F1F1E3702ABE289400BC610E /* SingleDomain */,
 				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
 			);
 			path = Scenes;
@@ -583,13 +583,13 @@
 			path = TitleHeader;
 			sourceTree = "<group>";
 		};
-		F1F1E3702ABE289400BC610E /* DomainTests */ = {
+		F1F1E3702ABE289400BC610E /* SingleDomain */ = {
 			isa = PBXGroup;
 			children = (
 				F1F1E3712ABE294100BC610E /* Components */,
 				F1F1E3782ABE38A600BC610E /* DomainTestsModels.swift */,
 			);
-			path = DomainTests;
+			path = SingleDomain;
 			sourceTree = "<group>";
 		};
 		F1F1E3712ABE294100BC610E /* Components */ = {
