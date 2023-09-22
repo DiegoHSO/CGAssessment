@@ -87,3 +87,6 @@
 "suspected_abuse_key" = "Suspeita de maus tratos";
 "cardiovascular_risk_estimation_key" = "Estimativa de risco cardiovascular";
 "chemotherapy_toxicity_risk_key" = "Risco de toxicidade à quimioterapia";
+"done_key" = "Completo";
+"incomplete_key" = "Incompleto";
+"not_started_key" = "Não iniciado";

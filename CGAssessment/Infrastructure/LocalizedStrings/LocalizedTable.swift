@@ -104,23 +104,29 @@ enum LocalizedTable: String, Localizable {
     case clockDrawingTest = "clock_drawing_test"
     case moca = "moca_key"
     case geriatricDepressionScale = "geriatric_depression_scale_key"
-    
+
     case visualAcuityAssessment = "visual_acuity_assessment_key"
     case hearingLossAssessment = "hearing_loss_assessment_key"
-    
+
     case katzScale = "katz_scale_key"
     case lawtonScale = "lawton_scale_key"
-    
+
     case miniNutritionalAssessment = "mini_nutritional_assessment_key"
-    
+
     case apgarScale = "apgar_scale_key"
     case zaritScale = "zarit_scale_key"
-    
+
     case polypharmacyCriteria = "polypharmacy_criteria_key"
-    
+
     case charlsonIndex = "charlson_index_key"
-    
+
     case suspectedAbuse = "suspected_abuse_key"
     case cardiovascularRiskEstimation = "cardiovascular_risk_estimation_key"
     case chemotherapyToxicityRisk = "chemotherapy_toxicity_risk_key"
+
+    // MARK: - Domain tests
+
+    case done = "done_key"
+    case incomplete = "incomplete_key"
+    case notStarted = "not_started_key"
 }
