@@ -77,6 +77,9 @@
 		F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */; };
 		F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */; };
 		F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339072AB7660000282AF3 /* Collection+Extension.swift */; };
+		F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */; };
+		F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */; };
+		F1F1E3792ABE38A600BC610E /* DomainTestsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3782ABE38A600BC610E /* DomainTestsModels.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -208,6 +211,9 @@
 		F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCGA.storyboard; sourceTree = "<group>"; };
 		F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGABuilder.swift; sourceTree = "<group>"; };
 		F1E339072AB7660000282AF3 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
+		F1F1E3782ABE38A600BC610E /* DomainTestsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTestsModels.swift; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -409,6 +415,7 @@
 				F177F8262AA829F400C1EB32 /* Dashboard */,
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
 				F140977F2ABB963D00E92005 /* CGADomains */,
+				F1F1E3702ABE289400BC610E /* DomainTests */,
 				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
 			);
 			path = Scenes;
@@ -574,6 +581,24 @@
 				F1F2E9B12AACDBC40006075F /* TitleHeaderView.swift */,
 			);
 			path = TitleHeader;
+			sourceTree = "<group>";
+		};
+		F1F1E3702ABE289400BC610E /* DomainTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3712ABE294100BC610E /* Components */,
+				F1F1E3782ABE38A600BC610E /* DomainTestsModels.swift */,
+			);
+			path = DomainTests;
+			sourceTree = "<group>";
+		};
+		F1F1E3712ABE294100BC610E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */,
+				F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
@@ -748,6 +773,7 @@
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
+				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
@@ -892,7 +918,9 @@
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
+				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
+				F1F1E3792ABE38A600BC610E /* DomainTestsModels.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
