@@ -26,6 +26,18 @@ class CGADomainsRouter: CGADomainsRoutingLogic {
     // MARK: - Public Methods
 
     func routeToDomainTests(domain: CGADomainsModels.Domain) {
-        // Not implemented
+        let storyboard = UIStoryboard(name: "SingleDomain", bundle: Bundle.main)
+        guard let singleDomainController = UIStoryboard
+                .instantiateInitialViewController(storyboard)() as? SingleDomainViewController else {
+            return
+        }
+
+        let presenter = SingleDomainPresenter(viewController: singleDomainController)
+        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain)
+        let router = SingleDomainRouter(viewController: singleDomainController)
+
+        singleDomainController.setupArchitecture(interactor: interactor, router: router)
+
+        viewController?.navigationController?.pushViewController(singleDomainController, animated: true)
     }
 }

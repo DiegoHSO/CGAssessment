@@ -29,4 +29,3 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         // Not implemented
     }
 }
-

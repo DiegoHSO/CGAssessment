@@ -32,7 +32,10 @@ class CGADomainTableViewCell: UITableViewCell {
         doneTestsText = doneTestsText.replacingOccurrences(of: "%TOTAL_TESTS",
                                                            with: String(viewModel.tests.count))
         domainNameLabel?.text = "\(viewModel.name) \(viewModel.symbol)"
+        domainNameLabel?.font = .compactDisplay(withStyle: .bold, size: 16)
+
         doneTestsLabel?.text = doneTestsText
+        doneTestsLabel?.font = .compactDisplay(withStyle: .semibold, size: 15)
 
         var subviews: [TestNameView] = []
 
