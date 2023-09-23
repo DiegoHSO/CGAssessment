@@ -90,3 +90,4 @@
 "done_key" = "Completed";
 "incomplete_key" = "Incomplete";
 "not_started_key" = "Not started";
+"domain_key" = "Domain";

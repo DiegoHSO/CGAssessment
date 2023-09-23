@@ -129,4 +129,5 @@ enum LocalizedTable: String, Localizable {
     case done = "done_key"
     case incomplete = "incomplete_key"
     case notStarted = "not_started_key"
+    case domain = "domain_key"
 }
