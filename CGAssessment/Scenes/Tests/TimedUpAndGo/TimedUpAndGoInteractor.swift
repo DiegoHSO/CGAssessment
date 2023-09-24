@@ -33,7 +33,7 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
         sendDataToPresenter()
     }
 
-    func didTapActionButton() {
+    func didTapActionButton(identifier: String?) {
         if selectedOption == .firstOption {
             guard let typedElapsedTime else { return }
             let results = TimedUpAndGoModels.TestResults(elapsedTime: typedElapsedTime)

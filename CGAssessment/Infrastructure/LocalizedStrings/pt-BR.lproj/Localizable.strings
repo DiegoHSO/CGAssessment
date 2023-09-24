@@ -126,3 +126,14 @@
 "timed_up_and_go_fourth_instruction_key" = "Meça o tempo levado para execução do teste com o auxílio de um cronômetro.";
 "time_taken_seconds_key" = "Digite o tempo levado (em segundos)";
 "instructions_key" = "Instruções";
+"result_key" = "Resultado";
+"next_test_key" = "Próximo teste";
+"return_key" = "Retornar";
+"assessment_key" = "Avaliação";
+"measured_time_key" = "Tempo medido";
+"suggested_diagnosis_key" = "Diagnóstico sugerido";
+"seconds_key" = "segundos";
+"timed_up_and_go_excellent_result" = "Indivíduo totalmente livre e independente, sem limitações aparentes";
+"timed_up_and_go_good_result" = "Indivíduo independente e com razoável equilíbrio, geralmente capaz de subir escadas, sair de casa sozinho e caminhar mais de 500 m livremente";
+"timed_up_and_go_medium_result" = "Indivíduo em \"zona cinzenta\", demonstrando dificuldades para efetuar tarefas diárias, porém, com grande variação, a depender do contexto";
+"timed_up_and_go_bad_result" = "Indivíduo completamente dependente, precisando de auxílio para efetuar atividades básicas (alimentar-se, trocar-se, banhar-se, caminhar)";

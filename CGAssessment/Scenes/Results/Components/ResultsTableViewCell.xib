@@ -25,16 +25,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUg-TJ-TGp">
-                        <rect key="frame" x="30" y="0.0" width="259" height="381"/>
+                        <rect key="frame" x="30" y="0.0" width="259" height="391"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="caX-OX-gEp">
-                                <rect key="frame" x="15" y="30" width="229" height="321"/>
+                                <rect key="frame" x="15" y="30" width="229" height="331"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMk-V3-cuW">
-                                        <rect key="frame" x="10" y="0.0" width="209" height="321"/>
+                                        <rect key="frame" x="10" y="0.0" width="209" height="331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMED UP-AND-GO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-mF-2Dw">
-                                                <rect key="frame" x="24" y="3" width="161" height="315"/>
+                                                <rect key="frame" x="24" y="3" width="161" height="325"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Heavy" family="SF Compact Rounded" pointSize="24"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="HUg-TJ-TGp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="5Sn-lC-MQa"/>
-                    <constraint firstAttribute="bottom" secondItem="HUg-TJ-TGp" secondAttribute="bottom" constant="40" id="HHh-bE-6Tq"/>
+                    <constraint firstAttribute="bottom" secondItem="HUg-TJ-TGp" secondAttribute="bottom" constant="30" id="HHh-bE-6Tq"/>
                     <constraint firstItem="HUg-TJ-TGp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U2E-Cm-bJ6"/>
                     <constraint firstAttribute="trailing" secondItem="HUg-TJ-TGp" secondAttribute="trailing" constant="30" id="kSd-rZ-PsM"/>
                 </constraints>

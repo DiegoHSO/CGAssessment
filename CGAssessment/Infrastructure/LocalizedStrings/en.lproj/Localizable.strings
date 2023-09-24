@@ -126,3 +126,14 @@
 "timed_up_and_go_fourth_instruction_key" = "Measure the time taken to complete the test using a stopwatch.";
 "time_taken_seconds_key" = "Enter the time taken (in seconds)";
 "instructions_key" = "Instructions";
+"result_key" = "Result";
+"next_test_key" = "Next text";
+"return_key" = "Return";
+"assessment_key" = "Assessment";
+"measured_time_key" = "Measured time";
+"suggested_diagnosis_key" = "Suggested diagnosis";
+"seconds_key" = "seconds";
+"timed_up_and_go_excellent_result" = "Individual completely free and independent, without apparent limitations.";
+"timed_up_and_go_good_result" = "Independent individual with reasonable balance, typically capable of climbing stairs, leaving the house alone, and walking more than 500 meters freely.";
+"timed_up_and_go_medium_result" = "Individual in a 'gray zone,' showing difficulties in performing daily tasks, but with a wide variation depending on the context.";
+"timed_up_and_go_bad_result" = "Completely dependent individual, requiring assistance to perform basic activities (feeding, dressing, bathing, walking).";

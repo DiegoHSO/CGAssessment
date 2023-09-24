@@ -112,7 +112,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
                             TextFieldDelegate, DatePickerDelegate,
                             ResumedPatientDelegate, ActionButtonDelegate {
 
-    func didTapActionButton() {
+    func didTapActionButton(identifier: String?) {
         presenter?.route(toRoute: .cgaDomains)
     }
 
