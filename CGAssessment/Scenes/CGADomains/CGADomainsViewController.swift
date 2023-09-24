@@ -36,11 +36,12 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
 
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+        title = LocalizedTable.domains.localized
     }
 
     // MARK: - Private Methods
 
-    func setupViews() {
+    private func setupViews() {
         title = LocalizedTable.cgaDomains.localized
 
         tableView?.dataSource = self
@@ -68,6 +69,7 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
     func presentData(viewModel: CGADomainsModels.ControllerViewModel) {
         self.viewModel = viewModel
 
+        title = LocalizedTable.cgaDomains.localized
         tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
     }

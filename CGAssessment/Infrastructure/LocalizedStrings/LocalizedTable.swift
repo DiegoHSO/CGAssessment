@@ -78,6 +78,7 @@ enum LocalizedTable: String, Localizable {
     case doneTestsSingular = "done_tests_singular_key"
     case doneTestsPlural = "done_tests_plural_key"
     case cgaDomainsTooltip = "cga_domains_tooltip_key"
+    case domains = "domains_key"
 
     // MARK: - Domain names
 
@@ -124,9 +125,35 @@ enum LocalizedTable: String, Localizable {
     case cardiovascularRiskEstimation = "cardiovascular_risk_estimation_key"
     case chemotherapyToxicityRisk = "chemotherapy_toxicity_risk_key"
 
-    // MARK: - Domain tests
+    // MARK: - Tests description
+
+    case timedUpAndGoDescription = "timed_up_and_go_description_key"
+    case walkingSpeedDescription = "walking_speed_description_key"
+    case calfCircumferenceDescription = "calf_circumference_description_key"
+    case gripStrengthDescription = "grip_strength_description_key"
+    case sarcopeniaAssessmentDescription = "sarcopenia_assessment_description_key"
+    case miniMentalStateExaminationDescription = "mini_mental_state_examination_description_key"
+    case verbalFluencyTestDescription = "verbal_fluency_test_description_key"
+    case clockDrawingTestDescription = "clock_drawing_test_description_key"
+    case mocaDescription = "moca_description_key"
+    case geriatricDepressionScaleDescription = "geriatric_depression_scale_description_key"
+    case visualAcuityAssessmentDescription = "visual_acuity_assessment_description_key"
+    case hearingLossAssessmentDescription = "hearing_loss_assessment_description_key"
+    case katzScaleDescription = "katz_scale_description_key"
+    case lawtonScaleDescription = "lawton_scale_description_key"
+    case miniNutritionalAssessmentDescription = "mini_nutritional_assessment_description_key"
+    case apgarScaleDescription = "apgar_scale_description_key"
+    case zaritScaleDescription = "zarit_scale_description_key"
+    case polypharmacyCriteriaDescription = "polypharmacy_criteria_description_key"
+    case charlsonIndexDescription = "charlson_index_description_key"
+    case suspectedAbuseDescription = "suspected_abuse_description_key"
+    case cardiovascularRiskEstimationDescription = "cardiovascular_risk_estimation_description_key"
+    case chemotherapyToxicityRiskDescription = "chemotherapy_toxicity_risk_description_key"
+
+    // MARK: - SingleDomain
 
     case done = "done_key"
     case incomplete = "incomplete_key"
     case notStarted = "not_started_key"
+    case domain = "domain_key"
 }

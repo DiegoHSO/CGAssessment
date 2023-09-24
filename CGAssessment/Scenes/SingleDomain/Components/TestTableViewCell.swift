@@ -25,9 +25,9 @@ class TestTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(viewModel: DomainTestsModels.TestViewModel) {
-        titleLabel?.text = viewModel.title
-        descriptionLabel?.text = viewModel.description
+    func setup(viewModel: SingleDomainModels.TestViewModel) {
+        titleLabel?.text = viewModel.test.title
+        descriptionLabel?.text = viewModel.test.description
         statusLabel?.text = viewModel.status.title
         statusSymbolLabel?.text = viewModel.status.symbol
     }
