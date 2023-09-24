@@ -25,7 +25,71 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
 
     // MARK: - Public Methods
 
+    // swiftlint:disable:next cyclomatic_complexity
     func routeToSingleTest(test: SingleDomainModels.Test) {
-        // Not implemented
+        switch test {
+        case .timedUpAndGo:
+            routeToTimedUpAndGoTest()
+        case .walkingSpeed:
+            break
+        case .calfCircumference:
+            break
+        case .gripStrength:
+            break
+        case .sarcopeniaAssessment:
+            break
+        case .miniMentalStateExamination:
+            break
+        case .verbalFluencyTest:
+            break
+        case .clockDrawingTest:
+            break
+        case .moca:
+            break
+        case .geriatricDepressionScale:
+            break
+        case .visualAcuityAssessment:
+            break
+        case .hearingLossAssessment:
+            break
+        case .katzScale:
+            break
+        case .lawtonScale:
+            break
+        case .miniNutritionalAssessment:
+            break
+        case .apgarScale:
+            break
+        case .zaritScale:
+            break
+        case .polypharmacyCriteria:
+            break
+        case .charlsonIndex:
+            break
+        case .suspectedAbuse:
+            break
+        case .cardiovascularRiskEstimation:
+            break
+        case .chemotherapyToxicityRisk:
+            break
+        }
+    }
+
+    // MARK: - Private Methods
+
+    private func routeToTimedUpAndGoTest() {
+        let storyboard = UIStoryboard(name: "TimedUpAndGo", bundle: Bundle.main)
+        guard let timedUpAndGoController = UIStoryboard
+                .instantiateInitialViewController(storyboard)() as? TimedUpAndGoViewController else {
+            return
+        }
+
+        let presenter = TimedUpAndGoPresenter(viewController: timedUpAndGoController)
+        let interactor = TimedUpAndGoInteractor(presenter: presenter)
+        let router = TimedUpAndGoRouter(viewController: timedUpAndGoController)
+
+        timedUpAndGoController.setupArchitecture(interactor: interactor, router: router)
+
+        viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }
 }

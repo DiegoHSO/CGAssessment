@@ -18,12 +18,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="oTp-Ba-DGp">
-                        <rect key="frame" x="25" y="0.0" width="270" height="81"/>
+                        <rect key="frame" x="25" y="0.0" width="270" height="101"/>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="oTp-Ba-DGp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="7Kc-mN-NYt"/>
-                    <constraint firstAttribute="bottom" secondItem="oTp-Ba-DGp" secondAttribute="bottom" constant="30" id="LU0-RP-Uly"/>
+                    <constraint firstAttribute="bottom" secondItem="oTp-Ba-DGp" secondAttribute="bottom" constant="10" id="LU0-RP-Uly"/>
                     <constraint firstAttribute="trailing" secondItem="oTp-Ba-DGp" secondAttribute="trailing" constant="25" id="cA0-hv-wQS"/>
                     <constraint firstItem="oTp-Ba-DGp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ctO-DJ-2oC"/>
                 </constraints>

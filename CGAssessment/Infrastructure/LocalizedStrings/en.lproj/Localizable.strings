@@ -116,3 +116,13 @@
 "domains_key" = "Domains";
 "reset_key" = "Reset";
 "stop_key" = "Stop";
+"see_results_key" = "See result";
+"stopwatch_key" = "Stopwatch";
+"has_stopwatch_key" = "I have a stopwatch";
+"does_not_have_stopwatch_key" = "I don't have a stopwatch";
+"timed_up_and_go_first_instruction_key" = "Place a mark on the floor where the patient should walk to.";
+"timed_up_and_go_second_instruction_key" = "Have the patient sit in a chair with armrests.";
+"timed_up_and_go_third_instruction_key" = "Instruct the patient to walk in a straight line to the mark on the floor, turn around, and return to the chair, sitting down.";
+"timed_up_and_go_fourth_instruction_key" = "Measure the time taken to complete the test using a stopwatch.";
+"time_taken_seconds_key" = "Enter the time taken (in seconds)";
+"instructions_key" = "Instructions";
