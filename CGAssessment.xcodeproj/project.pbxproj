@@ -97,6 +97,10 @@
 		F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */; };
 		F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */; };
 		F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */; };
+		F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A72AC09D5800BC610E /* ResultsTableViewCell.swift */; };
+		F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3A82AC09D5800BC610E /* ResultsTableViewCell.xib */; };
+		F1F1E3AC2AC0A07200BC610E /* SingleResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3AB2AC0A07200BC610E /* SingleResultView.xib */; };
+		F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3AD2AC0A7DB00BC610E /* SingleResultView.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -248,6 +252,10 @@
 		F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoPresenter.swift; sourceTree = "<group>"; };
 		F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoRouter.swift; sourceTree = "<group>"; };
 		F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoModels.swift; sourceTree = "<group>"; };
+		F1F1E3A72AC09D5800BC610E /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		F1F1E3A82AC09D5800BC610E /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
+		F1F1E3AB2AC0A07200BC610E /* SingleResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleResultView.xib; sourceTree = "<group>"; };
+		F1F1E3AD2AC0A7DB00BC610E /* SingleResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleResultView.swift; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -682,6 +690,17 @@
 			path = TimedUpAndGo;
 			sourceTree = "<group>";
 		};
+		F1F1E3A62AC09C0900BC610E /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3A72AC09D5800BC610E /* ResultsTableViewCell.swift */,
+				F1F1E3A82AC09D5800BC610E /* ResultsTableViewCell.xib */,
+				F1F1E3AB2AC0A07200BC610E /* SingleResultView.xib */,
+				F1F1E3AD2AC0A7DB00BC610E /* SingleResultView.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +732,7 @@
 				F1F2E9E72AB36A020006075F /* Selectable */,
 				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
+				F1F1E3A62AC09C0900BC610E /* Results */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -857,6 +877,7 @@
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
+				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
@@ -883,6 +904,7 @@
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
+				F1F1E3AC2AC0A07200BC610E /* SingleResultView.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
@@ -967,6 +989,7 @@
 			files = (
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
+				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
@@ -1020,6 +1043,7 @@
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
+				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,

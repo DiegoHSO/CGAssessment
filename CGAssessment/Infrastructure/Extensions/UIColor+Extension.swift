@@ -25,6 +25,9 @@ extension UIColor {
     static var background12: UIColor? { UIColor(named: "Background-12") }
     static var background13: UIColor? { UIColor(named: "Background-13") }
     static var background14: UIColor? { UIColor(named: "Background-14") }
+    static var background15: UIColor? { UIColor(named: "Background-15") }
+    static var background16: UIColor? { UIColor(named: "Background-16") }
+    static var background17: UIColor? { UIColor(named: "Background-17") }
 
     // MARK: - Label Colors
 
