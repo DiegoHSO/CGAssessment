@@ -39,4 +39,13 @@ struct CGAModels {
         var leadingConstraint: CGFloat = 30
     }
 
+    struct InstructionsViewModel {
+        let instructions: [Instruction]
+    }
+
+    struct Instruction {
+        let number: Int
+        let description: String
+    }
+
 }
