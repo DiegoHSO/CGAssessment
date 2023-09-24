@@ -39,5 +39,9 @@ class NewCGARouter: NewCGARoutingLogic {
         cgaDomainsController.setupArchitecture(interactor: interactor, router: router)
 
         viewController?.navigationController?.pushViewController(cgaDomainsController, animated: true)
+
+        if let viewController = viewController, let index = viewController.navigationController?.viewControllers.firstIndex(of: viewController) {
+            viewController.navigationController?.viewControllers.remove(at: index)
+        }
     }
 }

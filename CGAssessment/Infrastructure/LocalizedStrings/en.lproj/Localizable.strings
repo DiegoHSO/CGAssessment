@@ -113,3 +113,4 @@
 "suspected_abuse_description_key" = "Tool aimed at assessing whether the elderly person exhibits signs of abuse in their context.";
 "cardiovascular_risk_estimation_description_key" = "Tool that estimates the elderly person's 10-year risk of death from coronary or non-coronary cardiovascular disease.";
 "chemotherapy_toxicity_risk_description_key" = "Tool that assesses the risk of chemotherapy toxicity in the elderly person through the analysis of (...).";
+"domains_key" = "Domains";

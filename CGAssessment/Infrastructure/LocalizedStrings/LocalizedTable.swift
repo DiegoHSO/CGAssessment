@@ -78,6 +78,7 @@ enum LocalizedTable: String, Localizable {
     case doneTestsSingular = "done_tests_singular_key"
     case doneTestsPlural = "done_tests_plural_key"
     case cgaDomainsTooltip = "cga_domains_tooltip_key"
+    case domains = "domains_key"
 
     // MARK: - Domain names
 

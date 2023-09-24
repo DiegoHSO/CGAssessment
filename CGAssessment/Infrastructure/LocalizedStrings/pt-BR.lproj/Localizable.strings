@@ -113,3 +113,4 @@
 "suspected_abuse_description_key" = "Instrumento que visa avaliar se a pessoa idosa possui sinais de maus tratos em seu contexto.";
 "cardiovascular_risk_estimation_description_key" = "Instrumento que estima o risco de morte da pessoa idosa em 10 anos devido a doença cardiovascular coronariana ou não coronariana.";
 "chemotherapy_toxicity_risk_description_key" = "Instrumento que avalia o risco de toxicidade à quimioterapia da pessoa idosa através da análise de (...).";
+"domains_key" = "Domínios";
