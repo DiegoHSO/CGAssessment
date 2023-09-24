@@ -85,6 +85,10 @@
 		F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E37E2ABEA4FB00BC610E /* SingleDomainInteractor.swift */; };
 		F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3802ABEA50700BC610E /* SingleDomainPresenter.swift */; };
 		F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3822ABEA51300BC610E /* SingleDomainRouter.swift */; };
+		F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E38B2ABFC37000BC610E /* SingleInstructionView.xib */; };
+		F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E38D2ABFC38800BC610E /* SingleInstructionView.swift */; };
+		F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E38F2ABFC3BB00BC610E /* InstructionsTableViewCell.swift */; };
+		F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -224,6 +228,10 @@
 		F1F1E37E2ABEA4FB00BC610E /* SingleDomainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainInteractor.swift; sourceTree = "<group>"; };
 		F1F1E3802ABEA50700BC610E /* SingleDomainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainPresenter.swift; sourceTree = "<group>"; };
 		F1F1E3822ABEA51300BC610E /* SingleDomainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainRouter.swift; sourceTree = "<group>"; };
+		F1F1E38B2ABFC37000BC610E /* SingleInstructionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleInstructionView.xib; sourceTree = "<group>"; };
+		F1F1E38D2ABFC38800BC610E /* SingleInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleInstructionView.swift; sourceTree = "<group>"; };
+		F1F1E38F2ABFC3BB00BC610E /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -616,6 +624,17 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F1F1E3862ABFC23B00BC610E /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E38B2ABFC37000BC610E /* SingleInstructionView.xib */,
+				F1F1E38D2ABFC38800BC610E /* SingleInstructionView.swift */,
+				F1F1E38F2ABFC3BB00BC610E /* InstructionsTableViewCell.swift */,
+				F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +656,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F140977A2ABB615900E92005 /* Tooltip */,
 				F14097652AB7A3B000E92005 /* TitleCell */,
 				F1E339092AB7827300282AF3 /* TitleHeader */,
@@ -793,6 +813,7 @@
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
+				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBDA2AAA60170048E31F /* SF-Compact-Rounded-Light.otf in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
@@ -810,6 +831,7 @@
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
+				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F1A9FBE12AAA60170048E31F /* SF-Compact-Rounded-Medium.otf in Resources */,
@@ -941,6 +963,8 @@
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
+				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
+				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,

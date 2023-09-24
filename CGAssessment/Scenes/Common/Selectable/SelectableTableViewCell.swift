@@ -24,6 +24,8 @@ class SelectableTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         optionsStackView?.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
 

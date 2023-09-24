@@ -18,6 +18,8 @@ class CGADomainTableViewCell: UITableViewCell {
     // MARK: - Life Cycle
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         testsStackView?.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
 
