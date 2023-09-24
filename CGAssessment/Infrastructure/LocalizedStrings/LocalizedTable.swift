@@ -23,6 +23,8 @@ enum LocalizedTable: String, Localizable {
     case home = "home_key"
     case cgas = "cgas_key"
     case preferences = "preferences_key"
+    case seeResults = "see_results_key"
+    case instructions = "instructions_key"
 
     // MARK: - Dashboard
 
@@ -161,4 +163,16 @@ enum LocalizedTable: String, Localizable {
 
     case reset = "reset_key"
     case stop = "stop_key"
+    case stopwatch = "stopwatch_key"
+    case hasStopwatch = "has_stopwatch_key"
+    case doesNotHaveStopwatch = "does_not_have_stopwatch_key"
+
+    // MARK: - Timed-up-and-go
+
+    case timedUpAndGoFirstInstruction = "timed_up_and_go_first_instruction_key"
+    case timedUpAndGoSecondInstruction = "timed_up_and_go_second_instruction_key"
+    case timedUpAndGoThirdInstruction = "timed_up_and_go_third_instruction_key"
+    case timedUpAndGoFourthInstruction = "timed_up_and_go_fourth_instruction_key"
+    case timeTakenSeconds = "time_taken_seconds_key"
+
 }

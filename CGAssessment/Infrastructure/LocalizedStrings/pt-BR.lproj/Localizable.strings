@@ -116,3 +116,13 @@
 "domains_key" = "Domínios";
 "reset_key" = "Zerar";
 "stop_key" = "Parar";
+"see_results_key" = "Ver resultado";
+"stopwatch_key" = "Cronômetro";
+"has_stopwatch_key" = "Possuo um cronômetro";
+"does_not_have_stopwatch_key" = "Não possuo um cronômetro";
+"timed_up_and_go_first_instruction_key" = "Faça uma marca na parte do piso onde o paciente deverá se direcionar.";
+"timed_up_and_go_second_instruction_key" = "Coloque o paciente sentado em uma cadeira com braços.";
+"timed_up_and_go_third_instruction_key" = "Solicite ao paciente que caminhe de forma retilínea até a marca colocada no piso, gire de volta e retorne para a cadeira, sentando-se.";
+"timed_up_and_go_fourth_instruction_key" = "Meça o tempo levado para execução do teste com o auxílio de um cronômetro.";
+"time_taken_seconds_key" = "Digite o tempo levado (em segundos)";
+"instructions_key" = "Instruções";

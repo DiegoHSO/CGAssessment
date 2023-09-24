@@ -37,6 +37,7 @@ struct CGAModels {
         let placeholder: String?
         let delegate: TextFieldDelegate?
         var leadingConstraint: CGFloat = 30
+        var keyboardType: UIKeyboardType = .asciiCapable
     }
 
     struct InstructionsViewModel {

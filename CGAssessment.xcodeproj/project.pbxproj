@@ -91,6 +91,12 @@
 		F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */; };
 		F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3942ABFDA1C00BC610E /* StopwatchTableViewCell.swift */; };
 		F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3952ABFDA1C00BC610E /* StopwatchTableViewCell.xib */; };
+		F1F1E39B2ABFF31900BC610E /* TimedUpAndGo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E39A2ABFF31900BC610E /* TimedUpAndGo.storyboard */; };
+		F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E39C2ABFF32E00BC610E /* TimedUpAndGoViewController.swift */; };
+		F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E39E2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift */; };
+		F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */; };
+		F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */; };
+		F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -236,6 +242,12 @@
 		F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
 		F1F1E3942ABFDA1C00BC610E /* StopwatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTableViewCell.swift; sourceTree = "<group>"; };
 		F1F1E3952ABFDA1C00BC610E /* StopwatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopwatchTableViewCell.xib; sourceTree = "<group>"; };
+		F1F1E39A2ABFF31900BC610E /* TimedUpAndGo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimedUpAndGo.storyboard; sourceTree = "<group>"; };
+		F1F1E39C2ABFF32E00BC610E /* TimedUpAndGoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoViewController.swift; sourceTree = "<group>"; };
+		F1F1E39E2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoInteractor.swift; sourceTree = "<group>"; };
+		F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoPresenter.swift; sourceTree = "<group>"; };
+		F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoRouter.swift; sourceTree = "<group>"; };
+		F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoModels.swift; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -438,6 +450,7 @@
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
 				F140977F2ABB963D00E92005 /* CGADomains */,
 				F1F1E3702ABE289400BC610E /* SingleDomain */,
+				F1F1E3982ABFF2F300BC610E /* Tests */,
 				F177F8252AA829DA00C1EB32 /* LaunchScreen */,
 			);
 			path = Scenes;
@@ -648,6 +661,27 @@
 			path = Stopwatch;
 			sourceTree = "<group>";
 		};
+		F1F1E3982ABFF2F300BC610E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3992ABFF30800BC610E /* TimedUpAndGo */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F1F1E3992ABFF30800BC610E /* TimedUpAndGo */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E39A2ABFF31900BC610E /* TimedUpAndGo.storyboard */,
+				F1F1E39C2ABFF32E00BC610E /* TimedUpAndGoViewController.swift */,
+				F1F1E39E2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift */,
+				F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */,
+				F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */,
+				F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */,
+			);
+			path = TimedUpAndGo;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,6 +852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A9FBD62AAA60170048E31F /* SF-Compact-Rounded-Heavy.otf in Resources */,
+				F1F1E39B2ABFF31900BC610E /* TimedUpAndGo.storyboard in Resources */,
 				F1BE9F7E2AB66F1700250B69 /* ActionButtonTableViewCell.xib in Resources */,
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
@@ -945,6 +980,7 @@
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
+				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
@@ -953,6 +989,7 @@
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
+				F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
@@ -963,7 +1000,9 @@
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
+				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
+				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F14097932ABBC53C00E92005 /* CGADomainsPresenter.swift in Sources */,
@@ -996,6 +1035,7 @@
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
+				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

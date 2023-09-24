@@ -32,8 +32,11 @@ class TextFieldTableViewCell: UITableViewCell {
 
     func setup(viewModel: CGAModels.TextFieldViewModel) {
         titleLabel?.text = viewModel.title
+        titleLabel?.isHidden = viewModel.title == nil
         textField?.placeholder = viewModel.placeholder
         textField?.text = viewModel.text
+        textField?.keyboardType = viewModel.keyboardType
+        textField?.font = .compactDisplay(withStyle: .regular, size: 16)
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         delegate = viewModel.delegate
