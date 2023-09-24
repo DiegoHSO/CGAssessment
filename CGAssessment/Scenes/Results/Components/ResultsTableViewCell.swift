@@ -32,7 +32,7 @@ class ResultsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(viewModel: CGAModels.ResultsViewModel) {
+    func setup(viewModel: ResultsModels.ResultsViewModel) {
         testTitleLabel?.text = viewModel.testName.uppercased()
         resultsMainView?.backgroundColor = viewModel.resultType.color
 

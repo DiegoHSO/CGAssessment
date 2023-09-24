@@ -49,34 +49,4 @@ struct CGAModels {
         let description: String
     }
 
-    struct ResultsViewModel {
-        let testName: String
-        let results: [Result]
-        let resultType: ResultType
-    }
-
-    struct Result {
-        let title: String
-        let description: String
-    }
-
-    enum ResultType {
-        case excellent
-        case good
-        case medium
-        case bad
-
-        var color: UIColor? {
-            switch self {
-            case .excellent:
-                .background16?.withAlphaComponent(0.43)
-            case .good:
-                .background17?.withAlphaComponent(0.43)
-            case .medium:
-                .background9
-            case .bad:
-                .background10
-            }
-        }
-    }
 }

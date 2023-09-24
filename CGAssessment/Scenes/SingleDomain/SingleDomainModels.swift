@@ -48,7 +48,7 @@ struct SingleDomainModels {
         }
     }
 
-    enum Test {
+    enum Test: CaseIterable {
         case timedUpAndGo
         case walkingSpeed
         case calfCircumference
@@ -167,6 +167,32 @@ struct SingleDomainModels {
                 LocalizedTable.cardiovascularRiskEstimationDescription.localized
             case .chemotherapyToxicityRisk:
                 LocalizedTable.chemotherapyToxicityRiskDescription.localized
+            }
+        }
+
+        var domain: CGADomainsModels.Domain {
+            switch self {
+            case .timedUpAndGo, .walkingSpeed, .calfCircumference,
+                 .gripStrength, .sarcopeniaAssessment:
+                return .mobility
+            case .miniMentalStateExamination, .verbalFluencyTest,
+                 .clockDrawingTest, .moca, .geriatricDepressionScale:
+                return .cognitive
+            case .visualAcuityAssessment, .hearingLossAssessment:
+                return .sensory
+            case .katzScale, .lawtonScale:
+                return .functional
+            case .miniNutritionalAssessment:
+                return .nutricional
+            case .apgarScale, .zaritScale:
+                return .social
+            case .polypharmacyCriteria:
+                return .polypharmacy
+            case .charlsonIndex:
+                return .comorbidity
+            case .suspectedAbuse, .chemotherapyToxicityRisk,
+                 .cardiovascularRiskEstimation:
+                return .other
             }
         }
     }

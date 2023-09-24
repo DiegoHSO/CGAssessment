@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ActionButtonDelegate: AnyObject {
-    func didTapActionButton()
+    func didTapActionButton(identifier: String?)
 }
 
 class ActionButtonTableViewCell: UITableViewCell {
@@ -16,7 +16,7 @@ class ActionButtonTableViewCell: UITableViewCell {
     // MARK: - Private Properties
 
     @IBOutlet private weak var actionButton: UIButton?
-    weak var delegate: ActionButtonDelegate?
+    private weak var delegate: ActionButtonDelegate?
 
     // MARK: - Life Cycle
 
@@ -43,7 +43,7 @@ class ActionButtonTableViewCell: UITableViewCell {
     }
 
     @IBAction func didTapActionButton(_ sender: UIButton) {
-        delegate?.didTapActionButton()
+        delegate?.didTapActionButton(identifier: actionButton?.titleLabel?.text)
     }
 
 }
