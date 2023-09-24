@@ -89,6 +89,8 @@
 		F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E38D2ABFC38800BC610E /* SingleInstructionView.swift */; };
 		F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E38F2ABFC3BB00BC610E /* InstructionsTableViewCell.swift */; };
 		F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */; };
+		F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3942ABFDA1C00BC610E /* StopwatchTableViewCell.swift */; };
+		F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3952ABFDA1C00BC610E /* StopwatchTableViewCell.xib */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -232,6 +234,8 @@
 		F1F1E38D2ABFC38800BC610E /* SingleInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleInstructionView.swift; sourceTree = "<group>"; };
 		F1F1E38F2ABFC3BB00BC610E /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
 		F1F1E3902ABFC3BB00BC610E /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
+		F1F1E3942ABFDA1C00BC610E /* StopwatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchTableViewCell.swift; sourceTree = "<group>"; };
+		F1F1E3952ABFDA1C00BC610E /* StopwatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StopwatchTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -635,6 +639,15 @@
 			path = Instructions;
 			sourceTree = "<group>";
 		};
+		F1F1E3932ABFD9FC00BC610E /* Stopwatch */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3942ABFDA1C00BC610E /* StopwatchTableViewCell.swift */,
+				F1F1E3952ABFDA1C00BC610E /* StopwatchTableViewCell.xib */,
+			);
+			path = Stopwatch;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,7 +669,6 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F140977A2ABB615900E92005 /* Tooltip */,
 				F14097652AB7A3B000E92005 /* TitleCell */,
 				F1E339092AB7827300282AF3 /* TitleHeader */,
@@ -665,6 +677,8 @@
 				F1BE9F6A2AB6020500250B69 /* Picker */,
 				F1F2E9F02AB557400006075F /* TextField */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
+				F1F1E3862ABFC23B00BC610E /* Instructions */,
+				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -814,6 +828,7 @@
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
+				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBDA2AAA60170048E31F /* SF-Compact-Rounded-Light.otf in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
@@ -916,6 +931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
+				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,

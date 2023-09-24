@@ -10,7 +10,7 @@ import UIKit
 class InstructionsTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var instructionsStackView: UIStackView?
 
     // MARK: - Life Cycle

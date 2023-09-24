@@ -156,4 +156,9 @@ enum LocalizedTable: String, Localizable {
     case incomplete = "incomplete_key"
     case notStarted = "not_started_key"
     case domain = "domain_key"
+
+    // MARK: - Stopwatch
+
+    case reset = "reset_key"
+    case stop = "stop_key"
 }
