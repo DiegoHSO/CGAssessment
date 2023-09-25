@@ -8,7 +8,7 @@
 import UIKit
 
 protocol StopwatchDelegate: AnyObject {
-    func didStopCounting(elapsedTime: TimeInterval)
+    func didStopCounting(elapsedTime: TimeInterval, identifier: String?)
 }
 
 class StopwatchTableViewCell: UITableViewCell {
@@ -40,12 +40,24 @@ class StopwatchTableViewCell: UITableViewCell {
         setupGestures()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        elapsedTime = 0
+        stopwatchLabel?.text = "00:00,00"
+    }
+
     // MARK: - Public Methods
 
-    func setup(delegate: StopwatchDelegate?, description: String? = nil) {
+    func setup(delegate: StopwatchDelegate?, description: String? = nil, elapsedTime: TimeInterval? = nil) {
         descriptionLabel?.text = description
         descriptionLabel?.isHidden = description == nil
         self.delegate = delegate
+
+        if let elapsedTime {
+            self.elapsedTime = elapsedTime
+            setupElapsedTimeFormatting()
+        }
     }
 
     // MARK: - Private Methods
@@ -79,7 +91,7 @@ class StopwatchTableViewCell: UITableViewCell {
         elapsedTime = 0
         stopwatchLabel?.text = "00:00,00"
 
-        delegate?.didStopCounting(elapsedTime: 0)
+        delegate?.didStopCounting(elapsedTime: 0, identifier: descriptionLabel?.text)
     }
 
     @objc private func didTapRightButton() {
@@ -94,7 +106,7 @@ class StopwatchTableViewCell: UITableViewCell {
             leftButtonView?.alpha = 1
 
             // Send to delegate
-            delegate?.didStopCounting(elapsedTime: elapsedTime)
+            delegate?.didStopCounting(elapsedTime: elapsedTime, identifier: descriptionLabel?.text)
         } else {
             // Start the timer
             stopwatchTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] timer in
@@ -103,13 +115,7 @@ class StopwatchTableViewCell: UITableViewCell {
                 // Update the elapsed time
                 self.elapsedTime += timer.timeInterval
 
-                // Format the elapsed time as a stopwatch time
-                let minutes = Int(self.elapsedTime) / 60 % 60
-                let seconds = Int(self.elapsedTime) % 60
-                let milliseconds = Int(self.elapsedTime * 100) % 100
-
-                // Update the label with the formatted time
-                self.stopwatchLabel?.text = String(format: "%02d:%02d,%02d", minutes, seconds, milliseconds)
+                self.setupElapsedTimeFormatting()
                 self.leftButtonView?.alpha = 0.4
             }
 
@@ -117,5 +123,15 @@ class StopwatchTableViewCell: UITableViewCell {
             rightButtonLabel?.text = LocalizedTable.stop.localized
             rightButtonView?.backgroundColor = .background14
         }
+    }
+
+    private func setupElapsedTimeFormatting() {
+        // Format the elapsed time as a stopwatch time
+        let minutes = Int(elapsedTime) / 60 % 60
+        let seconds = Int(elapsedTime) % 60
+        let milliseconds = Int(elapsedTime * 100) % 100
+
+        // Update the label with the formatted time
+        stopwatchLabel?.text = String(format: "%02d:%02d,%02d", minutes, seconds, milliseconds)
     }
 }

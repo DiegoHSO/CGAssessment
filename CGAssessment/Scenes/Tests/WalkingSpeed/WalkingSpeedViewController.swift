@@ -1,5 +1,5 @@
 //
-//  TimedUpAndGoViewController.swift
+//  WalkingSpeedViewController.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 24/09/23.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol TimedUpAndGoDisplayLogic: AnyObject {
-    func route(toRoute route: TimedUpAndGoModels.Routing)
-    func presentData(viewModel: TimedUpAndGoModels.ControllerViewModel)
+protocol WalkingSpeedDisplayLogic: AnyObject {
+    func route(toRoute route: WalkingSpeedModels.Routing)
+    func presentData(viewModel: WalkingSpeedModels.ControllerViewModel)
 }
 
-class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
+class WalkingSpeedViewController: UIViewController, WalkingSpeedDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = TimedUpAndGoModels.Section
-    private typealias Row = TimedUpAndGoModels.Row
+    private typealias Section = WalkingSpeedModels.Section
+    private typealias Row = WalkingSpeedModels.Row
 
-    private var viewModel: TimedUpAndGoModels.ControllerViewModel?
-    private var interactor: TimedUpAndGoLogic?
-    private var router: TimedUpAndGoRoutingLogic?
+    private var viewModel: WalkingSpeedModels.ControllerViewModel?
+    private var interactor: WalkingSpeedLogic?
+    private var router: WalkingSpeedRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -44,19 +44,19 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: TimedUpAndGoLogic, router: TimedUpAndGoRouter) {
+    func setupArchitecture(interactor: WalkingSpeedLogic, router: WalkingSpeedRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: TimedUpAndGoModels.Routing) {
+    func route(toRoute route: WalkingSpeedModels.Routing) {
         switch route {
         case .testResults(let test, let results):
             router?.routeToTestResults(test: test, results: results)
         }
     }
 
-    func presentData(viewModel: TimedUpAndGoModels.ControllerViewModel) {
+    func presentData(viewModel: WalkingSpeedModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tabBarController?.tabBar.isHidden = true
@@ -66,9 +66,7 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
     // MARK: - Private Methods
 
     private func setupViews() {
-        title = LocalizedTable.timedUpAndGo.localized
-
-        //  UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+        title = LocalizedTable.walkingSpeed.localized
 
         tableView?.dataSource = self
         tableView?.delegate = self
@@ -80,12 +78,13 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
         tableView?.register(cellType: TextFieldTableViewCell.self)
         tableView?.register(cellType: StopwatchTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+        tableView?.register(cellType: TooltipTableViewCell.self)
     }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension TimedUpAndGoViewController: UITableViewDelegate {
+extension WalkingSpeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -100,7 +99,23 @@ extension TimedUpAndGoViewController: UITableViewDelegate {
     }
 }
 
-extension TimedUpAndGoViewController: UITableViewDataSource {
+extension WalkingSpeedViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel, let section = Section(rawValue: indexPath.section) else { return }
+
+        switch viewModel.sections[section]?[safe: indexPath.row] {
+        case .firstStopwatchTooltip:
+            interactor?.didSelect(option: .first)
+        case .secondStopwatchTooltip:
+            interactor?.didSelect(option: .second)
+        case .thirdStopwatchTooltip:
+            interactor?.didSelect(option: .third)
+        default:
+            return
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
@@ -154,24 +169,94 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
                                         textStyle: .medium))
 
             return cell
-        case .textFieldStopwatch:
+        case .firstTextFieldStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
                                                            for: indexPath) as? TextFieldTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: .init(title: nil, text: viewModel.typedElapsedTime,
-                                        placeholder: LocalizedTable.timeTakenSeconds.localized,
-                                        delegate: interactor, keyboardType: .decimalPad))
+            cell.setup(viewModel: .init(title: LocalizedTable.firstMeasurement.localized,
+                                        text: viewModel.typedFirstTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
+                                        delegate: interactor, keyboardType: .decimalPad, identifier: .firstMeasurement))
 
             return cell
-        case .stopwatch:
+        case .secondTextFieldStopwatch:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
+                                                           for: indexPath) as? TextFieldTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(viewModel: .init(title: LocalizedTable.secondMeasurement.localized,
+                                        text: viewModel.typedSecondTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
+                                        delegate: interactor, keyboardType: .decimalPad, identifier: .secondMeasurement))
+
+            return cell
+        case .thirdTextFieldStopwatch:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
+                                                           for: indexPath) as? TextFieldTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(viewModel: .init(title: LocalizedTable.thirdMeasurement.localized,
+                                        text: viewModel.typedThirdTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
+                                        delegate: interactor, keyboardType: .decimalPad, identifier: .thirdMeasurement))
+
+            return cell
+        case .firstStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
                                                            for: indexPath) as? StopwatchTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(delegate: interactor, elapsedTime: viewModel.stopwatchElapsedTime)
+            cell.setup(delegate: interactor, description: LocalizedTable.firstMeasurement.localized,
+                       elapsedTime: viewModel.firstStopwatchTime)
+
+            return cell
+        case .secondStopwatch:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
+                                                           for: indexPath) as? StopwatchTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(delegate: interactor, description: LocalizedTable.secondMeasurement.localized,
+                       elapsedTime: viewModel.secondStopwatchTime)
+
+            return cell
+        case .thirdStopwatch:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
+                                                           for: indexPath) as? StopwatchTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(delegate: interactor, description: LocalizedTable.thirdMeasurement.localized,
+                       elapsedTime: viewModel.thirdStopwatchTime)
+
+            return cell
+        case .firstStopwatchTooltip:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
+                                                           for: indexPath) as? TooltipTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(text: LocalizedTable.firstMeasurement.localized, symbol: "􀐬")
+
+            return cell
+        case .secondStopwatchTooltip:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
+                                                           for: indexPath) as? TooltipTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(text: LocalizedTable.secondMeasurement.localized, symbol: "􀐬")
+
+            return cell
+        case .thirdStopwatchTooltip:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
+                                                           for: indexPath) as? TooltipTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(text: LocalizedTable.thirdMeasurement.localized, symbol: "􀐬")
 
             return cell
         case .done:

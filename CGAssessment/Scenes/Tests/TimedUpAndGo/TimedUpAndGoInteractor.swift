@@ -52,12 +52,12 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
         sendDataToPresenter()
     }
 
-    func didStopCounting(elapsedTime: TimeInterval) {
+    func didStopCounting(elapsedTime: TimeInterval, identifier: String?) {
         stopwatchElapsedTime = elapsedTime
         sendDataToPresenter()
     }
 
-    func didChangeText(text: String) {
+    func didChangeText(text: String, identifier: LocalizedTable?) {
         typedElapsedTime = TimeInterval(text)
         sendDataToPresenter()
     }
@@ -83,6 +83,7 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
 
         return TimedUpAndGoModels.ControllerViewModel(instructions: instructions, selectedOption: selectedOption,
                                                       typedElapsedTime: typedElapsedTime?.description,
+                                                      stopwatchElapsedTime: stopwatchElapsedTime,
                                                       isResultsButtonEnabled: isResultsButtonEnabled)
     }
 }

@@ -126,7 +126,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
         sendDataToPresenter(isSearching: true)
     }
 
-    func didChangeText(text: String) {
+    func didChangeText(text: String, identifier: LocalizedTable?) {
         pacientName = text
         sendDataToPresenter()
     }

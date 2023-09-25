@@ -110,6 +110,13 @@
 		F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3BC2AC0CDD500BC610E /* ResultsWorker.swift */; };
 		F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */; };
 		F1F1E3C12AC0DCF600BC610E /* TimeInverval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3C02AC0DCF600BC610E /* TimeInverval+Extension.swift */; };
+		F1F1E3C62AC10E7D00BC610E /* WalkingSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3C52AC10E7D00BC610E /* WalkingSpeedViewController.swift */; };
+		F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3C72AC10ED900BC610E /* WalkingSpeedInteractor.swift */; };
+		F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3C92AC10EE300BC610E /* WalkingSpeedPresenter.swift */; };
+		F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */; };
+		F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */; };
+		F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */; };
+		F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3D12AC134C000BC610E /* Double+Extension.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -274,6 +281,13 @@
 		F1F1E3BC2AC0CDD500BC610E /* ResultsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsWorker.swift; sourceTree = "<group>"; };
 		F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaseIterable+Extension.swift"; sourceTree = "<group>"; };
 		F1F1E3C02AC0DCF600BC610E /* TimeInverval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInverval+Extension.swift"; sourceTree = "<group>"; };
+		F1F1E3C52AC10E7D00BC610E /* WalkingSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedViewController.swift; sourceTree = "<group>"; };
+		F1F1E3C72AC10ED900BC610E /* WalkingSpeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedInteractor.swift; sourceTree = "<group>"; };
+		F1F1E3C92AC10EE300BC610E /* WalkingSpeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedPresenter.swift; sourceTree = "<group>"; };
+		F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedRouter.swift; sourceTree = "<group>"; };
+		F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedModels.swift; sourceTree = "<group>"; };
+		F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkingSpeed.storyboard; sourceTree = "<group>"; };
+		F1F1E3D12AC134C000BC610E /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -529,6 +543,7 @@
 				F14097782AB7F3BE00E92005 /* String+Extension.swift */,
 				F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */,
 				F1F1E3C02AC0DCF600BC610E /* TimeInverval+Extension.swift */,
+				F1F1E3D12AC134C000BC610E /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -694,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F1E3992ABFF30800BC610E /* TimedUpAndGo */,
+				F1F1E3C22AC10E5500BC610E /* WalkingSpeed */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -735,6 +751,19 @@
 				F1F1E3BA2AC0C62600BC610E /* ResultsModels.swift */,
 			);
 			path = Results;
+			sourceTree = "<group>";
+		};
+		F1F1E3C22AC10E5500BC610E /* WalkingSpeed */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */,
+				F1F1E3C52AC10E7D00BC610E /* WalkingSpeedViewController.swift */,
+				F1F1E3C72AC10ED900BC610E /* WalkingSpeedInteractor.swift */,
+				F1F1E3C92AC10EE300BC610E /* WalkingSpeedPresenter.swift */,
+				F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */,
+				F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */,
+			);
+			path = WalkingSpeed;
 			sourceTree = "<group>";
 		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
@@ -917,6 +946,7 @@
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
+				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
 				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
@@ -1067,12 +1097,16 @@
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
+				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
+				F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */,
+				F1F1E3C62AC10E7D00BC610E /* WalkingSpeedViewController.swift in Sources */,
 				F14097932ABBC53C00E92005 /* CGADomainsPresenter.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
+				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
@@ -1081,6 +1115,7 @@
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
+				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
@@ -1098,6 +1133,7 @@
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
+				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,

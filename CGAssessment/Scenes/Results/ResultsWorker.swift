@@ -18,7 +18,8 @@ class ResultsWorker {
             guard let timedUpAndGoResults = results as? TimedUpAndGoModels.TestResults else { return nil }
             return getTimedUpAndGoResults(for: timedUpAndGoResults)
         case .walkingSpeed:
-            break
+            guard let walkingSpeedResults = results as? WalkingSpeedModels.TestResults else { return nil }
+            return getWalkingSpeedResults(for: walkingSpeedResults)
         case .calfCircumference:
             break
         case .gripStrength:
@@ -88,6 +89,39 @@ class ResultsWorker {
             results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
                                  description: LocalizedTable.timedUpAndGoBadResult.localized))
         }
+
+        return (results, resultType)
+    }
+
+    private func getWalkingSpeedResults(for testResults: WalkingSpeedModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        // swiftlint:disable line_length
+        let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstElapsedTime.formatted) \(LocalizedTable.seconds.localized)\n"
+        let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondElapsedTime.formatted) \(LocalizedTable.seconds.localized)\n"
+        let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdElapsedTime.formatted) \(LocalizedTable.seconds.localized)"
+        // swiftlint:enable line_length
+
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredTime.localized,
+                                                     description: firstDescription + secondDescription + thirdDescription)]
+
+        let attempts = [testResults.firstElapsedTime, testResults.secondElapsedTime, testResults.thirdElapsedTime]
+        let average = attempts.reduce(0.0, +) / Double(attempts.count)
+        let speed = 4 / average
+
+        let resultType: ResultsModels.ResultType = speed >= 0.8 ? .excellent : .bad
+
+        let speedDescription: String
+
+        if speed <= 1 {
+            speedDescription = LocalizedTable.meterPerSecond.localized
+        } else {
+            speedDescription = LocalizedTable.metersPerSecond.localized
+        }
+
+        results.append(.init(title: LocalizedTable.averageSpeed.localized,
+                             description: "\(speed.regionFormatted(fractionDigits: 2)) \(speedDescription)"))
+        results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
+                             description: resultType == .excellent ? LocalizedTable.walkingSpeedExcellentResult.localized
+                                : LocalizedTable.walkingSpeedBadResult.localized))
 
         return (results, resultType)
     }

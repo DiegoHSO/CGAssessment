@@ -13,6 +13,7 @@ struct TimedUpAndGoModels {
         let instructions: [CGAModels.Instruction]
         let selectedOption: SelectableKeys
         let typedElapsedTime: String?
+        let stopwatchElapsedTime: TimeInterval?
         let isResultsButtonEnabled: Bool
 
         var sections: [Section: [Row]] {

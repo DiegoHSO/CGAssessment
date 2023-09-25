@@ -28,10 +28,10 @@
                         <rect key="frame" x="30" y="0.0" width="259" height="391"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="caX-OX-gEp">
-                                <rect key="frame" x="15" y="30" width="229" height="331"/>
+                                <rect key="frame" x="10" y="30" width="239" height="331"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMk-V3-cuW">
-                                        <rect key="frame" x="10" y="0.0" width="209" height="331"/>
+                                        <rect key="frame" x="15" y="0.0" width="209" height="331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMED UP-AND-GO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-mF-2Dw">
                                                 <rect key="frame" x="24" y="3" width="161" height="325"/>
@@ -53,8 +53,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="caX-OX-gEp" secondAttribute="trailing" constant="15" id="2jG-GV-Yv9"/>
-                            <constraint firstItem="caX-OX-gEp" firstAttribute="leading" secondItem="HUg-TJ-TGp" secondAttribute="leading" constant="15" id="Ft6-CM-jCH"/>
+                            <constraint firstAttribute="trailing" secondItem="caX-OX-gEp" secondAttribute="trailing" constant="10" id="2jG-GV-Yv9"/>
+                            <constraint firstItem="caX-OX-gEp" firstAttribute="leading" secondItem="HUg-TJ-TGp" secondAttribute="leading" constant="10" id="Ft6-CM-jCH"/>
                             <constraint firstItem="caX-OX-gEp" firstAttribute="top" secondItem="HUg-TJ-TGp" secondAttribute="top" constant="30" id="HmG-gz-Uwi"/>
                             <constraint firstAttribute="bottom" secondItem="caX-OX-gEp" secondAttribute="bottom" constant="30" id="UgO-pR-ZIi"/>
                         </constraints>
