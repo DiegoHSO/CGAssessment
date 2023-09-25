@@ -144,3 +144,12 @@
 "walking_speed_second_instruction_key" = "Solicite ao paciente que caminhe o mais rápido possível até o ponto de referência.";
 "walking_speed_third_instruction_key" = "Meça o tempo levado para execução do teste com o auxílio de um cronômetro.";
 "walking_speed_fourth_instruction_key" = "Repita os passos 2 e 3 mais duas vezes.";
+"first_key" = "1º";
+"second_key" = "2º";
+"third_key" = "3º";
+"measurement_key" = "medição";
+"average_speed_key" = "Velocidade média";
+"meters_per_second_key" = "metros por segundo";
+"meter_per_second_key" = "metro por segundo";
+"walking_speed_excellent_result_key" = "Indivíduo com resultado sugestivo de provavelmente viver além da expectativa média de vida para idade e sexo";
+"walking_speed_bad_result_key" = "Indivíduo com resultado sugestivo de ter uma sobrevida mais curta";

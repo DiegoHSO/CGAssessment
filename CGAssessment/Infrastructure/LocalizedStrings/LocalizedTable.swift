@@ -198,5 +198,14 @@ enum LocalizedTable: String, Localizable {
     case firstMeasurement = "first_measurement_key"
     case secondMeasurement = "second_measurement_key"
     case thirdMeasurement = "third_measurement_key"
+    case first = "first_key"
+    case second = "second_key"
+    case third = "third_key"
+    case measurement = "measurement_key"
+    case averageSpeed = "average_speed_key"
+    case metersPerSecond = "meters_per_second_key"
+    case meterPerSecond = "meter_per_second_key"
+    case walkingSpeedExcellentResult = "walking_speed_excellent_result_key"
+    case walkingSpeedBadResult = "walking_speed_bad_result_key"
 
 }

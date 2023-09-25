@@ -116,6 +116,7 @@
 		F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */; };
 		F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */; };
 		F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */; };
+		F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3D12AC134C000BC610E /* Double+Extension.swift */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -286,6 +287,7 @@
 		F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedRouter.swift; sourceTree = "<group>"; };
 		F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedModels.swift; sourceTree = "<group>"; };
 		F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkingSpeed.storyboard; sourceTree = "<group>"; };
+		F1F1E3D12AC134C000BC610E /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				F14097782AB7F3BE00E92005 /* String+Extension.swift */,
 				F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */,
 				F1F1E3C02AC0DCF600BC610E /* TimeInverval+Extension.swift */,
+				F1F1E3D12AC134C000BC610E /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
+				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
