@@ -17,6 +17,7 @@ class StopwatchTableViewCell: UITableViewCell {
     @IBOutlet private weak var leftButtonLabel: UILabel?
     @IBOutlet private weak var rightButtonView: UIView?
     @IBOutlet private weak var rightButtonLabel: UILabel?
+    @IBOutlet private weak var descriptionLabel: UILabel?
 
     // Label to display the stopwatch time
     @IBOutlet private weak var stopwatchLabel: UILabel?
@@ -41,7 +42,9 @@ class StopwatchTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(delegate: StopwatchDelegate?) {
+    func setup(delegate: StopwatchDelegate?, description: String? = nil) {
+        descriptionLabel?.text = description
+        descriptionLabel?.isHidden = description == nil
         self.delegate = delegate
     }
 
