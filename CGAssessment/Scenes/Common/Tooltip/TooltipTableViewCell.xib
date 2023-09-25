@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,11 +47,11 @@
                         <color key="backgroundColor" name="Background-6"/>
                         <constraints>
                             <constraint firstItem="oaa-c4-37L" firstAttribute="top" secondItem="0lE-rb-cZu" secondAttribute="top" constant="12" id="7Tp-6M-gwV"/>
-                            <constraint firstAttribute="trailing" secondItem="oaa-c4-37L" secondAttribute="trailing" constant="8" id="HYz-Vj-7wm"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oaa-c4-37L" secondAttribute="trailing" constant="8" id="HYz-Vj-7wm"/>
                             <constraint firstItem="oaa-c4-37L" firstAttribute="centerX" secondItem="0lE-rb-cZu" secondAttribute="centerX" id="XYV-Oy-u3c"/>
                             <constraint firstItem="oaa-c4-37L" firstAttribute="centerY" secondItem="0lE-rb-cZu" secondAttribute="centerY" id="bEP-iu-SCW"/>
                             <constraint firstAttribute="bottom" secondItem="oaa-c4-37L" secondAttribute="bottom" constant="12" id="fkO-AF-aJk"/>
-                            <constraint firstItem="oaa-c4-37L" firstAttribute="leading" secondItem="0lE-rb-cZu" secondAttribute="leading" constant="8" id="qdQ-hK-4jw"/>
+                            <constraint firstItem="oaa-c4-37L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0lE-rb-cZu" secondAttribute="leading" constant="8" id="qdQ-hK-4jw"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -70,6 +70,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="tooltipSymbolLabel" destination="pUJ-o0-03c" id="hJz-kG-bey"/>
                 <outlet property="tooltipTextLabel" destination="MeG-K3-cn9" id="qHa-Lu-4rR"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="31.690140845070424"/>
