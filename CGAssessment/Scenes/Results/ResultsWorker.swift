@@ -18,7 +18,8 @@ class ResultsWorker {
             guard let timedUpAndGoResults = results as? TimedUpAndGoModels.TestResults else { return nil }
             return getTimedUpAndGoResults(for: timedUpAndGoResults)
         case .walkingSpeed:
-            break
+            guard let walkingSpeedResults = results as? WalkingSpeedModels.TestResults else { return nil }
+            return getWalkingSpeedResults(for: walkingSpeedResults)
         case .calfCircumference:
             break
         case .gripStrength:
@@ -89,6 +90,14 @@ class ResultsWorker {
                                  description: LocalizedTable.timedUpAndGoBadResult.localized))
         }
 
+        return (results, resultType)
+    }
+    
+    private func getWalkingSpeedResults(for testResults: WalkingSpeedModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredTime.localized,
+                                                     description: "\(testResults.firstElapsedTime.formatted) \(LocalizedTable.seconds.localized)")]
+        let resultType: ResultsModels.ResultType = .excellent
+        
         return (results, resultType)
     }
 }

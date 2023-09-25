@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TextFieldDelegate: AnyObject {
-    func didChangeText(text: String)
+    func didChangeText(text: String, identifier: LocalizedTable?)
 }
 
 class TextFieldTableViewCell: UITableViewCell {
@@ -20,6 +20,7 @@ class TextFieldTableViewCell: UITableViewCell {
     @IBOutlet private weak var stackViewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: TextFieldDelegate?
     private var currentText: String = ""
+    private var identifier: LocalizedTable?
 
     // MARK: - Life Cycle
 
@@ -40,6 +41,7 @@ class TextFieldTableViewCell: UITableViewCell {
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         delegate = viewModel.delegate
+        identifier = viewModel.identifier
     }
 
     // MARK: - Private Methods
@@ -63,13 +65,13 @@ extension TextFieldTableViewCell: UITextFieldDelegate {
         textField.resignFirstResponder()
 
         self.currentText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        delegate?.didChangeText(text: currentText)
+        delegate?.didChangeText(text: currentText, identifier: identifier)
 
         return true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.currentText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        delegate?.didChangeText(text: currentText)
+        delegate?.didChangeText(text: currentText, identifier: identifier)
     }
 }

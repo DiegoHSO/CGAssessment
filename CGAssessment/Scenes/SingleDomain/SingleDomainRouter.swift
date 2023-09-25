@@ -31,7 +31,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .timedUpAndGo:
             routeToTimedUpAndGoTest()
         case .walkingSpeed:
-            break
+            routeToWalkingSpeedTest()
         case .calfCircumference:
             break
         case .gripStrength:
@@ -91,5 +91,21 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         timedUpAndGoController.setupArchitecture(interactor: interactor, router: router)
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
+    }
+
+    private func routeToWalkingSpeedTest() {
+        let storyboard = UIStoryboard(name: "WalkingSpeed", bundle: Bundle.main)
+        guard let walkingSpeedController = UIStoryboard
+                .instantiateInitialViewController(storyboard)() as? WalkingSpeedViewController else {
+            return
+        }
+
+        let presenter = WalkingSpeedPresenter(viewController: walkingSpeedController)
+        let interactor = WalkingSpeedInteractor(presenter: presenter)
+        let router = WalkingSpeedRouter(viewController: walkingSpeedController)
+
+        walkingSpeedController.setupArchitecture(interactor: interactor, router: router)
+
+        viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }
 }

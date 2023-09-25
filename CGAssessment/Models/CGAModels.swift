@@ -38,6 +38,7 @@ struct CGAModels {
         let delegate: TextFieldDelegate?
         var leadingConstraint: CGFloat = 30
         var keyboardType: UIKeyboardType = .asciiCapable
+        var identifier: LocalizedTable?
     }
 
     struct InstructionsViewModel {

@@ -189,4 +189,14 @@ enum LocalizedTable: String, Localizable {
     case timedUpAndGoMediumResult = "timed_up_and_go_medium_result"
     case timedUpAndGoBadResult = "timed_up_and_go_bad_result"
 
+    // MARK: - Walking speed
+
+    case walkingSpeedFirstInstruction = "walking_speed_first_instruction_key"
+    case walkingSpeedSecondInstruction = "walking_speed_second_instruction_key"
+    case walkingSpeedThirdInstruction = "walking_speed_third_instruction_key"
+    case walkingSpeedFourthInstruction = "walking_speed_fourth_instruction_key"
+    case firstMeasurement = "first_measurement_key"
+    case secondMeasurement = "second_measurement_key"
+    case thirdMeasurement = "third_measurement_key"
+
 }

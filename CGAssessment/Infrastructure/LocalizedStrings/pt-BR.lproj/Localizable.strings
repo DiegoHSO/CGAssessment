@@ -137,3 +137,10 @@
 "timed_up_and_go_good_result" = "Indivíduo independente e com razoável equilíbrio, geralmente capaz de subir escadas, sair de casa sozinho e caminhar mais de 500 m livremente";
 "timed_up_and_go_medium_result" = "Indivíduo em \"zona cinzenta\", demonstrando dificuldades para efetuar tarefas diárias, porém, com grande variação, a depender do contexto";
 "timed_up_and_go_bad_result" = "Indivíduo completamente dependente, precisando de auxílio para efetuar atividades básicas (alimentar-se, trocar-se, banhar-se, caminhar)";
+"first_measurement_key" = "Primeira medição";
+"second_measurement_key" = "Segunda medição";
+"third_measurement_key" = "Terceira medição";
+"walking_speed_first_instruction_key" = "Faça uma marca no piso ou tenha um ponto de referência que esteja a quatro metros da posição atual do paciente.";
+"walking_speed_second_instruction_key" = "Solicite ao paciente que caminhe o mais rápido possível até o ponto de referência.";
+"walking_speed_third_instruction_key" = "Meça o tempo levado para execução do teste com o auxílio de um cronômetro.";
+"walking_speed_fourth_instruction_key" = "Repita os passos 2 e 3 mais duas vezes.";

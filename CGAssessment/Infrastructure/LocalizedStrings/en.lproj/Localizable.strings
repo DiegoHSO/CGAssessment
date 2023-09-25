@@ -137,3 +137,10 @@
 "timed_up_and_go_good_result" = "Independent individual with reasonable balance, typically capable of climbing stairs, leaving the house alone, and walking more than 500 meters freely.";
 "timed_up_and_go_medium_result" = "Individual in a 'gray zone,' showing difficulties in performing daily tasks, but with a wide variation depending on the context.";
 "timed_up_and_go_bad_result" = "Completely dependent individual, requiring assistance to perform basic activities (feeding, dressing, bathing, walking).";
+"first_measurement_key" = "First measurement";
+"second_measurement_key" = "Second measurement";
+"third_measurement_key" = "Third measurement";
+"walking_speed_first_instruction_key" = "Make a mark on the floor or have a reference point that is 13 feet (4 meters) away from the patient's current position.";
+"walking_speed_second_instruction_key" = "Instruct the patient to walk as fast as possible to the reference point.";
+"walking_speed_third_instruction_key" = "Measure the time taken to complete the test using a stopwatch.";
+"walking_speed_fourth_instruction_key" = "Repeat steps 2 and 3 two more times.";
