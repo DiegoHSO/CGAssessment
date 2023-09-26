@@ -117,6 +117,8 @@
 		F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */; };
 		F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */; };
 		F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3D12AC134C000BC610E /* Double+Extension.swift */; };
+		F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3D42AC246D300BC610E /* ImageTableViewCell.swift */; };
+		F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3D52AC246D300BC610E /* ImageTableViewCell.xib */; };
 		F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */; };
 		F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */; };
 		F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */; };
@@ -288,6 +290,8 @@
 		F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedModels.swift; sourceTree = "<group>"; };
 		F1F1E3CF2AC10F5000BC610E /* WalkingSpeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkingSpeed.storyboard; sourceTree = "<group>"; };
 		F1F1E3D12AC134C000BC610E /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		F1F1E3D42AC246D300BC610E /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		F1F1E3D52AC246D300BC610E /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295802AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		F1F295812AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoEvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		F1F295842AAAF3E700E52B92 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -766,6 +770,15 @@
 			path = WalkingSpeed;
 			sourceTree = "<group>";
 		};
+		F1F1E3D32AC2466000BC610E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1E3D42AC246D300BC610E /* ImageTableViewCell.swift */,
+				F1F1E3D52AC246D300BC610E /* ImageTableViewCell.xib */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		F1F2E9D22AB2989D0006075F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +810,7 @@
 				F1F2E9E72AB36A020006075F /* Selectable */,
 				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
+				F1F1E3D32AC2466000BC610E /* Image */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -962,6 +976,7 @@
 				F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */,
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
 				F1A9FBD92AAA60170048E31F /* SF-Compact-Display-Heavy.otf in Resources */,
+				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
@@ -1078,6 +1093,7 @@
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
+				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
 				F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */,
