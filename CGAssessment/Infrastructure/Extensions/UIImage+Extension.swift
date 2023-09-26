@@ -9,6 +9,31 @@ import UIKit
 
 extension UIImage {
 
+    func generateImageWithBorder(borderSize borderWidth: CGFloat = 10.0) -> UIImage {
+        let size = self.size
+        let rect = CGRect(origin: .zero, size: size)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: borderWidth)
+        let renderer = UIGraphicsImageRenderer(size: size)
+
+        let firstImg = renderer.image { ctx in
+            self.draw(in: rect)
+            ctx.cgContext.setStrokeColor((UIColor.label3 ?? .clear).cgColor)
+            ctx.cgContext.setLineWidth(10)
+            ctx.cgContext.addRect(rect)
+            ctx.cgContext.drawPath(using: .stroke)
+        }
+
+        let finalImg = renderer.image { _ in
+            UIColor.label3?.setStroke()
+            path.lineWidth = 10
+            path.stroke()
+            path.addClip()
+            firstImg.draw(in: rect)
+        }
+
+        return finalImg
+    }
+
     typealias ImageAndColor = (image: UIImage?, color: UIColor?)
 
     struct TabBar {
