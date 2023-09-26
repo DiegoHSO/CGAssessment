@@ -38,6 +38,9 @@ class SingleInstructionView: UIView {
 
     func setup(number: Int, description: String) {
         instructionNumberLabel?.text = String(number) + "."
+        instructionNumberLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         instructionLabel?.text = description
+        instructionLabel?.font
+        = .compactDisplay(withStyle: .medium, size: 16)
     }
 }
