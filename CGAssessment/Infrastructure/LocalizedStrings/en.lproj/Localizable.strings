@@ -127,7 +127,7 @@
 "time_taken_seconds_key" = "Enter the time taken (in seconds)";
 "instructions_key" = "Instructions";
 "result_key" = "Result";
-"next_test_key" = "Next text";
+"next_test_key" = "Next test";
 "return_key" = "Return";
 "assessment_key" = "Assessment";
 "measured_time_key" = "Measured time";

@@ -30,6 +30,7 @@ struct GripStrengthModels {
         let firstMeasurement: Double
         let secondMeasurement: Double
         let thirdMeasurement: Double
+        let gender: Gender
     }
 
     enum Routing {

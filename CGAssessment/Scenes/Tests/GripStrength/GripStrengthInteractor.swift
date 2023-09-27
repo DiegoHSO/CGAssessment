@@ -37,9 +37,11 @@ class GripStrengthInteractor: GripStrengthLogic {
         guard let typedFirstMeasurement, let typedSecondMeasurement, let typedThirdMeasurement,
               typedFirstMeasurement > 0, typedSecondMeasurement > 0, typedThirdMeasurement > 0 else { return }
 
+        // TODO: Change gender to patient's
         presenter?.route(toRoute: .testResults(test: .gripStrength, results: .init(firstMeasurement: typedFirstMeasurement,
                                                                                    secondMeasurement: typedSecondMeasurement,
-                                                                                   thirdMeasurement: typedThirdMeasurement)))
+                                                                                   thirdMeasurement: typedThirdMeasurement,
+                                                                                   gender: Gender.allCases.randomElement() ?? .female)))
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
