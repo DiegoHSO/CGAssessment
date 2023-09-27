@@ -34,7 +34,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .walkingSpeed:
             routeToWalkingSpeedTest()
         case .calfCircumference:
-            break
+            routeToCalfCircumferenceTest()
         case .gripStrength:
             break
         case .sarcopeniaAssessment:
@@ -121,5 +121,21 @@ class ResultsRouter: ResultsRoutingLogic {
         walkingSpeedController.setupArchitecture(interactor: interactor, router: router)
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
+    }
+
+    private func routeToCalfCircumferenceTest() {
+        let storyboard = UIStoryboard(name: "CalfCircumference", bundle: Bundle.main)
+        guard let calfCircumferenceController = UIStoryboard
+                .instantiateInitialViewController(storyboard)() as? CalfCircumferenceViewController else {
+            return
+        }
+
+        let presenter = CalfCircumferencePresenter(viewController: calfCircumferenceController)
+        let interactor = CalfCircumferenceInteractor(presenter: presenter)
+        let router = CalfCircumferenceRouter(viewController: calfCircumferenceController)
+
+        calfCircumferenceController.setupArchitecture(interactor: interactor, router: router)
+
+        viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }
 }

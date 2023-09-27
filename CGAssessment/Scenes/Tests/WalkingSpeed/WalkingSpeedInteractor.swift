@@ -82,11 +82,11 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
 
         switch identifier {
         case .firstMeasurement:
-            typedFirstTime = TimeInterval(text)
+            typedFirstTime = TimeInterval(text.replacingOccurrences(of: ",", with: "."))
         case .secondMeasurement:
-            typedSecondTime = TimeInterval(text)
+            typedSecondTime = TimeInterval(text.replacingOccurrences(of: ",", with: "."))
         case .thirdMeasurement:
-            typedThirdTime = TimeInterval(text)
+            typedThirdTime = TimeInterval(text.replacingOccurrences(of: ",", with: "."))
         default:
             return
         }
@@ -119,9 +119,11 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
         }
 
         return WalkingSpeedModels.ControllerViewModel(instructions: instructions, selectedOption: selectedOption,
-                                                      typedFirstTime: typedFirstTime?.description, typedSecondTime: typedSecondTime?.description,
-                                                      typedThirdTime: typedThirdTime?.description, firstStopwatchTime: firstStopwatchTime,
-                                                      secondStopwatchTime: secondStopwatchTime, thirdStopwatchTime: thirdStopwatchTime,
-                                                      selectedStopwatch: selectedStopwatch, isResultsButtonEnabled: isResultsButtonEnabled)
+                                                      typedFirstTime: typedFirstTime?.regionFormatted(fractionDigits: 2),
+                                                      typedSecondTime: typedSecondTime?.regionFormatted(fractionDigits: 2),
+                                                      typedThirdTime: typedThirdTime?.regionFormatted(fractionDigits: 2),
+                                                      firstStopwatchTime: firstStopwatchTime, secondStopwatchTime: secondStopwatchTime,
+                                                      thirdStopwatchTime: thirdStopwatchTime, selectedStopwatch: selectedStopwatch,
+                                                      isResultsButtonEnabled: isResultsButtonEnabled)
     }
 }

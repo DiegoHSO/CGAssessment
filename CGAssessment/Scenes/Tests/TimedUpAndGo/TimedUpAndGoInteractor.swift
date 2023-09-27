@@ -58,7 +58,7 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
-        typedElapsedTime = TimeInterval(text)
+        typedElapsedTime = TimeInterval(text.replacingOccurrences(of: ",", with: "."))
         sendDataToPresenter()
     }
 
@@ -82,7 +82,7 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
         }
 
         return TimedUpAndGoModels.ControllerViewModel(instructions: instructions, selectedOption: selectedOption,
-                                                      typedElapsedTime: typedElapsedTime?.description,
+                                                      typedElapsedTime: typedElapsedTime?.regionFormatted(fractionDigits: 2),
                                                       stopwatchElapsedTime: stopwatchElapsedTime,
                                                       isResultsButtonEnabled: isResultsButtonEnabled)
     }
