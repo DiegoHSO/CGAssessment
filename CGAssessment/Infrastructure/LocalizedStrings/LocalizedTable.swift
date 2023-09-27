@@ -216,4 +216,17 @@ enum LocalizedTable: String, Localizable {
     case circumferencePlaceholder = "circumference_placeholder_key"
     case measuredValue = "measured_value_key"
     case centimeters = "centimeters_key"
+
+    // MARK: - Grip strength
+
+    case gripStrengthFirstInstruction = "grip_strength_first_instruction_key"
+    case gripStrengthSecondInstruction = "grip_strength_second_instruction_key"
+    case gripStrengthThirdInstruction = "grip_strength_third_instruction_key"
+    case gripStrengthFourthInstruction = "grip_strength_fourth_instruction_key"
+    case gripStrengthFifthInstruction = "grip_strength_fifth_instruction_key"
+    case gripStrengthExcellentResult = "grip_strength_excellent_result"
+    case gripStrengthBadResult = "grip_strength_bad_result"
+    case strengthPlaceholder = "strength_placeholder_key"
+    case measuredStrength = "measured_strength_key"
+    case averageStrength = "average_strength_key"
 }

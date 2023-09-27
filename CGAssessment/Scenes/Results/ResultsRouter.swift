@@ -36,7 +36,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .calfCircumference:
             routeToCalfCircumferenceTest()
         case .gripStrength:
-            break
+            routeToGripStrengthTest()
         case .sarcopeniaAssessment:
             break
         case .miniMentalStateExamination:
@@ -92,50 +92,26 @@ class ResultsRouter: ResultsRoutingLogic {
     // MARK: - Private Methods
 
     private func routeToTimedUpAndGoTest() {
-        let storyboard = UIStoryboard(name: "TimedUpAndGo", bundle: Bundle.main)
-        guard let timedUpAndGoController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? TimedUpAndGoViewController else {
-            return
-        }
-
-        let presenter = TimedUpAndGoPresenter(viewController: timedUpAndGoController)
-        let interactor = TimedUpAndGoInteractor(presenter: presenter)
-        let router = TimedUpAndGoRouter(viewController: timedUpAndGoController)
-
-        timedUpAndGoController.setupArchitecture(interactor: interactor, router: router)
+        guard let timedUpAndGoController = TimedUpAndGoBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }
 
     private func routeToWalkingSpeedTest() {
-        let storyboard = UIStoryboard(name: "WalkingSpeed", bundle: Bundle.main)
-        guard let walkingSpeedController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? WalkingSpeedViewController else {
-            return
-        }
-
-        let presenter = WalkingSpeedPresenter(viewController: walkingSpeedController)
-        let interactor = WalkingSpeedInteractor(presenter: presenter)
-        let router = WalkingSpeedRouter(viewController: walkingSpeedController)
-
-        walkingSpeedController.setupArchitecture(interactor: interactor, router: router)
+        guard let walkingSpeedController = WalkingSpeedBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }
 
     private func routeToCalfCircumferenceTest() {
-        let storyboard = UIStoryboard(name: "CalfCircumference", bundle: Bundle.main)
-        guard let calfCircumferenceController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? CalfCircumferenceViewController else {
-            return
-        }
-
-        let presenter = CalfCircumferencePresenter(viewController: calfCircumferenceController)
-        let interactor = CalfCircumferenceInteractor(presenter: presenter)
-        let router = CalfCircumferenceRouter(viewController: calfCircumferenceController)
-
-        calfCircumferenceController.setupArchitecture(interactor: interactor, router: router)
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
+    }
+
+    private func routeToGripStrengthTest() {
+        guard let gripStrengthController = GripStrengthBuilder.build() else { return }
+
+        viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }
 }

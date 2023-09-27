@@ -26,17 +26,7 @@ class CalfCircumferenceRouter: CalfCircumferenceRoutingLogic {
     // MARK: - Public Methods
 
     func routeToTestResults(test: SingleDomainModels.Test, results: CalfCircumferenceModels.TestResults) {
-        let storyboard = UIStoryboard(name: "Results", bundle: Bundle.main)
-        guard let resultsController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? ResultsViewController else {
-            return
-        }
-
-        let presenter = ResultsPresenter(viewController: resultsController)
-        let interactor = ResultsInteractor(presenter: presenter, worker: .init(), test: test, results: results)
-        let router = ResultsRouter(viewController: resultsController)
-
-        resultsController.setupArchitecture(interactor: interactor, router: router)
+        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

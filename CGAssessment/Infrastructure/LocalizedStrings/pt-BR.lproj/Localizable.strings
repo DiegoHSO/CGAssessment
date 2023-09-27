@@ -159,3 +159,13 @@
 "centimeters_key" = "centímetros";
 "calf_circumference_excellent_result_key" = "Indivíduo com resultado sugestivo de normalidade na massa muscular";
 "calf_circumference_bad_result_key" = "Indivíduo com resultado sugestivo de baixa massa muscular";
+"grip_strength_first_instruction_key" = "Coloque o paciente sentado em uma cadeira sem braços, com os quadris e joelhos a 90 graus de flexão.";
+"grip_strength_second_instruction_key" = "Deixe o ombro do paciente aduzido e naturalmente rodado, com o cotovelo flexionado a 90 graus e com o antebraço e punho em posição neutra. Peça para o paciente segurar um dinamômetro na posição descrita.";
+"grip_strength_third_instruction_key" = "Se necessário, auxilie o paciente sustentando o dinamômetro na posição correta (vide imagem). Solte-o assim que estiver ajustado.";
+"grip_strength_fourth_instruction_key" = "Registre o valor medido no dinamômetro.";
+"grip_strength_fifth_instruction_key" = "Repita os passos 2, 3 e 4 mais duas vezes, com intervalo de 60 segundos entre cada medida.";
+"grip_strength_excellent_result" = "Indivíduo com força total em estado de normalidade";
+"grip_strength_bad_result" = "Indivíduo com provável diagnóstico de sarcopenia";
+"strength_placeholder_key" = "Digite o valor medido (em kgf)";
+"measured_strength_key" = "Força medida";
+"average_strength_key" = "Força média";

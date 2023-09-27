@@ -11,7 +11,7 @@ class ResultsWorker {
 
     // MARK: - Public Methods
 
-    // swiftlint:disable:next cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func getResults(for test: SingleDomainModels.Test, results: Any?) -> ([ResultsModels.Result], ResultsModels.ResultType)? {
         switch test {
         case .timedUpAndGo:
@@ -24,7 +24,8 @@ class ResultsWorker {
             guard let calfCircumferenceResults = results as? CalfCircumferenceModels.TestResults else { return nil }
             return getCalfCircumferenceResults(for: calfCircumferenceResults)
         case .gripStrength:
-            break
+            guard let gripStrengthResults = results as? GripStrengthModels.TestResults else { return nil }
+            return getGripStrengthResults(for: gripStrengthResults)
         case .sarcopeniaAssessment:
             break
         case .miniMentalStateExamination:
@@ -144,6 +145,38 @@ class ResultsWorker {
             results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
                                  description: LocalizedTable.calfCircumferenceBadResult.localized))
         }
+
+        return (results, resultType)
+    }
+
+    private func getGripStrengthResults(for testResults: GripStrengthModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        // swiftlint:disable line_length
+        let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstMeasurement.regionFormatted()) kgf\n"
+        let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondMeasurement.regionFormatted()) kgf\n"
+        let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdMeasurement.regionFormatted()) kgf"
+        // swiftlint:enable line_length
+
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredStrength.localized,
+                                                     description: firstDescription + secondDescription + thirdDescription)]
+
+        let attempts = [testResults.firstMeasurement, testResults.secondMeasurement, testResults.thirdMeasurement]
+        let average = attempts.reduce(0.0, +) / Double(attempts.count)
+
+        results.append(.init(title: LocalizedTable.averageStrength.localized,
+                             description: "\(average.regionFormatted()) kgf"))
+
+        let resultType: ResultsModels.ResultType
+
+        switch testResults.gender {
+        case .female:
+            resultType = average >= 16 ? .excellent : .bad
+        case .male:
+            resultType = average >= 27 ? .excellent : .bad
+        }
+
+        results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
+                             description: resultType == .excellent ? LocalizedTable.gripStrengthExcellentResult.localized :
+                                LocalizedTable.gripStrengthBadResult.localized))
 
         return (results, resultType)
     }

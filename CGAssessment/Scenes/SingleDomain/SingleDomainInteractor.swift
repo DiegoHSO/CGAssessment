@@ -71,7 +71,7 @@ class SingleDomainInteractor: SingleDomainLogic {
 
         let testsViewModel = tests.map { SingleDomainModels.TestViewModel(test: $0,
                                                                           status: SingleDomainModels.TestStatus.allCases.randomElement()
-                                                                            ?? .notStarted)
+                                                                            ?? .notStarted) // TODO: Change status to actual patient's CGA
         }
 
         return SingleDomainModels.ControllerViewModel(domain: domain, tests: testsViewModel, sections: 1)

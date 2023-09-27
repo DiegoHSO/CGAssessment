@@ -9,7 +9,7 @@ import UIKit
 
 typealias Options = [SelectableKeys: LocalizedTable]
 
-enum Gender: String {
+enum Gender: String, CaseIterable {
     case male = "man"
     case female = "woman"
 }

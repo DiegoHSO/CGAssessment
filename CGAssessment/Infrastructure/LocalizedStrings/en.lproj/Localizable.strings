@@ -127,7 +127,7 @@
 "time_taken_seconds_key" = "Enter the time taken (in seconds)";
 "instructions_key" = "Instructions";
 "result_key" = "Result";
-"next_test_key" = "Next text";
+"next_test_key" = "Next test";
 "return_key" = "Return";
 "assessment_key" = "Assessment";
 "measured_time_key" = "Measured time";
@@ -159,3 +159,13 @@
 "centimeters_key" = "centimeters";
 "calf_circumference_excellent_result_key" = "Individual with results suggestive of normal muscle mass";
 "calf_circumference_bad_result_key" = "Individual with results suggestive of low muscle mass";
+"grip_strength_first_instruction_key" = "Place the patient seated in an armless chair, with the hips and knees at 90 degrees of flexion.";
+"grip_strength_second_instruction_key" = "Leave the patient's shoulder adducted and naturally rotated, with the elbow flexed at 90 degrees and the forearm and wrist in a neutral position. Ask the patient to hold a dynamometer in the described position.";
+"grip_strength_third_instruction_key" = "If necessary, help the patient by holding the dynamometer in the correct position (see image). Release it once it is adjusted.";
+"grip_strength_fourth_instruction_key" = "Record the value measured on the dynamometer.";
+"grip_strength_fifth_instruction_key" = "Repeat steps 2, 3 and 4 twice more, with an interval of 60 seconds between each measurement.";
+"grip_strength_excellent_result" = "Individual with full strength in a normal state";
+"grip_strength_bad_result" = "Individual with likely diagnosis of sarcopenia";
+"strength_placeholder_key" = "Enter the measured value (in kgf)";
+"measured_strength_key" = "Measured strength";
+"average_strength_key" = "Average strength";
