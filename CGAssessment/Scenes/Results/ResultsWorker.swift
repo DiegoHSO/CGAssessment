@@ -21,7 +21,8 @@ class ResultsWorker {
             guard let walkingSpeedResults = results as? WalkingSpeedModels.TestResults else { return nil }
             return getWalkingSpeedResults(for: walkingSpeedResults)
         case .calfCircumference:
-            break
+            guard let calfCircumferenceResults = results as? CalfCircumferenceModels.TestResults else { return nil }
+            return getCalfCircumferenceResults(for: calfCircumferenceResults)
         case .gripStrength:
             break
         case .sarcopeniaAssessment:
@@ -122,6 +123,27 @@ class ResultsWorker {
         results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
                              description: resultType == .excellent ? LocalizedTable.walkingSpeedExcellentResult.localized
                                 : LocalizedTable.walkingSpeedBadResult.localized))
+
+        return (results, resultType)
+    }
+
+    // swiftlint:disable line_length
+    private func getCalfCircumferenceResults(for testResults: CalfCircumferenceModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredValue.localized,
+                                                     description: "\(testResults.circumference.regionFormatted()) \(LocalizedTable.centimeters.localized)")]
+        // swiftlint:enable line_length
+
+        let resultType: ResultsModels.ResultType
+
+        if testResults.circumference >= 31 {
+            resultType = .excellent
+            results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
+                                 description: LocalizedTable.calfCircumferenceExcellentResult.localized))
+        } else {
+            resultType = .bad
+            results.append(.init(title: LocalizedTable.suggestedDiagnosis.localized,
+                                 description: LocalizedTable.calfCircumferenceBadResult.localized))
+        }
 
         return (results, resultType)
     }

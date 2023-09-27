@@ -155,3 +155,7 @@
 "walking_speed_bad_result_key" = "Individual with results suggestive of having a shorter life expectancy";
 "calf_circumference_instruction_key" = "Using a measuring tape, measure the largest circumference in the space between the patient's knee and ankle.";
 "circumference_placeholder_key" = "Enter the circumference (in cm)";
+"measured_value_key" = "Measured value";
+"centimeters_key" = "centimeters";
+"calf_circumference_excellent_result_key" = "Individual with results suggestive of normal muscle mass";
+"calf_circumference_bad_result_key" = "Individual with results suggestive of low muscle mass";

@@ -28,13 +28,13 @@
                         <rect key="frame" x="30" y="0.0" width="259" height="391"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="caX-OX-gEp">
-                                <rect key="frame" x="10" y="30" width="239" height="331"/>
+                                <rect key="frame" x="20" y="30" width="219" height="331"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMk-V3-cuW">
-                                        <rect key="frame" x="15" y="0.0" width="209" height="331"/>
+                                        <rect key="frame" x="5" y="0.0" width="209" height="101"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMED UP-AND-GO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-mF-2Dw">
-                                                <rect key="frame" x="24" y="3" width="161" height="325"/>
+                                                <rect key="frame" x="24" y="3" width="161" height="95"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Heavy" family="SF Compact Rounded" pointSize="24"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
@@ -48,13 +48,16 @@
                                             <constraint firstItem="Sd5-mF-2Dw" firstAttribute="leading" secondItem="gMk-V3-cuW" secondAttribute="leading" constant="24" id="KCi-PT-IRa"/>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ybn-Xa-vPr">
+                                        <rect key="frame" x="54.666666666666671" y="131" width="110.00000000000001" height="200"/>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="caX-OX-gEp" secondAttribute="trailing" constant="10" id="2jG-GV-Yv9"/>
-                            <constraint firstItem="caX-OX-gEp" firstAttribute="leading" secondItem="HUg-TJ-TGp" secondAttribute="leading" constant="10" id="Ft6-CM-jCH"/>
+                            <constraint firstAttribute="trailing" secondItem="caX-OX-gEp" secondAttribute="trailing" constant="20" id="2jG-GV-Yv9"/>
+                            <constraint firstItem="caX-OX-gEp" firstAttribute="leading" secondItem="HUg-TJ-TGp" secondAttribute="leading" constant="20" id="Ft6-CM-jCH"/>
                             <constraint firstItem="caX-OX-gEp" firstAttribute="top" secondItem="HUg-TJ-TGp" secondAttribute="top" constant="30" id="HmG-gz-Uwi"/>
                             <constraint firstAttribute="bottom" secondItem="caX-OX-gEp" secondAttribute="bottom" constant="30" id="UgO-pR-ZIi"/>
                         </constraints>
@@ -71,7 +74,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="resultsMainView" destination="HUg-TJ-TGp" id="BXG-y4-gqS"/>
-                <outlet property="resultsStackView" destination="caX-OX-gEp" id="kav-3x-guB"/>
+                <outlet property="resultsStackView" destination="Ybn-Xa-vPr" id="yeh-TQ-FSy"/>
                 <outlet property="testTitleLabel" destination="Sd5-mF-2Dw" id="ZI3-XH-kBA"/>
                 <outlet property="testTitleView" destination="gMk-V3-cuW" id="J6E-01-wvG"/>
             </connections>

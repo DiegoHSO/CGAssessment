@@ -211,5 +211,9 @@ enum LocalizedTable: String, Localizable {
     // MARK: - Calf circumference
 
     case calfCircumferenceInstruction = "calf_circumference_instruction_key"
+    case calfCircumferenceExcellentResult = "calf_circumference_excellent_result_key"
+    case calfCircumferenceBadResult = "calf_circumference_bad_result_key"
     case circumferencePlaceholder = "circumference_placeholder_key"
+    case measuredValue = "measured_value_key"
+    case centimeters = "centimeters_key"
 }
