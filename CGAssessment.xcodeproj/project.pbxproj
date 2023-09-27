@@ -41,6 +41,17 @@
 		F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */; };
 		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
 		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
+		F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18698C82AC472E700FB5620 /* GripStrength.storyboard */; };
+		F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698CA2AC472F200FB5620 /* GripStrengthViewController.swift */; };
+		F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698CC2AC4732600FB5620 /* GripStrengthInteractor.swift */; };
+		F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698CE2AC4733300FB5620 /* GripStrengthPresenter.swift */; };
+		F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698D02AC4733E00FB5620 /* GripStrengthRouter.swift */; };
+		F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698D22AC4734700FB5620 /* GripStrengthModels.swift */; };
+		F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698D42AC4843600FB5620 /* ResultsBuilder.swift */; };
+		F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698D62AC4B28700FB5620 /* TimedUpAndGoBuilder.swift */; };
+		F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698D82AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift */; };
+		F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698DA2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift */; };
+		F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698DC2AC4B5B800FB5620 /* GripStrengthBuilder.swift */; };
 		F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */; };
 		F1A543122AC3DFD800D543ED /* CalfCircumference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */; };
 		F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */; };
@@ -216,6 +227,17 @@
 		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
 		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F18698C82AC472E700FB5620 /* GripStrength.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GripStrength.storyboard; sourceTree = "<group>"; };
+		F18698CA2AC472F200FB5620 /* GripStrengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthViewController.swift; sourceTree = "<group>"; };
+		F18698CC2AC4732600FB5620 /* GripStrengthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthInteractor.swift; sourceTree = "<group>"; };
+		F18698CE2AC4733300FB5620 /* GripStrengthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthPresenter.swift; sourceTree = "<group>"; };
+		F18698D02AC4733E00FB5620 /* GripStrengthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthRouter.swift; sourceTree = "<group>"; };
+		F18698D22AC4734700FB5620 /* GripStrengthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthModels.swift; sourceTree = "<group>"; };
+		F18698D42AC4843600FB5620 /* ResultsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsBuilder.swift; sourceTree = "<group>"; };
+		F18698D62AC4B28700FB5620 /* TimedUpAndGoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoBuilder.swift; sourceTree = "<group>"; };
+		F18698D82AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedBuilder.swift; sourceTree = "<group>"; };
+		F18698DA2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceBuilder.swift; sourceTree = "<group>"; };
+		F18698DC2AC4B5B800FB5620 /* GripStrengthBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthBuilder.swift; sourceTree = "<group>"; };
 		F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceViewController.swift; sourceTree = "<group>"; };
 		F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalfCircumference.storyboard; sourceTree = "<group>"; };
 		F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractor.swift; sourceTree = "<group>"; };
@@ -570,6 +592,20 @@
 			path = LocalizedStrings;
 			sourceTree = "<group>";
 		};
+		F18698C72AC472B700FB5620 /* GripStrength */ = {
+			isa = PBXGroup;
+			children = (
+				F18698C82AC472E700FB5620 /* GripStrength.storyboard */,
+				F18698CA2AC472F200FB5620 /* GripStrengthViewController.swift */,
+				F18698CC2AC4732600FB5620 /* GripStrengthInteractor.swift */,
+				F18698CE2AC4733300FB5620 /* GripStrengthPresenter.swift */,
+				F18698D02AC4733E00FB5620 /* GripStrengthRouter.swift */,
+				F18698D22AC4734700FB5620 /* GripStrengthModels.swift */,
+				F18698DC2AC4B5B800FB5620 /* GripStrengthBuilder.swift */,
+			);
+			path = GripStrength;
+			sourceTree = "<group>";
+		};
 		F1A5430E2AC3DFAD00D543ED /* CalfCircumference */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +615,7 @@
 				F1A543152AC3E1EA00D543ED /* CalfCircumferencePresenter.swift */,
 				F1A543172AC3E1F200D543ED /* CalfCircumferenceRouter.swift */,
 				F1A543192AC3E23300D543ED /* CalfCircumferenceModels.swift */,
+				F18698DA2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift */,
 			);
 			path = CalfCircumference;
 			sourceTree = "<group>";
@@ -737,6 +774,7 @@
 				F1F1E3992ABFF30800BC610E /* TimedUpAndGo */,
 				F1F1E3C22AC10E5500BC610E /* WalkingSpeed */,
 				F1A5430E2AC3DFAD00D543ED /* CalfCircumference */,
+				F18698C72AC472B700FB5620 /* GripStrength */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -750,6 +788,7 @@
 				F1F1E3A02ABFF54700BC610E /* TimedUpAndGoPresenter.swift */,
 				F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */,
 				F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */,
+				F18698D62AC4B28700FB5620 /* TimedUpAndGoBuilder.swift */,
 			);
 			path = TimedUpAndGo;
 			sourceTree = "<group>";
@@ -776,6 +815,7 @@
 				F1F1E3B62AC0C61400BC610E /* ResultsPresenter.swift */,
 				F1F1E3B82AC0C61D00BC610E /* ResultsRouter.swift */,
 				F1F1E3BA2AC0C62600BC610E /* ResultsModels.swift */,
+				F18698D42AC4843600FB5620 /* ResultsBuilder.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -789,6 +829,7 @@
 				F1F1E3C92AC10EE300BC610E /* WalkingSpeedPresenter.swift */,
 				F1F1E3CB2AC10EEF00BC610E /* WalkingSpeedRouter.swift */,
 				F1F1E3CD2AC10EFC00BC610E /* WalkingSpeedModels.swift */,
+				F18698D82AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift */,
 			);
 			path = WalkingSpeed;
 			sourceTree = "<group>";
@@ -1027,6 +1068,7 @@
 				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
 				F1A9FBD52AAA60170048E31F /* SF-Compact-Rounded-Semibold.otf in Resources */,
+				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1155,7 @@
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
+				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
@@ -1121,6 +1164,7 @@
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
+				F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */,
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
 				F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */,
 				F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */,
@@ -1136,10 +1180,12 @@
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
+				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
+				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
 				F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */,
@@ -1166,10 +1212,15 @@
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
+				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
+				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
+				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
+				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
+				F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
@@ -1183,6 +1234,7 @@
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
+				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

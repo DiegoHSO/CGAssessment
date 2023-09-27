@@ -109,8 +109,7 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
         case .circumference:
             return viewModel.sections[.circumference]?.count ?? 0
         case .done:
-            return viewModel.isResultsButtonEnabled ?
-                (viewModel.sections[.done]?.count ?? 0) : 0
+            return viewModel.sections[.done]?.count ?? 0
         }
     }
 
@@ -176,7 +175,8 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
             }
 
             header.setup(title: currentSection == .instructions ? LocalizedTable.instructions.localized
-                            : LocalizedTable.measurement.localized.capitalized, backgroundColor: .primary)
+                            : LocalizedTable.measurement.localized.capitalized, backgroundColor: .primary,
+                         leadingConstraint: currentSection == .instructions ? 25 : 30)
 
             return header
         }

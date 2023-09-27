@@ -1,29 +1,29 @@
 //
-//  TimedUpAndGoViewController.swift
+//  GripStrengthViewController.swift
 //  CGAssessment
 //
-//  Created by Diego Henrique Silva Oliveira on 24/09/23.
+//  Created by Diego Henrique Silva Oliveira on 27/09/23.
 //
 
 import UIKit
 
-protocol TimedUpAndGoDisplayLogic: AnyObject {
-    func route(toRoute route: TimedUpAndGoModels.Routing)
-    func presentData(viewModel: TimedUpAndGoModels.ControllerViewModel)
+protocol GripStrengthDisplayLogic: AnyObject {
+    func route(toRoute route: GripStrengthModels.Routing)
+    func presentData(viewModel: GripStrengthModels.ControllerViewModel)
 }
 
-class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
+class GripStrengthViewController: UIViewController, GripStrengthDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = TimedUpAndGoModels.Section
-    private typealias Row = TimedUpAndGoModels.Row
+    private typealias Section = GripStrengthModels.Section
+    private typealias Row = GripStrengthModels.Row
 
-    private var viewModel: TimedUpAndGoModels.ControllerViewModel?
-    private var interactor: TimedUpAndGoLogic?
-    private var router: TimedUpAndGoRoutingLogic?
+    private var viewModel: GripStrengthModels.ControllerViewModel?
+    private var interactor: GripStrengthLogic?
+    private var router: GripStrengthRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -44,19 +44,19 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: TimedUpAndGoLogic, router: TimedUpAndGoRouter) {
+    func setupArchitecture(interactor: GripStrengthLogic, router: GripStrengthRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: TimedUpAndGoModels.Routing) {
+    func route(toRoute route: GripStrengthModels.Routing) {
         switch route {
         case .testResults(let test, let results):
             router?.routeToTestResults(test: test, results: results)
         }
     }
 
-    func presentData(viewModel: TimedUpAndGoModels.ControllerViewModel) {
+    func presentData(viewModel: GripStrengthModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tabBarController?.tabBar.isHidden = true
@@ -66,7 +66,9 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
     // MARK: - Private Methods
 
     private func setupViews() {
-        title = LocalizedTable.timedUpAndGo.localized
+        title = LocalizedTable.gripStrength.localized
+
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
 
         tableView?.dataSource = self
         tableView?.delegate = self
@@ -74,23 +76,22 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
 
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
-        tableView?.register(cellType: SelectableTableViewCell.self)
+        tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: TextFieldTableViewCell.self)
-        tableView?.register(cellType: StopwatchTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
     }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension TimedUpAndGoViewController: UITableViewDelegate {
+extension GripStrengthViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let currentSection = Section(rawValue: section) else { return .leastNormalMagnitude }
-        return currentSection == .done || currentSection == .appStopwatch ? .leastNormalMagnitude : UITableView.automaticDimension
+        return currentSection == .done ? .leastNormalMagnitude : UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -98,23 +99,22 @@ extension TimedUpAndGoViewController: UITableViewDelegate {
     }
 }
 
-extension TimedUpAndGoViewController: UITableViewDataSource {
+extension GripStrengthViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
         switch currentSection {
         case .instructions:
             return viewModel.sections[.instructions]?.count ?? 0
-        case .manualStopwatch:
-            return viewModel.selectedOption == .firstOption ? (viewModel.sections[.manualStopwatch]?.count ?? 0) : 1
-        case .appStopwatch:
-            return viewModel.selectedOption == .secondOption ? (viewModel.sections[.appStopwatch]?.count ?? 0) : 1
+        case .measurement:
+            return viewModel.sections[.measurement]?.count ?? 0
         case .done:
             return viewModel.sections[.done]?.count ?? 0
         }
     }
 
-    // swiftlint:disable:next function_body_length cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel, let section = Section(rawValue: indexPath.section) else { return UITableViewCell(frame: .zero) }
 
@@ -129,46 +129,46 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
             return cell
-        case .hasStopwatch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
-                                                           for: indexPath) as? SelectableTableViewCell else {
+        case .image:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
+                                                           for: indexPath) as? ImageTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: .init(title: nil, options: [.firstOption: LocalizedTable.hasStopwatch],
-                                        delegate: interactor, selectedQuestion: viewModel.selectedOption,
-                                        textStyle: .medium))
+            cell.setup(image: UIImage(named: viewModel.imageName ?? ""))
 
             return cell
-        case .doesNotHaveStopwatch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
-                                                           for: indexPath) as? SelectableTableViewCell else {
-                return UITableViewCell()
-            }
-
-            cell.setup(viewModel: .init(title: nil, options: [.secondOption: LocalizedTable.doesNotHaveStopwatch],
-                                        delegate: interactor, selectedQuestion: viewModel.selectedOption,
-                                        textStyle: .medium))
-
-            return cell
-        case .textFieldStopwatch:
+        case .firstTextField:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
                                                            for: indexPath) as? TextFieldTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: .init(title: nil, text: viewModel.typedElapsedTime,
-                                        placeholder: LocalizedTable.timeTakenSeconds.localized,
-                                        delegate: interactor, keyboardType: .decimalPad))
+            cell.setup(viewModel: .init(title: LocalizedTable.firstMeasurement.localized, text: viewModel.typedFirstMeasurement,
+                                        placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
+                                        keyboardType: .decimalPad, identifier: .firstMeasurement))
 
             return cell
-        case .stopwatch:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
-                                                           for: indexPath) as? StopwatchTableViewCell else {
+        case .secondTextField:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
+                                                           for: indexPath) as? TextFieldTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(delegate: interactor, elapsedTime: viewModel.stopwatchElapsedTime)
+            cell.setup(viewModel: .init(title: LocalizedTable.secondMeasurement.localized, text: viewModel.typedSecondMeasurement,
+                                        placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
+                                        keyboardType: .decimalPad, identifier: .secondMeasurement))
+
+            return cell
+        case .thirdTextField:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
+                                                           for: indexPath) as? TextFieldTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(viewModel: .init(title: LocalizedTable.thirdMeasurement.localized, text: viewModel.typedThirdMeasurement,
+                                        placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
+                                        keyboardType: .decimalPad, identifier: .thirdMeasurement))
 
             return cell
         case .done:
@@ -192,15 +192,15 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let currentSection = Section(rawValue: section) else { return nil }
 
-        if currentSection == .instructions || currentSection == .manualStopwatch {
+        if currentSection == .instructions || currentSection == .measurement {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TitleHeaderView
                                                                             .className) as? TitleHeaderView else {
                 return nil
             }
 
             header.setup(title: currentSection == .instructions ? LocalizedTable.instructions.localized
-                            : LocalizedTable.stopwatch.localized, backgroundColor: .primary,
-                         leadingConstraint: 25)
+                            : LocalizedTable.measurement.localized.capitalized, backgroundColor: .primary,
+                         leadingConstraint: currentSection == .instructions ? 25 : 30)
 
             return header
         }

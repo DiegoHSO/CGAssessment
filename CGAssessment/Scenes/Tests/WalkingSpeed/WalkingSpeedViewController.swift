@@ -127,8 +127,7 @@ extension WalkingSpeedViewController: UITableViewDataSource {
         case .appStopwatch:
             return viewModel.selectedOption == .secondOption ? (viewModel.sections[.appStopwatch]?.count ?? 0) : 1
         case .done:
-            return viewModel.isResultsButtonEnabled ?
-                (viewModel.sections[.done]?.count ?? 0) : 0
+            return viewModel.sections[.done]?.count ?? 0
         }
     }
 

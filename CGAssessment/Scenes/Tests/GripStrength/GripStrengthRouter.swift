@@ -1,17 +1,17 @@
 //
-//  WalkingSpeedRouter.swift
+//  GripStrengthRouter.swift
 //  CGAssessment
 //
-//  Created by Diego Henrique Silva Oliveira on 24/09/23.
+//  Created by Diego Henrique Silva Oliveira on 27/09/23.
 //
 
 import UIKit
 
-protocol WalkingSpeedRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults)
+protocol GripStrengthRoutingLogic {
+    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults)
 }
 
-class WalkingSpeedRouter: WalkingSpeedRoutingLogic {
+class GripStrengthRouter: GripStrengthRoutingLogic {
 
     // MARK: - Private Properties
 
@@ -25,7 +25,7 @@ class WalkingSpeedRouter: WalkingSpeedRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults) {
+    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults) {
         guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
