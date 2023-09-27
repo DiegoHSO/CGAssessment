@@ -69,7 +69,7 @@ class ResultsWorker {
 
     private func getTimedUpAndGoResults(for testResults: TimedUpAndGoModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
         var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredTime.localized,
-                                                     description: "\(testResults.elapsedTime.formatted) \(LocalizedTable.seconds.localized)")]
+                                                     description: "\(testResults.elapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)")]
         let resultType: ResultsModels.ResultType
 
         if testResults.elapsedTime < 10 {
@@ -95,9 +95,9 @@ class ResultsWorker {
 
     private func getWalkingSpeedResults(for testResults: WalkingSpeedModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
         // swiftlint:disable line_length
-        let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstElapsedTime.formatted) \(LocalizedTable.seconds.localized)\n"
-        let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondElapsedTime.formatted) \(LocalizedTable.seconds.localized)\n"
-        let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdElapsedTime.formatted) \(LocalizedTable.seconds.localized)"
+        let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)\n"
+        let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)\n"
+        let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)"
         // swiftlint:enable line_length
 
         var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredTime.localized,

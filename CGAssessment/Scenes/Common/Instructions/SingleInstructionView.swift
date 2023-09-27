@@ -40,7 +40,6 @@ class SingleInstructionView: UIView {
         instructionNumberLabel?.text = String(number) + "."
         instructionNumberLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         instructionLabel?.text = description
-        instructionLabel?.font
-        = .compactDisplay(withStyle: .medium, size: 16)
+        instructionLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
     }
 }

@@ -33,6 +33,7 @@ class SelectableTableViewCell: UITableViewCell {
 
     func setup(viewModel: SelectableModels.OptionsViewModel) {
         titleLabel?.text = viewModel.title
+        titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 

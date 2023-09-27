@@ -153,3 +153,5 @@
 "meter_per_second_key" = "metro por segundo";
 "walking_speed_excellent_result_key" = "Indivíduo com resultado sugestivo de provavelmente viver além da expectativa média de vida para idade e sexo";
 "walking_speed_bad_result_key" = "Indivíduo com resultado sugestivo de ter uma sobrevida mais curta";
+"calf_circumference_instruction_key" = "Com o auxílio de uma fita métrica, meça a maior circunferência no espaço entre o joelho e o tornozelo do paciente.";
+"circumference_placeholder_key" = "Digite a circunferência (em cm)";

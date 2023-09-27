@@ -153,3 +153,5 @@
 "meter_per_second_key" = "meter per second";
 "walking_speed_excellent_result_key" = "Individual with results suggestive of likely living beyond the average life expectancy for age and gender";
 "walking_speed_bad_result_key" = "Individual with results suggestive of having a shorter life expectancy";
+"calf_circumference_instruction_key" = "Using a measuring tape, measure the largest circumference in the space between the patient's knee and ankle.";
+"circumference_placeholder_key" = "Enter the circumference (in cm)";

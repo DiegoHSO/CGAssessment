@@ -208,4 +208,8 @@ enum LocalizedTable: String, Localizable {
     case walkingSpeedExcellentResult = "walking_speed_excellent_result_key"
     case walkingSpeedBadResult = "walking_speed_bad_result_key"
 
+    // MARK: - Calf circumference
+
+    case calfCircumferenceInstruction = "calf_circumference_instruction_key"
+    case circumferencePlaceholder = "circumference_placeholder_key"
 }
