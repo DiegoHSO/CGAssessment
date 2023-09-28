@@ -13,8 +13,6 @@ struct NewCGAModels {
         let patients: [ResumedPatientViewModel]
         let selectedInternalOption: SelectableKeys
         let selectedExternalOption: SelectableKeys
-        let externalOptions: Options
-        let internalOptions: Options
         let pacientName: String?
         let selectedPacient: Int
         let isDone: Bool

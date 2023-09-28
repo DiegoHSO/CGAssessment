@@ -167,7 +167,7 @@ extension NewCGAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            let viewModel = SelectableModels.OptionsViewModel(title: LocalizedTable.gender.localized,
+            let viewModel = SelectableModels.OptionsViewModel(title: LocalizedTable.gender,
                                                               options: [.firstOption: LocalizedTable.female,
                                                                         .secondOption: LocalizedTable.male],
                                                               delegate: interactor,

@@ -47,12 +47,12 @@ class SelectableView: UIView {
     // MARK: - Public Methods
 
     func setup(viewModel: SelectableModels.ComponentViewModel) {
-        componentIdentifier = viewModel.identifier
-        componentValue = viewModel.textKey
+        componentIdentifier = viewModel.componentIdentifier
+        componentValue = viewModel.contextIdentifier
         delegate = viewModel.delegate
         isSelected = viewModel.isSelected
 
-        textLabel?.text = viewModel.textKey.localized
+        textLabel?.text = viewModel.text
         textLabel?.font = .compactDisplay(withStyle: viewModel.textStyle, size: 15)
         innerCircleView?.isHidden = !viewModel.isSelected
     }

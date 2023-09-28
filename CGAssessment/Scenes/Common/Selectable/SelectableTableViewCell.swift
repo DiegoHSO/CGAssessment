@@ -32,7 +32,7 @@ class SelectableTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(viewModel: SelectableModels.OptionsViewModel) {
-        titleLabel?.text = viewModel.title
+        titleLabel?.text = viewModel.title?.localized
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
@@ -46,12 +46,13 @@ class SelectableTableViewCell: UITableViewCell {
         }
 
         let viewModels = viewModel.options.map {
-            SelectableModels.ComponentViewModel(textKey: $0.value,
-                                                identifier: $0.key,
+            SelectableModels.ComponentViewModel(text: $0.value.localized,
+                                                contextIdentifier: viewModel.title ?? $0.value,
+                                                componentIdentifier: $0.key,
                                                 delegate: viewModel.delegate,
                                                 isSelected: viewModel.selectedQuestion == $0.key,
                                                 textStyle: viewModel.textStyle)
-        }.sorted(by: { $0.identifier < $1.identifier })
+        }.sorted(by: { $0.componentIdentifier < $1.componentIdentifier })
 
         var index: Int = 0
         subviews.forEach {

@@ -37,7 +37,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .gripStrength:
             routeToGripStrengthTest()
         case .sarcopeniaAssessment:
-            break
+            routeToSarcopeniaAssessment()
         case .miniMentalStateExamination:
             break
         case .verbalFluencyTest:
@@ -99,5 +99,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let gripStrengthController = GripStrengthBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
+    }
+
+    private func routeToSarcopeniaAssessment() {
+        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build() else { return }
+
+        viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }
 }

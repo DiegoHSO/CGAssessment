@@ -10,7 +10,7 @@ import UIKit
 struct SelectableModels {
 
     struct OptionsViewModel {
-        let title: String?
+        let title: LocalizedTable?
         let options: Options
         let delegate: SelectableViewDelegate?
         let selectedQuestion: SelectableKeys
@@ -19,8 +19,9 @@ struct SelectableModels {
     }
 
     struct ComponentViewModel {
-        let textKey: LocalizedTable
-        let identifier: SelectableKeys
+        let text: String
+        let contextIdentifier: LocalizedTable
+        let componentIdentifier: SelectableKeys
         let delegate: SelectableViewDelegate?
         let isSelected: Bool
         let textStyle: Style
