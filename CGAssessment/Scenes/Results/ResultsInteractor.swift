@@ -41,6 +41,8 @@ class ResultsInteractor: ResultsLogic {
             presenter?.route(toRoute: .nextTest(test: test.next()))
         case LocalizedTable.returnKey.localized:
             presenter?.route(toRoute: .routeBack(domain: test.domain))
+        case LocalizedTable.secondStep.localized:
+            presenter?.route(toRoute: .sarcopeniaAssessment)
         default:
             break
         }
@@ -55,6 +57,11 @@ class ResultsInteractor: ResultsLogic {
     private func createViewModel() -> ResultsModels.ViewModel {
         guard let resultsTuple: ([ResultsModels.Result], ResultsModels.ResultType) = worker?.getResults(for: test, results: results) else {
             return .init(testName: "", results: [], resultType: .excellent)
+        }
+
+        if results is SarcopeniaScreeningModels.ScreeningTestResults {
+            return ResultsModels.ViewModel(testName: LocalizedTable.sarcopeniaScreening.localized,
+                                           results: resultsTuple.0, resultType: resultsTuple.1)
         }
 
         return ResultsModels.ViewModel(testName: test.title, results: resultsTuple.0, resultType: resultsTuple.1)

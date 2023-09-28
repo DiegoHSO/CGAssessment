@@ -26,6 +26,9 @@ enum LocalizedTable: String, Localizable {
     case seeResults = "see_results_key"
     case instructions = "instructions_key"
     case suggestedDiagnosis = "suggested_diagnosis_key"
+    case totalScore = "total_score_key"
+    case points = "points_key"
+    case point = "point_key"
 
     // MARK: - Dashboard
 
@@ -105,7 +108,7 @@ enum LocalizedTable: String, Localizable {
 
     case miniMentalStateExamination = "mini_mental_state_examination_key"
     case verbalFluencyTest = "verbal_fluency_test_key"
-    case clockDrawingTest = "clock_drawing_test"
+    case clockDrawingTest = "clock_drawing_test_key"
     case moca = "moca_key"
     case geriatricDepressionScale = "geriatric_depression_scale_key"
 
@@ -184,10 +187,10 @@ enum LocalizedTable: String, Localizable {
     case timeTakenSeconds = "time_taken_seconds_key"
     case measuredTime = "measured_time_key"
     case seconds = "seconds_key"
-    case timedUpAndGoExcellentResult = "timed_up_and_go_excellent_result"
-    case timedUpAndGoGoodResult = "timed_up_and_go_good_result"
-    case timedUpAndGoMediumResult = "timed_up_and_go_medium_result"
-    case timedUpAndGoBadResult = "timed_up_and_go_bad_result"
+    case timedUpAndGoExcellentResult = "timed_up_and_go_excellent_result_key"
+    case timedUpAndGoGoodResult = "timed_up_and_go_good_result_key"
+    case timedUpAndGoMediumResult = "timed_up_and_go_medium_result_key"
+    case timedUpAndGoBadResult = "timed_up_and_go_bad_result_key"
 
     // MARK: - Walking speed
 
@@ -224,9 +227,40 @@ enum LocalizedTable: String, Localizable {
     case gripStrengthThirdInstruction = "grip_strength_third_instruction_key"
     case gripStrengthFourthInstruction = "grip_strength_fourth_instruction_key"
     case gripStrengthFifthInstruction = "grip_strength_fifth_instruction_key"
-    case gripStrengthExcellentResult = "grip_strength_excellent_result"
-    case gripStrengthBadResult = "grip_strength_bad_result"
+    case gripStrengthExcellentResult = "grip_strength_excellent_result_key"
+    case gripStrengthBadResult = "grip_strength_bad_result_key"
     case strengthPlaceholder = "strength_placeholder_key"
     case measuredStrength = "measured_strength_key"
     case averageStrength = "average_strength_key"
+
+    // MARK: - Sarcopenia assessment
+
+    case sarcopeniaAssessmentFirstQuestion = "sarcopenia_assessment_first_question_key"
+    case sarcopeniaAssessmentSecondQuestion = "sarcopenia_assessment_second_question_key"
+    case sarcopeniaAssessmentThirdQuestion = "sarcopenia_assessment_third_question_key"
+    case sarcopeniaAssessmentFourthQuestion = "sarcopenia_assessment_fourth_question_key"
+    case sarcopeniaAssessmentFifthQuestion = "sarcopenia_assessment_fifth_question_key"
+    case sarcopeniaAssessmentSixthQuestion = "sarcopenia_assessment_sixth_question_key"
+    case noneGenderFlexion = "none_gender_flexion_key"
+    case some = "some_key"
+    case muchOrUnable = "much_or_unable_key"
+    case usesSupport = "uses_support_key"
+    case unableWithoutHelp = "unable_without_help_key"
+    case oneToThreeFalls = "one_to_three_falls_key"
+    case fourOrMoreFalls = "four_or_more_falls_key"
+    case circumferenceBiggerThanLimit = "circumference_bigger_than_limit_key"
+    case circumferenceLowerThanLimit = "circumference_lower_than_limit_key"
+    case sarcfScreening = "sarc_f_screening_key"
+    case strength = "strength_key"
+    case helpToWalk = "help_to_walk_key"
+    case getUpFromBed = "get_up_from_bed_key"
+    case climbStairs = "climb_stairs_key"
+    case falls = "falls_key"
+    case calf = "calf_key"
+    case sarcopeniaScreening = "sarcopenia_screening_key"
+    case sarcopeniaScreeningExcellentResult = "sarcopenia_screening_excellent_result_key"
+    case sarcopeniaScreeningBadResult = "sarcopenia_screening_bad_result_key"
+    case sarcopeniaAssessmentNextStep = "next_step_sarcopenia_assessment_key"
+    case secondStep = "second_step_key"
+
 }

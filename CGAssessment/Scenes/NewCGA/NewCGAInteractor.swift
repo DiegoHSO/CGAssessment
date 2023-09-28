@@ -73,7 +73,7 @@ class NewCGAInteractor: NewCGALogic {
     }
 
     let externalOptions: Options = [.firstOption: .noKey, .secondOption: .yesKey]
-    let internalOptions: Options = [.firstOption: .female, .secondOption: .male]
+    let internalOption: LocalizedTable = .gender
 
     // MARK: - Init
 
@@ -98,8 +98,6 @@ class NewCGAInteractor: NewCGALogic {
         return NewCGAModels.ControllerViewModel(patients: filteredPatients,
                                                 selectedInternalOption: selectedInternalOption,
                                                 selectedExternalOption: selectedExternalOption,
-                                                externalOptions: externalOptions,
-                                                internalOptions: internalOptions,
                                                 pacientName: pacientName,
                                                 selectedPacient: selectedPacient,
                                                 isDone: isDoneEnabled, isSearching: isSearching)
@@ -139,7 +137,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
     func didSelect(option: SelectableKeys, value: LocalizedTable) {
         if externalOptions.values.contains(where: { $0 == value }) {
             selectedExternalOption = option
-        } else if internalOptions.values.contains(where: { $0 == value }) {
+        } else if internalOption == value {
             selectedInternalOption = option
         }
 

@@ -16,9 +16,11 @@ class TitleHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - Public Methods
 
-    func setup(title: String, textColor: UIColor? = .label1, backgroundColor: UIColor? = .clear, leadingConstraint: CGFloat = 30) {
+    func setup(title: String, textColor: UIColor? = .label1, textSize: CGFloat = 20,
+               backgroundColor: UIColor? = .clear, leadingConstraint: CGFloat = 30) {
         titleLabel?.text = title
         titleLabel?.textColor = textColor
+        titleLabel?.font = .compactDisplay(withStyle: .semibold, size: textSize)
         labelLeadingConstraint?.constant = leadingConstraint
         contentView.backgroundColor = backgroundColor
     }

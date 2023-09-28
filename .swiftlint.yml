@@ -3,6 +3,9 @@ line_length: 150
 
 disabled_rules:
   - large_tuple
+  - cyclomatic_complexity
+  - function_body_length
+  - line_length
   
 identifier_name:
     excluded: ["id"]

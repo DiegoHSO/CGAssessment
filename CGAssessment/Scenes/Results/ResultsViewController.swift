@@ -54,6 +54,8 @@ class ResultsViewController: UIViewController, ResultsDisplayLogic {
             router?.routeToNextTest(test: test)
         case .routeBack(let domain):
             router?.routeBack(domain: domain)
+        case .sarcopeniaAssessment:
+            router?.routeToSarcopeniaAssessment()
         }
     }
 
@@ -74,6 +76,7 @@ class ResultsViewController: UIViewController, ResultsDisplayLogic {
         tableView?.contentInsetAdjustmentBehavior = .never
 
         tableView?.register(cellType: ResultsTableViewCell.self)
+        tableView?.register(cellType: TitleTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
     }
 }
@@ -117,13 +120,26 @@ extension ResultsViewController: UITableViewDataSource {
 
             return cell
 
+        case .label:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.className,
+                                                           for: indexPath) as? TitleTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(title: LocalizedTable.sarcopeniaAssessmentNextStep.localized, fontStyle: .medium)
+
+            return cell
         case .nextTest:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
                                                            for: indexPath) as? ActionButtonTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
+            if viewModel.testName == LocalizedTable.sarcopeniaScreening.localized, viewModel.resultType == .bad {
+                cell.setup(title: LocalizedTable.secondStep.localized, backgroundColor: .primary, delegate: interactor)
+            } else {
+                cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
+            }
 
             return cell
         case .goBack:
