@@ -11,7 +11,6 @@ class ResultsWorker {
 
     // MARK: - Public Methods
 
-    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func getResults(for test: SingleDomainModels.Test, results: Any?) -> ([ResultsModels.Result], ResultsModels.ResultType)? {
         switch test {
         case .timedUpAndGo:
@@ -27,7 +26,11 @@ class ResultsWorker {
             guard let gripStrengthResults = results as? GripStrengthModels.TestResults else { return nil }
             return getGripStrengthResults(for: gripStrengthResults)
         case .sarcopeniaAssessment:
-            break
+            if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.ScreeningTestResults {
+                return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
+            } else {
+                return getSarcopeniaAssessmentResults()
+            }
         case .miniMentalStateExamination:
             break
         case .verbalFluencyTest:
@@ -96,11 +99,9 @@ class ResultsWorker {
     }
 
     private func getWalkingSpeedResults(for testResults: WalkingSpeedModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
-        // swiftlint:disable line_length
         let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)\n"
         let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)\n"
         let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdElapsedTime.regionFormatted()) \(LocalizedTable.seconds.localized)"
-        // swiftlint:enable line_length
 
         var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredTime.localized,
                                                      description: firstDescription + secondDescription + thirdDescription)]
@@ -128,11 +129,9 @@ class ResultsWorker {
         return (results, resultType)
     }
 
-    // swiftlint:disable line_length
     private func getCalfCircumferenceResults(for testResults: CalfCircumferenceModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
         var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredValue.localized,
                                                      description: "\(testResults.circumference.regionFormatted()) \(LocalizedTable.centimeters.localized)")]
-        // swiftlint:enable line_length
 
         let resultType: ResultsModels.ResultType
 
@@ -150,11 +149,9 @@ class ResultsWorker {
     }
 
     private func getGripStrengthResults(for testResults: GripStrengthModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
-        // swiftlint:disable line_length
         let firstDescription = "\(LocalizedTable.first.localized) \(LocalizedTable.measurement.localized): \(testResults.firstMeasurement.regionFormatted()) kgf\n"
         let secondDescription = "\(LocalizedTable.second.localized) \(LocalizedTable.measurement.localized): \(testResults.secondMeasurement.regionFormatted()) kgf\n"
         let thirdDescription = "\(LocalizedTable.third.localized) \(LocalizedTable.measurement.localized): \(testResults.thirdMeasurement.regionFormatted()) kgf"
-        // swiftlint:enable line_length
 
         var results: [ResultsModels.Result] = [.init(title: LocalizedTable.measuredStrength.localized,
                                                      description: firstDescription + secondDescription + thirdDescription)]
@@ -179,5 +176,48 @@ class ResultsWorker {
                                 LocalizedTable.gripStrengthBadResult.localized))
 
         return (results, resultType)
+    }
+
+    private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.ScreeningTestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let selectedOptions = [testResults.firstQuestionOption, testResults.secondQuestionOption, testResults.thirdQuestionOption,
+                               testResults.fourthQuestionOption, testResults.fifthQuestionOption]
+
+        var score = selectedOptions.reduce(0) { partialResult, option in
+            switch option {
+            case .secondOption:
+                return partialResult + 1
+            case .thirdOption:
+                return partialResult + 2
+            default:
+                return partialResult
+            }
+        }
+
+        let customScore: Int
+
+        switch testResults.gender {
+        case .female:
+            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+        case .male:
+            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+        }
+
+        score += customScore
+
+        let resultType: ResultsModels.ResultType = score < 11 ? .excellent : .bad
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(score) \(score == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.sarcopeniaScreeningExcellentResult.localized
+                                                        : LocalizedTable.sarcopeniaScreeningBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    // TODO: Apply Core Data logic
+    private func getSarcopeniaAssessmentResults() -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        return ([.init(title: "", description: "")], .excellent)
     }
 }

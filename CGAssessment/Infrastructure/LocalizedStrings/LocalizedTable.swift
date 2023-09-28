@@ -26,6 +26,9 @@ enum LocalizedTable: String, Localizable {
     case seeResults = "see_results_key"
     case instructions = "instructions_key"
     case suggestedDiagnosis = "suggested_diagnosis_key"
+    case totalScore = "total_score_key"
+    case points = "points_key"
+    case point = "point_key"
 
     // MARK: - Dashboard
 
@@ -254,4 +257,10 @@ enum LocalizedTable: String, Localizable {
     case climbStairs = "climb_stairs_key"
     case falls = "falls_key"
     case calf = "calf_key"
+    case sarcopeniaScreening = "sarcopenia_screening_key"
+    case sarcopeniaScreeningExcellentResult = "sarcopenia_screening_excellent_result_key"
+    case sarcopeniaScreeningBadResult = "sarcopenia_screening_bad_result_key"
+    case sarcopeniaAssessmentNextStep = "next_step_sarcopenia_assessment_key"
+    case secondStep = "second_step_key"
+
 }

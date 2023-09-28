@@ -191,3 +191,11 @@
 "climb_stairs_key" = "Subir escadas";
 "falls_key" = "Quedas";
 "calf_key" = "Panturrilha";
+"total_score_key" = "Pontuação total";
+"points_key" = "pontos";
+"point_key" = "ponto";
+"sarcopenia_screening_key" = "Triagem para sarcopenia";
+"sarcopenia_screening_excellent_result_key" = "Indivíduo sem sinais sugestivos de sarcopenia no momento (cogitar reavaliação periódica)";
+"sarcopenia_screening_bad_result_key" = "Indivíduo sugestivo de possuir sarcopenia, devendo prosseguir com investigação e diagnóstico completo";
+"next_step_sarcopenia_assessment_key" = "Deseja prosseguir para a segunda etapa da avaliação de sarcopenia?";
+"second_step_key" = "Segunda etapa";

@@ -15,8 +15,12 @@ struct ResultsModels {
         let resultType: ResultType
 
         var sections: [Section: [Row]] {
-            let optionsForFirstSection: [Row] = [.results]
+            var optionsForFirstSection: [Row] = [.results]
             let optionsForSecondSection: [Row] = [.nextTest, .goBack]
+
+            if testName == LocalizedTable.sarcopeniaScreening.localized, resultType == .bad {
+                optionsForFirstSection.append(.label)
+            }
 
             return [.results: optionsForFirstSection,
                     .actionButtons: optionsForSecondSection]
@@ -57,6 +61,7 @@ struct ResultsModels {
     enum Routing {
         case nextTest(test: SingleDomainModels.Test)
         case routeBack(domain: CGADomainsModels.Domain)
+        case sarcopeniaAssessment
     }
 
     enum Section: Int {
@@ -68,5 +73,6 @@ struct ResultsModels {
         case results
         case nextTest
         case goBack
+        case label
     }
 }

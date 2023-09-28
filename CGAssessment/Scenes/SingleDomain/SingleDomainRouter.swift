@@ -102,7 +102,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
     }
 
     private func routeToSarcopeniaAssessment() {
-        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build() else { return }
+        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }

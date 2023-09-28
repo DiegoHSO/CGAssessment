@@ -1,5 +1,5 @@
 //
-//  SarcopeniaAssessmentViewController.swift
+//  SarcopeniaScreeningViewController.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 27/09/23.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol SarcopeniaAssessmentDisplayLogic: AnyObject {
-    func route(toRoute route: SarcopeniaAssessmentModels.Routing)
-    func presentData(viewModel: SarcopeniaAssessmentModels.ControllerViewModel)
+protocol SarcopeniaScreeningDisplayLogic: AnyObject {
+    func route(toRoute route: SarcopeniaScreeningModels.Routing)
+    func presentData(viewModel: SarcopeniaScreeningModels.ControllerViewModel)
 }
 
-class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessmentDisplayLogic {
+class SarcopeniaScreeningViewController: UIViewController, SarcopeniaScreeningDisplayLogic {
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = SarcopeniaAssessmentModels.Section
-    private typealias Row = SarcopeniaAssessmentModels.Row
+    private typealias Section = SarcopeniaScreeningModels.Section
+    private typealias Row = SarcopeniaScreeningModels.Row
 
-    private var viewModel: SarcopeniaAssessmentModels.ControllerViewModel?
-    private var interactor: SarcopeniaAssessmentLogic?
-    private var router: SarcopeniaAssessmentRoutingLogic?
+    private var viewModel: SarcopeniaScreeningModels.ControllerViewModel?
+    private var interactor: SarcopeniaScreeningLogic?
+    private var router: SarcopeniaScreeningRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -42,19 +42,19 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: SarcopeniaAssessmentLogic, router: SarcopeniaAssessmentRouter) {
+    func setupArchitecture(interactor: SarcopeniaScreeningLogic, router: SarcopeniaScreeningRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: SarcopeniaAssessmentModels.Routing) {
+    func route(toRoute route: SarcopeniaScreeningModels.Routing) {
         switch route {
         case .testResults(let test, let results):
             router?.routeToTestResults(test: test, results: results)
         }
     }
 
-    func presentData(viewModel: SarcopeniaAssessmentModels.ControllerViewModel) {
+    func presentData(viewModel: SarcopeniaScreeningModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tabBarController?.tabBar.isHidden = true
@@ -80,7 +80,7 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension SarcopeniaAssessmentViewController: UITableViewDelegate {
+extension SarcopeniaScreeningViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -95,7 +95,7 @@ extension SarcopeniaAssessmentViewController: UITableViewDelegate {
     }
 }
 
-extension SarcopeniaAssessmentViewController: UITableViewDataSource {
+extension SarcopeniaScreeningViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }

@@ -10,6 +10,7 @@ import UIKit
 protocol ResultsRoutingLogic {
     func routeToNextTest(test: SingleDomainModels.Test)
     func routeBack(domain: CGADomainsModels.Domain)
+    func routeToSarcopeniaAssessment()
 }
 
 class ResultsRouter: ResultsRoutingLogic {
@@ -89,6 +90,10 @@ class ResultsRouter: ResultsRoutingLogic {
         viewController?.navigationController?.popToViewController(singleDomainController, animated: true)
     }
 
+    func routeToSarcopeniaAssessment() {
+        // TODO: Implement scene and navigation
+    }
+
     // MARK: - Private Methods
 
     private func routeToTimedUpAndGoTest() {
@@ -115,8 +120,8 @@ class ResultsRouter: ResultsRoutingLogic {
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }
 
-    private func routeToSarcopeniaAssessment() {
-        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build() else { return }
+    private func routeToSarcopeniaScreening() {
+        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build() else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }

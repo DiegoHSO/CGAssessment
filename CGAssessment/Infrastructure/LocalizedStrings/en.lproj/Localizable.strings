@@ -191,3 +191,11 @@
 "climb_stairs_key" = "Climbing stairs";
 "falls_key" = "Falls";
 "calf_key" = "Calf";
+"total_score_key" = "Total score";
+"points_key" = "points";
+"point_key" = "point";
+"sarcopenia_screening_key" = "Sarcopenia screening";
+"sarcopenia_screening_excellent_result_key" = "Individual without signs suggestive of sarcopenia at the moment (consider periodic reassessment)";
+"sarcopenia_screening_bad_result_key" = "Individual suggestive of having sarcopenia, and must continue with investigation and complete diagnosis";
+"next_step_sarcopenia_assessment_key" = "Do you want to proceed to the second stage of the sarcopenia assessment?";
+"second_step_key" = "Second stage";

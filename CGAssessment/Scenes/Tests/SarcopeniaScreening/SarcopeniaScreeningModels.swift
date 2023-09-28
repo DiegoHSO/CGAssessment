@@ -1,5 +1,5 @@
 //
-//  SarcopeniaAssessmentModels.swift
+//  SarcopeniaScreeningModels.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 27/09/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SarcopeniaAssessmentModels {
+struct SarcopeniaScreeningModels {
 
     typealias Questions = [Section: QuestionViewModel]
 
@@ -38,17 +38,18 @@ struct SarcopeniaAssessmentModels {
         let options: Options
     }
 
-    struct TestResults {
+    struct ScreeningTestResults {
         let firstQuestionOption: SelectableKeys
         let secondQuestionOption: SelectableKeys
         let thirdQuestionOption: SelectableKeys
         let fourthQuestionOption: SelectableKeys
         let fifthQuestionOption: SelectableKeys
         let sixthQuestionOption: SelectableKeys
+        let gender: Gender
     }
 
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case testResults(test: SingleDomainModels.Test, results: ScreeningTestResults)
     }
 
     enum Section: Int {

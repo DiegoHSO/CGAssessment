@@ -1,5 +1,5 @@
 //
-//  SarcopeniaAssessmentRouter.swift
+//  SarcopeniaScreeningRouter.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 27/09/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol SarcopeniaAssessmentRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults)
+protocol SarcopeniaScreeningRoutingLogic {
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.ScreeningTestResults)
 }
 
-class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
+class SarcopeniaScreeningRouter: SarcopeniaScreeningRoutingLogic {
 
     // MARK: - Private Properties
 
@@ -25,7 +25,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults) {
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.ScreeningTestResults) {
         guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
