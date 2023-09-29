@@ -32,6 +32,16 @@ class TestTableViewCell: UITableViewCell {
         statusSymbolLabel?.text = viewModel.status.symbol
     }
 
+    func setDisabledState() {
+        isUserInteractionEnabled = false
+        contentView.alpha = 0.4
+    }
+
+    func setEnabledState() {
+        isUserInteractionEnabled = true
+        contentView.alpha = 1
+    }
+
     // MARK: - Private Methods
 
     private func setupViews() {

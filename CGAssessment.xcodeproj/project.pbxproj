@@ -59,6 +59,13 @@
 		F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698E82AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift */; };
 		F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698EA2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift */; };
 		F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698EC2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift */; };
+		F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698EF2AC6720F00FB5620 /* SarcopeniaAssessmentRouter.swift */; };
+		F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F02AC6720F00FB5620 /* SarcopeniaAssessmentPresenter.swift */; };
+		F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F12AC6720F00FB5620 /* SarcopeniaAssessmentInteractor.swift */; };
+		F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18698F22AC6720F00FB5620 /* SarcopeniaAssessment.storyboard */; };
+		F18698FA2AC6721000FB5620 /* SarcopeniaAssessmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F32AC6720F00FB5620 /* SarcopeniaAssessmentModels.swift */; };
+		F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F42AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift */; };
+		F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F52AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift */; };
 		F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */; };
 		F1A543122AC3DFD800D543ED /* CalfCircumference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */; };
 		F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */; };
@@ -252,6 +259,13 @@
 		F18698E82AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningPresenter.swift; sourceTree = "<group>"; };
 		F18698EA2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningModels.swift; sourceTree = "<group>"; };
 		F18698EC2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningBuilder.swift; sourceTree = "<group>"; };
+		F18698EF2AC6720F00FB5620 /* SarcopeniaAssessmentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentRouter.swift; sourceTree = "<group>"; };
+		F18698F02AC6720F00FB5620 /* SarcopeniaAssessmentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentPresenter.swift; sourceTree = "<group>"; };
+		F18698F12AC6720F00FB5620 /* SarcopeniaAssessmentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentInteractor.swift; sourceTree = "<group>"; };
+		F18698F22AC6720F00FB5620 /* SarcopeniaAssessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SarcopeniaAssessment.storyboard; sourceTree = "<group>"; };
+		F18698F32AC6720F00FB5620 /* SarcopeniaAssessmentModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentModels.swift; sourceTree = "<group>"; };
+		F18698F42AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentBuilder.swift; sourceTree = "<group>"; };
+		F18698F52AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentViewController.swift; sourceTree = "<group>"; };
 		F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceViewController.swift; sourceTree = "<group>"; };
 		F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalfCircumference.storyboard; sourceTree = "<group>"; };
 		F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractor.swift; sourceTree = "<group>"; };
@@ -634,6 +648,20 @@
 			path = SarcopeniaScreening;
 			sourceTree = "<group>";
 		};
+		F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F18698F22AC6720F00FB5620 /* SarcopeniaAssessment.storyboard */,
+				F18698F52AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift */,
+				F18698F12AC6720F00FB5620 /* SarcopeniaAssessmentInteractor.swift */,
+				F18698F02AC6720F00FB5620 /* SarcopeniaAssessmentPresenter.swift */,
+				F18698EF2AC6720F00FB5620 /* SarcopeniaAssessmentRouter.swift */,
+				F18698F32AC6720F00FB5620 /* SarcopeniaAssessmentModels.swift */,
+				F18698F42AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift */,
+			);
+			path = SarcopeniaAssessment;
+			sourceTree = "<group>";
+		};
 		F1A5430E2AC3DFAD00D543ED /* CalfCircumference */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +832,7 @@
 				F1A5430E2AC3DFAD00D543ED /* CalfCircumference */,
 				F18698C72AC472B700FB5620 /* GripStrength */,
 				F18698DF2AC4D43E00FB5620 /* SarcopeniaScreening */,
+				F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1097,6 +1126,7 @@
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
 				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
+				F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */,
 				F1A9FBD52AAA60170048E31F /* SF-Compact-Rounded-Semibold.otf in Resources */,
 				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
 			);
@@ -1200,14 +1230,17 @@
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
 				F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */,
 				F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */,
+				F18698FA2AC6721000FB5620 /* SarcopeniaAssessmentModels.swift in Sources */,
 				F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
+				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
 				F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
+				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
@@ -1218,6 +1251,7 @@
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
+				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
@@ -1264,6 +1298,7 @@
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
+				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
@@ -1271,6 +1306,7 @@
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
+				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

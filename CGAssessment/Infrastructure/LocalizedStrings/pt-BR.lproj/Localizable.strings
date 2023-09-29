@@ -199,3 +199,16 @@
 "sarcopenia_screening_bad_result_key" = "Indivíduo sugestivo de possuir sarcopenia, devendo prosseguir com investigação e diagnóstico completo";
 "next_step_sarcopenia_assessment_key" = "Deseja prosseguir para a segunda etapa da avaliação de sarcopenia?";
 "second_step_key" = "Segunda etapa";
+"quantity_key" = "Quantidade";
+"performance_key" = "Desempenho";
+"sarcopenia_assessment_tooltip_key" = "Execute pelo menos uma avaliação de cada categoria";
+"muscle_health_assessment_key" = "Avaliação da saúde muscular";
+"affected_categories_key" = "Categorias afetadas";
+"muscle_strength_key" = "Força muscular";
+"muscle_amount_key" = "quantidade muscular";
+"muscle_performance_key" = "desempenho muscular";
+"and_key" = "e";
+"sarcopenia_assessment_excellent_result_key" = "Indivíduo sem suspeita de presença de sarcopenia";
+"sarcopenia_assessment_good_result_key" = "Indivíduo com provável presença de sarcopenia";
+"sarcopenia_assessment_medium_result_key" = "Indivíduo com confirmada presença de sarcopenia";
+"sarcopenia_assessment_bad_result_key" = "Indivíduo com presença de sarcopenia grave";

@@ -25,4 +25,12 @@ class TitleHeaderView: UITableViewHeaderFooterView {
         contentView.backgroundColor = backgroundColor
     }
 
+    func setDisabledState() {
+        titleLabel?.alpha = 0.4
+    }
+
+    func setEnabledState() {
+        titleLabel?.alpha = 1
+    }
+
 }

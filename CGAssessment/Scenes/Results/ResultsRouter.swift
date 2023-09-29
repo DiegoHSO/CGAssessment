@@ -91,7 +91,9 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     func routeToSarcopeniaAssessment() {
-        // TODO: Implement scene and navigation
+        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build() else { return }
+
+        viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }
 
     // MARK: - Private Methods
@@ -121,8 +123,8 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     private func routeToSarcopeniaScreening() {
-        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build() else { return }
+        guard let sarcopeniaScreeningController = SarcopeniaScreeningBuilder.build() else { return }
 
-        viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
+        viewController?.navigationController?.pushViewController(sarcopeniaScreeningController, animated: true)
     }
 }

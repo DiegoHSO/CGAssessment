@@ -1,11 +1,10 @@
 # implicitly 
-line_length: 150
+line_length: 250
 
 disabled_rules:
   - large_tuple
   - cyclomatic_complexity
   - function_body_length
-  - line_length
   
 identifier_name:
     excluded: ["id"]
