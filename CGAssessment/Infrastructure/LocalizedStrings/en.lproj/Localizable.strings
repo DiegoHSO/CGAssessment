@@ -199,3 +199,7 @@
 "sarcopenia_screening_bad_result_key" = "Individual suggestive of having sarcopenia, and must continue with investigation and complete diagnosis";
 "next_step_sarcopenia_assessment_key" = "Do you want to proceed to the second stage of the sarcopenia assessment?";
 "second_step_key" = "Second stage";
+"quantity_key" = "Amount";
+"performance_key" = "Performance";
+"sarcopenia_assessment_tooltip_key" = "Run at least one assessment from each category";
+"muscle_health_assessment_key" = "Muscle health assessment";

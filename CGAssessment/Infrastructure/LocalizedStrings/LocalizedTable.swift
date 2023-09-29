@@ -262,5 +262,8 @@ enum LocalizedTable: String, Localizable {
     case sarcopeniaScreeningBadResult = "sarcopenia_screening_bad_result_key"
     case sarcopeniaAssessmentNextStep = "next_step_sarcopenia_assessment_key"
     case secondStep = "second_step_key"
-
+    case quantity = "quantity_key"
+    case performance = "performance_key"
+    case sarcopeniaTooltip = "sarcopenia_assessment_tooltip_key"
+    case muscleHealth = "muscle_health_assessment_key"
 }

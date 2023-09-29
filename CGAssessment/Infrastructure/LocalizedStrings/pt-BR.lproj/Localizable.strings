@@ -199,3 +199,7 @@
 "sarcopenia_screening_bad_result_key" = "Indivíduo sugestivo de possuir sarcopenia, devendo prosseguir com investigação e diagnóstico completo";
 "next_step_sarcopenia_assessment_key" = "Deseja prosseguir para a segunda etapa da avaliação de sarcopenia?";
 "second_step_key" = "Segunda etapa";
+"quantity_key" = "Quantidade";
+"performance_key" = "Desempenho";
+"sarcopenia_assessment_tooltip_key" = "Execute pelo menos uma avaliação de cada categoria";
+"muscle_health_assessment_key" = "Avaliação da saúde muscular";
