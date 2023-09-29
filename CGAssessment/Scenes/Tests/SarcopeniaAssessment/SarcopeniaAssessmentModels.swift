@@ -10,8 +10,20 @@ import Foundation
 struct SarcopeniaAssessmentModels {
 
     struct ControllerViewModel {
-        let testsStatus: [SingleDomainModels.Test: SingleDomainModels.TestStatus]
+        let testsCompletionStatus: [SingleDomainModels.Test: SingleDomainModels.TestStatus]
+        let testsResults: [SingleDomainModels.Test: ResultsModels.ResultType]
         let isResultsButtonEnabled: Bool
+
+        var enabledCategories: [Section: Bool] {
+            guard let amountTestStatus = testsCompletionStatus[.calfCircumference],
+                  let strengthTestStatus = testsCompletionStatus[.gripStrength] else { return [:] }
+
+            let strengthTestResult = testsResults[.gripStrength]
+            let amountTestResult = testsResults[.calfCircumference]
+
+            return [.strength: true, .quantity: strengthTestStatus == .done && strengthTestResult == .bad,
+                    .performance: strengthTestStatus == .done && amountTestStatus == .done &&  amountTestResult == .bad]
+        }
 
         var tests: [Section: [SingleDomainModels.Test]] {
             return [.strength: [.gripStrength], .quantity: [.calfCircumference],
@@ -32,7 +44,10 @@ struct SarcopeniaAssessmentModels {
     }
 
     struct TestResults {
-        let gender: Gender
+        let gripStrengthResults: GripStrengthModels.TestResults
+        let calfCircumferenceResults: CalfCircumferenceModels.TestResults? = nil
+        let timedUpAndGoResults: TimedUpAndGoModels.TestResults? = nil
+        let walkingSpeedResults: WalkingSpeedModels.TestResults? = nil
     }
 
     enum Routing {

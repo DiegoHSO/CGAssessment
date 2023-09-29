@@ -266,4 +266,14 @@ enum LocalizedTable: String, Localizable {
     case performance = "performance_key"
     case sarcopeniaTooltip = "sarcopenia_assessment_tooltip_key"
     case muscleHealth = "muscle_health_assessment_key"
+    case affectedCategories = "affected_categories_key"
+    case muscleStrength = "muscle_strength_key"
+    case muscleAmount = "muscle_amount_key"
+    case musclePerformance = "muscle_performance_key"
+    case and = "and_key"
+    case sarcopeniaAssessmentExcellentResult = "sarcopenia_assessment_excellent_result_key"
+    case sarcopeniaAssessmentGoodResult = "sarcopenia_assessment_good_result_key"
+    case sarcopeniaAssessmentMediumResult = "sarcopenia_assessment_medium_result_key"
+    case sarcopeniaAssessmentBadResult = "sarcopenia_assessment_bad_result_key"
+
 }

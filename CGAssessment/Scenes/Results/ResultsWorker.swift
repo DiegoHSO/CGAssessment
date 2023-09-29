@@ -28,8 +28,8 @@ class ResultsWorker {
         case .sarcopeniaAssessment:
             if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.ScreeningTestResults {
                 return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
-            } else {
-                return getSarcopeniaAssessmentResults()
+            } else if let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults {
+                return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
             }
         case .miniMentalStateExamination:
             break
@@ -217,7 +217,47 @@ class ResultsWorker {
     }
 
     // TODO: Apply Core Data logic
-    private func getSarcopeniaAssessmentResults() -> ([ResultsModels.Result], ResultsModels.ResultType) {
-        return ([.init(title: "", description: "")], .excellent)
+    private func getSarcopeniaAssessmentResults(for testResults: SarcopeniaAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let (_, gripStrengthResult) = getGripStrengthResults(for: testResults.gripStrengthResults)
+
+        if gripStrengthResult == .excellent {
+            return ([.init(title: LocalizedTable.affectedCategories.localized, description: LocalizedTable.noneGenderFlexion.localized),
+                     .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentExcellentResult.localized)], .excellent)
+        }
+
+        if let calfCircumferenceResults = testResults.calfCircumferenceResults {
+            let (_, calfCircumferenceResult) = getCalfCircumferenceResults(for: calfCircumferenceResults)
+
+            if calfCircumferenceResult == .excellent {
+                return ([.init(title: LocalizedTable.affectedCategories.localized, description: LocalizedTable.muscleStrength.localized),
+                         .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentGoodResult.localized)], .good)
+            }
+
+            var musclePerformanceResult: ResultsModels.ResultType?
+
+            if let timedUpAndGoResults = testResults.timedUpAndGoResults {
+                let (_, timedUpAndGoResult) = getTimedUpAndGoResults(for: timedUpAndGoResults)
+
+                musclePerformanceResult = timedUpAndGoResult
+            }
+
+            if let walkingSpeedResults = testResults.walkingSpeedResults {
+                let (_, walkingSpeedResult) = getWalkingSpeedResults(for: walkingSpeedResults)
+
+                musclePerformanceResult = musclePerformanceResult == .bad || musclePerformanceResult == nil ? walkingSpeedResult : musclePerformanceResult
+            }
+
+            if musclePerformanceResult == .excellent {
+                return ([.init(title: LocalizedTable.affectedCategories.localized,
+                               description: "\(LocalizedTable.muscleStrength.localized) \(LocalizedTable.and.localized) \(LocalizedTable.muscleAmount.localized)"),
+                         .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentMediumResult.localized)], .medium)
+            } else {
+                return ([.init(title: LocalizedTable.affectedCategories.localized,
+                               description: "\(LocalizedTable.muscleStrength.localized), \(LocalizedTable.muscleAmount.localized) \(LocalizedTable.and.localized) \(LocalizedTable.musclePerformance.localized)"),
+                         .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentBadResult.localized)], .bad)
+            }
+        }
+
+        return ([], .excellent)
     }
 }

@@ -203,3 +203,12 @@
 "performance_key" = "Performance";
 "sarcopenia_assessment_tooltip_key" = "Run at least one assessment from each category";
 "muscle_health_assessment_key" = "Muscle health assessment";
+"affected_categories_key" = "Affected categories";
+"muscle_strength_key" = "Muscle strength";
+"muscle_amount_key" = "muscle amount";
+"muscle_performance_key" = "muscle performance";
+"and_key" = "and";
+"sarcopenia_assessment_excellent_result_key" = "Individual not suspected of having sarcopenia";
+"sarcopenia_assessment_good_result_key" = "Individual likely to have sarcopenia";
+"sarcopenia_assessment_medium_result_key" = "Individual with confirmed presence of sarcopenia";
+"sarcopenia_assessment_bad_result_key" = "Individual with severe sarcopenia";

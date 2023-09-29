@@ -38,7 +38,10 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
     }
 
     func didTapActionButton(identifier: String?) {
-        presenter?.route(toRoute: .testResults(test: .sarcopeniaAssessment, results: .init(gender: .female)))
+        presenter?.route(toRoute: .testResults(test: .sarcopeniaAssessment, results: .init(gripStrengthResults: .init(firstMeasurement: 10,
+                                                                                                                      secondMeasurement: 20,
+                                                                                                                      thirdMeasurement: 25,
+                                                                                                                      gender: .male))))
     }
 
     func didSelect(test: SingleDomainModels.Test) {
@@ -63,6 +66,8 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
     }
 
     private func createViewModel() -> SarcopeniaAssessmentModels.ControllerViewModel {
-        return SarcopeniaAssessmentModels.ControllerViewModel(testsStatus: [.gripStrength: .incomplete, .calfCircumference: .done, .timedUpAndGo: .notStarted, .walkingSpeed: .done], isResultsButtonEnabled: false)
+        return SarcopeniaAssessmentModels.ControllerViewModel(testsCompletionStatus: [.gripStrength: .done, .calfCircumference: .done,
+                                                                                      .timedUpAndGo: .notStarted, .walkingSpeed: .done],
+                                                              testsResults: [.gripStrength: .bad, .calfCircumference: .bad], isResultsButtonEnabled: false)
     }
 }

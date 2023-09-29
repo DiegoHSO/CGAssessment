@@ -137,7 +137,7 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
             return cell
         case .test:
             guard let test = viewModel.tests[section]?[indexPath.row],
-                  let status = viewModel.testsStatus[test] else { return UITableViewCell() }
+                  let status = viewModel.testsCompletionStatus[test] else { return UITableViewCell() }
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TestTableViewCell.className,
                                                            for: indexPath) as? TestTableViewCell else {
@@ -145,6 +145,12 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(test: test, status: status))
+
+            if let isEnabled = viewModel.enabledCategories[section], isEnabled {
+                cell.setEnabledState()
+            } else {
+                cell.setDisabledState()
+            }
 
             return cell
 
@@ -183,6 +189,7 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
                                                                             .className) as? TitleHeaderView else {
                 return nil
             }
+
             let headerTitle: String
 
             switch currentSection {
@@ -194,6 +201,12 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
                 headerTitle = LocalizedTable.performance.localized
             default:
                 headerTitle = ""
+            }
+
+            if let isEnabled = viewModel?.enabledCategories[currentSection], isEnabled {
+                header.setEnabledState()
+            } else {
+                header.setDisabledState()
             }
 
             header.setup(title: headerTitle, textSize: 18, backgroundColor: .primary)
