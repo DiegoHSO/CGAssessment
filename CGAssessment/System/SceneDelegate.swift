@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let submodules = (
             home: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build),
-            cgas: NewCGABuilder.build(usingNavigationFactory: NavigationBuilder.build),
+            cgas: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build),
             preferences: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build)
         )
 
