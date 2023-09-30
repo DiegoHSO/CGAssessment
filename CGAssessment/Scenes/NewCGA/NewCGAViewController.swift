@@ -154,7 +154,7 @@ extension NewCGAViewController: UITableViewDataSource {
             }
 
             let viewModel = CGAModels.TextFieldViewModel(title: LocalizedTable.name.localized,
-                                                         text: viewModel.pacientName,
+                                                         text: viewModel.patientName,
                                                          placeholder: LocalizedTable.patientName.localized,
                                                          delegate: interactor,
                                                          leadingConstraint: 40)

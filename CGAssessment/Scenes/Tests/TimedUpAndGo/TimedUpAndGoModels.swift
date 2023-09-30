@@ -31,6 +31,13 @@ struct TimedUpAndGoModels {
         let elapsedTime: TimeInterval
     }
 
+    struct TestData {
+        let typedElapsedTime: TimeInterval?
+        let elapsedTime: TimeInterval?
+        let selectedOption: SelectableKeys
+        let isDone: Bool
+    }
+
     enum Routing {
         case testResults(test: SingleDomainModels.Test, results: TestResults)
     }

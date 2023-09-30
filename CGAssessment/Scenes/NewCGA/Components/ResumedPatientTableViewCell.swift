@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ResumedPatientDelegate: AnyObject {
-    func didSelect(pacientId: Int)
+    func didSelect(patientId: Int)
 }
 
 class ResumedPatientTableViewCell: UITableViewCell {
@@ -33,9 +33,9 @@ class ResumedPatientTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(viewModel: NewCGAModels.ResumedPatientViewModel) {
-        nameLabel?.text = viewModel.pacientName
-        ageLabel?.text = "\(viewModel.pacientAge) \(LocalizedTable.age.localized)"
-        genderImageView?.image = UIImage(named: viewModel.gender.rawValue)
+        nameLabel?.text = viewModel.patient.patientName
+        ageLabel?.text = "\(viewModel.patient.patientAge) \(LocalizedTable.age.localized)"
+        genderImageView?.image = viewModel.patient.gender.image
         viewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         patientId = viewModel.id
@@ -64,6 +64,6 @@ class ResumedPatientTableViewCell: UITableViewCell {
     }
 
     @objc private func didTapComponent() {
-        delegate?.didSelect(pacientId: patientId)
+        delegate?.didSelect(patientId: patientId)
     }
 }

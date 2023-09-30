@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum SelectableKeys: Int, Comparable {
+@objc
+enum SelectableKeys: Int16, Comparable {
 
     case none = 0
     case firstOption = 1

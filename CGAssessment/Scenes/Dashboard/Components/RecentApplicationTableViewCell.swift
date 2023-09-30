@@ -12,21 +12,21 @@ class RecentApplicationTableViewCell: UITableViewCell {
     // MARK: - Private Properties
 
     @IBOutlet private weak var recentApplicationLabel: UILabel?
-    @IBOutlet private weak var pacientDataLabel: UILabel?
+    @IBOutlet private weak var patientDataLabel: UILabel?
     @IBOutlet private weak var missingDomainsLabel: UILabel?
     @IBOutlet private weak var progressBarView: CircularProgressBarView?
     @IBOutlet private weak var percentageLabel: UILabel?
 
     // MARK: - Public Methods
 
-    func setup(pacientName: String, pacientAge: Int, missingDomains: Int) {
+    func setup(patientName: String, patientAge: Int, missingDomains: Int) {
         let progress: Double = Double(missingDomains) / 9
 
         percentageLabel?.text = String(format: "%.1f", progress * 100) + "%"
         progressBarView?.progressAnimation(duration: 1, progress: progress)
 
         recentApplicationLabel?.text = LocalizedTable.mostRecentApplication.localized
-        pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.years.localized)"
+        patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
 
         var missingDomainsText: String
 

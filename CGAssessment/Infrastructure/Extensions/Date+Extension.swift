@@ -25,4 +25,8 @@ extension Date {
         return Calendar.current.date(byAdding: .month, value: quantity, to: self) ?? self
     }
 
+    var year: Int {
+        let components = Calendar.current.dateComponents([.year], from: self)
+        return components.year ?? 0
+    }
 }

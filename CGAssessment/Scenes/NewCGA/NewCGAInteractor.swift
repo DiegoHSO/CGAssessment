@@ -21,33 +21,33 @@ class NewCGAInteractor: NewCGALogic {
     private var selectedExternalOption: SelectableKeys = .secondOption
     private var selectedPacient: Int = -1
     private var searchText: String = ""
-    private var pacientName: String = ""
-    private var pacientBirthDate: Date?
+    private var patientName: String = ""
+    private var patientBirthDate: Date?
     private var presenter: NewCGAPresentationLogic?
-    private var pacients: [NewCGAModels.ResumedPatientViewModel] { [NewCGAModels.ResumedPatientViewModel(pacientName: "Vanessa Cristina da Silva",
-                                                                                                         pacientAge: 52,
-                                                                                                         gender: .female,
+    private var patients: [NewCGAModels.ResumedPatientViewModel] { [NewCGAModels.ResumedPatientViewModel(patient: .init(patientName: "Vanessa Cristina da Silva",
+                                                                                                                        patientAge: 52,
+                                                                                                                        gender: .female),
                                                                                                          id: 10, // TODO: CoreData ID
                                                                                                          delegate: self,
                                                                                                          isSelected: selectedPacient == 10,
                                                                                                          leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Danilo de Souza Pinto",
-                                                                                                         pacientAge: 30,
-                                                                                                         gender: .male,
+                                                                    NewCGAModels.ResumedPatientViewModel(patient: .init(patientName: "Danilo de Souza Pinto",
+                                                                                                                        patientAge: 30,
+                                                                                                                        gender: .male),
                                                                                                          id: 11, // TODO: CoreData ID
                                                                                                          delegate: self,
                                                                                                          isSelected: selectedPacient == 11,
                                                                                                          leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Jorge Luis Alves de Oliveira",
-                                                                                                         pacientAge: 62,
-                                                                                                         gender: .male,
+                                                                    NewCGAModels.ResumedPatientViewModel(patient: .init(patientName: "Jorge Luis Alves de Oliveira",
+                                                                                                                        patientAge: 62,
+                                                                                                                        gender: .male),
                                                                                                          id: 12, // TODO: CoreData ID
                                                                                                          delegate: self,
                                                                                                          isSelected: selectedPacient == 12,
                                                                                                          leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Diego Henrique Silva Oliveira",
-                                                                                                         pacientAge: 22,
-                                                                                                         gender: .male,
+                                                                    NewCGAModels.ResumedPatientViewModel(patient: .init(patientName: "Diego Henrique Silva Oliveira",
+                                                                                                                        patientAge: 22,
+                                                                                                                        gender: .male),
                                                                                                          id: 13, // TODO: CoreData ID
                                                                                                          delegate: self,
                                                                                                          isSelected: selectedPacient == 13,
@@ -56,15 +56,15 @@ class NewCGAInteractor: NewCGALogic {
 
     private var filteredPatients: [NewCGAModels.ResumedPatientViewModel] {
         if !searchText.isEmpty {
-            return pacients.filter { $0.pacientName.containsCaseInsensitive(searchText)}
+            return patients.filter { $0.patient.patientName.containsCaseInsensitive(searchText)}
         }
 
-        return pacients
+        return patients
     }
 
     private var isDoneEnabled: Bool {
         if selectedExternalOption == .firstOption {
-            return !pacientName.isEmpty && pacientBirthDate != nil && selectedInternalOption != .none
+            return !patientName.isEmpty && patientBirthDate != nil && selectedInternalOption != .none
         } else if selectedExternalOption == .secondOption {
             return selectedPacient != -1
         }
@@ -98,8 +98,8 @@ class NewCGAInteractor: NewCGALogic {
         return NewCGAModels.ControllerViewModel(patients: filteredPatients,
                                                 selectedInternalOption: selectedInternalOption,
                                                 selectedExternalOption: selectedExternalOption,
-                                                pacientName: pacientName,
-                                                selectedPacient: selectedPacient,
+                                                patientName: patientName,
+                                                selectedPatient: selectedPacient,
                                                 isDone: isDoneEnabled, isSearching: isSearching)
     }
 }
@@ -114,8 +114,8 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
         presenter?.route(toRoute: .cgaDomains)
     }
 
-    func didSelect(pacientId: Int) {
-        selectedPacient = pacientId
+    func didSelect(patientId: Int) {
+        selectedPacient = patientId
         sendDataToPresenter()
     }
 
@@ -125,12 +125,12 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
-        pacientName = text
+        patientName = text
         sendDataToPresenter()
     }
 
     func didSelectDate(date: Date) {
-        pacientBirthDate = date
+        patientBirthDate = date
         sendDataToPresenter()
     }
 

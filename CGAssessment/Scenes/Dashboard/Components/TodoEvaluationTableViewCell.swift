@@ -13,17 +13,17 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var timeLeftView: UIView?
     @IBOutlet private weak var timeLeftLabel: UILabel?
-    @IBOutlet private weak var pacientDataLabel: UILabel?
+    @IBOutlet private weak var patientDataLabel: UILabel?
     @IBOutlet private weak var alteredDomainsLabel: UILabel?
     @IBOutlet private weak var lastApplicationDateLabel: UILabel?
 
     // MARK: - Public Properties
 
-    func setup(nextApplicationDate: Date, pacientName: String, pacientAge: Int,
+    func setup(nextApplicationDate: Date, patientName: String, patientAge: Int,
                alteredDomains: Int, lastApplicationDate: Date) {
 
         timeLeftLabel?.text = setupTimeLeftText(nextApplicationDate)
-        pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.years.localized)"
+        patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
         alteredDomainsLabel?.attributedText = setupAlteredDomainsText(alteredDomains)
         timeLeftView?.backgroundColor = getAlteredDomainsColor(alteredDomains)
 

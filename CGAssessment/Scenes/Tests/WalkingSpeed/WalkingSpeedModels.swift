@@ -48,6 +48,17 @@ struct WalkingSpeedModels {
         let thirdElapsedTime: TimeInterval
     }
 
+    struct TestData {
+        let typedFirstTime: TimeInterval?
+        let typedSecondTime: TimeInterval?
+        let typedThirdTime: TimeInterval?
+        let firstElapsedTime: TimeInterval?
+        let secondElapsedTime: TimeInterval?
+        let thirdElapsedTime: TimeInterval?
+        let selectedOption: SelectableKeys
+        let isDone: Bool
+    }
+
     enum Routing {
         case testResults(test: SingleDomainModels.Test, results: TestResults)
     }

@@ -20,6 +20,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     @IBOutlet private weak var backgroundViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var tableView: UITableView?
 
+    private typealias Section = DashboardModels.Section
+    private typealias Row = DashboardModels.Row
     private var interactor: DashboardLogic?
     private var router: DashboardRoutingLogic?
     private var viewModel: DashboardModels.ViewModel?
@@ -123,23 +125,28 @@ extension DashboardViewController: UITableViewDelegate {
 
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return section == 2 ? 3 : 1
-        return 1
+        guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
+
+        return viewModel.sections[currentSection]?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = DashboardModels.Section(rawValue: indexPath.section) else { return UITableViewCell(frame: .zero) }
+        guard let viewModel, let section = Section(rawValue: indexPath.section),
+              let row = viewModel.sections[section]?[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
 
-        switch section {
-        case .recentEvaluation:
-            /*
-             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentApplicationTableViewCell.className,
-             for: indexPath) as? RecentApplicationTableViewCell else {
-             return UITableViewCell()
-             }
+        switch row {
+        case .recentApplication:
+            if let latestEvaluation = viewModel.latestEvaluation {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentApplicationTableViewCell.className,
+                                                               for: indexPath) as? RecentApplicationTableViewCell else {
+                    return UITableViewCell()
+                }
 
-             cell.setup(pacientName: "Danilinho", pacientAge: 30, missingDomains: 4)
-             */
+                cell.setup(patientName: latestEvaluation.patientName, patientAge: latestEvaluation.patientAge,
+                           missingDomains: latestEvaluation.missingDomains)
+
+                return cell
+            }
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NoRecentApplicationTableViewCell.className,
                                                            for: indexPath) as? NoRecentApplicationTableViewCell else {
@@ -174,27 +181,33 @@ extension DashboardViewController: UITableViewDataSource {
                                       delegate: interactor)
 
             return cell
-        case .evaluationsToReapply:
-            /*
-             guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoEvaluationTableViewCell.className,
-             for: indexPath) as? TodoEvaluationTableViewCell else {
-             return UITableViewCell()
-             }
+        case .evaluationToReapply:
+            if viewModel.todoEvaluations.isEmpty {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: NoTodoEvaluationTableViewCell.className,
+                                                               for: indexPath) as? NoTodoEvaluationTableViewCell else {
+                    return UITableViewCell()
+                }
 
-             cell.setup(nextApplicationDate: Date(timeIntervalSinceNow: 1063400),
-             pacientName: "Danilo de Souza Pinto", pacientAge: 30,
-             alteredDomains: 6, lastApplicationDate: Date(timeIntervalSinceNow: 63400))
-             */
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: NoTodoEvaluationTableViewCell.className,
-                                                           for: indexPath) as? NoTodoEvaluationTableViewCell else {
-                return UITableViewCell()
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoEvaluationTableViewCell.className,
+                                                               for: indexPath) as? TodoEvaluationTableViewCell else {
+                    return UITableViewCell()
+                }
+
+                guard let todoEvaluation = viewModel.todoEvaluations[safe: indexPath.row] else { return UITableViewCell() }
+
+                cell.setup(nextApplicationDate: todoEvaluation.nextApplicationDate, patientName: todoEvaluation.patientName,
+                           patientAge: todoEvaluation.patientAge, alteredDomains: todoEvaluation.alteredDomains,
+                           lastApplicationDate: todoEvaluation.lastApplicationDate)
+
+                return cell
             }
-            return cell
         }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.sections ?? 0
+        return viewModel?.sections.keys.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -208,7 +221,7 @@ extension DashboardViewController: UITableViewDataSource {
             }
 
             if currentSection == .recentEvaluation {
-                let title = "\(LocalizedTable.hello.localized), \(viewModel?.userName ?? LocalizedTable.howAreYou.localized)"
+                let title = "\(LocalizedTable.hello.localized), \(LocalizedTable.howAreYou.localized)"
                 header.setup(title: title, textColor: .white, leadingConstraint: 20)
             }
 

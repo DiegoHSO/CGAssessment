@@ -26,7 +26,7 @@ class ResultsWorker {
             guard let gripStrengthResults = results as? GripStrengthModels.TestResults else { return nil }
             return getGripStrengthResults(for: gripStrengthResults)
         case .sarcopeniaAssessment:
-            if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.ScreeningTestResults {
+            if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.TestResults {
                 return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
             } else if let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults {
                 return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
@@ -178,7 +178,7 @@ class ResultsWorker {
         return (results, resultType)
     }
 
-    private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.ScreeningTestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+    private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
 
         let selectedOptions = [testResults.firstQuestionOption, testResults.secondQuestionOption, testResults.thirdQuestionOption,
                                testResults.fourthQuestionOption, testResults.fifthQuestionOption]

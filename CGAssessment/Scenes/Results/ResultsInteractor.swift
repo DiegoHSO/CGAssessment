@@ -59,7 +59,7 @@ class ResultsInteractor: ResultsLogic {
             return .init(testName: "", results: [], resultType: .excellent)
         }
 
-        if results is SarcopeniaScreeningModels.ScreeningTestResults {
+        if results is SarcopeniaScreeningModels.TestResults {
             return ResultsModels.ViewModel(testName: LocalizedTable.sarcopeniaScreening.localized,
                                            results: resultsTuple.0, resultType: resultsTuple.1)
         }

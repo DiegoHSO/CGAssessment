@@ -17,7 +17,7 @@ class DashboardBuilder {
         }
 
         let presenter = DashboardPresenter(viewController: viewController)
-        let interactor = DashboardInteractor(presenter: presenter)
+        let interactor = DashboardInteractor(presenter: presenter, worker: DashboardWorker())
         let router = DashboardRouter(viewController: viewController)
 
         viewController.setupArchitecture(interactor: interactor, router: router)

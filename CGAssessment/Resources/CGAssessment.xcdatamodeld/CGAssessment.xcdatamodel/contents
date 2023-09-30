@@ -1,4 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CalfCircumference" representedClassName=".CalfCircumference" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="measuredCircumference" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="calfCircumference" inverseEntity="CGA"/>
+    </entity>
+    <entity name="CGA" representedClassName=".CGA" syncable="YES" codeGenerationType="class">
+        <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
+        <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
+        <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
+        <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
+        <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
+        <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
+    </entity>
+    <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
+        <attribute name="firstMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="secondMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="thirdMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="gripStrength" inverseEntity="CGA"/>
+    </entity>
+    <entity name="Patient" representedClassName=".Patient" syncable="YES" codeGenerationType="class">
+        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="patient" inverseEntity="CGA"/>
+    </entity>
+    <entity name="SarcopeniaScreening" representedClassName=".SarcopeniaScreening" syncable="YES" codeGenerationType="class">
+        <attribute name="fifthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fourthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="secondQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sixthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="thirdQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaScreening" inverseEntity="CGA"/>
+    </entity>
+    <entity name="TimedUpAndGo" representedClassName=".TimedUpAndGo" syncable="YES" codeGenerationType="class">
+        <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="measuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="typedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
+    </entity>
+    <entity name="WalkingSpeed" representedClassName=".WalkingSpeed" syncable="YES" codeGenerationType="class">
+        <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="firstTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="secondMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="secondTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="thirdMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="thirdTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="walkingSpeed" inverseEntity="CGA"/>
+    </entity>
 </model>

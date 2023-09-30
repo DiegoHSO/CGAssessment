@@ -17,17 +17,21 @@ class DashboardInteractor: DashboardLogic {
     // MARK: - Private Properties
 
     private var presenter: DashboardPresentationLogic?
+    private let worker: DashboardWorker?
+    private var recentCGA: DashboardModels.LatestCGAViewModel?
+    private var todoEvaluations: [DashboardModels.TodoEvaluationViewModel] = []
 
     // MARK: - Init
 
-    init(presenter: DashboardPresentationLogic) {
+    init(presenter: DashboardPresentationLogic, worker: DashboardWorker) {
         self.presenter = presenter
+        self.worker = worker
     }
 
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
+        computeViewModelData()
         sendDataToPresenter()
     }
 
@@ -59,8 +63,45 @@ class DashboardInteractor: DashboardLogic {
     }
 
     private func createViewModel() -> DashboardModels.ViewModel {
-        return DashboardModels.ViewModel(userName: "Diego")
+        return DashboardModels.ViewModel(latestEvaluation: recentCGA, todoEvaluations: todoEvaluations)
     }
+
+    private func computeViewModelData() {
+        computeLatestCGAData()
+        computeTodoEvaluationsData()
+    }
+
+    private func computeLatestCGAData() {
+        guard let latestCGA = try? worker?.getLatestCGA(), let patientName = latestCGA.patient?.name,
+              let birthDate = latestCGA.patient?.birthDate else { return }
+
+        var missingDomains: Int = 9
+
+        if let isFirstTestDone = latestCGA.timedUpAndGo?.isDone, isFirstTestDone, let isSecondTestDone = latestCGA.walkingSpeed?.isDone,
+           isSecondTestDone, let isThirdTestDone = latestCGA.calfCircumference?.isDone, isThirdTestDone,
+           let isFourthTestDone = latestCGA.gripStrength?.isDone, isFourthTestDone,
+           let isFifthTestDone = latestCGA.sarcopeniaScreening?.isDone, isFifthTestDone {
+            missingDomains -= 1
+        }
+
+        recentCGA = .init(patientName: patientName, patientAge: Date().year - birthDate.year, missingDomains: missingDomains)
+    }
+
+    private func computeTodoEvaluationsData() {
+        guard let todoEvaluations = try? worker?.getClosestCGAs() else { return }
+
+        self.todoEvaluations = todoEvaluations.compactMap({ evaluation in
+            guard let patientName = evaluation.patient?.name, let birthDate = evaluation.patient?.birthDate,
+                  let lastModification = evaluation.lastModification else { return nil }
+
+            let alteredDomains: Int = 5
+
+            return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: Date().year - birthDate.year,
+                                                           alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
+                                                           lastApplicationDate: lastModification)
+        })
+    }
+
 }
 
 // MARK: - Internal Delegate extensions

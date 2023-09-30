@@ -38,7 +38,7 @@ struct SarcopeniaScreeningModels {
         let options: Options
     }
 
-    struct ScreeningTestResults {
+    struct TestResults {
         let firstQuestionOption: SelectableKeys
         let secondQuestionOption: SelectableKeys
         let thirdQuestionOption: SelectableKeys
@@ -48,8 +48,18 @@ struct SarcopeniaScreeningModels {
         let gender: Gender
     }
 
+    struct TestData {
+        let firstQuestionOption: SelectableKeys
+        let secondQuestionOption: SelectableKeys
+        let thirdQuestionOption: SelectableKeys
+        let fourthQuestionOption: SelectableKeys
+        let fifthQuestionOption: SelectableKeys
+        let sixthQuestionOption: SelectableKeys
+        let isDone: Bool
+    }
+
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: ScreeningTestResults)
+        case testResults(test: SingleDomainModels.Test, results: TestResults)
     }
 
     enum Section: Int {

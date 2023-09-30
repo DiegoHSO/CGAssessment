@@ -9,9 +9,19 @@ import UIKit
 
 typealias Options = [SelectableKeys: LocalizedTable]
 
-enum Gender: String, CaseIterable {
-    case male = "man"
-    case female = "woman"
+@objc
+public enum Gender: Int16, CaseIterable {
+    case male
+    case female
+
+    var image: UIImage? {
+        switch self {
+        case .male:
+            return UIImage(named: "male")
+        case .female:
+            return UIImage(named: "female")
+        }
+    }
 }
 
 struct CGAModels {
