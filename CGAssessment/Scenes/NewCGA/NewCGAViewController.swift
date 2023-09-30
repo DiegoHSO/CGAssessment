@@ -71,8 +71,8 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
 
     func route(toRoute route: NewCGAModels.Routing) {
         switch route {
-        case .cgaDomains:
-            router?.routeToCGADomains()
+        case .cgaDomains(let patientId):
+            router?.routeToCGADomains(patientId: patientId)
         }
     }
 
@@ -106,7 +106,6 @@ extension NewCGAViewController: UITableViewDelegate {
 
 extension NewCGAViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Setup logic properly according to number of patients
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
         switch currentSection {
@@ -224,7 +223,7 @@ extension NewCGAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: patient)
+            cell.setup(viewModel: patient, isSelected: viewModel.selectedPatient == patient.id)
 
             return cell
         case .done:

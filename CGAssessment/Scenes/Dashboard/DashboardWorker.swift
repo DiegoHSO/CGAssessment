@@ -5,7 +5,7 @@
 //  Created by Diego Henrique Silva Oliveira on 29/09/23.
 //
 
-import CloudKit
+import Foundation
 
 class DashboardWorker {
 

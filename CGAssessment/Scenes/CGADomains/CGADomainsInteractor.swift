@@ -17,11 +17,13 @@ class CGADomainsInteractor: CGADomainsLogic {
     // MARK: - Private Properties
 
     private var presenter: CGADomainsPresentationLogic?
+    private var patientId: Int
 
     // MARK: - Init
 
-    init(presenter: CGADomainsPresentationLogic) {
+    init(presenter: CGADomainsPresentationLogic, patientId: Int) {
         self.presenter = presenter
+        self.patientId = patientId
     }
 
     // MARK: - Public Methods

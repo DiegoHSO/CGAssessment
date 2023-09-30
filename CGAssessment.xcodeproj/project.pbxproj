@@ -68,6 +68,7 @@
 		F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698F52AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift */; };
 		F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */; };
 		F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699002AC756ED00FB5620 /* CoreDataDAO.swift */; };
+		F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699032AC86C1200FB5620 /* NewCGAWorker.swift */; };
 		F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */; };
 		F1A543122AC3DFD800D543ED /* CalfCircumference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */; };
 		F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */; };
@@ -270,6 +271,7 @@
 		F18698F52AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentViewController.swift; sourceTree = "<group>"; };
 		F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorker.swift; sourceTree = "<group>"; };
 		F18699002AC756ED00FB5620 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		F18699032AC86C1200FB5620 /* NewCGAWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAWorker.swift; sourceTree = "<group>"; };
 		F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceViewController.swift; sourceTree = "<group>"; };
 		F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalfCircumference.storyboard; sourceTree = "<group>"; };
 		F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractor.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				F14097742AB7D44800E92005 /* NewCGAPresenter.swift */,
 				F14097762AB7D45400E92005 /* NewCGARouter.swift */,
 				F1BE9F872AB6846300250B69 /* NewCGAModels.swift */,
+				F18699032AC86C1200FB5620 /* NewCGAWorker.swift */,
 			);
 			path = NewCGA;
 			sourceTree = "<group>";
@@ -1296,6 +1299,7 @@
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
+				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,

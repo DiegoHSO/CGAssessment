@@ -17,7 +17,7 @@ class DashboardInteractor: DashboardLogic {
     // MARK: - Private Properties
 
     private var presenter: DashboardPresentationLogic?
-    private let worker: DashboardWorker?
+    private var worker: DashboardWorker?
     private var recentCGA: DashboardModels.LatestCGAViewModel?
     private var todoEvaluations: [DashboardModels.TodoEvaluationViewModel] = []
 
@@ -84,7 +84,7 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
-        recentCGA = .init(patientName: patientName, patientAge: Date().year - birthDate.year, missingDomains: missingDomains)
+        recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains)
     }
 
     private func computeTodoEvaluationsData() {
@@ -96,7 +96,7 @@ class DashboardInteractor: DashboardLogic {
 
             let alteredDomains: Int = 5
 
-            return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: Date().year - birthDate.year,
+            return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
                                                            lastApplicationDate: lastModification)
         })

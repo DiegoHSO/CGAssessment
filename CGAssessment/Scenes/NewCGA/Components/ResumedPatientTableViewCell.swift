@@ -32,17 +32,18 @@ class ResumedPatientTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(viewModel: NewCGAModels.ResumedPatientViewModel) {
-        nameLabel?.text = viewModel.patient.patientName
+    func setup(viewModel: NewCGAModels.ResumedPatientViewModel, isSelected: Bool) {
         ageLabel?.text = "\(viewModel.patient.patientAge) \(LocalizedTable.age.localized)"
         genderImageView?.image = viewModel.patient.gender.image
         viewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         patientId = viewModel.id
         delegate = viewModel.delegate
-        isSelected = viewModel.isSelected
+        self.isSelected = isSelected
 
         setupSelection()
+
+        nameLabel?.text = viewModel.patient.patientName
     }
 
     // MARK: - Private Methods

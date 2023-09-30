@@ -14,7 +14,7 @@ struct NewCGAModels {
         let selectedInternalOption: SelectableKeys
         let selectedExternalOption: SelectableKeys
         let patientName: String?
-        let selectedPatient: Int
+        let selectedPatient: Int?
         let isDone: Bool
         let isSearching: Bool
 
@@ -40,7 +40,6 @@ struct NewCGAModels {
         let patient: Patient
         let id: Int
         let delegate: ResumedPatientDelegate?
-        let isSelected: Bool
         var leadingConstraint: CGFloat = 30
     }
 
@@ -75,6 +74,6 @@ struct NewCGAModels {
     }
 
     enum Routing {
-        case cgaDomains
+        case cgaDomains(patientId: Int)
     }
 }

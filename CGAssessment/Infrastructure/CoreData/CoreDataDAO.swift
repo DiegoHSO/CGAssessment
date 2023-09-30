@@ -15,7 +15,7 @@ enum CoreDataErrors: Error, Equatable {
 
 protocol CoreDataDAOProtocol {
     func addCGA(for patient: Patient) throws
-    func addPatient(_ patient: NewCGAModels.PatientData) throws
+    func addPatient(_ patient: NewCGAModels.PatientData) throws -> Int
     func fetchCGAs() throws -> [CGA]
     func fetchCGA(cgaId: Int) throws -> CGA?
     func fetchPatientCGAs(patient: Patient) throws -> [CGA]
@@ -46,10 +46,10 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func addPatient(_ patient: NewCGAModels.PatientData) throws {
+    func addPatient(_ patient: NewCGAModels.PatientData) throws -> Int {
         let patients = try fetchPatients()
         let hasPatient = patients.contains(where: { $0.name == patient.patientName &&
-                                            $0.birthDate == patient.birthDate &&
+                                            $0.birthDate == patient.birthDate.removingTimeComponents() &&
                                             $0.gender == patient.gender.rawValue })
 
         if hasPatient {
@@ -57,11 +57,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         let newPatient = Patient(context: context)
-        newPatient.birthDate = patient.birthDate
+        newPatient.birthDate = patient.birthDate.removingTimeComponents()
         newPatient.gender = patient.gender.rawValue
         newPatient.name = patient.patientName
 
         try context.save()
+
+        return newPatient.id.hashValue
     }
 
     func fetchCGAs() throws -> [CGA] {

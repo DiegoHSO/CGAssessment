@@ -17,9 +17,9 @@ public enum Gender: Int16, CaseIterable {
     var image: UIImage? {
         switch self {
         case .male:
-            return UIImage(named: "male")
+            return UIImage(named: "man")
         case .female:
-            return UIImage(named: "female")
+            return UIImage(named: "woman")
         }
     }
 }

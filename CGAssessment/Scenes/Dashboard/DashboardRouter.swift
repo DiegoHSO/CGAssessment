@@ -38,7 +38,7 @@ class DashboardRouter: DashboardRoutingLogic {
         }
 
         let presenter = NewCGAPresenter(viewController: newCGAController)
-        let interactor = NewCGAInteractor(presenter: presenter)
+        let interactor = NewCGAInteractor(presenter: presenter, worker: NewCGAWorker())
         let router = NewCGARouter(viewController: newCGAController)
 
         newCGAController.setupArchitecture(interactor: interactor, router: router)
@@ -66,7 +66,7 @@ class DashboardRouter: DashboardRoutingLogic {
         }
 
         let presenter = CGADomainsPresenter(viewController: cgaDomainsController)
-        let interactor = CGADomainsInteractor(presenter: presenter)
+        let interactor = CGADomainsInteractor(presenter: presenter, patientId: -1)
         let router = CGADomainsRouter(viewController: cgaDomainsController)
 
         cgaDomainsController.setupArchitecture(interactor: interactor, router: router)
