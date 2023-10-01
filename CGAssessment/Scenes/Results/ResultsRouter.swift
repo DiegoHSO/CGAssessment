@@ -125,7 +125,7 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     private func routeToSarcopeniaScreening() {
-        guard let sarcopeniaScreeningController = SarcopeniaScreeningBuilder.build() else { return }
+        guard let sarcopeniaScreeningController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaScreeningController, animated: true)
     }

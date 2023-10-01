@@ -182,8 +182,10 @@
 "unable_without_help_key" = "Muita ou não consegue sem ajuda";
 "one_to_three_falls_key" = "Uma a três quedas";
 "four_or_more_falls_key" = "Quatro ou mais quedas";
-"circumference_bigger_than_limit_key" = "Circunferência maior que 33 cm";
-"circumference_lower_than_limit_key" = "Circunferência menor que 33 cm";
+"circumference_bigger_than_limit_women_key" = "Circunferência maior que 33 cm";
+"circumference_lower_than_limit_women_key" = "Circunferência menor que 33 cm";
+"circumference_bigger_than_limit_men_key" = "Circunferência maior que 34 cm";
+"circumference_lower_than_limit_men_key" = "Circunferência menor que 34 cm";
 "sarc_f_screening_key" = "Triagem (SARC-F)";
 "strength_key" = "Força";
 "help_to_walk_key" = "Ajuda para caminhar";

@@ -20,7 +20,7 @@ class RecentApplicationTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(patientName: String, patientAge: Int, missingDomains: Int) {
-        let progress: Double = Double(missingDomains - 9) / 9
+        let progress: Double = Double(9 - missingDomains) / 9
 
         percentageLabel?.text = (progress * 100).regionFormatted() + "%"
         percentageLabel?.font = .compactRounded(withStyle: .black, size: 15)

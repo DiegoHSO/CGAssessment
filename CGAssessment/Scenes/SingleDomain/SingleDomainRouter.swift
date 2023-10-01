@@ -102,7 +102,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
     }
 
     private func routeToSarcopeniaAssessment(cgaId: UUID?) {
-        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build() else { return }
+        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }
