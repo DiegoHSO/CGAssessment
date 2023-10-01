@@ -41,7 +41,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .gripStrength:
             routeToGripStrengthTest()
         case .sarcopeniaScreening:
-            routeToSarcopeniaAssessment()
+            routeToSarcopeniaScreening()
         case .miniMentalStateExamination:
             break
         case .verbalFluencyTest:
@@ -79,6 +79,10 @@ class ResultsRouter: ResultsRoutingLogic {
         default:
             break
         }
+
+        if let viewController = viewController, let index = viewController.navigationController?.viewControllers.firstIndex(of: viewController) {
+            viewController.navigationController?.viewControllers.remove(atOffsets: IndexSet(index - 1...index))
+        }
     }
 
     func routeBack(domain: CGADomainsModels.Domain?) {
@@ -105,6 +109,10 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
+
+        if let viewController = viewController, let index = viewController.navigationController?.viewControllers.firstIndex(of: viewController) {
+            viewController.navigationController?.viewControllers.remove(atOffsets: IndexSet(index - 1...index))
+        }
     }
 
     // MARK: - Private Methods

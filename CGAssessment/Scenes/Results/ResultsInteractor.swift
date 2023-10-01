@@ -40,7 +40,7 @@ class ResultsInteractor: ResultsLogic {
     func didTapActionButton(identifier: String?) {
         switch identifier {
         case LocalizedTable.nextTest.localized:
-            presenter?.route(toRoute: .nextTest(test: test.next()))
+            presenter?.route(toRoute: .nextTest(test: test == .sarcopeniaAssessment ? .miniMentalStateExamination : test.next()))
         case LocalizedTable.returnKey.localized:
             presenter?.route(toRoute: .routeBack(domain: test.domain))
         case LocalizedTable.secondStep.localized:
