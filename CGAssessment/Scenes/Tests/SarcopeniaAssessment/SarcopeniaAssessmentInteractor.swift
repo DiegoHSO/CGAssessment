@@ -81,10 +81,10 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             updateDatabase(isDone: true)
         }
 
-        presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(gripStrengthResults: gripStrengthResults,
-                                                                                          calfCircumferenceResults: calfCircumferenceResults,
-                                                                                          timedUpAndGoResults: timedUpAndGoResults,
-                                                                                          walkingSpeedResults: walkingSpeedResults), cgaId: cgaId))
+        presenter?.route(toRoute: .testResults(test: .sarcopeniaAssessment, results: .init(gripStrengthResults: gripStrengthResults,
+                                                                                           calfCircumferenceResults: calfCircumferenceResults,
+                                                                                           timedUpAndGoResults: timedUpAndGoResults,
+                                                                                           walkingSpeedResults: walkingSpeedResults), cgaId: cgaId))
     }
 
     private func computeViewModelData() {
@@ -93,12 +93,6 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
     }
 
     private func getTestsProgress() {
-        if let sarcopeniaAssessmentProgress = try? worker?.getSarcopeniaAssessmentProgress() {
-            if sarcopeniaAssessmentProgress.isDone {
-                handleNavigation()
-            }
-        }
-
         if let gripStrengthProgress = try? worker?.getGripStrengthProgress() {
             testsCompletionStatus.updateValue(gripStrengthProgress.isDone ? .done : .incomplete,
                                               forKey: .gripStrength)
@@ -165,6 +159,12 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             }
         } else {
             testsCompletionStatus.updateValue(.notStarted, forKey: .walkingSpeed)
+        }
+
+        if let sarcopeniaAssessmentProgress = try? worker?.getSarcopeniaAssessmentProgress() {
+            if sarcopeniaAssessmentProgress.isDone {
+                handleNavigation()
+            }
         }
     }
 

@@ -9,7 +9,7 @@ import UIKit
 
 protocol ResultsRoutingLogic {
     func routeToNextTest(test: SingleDomainModels.Test)
-    func routeBack(domain: CGADomainsModels.Domain)
+    func routeBack(domain: CGADomainsModels.Domain?)
     func routeToSarcopeniaAssessment()
 }
 
@@ -81,12 +81,19 @@ class ResultsRouter: ResultsRoutingLogic {
         }
     }
 
-    func routeBack(domain: CGADomainsModels.Domain) {
+    func routeBack(domain: CGADomainsModels.Domain?) {
+        if domain != nil, let sarcopeniaAssessmentController = viewController?.navigationController?.viewControllers
+            .first(where: { $0 is SarcopeniaAssessmentViewController }) as? SarcopeniaAssessmentViewController {
+
+            viewController?.navigationController?.popToViewController(sarcopeniaAssessmentController, animated: true)
+            return
+        }
+
         guard let singleDomainController = viewController?.navigationController?.viewControllers
                 .first(where: { $0 is SingleDomainViewController }) as? SingleDomainViewController else { return }
 
         let presenter = SingleDomainPresenter(viewController: singleDomainController)
-        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain, worker: SingleDomainWorker(), cgaId: cgaId)
+        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain ?? .mobility, worker: SingleDomainWorker(), cgaId: cgaId)
         let router = SingleDomainRouter(viewController: singleDomainController)
 
         singleDomainController.setupArchitecture(interactor: interactor, router: router)

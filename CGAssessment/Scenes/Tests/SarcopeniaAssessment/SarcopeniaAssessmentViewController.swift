@@ -28,11 +28,13 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        interactor?.controllerDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        interactor?.controllerDidLoad()
+        tabBarController?.tabBar.isHidden = true
+        title = LocalizedTable.sarcopeniaAssessment.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,8 +67,6 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
     func presentData(viewModel: SarcopeniaAssessmentModels.ControllerViewModel) {
         self.viewModel = viewModel
 
-        title = LocalizedTable.sarcopeniaAssessment.localized
-        tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
     }
 

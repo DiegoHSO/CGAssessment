@@ -26,7 +26,11 @@ class GripStrengthRouter: GripStrengthRoutingLogic {
     // MARK: - Public Methods
 
     func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults, cgaId: UUID?) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId) else { return }
+        let containsSarcopeniaController = viewController?.navigationController?.viewControllers
+            .contains(where: { $0 is SarcopeniaAssessmentViewController }) ?? false
+
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId,
+                                                           isInSpecialFlow: containsSarcopeniaController) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

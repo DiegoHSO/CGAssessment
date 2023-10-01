@@ -13,10 +13,15 @@ struct ResultsModels {
         let testName: String
         let results: [Result]
         let resultType: ResultType
+        let isInSpecialFlow: Bool
 
         var sections: [Section: [Row]] {
             var optionsForFirstSection: [Row] = [.results]
-            let optionsForSecondSection: [Row] = [.nextTest, .goBack]
+            var optionsForSecondSection: [Row] = [.nextTest, .goBack]
+
+            if isInSpecialFlow {
+                optionsForSecondSection.removeAll(where: { $0 == .nextTest})
+            }
 
             if testName == LocalizedTable.sarcopeniaScreening.localized, resultType == .bad {
                 optionsForFirstSection.append(.label)
@@ -60,7 +65,7 @@ struct ResultsModels {
 
     enum Routing {
         case nextTest(test: SingleDomainModels.Test)
-        case routeBack(domain: CGADomainsModels.Domain)
+        case routeBack(domain: CGADomainsModels.Domain?)
         case sarcopeniaAssessment
     }
 

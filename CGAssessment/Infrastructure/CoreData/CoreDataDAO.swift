@@ -144,6 +144,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
             return cga?.gripStrength
         case .sarcopeniaScreening:
             return cga?.sarcopeniaScreening
+        case .sarcopeniaAssessment:
+            return cga?.sarcopeniaAssessment
         case .miniMentalStateExamination:
             return nil
         case .verbalFluencyTest:

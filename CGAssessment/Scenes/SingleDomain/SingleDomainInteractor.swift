@@ -70,7 +70,11 @@ class SingleDomainInteractor: SingleDomainLogic {
         }
 
         if tests.contains(.sarcopeniaScreening) {
-            testsStatus.updateValue(checkSarcopeniaScreeningStatus(cga: cga), forKey: .sarcopeniaScreening)
+            let sarcopeniaScreeningStatus = checkSarcopeniaScreeningStatus(cga: cga)
+            let sarcopeniaAssessmentStatus = checkSarcopeniaAssessmentStatus(cga: cga)
+
+            testsStatus.updateValue(sarcopeniaScreeningStatus == .done ? sarcopeniaAssessmentStatus : sarcopeniaScreeningStatus,
+                                    forKey: .sarcopeniaScreening)
         }
     }
 
@@ -164,6 +168,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.sarcopeniaScreening?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkSarcopeniaAssessmentStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.sarcopeniaAssessment?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
