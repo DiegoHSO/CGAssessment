@@ -244,8 +244,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
     func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
-        if cga.walkingSpeed == nil {
-            try createWalkingSpeedInstance(for: cga)
+        if cga.calfCircumference == nil {
+            try createCalfCircumferenceInstance(for: cga)
         }
 
         if let circumference = test.circumference {

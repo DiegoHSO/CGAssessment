@@ -90,7 +90,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
     }
 
     private func routeToCalfCircumferenceTest(cgaId: UUID?) {
-        guard let calfCircumferenceController = CalfCircumferenceBuilder.build() else { return }
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }

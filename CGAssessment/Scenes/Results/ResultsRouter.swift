@@ -113,7 +113,7 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     private func routeToCalfCircumferenceTest() {
-        guard let calfCircumferenceController = CalfCircumferenceBuilder.build() else { return }
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }

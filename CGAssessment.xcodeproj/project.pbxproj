@@ -12,6 +12,7 @@
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
 		F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2532AC939CA004E90E2 /* WalkingSpeedWorker.swift */; };
 		F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2552AC9423B004E90E2 /* GripStrengthWorker.swift */; };
+		F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2572AC94848004E90E2 /* CalfCircumferenceWorker.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -216,6 +217,7 @@
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
 		F138F2532AC939CA004E90E2 /* WalkingSpeedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedWorker.swift; sourceTree = "<group>"; };
 		F138F2552AC9423B004E90E2 /* GripStrengthWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthWorker.swift; sourceTree = "<group>"; };
+		F138F2572AC94848004E90E2 /* CalfCircumferenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceWorker.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 				F1A543172AC3E1F200D543ED /* CalfCircumferenceRouter.swift */,
 				F1A543192AC3E23300D543ED /* CalfCircumferenceModels.swift */,
 				F18698DA2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift */,
+				F138F2572AC94848004E90E2 /* CalfCircumferenceWorker.swift */,
 			);
 			path = CalfCircumference;
 			sourceTree = "<group>";
@@ -1324,6 +1327,7 @@
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
+				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
 				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,

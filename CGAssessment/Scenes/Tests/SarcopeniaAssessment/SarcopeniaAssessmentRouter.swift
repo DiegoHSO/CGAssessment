@@ -42,7 +42,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
     }
 
     func routeToCalfCircumferenceTest() {
-        guard let calfCircumferenceController = CalfCircumferenceBuilder.build() else { return }
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }
