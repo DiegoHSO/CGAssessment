@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
+		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -210,6 +211,7 @@
 /* Begin PBXFileReference section */
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
+		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -870,6 +872,7 @@
 				F1F1E3A22ABFF55400BC610E /* TimedUpAndGoRouter.swift */,
 				F1F1E3A42ABFF56200BC610E /* TimedUpAndGoModels.swift */,
 				F18698D62AC4B28700FB5620 /* TimedUpAndGoBuilder.swift */,
+				F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */,
 			);
 			path = TimedUpAndGo;
 			sourceTree = "<group>";
@@ -1263,6 +1266,7 @@
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
+				F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */,
 				F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,

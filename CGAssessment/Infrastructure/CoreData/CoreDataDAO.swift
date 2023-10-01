@@ -12,6 +12,7 @@ enum CoreDataErrors: Error, Equatable {
     case duplicatedPatient
     case unableToFetchCGA
     case unableToFetchPatient
+    case unableToUpdateCGA
 }
 
 protocol CoreDataDAOProtocol {
@@ -22,6 +23,7 @@ protocol CoreDataDAOProtocol {
     func fetchPatientCGAs(patient: Patient) throws -> [CGA]
     func fetchPatients() throws -> [Patient]
     func fetchPatient(patientId: UUID) throws -> Patient?
+    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any?
     func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws
     func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws
     func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws
@@ -118,6 +120,57 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return try context.fetch(request).first
     }
 
+    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any? {
+        let cga = try fetchCGA(cgaId: cgaId)
+
+        switch test {
+        case .timedUpAndGo:
+            return cga?.timedUpAndGo
+        case .walkingSpeed:
+            return cga?.walkingSpeed
+        case .calfCircumference:
+            return cga?.calfCircumference
+        case .gripStrength:
+            return cga?.gripStrength
+        case .sarcopeniaAssessment:
+            return cga?.sarcopeniaScreening
+        case .miniMentalStateExamination:
+            return nil
+        case .verbalFluencyTest:
+            return nil
+        case .clockDrawingTest:
+            return nil
+        case .moca:
+            return nil
+        case .geriatricDepressionScale:
+            return nil
+        case .visualAcuityAssessment:
+            return nil
+        case .hearingLossAssessment:
+            return nil
+        case .katzScale:
+            return nil
+        case .lawtonScale:
+            return nil
+        case .miniNutritionalAssessment:
+            return nil
+        case .apgarScale:
+            return nil
+        case .zaritScale:
+            return nil
+        case .polypharmacyCriteria:
+            return nil
+        case .charlsonIndex:
+            return nil
+        case .suspectedAbuse:
+            return nil
+        case .cardiovascularRiskEstimation:
+            return nil
+        case .chemotherapyToxicityRisk:
+            return nil
+        }
+    }
+
     func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
@@ -126,11 +179,11 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         if let elapsedTime = test.elapsedTime {
-            cga.timedUpAndGo?.measuredTime = elapsedTime
+            cga.timedUpAndGo?.measuredTime = NSNumber(floatLiteral: elapsedTime)
         }
 
         if let typedElapsedTime = test.typedElapsedTime {
-            cga.timedUpAndGo?.typedTime = typedElapsedTime
+            cga.timedUpAndGo?.typedTime = NSNumber(floatLiteral: typedElapsedTime)
         }
 
         cga.timedUpAndGo?.hasStopwatch = test.selectedOption == .firstOption

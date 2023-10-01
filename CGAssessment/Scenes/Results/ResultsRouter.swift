@@ -18,11 +18,13 @@ class ResultsRouter: ResultsRoutingLogic {
     // MARK: - Private Properties
 
     private weak var viewController: UIViewController?
+    private let cgaId: UUID?
 
     // MARK: - Init
 
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController, cgaId: UUID?) {
         self.viewController = viewController
+        self.cgaId = cgaId
     }
 
     // MARK: - Public Methods
@@ -82,7 +84,7 @@ class ResultsRouter: ResultsRoutingLogic {
                 .first(where: { $0 is SingleDomainViewController }) as? SingleDomainViewController else { return }
 
         let presenter = SingleDomainPresenter(viewController: singleDomainController)
-        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain, worker: SingleDomainWorker(), cgaId: nil) // TODO: Put CGA id
+        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain, worker: SingleDomainWorker(), cgaId: cgaId)
         let router = SingleDomainRouter(viewController: singleDomainController)
 
         singleDomainController.setupArchitecture(interactor: interactor, router: router)
@@ -99,7 +101,7 @@ class ResultsRouter: ResultsRoutingLogic {
     // MARK: - Private Methods
 
     private func routeToTimedUpAndGoTest() {
-        guard let timedUpAndGoController = TimedUpAndGoBuilder.build() else { return }
+        guard let timedUpAndGoController = TimedUpAndGoBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }

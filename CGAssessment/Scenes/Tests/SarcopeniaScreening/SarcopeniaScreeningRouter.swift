@@ -26,7 +26,7 @@ class SarcopeniaScreeningRouter: SarcopeniaScreeningRoutingLogic {
     // MARK: - Public Methods
 
     func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

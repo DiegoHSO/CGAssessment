@@ -47,8 +47,8 @@ class SingleDomainViewController: UIViewController, SingleDomainDisplayLogic {
 
     func route(toRoute route: SingleDomainModels.Routing) {
         switch route {
-        case .domainTest(let test):
-            router?.routeToSingleTest(test: test)
+        case .domainTest(let test, let cgaId):
+            router?.routeToSingleTest(test: test, cgaId: cgaId)
         }
     }
 

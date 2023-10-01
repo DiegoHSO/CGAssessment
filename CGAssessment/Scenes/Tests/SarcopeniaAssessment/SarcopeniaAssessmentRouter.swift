@@ -30,7 +30,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
     // MARK: - Public Methods
 
     func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }
@@ -48,7 +48,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
     }
 
     func routeToTimedUpAndGoTest() {
-        guard let timedUpAndGoController = TimedUpAndGoBuilder.build() else { return }
+        guard let timedUpAndGoController = TimedUpAndGoBuilder.build(cgaId: nil) else { return } // TODO: Put CGA id
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }

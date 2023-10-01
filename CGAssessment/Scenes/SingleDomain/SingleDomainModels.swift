@@ -199,6 +199,6 @@ struct SingleDomainModels {
     }
 
     enum Routing {
-        case domainTest(test: Test)
+        case domainTest(test: Test, cgaId: UUID?)
     }
 }

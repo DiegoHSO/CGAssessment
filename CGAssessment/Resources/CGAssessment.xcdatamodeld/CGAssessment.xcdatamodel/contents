@@ -42,19 +42,19 @@
     <entity name="TimedUpAndGo" representedClassName=".TimedUpAndGo" syncable="YES" codeGenerationType="class">
         <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="measuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="typedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="measuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="typedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
     </entity>
     <entity name="WalkingSpeed" representedClassName=".WalkingSpeed" syncable="YES" codeGenerationType="class">
-        <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="firstTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="firstTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="secondMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="secondTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="thirdMeasuredTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="thirdTypedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="secondMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="secondTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="thirdMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="thirdTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="walkingSpeed" inverseEntity="CGA"/>
     </entity>
 </model>

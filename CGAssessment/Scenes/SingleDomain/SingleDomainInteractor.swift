@@ -41,7 +41,7 @@ class SingleDomainInteractor: SingleDomainLogic {
     }
 
     func didSelect(test: SingleDomainModels.Test) {
-        presenter?.route(toRoute: .domainTest(test: test))
+        presenter?.route(toRoute: .domainTest(test: test, cgaId: cgaId))
     }
 
     // MARK: - Private Methods

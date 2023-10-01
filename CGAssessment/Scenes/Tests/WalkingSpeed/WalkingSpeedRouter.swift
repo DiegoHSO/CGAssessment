@@ -27,7 +27,7 @@ class WalkingSpeedRouter: WalkingSpeedRoutingLogic {
 
     func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults) {
         guard let resultsController = ResultsBuilder.build(test: test,
-                                                           results: results) else { return }
+                                                           results: results, cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

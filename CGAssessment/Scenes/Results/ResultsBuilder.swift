@@ -9,7 +9,7 @@ import UIKit
 
 class ResultsBuilder {
 
-    static func build(test: SingleDomainModels.Test, results: Any) -> UIViewController? {
+    static func build(test: SingleDomainModels.Test, results: Any, cgaId: UUID?) -> UIViewController? {
         let storyboard = UIStoryboard(name: "Results", bundle: Bundle.main)
         guard let resultsController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? ResultsViewController else {
@@ -18,7 +18,7 @@ class ResultsBuilder {
 
         let presenter = ResultsPresenter(viewController: resultsController)
         let interactor = ResultsInteractor(presenter: presenter, worker: .init(), test: test, results: results)
-        let router = ResultsRouter(viewController: resultsController)
+        let router = ResultsRouter(viewController: resultsController, cgaId: cgaId)
 
         resultsController.setupArchitecture(interactor: interactor, router: router)
 
