@@ -57,7 +57,7 @@ class CGADomainsInteractor: CGADomainsLogic {
                              .walkingSpeed: cga.walkingSpeed?.isDone == true,
                              .calfCircumference: cga.calfCircumference?.isDone == true,
                              .gripStrength: cga.gripStrength?.isDone == true,
-                             .sarcopeniaAssessment: cga.sarcopeniaScreening?.isDone == true], forKey: .mobility)
+                             .sarcopeniaScreening: cga.sarcopeniaScreening?.isDone == true], forKey: .mobility)
 
         domains.updateValue([.miniMentalStateExamination: true,
                              .verbalFluencyTest: false,

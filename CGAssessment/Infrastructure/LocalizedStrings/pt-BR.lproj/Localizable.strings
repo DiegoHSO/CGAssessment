@@ -210,7 +210,7 @@
 "muscle_amount_key" = "quantidade muscular";
 "muscle_performance_key" = "desempenho muscular";
 "and_key" = "e";
-"sarcopenia_assessment_excellent_result_key" = "Indivíduo sem suspeita de presença de sarcopenia";
+"sarcopenia_assessment_excellent_result_key" = "Indivíduo sem suspeita de presença de sarcopenia";
 "sarcopenia_assessment_good_result_key" = "Indivíduo com provável presença de sarcopenia";
 "sarcopenia_assessment_medium_result_key" = "Indivíduo com confirmada presença de sarcopenia";
 "sarcopenia_assessment_bad_result_key" = "Indivíduo com presença de sarcopenia grave";

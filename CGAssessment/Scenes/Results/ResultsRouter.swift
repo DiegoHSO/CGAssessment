@@ -40,7 +40,7 @@ class ResultsRouter: ResultsRoutingLogic {
             routeToCalfCircumferenceTest()
         case .gripStrength:
             routeToGripStrengthTest()
-        case .sarcopeniaAssessment:
+        case .sarcopeniaScreening:
             routeToSarcopeniaAssessment()
         case .miniMentalStateExamination:
             break
@@ -76,6 +76,8 @@ class ResultsRouter: ResultsRoutingLogic {
             break
         case .chemotherapyToxicityRisk:
             break
+        default:
+            break
         }
     }
 
@@ -93,7 +95,7 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     func routeToSarcopeniaAssessment() {
-        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build() else { return }
+        guard let sarcopeniaAssessmentController = SarcopeniaAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }

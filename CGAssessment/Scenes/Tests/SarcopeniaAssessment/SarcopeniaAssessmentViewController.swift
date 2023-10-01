@@ -49,16 +49,16 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
 
     func route(toRoute route: SarcopeniaAssessmentModels.Routing) {
         switch route {
-        case .gripStrength:
-            router?.routeToGripStrengthTest()
-        case .calfCircumference:
-            router?.routeToCalfCircumferenceTest()
-        case .timedUpAndGo:
-            router?.routeToTimedUpAndGoTest()
-        case .walkingSpeed:
-            router?.routeToWalkingSpeedTest()
-        case .testResults(let test, let results):
-            router?.routeToTestResults(test: test, results: results)
+        case .gripStrength(let cgaId):
+            router?.routeToGripStrengthTest(cgaId: cgaId)
+        case .calfCircumference(let cgaId):
+            router?.routeToCalfCircumferenceTest(cgaId: cgaId)
+        case .timedUpAndGo(let cgaId):
+            router?.routeToTimedUpAndGoTest(cgaId: cgaId)
+        case .walkingSpeed(let cgaId):
+            router?.routeToWalkingSpeedTest(cgaId: cgaId)
+        case .testResults(let test, let results, let cgaId):
+            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 

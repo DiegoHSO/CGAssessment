@@ -69,8 +69,8 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkGripStrengthStatus(cga: cga), forKey: .gripStrength)
         }
 
-        if tests.contains(.sarcopeniaAssessment) {
-            testsStatus.updateValue(checkSarcopeniaScreeningStatus(cga: cga), forKey: .sarcopeniaAssessment)
+        if tests.contains(.sarcopeniaScreening) {
+            testsStatus.updateValue(checkSarcopeniaScreeningStatus(cga: cga), forKey: .sarcopeniaScreening)
         }
     }
 
@@ -80,7 +80,7 @@ class SingleDomainInteractor: SingleDomainLogic {
         switch domain {
         case .mobility:
             tests = [.timedUpAndGo, .walkingSpeed, .calfCircumference,
-                     .gripStrength, .sarcopeniaAssessment]
+                     .gripStrength, .sarcopeniaScreening]
 
         case .cognitive:
             tests = [.miniMentalStateExamination, .verbalFluencyTest,

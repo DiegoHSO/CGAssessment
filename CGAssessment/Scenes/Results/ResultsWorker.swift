@@ -25,7 +25,7 @@ class ResultsWorker {
         case .gripStrength:
             guard let gripStrengthResults = results as? GripStrengthModels.TestResults else { return nil }
             return getGripStrengthResults(for: gripStrengthResults)
-        case .sarcopeniaAssessment:
+        case .sarcopeniaScreening:
             if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.TestResults {
                 return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
             } else if let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults {
@@ -64,6 +64,8 @@ class ResultsWorker {
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
+            break
+        default:
             break
         }
 
@@ -216,7 +218,6 @@ class ResultsWorker {
         return (results, resultType)
     }
 
-    // TODO: Apply Core Data logic
     private func getSarcopeniaAssessmentResults(for testResults: SarcopeniaAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
         let (_, gripStrengthResult) = getGripStrengthResults(for: testResults.gripStrengthResults)
 
@@ -247,7 +248,7 @@ class ResultsWorker {
                 musclePerformanceResult = musclePerformanceResult == .bad || musclePerformanceResult == nil ? walkingSpeedResult : musclePerformanceResult
             }
 
-            if musclePerformanceResult == .excellent {
+            if musclePerformanceResult == .excellent || musclePerformanceResult == .good {
                 return ([.init(title: LocalizedTable.affectedCategories.localized,
                                description: "\(LocalizedTable.muscleStrength.localized) \(LocalizedTable.and.localized) \(LocalizedTable.muscleAmount.localized)"),
                          .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentMediumResult.localized)], .medium)

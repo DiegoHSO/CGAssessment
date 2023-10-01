@@ -123,13 +123,13 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
                                fourthQuestionOption, fifthQuestionOption, sixthQuestionOption]
 
         if let gender, selectedOptions.allSatisfy({$0 != .none}) {
-            presenter?.route(toRoute: .testResults(test: .sarcopeniaAssessment, results: .init(firstQuestionOption: firstQuestionOption,
-                                                                                               secondQuestionOption: secondQuestionOption,
-                                                                                               thirdQuestionOption: thirdQuestionOption,
-                                                                                               fourthQuestionOption: fourthQuestionOption,
-                                                                                               fifthQuestionOption: fifthQuestionOption,
-                                                                                               sixthQuestionOption: sixthQuestionOption,
-                                                                                               gender: gender), cgaId: cgaId))
+            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(firstQuestionOption: firstQuestionOption,
+                                                                                              secondQuestionOption: secondQuestionOption,
+                                                                                              thirdQuestionOption: thirdQuestionOption,
+                                                                                              fourthQuestionOption: fourthQuestionOption,
+                                                                                              fifthQuestionOption: fifthQuestionOption,
+                                                                                              sixthQuestionOption: sixthQuestionOption,
+                                                                                              gender: gender), cgaId: cgaId))
         }
     }
 

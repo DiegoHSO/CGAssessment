@@ -30,6 +30,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws
     func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID) throws
     func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID) throws
+    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID) throws
 }
 
 class CoreDataDAO: CoreDataDAOProtocol {
@@ -141,7 +142,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
             return cga?.calfCircumference
         case .gripStrength:
             return cga?.gripStrength
-        case .sarcopeniaAssessment:
+        case .sarcopeniaScreening:
             return cga?.sarcopeniaScreening
         case .miniMentalStateExamination:
             return nil
@@ -176,6 +177,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .cardiovascularRiskEstimation:
             return nil
         case .chemotherapyToxicityRisk:
+            return nil
+        default:
             return nil
         }
     }
@@ -303,6 +306,19 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.sarcopeniaAssessment == nil {
+            try createSarcopeniaAssessmentInstance(for: cga)
+        }
+
+        cga.sarcopeniaAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -336,6 +352,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createSarcopeniaScreeningInstance(for cga: CGA) throws {
         let newTest = SarcopeniaScreening(context: context)
         cga.sarcopeniaScreening = newTest
+
+        try context.save()
+    }
+
+    private func createSarcopeniaAssessmentInstance(for cga: CGA) throws {
+        let newTest = SarcopeniaAssessment(context: context)
+        cga.sarcopeniaAssessment = newTest
 
         try context.save()
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class SarcopeniaAssessmentBuilder {
 
-    static func build() -> UIViewController? {
+    static func build(cgaId: UUID?) -> UIViewController? {
         let storyboard = UIStoryboard(name: "SarcopeniaAssessment", bundle: Bundle.main)
         guard let sarcopeniaAssessmentController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? SarcopeniaAssessmentViewController else {
@@ -17,7 +17,7 @@ class SarcopeniaAssessmentBuilder {
         }
 
         let presenter = SarcopeniaAssessmentPresenter(viewController: sarcopeniaAssessmentController)
-        let interactor = SarcopeniaAssessmentInteractor(presenter: presenter)
+        let interactor = SarcopeniaAssessmentInteractor(presenter: presenter, worker: SarcopeniaAssessmentWorker(cgaId: cgaId), cgaId: cgaId)
         let router = SarcopeniaAssessmentRouter(viewController: sarcopeniaAssessmentController)
 
         sarcopeniaAssessmentController.setupArchitecture(interactor: interactor, router: router)

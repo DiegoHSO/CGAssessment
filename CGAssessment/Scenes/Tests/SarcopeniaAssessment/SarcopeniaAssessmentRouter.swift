@@ -8,11 +8,11 @@
 import UIKit
 
 protocol SarcopeniaAssessmentRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults)
-    func routeToGripStrengthTest()
-    func routeToCalfCircumferenceTest()
-    func routeToTimedUpAndGoTest()
-    func routeToWalkingSpeedTest()
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults, cgaId: UUID?)
+    func routeToGripStrengthTest(cgaId: UUID?)
+    func routeToCalfCircumferenceTest(cgaId: UUID?)
+    func routeToTimedUpAndGoTest(cgaId: UUID?)
+    func routeToWalkingSpeedTest(cgaId: UUID?)
 }
 
 class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
@@ -29,32 +29,32 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: nil) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaAssessmentModels.TestResults, cgaId: UUID?) {
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }
 
-    func routeToGripStrengthTest() {
-        guard let gripStrengthController = GripStrengthBuilder.build(cgaId: nil) else { return }
+    func routeToGripStrengthTest(cgaId: UUID?) {
+        guard let gripStrengthController = GripStrengthBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }
 
-    func routeToCalfCircumferenceTest() {
-        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: nil) else { return }
+    func routeToCalfCircumferenceTest(cgaId: UUID?) {
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }
 
-    func routeToTimedUpAndGoTest() {
-        guard let timedUpAndGoController = TimedUpAndGoBuilder.build(cgaId: nil) else { return } // TODO: Put CGA id
+    func routeToTimedUpAndGoTest(cgaId: UUID?) {
+        guard let timedUpAndGoController = TimedUpAndGoBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }
 
-    func routeToWalkingSpeedTest() {
-        guard let walkingSpeedController = WalkingSpeedBuilder.build(cgaId: nil) else { return }
+    func routeToWalkingSpeedTest(cgaId: UUID?) {
+        guard let walkingSpeedController = WalkingSpeedBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }

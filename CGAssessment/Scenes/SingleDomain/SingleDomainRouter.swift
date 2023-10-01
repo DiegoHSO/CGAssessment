@@ -36,7 +36,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
             routeToCalfCircumferenceTest(cgaId: cgaId)
         case .gripStrength:
             routeToGripStrengthTest(cgaId: cgaId)
-        case .sarcopeniaAssessment:
+        case .sarcopeniaScreening:
             routeToSarcopeniaAssessment(cgaId: cgaId)
         case .miniMentalStateExamination:
             break
@@ -71,6 +71,8 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
+            break
+        default:
             break
         }
     }

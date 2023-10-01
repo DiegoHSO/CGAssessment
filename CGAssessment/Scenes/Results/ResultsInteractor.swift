@@ -40,7 +40,12 @@ class ResultsInteractor: ResultsLogic {
         case LocalizedTable.nextTest.localized:
             presenter?.route(toRoute: .nextTest(test: test.next()))
         case LocalizedTable.returnKey.localized:
-            presenter?.route(toRoute: .routeBack(domain: test.domain))
+            guard let domain = test.domain else {
+                presenter?.route(toRoute: .routeBack(domain: .mobility))
+                return
+            }
+
+            presenter?.route(toRoute: .routeBack(domain: domain))
         case LocalizedTable.secondStep.localized:
             presenter?.route(toRoute: .sarcopeniaAssessment)
         default:

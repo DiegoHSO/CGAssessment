@@ -28,7 +28,7 @@ class SarcopeniaScreeningWorker {
             throw CoreDataErrors.unableToFetchCGA
         }
 
-        return try dao.fetchCGATest(test: .sarcopeniaAssessment, cgaId: cgaId) as? SarcopeniaScreening
+        return try dao.fetchCGATest(test: .sarcopeniaScreening, cgaId: cgaId) as? SarcopeniaScreening
     }
 
     func getPatientGender() throws -> Gender {
