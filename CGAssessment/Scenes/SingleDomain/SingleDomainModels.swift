@@ -48,8 +48,9 @@ struct SingleDomainModels {
         }
     }
 
-    enum Test: CaseIterable {
-        case timedUpAndGo
+    @objc
+    public enum Test: Int16, CaseIterable {
+        case timedUpAndGo = 1
         case walkingSpeed
         case calfCircumference
         case gripStrength

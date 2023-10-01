@@ -40,7 +40,7 @@ class CGADomainsInteractor: CGADomainsLogic {
     }
 
     func didSelect(domain: CGADomainsModels.Domain) {
-        presenter?.route(toRoute: .domainTests(domain: domain))
+        presenter?.route(toRoute: .domainTests(domain: domain, cgaId: cgaId))
     }
 
     // MARK: - Private Methods

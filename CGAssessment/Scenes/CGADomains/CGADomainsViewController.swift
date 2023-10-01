@@ -63,8 +63,8 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
 
     func route(toRoute route: CGADomainsModels.Routing) {
         switch route {
-        case .domainTests(let domain):
-            router?.routeToDomainTests(domain: domain)
+        case .domainTests(let domain, let cgaId):
+            router?.routeToDomainTests(domain: domain, cgaId: cgaId)
         }
     }
 

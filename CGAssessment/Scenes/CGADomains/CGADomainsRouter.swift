@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CGADomainsRoutingLogic {
-    func routeToDomainTests(domain: CGADomainsModels.Domain)
+    func routeToDomainTests(domain: CGADomainsModels.Domain, cgaId: UUID?)
 }
 
 class CGADomainsRouter: CGADomainsRoutingLogic {
@@ -25,7 +25,7 @@ class CGADomainsRouter: CGADomainsRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToDomainTests(domain: CGADomainsModels.Domain) {
+    func routeToDomainTests(domain: CGADomainsModels.Domain, cgaId: UUID?) {
         let storyboard = UIStoryboard(name: "SingleDomain", bundle: Bundle.main)
         guard let singleDomainController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? SingleDomainViewController else {
@@ -33,7 +33,8 @@ class CGADomainsRouter: CGADomainsRoutingLogic {
         }
 
         let presenter = SingleDomainPresenter(viewController: singleDomainController)
-        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain)
+        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain,
+                                                worker: SingleDomainWorker(), cgaId: cgaId)
         let router = SingleDomainRouter(viewController: singleDomainController)
 
         singleDomainController.setupArchitecture(interactor: interactor, router: router)

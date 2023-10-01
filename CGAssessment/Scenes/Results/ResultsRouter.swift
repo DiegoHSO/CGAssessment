@@ -82,7 +82,7 @@ class ResultsRouter: ResultsRoutingLogic {
                 .first(where: { $0 is SingleDomainViewController }) as? SingleDomainViewController else { return }
 
         let presenter = SingleDomainPresenter(viewController: singleDomainController)
-        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain)
+        let interactor = SingleDomainInteractor(presenter: presenter, domain: domain, worker: SingleDomainWorker(), cgaId: nil) // TODO: Put CGA id
         let router = SingleDomainRouter(viewController: singleDomainController)
 
         singleDomainController.setupArchitecture(interactor: interactor, router: router)
