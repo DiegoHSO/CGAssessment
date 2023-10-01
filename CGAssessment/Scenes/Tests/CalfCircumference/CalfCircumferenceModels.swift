@@ -28,8 +28,13 @@ struct CalfCircumferenceModels {
         let circumference: Double
     }
 
+    struct TestData {
+        let circumference: Double?
+        let isDone: Bool
+    }
+
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
     enum Section: Int {

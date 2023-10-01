@@ -30,7 +30,7 @@ class CGADomainTableViewCell: UITableViewCell {
             LocalizedTable.doneTestsPlural.localized
 
         doneTestsText = doneTestsText.replacingOccurrences(of: "%DONE_TESTS",
-                                                           with: String(viewModel.tests.filter { $0.isDone == true }.count))
+                                                           with: String(viewModel.tests.filter { $0.value == true }.count))
         doneTestsText = doneTestsText.replacingOccurrences(of: "%TOTAL_TESTS",
                                                            with: String(viewModel.tests.count))
         domainNameLabel?.text = "\(viewModel.name) \(viewModel.symbol)"
@@ -44,13 +44,14 @@ class CGADomainTableViewCell: UITableViewCell {
         if let currentSubviews = testsStackView?.arrangedSubviews as? [TestNameView], !currentSubviews.isEmpty {
             subviews = currentSubviews
         } else {
-            for _ in 1...viewModel.tests.count { subviews.append(TestNameView()) }
+            for _ in 1...viewModel.tests.keys.count { subviews.append(TestNameView()) }
         }
 
         var index: Int = 0
-        subviews.forEach {
-            $0.setup(testName: viewModel.tests[safe: index]?.name ?? "",
-                     isDone: viewModel.tests[safe: index]?.isDone ?? false)
+
+        let sortedTests = viewModel.tests.sorted(by: { $0.key.rawValue < $1.key.rawValue })
+        sortedTests.forEach { (key, value) in
+            subviews[safe: index]?.setup(testName: key.title, isDone: value)
             index += 1
         }
 

@@ -28,14 +28,17 @@ class SarcopeniaScreeningViewController: UIViewController, SarcopeniaScreeningDi
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        interactor?.controllerDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        interactor?.controllerDidLoad()
+        tabBarController?.tabBar.isHidden = true
+        title = LocalizedTable.sarcopeniaAssessment.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
         title = LocalizedTable.assessment.localized
     }
@@ -49,23 +52,20 @@ class SarcopeniaScreeningViewController: UIViewController, SarcopeniaScreeningDi
 
     func route(toRoute route: SarcopeniaScreeningModels.Routing) {
         switch route {
-        case .testResults(let test, let results):
-            router?.routeToTestResults(test: test, results: results)
+        case .testResults(let test, let results, let cgaId):
+            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 
     func presentData(viewModel: SarcopeniaScreeningModels.ControllerViewModel) {
         self.viewModel = viewModel
 
-        tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
     }
 
     // MARK: - Private Methods
 
     private func setupViews() {
-        title = LocalizedTable.sarcopeniaAssessment.localized
-
         UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
 
         tableView?.dataSource = self

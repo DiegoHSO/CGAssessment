@@ -13,23 +13,26 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var timeLeftView: UIView?
     @IBOutlet private weak var timeLeftLabel: UILabel?
-    @IBOutlet private weak var pacientDataLabel: UILabel?
+    @IBOutlet private weak var patientDataLabel: UILabel?
     @IBOutlet private weak var alteredDomainsLabel: UILabel?
     @IBOutlet private weak var lastApplicationDateLabel: UILabel?
 
     // MARK: - Public Properties
 
-    func setup(nextApplicationDate: Date, pacientName: String, pacientAge: Int,
+    func setup(nextApplicationDate: Date, patientName: String, patientAge: Int,
                alteredDomains: Int, lastApplicationDate: Date) {
 
         timeLeftLabel?.text = setupTimeLeftText(nextApplicationDate)
-        pacientDataLabel?.text = "\(pacientName), \(pacientAge) \(LocalizedTable.years.localized)"
+        timeLeftLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
+        patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
+        patientDataLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         alteredDomainsLabel?.attributedText = setupAlteredDomainsText(alteredDomains)
         timeLeftView?.backgroundColor = getAlteredDomainsColor(alteredDomains)
 
         var lastApplicationDateText = "\(LocalizedTable.lastApplication.localized) "
         lastApplicationDateText += "\(lastApplicationDate.formatted(date: .numeric, time: .omitted))"
         lastApplicationDateLabel?.text = lastApplicationDateText
+        lastApplicationDateLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
     }
 
     // MARK: - Private Properties
@@ -45,7 +48,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
         } else if timeLeftDays < 30 {
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftDays)) "
             timeLeftString += "\(timeLeftDays > 1 ? LocalizedTable.days.localized : LocalizedTable.day.localized)"
-        } else if timeLeftDays > 30 {
+        } else if timeLeftDays >= 30 {
             let timeLeftMonths = round(timeLeftDays / 30)
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftMonths)) "
             timeLeftString += "\(timeLeftMonths > 1 ? LocalizedTable.months.localized : LocalizedTable.month.localized)"
@@ -56,15 +59,15 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
     private func setupAlteredDomainsText(_ alteredDomains: Int) -> NSAttributedString {
         var alteredDomainsText: String = ""
-        var secondaryAlteredDomainsText: String = " \(LocalizedTable.alteredDomain.localized)"
+        var secondaryAlteredDomainsText: String = "\(LocalizedTable.alteredDomain.localized)"
         var alteredDomainsColor: UIColor = .clear
 
         if alteredDomains == 0 {
-            alteredDomainsText = "\(LocalizedTable.none.localized)"
-            secondaryAlteredDomainsText = " \(LocalizedTable.alteredDomain.localized)"
+            alteredDomainsText = "\(LocalizedTable.none.localized) "
+            secondaryAlteredDomainsText = "\(LocalizedTable.alteredDomain.localized)"
             alteredDomainsColor = .label4 ?? .clear
         } else {
-            alteredDomainsText = "\(alteredDomains)"
+            alteredDomainsText = DashboardModels.Number(rawValue: alteredDomains)?.unabbreviated ?? ""
             secondaryAlteredDomainsText = " \(alteredDomains == 1 ? secondaryAlteredDomainsText : LocalizedTable.alteredDomains.localized)"
             alteredDomainsColor = (alteredDomains < 5 ? .label5 : .label6) ?? .clear
         }

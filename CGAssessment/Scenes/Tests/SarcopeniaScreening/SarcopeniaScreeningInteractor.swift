@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol SarcopeniaScreeningLogic: ActionButtonDelegate, SelectableViewDelegate {
     func controllerDidLoad()
@@ -16,40 +17,33 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
     // MARK: - Private Properties
 
     private var presenter: SarcopeniaScreeningPresentationLogic?
+    private var worker: SarcopeniaScreeningWorker?
+    private var cgaId: UUID?
     private var firstQuestionOption: SelectableKeys = .none
     private var secondQuestionOption: SelectableKeys = .none
     private var thirdQuestionOption: SelectableKeys = .none
     private var fourthQuestionOption: SelectableKeys = .none
     private var fifthQuestionOption: SelectableKeys = .none
     private var sixthQuestionOption: SelectableKeys = .none
+    private var gender: Gender?
 
     // MARK: - Init
 
-    init(presenter: SarcopeniaScreeningPresentationLogic) {
+    init(presenter: SarcopeniaScreeningPresentationLogic, worker: SarcopeniaScreeningWorker, cgaId: UUID?) {
         self.presenter = presenter
+        self.worker = worker
+        self.cgaId = cgaId
     }
 
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
+        computeViewModelData()
         sendDataToPresenter()
     }
 
     func didTapActionButton(identifier: String?) {
-        let selectedOptions = [firstQuestionOption, secondQuestionOption, thirdQuestionOption,
-                               fourthQuestionOption, fifthQuestionOption, sixthQuestionOption]
-
-        if selectedOptions.allSatisfy({$0 != .none}) {
-            // TODO: Change gender to patient's
-            presenter?.route(toRoute: .testResults(test: .sarcopeniaAssessment, results: .init(firstQuestionOption: firstQuestionOption,
-                                                                                               secondQuestionOption: secondQuestionOption,
-                                                                                               thirdQuestionOption: thirdQuestionOption,
-                                                                                               fourthQuestionOption: fourthQuestionOption,
-                                                                                               fifthQuestionOption: fifthQuestionOption,
-                                                                                               sixthQuestionOption: sixthQuestionOption,
-                                                                                               gender: Gender.allCases.randomElement() ?? .female)))
-        }
+        handleNavigation(updatesDatabase: true)
     }
 
     func didSelect(option: SelectableKeys, value: LocalizedTable) {
@@ -70,6 +64,7 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
             break
         }
 
+        updateDatabase()
         sendDataToPresenter()
     }
 
@@ -101,8 +96,10 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
                                                                                               .secondOption: .oneToThreeFalls,
                                                                                               .thirdOption: .fourOrMoreFalls]),
                                                               .sixthQuestion: .init(question: .sarcopeniaAssessmentSixthQuestion,
-                                                                                    options: [.firstOption: .circumferenceBiggerThanLimit,
-                                                                                              .secondOption: .circumferenceLowerThanLimit])
+                                                                                    options: [.firstOption: gender == .female ? .circumferenceBiggerThanLimitWomen :
+                                                                                                .circumferenceBiggerThanLimitMen,
+                                                                                              .secondOption: gender == .female ? .circumferenceLowerThanLimitWomen :
+                                                                                                .circumferenceLowerThanLimitMen])
         ]
 
         let selectedOptions = [firstQuestionOption, secondQuestionOption, thirdQuestionOption,
@@ -115,5 +112,61 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
                                                              fourthQuestionOption: fourthQuestionOption, fifthQuestionOption: fifthQuestionOption,
                                                              sixthQuestionOption: sixthQuestionOption,
                                                              isResultsButtonEnabled: isResultsButtonEnabled)
+    }
+
+    private func handleNavigation(updatesDatabase: Bool = false) {
+        if updatesDatabase {
+            updateDatabase(isDone: true)
+        }
+
+        let selectedOptions = [firstQuestionOption, secondQuestionOption, thirdQuestionOption,
+                               fourthQuestionOption, fifthQuestionOption, sixthQuestionOption]
+
+        if let gender, selectedOptions.allSatisfy({$0 != .none}) {
+            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(firstQuestionOption: firstQuestionOption,
+                                                                                              secondQuestionOption: secondQuestionOption,
+                                                                                              thirdQuestionOption: thirdQuestionOption,
+                                                                                              fourthQuestionOption: fourthQuestionOption,
+                                                                                              fifthQuestionOption: fifthQuestionOption,
+                                                                                              sixthQuestionOption: sixthQuestionOption,
+                                                                                              gender: gender), cgaId: cgaId))
+        }
+    }
+
+    private func computeViewModelData() {
+        gender = try? worker?.getPatientGender()
+
+        if let sarcopeniaScreeningProgress = try? worker?.getSarcopeniaScreeningProgress() {
+            guard let firstQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.firstQuestionOption),
+                  let secondQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.secondQuestionOption),
+                  let thirdQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.thirdQuestionOption),
+                  let fourthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.fourthQuestionOption),
+                  let fifthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.fifthQuestionOption),
+                  let sixthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.sixthQuestionOption) else {
+                return
+            }
+
+            self.firstQuestionOption = firstQuestionOption
+            self.secondQuestionOption = secondQuestionOption
+            self.thirdQuestionOption = thirdQuestionOption
+            self.fourthQuestionOption = fourthQuestionOption
+            self.fifthQuestionOption = fifthQuestionOption
+            self.sixthQuestionOption = sixthQuestionOption
+
+            if sarcopeniaScreeningProgress.isDone {
+                handleNavigation()
+            }
+        }
+    }
+
+    private func updateDatabase(isDone: Bool = false) {
+        do {
+            try worker?.updateSarcopeniaScreeningProgress(with: .init(firstQuestionOption: firstQuestionOption, secondQuestionOption: secondQuestionOption,
+                                                                      thirdQuestionOption: thirdQuestionOption, fourthQuestionOption: fourthQuestionOption,
+                                                                      fifthQuestionOption: fifthQuestionOption, sixthQuestionOption: sixthQuestionOption,
+                                                                      isDone: isDone))
+        } catch {
+            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+        }
     }
 }

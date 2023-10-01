@@ -12,7 +12,28 @@ struct SarcopeniaAssessmentModels {
     struct ControllerViewModel {
         let testsCompletionStatus: [SingleDomainModels.Test: SingleDomainModels.TestStatus]
         let testsResults: [SingleDomainModels.Test: ResultsModels.ResultType]
-        let isResultsButtonEnabled: Bool
+        var isResultsButtonEnabled: Bool {
+            if let strengthTestResult = testsResults[.gripStrength], strengthTestResult == .excellent {
+                return true
+            }
+
+            if testsResults[.gripStrength] != nil, let amountTestResult = testsResults[.calfCircumference],
+               amountTestResult == .excellent {
+                return true
+            }
+
+            if testsResults[.gripStrength] != nil, testsResults[.calfCircumference] != nil,
+               testsResults[.timedUpAndGo] != nil {
+                return true
+            }
+
+            if testsResults[.gripStrength] != nil, testsResults[.calfCircumference] != nil,
+               testsResults[.walkingSpeed] != nil {
+                return true
+            }
+
+            return false
+        }
 
         var enabledCategories: [Section: Bool] {
             guard let amountTestStatus = testsCompletionStatus[.calfCircumference],
@@ -22,7 +43,7 @@ struct SarcopeniaAssessmentModels {
             let amountTestResult = testsResults[.calfCircumference]
 
             return [.strength: true, .quantity: strengthTestStatus == .done && strengthTestResult == .bad,
-                    .performance: strengthTestStatus == .done && amountTestStatus == .done &&  amountTestResult == .bad]
+                    .performance: strengthTestStatus == .done && amountTestStatus == .done && amountTestResult == .bad]
         }
 
         var tests: [Section: [SingleDomainModels.Test]] {
@@ -45,17 +66,21 @@ struct SarcopeniaAssessmentModels {
 
     struct TestResults {
         let gripStrengthResults: GripStrengthModels.TestResults
-        let calfCircumferenceResults: CalfCircumferenceModels.TestResults? = nil
-        let timedUpAndGoResults: TimedUpAndGoModels.TestResults? = nil
-        let walkingSpeedResults: WalkingSpeedModels.TestResults? = nil
+        let calfCircumferenceResults: CalfCircumferenceModels.TestResults?
+        let timedUpAndGoResults: TimedUpAndGoModels.TestResults?
+        let walkingSpeedResults: WalkingSpeedModels.TestResults?
+    }
+
+    struct TestData {
+        let isDone: Bool
     }
 
     enum Routing {
-        case gripStrength
-        case calfCircumference
-        case timedUpAndGo
-        case walkingSpeed
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case gripStrength(cgaId: UUID?)
+        case calfCircumference(cgaId: UUID?)
+        case timedUpAndGo(cgaId: UUID?)
+        case walkingSpeed(cgaId: UUID?)
+        case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
     enum Section: Int {

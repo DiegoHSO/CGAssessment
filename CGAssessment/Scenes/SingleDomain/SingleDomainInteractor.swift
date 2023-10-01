@@ -16,14 +16,21 @@ class SingleDomainInteractor: SingleDomainLogic {
 
     // MARK: - Private Properties
 
+    private typealias Test = SingleDomainModels.Test
+    private typealias TestStatus = SingleDomainModels.TestStatus
     private var presenter: SingleDomainPresentationLogic?
+    private var worker: SingleDomainWorker?
     private var domain: CGADomainsModels.Domain
+    private var cgaId: UUID?
+    private var testsStatus: [Test: TestStatus] = [:]
 
     // MARK: - Init
 
-    init(presenter: SingleDomainPresentationLogic, domain: CGADomainsModels.Domain) {
+    init(presenter: SingleDomainPresentationLogic, domain: CGADomainsModels.Domain, worker: SingleDomainWorker, cgaId: UUID?) {
         self.presenter = presenter
         self.domain = domain
+        self.cgaId = cgaId
+        self.worker = worker
     }
 
     // MARK: - Public Methods
@@ -34,7 +41,7 @@ class SingleDomainInteractor: SingleDomainLogic {
     }
 
     func didSelect(test: SingleDomainModels.Test) {
-        presenter?.route(toRoute: .domainTest(test: test))
+        presenter?.route(toRoute: .domainTest(test: test, cgaId: cgaId))
     }
 
     // MARK: - Private Methods
@@ -43,13 +50,42 @@ class SingleDomainInteractor: SingleDomainLogic {
         presenter?.presentData(viewModel: createViewModel())
     }
 
+    private func computeViewModelData(tests: [Test]) {
+        guard let cgaId, let cga = try? worker?.getCGA(with: cgaId) else { return }
+
+        if tests.contains(.timedUpAndGo) {
+            testsStatus.updateValue(checkTimedUpAndGoStatus(cga: cga), forKey: .timedUpAndGo)
+        }
+
+        if tests.contains(.walkingSpeed) {
+            testsStatus.updateValue(checkWalkingSpeedStatus(cga: cga), forKey: .walkingSpeed)
+        }
+
+        if tests.contains(.calfCircumference) {
+            testsStatus.updateValue(checkCalfCircumferenceStatus(cga: cga), forKey: .calfCircumference)
+        }
+
+        if tests.contains(.gripStrength) {
+            testsStatus.updateValue(checkGripStrengthStatus(cga: cga), forKey: .gripStrength)
+        }
+
+        if tests.contains(.sarcopeniaScreening) {
+            let sarcopeniaScreeningStatus = checkSarcopeniaScreeningStatus(cga: cga)
+            let sarcopeniaAssessmentStatus = checkSarcopeniaAssessmentStatus(cga: cga)
+
+            testsStatus.updateValue(sarcopeniaScreeningStatus == .done ? sarcopeniaAssessmentStatus : sarcopeniaScreeningStatus,
+                                    forKey: .sarcopeniaScreening)
+        }
+    }
+
     private func createViewModel() -> SingleDomainModels.ControllerViewModel {
         var tests: [SingleDomainModels.Test] = []
 
         switch domain {
         case .mobility:
             tests = [.timedUpAndGo, .walkingSpeed, .calfCircumference,
-                     .gripStrength, .sarcopeniaAssessment]
+                     .gripStrength, .sarcopeniaScreening]
+
         case .cognitive:
             tests = [.miniMentalStateExamination, .verbalFluencyTest,
                      .clockDrawingTest, .moca, .geriatricDepressionScale]
@@ -69,11 +105,86 @@ class SingleDomainInteractor: SingleDomainLogic {
             tests = [.suspectedAbuse, .cardiovascularRiskEstimation, .chemotherapyToxicityRisk]
         }
 
+        computeViewModelData(tests: tests)
+
         let testsViewModel = tests.map { SingleDomainModels.TestViewModel(test: $0,
-                                                                          status: SingleDomainModels.TestStatus.allCases.randomElement()
-                                                                            ?? .notStarted) // TODO: Change status to actual patient's CGA
+                                                                          status: testsStatus[$0] ?? .done)
         }
 
         return SingleDomainModels.ControllerViewModel(domain: domain, tests: testsViewModel, sections: 1)
+    }
+
+    // MARK: - Tests Status Check
+
+    private func checkTimedUpAndGoStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.timedUpAndGo?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkWalkingSpeedStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.walkingSpeed?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkCalfCircumferenceStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.calfCircumference?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkGripStrengthStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.gripStrength?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkSarcopeniaScreeningStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.sarcopeniaScreening?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkSarcopeniaAssessmentStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.sarcopeniaAssessment?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
     }
 }

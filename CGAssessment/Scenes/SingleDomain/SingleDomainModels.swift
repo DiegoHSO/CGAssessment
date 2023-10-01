@@ -48,12 +48,13 @@ struct SingleDomainModels {
         }
     }
 
-    enum Test: CaseIterable {
-        case timedUpAndGo
+    @objc
+    public enum Test: Int16, CaseIterable {
+        case timedUpAndGo = 1
         case walkingSpeed
         case calfCircumference
         case gripStrength
-        case sarcopeniaAssessment
+        case sarcopeniaScreening
         case miniMentalStateExamination
         case verbalFluencyTest
         case clockDrawingTest
@@ -71,6 +72,7 @@ struct SingleDomainModels {
         case suspectedAbuse
         case cardiovascularRiskEstimation
         case chemotherapyToxicityRisk
+        case sarcopeniaAssessment
 
         var title: String {
             switch self {
@@ -82,7 +84,7 @@ struct SingleDomainModels {
                 LocalizedTable.calfCircumference.localized
             case .gripStrength:
                 LocalizedTable.gripStrength.localized
-            case .sarcopeniaAssessment:
+            case .sarcopeniaScreening:
                 LocalizedTable.sarcopeniaAssessment.localized
             case .miniMentalStateExamination:
                 LocalizedTable.miniMentalStateExamination.localized
@@ -118,6 +120,8 @@ struct SingleDomainModels {
                 LocalizedTable.cardiovascularRiskEstimation.localized
             case .chemotherapyToxicityRisk:
                 LocalizedTable.chemotherapyToxicityRisk.localized
+            case .sarcopeniaAssessment:
+                LocalizedTable.sarcopeniaAssessment.localized
             }
         }
 
@@ -131,7 +135,7 @@ struct SingleDomainModels {
                 LocalizedTable.calfCircumferenceDescription.localized
             case .gripStrength:
                 LocalizedTable.gripStrengthDescription.localized
-            case .sarcopeniaAssessment:
+            case .sarcopeniaScreening:
                 LocalizedTable.sarcopeniaAssessmentDescription.localized
             case .miniMentalStateExamination:
                 LocalizedTable.miniMentalStateExaminationDescription.localized
@@ -167,13 +171,15 @@ struct SingleDomainModels {
                 LocalizedTable.cardiovascularRiskEstimationDescription.localized
             case .chemotherapyToxicityRisk:
                 LocalizedTable.chemotherapyToxicityRiskDescription.localized
+            case .sarcopeniaAssessment:
+                ""
             }
         }
 
-        var domain: CGADomainsModels.Domain {
+        var domain: CGADomainsModels.Domain? {
             switch self {
             case .timedUpAndGo, .walkingSpeed, .calfCircumference,
-                 .gripStrength, .sarcopeniaAssessment:
+                 .gripStrength, .sarcopeniaScreening:
                 return .mobility
             case .miniMentalStateExamination, .verbalFluencyTest,
                  .clockDrawingTest, .moca, .geriatricDepressionScale:
@@ -193,11 +199,13 @@ struct SingleDomainModels {
             case .suspectedAbuse, .chemotherapyToxicityRisk,
                  .cardiovascularRiskEstimation:
                 return .other
+            case .sarcopeniaAssessment:
+                return nil
             }
         }
     }
 
     enum Routing {
-        case domainTest(test: Test)
+        case domainTest(test: Test, cgaId: UUID?)
     }
 }

@@ -19,54 +19,27 @@ class NewCGAInteractor: NewCGALogic {
 
     private var selectedInternalOption: SelectableKeys = .none
     private var selectedExternalOption: SelectableKeys = .secondOption
-    private var selectedPacient: Int = -1
+    private var selectedPatient: UUID?
     private var searchText: String = ""
-    private var pacientName: String = ""
-    private var pacientBirthDate: Date?
+    private var patientName: String = ""
+    private var patientBirthDate: Date?
     private var presenter: NewCGAPresentationLogic?
-    private var pacients: [NewCGAModels.ResumedPatientViewModel] { [NewCGAModels.ResumedPatientViewModel(pacientName: "Vanessa Cristina da Silva",
-                                                                                                         pacientAge: 52,
-                                                                                                         gender: .female,
-                                                                                                         id: 10, // TODO: CoreData ID
-                                                                                                         delegate: self,
-                                                                                                         isSelected: selectedPacient == 10,
-                                                                                                         leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Danilo de Souza Pinto",
-                                                                                                         pacientAge: 30,
-                                                                                                         gender: .male,
-                                                                                                         id: 11, // TODO: CoreData ID
-                                                                                                         delegate: self,
-                                                                                                         isSelected: selectedPacient == 11,
-                                                                                                         leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Jorge Luis Alves de Oliveira",
-                                                                                                         pacientAge: 62,
-                                                                                                         gender: .male,
-                                                                                                         id: 12, // TODO: CoreData ID
-                                                                                                         delegate: self,
-                                                                                                         isSelected: selectedPacient == 12,
-                                                                                                         leadingConstraint: 40),
-                                                                    NewCGAModels.ResumedPatientViewModel(pacientName: "Diego Henrique Silva Oliveira",
-                                                                                                         pacientAge: 22,
-                                                                                                         gender: .male,
-                                                                                                         id: 13, // TODO: CoreData ID
-                                                                                                         delegate: self,
-                                                                                                         isSelected: selectedPacient == 13,
-                                                                                                         leadingConstraint: 40)]
-    }
+    private var worker: NewCGAWorker?
+    private var patients: [NewCGAModels.ResumedPatientViewModel] = []
 
     private var filteredPatients: [NewCGAModels.ResumedPatientViewModel] {
         if !searchText.isEmpty {
-            return pacients.filter { $0.pacientName.containsCaseInsensitive(searchText)}
+            return patients.filter { $0.patient.patientName.containsCaseInsensitive(searchText)}
         }
 
-        return pacients
+        return patients
     }
 
     private var isDoneEnabled: Bool {
         if selectedExternalOption == .firstOption {
-            return !pacientName.isEmpty && pacientBirthDate != nil && selectedInternalOption != .none
+            return !patientName.isEmpty && patientBirthDate != nil && selectedInternalOption != .none
         } else if selectedExternalOption == .secondOption {
-            return selectedPacient != -1
+            return selectedPatient != nil
         }
 
         return false
@@ -77,18 +50,34 @@ class NewCGAInteractor: NewCGALogic {
 
     // MARK: - Init
 
-    init(presenter: NewCGAPresentationLogic) {
+    init(presenter: NewCGAPresentationLogic, worker: NewCGAWorker) {
         self.presenter = presenter
+        self.worker = worker
     }
 
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
+        computeViewModelData()
         sendDataToPresenter()
     }
 
     // MARK: - Private Methods
+
+    private func computeViewModelData() {
+        guard let patients = try? worker?.getAllPatients() else { return }
+
+        self.patients = patients.compactMap({ patient in
+            guard let birthDate = patient.birthDate, let name = patient.name,
+                  let gender = Gender(rawValue: patient.gender), let id = patient.patientId
+            else { return nil }
+
+            return .init(patient: .init(patientName: name, patientAge: birthDate.yearSinceCurrentDate, gender: gender),
+                         id: id, delegate: self)
+        })
+
+        selectedExternalOption = patients.isEmpty ? .firstOption : .secondOption
+    }
 
     private func sendDataToPresenter(isSearching: Bool = false) {
         presenter?.presentData(viewModel: createViewModel(isSearching: isSearching))
@@ -98,8 +87,8 @@ class NewCGAInteractor: NewCGALogic {
         return NewCGAModels.ControllerViewModel(patients: filteredPatients,
                                                 selectedInternalOption: selectedInternalOption,
                                                 selectedExternalOption: selectedExternalOption,
-                                                pacientName: pacientName,
-                                                selectedPacient: selectedPacient,
+                                                patientName: patientName,
+                                                selectedPatient: selectedPatient,
                                                 isDone: isDoneEnabled, isSearching: isSearching)
     }
 }
@@ -111,11 +100,28 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
                             ResumedPatientDelegate, ActionButtonDelegate {
 
     func didTapActionButton(identifier: String?) {
-        presenter?.route(toRoute: .cgaDomains)
+        switch selectedExternalOption {
+        case .firstOption:
+            guard !patientName.isEmpty, let worker, let patientBirthDate, selectedInternalOption != .none else { return }
+            let gender: Gender = selectedInternalOption == .firstOption ? .female : .male
+
+            do {
+                let patientId = try worker.savePatient(patientData: .init(patientName: patientName,
+                                                                          birthDate: patientBirthDate, gender: gender))
+                presenter?.route(toRoute: .cgaDomains(patientId: patientId))
+            } catch {
+                // TODO: Handle duplicated patient error
+            }
+        case .secondOption:
+            guard let selectedPatient else { return }
+            presenter?.route(toRoute: .cgaDomains(patientId: selectedPatient))
+        default:
+            return
+        }
     }
 
-    func didSelect(pacientId: Int) {
-        selectedPacient = pacientId
+    func didSelect(patientId: UUID) {
+        selectedPatient = patientId
         sendDataToPresenter()
     }
 
@@ -125,12 +131,12 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
-        pacientName = text
+        patientName = text
         sendDataToPresenter()
     }
 
     func didSelectDate(date: Date) {
-        pacientBirthDate = date
+        patientBirthDate = date
         sendDataToPresenter()
     }
 

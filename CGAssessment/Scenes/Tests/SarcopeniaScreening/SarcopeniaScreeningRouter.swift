@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SarcopeniaScreeningRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.ScreeningTestResults)
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.TestResults, cgaId: UUID?)
 }
 
 class SarcopeniaScreeningRouter: SarcopeniaScreeningRoutingLogic {
@@ -25,8 +25,8 @@ class SarcopeniaScreeningRouter: SarcopeniaScreeningRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.ScreeningTestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: SarcopeniaScreeningModels.TestResults, cgaId: UUID?) {
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

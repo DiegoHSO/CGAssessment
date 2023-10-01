@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CalfCircumferenceRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: CalfCircumferenceModels.TestResults)
+    func routeToTestResults(test: SingleDomainModels.Test, results: CalfCircumferenceModels.TestResults, cgaId: UUID?)
 }
 
 class CalfCircumferenceRouter: CalfCircumferenceRoutingLogic {
@@ -25,8 +25,12 @@ class CalfCircumferenceRouter: CalfCircumferenceRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: CalfCircumferenceModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: CalfCircumferenceModels.TestResults, cgaId: UUID?) {
+        let containsSarcopeniaController = viewController?.navigationController?.viewControllers
+            .contains(where: { $0 is SarcopeniaAssessmentViewController }) ?? false
+
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId,
+                                                           isInSpecialFlow: containsSarcopeniaController) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

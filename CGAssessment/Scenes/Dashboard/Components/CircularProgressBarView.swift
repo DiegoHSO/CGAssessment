@@ -62,7 +62,7 @@ class CircularProgressBarView: UIView {
     func progressAnimation(duration: TimeInterval, progress: Double) {
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         circularProgressAnimation.duration = duration
-        circularProgressAnimation.toValue = 0.7
+        circularProgressAnimation.toValue = progress
         circularProgressAnimation.fillMode = .forwards
         circularProgressAnimation.isRemovedOnCompletion = false
 

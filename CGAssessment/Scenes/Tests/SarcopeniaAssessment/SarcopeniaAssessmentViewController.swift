@@ -28,11 +28,13 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        interactor?.controllerDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        interactor?.controllerDidLoad()
+        tabBarController?.tabBar.isHidden = true
+        title = LocalizedTable.sarcopeniaAssessment.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,24 +51,22 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
 
     func route(toRoute route: SarcopeniaAssessmentModels.Routing) {
         switch route {
-        case .gripStrength:
-            router?.routeToGripStrengthTest()
-        case .calfCircumference:
-            router?.routeToCalfCircumferenceTest()
-        case .timedUpAndGo:
-            router?.routeToTimedUpAndGoTest()
-        case .walkingSpeed:
-            router?.routeToWalkingSpeedTest()
-        case .testResults(let test, let results):
-            router?.routeToTestResults(test: test, results: results)
+        case .gripStrength(let cgaId):
+            router?.routeToGripStrengthTest(cgaId: cgaId)
+        case .calfCircumference(let cgaId):
+            router?.routeToCalfCircumferenceTest(cgaId: cgaId)
+        case .timedUpAndGo(let cgaId):
+            router?.routeToTimedUpAndGoTest(cgaId: cgaId)
+        case .walkingSpeed(let cgaId):
+            router?.routeToWalkingSpeedTest(cgaId: cgaId)
+        case .testResults(let test, let results, let cgaId):
+            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 
     func presentData(viewModel: SarcopeniaAssessmentModels.ControllerViewModel) {
         self.viewModel = viewModel
 
-        title = LocalizedTable.sarcopeniaAssessment.localized
-        tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
     }
 

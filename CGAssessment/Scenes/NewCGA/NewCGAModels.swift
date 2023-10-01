@@ -13,8 +13,8 @@ struct NewCGAModels {
         let patients: [ResumedPatientViewModel]
         let selectedInternalOption: SelectableKeys
         let selectedExternalOption: SelectableKeys
-        let pacientName: String?
-        let selectedPacient: Int
+        let patientName: String?
+        let selectedPatient: UUID?
         let isDone: Bool
         let isSearching: Bool
 
@@ -37,13 +37,22 @@ struct NewCGAModels {
     }
 
     struct ResumedPatientViewModel {
-        let pacientName: String
-        let pacientAge: Int
-        let gender: Gender
-        let id: Int
+        let patient: Patient
+        let id: UUID
         let delegate: ResumedPatientDelegate?
-        let isSelected: Bool
         var leadingConstraint: CGFloat = 30
+    }
+
+    struct Patient {
+        let patientName: String
+        let patientAge: Int
+        let gender: Gender
+    }
+
+    struct PatientData {
+        let patientName: String
+        let birthDate: Date
+        let gender: Gender
     }
 
     enum Section: Int {
@@ -65,6 +74,6 @@ struct NewCGAModels {
     }
 
     enum Routing {
-        case cgaDomains
+        case cgaDomains(patientId: UUID)
     }
 }

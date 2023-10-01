@@ -9,6 +9,18 @@ import Foundation
 
 class ResultsWorker {
 
+    // MARK: - Private Properties
+
+    private let cgaId: UUID?
+    private let dao: CoreDataDAOProtocol?
+
+    // MARK: - Init
+
+    init(dao: CoreDataDAOProtocol? = nil, cgaId: UUID? = nil) {
+        self.cgaId = cgaId
+        self.dao = dao
+    }
+
     // MARK: - Public Methods
 
     func getResults(for test: SingleDomainModels.Test, results: Any?) -> ([ResultsModels.Result], ResultsModels.ResultType)? {
@@ -25,12 +37,12 @@ class ResultsWorker {
         case .gripStrength:
             guard let gripStrengthResults = results as? GripStrengthModels.TestResults else { return nil }
             return getGripStrengthResults(for: gripStrengthResults)
+        case .sarcopeniaScreening:
+            guard let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.TestResults else { return nil }
+            return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
         case .sarcopeniaAssessment:
-            if let sarcopeniaScreeningResults = results as? SarcopeniaScreeningModels.ScreeningTestResults {
-                return getSarcopeniaScreeningResults(for: sarcopeniaScreeningResults)
-            } else if let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults {
-                return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
-            }
+            guard let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults else { return nil }
+            return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
         case .miniMentalStateExamination:
             break
         case .verbalFluencyTest:
@@ -65,9 +77,27 @@ class ResultsWorker {
             break
         case .chemotherapyToxicityRisk:
             break
+        default:
+            break
         }
 
         return nil
+    }
+
+    func updateSarcopeniaAssessmentProgress(with data: SarcopeniaAssessmentModels.TestData) throws {
+        guard let cgaId, let dao else {
+            throw CoreDataErrors.unableToUpdateCGA
+        }
+
+        try dao.updateCGA(with: data, cgaId: cgaId)
+    }
+
+    func updateSarcopeniaScreeningProgress(with data: SarcopeniaScreeningModels.TestData) throws {
+        guard let cgaId, let dao else {
+            throw CoreDataErrors.unableToUpdateCGA
+        }
+
+        try dao.updateCGA(with: data, cgaId: cgaId)
     }
 
     // MARK: - Private Methods
@@ -178,7 +208,7 @@ class ResultsWorker {
         return (results, resultType)
     }
 
-    private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.ScreeningTestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+    private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
 
         let selectedOptions = [testResults.firstQuestionOption, testResults.secondQuestionOption, testResults.thirdQuestionOption,
                                testResults.fourthQuestionOption, testResults.fifthQuestionOption]
@@ -216,7 +246,6 @@ class ResultsWorker {
         return (results, resultType)
     }
 
-    // TODO: Apply Core Data logic
     private func getSarcopeniaAssessmentResults(for testResults: SarcopeniaAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
         let (_, gripStrengthResult) = getGripStrengthResults(for: testResults.gripStrengthResults)
 
@@ -230,7 +259,7 @@ class ResultsWorker {
 
             if calfCircumferenceResult == .excellent {
                 return ([.init(title: LocalizedTable.affectedCategories.localized, description: LocalizedTable.muscleStrength.localized),
-                         .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentGoodResult.localized)], .good)
+                         .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentGoodResult.localized)], .medium)
             }
 
             var musclePerformanceResult: ResultsModels.ResultType?
@@ -247,7 +276,7 @@ class ResultsWorker {
                 musclePerformanceResult = musclePerformanceResult == .bad || musclePerformanceResult == nil ? walkingSpeedResult : musclePerformanceResult
             }
 
-            if musclePerformanceResult == .excellent {
+            if musclePerformanceResult == .excellent || musclePerformanceResult == .good {
                 return ([.init(title: LocalizedTable.affectedCategories.localized,
                                description: "\(LocalizedTable.muscleStrength.localized) \(LocalizedTable.and.localized) \(LocalizedTable.muscleAmount.localized)"),
                          .init(title: LocalizedTable.suggestedDiagnosis.localized, description: LocalizedTable.sarcopeniaAssessmentMediumResult.localized)], .medium)

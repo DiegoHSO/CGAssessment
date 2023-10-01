@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,23 +35,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w50-5O-6qt">
                                 <rect key="frame" x="13" y="13" width="313" height="70"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-P9-YUl">
-                                        <rect key="frame" x="0.0" y="3.6666666666666714" width="218" height="63"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-P9-YUl">
+                                        <rect key="frame" x="0.0" y="3" width="218" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aplicação mais recente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-8W-amJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="218" height="17.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="218" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-4t-5Qg">
-                                                <rect key="frame" x="0.0" y="22.666666666666664" width="218" height="17.666666666666664"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-4t-5Qg">
+                                                <rect key="frame" x="0.0" y="23" width="218" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Falta completar 3 domínios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbu-w6-4VG">
-                                                <rect key="frame" x="0.0" y="45.333333333333329" width="218" height="17.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="46" width="218" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
@@ -60,7 +62,7 @@
                                         <rect key="frame" x="243" y="0.0" width="70" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72.7%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEF-Lc-qLs">
-                                                <rect key="frame" x="13.000000000000004" y="26.333333333333336" width="44.333333333333343" height="17.666666666666664"/>
+                                                <rect key="frame" x="13.666666666666686" y="26" width="43" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Black" family="SF Compact Rounded" pointSize="15"/>
                                                 <color key="textColor" name="Label-2"/>
                                                 <nil key="highlightedColor"/>
@@ -102,7 +104,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="missingDomainsLabel" destination="dbu-w6-4VG" id="rkf-Nb-2Sa"/>
-                <outlet property="pacientDataLabel" destination="CgK-4t-5Qg" id="fqi-VQ-h1G"/>
+                <outlet property="patientDataLabel" destination="CgK-4t-5Qg" id="Erg-p4-Hvl"/>
                 <outlet property="percentageLabel" destination="zEF-Lc-qLs" id="WcZ-q9-wIy"/>
                 <outlet property="progressBarView" destination="YSy-eQ-cEm" id="p5r-BS-h41"/>
                 <outlet property="recentApplicationLabel" destination="2aa-8W-amJ" id="7ed-OR-Ao0"/>

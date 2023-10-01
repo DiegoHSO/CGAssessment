@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SingleDomainRoutingLogic {
-    func routeToSingleTest(test: SingleDomainModels.Test)
+    func routeToSingleTest(test: SingleDomainModels.Test, cgaId: UUID?)
 }
 
 class SingleDomainRouter: SingleDomainRoutingLogic {
@@ -26,18 +26,18 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
     // MARK: - Public Methods
 
     // swiftlint:disable:next cyclomatic_complexity
-    func routeToSingleTest(test: SingleDomainModels.Test) {
+    func routeToSingleTest(test: SingleDomainModels.Test, cgaId: UUID?) {
         switch test {
         case .timedUpAndGo:
-            routeToTimedUpAndGoTest()
+            routeToTimedUpAndGoTest(cgaId: cgaId)
         case .walkingSpeed:
-            routeToWalkingSpeedTest()
+            routeToWalkingSpeedTest(cgaId: cgaId)
         case .calfCircumference:
-            routeToCalfCircumferenceTest()
+            routeToCalfCircumferenceTest(cgaId: cgaId)
         case .gripStrength:
-            routeToGripStrengthTest()
-        case .sarcopeniaAssessment:
-            routeToSarcopeniaAssessment()
+            routeToGripStrengthTest(cgaId: cgaId)
+        case .sarcopeniaScreening:
+            routeToSarcopeniaAssessment(cgaId: cgaId)
         case .miniMentalStateExamination:
             break
         case .verbalFluencyTest:
@@ -72,37 +72,39 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
             break
         case .chemotherapyToxicityRisk:
             break
+        default:
+            break
         }
     }
 
     // MARK: - Private Methods
 
-    private func routeToTimedUpAndGoTest() {
-        guard let timedUpAndGoController = TimedUpAndGoBuilder.build() else { return }
+    private func routeToTimedUpAndGoTest(cgaId: UUID?) {
+        guard let timedUpAndGoController = TimedUpAndGoBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(timedUpAndGoController, animated: true)
     }
 
-    private func routeToWalkingSpeedTest() {
-        guard let walkingSpeedController = WalkingSpeedBuilder.build() else { return }
+    private func routeToWalkingSpeedTest(cgaId: UUID?) {
+        guard let walkingSpeedController = WalkingSpeedBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }
 
-    private func routeToCalfCircumferenceTest() {
-        guard let calfCircumferenceController = CalfCircumferenceBuilder.build() else { return }
+    private func routeToCalfCircumferenceTest(cgaId: UUID?) {
+        guard let calfCircumferenceController = CalfCircumferenceBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(calfCircumferenceController, animated: true)
     }
 
-    private func routeToGripStrengthTest() {
-        guard let gripStrengthController = GripStrengthBuilder.build() else { return }
+    private func routeToGripStrengthTest(cgaId: UUID?) {
+        guard let gripStrengthController = GripStrengthBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }
 
-    private func routeToSarcopeniaAssessment() {
-        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build() else { return }
+    private func routeToSarcopeniaAssessment(cgaId: UUID?) {
+        guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
     }

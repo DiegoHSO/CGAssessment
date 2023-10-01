@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TimedUpAndGoRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: TimedUpAndGoModels.TestResults)
+    func routeToTestResults(test: SingleDomainModels.Test, results: TimedUpAndGoModels.TestResults, cgaId: UUID?)
 }
 
 class TimedUpAndGoRouter: TimedUpAndGoRoutingLogic {
@@ -25,8 +25,11 @@ class TimedUpAndGoRouter: TimedUpAndGoRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: TimedUpAndGoModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: TimedUpAndGoModels.TestResults, cgaId: UUID?) {
+        let containsSarcopeniaController = viewController?.navigationController?.viewControllers
+            .contains(where: { $0 is SarcopeniaAssessmentViewController }) ?? false
+
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId, isInSpecialFlow: containsSarcopeniaController) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

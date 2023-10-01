@@ -25,4 +25,18 @@ extension Date {
         return Calendar.current.date(byAdding: .month, value: quantity, to: self) ?? self
     }
 
+    func removingTimeComponents() -> Date {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        return Calendar.current.date(from: components) ?? self
+    }
+
+    var year: Int {
+        let components = Calendar.current.dateComponents([.year], from: self)
+        return components.year ?? 0
+    }
+
+    var yearSinceCurrentDate: Int {
+        let components = Calendar.current.dateComponents([.year], from: self, to: Date())
+        return components.year ?? 0
+    }
 }

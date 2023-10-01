@@ -9,7 +9,7 @@ import UIKit
 
 class SarcopeniaScreeningBuilder {
 
-    static func build() -> UIViewController? {
+    static func build(cgaId: UUID?) -> UIViewController? {
         let storyboard = UIStoryboard(name: "SarcopeniaScreening", bundle: Bundle.main)
         guard let sarcopeniaScreeningController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? SarcopeniaScreeningViewController else {
@@ -17,7 +17,7 @@ class SarcopeniaScreeningBuilder {
         }
 
         let presenter = SarcopeniaScreeningPresenter(viewController: sarcopeniaScreeningController)
-        let interactor = SarcopeniaScreeningInteractor(presenter: presenter)
+        let interactor = SarcopeniaScreeningInteractor(presenter: presenter, worker: SarcopeniaScreeningWorker(cgaId: cgaId), cgaId: cgaId)
         let router = SarcopeniaScreeningRouter(viewController: sarcopeniaScreeningController)
 
         sarcopeniaScreeningController.setupArchitecture(interactor: interactor, router: router)

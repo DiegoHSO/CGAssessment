@@ -18,6 +18,8 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
 
     @IBOutlet private weak var tableView: UITableView?
 
+    private typealias Domain = CGADomainsModels.Domain
+
     private var viewModel: CGADomainsModels.ControllerViewModel?
     private var interactor: CGADomainsLogic?
     private var router: CGADomainsRoutingLogic?
@@ -61,8 +63,8 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
 
     func route(toRoute route: CGADomainsModels.Routing) {
         switch route {
-        case .domainTests(let domain):
-            router?.routeToDomainTests(domain: domain)
+        case .domainTests(let domain, let cgaId):
+            router?.routeToDomainTests(domain: domain, cgaId: cgaId)
         }
     }
 
@@ -92,31 +94,32 @@ extension CGADomainsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let domain = viewModel?.domains[safe: indexPath.row] else { return }
+        guard let domain = Domain(rawValue: indexPath.row) else { return }
         interactor?.didSelect(domain: domain)
     }
 }
 
 extension CGADomainsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.domains.count ?? 0
+        return Domain.allCases.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel, let domain = viewModel.domains[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
+        guard let viewModel, let domain = Domain(rawValue: indexPath.row), let tests = viewModel.domains[domain] else { return UITableViewCell(frame: .zero) }
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CGADomainTableViewCell.className,
                                                        for: indexPath) as? CGADomainTableViewCell else {
             return UITableViewCell()
         }
 
-        cell.setup(viewModel: domain.viewModel)
+        cell.setup(viewModel: .init(name: domain.title, symbol: domain.symbol,
+                                    tests: tests))
 
         return cell
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.sections ?? 0
+        return 1
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

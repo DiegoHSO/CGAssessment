@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ResumedPatientDelegate: AnyObject {
-    func didSelect(pacientId: Int)
+    func didSelect(patientId: UUID)
 }
 
 class ResumedPatientTableViewCell: UITableViewCell {
@@ -21,7 +21,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
     @IBOutlet private weak var genderImageView: UIImageView?
     @IBOutlet private weak var viewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: ResumedPatientDelegate?
-    private var patientId: Int = -1
+    private var patientId: UUID?
 
     // MARK: - Life Cycle
 
@@ -32,17 +32,20 @@ class ResumedPatientTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(viewModel: NewCGAModels.ResumedPatientViewModel) {
-        nameLabel?.text = viewModel.pacientName
-        ageLabel?.text = "\(viewModel.pacientAge) \(LocalizedTable.age.localized)"
-        genderImageView?.image = UIImage(named: viewModel.gender.rawValue)
+    func setup(viewModel: NewCGAModels.ResumedPatientViewModel, isSelected: Bool) {
+        ageLabel?.text = "\(viewModel.patient.patientAge) \(LocalizedTable.age.localized)"
+        ageLabel?.font = .compactDisplay(withStyle: .semibold, size: 15)
+        genderImageView?.image = viewModel.patient.gender.image
         viewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         patientId = viewModel.id
         delegate = viewModel.delegate
-        isSelected = viewModel.isSelected
+        self.isSelected = isSelected
 
         setupSelection()
+
+        nameLabel?.text = viewModel.patient.patientName
+        nameLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
     }
 
     // MARK: - Private Methods
@@ -64,6 +67,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
     }
 
     @objc private func didTapComponent() {
-        delegate?.didSelect(pacientId: patientId)
+        guard let patientId else { return }
+        delegate?.didSelect(patientId: patientId)
     }
 }

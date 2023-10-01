@@ -33,8 +33,15 @@ struct GripStrengthModels {
         let gender: Gender
     }
 
+    struct TestData {
+        let firstMeasurement: Double?
+        let secondMeasurement: Double?
+        let thirdMeasurement: Double?
+        let isDone: Bool
+    }
+
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
     enum Section: Int {

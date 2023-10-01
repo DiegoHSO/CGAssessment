@@ -9,7 +9,7 @@ import UIKit
 
 class CalfCircumferenceBuilder {
 
-    static func build() -> UIViewController? {
+    static func build(cgaId: UUID?) -> UIViewController? {
         let storyboard = UIStoryboard(name: "CalfCircumference", bundle: Bundle.main)
         guard let calfCircumferenceController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? CalfCircumferenceViewController else {
@@ -17,7 +17,7 @@ class CalfCircumferenceBuilder {
         }
 
         let presenter = CalfCircumferencePresenter(viewController: calfCircumferenceController)
-        let interactor = CalfCircumferenceInteractor(presenter: presenter)
+        let interactor = CalfCircumferenceInteractor(presenter: presenter, worker: CalfCircumferenceWorker(cgaId: cgaId), cgaId: cgaId)
         let router = CalfCircumferenceRouter(viewController: calfCircumferenceController)
 
         calfCircumferenceController.setupArchitecture(interactor: interactor, router: router)

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WalkingSpeedRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults)
+    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults, cgaId: UUID?)
 }
 
 class WalkingSpeedRouter: WalkingSpeedRoutingLogic {
@@ -25,9 +25,12 @@ class WalkingSpeedRouter: WalkingSpeedRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test,
-                                                           results: results) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: WalkingSpeedModels.TestResults, cgaId: UUID?) {
+        let containsSarcopeniaController = viewController?.navigationController?.viewControllers
+            .contains(where: { $0 is SarcopeniaAssessmentViewController }) ?? false
+
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId,
+                                                           isInSpecialFlow: containsSarcopeniaController) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }
