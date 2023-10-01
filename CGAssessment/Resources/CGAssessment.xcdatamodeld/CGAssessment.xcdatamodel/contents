@@ -30,7 +30,7 @@
         <attribute name="patientId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="patient" inverseEntity="CGA"/>
     </entity>
-    <entity name="SarcopeniaAssessment" representedClassName="SarcopeniaAssessment" syncable="YES" codeGenerationType="class">
+    <entity name="SarcopeniaAssessment" representedClassName=".SarcopeniaAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaAssessment" inverseEntity="CGA"/>
     </entity>
