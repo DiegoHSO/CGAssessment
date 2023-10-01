@@ -45,7 +45,9 @@ class FeatureComponentView: UIView {
 
     func setup(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
         titleLabel?.text = title
+        titleLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
         iconLabel?.text = iconSymbol
+        iconLabel?.font = .compactDisplay(withStyle: .medium, size: 18)
         componentIdentifier = identifier
         self.delegate = delegate
     }
