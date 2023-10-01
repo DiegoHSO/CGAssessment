@@ -8,7 +8,7 @@
 import UIKit
 
 protocol GripStrengthRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults)
+    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults, cgaId: UUID?)
 }
 
 class GripStrengthRouter: GripStrengthRoutingLogic {
@@ -25,8 +25,8 @@ class GripStrengthRouter: GripStrengthRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults) {
-        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: nil) else { return }
+    func routeToTestResults(test: SingleDomainModels.Test, results: GripStrengthModels.TestResults, cgaId: UUID?) {
+        guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)
     }

@@ -40,6 +40,7 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
         title = LocalizedTable.assessment.localized
     }

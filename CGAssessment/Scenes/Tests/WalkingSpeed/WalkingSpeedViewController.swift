@@ -40,6 +40,7 @@ class WalkingSpeedViewController: UIViewController, WalkingSpeedDisplayLogic {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
         title = LocalizedTable.assessment.localized
     }

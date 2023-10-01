@@ -41,7 +41,7 @@ struct GripStrengthModels {
     }
 
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
     enum Section: Int {

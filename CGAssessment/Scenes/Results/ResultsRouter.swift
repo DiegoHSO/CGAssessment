@@ -119,7 +119,7 @@ class ResultsRouter: ResultsRoutingLogic {
     }
 
     private func routeToGripStrengthTest() {
-        guard let gripStrengthController = GripStrengthBuilder.build() else { return }
+        guard let gripStrengthController = GripStrengthBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }

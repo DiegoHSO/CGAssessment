@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="CalfCircumference" representedClassName=".CalfCircumference" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="measuredCircumference" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="measuredCircumference" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="calfCircumference" inverseEntity="CGA"/>
     </entity>
     <entity name="CGA" representedClassName=".CGA" syncable="YES" codeGenerationType="class">
@@ -16,10 +16,10 @@
         <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
     </entity>
     <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
-        <attribute name="firstMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="firstMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="secondMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="thirdMeasurement" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="secondMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="thirdMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="gripStrength" inverseEntity="CGA"/>
     </entity>
     <entity name="Patient" representedClassName=".Patient" syncable="YES" codeGenerationType="class">

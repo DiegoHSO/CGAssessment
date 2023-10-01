@@ -23,6 +23,7 @@ protocol CoreDataDAOProtocol {
     func fetchPatientCGAs(patient: Patient) throws -> [CGA]
     func fetchPatients() throws -> [Patient]
     func fetchPatient(patientId: UUID) throws -> Patient?
+    func fetchPatient(cgaId: UUID) throws -> Patient?
     func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any?
     func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws
     func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws
@@ -118,6 +119,14 @@ class CoreDataDAO: CoreDataDAOProtocol {
         request.predicate = patientPredicate
 
         return try context.fetch(request).first
+    }
+
+    func fetchPatient(cgaId: UUID) throws -> Patient? {
+        guard let cga = try fetchCGA(cgaId: cgaId) else {
+            throw CoreDataErrors.unableToFetchPatient
+        }
+
+        return cga.patient
     }
 
     func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any? {
@@ -240,7 +249,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         if let circumference = test.circumference {
-            cga.calfCircumference?.measuredCircumference = circumference
+            cga.calfCircumference?.measuredCircumference = NSNumber(value: circumference)
         }
 
         cga.calfCircumference?.isDone = test.isDone
@@ -257,15 +266,15 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         if let firstMeasurement = test.firstMeasurement {
-            cga.gripStrength?.firstMeasurement = firstMeasurement
+            cga.gripStrength?.firstMeasurement = NSNumber(value: firstMeasurement)
         }
 
         if let secondMeasurement = test.secondMeasurement {
-            cga.gripStrength?.secondMeasurement = secondMeasurement
+            cga.gripStrength?.secondMeasurement = NSNumber(value: secondMeasurement)
         }
 
         if let thirdMeasurement = test.thirdMeasurement {
-            cga.gripStrength?.thirdMeasurement = thirdMeasurement
+            cga.gripStrength?.thirdMeasurement = NSNumber(value: thirdMeasurement)
         }
 
         cga.gripStrength?.isDone = test.isDone

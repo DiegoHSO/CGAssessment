@@ -36,7 +36,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
     }
 
     func routeToGripStrengthTest() {
-        guard let gripStrengthController = GripStrengthBuilder.build() else { return }
+        guard let gripStrengthController = GripStrengthBuilder.build(cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(gripStrengthController, animated: true)
     }
