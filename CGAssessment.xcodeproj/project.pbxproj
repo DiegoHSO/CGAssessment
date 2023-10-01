@@ -319,6 +319,7 @@
 		F1AEEB902AA995600038968E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F1AEEB922AA9956E0038968E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1AEEB932AA995AA0038968E /* LocalizedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTable.swift; sourceTree = "<group>"; };
+		F1B1CA332ACA1D12006E1D52 /* CGAssessment.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CGAssessment.entitlements; sourceTree = "<group>"; };
 		F1BE9F6F2AB6029A00250B69 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		F1BE9F702AB6029A00250B69 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
 		F1BE9F732AB608AA00250B69 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -504,6 +505,7 @@
 		F177F7EB2AA793BE00C1EB32 /* CGAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				F1B1CA332ACA1D12006E1D52 /* CGAssessment.entitlements */,
 				F177F8202AA8295500C1EB32 /* Business */,
 				F177F81F2AA8294100C1EB32 /* Infrastructure */,
 				F177F8212AA8295E00C1EB32 /* Models */,
@@ -1549,6 +1551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
@@ -1583,6 +1586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;

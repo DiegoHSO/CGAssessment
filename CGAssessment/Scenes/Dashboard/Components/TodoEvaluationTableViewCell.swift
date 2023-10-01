@@ -23,6 +23,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
                alteredDomains: Int, lastApplicationDate: Date) {
 
         timeLeftLabel?.text = setupTimeLeftText(nextApplicationDate)
+        timeLeftLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
         patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
         patientDataLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         alteredDomainsLabel?.attributedText = setupAlteredDomainsText(alteredDomains)

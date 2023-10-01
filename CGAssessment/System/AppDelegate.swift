@@ -44,6 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
          */
         let container = NSPersistentCloudKitContainer(name: "CGAssessment")
+
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("\(#function): Failed to retrieve a persistent store description.")
+        }
+
+        // Generate Notifications on remote changes
+        description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

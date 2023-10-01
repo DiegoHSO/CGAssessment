@@ -9,6 +9,7 @@ import Foundation
 
 protocol DashboardLogic: FeatureComponentDelegate {
     func controllerDidLoad()
+    func controllerWillDisappear()
     func didSelect(menuOption: DashboardModels.MenuOption)
 }
 
@@ -20,6 +21,7 @@ class DashboardInteractor: DashboardLogic {
     private var worker: DashboardWorker?
     private var recentCGA: DashboardModels.LatestCGAViewModel?
     private var todoEvaluations: [DashboardModels.TodoEvaluationViewModel] = []
+    private var didRemoteChange = NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange).receive(on: RunLoop.main)
 
     // MARK: - Init
 
@@ -31,8 +33,14 @@ class DashboardInteractor: DashboardLogic {
     // MARK: - Public Methods
 
     func controllerDidLoad() {
+        setupNotification()
         computeViewModelData()
         sendDataToPresenter()
+    }
+
+    func controllerWillDisappear() {
+        // swiftlint:disable:next notification_center_detachment
+        NotificationCenter.default.removeObserver(self)
     }
 
     func didSelect(menuOption: DashboardModels.MenuOption) {
@@ -57,6 +65,21 @@ class DashboardInteractor: DashboardLogic {
     }
 
     // MARK: - Private Methods
+
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateData),
+                                               name: .NSPersistentStoreRemoteChange,
+                                               object: nil)
+    }
+
+    @objc
+    private func updateData() {
+        DispatchQueue.main.async {
+            self.computeViewModelData()
+            self.sendDataToPresenter()
+        }
+    }
 
     private func sendDataToPresenter() {
         presenter?.presentData(viewModel: createViewModel())

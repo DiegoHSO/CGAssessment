@@ -34,6 +34,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
 
     func setup(viewModel: NewCGAModels.ResumedPatientViewModel, isSelected: Bool) {
         ageLabel?.text = "\(viewModel.patient.patientAge) \(LocalizedTable.age.localized)"
+        ageLabel?.font = .compactDisplay(withStyle: .semibold, size: 15)
         genderImageView?.image = viewModel.patient.gender.image
         viewLeadingConstraint?.constant = viewModel.leadingConstraint
 
@@ -44,6 +45,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
         setupSelection()
 
         nameLabel?.text = viewModel.patient.patientName
+        nameLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
     }
 
     // MARK: - Private Methods

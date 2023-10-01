@@ -41,6 +41,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        interactor?.controllerWillDisappear()
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
