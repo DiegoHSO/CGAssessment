@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NewCGARoutingLogic {
-    func routeToCGADomains(patientId: Int)
+    func routeToCGADomains(patientId: UUID)
 }
 
 class NewCGARouter: NewCGARoutingLogic {
@@ -25,7 +25,7 @@ class NewCGARouter: NewCGARoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToCGADomains(patientId: Int) {
+    func routeToCGADomains(patientId: UUID) {
         let storyboard = UIStoryboard(name: "CGADomains", bundle: Bundle.main)
         guard let cgaDomainsController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? CGADomainsViewController else {
@@ -33,7 +33,7 @@ class NewCGARouter: NewCGARoutingLogic {
         }
 
         let presenter = CGADomainsPresenter(viewController: cgaDomainsController)
-        let interactor = CGADomainsInteractor(presenter: presenter, patientId: patientId)
+        let interactor = CGADomainsInteractor(presenter: presenter, worker: CGADomainsWorker(), patientId: patientId)
         let router = CGADomainsRouter(viewController: cgaDomainsController)
 
         cgaDomainsController.setupArchitecture(interactor: interactor, router: router)

@@ -122,7 +122,7 @@ extension SingleDomainViewController: UITableViewDataSource {
             return nil
         }
 
-        header.setup(title: viewModel.domain.viewModel.name)
+        header.setup(title: viewModel.domain.title)
 
         return header
     }

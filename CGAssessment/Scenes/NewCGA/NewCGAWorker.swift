@@ -28,7 +28,7 @@ class NewCGAWorker {
         return patients
     }
 
-    func savePatient(patientData: NewCGAModels.PatientData) throws -> Int {
+    func savePatient(patientData: NewCGAModels.PatientData) throws -> UUID {
         return try dao.addPatient(patientData)
     }
 

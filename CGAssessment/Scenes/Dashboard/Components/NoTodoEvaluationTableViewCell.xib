@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,10 +30,10 @@
                         <rect key="frame" x="20" y="0.0" width="352" height="154"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upI-WG-KMb">
-                                <rect key="frame" x="0.0" y="0.0" width="98" height="154"/>
+                                <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="􀁣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="OWL-HU-Rht">
-                                        <rect key="frame" x="15" y="41.333333333333336" width="68.333333333333329" height="71.666666666666657"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="􀁣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="OWL-HU-Rht">
+                                        <rect key="frame" x="10" y="41.333333333333336" width="68.333333333333329" height="71.666666666666657"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="60"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
@@ -41,24 +41,26 @@
                                 </subviews>
                                 <color key="backgroundColor" name="Background-7"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OWL-HU-Rht" secondAttribute="trailing" constant="10" id="WLV-rP-T9H"/>
                                     <constraint firstItem="OWL-HU-Rht" firstAttribute="centerY" secondItem="upI-WG-KMb" secondAttribute="centerY" id="gqb-bM-dRc"/>
                                     <constraint firstItem="OWL-HU-Rht" firstAttribute="centerX" secondItem="upI-WG-KMb" secondAttribute="centerX" id="nVY-iM-RJb"/>
+                                    <constraint firstItem="OWL-HU-Rht" firstAttribute="leading" secondItem="upI-WG-KMb" secondAttribute="leading" constant="10" id="tbt-Ob-YBc"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="zqK-2R-wwz">
-                                <rect key="frame" x="118" y="17" width="214" height="120"/>
+                                <rect key="frame" x="108.33333333333336" y="17" width="223.66666666666663" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não há reaplicações próximas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-y5-fen">
-                                        <rect key="frame" x="6.3333333333333428" y="0.0" width="201.66666666666666" height="17.666666666666668"/>
+                                        <rect key="frame" x="11" y="0.0" width="201.66666666666666" height="17.666666666666668"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-IG-hDp">
-                                        <rect key="frame" x="19.333333333333343" y="28.666666666666664" width="175.33333333333334" height="39.999999999999993"/>
+                                        <rect key="frame" x="24.333333333333314" y="28.666666666666664" width="175.33333333333334" height="39.999999999999993"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliações em dia!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jap-xo-T24">
-                                                <rect key="frame" x="26.666666666666657" y="0.0" width="122" height="17.333333333333332"/>
+                                                <rect key="frame" x="26.666666666666686" y="0.0" width="122" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
@@ -72,7 +74,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqm-eT-nnE">
-                                        <rect key="frame" x="0.0" y="79.666666666666671" width="214" height="40.333333333333329"/>
+                                        <rect key="frame" x="5" y="79.666666666666671" width="214" height="40.333333333333329"/>
                                         <color key="backgroundColor" name="Background-6"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="12" maxX="30" maxY="12"/>

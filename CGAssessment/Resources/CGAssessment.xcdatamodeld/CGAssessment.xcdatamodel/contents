@@ -6,6 +6,7 @@
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="calfCircumference" inverseEntity="CGA"/>
     </entity>
     <entity name="CGA" representedClassName=".CGA" syncable="YES" codeGenerationType="class">
+        <attribute name="cgaId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
@@ -25,6 +26,7 @@
         <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="patientId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="patient" inverseEntity="CGA"/>
     </entity>
     <entity name="SarcopeniaScreening" representedClassName=".SarcopeniaScreening" syncable="YES" codeGenerationType="class">

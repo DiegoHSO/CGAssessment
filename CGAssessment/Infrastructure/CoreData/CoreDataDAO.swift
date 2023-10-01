@@ -11,21 +11,22 @@ import UIKit
 enum CoreDataErrors: Error, Equatable {
     case duplicatedPatient
     case unableToFetchCGA
+    case unableToFetchPatient
 }
 
 protocol CoreDataDAOProtocol {
-    func addCGA(for patient: Patient) throws
-    func addPatient(_ patient: NewCGAModels.PatientData) throws -> Int
+    func addCGA(for patient: Patient) throws -> UUID
+    func addPatient(_ patient: NewCGAModels.PatientData) throws -> UUID
     func fetchCGAs() throws -> [CGA]
-    func fetchCGA(cgaId: Int) throws -> CGA?
+    func fetchCGA(cgaId: UUID) throws -> CGA?
     func fetchPatientCGAs(patient: Patient) throws -> [CGA]
     func fetchPatients() throws -> [Patient]
-    func fetchPatient(patientId: Int) throws -> Patient?
-    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: Int) throws
-    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: Int) throws
-    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: Int) throws
-    func updateCGA(with test: GripStrengthModels.TestData, cgaId: Int) throws
-    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: Int) throws
+    func fetchPatient(patientId: UUID) throws -> Patient?
+    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws
+    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws
+    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws
+    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID) throws
+    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID) throws
 }
 
 class CoreDataDAO: CoreDataDAOProtocol {
@@ -38,15 +39,20 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
     // MARK: - Public Methods
 
-    func addCGA(for patient: Patient) throws {
+    func addCGA(for patient: Patient) throws -> UUID {
         let newCGA = CGA(context: context)
+        let cgaId = UUID()
+
         newCGA.patient = patient
         newCGA.lastModification = Date()
+        newCGA.cgaId = cgaId
 
         try context.save()
+
+        return cgaId
     }
 
-    func addPatient(_ patient: NewCGAModels.PatientData) throws -> Int {
+    func addPatient(_ patient: NewCGAModels.PatientData) throws -> UUID {
         let patients = try fetchPatients()
         let hasPatient = patients.contains(where: { $0.name == patient.patientName &&
                                             $0.birthDate == patient.birthDate.removingTimeComponents() &&
@@ -57,24 +63,26 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         let newPatient = Patient(context: context)
+        let patientId = UUID()
         newPatient.birthDate = patient.birthDate.removingTimeComponents()
         newPatient.gender = patient.gender.rawValue
         newPatient.name = patient.patientName
+        newPatient.patientId = patientId
 
         try context.save()
 
-        return newPatient.id.hashValue
+        return patientId
     }
 
     func fetchCGAs() throws -> [CGA] {
         return try context.fetch(CGA.fetchRequest())
     }
 
-    func fetchCGA(cgaId: Int) throws -> CGA? {
+    func fetchCGA(cgaId: UUID) throws -> CGA? {
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
         request.fetchLimit = 1
 
-        let cgaPredicate = NSPredicate(format: "id == %@", NSNumber(value: cgaId))
+        let cgaPredicate = NSPredicate(format: "cgaId == %@", cgaId.uuidString)
 
         request.predicate = cgaPredicate
 
@@ -84,7 +92,10 @@ class CoreDataDAO: CoreDataDAOProtocol {
     func fetchPatientCGAs(patient: Patient) throws -> [CGA] {
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
 
-        let patientPredicate = NSPredicate(format: "patient.id == %@", NSNumber(value: patient.id.hashValue))
+        guard let patientId = patient.patientId else { throw CoreDataErrors.unableToFetchCGA }
+
+        let patientPredicate = NSPredicate(format: "patient.patientId == %@",
+                                           patientId.uuidString)
 
         request.predicate = patientPredicate
 
@@ -95,18 +106,19 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return try context.fetch(Patient.fetchRequest())
     }
 
-    func fetchPatient(patientId: Int) throws -> Patient? {
+    func fetchPatient(patientId: UUID) throws -> Patient? {
         let request = Patient.fetchRequest() as NSFetchRequest<Patient>
         request.fetchLimit = 1
 
-        let patientPredicate = NSPredicate(format: "id == %@", NSNumber(value: patientId))
+        let patientPredicate = NSPredicate(format: "patientId == %@",
+                                           patientId.uuidString)
 
         request.predicate = patientPredicate
 
         return try context.fetch(request).first
     }
 
-    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: Int) throws {
+    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.timedUpAndGo == nil {
@@ -123,11 +135,12 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         cga.timedUpAndGo?.hasStopwatch = test.selectedOption == .firstOption
         cga.timedUpAndGo?.isDone = test.isDone
+        cga.lastModification = Date()
 
         try context.save()
     }
 
-    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: Int) throws {
+    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.walkingSpeed == nil {
@@ -165,7 +178,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: Int) throws {
+    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.walkingSpeed == nil {
@@ -182,7 +195,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: GripStrengthModels.TestData, cgaId: Int) throws {
+    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.gripStrength == nil {
@@ -207,7 +220,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: Int) throws {
+    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.sarcopeniaScreening == nil {

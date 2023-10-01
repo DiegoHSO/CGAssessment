@@ -212,3 +212,13 @@
 "sarcopenia_assessment_good_result_key" = "Indivíduo com provável presença de sarcopenia";
 "sarcopenia_assessment_medium_result_key" = "Indivíduo com confirmada presença de sarcopenia";
 "sarcopenia_assessment_bad_result_key" = "Indivíduo com presença de sarcopenia grave";
+"one_key" = "Um";
+"two_key" = "Dois";
+"three_key" = "Três";
+"four_key" = "Quatro";
+"five_key" = "Cinco";
+"six_key" = "Seis";
+"seven_key" = "Sete";
+"eight_key" = "Oito";
+"nine_key" = "Nove";
+"ten_key" = "Dez";

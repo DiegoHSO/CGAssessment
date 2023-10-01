@@ -94,7 +94,7 @@ class DashboardInteractor: DashboardLogic {
             guard let patientName = evaluation.patient?.name, let birthDate = evaluation.patient?.birthDate,
                   let lastModification = evaluation.lastModification else { return nil }
 
-            let alteredDomains: Int = 5
+            let alteredDomains: Int = 3
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ResumedPatientDelegate: AnyObject {
-    func didSelect(patientId: Int)
+    func didSelect(patientId: UUID)
 }
 
 class ResumedPatientTableViewCell: UITableViewCell {
@@ -21,7 +21,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
     @IBOutlet private weak var genderImageView: UIImageView?
     @IBOutlet private weak var viewLeadingConstraint: NSLayoutConstraint?
     private weak var delegate: ResumedPatientDelegate?
-    private var patientId: Int = -1
+    private var patientId: UUID?
 
     // MARK: - Life Cycle
 
@@ -65,6 +65,7 @@ class ResumedPatientTableViewCell: UITableViewCell {
     }
 
     @objc private func didTapComponent() {
+        guard let patientId else { return }
         delegate?.didSelect(patientId: patientId)
     }
 }

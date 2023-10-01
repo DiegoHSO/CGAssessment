@@ -74,4 +74,42 @@ struct DashboardModels {
         case reports
         case cgas
     }
+
+    enum Number: Int {
+        case one = 1
+        case two
+        case three
+        case four
+        case five
+        case six
+        case seven
+        case eight
+        case nine
+        case ten
+
+        var unabbreviated: String {
+            switch self {
+            case .one:
+                return LocalizedTable.one.localized
+            case .two:
+                return LocalizedTable.two.localized
+            case .three:
+                return LocalizedTable.three.localized
+            case .four:
+                return LocalizedTable.four.localized
+            case .five:
+                return LocalizedTable.five.localized
+            case .six:
+                return LocalizedTable.six.localized
+            case .seven:
+                return LocalizedTable.seven.localized
+            case .eight:
+                return LocalizedTable.eight.localized
+            case .nine:
+                return LocalizedTable.nine.localized
+            case .ten:
+                return LocalizedTable.ten.localized
+            }
+        }
+    }
 }

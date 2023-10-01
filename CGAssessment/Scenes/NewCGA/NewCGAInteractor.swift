@@ -19,7 +19,7 @@ class NewCGAInteractor: NewCGALogic {
 
     private var selectedInternalOption: SelectableKeys = .none
     private var selectedExternalOption: SelectableKeys = .secondOption
-    private var selectedPatient: Int?
+    private var selectedPatient: UUID?
     private var searchText: String = ""
     private var patientName: String = ""
     private var patientBirthDate: Date?
@@ -69,10 +69,11 @@ class NewCGAInteractor: NewCGALogic {
 
         self.patients = patients.compactMap({ patient in
             guard let birthDate = patient.birthDate, let name = patient.name,
-                  let gender = Gender(rawValue: patient.gender) else { return nil }
+                  let gender = Gender(rawValue: patient.gender), let id = patient.patientId
+            else { return nil }
 
             return .init(patient: .init(patientName: name, patientAge: birthDate.yearSinceCurrentDate, gender: gender),
-                         id: patient.id.hashValue, delegate: self)
+                         id: id, delegate: self)
         })
 
         selectedExternalOption = patients.isEmpty ? .firstOption : .secondOption
@@ -119,7 +120,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
         }
     }
 
-    func didSelect(patientId: Int) {
+    func didSelect(patientId: UUID) {
         selectedPatient = patientId
         sendDataToPresenter()
     }

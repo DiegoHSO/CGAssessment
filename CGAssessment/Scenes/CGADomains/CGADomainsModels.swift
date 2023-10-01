@@ -9,15 +9,16 @@ import Foundation
 
 struct CGADomainsModels {
 
+    typealias Tests = [SingleDomainModels.Test: Bool]
+
     struct ControllerViewModel {
-        let domains: [Domain]
-        let sections: Int
+        let domains: [Domain: Tests]
     }
 
     struct DomainViewModel {
         let name: String
         let symbol: String
-        let tests: [TestViewModel]
+        let tests: Tests
     }
 
     struct TestViewModel {
@@ -25,7 +26,7 @@ struct CGADomainsModels {
         let isDone: Bool
     }
 
-    enum Domain: Int {
+    enum Domain: Int, CaseIterable {
         case mobility = 0
         case cognitive
         case sensory
@@ -36,71 +37,49 @@ struct CGADomainsModels {
         case comorbidity
         case other
 
-        var viewModel: DomainViewModel {
+        var title: String {
             switch self {
             case .mobility:
-                return DomainViewModel(name: LocalizedTable.mobility.localized,
-                                       symbol: "􀵮", tests: getTests())
+                return LocalizedTable.mobility.localized
             case .cognitive:
-                return DomainViewModel(name: LocalizedTable.cognitive.localized,
-                                       symbol: "􀯏", tests: getTests())
+                return LocalizedTable.cognitive.localized
             case .sensory:
-                return DomainViewModel(name: LocalizedTable.sensory.localized,
-                                       symbol: "􀵣", tests: getTests())
+                return LocalizedTable.sensory.localized
             case .functional:
-                return DomainViewModel(name: LocalizedTable.functional.localized,
-                                       symbol: "􁐑", tests: getTests())
+                return LocalizedTable.functional.localized
             case .nutricional:
-                return DomainViewModel(name: LocalizedTable.nutricional.localized,
-                                       symbol: "􁞲", tests: getTests())
+                return LocalizedTable.nutricional.localized
             case .social:
-                return DomainViewModel(name: LocalizedTable.social.localized,
-                                       symbol: "􀝋", tests: getTests())
+                return LocalizedTable.social.localized
             case .polypharmacy:
-                return DomainViewModel(name: LocalizedTable.polypharmacy.localized,
-                                       symbol: "􀠲", tests: getTests())
+                return LocalizedTable.polypharmacy.localized
             case .comorbidity:
-                return DomainViewModel(name: LocalizedTable.comorbidity.localized,
-                                       symbol: "􀯚", tests: getTests())
+                return LocalizedTable.comorbidity.localized
             case .other:
-                return DomainViewModel(name: LocalizedTable.other.localized,
-                                       symbol: "􀜟", tests: getTests())
+                return LocalizedTable.other.localized
             }
         }
 
-        private func getTests() -> [TestViewModel] {
+        var symbol: String {
             switch self {
             case .mobility:
-                return [.init(name: LocalizedTable.timedUpAndGo.localized, isDone: true),
-                        .init(name: LocalizedTable.walkingSpeed.localized, isDone: false),
-                        .init(name: LocalizedTable.calfCircumference.localized, isDone: false),
-                        .init(name: LocalizedTable.gripStrength.localized, isDone: false),
-                        .init(name: LocalizedTable.sarcopeniaAssessment.localized, isDone: false)]
+                return "􀵮"
             case .cognitive:
-                return [.init(name: LocalizedTable.miniMentalStateExamination.localized, isDone: true),
-                        .init(name: LocalizedTable.verbalFluencyTest.localized, isDone: false),
-                        .init(name: LocalizedTable.clockDrawingTest.localized, isDone: false),
-                        .init(name: LocalizedTable.moca.localized, isDone: false),
-                        .init(name: LocalizedTable.geriatricDepressionScale.localized, isDone: false)]
+                return "􀯏"
             case .sensory:
-                return [.init(name: LocalizedTable.visualAcuityAssessment.localized, isDone: true),
-                        .init(name: LocalizedTable.hearingLossAssessment.localized, isDone: false)]
+                return "􀵣"
             case .functional:
-                return [.init(name: LocalizedTable.katzScale.localized, isDone: true),
-                        .init(name: LocalizedTable.lawtonScale.localized, isDone: false)]
+                return "􁐑"
             case .nutricional:
-                return [.init(name: LocalizedTable.miniNutritionalAssessment.localized, isDone: true)]
+                return "􁞲"
             case .social:
-                return [.init(name: LocalizedTable.apgarScale.localized, isDone: true),
-                        .init(name: LocalizedTable.zaritScale.localized, isDone: true)]
+                return "􀝋"
             case .polypharmacy:
-                return [.init(name: LocalizedTable.polypharmacyCriteria.localized, isDone: true)]
+                return "􀠲"
             case .comorbidity:
-                return [.init(name: LocalizedTable.charlsonIndex.localized, isDone: true)]
+                return "􀯚"
             case .other:
-                return [.init(name: LocalizedTable.suspectedAbuse.localized, isDone: true),
-                        .init(name: LocalizedTable.cardiovascularRiskEstimation.localized, isDone: false),
-                        .init(name: LocalizedTable.chemotherapyToxicityRisk.localized, isDone: false)]
+                return "􀜟"
             }
         }
     }

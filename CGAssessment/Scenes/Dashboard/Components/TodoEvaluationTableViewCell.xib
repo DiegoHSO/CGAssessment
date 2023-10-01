@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,10 +30,10 @@
                         <rect key="frame" x="20" y="0.0" width="346" height="90"/>
                         <subviews>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fue-xW-62A">
-                                <rect key="frame" x="0.0" y="0.0" width="90.333333333333329" height="90"/>
+                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Em 10 dias" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-nk-3in">
-                                        <rect key="frame" x="13" y="16" width="64.333333333333329" height="58"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Em 10 dias" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-nk-3in">
+                                        <rect key="frame" x="13" y="16" width="64" height="58"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="20"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
@@ -43,14 +43,15 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="aMF-nk-3in" secondAttribute="bottom" constant="16" id="1ka-49-pLV"/>
                                     <constraint firstItem="aMF-nk-3in" firstAttribute="top" secondItem="fue-xW-62A" secondAttribute="top" constant="16" id="8ag-lV-b3u"/>
+                                    <constraint firstAttribute="width" constant="90" id="Dvj-1c-xCQ"/>
                                     <constraint firstItem="aMF-nk-3in" firstAttribute="leading" secondItem="fue-xW-62A" secondAttribute="leading" constant="13" id="ETJ-bM-MKT"/>
                                     <constraint firstAttribute="trailing" secondItem="aMF-nk-3in" secondAttribute="trailing" constant="13" id="lXK-8O-9u0"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gt6-R9-Z2n">
-                                <rect key="frame" x="100.33333333333333" y="13" width="235.66666666666669" height="64"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gt6-R9-Z2n">
+                                <rect key="frame" x="99.999999999999986" y="13" width="235.66666666666663" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0q-N7-XjM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Fulano de Tal, 95 anos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0q-N7-XjM">
                                         <rect key="frame" x="0.0" y="0.0" width="235.66666666666666" height="18"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                         <color key="textColor" name="Label-1"/>
@@ -62,7 +63,7 @@
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Última AGA aplicada em 12/08/2023" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROc-9H-A34">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Última AGA aplicada em 12/08/2023" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ROc-9H-A34">
                                         <rect key="frame" x="0.0" y="46" width="235.66666666666666" height="18"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                         <color key="textColor" name="Label-1"/>
@@ -102,7 +103,7 @@
             <connections>
                 <outlet property="alteredDomainsLabel" destination="2Al-Vr-OxY" id="Fmw-5D-Uwg"/>
                 <outlet property="lastApplicationDateLabel" destination="ROc-9H-A34" id="Chj-1j-a33"/>
-                <outlet property="pacientDataLabel" destination="B0q-N7-XjM" id="WnG-dZ-ZYH"/>
+                <outlet property="patientDataLabel" destination="B0q-N7-XjM" id="W9d-xb-09L"/>
                 <outlet property="timeLeftLabel" destination="aMF-nk-3in" id="6qz-0V-XG4"/>
                 <outlet property="timeLeftView" destination="fue-xW-62A" id="bol-to-uqS"/>
             </connections>

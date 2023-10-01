@@ -60,6 +60,16 @@ enum LocalizedTable: String, Localizable {
     case cgaDomains = "cga_domains_key"
     case reports = "reports_key"
     case howAreYou = "hows_going_key"
+    case one = "one_key"
+    case two = "two_key"
+    case three = "three_key"
+    case four = "four_key"
+    case five = "five_key"
+    case six = "six_key"
+    case seven = "seven_key"
+    case eight = "eight_key"
+    case nine = "nine_key"
+    case ten = "ten_key"
 
     // MARK: - New CGA
 

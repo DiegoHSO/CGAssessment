@@ -20,13 +20,15 @@ class RecentApplicationTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(patientName: String, patientAge: Int, missingDomains: Int) {
-        let progress: Double = Double(missingDomains) / 9
+        let progress: Double = Double(missingDomains - 9) / 9
 
-        percentageLabel?.text = String(format: "%.1f", progress * 100) + "%"
+        percentageLabel?.text = (progress * 100).regionFormatted() + "%"
+        percentageLabel?.font = .compactRounded(withStyle: .black, size: 15)
         progressBarView?.progressAnimation(duration: 1, progress: progress)
 
         recentApplicationLabel?.text = LocalizedTable.mostRecentApplication.localized
         patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
+        patientDataLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
 
         var missingDomainsText: String
 
@@ -38,6 +40,7 @@ class RecentApplicationTableViewCell: UITableViewCell {
         }
 
         missingDomainsLabel?.text = missingDomainsText
+        missingDomainsLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
     }
 
 }

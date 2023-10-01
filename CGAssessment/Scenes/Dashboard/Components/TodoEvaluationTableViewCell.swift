@@ -24,12 +24,14 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
         timeLeftLabel?.text = setupTimeLeftText(nextApplicationDate)
         patientDataLabel?.text = "\(patientName), \(patientAge) \(LocalizedTable.years.localized)"
+        patientDataLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         alteredDomainsLabel?.attributedText = setupAlteredDomainsText(alteredDomains)
         timeLeftView?.backgroundColor = getAlteredDomainsColor(alteredDomains)
 
         var lastApplicationDateText = "\(LocalizedTable.lastApplication.localized) "
         lastApplicationDateText += "\(lastApplicationDate.formatted(date: .numeric, time: .omitted))"
         lastApplicationDateLabel?.text = lastApplicationDateText
+        lastApplicationDateLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
     }
 
     // MARK: - Private Properties
@@ -45,7 +47,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
         } else if timeLeftDays < 30 {
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftDays)) "
             timeLeftString += "\(timeLeftDays > 1 ? LocalizedTable.days.localized : LocalizedTable.day.localized)"
-        } else if timeLeftDays > 30 {
+        } else if timeLeftDays >= 30 {
             let timeLeftMonths = round(timeLeftDays / 30)
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftMonths)) "
             timeLeftString += "\(timeLeftMonths > 1 ? LocalizedTable.months.localized : LocalizedTable.month.localized)"
@@ -56,15 +58,15 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
     private func setupAlteredDomainsText(_ alteredDomains: Int) -> NSAttributedString {
         var alteredDomainsText: String = ""
-        var secondaryAlteredDomainsText: String = " \(LocalizedTable.alteredDomain.localized)"
+        var secondaryAlteredDomainsText: String = "\(LocalizedTable.alteredDomain.localized)"
         var alteredDomainsColor: UIColor = .clear
 
         if alteredDomains == 0 {
-            alteredDomainsText = "\(LocalizedTable.none.localized)"
-            secondaryAlteredDomainsText = " \(LocalizedTable.alteredDomain.localized)"
+            alteredDomainsText = "\(LocalizedTable.none.localized) "
+            secondaryAlteredDomainsText = "\(LocalizedTable.alteredDomain.localized)"
             alteredDomainsColor = .label4 ?? .clear
         } else {
-            alteredDomainsText = "\(alteredDomains)"
+            alteredDomainsText = DashboardModels.Number(rawValue: alteredDomains)?.unabbreviated ?? ""
             secondaryAlteredDomainsText = " \(alteredDomains == 1 ? secondaryAlteredDomainsText : LocalizedTable.alteredDomains.localized)"
             alteredDomainsColor = (alteredDomains < 5 ? .label5 : .label6) ?? .clear
         }
