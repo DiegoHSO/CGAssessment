@@ -64,7 +64,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         case .patients:
             router?.routeToPacients()
         case .cgaDomains:
-            router?.routeToCGADomains()
+            router?.routeToCGA(cgaId: nil)
         case .reports:
             router?.routeToReports()
         case .cgas:
@@ -114,11 +114,22 @@ extension DashboardViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
+        guard let viewModel, let section = Section(rawValue: indexPath.section),
+              let row = viewModel.sections[section]?[safe: indexPath.row] else { return }
+
+        switch row {
+        case .recentApplication:
+            interactor?.didSelect(menuOption: .lastCGA)
+        case .evaluationToReapply:
+            guard let evaluation = viewModel.todoEvaluations[safe: indexPath.row] else { return }
+            interactor?.didSelect(menuOption: .evaluation(id: evaluation.id))
+        default:
+            return
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard let currentSection = DashboardModels.Section(rawValue: section) else { return 0 }
+        guard let currentSection = Section(rawValue: section) else { return 0 }
         return currentSection == .recentEvaluation ? UITableView.automaticDimension : .leastNormalMagnitude
     }
 }

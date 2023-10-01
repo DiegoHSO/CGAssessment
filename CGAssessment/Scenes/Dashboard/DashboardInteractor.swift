@@ -48,11 +48,11 @@ class DashboardInteractor: DashboardLogic {
         case .cgaDomains:
             presenter?.route(toRoute: .cgaDomains)
         case .cgaExample:
-            presenter?.route(toRoute: .cga(cgaId: -1))
+            presenter?.route(toRoute: .cga(cgaId: nil))
         case .evaluation(let id):
             presenter?.route(toRoute: .cga(cgaId: id))
         case .lastCGA:
-            presenter?.route(toRoute: .cga(cgaId: -1))
+            presenter?.route(toRoute: .cga(cgaId: recentCGA?.id))
         }
     }
 
@@ -73,7 +73,7 @@ class DashboardInteractor: DashboardLogic {
 
     private func computeLatestCGAData() {
         guard let latestCGA = try? worker?.getLatestCGA(), let patientName = latestCGA.patient?.name,
-              let birthDate = latestCGA.patient?.birthDate else { return }
+              let birthDate = latestCGA.patient?.birthDate, let id = latestCGA.cgaId else { return }
 
         var missingDomains: Int = 9
 
@@ -84,7 +84,7 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
-        recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains)
+        recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
     private func computeTodoEvaluationsData() {
@@ -92,13 +92,13 @@ class DashboardInteractor: DashboardLogic {
 
         self.todoEvaluations = todoEvaluations.compactMap({ evaluation in
             guard let patientName = evaluation.patient?.name, let birthDate = evaluation.patient?.birthDate,
-                  let lastModification = evaluation.lastModification else { return nil }
+                  let lastModification = evaluation.lastModification, let id = evaluation.cgaId else { return nil }
 
             let alteredDomains: Int = 3
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
-                                                           lastApplicationDate: lastModification)
+                                                           lastApplicationDate: lastModification, id: id)
         })
     }
 

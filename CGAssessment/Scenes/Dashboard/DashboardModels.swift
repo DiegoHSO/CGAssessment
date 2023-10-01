@@ -33,6 +33,7 @@ struct DashboardModels {
         let patientName: String
         let patientAge: Int
         let missingDomains: Int
+        let id: UUID
     }
 
     struct TodoEvaluationViewModel {
@@ -41,6 +42,7 @@ struct DashboardModels {
         let alteredDomains: Int
         let nextApplicationDate: Date
         let lastApplicationDate: Date
+        let id: UUID
     }
 
     enum Section: Int {
@@ -62,12 +64,12 @@ struct DashboardModels {
         case patients
         case cgaDomains
         case reports
-        case evaluation(id: Int)
+        case evaluation(id: UUID?)
         case cgas
     }
 
     enum Routing {
-        case cga(cgaId: Int)
+        case cga(cgaId: UUID?)
         case newCGA
         case patients
         case cgaDomains
