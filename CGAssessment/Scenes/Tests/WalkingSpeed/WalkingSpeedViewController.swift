@@ -30,11 +30,13 @@ class WalkingSpeedViewController: UIViewController, WalkingSpeedDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        interactor?.controllerDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        interactor?.controllerDidLoad()
+        tabBarController?.tabBar.isHidden = true
+        title = LocalizedTable.walkingSpeed.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,23 +53,20 @@ class WalkingSpeedViewController: UIViewController, WalkingSpeedDisplayLogic {
 
     func route(toRoute route: WalkingSpeedModels.Routing) {
         switch route {
-        case .testResults(let test, let results):
-            router?.routeToTestResults(test: test, results: results)
+        case .testResults(let test, let results, let cgaId):
+            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 
     func presentData(viewModel: WalkingSpeedModels.ControllerViewModel) {
         self.viewModel = viewModel
 
-        tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
     }
 
     // MARK: - Private Methods
 
     private func setupViews() {
-        title = LocalizedTable.walkingSpeed.localized
-
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.contentInsetAdjustmentBehavior = .never

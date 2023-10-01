@@ -179,11 +179,11 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         if let elapsedTime = test.elapsedTime {
-            cga.timedUpAndGo?.measuredTime = NSNumber(floatLiteral: elapsedTime)
+            cga.timedUpAndGo?.measuredTime = NSNumber(value: elapsedTime)
         }
 
         if let typedElapsedTime = test.typedElapsedTime {
-            cga.timedUpAndGo?.typedTime = NSNumber(floatLiteral: typedElapsedTime)
+            cga.timedUpAndGo?.typedTime = NSNumber(value: typedElapsedTime)
         }
 
         cga.timedUpAndGo?.hasStopwatch = test.selectedOption == .firstOption
@@ -201,29 +201,30 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         if let firstElapsedTime = test.firstElapsedTime {
-            cga.walkingSpeed?.firstMeasuredTime = firstElapsedTime
+            cga.walkingSpeed?.firstMeasuredTime = NSNumber(value: firstElapsedTime)
         }
 
         if let secondElapsedTime = test.secondElapsedTime {
-            cga.walkingSpeed?.secondMeasuredTime = secondElapsedTime
+            cga.walkingSpeed?.secondMeasuredTime = NSNumber(value: secondElapsedTime)
         }
 
         if let thirdElapsedTime = test.thirdElapsedTime {
-            cga.walkingSpeed?.thirdMeasuredTime = thirdElapsedTime
+            cga.walkingSpeed?.thirdMeasuredTime = NSNumber(value: thirdElapsedTime)
         }
 
         if let typedFirstTime = test.typedFirstTime {
-            cga.walkingSpeed?.firstTypedTime = typedFirstTime
+            cga.walkingSpeed?.firstTypedTime = NSNumber(value: typedFirstTime)
         }
 
         if let typedSecondTime = test.typedSecondTime {
-            cga.walkingSpeed?.secondTypedTime = typedSecondTime
+            cga.walkingSpeed?.secondTypedTime = NSNumber(value: typedSecondTime)
         }
 
         if let typedThirdTime = test.typedThirdTime {
-            cga.walkingSpeed?.thirdTypedTime = typedThirdTime
+            cga.walkingSpeed?.thirdTypedTime = NSNumber(value: typedThirdTime)
         }
 
+        cga.walkingSpeed?.selectedStopwatch = test.selectedStopwatch.rawValue
         cga.walkingSpeed?.hasStopwatch = test.selectedOption == .firstOption
         cga.walkingSpeed?.isDone = test.isDone
         cga.lastModification = Date()

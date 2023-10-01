@@ -56,11 +56,12 @@ struct WalkingSpeedModels {
         let secondElapsedTime: TimeInterval?
         let thirdElapsedTime: TimeInterval?
         let selectedOption: SelectableKeys
+        let selectedStopwatch: SelectableStopwatch
         let isDone: Bool
     }
 
     enum Routing {
-        case testResults(test: SingleDomainModels.Test, results: TestResults)
+        case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
     enum Section: Int {
@@ -86,8 +87,9 @@ struct WalkingSpeedModels {
         case done
     }
 
-    enum SelectableStopwatch {
-        case first
+    @objc
+    public enum SelectableStopwatch: Int16 {
+        case first = 1
         case second
         case third
     }

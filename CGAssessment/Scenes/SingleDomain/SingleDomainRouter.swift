@@ -84,7 +84,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
     }
 
     private func routeToWalkingSpeedTest(cgaId: UUID?) {
-        guard let walkingSpeedController = WalkingSpeedBuilder.build() else { return }
+        guard let walkingSpeedController = WalkingSpeedBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }

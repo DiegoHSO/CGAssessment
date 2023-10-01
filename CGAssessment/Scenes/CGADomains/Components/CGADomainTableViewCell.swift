@@ -49,7 +49,8 @@ class CGADomainTableViewCell: UITableViewCell {
 
         var index: Int = 0
 
-        viewModel.tests.forEach { (key, value) in
+        let sortedTests = viewModel.tests.sorted(by: { $0.key.rawValue < $1.key.rawValue })
+        sortedTests.forEach { (key, value) in
             subviews[safe: index]?.setup(testName: key.title, isDone: value)
             index += 1
         }

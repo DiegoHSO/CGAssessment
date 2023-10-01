@@ -54,7 +54,7 @@ class SarcopeniaAssessmentRouter: SarcopeniaAssessmentRoutingLogic {
     }
 
     func routeToWalkingSpeedTest() {
-        guard let walkingSpeedController = WalkingSpeedBuilder.build() else { return }
+        guard let walkingSpeedController = WalkingSpeedBuilder.build(cgaId: nil) else { return }
 
         viewController?.navigationController?.pushViewController(walkingSpeedController, animated: true)
     }

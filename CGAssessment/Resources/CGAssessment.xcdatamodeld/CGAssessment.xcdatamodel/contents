@@ -47,14 +47,15 @@
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
     </entity>
     <entity name="WalkingSpeed" representedClassName=".WalkingSpeed" syncable="YES" codeGenerationType="class">
-        <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
-        <attribute name="firstTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="firstTypedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="secondMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
-        <attribute name="secondTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
-        <attribute name="thirdMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
-        <attribute name="thirdTypedTime" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="secondMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="secondTypedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="selectedStopwatch" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="thirdMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="thirdTypedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="walkingSpeed" inverseEntity="CGA"/>
     </entity>
 </model>

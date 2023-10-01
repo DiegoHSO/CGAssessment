@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol WalkingSpeedLogic: ActionButtonDelegate, SelectableViewDelegate, StopwatchDelegate, TextFieldDelegate {
     func controllerDidLoad()
@@ -17,6 +18,8 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
     // MARK: - Private Properties
 
     private var presenter: WalkingSpeedPresentationLogic?
+    private var worker: WalkingSpeedWorker?
+    private var cgaId: UUID?
     private var selectedOption: SelectableKeys = .secondOption
     private var selectedStopwatch: WalkingSpeedModels.SelectableStopwatch = .first
     private var firstStopwatchTime: TimeInterval?
@@ -28,37 +31,26 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
 
     // MARK: - Init
 
-    init(presenter: WalkingSpeedPresentationLogic) {
+    init(presenter: WalkingSpeedPresentationLogic, worker: WalkingSpeedWorker, cgaId: UUID?) {
         self.presenter = presenter
+        self.worker = worker
+        self.cgaId = cgaId
     }
 
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
+        computeViewModelData()
         sendDataToPresenter()
     }
 
     func didTapActionButton(identifier: String?) {
-        if selectedOption == .firstOption {
-            guard let typedFirstTime, let typedSecondTime, let typedThirdTime else { return }
-            let results = WalkingSpeedModels.TestResults(firstElapsedTime: typedFirstTime,
-                                                         secondElapsedTime: typedSecondTime,
-                                                         thirdElapsedTime: typedThirdTime)
-
-            presenter?.route(toRoute: .testResults(test: .walkingSpeed, results: results))
-        } else {
-            guard let firstStopwatchTime, let secondStopwatchTime, let thirdStopwatchTime else { return }
-            let results = WalkingSpeedModels.TestResults(firstElapsedTime: firstStopwatchTime,
-                                                         secondElapsedTime: secondStopwatchTime,
-                                                         thirdElapsedTime: thirdStopwatchTime)
-
-            presenter?.route(toRoute: .testResults(test: .walkingSpeed, results: results))
-        }
+        handleNavigation(updatesDatabase: true)
     }
 
     func didSelect(option: SelectableKeys, value: LocalizedTable) {
         selectedOption = option
+        updateDatabase()
         sendDataToPresenter()
     }
 
@@ -74,6 +66,7 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
             return
         }
 
+        updateDatabase()
         sendDataToPresenter()
     }
 
@@ -91,11 +84,13 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
             return
         }
 
+        updateDatabase()
         sendDataToPresenter()
     }
 
     func didSelect(option: WalkingSpeedModels.SelectableStopwatch) {
         selectedStopwatch = option
+        updateDatabase()
         sendDataToPresenter()
     }
 
@@ -125,5 +120,56 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
                                                       firstStopwatchTime: firstStopwatchTime, secondStopwatchTime: secondStopwatchTime,
                                                       thirdStopwatchTime: thirdStopwatchTime, selectedStopwatch: selectedStopwatch,
                                                       isResultsButtonEnabled: isResultsButtonEnabled)
+    }
+
+    private func handleNavigation(updatesDatabase: Bool = false) {
+        if updatesDatabase {
+            updateDatabase(isDone: true)
+        }
+
+        if selectedOption == .firstOption {
+            guard let typedFirstTime, let typedSecondTime, let typedThirdTime else { return }
+            let results = WalkingSpeedModels.TestResults(firstElapsedTime: typedFirstTime,
+                                                         secondElapsedTime: typedSecondTime,
+                                                         thirdElapsedTime: typedThirdTime)
+
+            presenter?.route(toRoute: .testResults(test: .walkingSpeed, results: results, cgaId: cgaId))
+        } else {
+            guard let firstStopwatchTime, let secondStopwatchTime, let thirdStopwatchTime else { return }
+            let results = WalkingSpeedModels.TestResults(firstElapsedTime: firstStopwatchTime,
+                                                         secondElapsedTime: secondStopwatchTime,
+                                                         thirdElapsedTime: thirdStopwatchTime)
+
+            presenter?.route(toRoute: .testResults(test: .walkingSpeed, results: results, cgaId: cgaId))
+        }
+    }
+
+    private func computeViewModelData() {
+        if let walkingSpeedProgress = try? worker?.getWalkingSpeedProgress() {
+            selectedOption = walkingSpeedProgress.hasStopwatch ? .firstOption : .secondOption
+            firstStopwatchTime = walkingSpeedProgress.firstMeasuredTime as? Double
+            secondStopwatchTime = walkingSpeedProgress.secondMeasuredTime as? Double
+            thirdStopwatchTime = walkingSpeedProgress.thirdMeasuredTime as? Double
+            typedFirstTime = walkingSpeedProgress.firstTypedTime as? Double
+            typedSecondTime = walkingSpeedProgress.secondTypedTime as? Double
+            typedThirdTime = walkingSpeedProgress.thirdTypedTime as? Double
+            selectedStopwatch = WalkingSpeedModels.SelectableStopwatch(rawValue: walkingSpeedProgress.selectedStopwatch) ?? .first
+
+            if walkingSpeedProgress.isDone {
+                handleNavigation()
+            }
+        }
+    }
+
+    private func updateDatabase(isDone: Bool = false) {
+        do {
+            try worker?.updateWalkingSpeedProgress(with: .init(typedFirstTime: typedFirstTime, typedSecondTime: typedSecondTime,
+                                                               typedThirdTime: typedThirdTime, firstElapsedTime: firstStopwatchTime,
+                                                               secondElapsedTime: secondStopwatchTime, thirdElapsedTime: thirdStopwatchTime,
+                                                               selectedOption: selectedOption, selectedStopwatch: selectedStopwatch,
+                                                               isDone: isDone))
+        } catch {
+            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+        }
     }
 }
