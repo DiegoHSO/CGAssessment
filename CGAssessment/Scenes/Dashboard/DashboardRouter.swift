@@ -54,7 +54,9 @@ class DashboardRouter: DashboardRoutingLogic {
     }
 
     func routeToCGAs() {
-        // Not implemented
+        guard let cgasController = CGAsBuilder.build() else { return }
+
+        viewController?.navigationController?.pushViewController(cgasController, animated: true)
     }
 
     func routeToCGADomains() {

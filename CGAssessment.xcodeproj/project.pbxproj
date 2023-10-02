@@ -14,6 +14,13 @@
 		F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB942ACA36C900E1A380 /* CGAsModels.swift */; };
 		F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */; };
 		F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */; };
+		F10DFB9B2ACA521300E1A380 /* CGAsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB9A2ACA521300E1A380 /* CGAsViewController.swift */; };
+		F10DFB9D2ACA523100E1A380 /* CGAsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB9C2ACA523100E1A380 /* CGAsInteractor.swift */; };
+		F10DFB9F2ACA523E00E1A380 /* CGAsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB9E2ACA523E00E1A380 /* CGAsWorker.swift */; };
+		F10DFBA12ACA524D00E1A380 /* CGAsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA02ACA524D00E1A380 /* CGAsPresenter.swift */; };
+		F10DFBA32ACA525A00E1A380 /* CGAsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */; };
+		F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */; };
+		F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -228,6 +235,13 @@
 		F10DFB942ACA36C900E1A380 /* CGAsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsModels.swift; sourceTree = "<group>"; };
 		F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
+		F10DFB9A2ACA521300E1A380 /* CGAsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsViewController.swift; sourceTree = "<group>"; };
+		F10DFB9C2ACA523100E1A380 /* CGAsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsInteractor.swift; sourceTree = "<group>"; };
+		F10DFB9E2ACA523E00E1A380 /* CGAsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsWorker.swift; sourceTree = "<group>"; };
+		F10DFBA02ACA524D00E1A380 /* CGAsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsPresenter.swift; sourceTree = "<group>"; };
+		F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsRouter.swift; sourceTree = "<group>"; };
+		F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CGAs.storyboard; sourceTree = "<group>"; };
+		F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsBuilder.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -454,7 +468,14 @@
 			isa = PBXGroup;
 			children = (
 				F10DFB8B2ACA2FBB00E1A380 /* Components */,
+				F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */,
+				F10DFB9A2ACA521300E1A380 /* CGAsViewController.swift */,
+				F10DFB9C2ACA523100E1A380 /* CGAsInteractor.swift */,
+				F10DFBA02ACA524D00E1A380 /* CGAsPresenter.swift */,
+				F10DFB9E2ACA523E00E1A380 /* CGAsWorker.swift */,
+				F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */,
 				F10DFB942ACA36C900E1A380 /* CGAsModels.swift */,
+				F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */,
 			);
 			path = CGAs;
 			sourceTree = "<group>";
@@ -1161,6 +1182,7 @@
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
+				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F1A9FBDB2AAA60170048E31F /* SF-Compact-Rounded-Thin.otf in Resources */,
@@ -1296,6 +1318,7 @@
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
+				F10DFB9F2ACA523E00E1A380 /* CGAsWorker.swift in Sources */,
 				F1F1E3BB2AC0C62600BC610E /* ResultsModels.swift in Sources */,
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
@@ -1314,6 +1337,7 @@
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */,
+				F10DFB9D2ACA523100E1A380 /* CGAsInteractor.swift in Sources */,
 				F14097792AB7F3BE00E92005 /* String+Extension.swift in Sources */,
 				F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */,
 				F1F1E39F2ABFF53A00BC610E /* TimedUpAndGoInteractor.swift in Sources */,
@@ -1327,6 +1351,8 @@
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
 				F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */,
+				F10DFBA32ACA525A00E1A380 /* CGAsRouter.swift in Sources */,
+				F10DFB9B2ACA521300E1A380 /* CGAsViewController.swift in Sources */,
 				F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
@@ -1365,10 +1391,12 @@
 				F1F1E37D2ABEA1FD00BC610E /* SingleDomainViewController.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
+				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
+				F10DFBA12ACA524D00E1A380 /* CGAsPresenter.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
