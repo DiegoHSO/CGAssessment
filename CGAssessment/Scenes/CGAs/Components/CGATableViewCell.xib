@@ -19,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="CGATableViewCell" customModule="CGAssessment" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="CGATableViewCell" customModule="CGAssessment" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="374" height="320"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -33,19 +33,19 @@
                                 <rect key="frame" x="17" y="17" width="280" height="256"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação Geriátrica Ampla" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0o-HZ-Kj1">
-                                        <rect key="frame" x="0.0" y="0.0" width="192.66666666666666" height="18.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="197.66666666666666" height="19.333333333333332"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Bold" family="SF Compact Display" pointSize="16"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última modificação em 04/09/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF1-gR-zzf">
-                                        <rect key="frame" x="0.0" y="23.666666666666664" width="220" height="16.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="24.333333333333336" width="222.33333333333334" height="17"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="14"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EJn-5p-huL">
-                                        <rect key="frame" x="0.0" y="45" width="280" height="211"/>
+                                        <rect key="frame" x="0.0" y="46.333333333333329" width="280" height="209.66666666666669"/>
                                     </stackView>
                                 </subviews>
                             </stackView>

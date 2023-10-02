@@ -12,6 +12,8 @@
 		F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DFB902ACA303900E1A380 /* DomainStatusView.xib */; };
 		F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */; };
 		F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB942ACA36C900E1A380 /* CGAsModels.swift */; };
+		F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */; };
+		F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -224,6 +226,8 @@
 		F10DFB902ACA303900E1A380 /* DomainStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainStatusView.xib; sourceTree = "<group>"; };
 		F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainStatusView.swift; sourceTree = "<group>"; };
 		F10DFB942ACA36C900E1A380 /* CGAsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsModels.swift; sourceTree = "<group>"; };
+		F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -462,6 +466,8 @@
 				F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */,
 				F10DFB902ACA303900E1A380 /* DomainStatusView.xib */,
 				F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */,
+				F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */,
+				F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1152,6 +1158,7 @@
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
+				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
@@ -1273,6 +1280,7 @@
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
+				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
