@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB8C2ACA302D00E1A380 /* CGATableViewCell.swift */; };
+		F10DFB8F2ACA302D00E1A380 /* CGATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */; };
+		F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10DFB902ACA303900E1A380 /* DomainStatusView.xib */; };
+		F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */; };
+		F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFB942ACA36C900E1A380 /* CGAsModels.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -214,6 +219,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10DFB8C2ACA302D00E1A380 /* CGATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGATableViewCell.swift; sourceTree = "<group>"; };
+		F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CGATableViewCell.xib; sourceTree = "<group>"; };
+		F10DFB902ACA303900E1A380 /* DomainStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainStatusView.xib; sourceTree = "<group>"; };
+		F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainStatusView.swift; sourceTree = "<group>"; };
+		F10DFB942ACA36C900E1A380 /* CGAsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsModels.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -436,6 +446,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F10DFB8A2ACA2FB300E1A380 /* CGAs */ = {
+			isa = PBXGroup;
+			children = (
+				F10DFB8B2ACA2FBB00E1A380 /* Components */,
+				F10DFB942ACA36C900E1A380 /* CGAsModels.swift */,
+			);
+			path = CGAs;
+			sourceTree = "<group>";
+		};
+		F10DFB8B2ACA2FBB00E1A380 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F10DFB8C2ACA302D00E1A380 /* CGATableViewCell.swift */,
+				F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */,
+				F10DFB902ACA303900E1A380 /* DomainStatusView.xib */,
+				F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +607,7 @@
 				F1F2E9D82AB341F20006075F /* Common */,
 				F1F2E9D22AB2989D0006075F /* TabBar */,
 				F177F8262AA829F400C1EB32 /* Dashboard */,
+				F10DFB8A2ACA2FB300E1A380 /* CGAs */,
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
 				F140977F2ABB963D00E92005 /* CGADomains */,
 				F1F1E3702ABE289400BC610E /* SingleDomain */,
@@ -1167,8 +1198,10 @@
 				F1A9FBDC2AAA60170048E31F /* SF-Compact-Display-Thin.otf in Resources */,
 				F1F2E9BE2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib in Resources */,
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
+				F10DFB8F2ACA302D00E1A380 /* CGATableViewCell.xib in Resources */,
 				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
+				F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */,
 				F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */,
 				F1A9FBD52AAA60170048E31F /* SF-Compact-Rounded-Semibold.otf in Resources */,
 				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
@@ -1250,6 +1283,7 @@
 				F1A543162AC3E1EA00D543ED /* CalfCircumferencePresenter.swift in Sources */,
 				F18698E32AC4D47300FB5620 /* SarcopeniaScreeningViewController.swift in Sources */,
 				F140977D2ABB616C00E92005 /* TooltipTableViewCell.swift in Sources */,
+				F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
@@ -1302,6 +1336,7 @@
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
+				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
@@ -1361,6 +1396,7 @@
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
 				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
+				F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

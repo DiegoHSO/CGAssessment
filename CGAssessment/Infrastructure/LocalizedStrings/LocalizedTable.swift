@@ -71,6 +71,12 @@ enum LocalizedTable: String, Localizable {
     case nine = "nine_key"
     case ten = "ten_key"
 
+    // MARK: - CGAs
+
+    case cgaName = "cga_name_key"
+    case cgaNameWithName = "cga_name_patient_key"
+    case lastModified = "last_edited_key"
+
     // MARK: - New CGA
 
     case age = "age_key"

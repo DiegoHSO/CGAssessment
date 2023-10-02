@@ -224,3 +224,6 @@
 "eight_key" = "Eight";
 "nine_key" = "Nine";
 "ten_key" = "Ten";
+"cga_name_key" = "Comprehensive Geriatric Assessment";
+"cga_name_patient_key" = "%PATIENT_NAME's Comprehensive Geriatric Assessment";
+"last_edited_key" = "Last modified on";

@@ -224,3 +224,6 @@
 "eight_key" = "Oito";
 "nine_key" = "Nove";
 "ten_key" = "Dez";
+"cga_name_key" = "Avaliação Geriátrica Ampla";
+"cga_name_patient_key" = "Avaliação Geriátrica Ampla de %PATIENT_NAME";
+"last_edited_key" = "Última modificação em";
