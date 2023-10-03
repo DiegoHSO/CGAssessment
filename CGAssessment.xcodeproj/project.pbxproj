@@ -53,6 +53,9 @@
 		F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097942ABBC55700E92005 /* CGADomainsRouter.swift */; };
 		F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097982ABBE7A200E92005 /* TooltipHeaderView.swift */; };
 		F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F140979A2ABBE7CD00E92005 /* TooltipHeaderView.xib */; };
+		F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7DB2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift */; };
+		F168B7DE2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F168B7DC2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib */; };
+		F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7DF2ACBD1730015B2A3 /* CGADomainsBuilder.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -274,6 +277,9 @@
 		F14097942ABBC55700E92005 /* CGADomainsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsRouter.swift; sourceTree = "<group>"; };
 		F14097982ABBE7A200E92005 /* TooltipHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipHeaderView.swift; sourceTree = "<group>"; };
 		F140979A2ABBE7CD00E92005 /* TooltipHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TooltipHeaderView.xib; sourceTree = "<group>"; };
+		F168B7DB2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
+		F168B7DC2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateTableViewCell.xib; sourceTree = "<group>"; };
+		F168B7DF2ACBD1730015B2A3 /* CGADomainsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsBuilder.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -524,6 +530,7 @@
 				F14097942ABBC55700E92005 /* CGADomainsRouter.swift */,
 				F140978A2ABBAF8700E92005 /* CGADomainsModels.swift */,
 				F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */,
+				F168B7DF2ACBD1730015B2A3 /* CGADomainsBuilder.swift */,
 			);
 			path = CGADomains;
 			sourceTree = "<group>";
@@ -537,6 +544,15 @@
 				F14097872ABBA24600E92005 /* TestNameView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F168B7E12ACBD9650015B2A3 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				F168B7DB2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift */,
+				F168B7DC2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib */,
+			);
+			path = EmptyState;
 			sourceTree = "<group>";
 		};
 		F177F7E02AA793BE00C1EB32 = {
@@ -1034,6 +1050,7 @@
 				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
 				F1F1E3D32AC2466000BC610E /* Image */,
+				F168B7E12ACBD9650015B2A3 /* EmptyState */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1228,6 +1245,7 @@
 				F1F2E9BE2AACEBD70006075F /* NoRecentApplicationTableViewCell.xib in Resources */,
 				F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */,
 				F10DFB8F2ACA302D00E1A380 /* CGATableViewCell.xib in Resources */,
+				F168B7DE2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib in Resources */,
 				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
 				F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */,
@@ -1329,6 +1347,7 @@
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
+				F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */,
 				F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */,
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
 				F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */,
@@ -1358,6 +1377,7 @@
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
 				F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */,
+				F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */,
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Medium.otf">
+            <string>SFCompactDisplay-Medium</string>
+        </array>
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="79" id="KGk-i7-Jjw" customClass="EmptyStateTableViewCell" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-NL-kNA">
+                        <rect key="frame" x="30" y="0.0" width="314" height="113"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não há registro de AGAs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-6F-5JS">
+                                <rect key="frame" x="17" y="17" width="280" height="21"/>
+                                <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="20"/>
+                                <color key="textColor" name="Label-1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcJ-ur-SRq">
+                                <rect key="frame" x="59" y="52" width="196" height="44"/>
+                                <color key="backgroundColor" name="Background-8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="0KZ-ou-pOe"/>
+                                    <constraint firstAttribute="height" constant="44" id="WjC-W2-yxz"/>
+                                    <constraint firstAttribute="width" constant="196" id="ZWg-8S-H9d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Iniciar nova AGA">
+                                    <color key="titleColor" name="Label-3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Background-6"/>
+                        <constraints>
+                            <constraint firstItem="kcJ-ur-SRq" firstAttribute="top" secondItem="YDW-6F-5JS" secondAttribute="bottom" constant="14" id="8L1-6r-Q5h"/>
+                            <constraint firstItem="kcJ-ur-SRq" firstAttribute="centerX" secondItem="DyJ-NL-kNA" secondAttribute="centerX" id="98A-aj-LNg"/>
+                            <constraint firstAttribute="bottom" secondItem="kcJ-ur-SRq" secondAttribute="bottom" constant="17" id="Auo-ul-IA9"/>
+                            <constraint firstItem="YDW-6F-5JS" firstAttribute="leading" secondItem="DyJ-NL-kNA" secondAttribute="leading" constant="17" id="Ih0-ct-BVT"/>
+                            <constraint firstItem="YDW-6F-5JS" firstAttribute="top" secondItem="DyJ-NL-kNA" secondAttribute="top" constant="17" id="YAy-80-2Ab"/>
+                            <constraint firstAttribute="trailing" secondItem="YDW-6F-5JS" secondAttribute="trailing" constant="17" id="bzv-lI-9Yc"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DyJ-NL-kNA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="5b1-K3-VNX"/>
+                    <constraint firstAttribute="bottom" secondItem="DyJ-NL-kNA" secondAttribute="bottom" constant="25" id="ODg-hq-VSg"/>
+                    <constraint firstItem="DyJ-NL-kNA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q90-47-N7F"/>
+                    <constraint firstAttribute="trailing" secondItem="DyJ-NL-kNA" secondAttribute="trailing" constant="30" id="pl6-wC-o0s"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="actionButton" destination="kcJ-ur-SRq" id="X3y-OV-7LE"/>
+                <outlet property="cellLeadingConstraint" destination="5b1-K3-VNX" id="pra-DT-xnw"/>
+                <outlet property="emptyStateTitle" destination="YDW-6F-5JS" id="BqB-wI-aT4"/>
+            </connections>
+            <point key="canvasLocation" x="106.87022900763358" y="31.690140845070424"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background-8">
+            <color red="0.84705882352941175" green="0.96078431372549022" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-3">
+            <color red="0.098039215686274508" green="0.38823529411764707" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

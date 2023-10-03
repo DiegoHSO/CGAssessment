@@ -60,6 +60,7 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
         tableView?.register(cellType: TextFieldTableViewCell.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ResumedPatientTableViewCell.self)
+        tableView?.register(cellType: EmptyStateTableViewCell.self)
     }
 
     // MARK: - Public Methods
@@ -101,6 +102,18 @@ extension NewCGAViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel, let section = Section(rawValue: indexPath.section) else { return }
+
+        switch section {
+        case .patients:
+            guard viewModel.patients[safe: indexPath.row] == nil else { return }
+            interactor?.didSelect(option: .firstOption, value: .noKey)
+        default:
+            return
+        }
     }
 }
 
@@ -217,13 +230,25 @@ extension NewCGAViewController: UITableViewDataSource {
 
             return cell
         case .patient:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumedPatientTableViewCell.className,
-                                                           for: indexPath) as? ResumedPatientTableViewCell,
-                  let patient = viewModel.patients[safe: indexPath.row] else {
+            if let patient = viewModel.patients[safe: indexPath.row] {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumedPatientTableViewCell.className,
+                                                               for: indexPath) as? ResumedPatientTableViewCell else {
+                    return UITableViewCell()
+                }
+
+                cell.setup(viewModel: patient, isSelected: viewModel.selectedPatient == patient.id)
+
+                return cell
+            }
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.className,
+                                                           for: indexPath) as? EmptyStateTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: patient, isSelected: viewModel.selectedPatient == patient.id)
+            cell.setup(title: LocalizedTable.newCgaEmptyState.localized,
+                       buttonTitle: LocalizedTable.newCgaEmptyStateAction.localized,
+                       leadingConstraint: 40)
 
             return cell
         case .done:

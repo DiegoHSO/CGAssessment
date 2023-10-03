@@ -233,3 +233,7 @@
 "older_key" = "Oldest";
 "all_key" = "All";
 "by_patient_key" = "Patient";
+"cgas_empty_state_key" = "There are no CGAs registered";
+"cgas_empty_state_action_key" = "Start new CGA";
+"new_cga_empty_state_key" = "No patients were found";
+"new_cga_empty_state_action_key" = "Create new patient";

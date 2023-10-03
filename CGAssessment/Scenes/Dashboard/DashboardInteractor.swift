@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DashboardLogic: FeatureComponentDelegate {
+protocol DashboardLogic: FeatureComponentDelegate, NoTodoEvaluationDelegate, NoRecentApplicationDelegate {
     func controllerDidLoad()
     func controllerWillDisappear()
     func didSelect(menuOption: DashboardModels.MenuOption)
@@ -129,13 +129,11 @@ class DashboardInteractor: DashboardLogic {
 
 // MARK: - Internal Delegate extensions
 
-extension DashboardInteractor: FeatureComponentDelegate {
+extension DashboardInteractor {
     func didTapComponent(identifier: DashboardModels.MenuOption) {
         switch identifier {
         case .patients:
             presenter?.route(toRoute: .patients)
-        case .cgas:
-            presenter?.route(toRoute: .cgas)
         case .newCGA:
             presenter?.route(toRoute: .newCGA)
         case .reports:
@@ -145,5 +143,13 @@ extension DashboardInteractor: FeatureComponentDelegate {
         default:
             return
         }
+    }
+
+    func didTapToReviewCGAs() {
+        didSelect(menuOption: .cgas)
+    }
+
+    func didTapToSeeCGAExample() {
+        didSelect(menuOption: .cgaDomains)
     }
 }

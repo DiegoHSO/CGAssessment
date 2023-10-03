@@ -50,6 +50,7 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
 
         tableView?.register(headerType: TooltipHeaderView.self)
         tableView?.register(headerType: TitleHeaderView.self)
+        tableView?.register(cellType: EmptyStateTableViewCell.self)
         tableView?.register(cellType: CGATableViewCell.self)
         tableView?.register(cellType: FilterTableViewCell.self)
     }
@@ -65,6 +66,8 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
         switch route {
         case .cgaDomains(let cgaId):
             router?.routeToCGA(cgaId: cgaId)
+        case .newCGA:
+            router?.routeToNewCGA()
         }
     }
 
@@ -87,7 +90,9 @@ extension CGAsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 && viewModel?.patientName == nil ? CGFloat(10) : UITableView.automaticDimension
+        if section == 0, viewModel?.patientName == nil { return CGFloat(10) }
+        if viewModel?.viewModelsByDate == nil, viewModel?.viewModelsByPatient == nil { return CGFloat(20) }
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -104,6 +109,8 @@ extension CGAsViewController: UITableViewDelegate {
         } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section - 1],
                   let viewModel = viewModelsByPatient[patientSection]?[indexPath.row] {
             interactor?.didSelect(cgaId: viewModel.cgaId)
+        } else {
+            interactor?.didTapToStartNewCGA()
         }
     }
 }
@@ -118,7 +125,7 @@ extension CGAsViewController: UITableViewDataSource {
             return viewModelsByPatient[patientSection]?.count ?? 0
         }
 
-        return 0
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,6 +146,16 @@ extension CGAsViewController: UITableViewDataSource {
         } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section - 1],
                   let patientViewModel = viewModelsByPatient[patientSection]?[indexPath.row] {
             cellViewModel = patientViewModel
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.className,
+                                                           for: indexPath) as? EmptyStateTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(title: LocalizedTable.cgasEmptyState.localized,
+                       buttonTitle: LocalizedTable.cgasEmptyStateAction.localized)
+
+            return cell
         }
 
         guard let cellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: CGATableViewCell.className,
@@ -152,7 +169,7 @@ extension CGAsViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (viewModel?.dateSections?.count ?? viewModel?.patientSections?.count ?? 0) + 1
+        return (viewModel?.dateSections?.count ?? viewModel?.patientSections?.count ?? 1) + 1
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

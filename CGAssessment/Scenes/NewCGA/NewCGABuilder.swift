@@ -9,12 +9,19 @@ import UIKit
 
 class NewCGABuilder {
 
-    static func build(usingNavigationFactory factory: NavigationFactory) -> UIViewController? {
+    static func build() -> UIViewController? {
         let storyboard = UIStoryboard(name: "NewCGA", bundle: Bundle.main)
-        guard let viewController = UIStoryboard
+        guard let newCGAController = UIStoryboard
                 .instantiateInitialViewController(storyboard)() as? NewCGAViewController else {
             return nil
         }
-        return factory(viewController)
+
+        let presenter = NewCGAPresenter(viewController: newCGAController)
+        let interactor = NewCGAInteractor(presenter: presenter, worker: NewCGAWorker())
+        let router = NewCGARouter(viewController: newCGAController)
+
+        newCGAController.setupArchitecture(interactor: interactor, router: router)
+
+        return newCGAController
     }
 }

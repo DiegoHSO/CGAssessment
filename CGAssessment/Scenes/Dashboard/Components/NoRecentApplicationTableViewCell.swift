@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NoRecentApplicationDelegate: AnyObject {
-    func didTapCallToAction()
+    func didTapToSeeCGAExample()
 }
 
 class NoRecentApplicationTableViewCell: UITableViewCell {
@@ -26,10 +26,16 @@ class NoRecentApplicationTableViewCell: UITableViewCell {
         setupLabels()
     }
 
+    // MARK: - Public Methods
+
+    func setup(delegate: NoRecentApplicationDelegate?) {
+        self.delegate = delegate
+    }
+
     // MARK: - Private Methods
 
     @IBAction private func callToAction(_ sender: UIButton) {
-        delegate?.didTapCallToAction()
+        delegate?.didTapToSeeCGAExample()
     }
 
     private func setupViews() {

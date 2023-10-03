@@ -10,6 +10,7 @@ import Foundation
 protocol CGAsLogic: FilterDelegate {
     func controllerDidLoad()
     func didSelect(cgaId: UUID?)
+    func didTapToStartNewCGA()
 }
 
 class CGAsInteractor: CGAsLogic {
@@ -49,6 +50,10 @@ class CGAsInteractor: CGAsLogic {
         sendDataToPresenter()
     }
 
+    func didTapToStartNewCGA() {
+        presenter?.route(toRoute: .newCGA)
+    }
+
     // MARK: - Private Methods
 
     private func computeViewModelData() {
@@ -85,7 +90,7 @@ class CGAsInteractor: CGAsLogic {
 
             let cgasByDate = Dictionary(grouping: viewModels, by: { CGAsModels.DateFilter(month: $0.lastEditedDate.month, year: $0.lastEditedDate.year) })
 
-            self.viewModelsByDate = cgasByDate
+            self.viewModelsByDate = cgasByDate.isEmpty ? nil : cgasByDate
             self.viewModelsByPatient = nil
         case .byPatient:
             guard let patients = try? worker?.getPatients() else { return }
@@ -124,7 +129,7 @@ class CGAsInteractor: CGAsLogic {
                 patientCGAsViewModel.updateValue(viewModels, forKey: patient)
             }
 
-            self.viewModelsByPatient = patientCGAsViewModel
+            self.viewModelsByPatient = patientCGAsViewModel.isEmpty ? nil : patientCGAsViewModel
             self.viewModelsByDate = nil
         }
     }

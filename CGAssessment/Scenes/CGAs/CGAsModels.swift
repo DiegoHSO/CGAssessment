@@ -46,6 +46,7 @@ struct CGAsModels {
 
     enum Routing {
         case cgaDomains(cgaId: UUID?)
+        case newCGA
     }
 
     enum FilterOptions {

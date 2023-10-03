@@ -233,3 +233,7 @@
 "older_key" = "Mais antigo";
 "all_key" = "Todos";
 "by_patient_key" = "Paciente";
+"cgas_empty_state_key" = "Não há registro de AGAs";
+"cgas_empty_state_action_key" = "Iniciar nova AGA";
+"new_cga_empty_state_key" = "Não foram encontrados pacientes";
+"new_cga_empty_state_action_key" = "Criar novo paciente";

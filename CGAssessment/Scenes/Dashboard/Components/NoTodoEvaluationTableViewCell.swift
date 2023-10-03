@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NoTodoEvaluationDelegate: AnyObject {
-    func didTapCallToAction()
+    func didTapToReviewCGAs()
 }
 
 class NoTodoEvaluationTableViewCell: UITableViewCell {
@@ -28,10 +28,16 @@ class NoTodoEvaluationTableViewCell: UITableViewCell {
         setupLabels()
     }
 
+    // MARK: - Public Methods
+
+    func setup(delegate: NoTodoEvaluationDelegate?) {
+        self.delegate = delegate
+    }
+
     // MARK: - Private Methods
 
     @IBAction private func callToAction(_ sender: UIButton) {
-        delegate?.didTapCallToAction()
+        delegate?.didTapToReviewCGAs()
     }
 
     private func setupLabels() {

@@ -82,6 +82,8 @@ enum LocalizedTable: String, Localizable {
     case older = "older_key"
     case all = "all_key"
     case byPatient = "by_patient_key"
+    case cgasEmptyState = "cgas_empty_state_key"
+    case cgasEmptyStateAction = "cgas_empty_state_action_key"
 
     // MARK: - New CGA
 
@@ -100,6 +102,8 @@ enum LocalizedTable: String, Localizable {
     case male = "male_key"
     case start = "start_key"
     case newCga = "new_cga_key"
+    case newCgaEmptyState = "new_cga_empty_state_key"
+    case newCgaEmptyStateAction = "new_cga_empty_state_action_key"
 
     // MARK: - CGA Domains
 
