@@ -49,6 +49,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         newCGA.patient = patient
         newCGA.lastModification = Date()
+        newCGA.creationDate = Date()
         newCGA.cgaId = cgaId
 
         try context.save()

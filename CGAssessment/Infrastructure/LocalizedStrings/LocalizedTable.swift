@@ -105,6 +105,12 @@ enum LocalizedTable: String, Localizable {
     case newCgaEmptyState = "new_cga_empty_state_key"
     case newCgaEmptyStateAction = "new_cga_empty_state_action_key"
 
+    // MARK: - Patients
+
+    case has = "has_key"
+    case cgaInProgress = "cga_in_progress_key"
+    case untilNow = "until_now_key"
+
     // MARK: - CGA Domains
 
     case doneTestsSingular = "done_tests_singular_key"
