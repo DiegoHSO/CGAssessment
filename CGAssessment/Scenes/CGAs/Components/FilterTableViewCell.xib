@@ -23,8 +23,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="329" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1RD-gU-JyI">
-                        <rect key="frame" x="30" y="0.0" width="269" height="48"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RD-gU-JyI">
+                        <rect key="frame" x="33" y="0.0" width="266" height="68"/>
                         <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                         <color key="tintColor" name="Label-1"/>
                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
@@ -36,8 +36,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1RD-gU-JyI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4DT-4E-bbA"/>
-                    <constraint firstItem="1RD-gU-JyI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="7RX-V9-OOC"/>
-                    <constraint firstAttribute="bottom" secondItem="1RD-gU-JyI" secondAttribute="bottom" constant="20" id="KtV-EN-aE3"/>
+                    <constraint firstItem="1RD-gU-JyI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="7RX-V9-OOC"/>
+                    <constraint firstAttribute="bottom" secondItem="1RD-gU-JyI" secondAttribute="bottom" id="KtV-EN-aE3"/>
                     <constraint firstAttribute="trailing" secondItem="1RD-gU-JyI" secondAttribute="trailing" constant="30" id="Znj-BS-WgE"/>
                 </constraints>
             </tableViewCellContentView>

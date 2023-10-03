@@ -226,6 +226,7 @@
 "ten_key" = "Dez";
 "cga_name_key" = "Avaliação Geriátrica Ampla";
 "cga_name_patient_key" = "Avaliação Geriátrica Ampla de %PATIENT_NAME";
+"cga_short_patient_key" = "AGAs de %PATIENT_NAME";
 "last_edited_key" = "Última modificação em";
 "filtered_by_key" = "Filtrado por:";
 "recent_key" = "Mais recente";

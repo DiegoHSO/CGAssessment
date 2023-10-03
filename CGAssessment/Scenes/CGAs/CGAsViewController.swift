@@ -36,7 +36,6 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
 
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = navigationController?.viewControllers.first != self
-        title = LocalizedTable.domains.localized
     }
 
     // MARK: - Private Methods
@@ -88,7 +87,7 @@ extension CGAsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+        return section == 0 && viewModel?.patientName == nil ? CGFloat(10) : UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -96,11 +95,13 @@ extension CGAsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section],
-           let viewModel = viewModelsByDate[dateSection]?[indexPath.row] {
+        if indexPath.section == 0 {
+            return
+        } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section - 1],
+                  let viewModel = viewModelsByDate[dateSection]?[indexPath.row] {
             interactor?.didSelect(cgaId: viewModel.cgaId)
 
-        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section],
+        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section - 1],
                   let viewModel = viewModelsByPatient[patientSection]?[indexPath.row] {
             interactor?.didSelect(cgaId: viewModel.cgaId)
         }
@@ -109,9 +110,11 @@ extension CGAsViewController: UITableViewDelegate {
 
 extension CGAsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: section] {
+        if section == 0 {
+            return 1
+        } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: section - 1] {
             return viewModelsByDate[dateSection]?.count ?? 0
-        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: section] {
+        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: section - 1] {
             return viewModelsByPatient[patientSection]?.count ?? 0
         }
 
@@ -121,10 +124,19 @@ extension CGAsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellViewModel: CGAsModels.CGAViewModel?
 
-        if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section],
-           let dateViewModel = viewModelsByDate[dateSection]?[indexPath.row] {
+        if indexPath.section == 0 {
+            guard let viewModel, let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.className,
+                                                                          for: indexPath) as? FilterTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(filterOptions: viewModel.filterOptions, selectedOption: viewModel.selectedFilter, delegate: interactor)
+
+            return cell
+        } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section - 1],
+                  let dateViewModel = viewModelsByDate[dateSection]?[indexPath.row] {
             cellViewModel = dateViewModel
-        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section],
+        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section - 1],
                   let patientViewModel = viewModelsByPatient[patientSection]?[indexPath.row] {
             cellViewModel = patientViewModel
         }
@@ -140,16 +152,19 @@ extension CGAsViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.dateSections?.count ?? viewModel?.patientSections?.count ?? 0
+        return (viewModel?.dateSections?.count ?? viewModel?.patientSections?.count ?? 0) + 1
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerTitle: String = ""
 
-        if let dateSection = viewModel?.dateSections?[safe: section], let month = dateSection.month, let year = dateSection.year {
+        if section == 0 {
+            guard let patientName = viewModel?.patientName else { return nil }
+            headerTitle = LocalizedTable.cgaNameShortened.localized.replacingOccurrences(of: "%PATIENT_NAME", with: patientName)
+        } else if let dateSection = viewModel?.dateSections?[safe: section - 1], let month = dateSection.month, let year = dateSection.year {
             let date: Date = .dateFromComponents(month: month, year: year)
             headerTitle = date.monthYearFormatted
-        } else if let patientSection = viewModel?.patientSections?[safe: section] {
+        } else if let patientSection = viewModel?.patientSections?[safe: section - 1] {
             headerTitle = patientSection
         }
 
@@ -161,16 +176,5 @@ extension CGAsViewController: UITableViewDataSource {
         header.setup(title: headerTitle)
 
         return header
-
-        /*
-         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TooltipHeaderView
-         .className) as? TooltipHeaderView else {
-         return nil
-         }
-
-         header.setup(text: LocalizedTable.cgasTooltip.localized)
-
-         return header
-         */
     }
 }

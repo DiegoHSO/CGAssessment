@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CGAsLogic: AnyObject {
+protocol CGAsLogic: FilterDelegate {
     func controllerDidLoad()
     func didSelect(cgaId: UUID?)
 }
@@ -19,6 +19,7 @@ class CGAsInteractor: CGAsLogic {
     private var presenter: CGAsPresentationLogic?
     private var worker: CGAsWorker?
     private var patientId: UUID?
+    private var patientName: String?
     private var selectedFilter: CGAsModels.FilterOptions = .recent
     private var viewModelsByPatient: CGAsModels.CGAsByPatient?
     private var viewModelsByDate: CGAsModels.CGAsByDate?
@@ -42,6 +43,12 @@ class CGAsInteractor: CGAsLogic {
         presenter?.route(toRoute: .cgaDomains(cgaId: cgaId))
     }
 
+    func didSelect(filterOption: CGAsModels.FilterOptions) {
+        selectedFilter = filterOption
+        computeViewModelData()
+        sendDataToPresenter()
+    }
+
     // MARK: - Private Methods
 
     private func computeViewModelData() {
@@ -50,6 +57,8 @@ class CGAsInteractor: CGAsLogic {
             guard var cgas = try? worker?.getCGAs(for: patientId) else { return }
             cgas.sort(by: { selectedFilter == .older ? ($0.lastModification ?? Date()) < ($1.lastModification ?? Date())
                         : ($0.lastModification ?? Date()) > ($1.lastModification ?? Date())})
+
+            patientName = patientId == nil ? nil : cgas.first?.patient?.name
 
             let viewModels: [CGAsModels.CGAViewModel] = cgas.compactMap { cga in
                 var domainsStatus: CGAsModels.DomainsStatus = [:]
@@ -77,6 +86,7 @@ class CGAsInteractor: CGAsLogic {
             let cgasByDate = Dictionary(grouping: viewModels, by: { CGAsModels.DateFilter(month: $0.lastEditedDate.month, year: $0.lastEditedDate.year) })
 
             self.viewModelsByDate = cgasByDate
+            self.viewModelsByPatient = nil
         case .byPatient:
             guard let patients = try? worker?.getPatients() else { return }
             var patientCGAs: [String: [CGA]] = [:]
@@ -107,7 +117,7 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.incomplete, forKey: .mobility)
                     }
 
-                    return .init(patientName: cga.patient?.name, lastEditedDate: cga.lastModification ?? Date(),
+                    return .init(patientName: patientId == nil ? nil : cga.patient?.name, lastEditedDate: cga.lastModification ?? Date(),
                                  domainsStatus: domainsStatus, cgaId: cga.cgaId)
                 }
 
@@ -115,6 +125,7 @@ class CGAsInteractor: CGAsLogic {
             }
 
             self.viewModelsByPatient = patientCGAsViewModel
+            self.viewModelsByDate = nil
         }
     }
 
@@ -122,6 +133,6 @@ class CGAsInteractor: CGAsLogic {
         presenter?.presentData(viewModel: .init(viewModelsByPatient: viewModelsByPatient,
                                                 viewModelsByDate: viewModelsByDate,
                                                 filterOptions: patientId == nil ? [.recent, .older, .byPatient] : [.recent, .older],
-                                                selectedFilter: selectedFilter))
+                                                selectedFilter: selectedFilter, patientName: patientName))
     }
 }

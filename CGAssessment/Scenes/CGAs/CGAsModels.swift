@@ -18,12 +18,16 @@ struct CGAsModels {
         let viewModelsByDate: CGAsByDate?
         let filterOptions: [FilterOptions]
         let selectedFilter: FilterOptions
+        let patientName: String?
 
         var patientSections: [String]? { viewModelsByPatient?.keys.sorted() }
         var dateSections: [DateFilter]? {
             return viewModelsByDate?.keys.sorted(by: {
-                selectedFilter == .older ? ($0.month ?? 0) < ($1.month ?? 0) && ($0.year ?? 0) < ($1.year ?? 0) :
-                    ($0.month ?? 0) > ($1.month ?? 0) && ($0.year ?? 0) > ($1.year ?? 0)
+                if selectedFilter == .older {
+                    ($0.month ?? 0) < ($1.month ?? 0) && ($0.year ?? 0) <= ($1.year ?? 0)
+                } else {
+                    ($0.month ?? 0) > ($1.month ?? 0) && ($0.year ?? 0) >= ($1.year ?? 0)
+                }
             })
         }
     }
