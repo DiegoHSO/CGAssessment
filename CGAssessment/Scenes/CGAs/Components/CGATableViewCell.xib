@@ -27,10 +27,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLJ-wL-Yqi">
-                        <rect key="frame" x="30" y="0.0" width="314" height="290"/>
+                        <rect key="frame" x="30" y="0.0" width="314" height="295"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dm2-1y-sku">
-                                <rect key="frame" x="17" y="17" width="280" height="256"/>
+                                <rect key="frame" x="17" y="17" width="280" height="261"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação Geriátrica Ampla" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0o-HZ-Kj1">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="19.333333333333332"/>
@@ -45,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EJn-5p-huL">
-                                        <rect key="frame" x="0.0" y="52.333333333333329" width="280" height="203.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="52.333333333333329" width="280" height="208.66666666666669"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -65,7 +65,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="XLJ-wL-Yqi" secondAttribute="bottom" constant="30" id="7KV-RJ-q7c"/>
+                    <constraint firstAttribute="bottom" secondItem="XLJ-wL-Yqi" secondAttribute="bottom" constant="25" id="7KV-RJ-q7c"/>
                     <constraint firstAttribute="trailing" secondItem="XLJ-wL-Yqi" secondAttribute="trailing" constant="30" id="CY7-cd-y5X"/>
                     <constraint firstItem="XLJ-wL-Yqi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="If1-ZY-8Rm"/>
                     <constraint firstItem="XLJ-wL-Yqi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="oIY-f8-Hwp"/>

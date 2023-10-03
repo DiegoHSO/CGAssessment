@@ -163,7 +163,7 @@ extension CGAsViewController: UITableViewDataSource {
             headerTitle = LocalizedTable.cgaNameShortened.localized.replacingOccurrences(of: "%PATIENT_NAME", with: patientName)
         } else if let dateSection = viewModel?.dateSections?[safe: section - 1], let month = dateSection.month, let year = dateSection.year {
             let date: Date = .dateFromComponents(month: month, year: year)
-            headerTitle = date.monthYearFormatted
+            headerTitle = date.monthYearFormatted.capitalizingFirstLetter()
         } else if let patientSection = viewModel?.patientSections?[safe: section - 1] {
             headerTitle = patientSection
         }
