@@ -43,12 +43,12 @@ class CGATableViewCell: UITableViewCell {
         if let currentSubviews = domainsStackView?.arrangedSubviews as? [DomainStatusView], !currentSubviews.isEmpty {
             subviews = currentSubviews
         } else {
-            for _ in 1...viewModel.testsStatus.keys.count { subviews.append(DomainStatusView()) }
+            for _ in 1...viewModel.domainsStatus.keys.count { subviews.append(DomainStatusView()) }
         }
 
         var index: Int = 0
 
-        let sortedTests = viewModel.testsStatus.sorted(by: { $0.key.rawValue < $1.key.rawValue })
+        let sortedTests = viewModel.domainsStatus.sorted(by: { $0.key.rawValue < $1.key.rawValue })
         sortedTests.forEach { (key, value) in
             subviews[safe: index]?.setup(domainName: key.title, status: value)
             index += 1

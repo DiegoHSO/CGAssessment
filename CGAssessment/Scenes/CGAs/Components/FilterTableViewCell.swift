@@ -39,12 +39,25 @@ class FilterTableViewCell: UITableViewCell {
         }
 
         filterButton?.menu = UIMenu(children: menus)
-        filterButton?.setTitle("\(LocalizedTable.filteredBy.localized) \(selectedOption.title ?? "")", for: .normal)
+        filterButton?.setAttributedTitle(getAttributedText(filterName: selectedOption.title ?? ""), for: .normal)
     }
 
     // MARK: - Private Methods
 
     private func setupViews() {
-        filterButton?.titleLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
+        filterButton?.showsMenuAsPrimaryAction = true
+    }
+
+    private func getAttributedText(filterName: String) -> NSAttributedString {
+        let filterNameFont: UIFont = .compactDisplay(withStyle: .semibold, size: 17)
+        let titleFont: UIFont = .compactDisplay(withStyle: .medium, size: 17)
+        let textColor: UIColor = .label1 ?? .clear
+
+        let titleString = NSAttributedString(string: "\(LocalizedTable.filteredBy.localized) ",
+                                             attributes: [.font: titleFont, .foregroundColor: textColor])
+        let filterNameString = NSAttributedString(string: filterName,
+                                                  attributes: [.font: filterNameFont, .foregroundColor: textColor])
+
+        return titleString + filterNameString
     }
 }

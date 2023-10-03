@@ -20,7 +20,7 @@ protocol CoreDataDAOProtocol {
     func addPatient(_ patient: NewCGAModels.PatientData) throws -> UUID
     func fetchCGAs() throws -> [CGA]
     func fetchCGA(cgaId: UUID) throws -> CGA?
-    func fetchPatientCGAs(patient: Patient) throws -> [CGA]
+    func fetchPatientCGAs(patientId: UUID) throws -> [CGA]
     func fetchPatients() throws -> [Patient]
     func fetchPatient(patientId: UUID) throws -> Patient?
     func fetchPatient(cgaId: UUID) throws -> Patient?
@@ -93,10 +93,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return try context.fetch(request).first
     }
 
-    func fetchPatientCGAs(patient: Patient) throws -> [CGA] {
+    func fetchPatientCGAs(patientId: UUID) throws -> [CGA] {
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
-
-        guard let patientId = patient.patientId else { throw CoreDataErrors.unableToFetchCGA }
 
         let patientPredicate = NSPredicate(format: "patient.patientId == %@",
                                            patientId.uuidString)

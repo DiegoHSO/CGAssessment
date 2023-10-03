@@ -40,6 +40,7 @@ extension UIColor {
     static var label7: UIColor? { UIColor(named: "Label-7") }
     static var label8: UIColor? { UIColor(named: "Label-8") }
     static var label9: UIColor? { UIColor(named: "Label-9") }
+    static var label10: UIColor? { UIColor(named: "Label-10") }
 
     // MARK: - Other Colors
 

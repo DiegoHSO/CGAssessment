@@ -63,7 +63,7 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         case .newCGA:
             router?.routeToNewCGA()
         case .patients:
-            router?.routeToPacients()
+            router?.routeToPatients()
         case .cgaDomains:
             router?.routeToCGA(cgaId: nil)
         case .reports:
@@ -165,6 +165,8 @@ extension DashboardViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
+            cell.setup(delegate: interactor)
+
             return cell
         case .menuOptions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FeaturesTableViewCell.className,
@@ -199,6 +201,8 @@ extension DashboardViewController: UITableViewDataSource {
                                                                for: indexPath) as? NoTodoEvaluationTableViewCell else {
                     return UITableViewCell()
                 }
+
+                cell.setup(delegate: interactor)
 
                 return cell
             } else {

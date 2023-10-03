@@ -226,9 +226,14 @@
 "ten_key" = "Dez";
 "cga_name_key" = "Avaliação Geriátrica Ampla";
 "cga_name_patient_key" = "Avaliação Geriátrica Ampla de %PATIENT_NAME";
+"cga_short_patient_key" = "AGAs de %PATIENT_NAME";
 "last_edited_key" = "Última modificação em";
 "filtered_by_key" = "Filtrado por:";
 "recent_key" = "Mais recente";
 "older_key" = "Mais antigo";
 "all_key" = "Todos";
 "by_patient_key" = "Paciente";
+"cgas_empty_state_key" = "Não há registro de AGAs";
+"cgas_empty_state_action_key" = "Iniciar nova AGA";
+"new_cga_empty_state_key" = "Não foram encontrados pacientes";
+"new_cga_empty_state_action_key" = "Criar novo paciente";

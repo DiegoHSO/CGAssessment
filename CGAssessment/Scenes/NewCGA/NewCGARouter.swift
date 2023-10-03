@@ -26,17 +26,9 @@ class NewCGARouter: NewCGARoutingLogic {
     // MARK: - Public Methods
 
     func routeToCGADomains(patientId: UUID) {
-        let storyboard = UIStoryboard(name: "CGADomains", bundle: Bundle.main)
-        guard let cgaDomainsController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? CGADomainsViewController else {
+        guard let cgaDomainsController = CGADomainsBuilder.build(patientId: patientId, cgaId: nil) else {
             return
         }
-
-        let presenter = CGADomainsPresenter(viewController: cgaDomainsController)
-        let interactor = CGADomainsInteractor(presenter: presenter, worker: CGADomainsWorker(), patientId: patientId)
-        let router = CGADomainsRouter(viewController: cgaDomainsController)
-
-        cgaDomainsController.setupArchitecture(interactor: interactor, router: router)
 
         viewController?.navigationController?.pushViewController(cgaDomainsController, animated: true)
 

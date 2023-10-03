@@ -25,6 +25,8 @@ struct NewCGAModels {
 
             if !patients.isEmpty {
                 for _ in 1...patients.count { numberOfPatients.append(.patient) }
+            } else {
+                numberOfPatients.append(.patient)
             }
 
             if isDone {
@@ -40,7 +42,7 @@ struct NewCGAModels {
         let patient: Patient
         let id: UUID
         let delegate: ResumedPatientDelegate?
-        var leadingConstraint: CGFloat = 30
+        var leadingConstraint: CGFloat = 40
     }
 
     struct Patient {
