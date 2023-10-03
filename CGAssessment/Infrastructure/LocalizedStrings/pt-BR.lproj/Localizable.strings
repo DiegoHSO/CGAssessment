@@ -237,3 +237,6 @@
 "cgas_empty_state_action_key" = "Iniciar nova AGA";
 "new_cga_empty_state_key" = "Não foram encontrados pacientes";
 "new_cga_empty_state_action_key" = "Criar novo paciente";
+"has_key" = "Possui";
+"cga_in_progress_key" = "AGA em progresso";
+"until_now_key" = "até o momento";

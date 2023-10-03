@@ -56,6 +56,9 @@
 		F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7DB2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift */; };
 		F168B7DE2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F168B7DC2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib */; };
 		F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7DF2ACBD1730015B2A3 /* CGADomainsBuilder.swift */; };
+		F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7E42ACBE8A10015B2A3 /* PatientTableViewCell.swift */; };
+		F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */; };
+		F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -280,6 +283,9 @@
 		F168B7DB2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
 		F168B7DC2ACBCCE70015B2A3 /* EmptyStateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateTableViewCell.xib; sourceTree = "<group>"; };
 		F168B7DF2ACBD1730015B2A3 /* CGADomainsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsBuilder.swift; sourceTree = "<group>"; };
+		F168B7E42ACBE8A10015B2A3 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableViewCell.xib; sourceTree = "<group>"; };
+		F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsModels.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -555,6 +561,24 @@
 			path = EmptyState;
 			sourceTree = "<group>";
 		};
+		F168B7E22ACBE8830015B2A3 /* Patients */ = {
+			isa = PBXGroup;
+			children = (
+				F168B7E32ACBE8900015B2A3 /* Components */,
+				F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */,
+			);
+			path = Patients;
+			sourceTree = "<group>";
+		};
+		F168B7E32ACBE8900015B2A3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F168B7E42ACBE8A10015B2A3 /* PatientTableViewCell.swift */,
+				F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F177F7E02AA793BE00C1EB32 = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +676,7 @@
 				F177F8262AA829F400C1EB32 /* Dashboard */,
 				F10DFB8A2ACA2FB300E1A380 /* CGAs */,
 				F1BE9F7F2AB6770000250B69 /* NewCGA */,
+				F168B7E22ACBE8830015B2A3 /* Patients */,
 				F140977F2ABB963D00E92005 /* CGADomains */,
 				F1F1E3702ABE289400BC610E /* SingleDomain */,
 				F1F1E3982ABFF2F300BC610E /* Tests */,
@@ -1222,6 +1247,7 @@
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
+				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1A9FBDF2AAA60170048E31F /* SF-Compact-Display-Black.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
@@ -1365,6 +1391,7 @@
 				F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
+				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
@@ -1374,6 +1401,7 @@
 				F10DFB9B2ACA521300E1A380 /* CGAsViewController.swift in Sources */,
 				F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
+				F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
 				F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */,

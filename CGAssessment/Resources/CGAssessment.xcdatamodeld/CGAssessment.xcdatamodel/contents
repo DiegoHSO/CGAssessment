@@ -7,6 +7,7 @@
     </entity>
     <entity name="CGA" representedClassName=".CGA" syncable="YES" codeGenerationType="class">
         <attribute name="cgaId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="718056000" usesScalarValueType="NO"/>
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>

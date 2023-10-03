@@ -237,3 +237,6 @@
 "cgas_empty_state_action_key" = "Start new CGA";
 "new_cga_empty_state_key" = "No patients were found";
 "new_cga_empty_state_action_key" = "Create new patient";
+"has_key" = "Has";
+"cga_in_progress_key" = "CGA in progress";
+"until_now_key" = "until now";
