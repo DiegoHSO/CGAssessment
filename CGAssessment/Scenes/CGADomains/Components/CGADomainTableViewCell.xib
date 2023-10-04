@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Bold.otf">
+            <string>SFCompactDisplay-Bold</string>
+        </array>
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="221" id="KGk-i7-Jjw" customClass="CGADomainTableViewCell" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="221"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="221"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYI-cR-e0G">
+                        <rect key="frame" x="33" y="0.0" width="324" height="183"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LVb-Ih-TA4">
+                                <rect key="frame" x="17" y="17" width="290" height="149"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equilíbrio, mobilidade e risco de quedas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-Tg-Eal">
+                                        <rect key="frame" x="0.0" y="0.0" width="216" height="38.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Bold" family="SF Compact Display" pointSize="16"/>
+                                        <color key="textColor" name="Label-1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="xcT-Q4-vWM">
+                                        <rect key="frame" x="0.0" y="48.333333333333321" width="285" height="90.666666666666686"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 de 5 testes realizados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTf-fZ-Y9H">
+                                        <rect key="frame" x="0.0" y="149" width="158.66666666666666" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
+                                        <color key="textColor" name="Label-1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background-6"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="LVb-Ih-TA4" secondAttribute="bottom" constant="17" id="8Tu-rv-mss"/>
+                            <constraint firstAttribute="trailing" secondItem="LVb-Ih-TA4" secondAttribute="trailing" constant="17" id="BER-nm-VTs"/>
+                            <constraint firstItem="LVb-Ih-TA4" firstAttribute="leading" secondItem="zYI-cR-e0G" secondAttribute="leading" constant="17" id="K18-NF-V3v"/>
+                            <constraint firstItem="LVb-Ih-TA4" firstAttribute="top" secondItem="zYI-cR-e0G" secondAttribute="top" constant="17" id="bzd-Jz-Kkw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zYI-cR-e0G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="7Kn-XX-I7b"/>
+                    <constraint firstItem="zYI-cR-e0G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EKH-9R-m3g"/>
+                    <constraint firstAttribute="trailing" secondItem="zYI-cR-e0G" secondAttribute="trailing" constant="33" id="Qwh-ql-MC7"/>
+                    <constraint firstAttribute="bottom" secondItem="zYI-cR-e0G" secondAttribute="bottom" constant="38" id="fHt-kk-VA1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="domainNameLabel" destination="WdX-Tg-Eal" id="T8K-kW-xsA"/>
+                <outlet property="doneTestsLabel" destination="NTf-fZ-Y9H" id="L3n-pG-Ufe"/>
+                <outlet property="testsStackView" destination="xcT-Q4-vWM" id="682-Gc-H5e"/>
+            </connections>
+            <point key="canvasLocation" x="88.549618320610676" y="27.816901408450704"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

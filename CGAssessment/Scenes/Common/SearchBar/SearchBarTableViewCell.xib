@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="SearchBarTableViewCell" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, selecione:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EI4-uz-W5T">
+                        <rect key="frame" x="40" y="0.0" width="250" height="21"/>
+                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="18"/>
+                        <color key="textColor" name="Label-1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="SD3-yU-vML">
+                        <rect key="frame" x="32" y="26" width="266" height="65"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="search" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                    </searchBar>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="SD3-yU-vML" secondAttribute="bottom" constant="20" id="2Y6-iX-qEx"/>
+                    <constraint firstItem="SD3-yU-vML" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="CVf-Ug-CpT"/>
+                    <constraint firstItem="SD3-yU-vML" firstAttribute="top" secondItem="EI4-uz-W5T" secondAttribute="bottom" constant="5" id="Hnb-Eo-tyq"/>
+                    <constraint firstItem="EI4-uz-W5T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="LY5-uf-2SC"/>
+                    <constraint firstAttribute="trailing" secondItem="EI4-uz-W5T" secondAttribute="trailing" constant="30" id="Ths-I5-WFQ"/>
+                    <constraint firstAttribute="trailing" secondItem="SD3-yU-vML" secondAttribute="trailing" constant="22" id="cTc-pl-0Hq"/>
+                    <constraint firstItem="EI4-uz-W5T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="f60-Ob-pPd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="leadingConstraint" destination="CVf-Ug-CpT" id="vdf-Nr-xEX"/>
+                <outlet property="searchBar" destination="SD3-yU-vML" id="ydx-XN-vKB"/>
+                <outlet property="titleLabel" destination="EI4-uz-W5T" id="V4c-PZ-x9U"/>
+                <outlet property="trailingConstraint" destination="cTc-pl-0Hq" id="4yW-1v-vrP"/>
+            </connections>
+            <point key="canvasLocation" x="-32.061068702290072" y="23.591549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

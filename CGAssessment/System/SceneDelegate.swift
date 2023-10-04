@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  AvaliacaoGeriatricaAmplaApp
+//  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 05/09/23.
 //
@@ -11,12 +11,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = scene as? UIWindowScene else { return }
+
+        setupFirstController(forScene: windowScene)
+
+    }
+
+    private func setupFirstController(forScene windowScene: UIWindowScene) {
+        self.window = UIWindow(windowScene: windowScene)
+
+        let submodules = (
+            home: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build),
+            cgas: CGAsBuilder.build(usingNavigationFactory: NavigationBuilder.build),
+            preferences: UIViewController()
+        )
+
+        let tabBarViewController = TabBarBuilder.build(usingSubmodules: submodules)
+        self.window?.rootViewController = tabBarViewController
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,6 +66,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-
 }
-
