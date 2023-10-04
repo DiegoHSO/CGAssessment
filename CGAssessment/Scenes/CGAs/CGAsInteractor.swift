@@ -9,6 +9,7 @@ import Foundation
 
 protocol CGAsLogic: FilterDelegate {
     func controllerDidLoad()
+    func controllerWillDisappear()
     func didSelect(cgaId: UUID?)
     func didTapToStartNewCGA()
 }
@@ -36,8 +37,14 @@ class CGAsInteractor: CGAsLogic {
     // MARK: - Public Methods
 
     func controllerDidLoad() {
+        setupNotification()
         computeViewModelData()
         sendDataToPresenter()
+    }
+
+    func controllerWillDisappear() {
+        // swiftlint:disable:next notification_center_detachment
+        NotificationCenter.default.removeObserver(self)
     }
 
     func didSelect(cgaId: UUID?) {
@@ -55,6 +62,21 @@ class CGAsInteractor: CGAsLogic {
     }
 
     // MARK: - Private Methods
+
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateData),
+                                               name: .NSPersistentStoreRemoteChange,
+                                               object: nil)
+    }
+
+    @objc
+    private func updateData() {
+        DispatchQueue.main.async {
+            self.computeViewModelData()
+            self.sendDataToPresenter()
+        }
+    }
 
     private func computeViewModelData() {
         switch selectedFilter {
