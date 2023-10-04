@@ -110,6 +110,10 @@ enum LocalizedTable: String, Localizable {
     case has = "has_key"
     case cgaInProgress = "cga_in_progress_key"
     case untilNow = "until_now_key"
+    case aToZ = "a_to_z_key"
+    case zToA = "z_to_a_key"
+    case olderAge = "older_age_key"
+    case youngerAge = "younger_age_key"
 
     // MARK: - CGA Domains
 

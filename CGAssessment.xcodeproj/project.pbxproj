@@ -59,6 +59,14 @@
 		F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7E42ACBE8A10015B2A3 /* PatientTableViewCell.swift */; };
 		F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */; };
 		F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */; };
+		F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7EA2ACCD77B0015B2A3 /* PatientsInteractor.swift */; };
+		F168B7ED2ACCD7850015B2A3 /* PatientsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7EC2ACCD7850015B2A3 /* PatientsBuilder.swift */; };
+		F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7EE2ACCD78C0015B2A3 /* PatientsPresenter.swift */; };
+		F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F02ACCD7950015B2A3 /* PatientsRouter.swift */; };
+		F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F22ACCD7AB0015B2A3 /* PatientsWorker.swift */; };
+		F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F42ACCD7C50015B2A3 /* PatientsViewController.swift */; };
+		F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */; };
+		F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -286,6 +294,14 @@
 		F168B7E42ACBE8A10015B2A3 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableViewCell.xib; sourceTree = "<group>"; };
 		F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsModels.swift; sourceTree = "<group>"; };
+		F168B7EA2ACCD77B0015B2A3 /* PatientsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsInteractor.swift; sourceTree = "<group>"; };
+		F168B7EC2ACCD7850015B2A3 /* PatientsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsBuilder.swift; sourceTree = "<group>"; };
+		F168B7EE2ACCD78C0015B2A3 /* PatientsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsPresenter.swift; sourceTree = "<group>"; };
+		F168B7F02ACCD7950015B2A3 /* PatientsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsRouter.swift; sourceTree = "<group>"; };
+		F168B7F22ACCD7AB0015B2A3 /* PatientsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsWorker.swift; sourceTree = "<group>"; };
+		F168B7F42ACCD7C50015B2A3 /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
+		F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
+		F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -499,8 +515,6 @@
 				F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */,
 				F10DFB902ACA303900E1A380 /* DomainStatusView.xib */,
 				F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */,
-				F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */,
-				F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -565,7 +579,14 @@
 			isa = PBXGroup;
 			children = (
 				F168B7E32ACBE8900015B2A3 /* Components */,
+				F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */,
+				F168B7F42ACCD7C50015B2A3 /* PatientsViewController.swift */,
+				F168B7EA2ACCD77B0015B2A3 /* PatientsInteractor.swift */,
+				F168B7EE2ACCD78C0015B2A3 /* PatientsPresenter.swift */,
+				F168B7F22ACCD7AB0015B2A3 /* PatientsWorker.swift */,
+				F168B7F02ACCD7950015B2A3 /* PatientsRouter.swift */,
 				F168B7E82ACCACA60015B2A3 /* PatientsModels.swift */,
+				F168B7EC2ACCD7850015B2A3 /* PatientsBuilder.swift */,
 			);
 			path = Patients;
 			sourceTree = "<group>";
@@ -577,6 +598,15 @@
 				F168B7E52ACBE8A10015B2A3 /* PatientTableViewCell.xib */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F168B7F82ACCDDD60015B2A3 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				F10DFB962ACA46B600E1A380 /* FilterTableViewCell.swift */,
+				F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		F177F7E02AA793BE00C1EB32 = {
@@ -733,6 +763,7 @@
 				F14097782AB7F3BE00E92005 /* String+Extension.swift */,
 				F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */,
 				F1F1E3D12AC134C000BC610E /* Double+Extension.swift */,
+				F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1064,6 +1095,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F168B7F82ACCDDD60015B2A3 /* Filter */,
 				F140977A2ABB615900E92005 /* Tooltip */,
 				F14097652AB7A3B000E92005 /* TitleCell */,
 				F1E339092AB7827300282AF3 /* TitleHeader */,
@@ -1219,6 +1251,7 @@
 				F1BE9F7E2AB66F1700250B69 /* ActionButtonTableViewCell.xib in Resources */,
 				F18698E12AC4D46300FB5620 /* SarcopeniaScreening.storyboard in Resources */,
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
+				F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
@@ -1360,6 +1393,7 @@
 				F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
+				F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F10DFB9F2ACA523E00E1A380 /* CGAsWorker.swift in Sources */,
@@ -1367,6 +1401,7 @@
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
+				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
@@ -1409,7 +1444,9 @@
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
+				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
+				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
@@ -1450,6 +1487,7 @@
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
+				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
@@ -1465,6 +1503,7 @@
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
+				F168B7ED2ACCD7850015B2A3 /* PatientsBuilder.swift in Sources */,
 				F1F1E3B92AC0C61D00BC610E /* ResultsRouter.swift in Sources */,
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
@@ -1476,6 +1515,7 @@
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
+				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,

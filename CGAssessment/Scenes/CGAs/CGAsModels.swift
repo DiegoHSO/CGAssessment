@@ -16,8 +16,8 @@ struct CGAsModels {
     struct ControllerViewModel {
         let viewModelsByPatient: CGAsByPatient?
         let viewModelsByDate: CGAsByDate?
-        let filterOptions: [FilterOptions]
-        let selectedFilter: FilterOptions
+        let filterOptions: [CGAModels.FilterOptions]
+        let selectedFilter: CGAModels.FilterOptions
         let patientName: String?
 
         var patientSections: [String]? { viewModelsByPatient?.keys.sorted() }
@@ -47,23 +47,6 @@ struct CGAsModels {
     enum Routing {
         case cgaDomains(cgaId: UUID?)
         case newCGA
-    }
-
-    enum FilterOptions {
-        case recent
-        case older
-        case byPatient
-
-        var title: String? {
-            switch self {
-            case .recent:
-                return LocalizedTable.recent.localized
-            case .older:
-                return LocalizedTable.older.localized
-            case .byPatient:
-                return LocalizedTable.byPatient.localized
-            }
-        }
     }
 
     enum CompletionStatus {
