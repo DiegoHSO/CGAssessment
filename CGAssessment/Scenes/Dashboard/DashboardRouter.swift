@@ -36,7 +36,9 @@ class DashboardRouter: DashboardRoutingLogic {
     }
 
     func routeToPatients() {
-        // Not implemented
+        guard let patientsController = PatientsBuilder.build() else { return }
+
+        viewController?.navigationController?.pushViewController(patientsController, animated: true)
     }
 
     func routeToReports() {

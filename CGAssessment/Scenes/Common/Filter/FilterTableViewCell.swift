@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FilterDelegate: AnyObject {
-    func didSelect(filterOption: CGAsModels.FilterOptions)
+    func didSelect(filterOption: CGAModels.FilterOptions)
 }
 
 class FilterTableViewCell: UITableViewCell {
@@ -27,7 +27,7 @@ class FilterTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(filterOptions: [CGAsModels.FilterOptions], selectedOption: CGAsModels.FilterOptions, delegate: FilterDelegate?) {
+    func setup(filterOptions: [CGAModels.FilterOptions], selectedOption: CGAModels.FilterOptions, delegate: FilterDelegate?) {
         self.delegate = delegate
 
         let menus: [UIAction] = filterOptions.map { filterOption in

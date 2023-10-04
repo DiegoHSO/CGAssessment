@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let submodules = (
             home: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build),
             cgas: CGAsBuilder.build(usingNavigationFactory: NavigationBuilder.build),
-            preferences: DashboardBuilder.build(usingNavigationFactory: NavigationBuilder.build)
+            preferences: UIViewController()
         )
 
         let tabBarViewController = TabBarBuilder.build(usingSubmodules: submodules)

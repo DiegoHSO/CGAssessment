@@ -60,4 +60,33 @@ struct CGAModels {
         let description: String
     }
 
+    enum FilterOptions {
+        case recent
+        case older
+        case byPatient
+        case aToZ
+        case zToA
+        case olderAge
+        case youngerAge
+
+        var title: String? {
+            switch self {
+            case .recent:
+                return LocalizedTable.recent.localized
+            case .older:
+                return LocalizedTable.older.localized
+            case .byPatient:
+                return LocalizedTable.byPatient.localized
+            case .aToZ:
+                return LocalizedTable.aToZ.localized
+            case .zToA:
+                return LocalizedTable.zToA.localized
+            case .olderAge:
+                return LocalizedTable.olderAge.localized
+            case .youngerAge:
+                return LocalizedTable.youngerAge.localized
+            }
+        }
+    }
+
 }

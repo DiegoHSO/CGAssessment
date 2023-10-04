@@ -228,7 +228,7 @@
 "cga_name_patient_key" = "%PATIENT_NAME's Comprehensive Geriatric Assessment";
 "cga_short_patient_key" = "%PATIENT_NAME's CGAs";
 "last_edited_key" = "Last modified on";
-"filtered_by_key" = "Filtered by:";
+"filtered_by_key" = "Ordered by:";
 "recent_key" = "Most recent";
 "older_key" = "Oldest";
 "all_key" = "All";
@@ -240,3 +240,7 @@
 "has_key" = "Has";
 "cga_in_progress_key" = "CGA in progress";
 "until_now_key" = "until now";
+"a_to_z_key" = "A to Z";
+"z_to_a_key" = "Z to A";
+"older_age_key" = "Older age";
+"younger_age_key" = "Younger age";

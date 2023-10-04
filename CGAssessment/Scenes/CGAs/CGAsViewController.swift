@@ -35,6 +35,8 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.controllerWillDisappear()
         tabBarController?.tabBar.isHidden = navigationController?.viewControllers.first != self
     }
 

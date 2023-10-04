@@ -27,52 +27,62 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-OW-shk">
-                        <rect key="frame" x="35" y="0.0" width="280" height="165"/>
+                        <rect key="frame" x="30" y="0.0" width="290" height="165"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="O61-T7-EX8">
-                                <rect key="frame" x="17" y="17" width="246" height="131"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V4h-OT-BqE">
+                                <rect key="frame" x="17" y="17" width="256" height="131"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-Vn-pHw">
-                                        <rect key="frame" x="0.0" y="11" width="199.66666666666666" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="O61-T7-EX8">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="61"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="João da Silva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aig-Va-TOo">
-                                                <rect key="frame" x="0.0" y="0.0" width="199.66666666666666" height="24"/>
-                                                <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="20"/>
-                                                <color key="textColor" name="Label-1"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsd-9q-sHN">
-                                                <rect key="frame" x="0.0" y="32" width="199.66666666666666" height="18"/>
-                                                <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
-                                                <color key="textColor" name="Label-1"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e6N-zq-Csx">
+                                                <rect key="frame" x="0.0" y="14" width="117" height="47"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="João da Silva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aig-Va-TOo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="24"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="20"/>
+                                                        <color key="textColor" name="Label-1"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85 anos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsd-9q-sHN">
+                                                        <rect key="frame" x="0.0" y="29" width="117" height="18"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="15"/>
+                                                        <color key="textColor" name="Label-1"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-0s-TVU">
+                                                <rect key="frame" x="240" y="14" width="16" height="39"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-Vn-pHw">
+                                        <rect key="frame" x="0.0" y="69" width="256" height="62"/>
+                                        <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Possui AGA em progresso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-eo-Wve">
-                                                <rect key="frame" x="0.0" y="58" width="199.66666666666666" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="18"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum domínio alterado até o momento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-4L-wyE">
-                                                <rect key="frame" x="0.0" y="84" width="199.66666666666666" height="36"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Nenhum domínio alterado até o momento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-4L-wyE">
+                                                <rect key="frame" x="0.0" y="26" width="256" height="36"/>
                                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="15"/>
                                                 <color key="textColor" name="Label-1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-0s-TVU">
-                                        <rect key="frame" x="202.66666666666666" y="11" width="43.333333333333343" height="39"/>
-                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background-6"/>
                         <constraints>
-                            <constraint firstItem="O61-T7-EX8" firstAttribute="top" secondItem="NL0-OW-shk" secondAttribute="top" constant="17" id="GYG-Tt-1rU"/>
-                            <constraint firstAttribute="trailing" secondItem="O61-T7-EX8" secondAttribute="trailing" constant="17" id="Mxh-Dn-Ytw"/>
-                            <constraint firstAttribute="bottom" secondItem="O61-T7-EX8" secondAttribute="bottom" constant="17" id="g7n-3I-YAN"/>
-                            <constraint firstItem="O61-T7-EX8" firstAttribute="leading" secondItem="NL0-OW-shk" secondAttribute="leading" constant="17" id="ydd-Ad-2Jt"/>
+                            <constraint firstAttribute="trailing" secondItem="V4h-OT-BqE" secondAttribute="trailing" constant="17" id="A3D-jo-5hM"/>
+                            <constraint firstItem="V4h-OT-BqE" firstAttribute="leading" secondItem="NL0-OW-shk" secondAttribute="leading" constant="17" id="ZX8-fj-bt1"/>
+                            <constraint firstItem="V4h-OT-BqE" firstAttribute="top" secondItem="NL0-OW-shk" secondAttribute="top" constant="17" id="jsV-cW-EZh"/>
+                            <constraint firstAttribute="bottom" secondItem="V4h-OT-BqE" secondAttribute="bottom" constant="17" id="kJE-CB-cJc"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -82,9 +92,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="NL0-OW-shk" secondAttribute="trailing" constant="35" id="0iH-sY-GLn"/>
+                    <constraint firstAttribute="trailing" secondItem="NL0-OW-shk" secondAttribute="trailing" constant="30" id="0iH-sY-GLn"/>
                     <constraint firstItem="NL0-OW-shk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FiG-Rw-I1R"/>
-                    <constraint firstItem="NL0-OW-shk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="fxG-tB-bo1"/>
+                    <constraint firstItem="NL0-OW-shk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="fxG-tB-bo1"/>
                     <constraint firstAttribute="bottom" secondItem="NL0-OW-shk" secondAttribute="bottom" constant="25" id="pEg-wi-Gso"/>
                 </constraints>
             </tableViewCellContentView>

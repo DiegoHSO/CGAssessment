@@ -228,7 +228,7 @@
 "cga_name_patient_key" = "Avaliação Geriátrica Ampla de %PATIENT_NAME";
 "cga_short_patient_key" = "AGAs de %PATIENT_NAME";
 "last_edited_key" = "Última modificação em";
-"filtered_by_key" = "Filtrado por:";
+"filtered_by_key" = "Ordenado por:";
 "recent_key" = "Mais recente";
 "older_key" = "Mais antigo";
 "all_key" = "Todos";
@@ -240,3 +240,7 @@
 "has_key" = "Possui";
 "cga_in_progress_key" = "AGA em progresso";
 "until_now_key" = "até o momento";
+"a_to_z_key" = "A até Z";
+"z_to_a_key" = "Z até A";
+"older_age_key" = "Maior idade";
+"younger_age_key" = "Menor idade";

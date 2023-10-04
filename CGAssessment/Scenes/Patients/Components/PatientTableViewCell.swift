@@ -32,7 +32,7 @@ class PatientTableViewCell: UITableViewCell {
         patientGenderImageView?.image = viewModel.gender.image
         cgaStatusLabel?.attributedText = getCGAStatusAttributedText(hasCGAInProgress: viewModel.hasCGAInProgress,
                                                                     lastCGADate: viewModel.lastCGADate)
-        alteredDomainsLabel?.attributedText = getAlteredDomainsAttributedText(alteredDomains: viewModel.alteredDomains, 
+        alteredDomainsLabel?.attributedText = getAlteredDomainsAttributedText(alteredDomains: viewModel.alteredDomains,
                                                                               hasCGAInProgress: viewModel.hasCGAInProgress)
 
     }
@@ -76,7 +76,7 @@ class PatientTableViewCell: UITableViewCell {
 
         secondaryAlteredDomainsText += hasCGAInProgress ? " \(LocalizedTable.untilNow.localized)" : ""
 
-        let alteredDomainsFont: UIFont = .compactDisplay(withStyle: .medium, size: 15)
+        let alteredDomainsFont: UIFont = .compactDisplay(withStyle: .semibold, size: 15)
         let secondaryAlteredDomainsFont: UIFont = .compactDisplay(withStyle: .medium, size: 15)
         let alteredDomainsString = NSAttributedString(string: alteredDomainsText,
                                                       attributes: [.font: alteredDomainsFont, .foregroundColor: alteredDomainsColor])

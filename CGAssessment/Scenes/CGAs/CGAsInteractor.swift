@@ -9,6 +9,7 @@ import Foundation
 
 protocol CGAsLogic: FilterDelegate {
     func controllerDidLoad()
+    func controllerWillDisappear()
     func didSelect(cgaId: UUID?)
     func didTapToStartNewCGA()
 }
@@ -21,7 +22,7 @@ class CGAsInteractor: CGAsLogic {
     private var worker: CGAsWorker?
     private var patientId: UUID?
     private var patientName: String?
-    private var selectedFilter: CGAsModels.FilterOptions = .recent
+    private var selectedFilter: CGAModels.FilterOptions = .recent
     private var viewModelsByPatient: CGAsModels.CGAsByPatient?
     private var viewModelsByDate: CGAsModels.CGAsByDate?
 
@@ -36,15 +37,21 @@ class CGAsInteractor: CGAsLogic {
     // MARK: - Public Methods
 
     func controllerDidLoad() {
+        setupNotification()
         computeViewModelData()
         sendDataToPresenter()
+    }
+
+    func controllerWillDisappear() {
+        // swiftlint:disable:next notification_center_detachment
+        NotificationCenter.default.removeObserver(self)
     }
 
     func didSelect(cgaId: UUID?) {
         presenter?.route(toRoute: .cgaDomains(cgaId: cgaId))
     }
 
-    func didSelect(filterOption: CGAsModels.FilterOptions) {
+    func didSelect(filterOption: CGAModels.FilterOptions) {
         selectedFilter = filterOption
         computeViewModelData()
         sendDataToPresenter()
@@ -55,6 +62,21 @@ class CGAsInteractor: CGAsLogic {
     }
 
     // MARK: - Private Methods
+
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateData),
+                                               name: .NSPersistentStoreRemoteChange,
+                                               object: nil)
+    }
+
+    @objc
+    private func updateData() {
+        DispatchQueue.main.async {
+            self.computeViewModelData()
+            self.sendDataToPresenter()
+        }
+    }
 
     private func computeViewModelData() {
         switch selectedFilter {
@@ -84,7 +106,8 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .mobility)
                 }
 
-                return .init(patientName: cga.patient?.name, lastEditedDate: cga.lastModification ?? Date(),
+                return .init(patientName: patientId == nil ? cga.patient?.name : nil,
+                             lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
             }
 
@@ -122,7 +145,7 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.incomplete, forKey: .mobility)
                     }
 
-                    return .init(patientName: patientId == nil ? nil : cga.patient?.name, lastEditedDate: cga.lastModification ?? Date(),
+                    return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),
                                  domainsStatus: domainsStatus, cgaId: cga.cgaId)
                 }
 
@@ -131,6 +154,8 @@ class CGAsInteractor: CGAsLogic {
 
             self.viewModelsByPatient = patientCGAsViewModel.isEmpty ? nil : patientCGAsViewModel
             self.viewModelsByDate = nil
+        default:
+            return
         }
     }
 

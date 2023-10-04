@@ -38,6 +38,7 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         title = LocalizedTable.home.localized
         tabBarController?.tabBar.isHidden = false
     }
@@ -85,6 +86,8 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
         } else {
             tableView?.reloadData()
         }
+
+        tabBarController?.tabBar.isHidden = true
     }
 }
 
