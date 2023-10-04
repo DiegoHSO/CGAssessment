@@ -24,4 +24,5 @@ enum Style: String {
     case semibold = "Semibold"
     case bold = "Bold"
     case black = "Black"
+    case heavy = "Heavy"
 }
