@@ -244,3 +244,6 @@
 "z_to_a_key" = "Z to A";
 "older_age_key" = "Older age";
 "younger_age_key" = "Younger age";
+"current_cga_key" = "Current CGA application";
+"created_on_key" = "Assessment created on";
+"example_cga_key" = "CGA example (with fictional data)";

@@ -29,6 +29,9 @@ enum LocalizedTable: String, Localizable {
     case totalScore = "total_score_key"
     case points = "points_key"
     case point = "point_key"
+    case currentCGA = "current_cga_key"
+    case createdOn = "created_on_key"
+    case exampleCGA = "example_cga_key"
 
     // MARK: - Dashboard
 
