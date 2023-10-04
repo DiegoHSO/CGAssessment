@@ -55,6 +55,13 @@ struct CGAModels {
         let instructions: [Instruction]
     }
 
+    struct StatusViewModel {
+        let patientName: String?
+        let patientBirthDate: Date?
+        let cgaCreationDate: Date
+        let cgaLastModifiedDate: Date
+    }
+
     struct Instruction {
         let number: Int
         let description: String

@@ -12,6 +12,7 @@ struct SingleDomainModels {
     struct ControllerViewModel {
         let domain: CGADomainsModels.Domain
         let tests: [TestViewModel]
+        let statusViewModel: CGAModels.StatusViewModel?
         let sections: Int
     }
 

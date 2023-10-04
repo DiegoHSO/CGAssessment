@@ -23,6 +23,7 @@ class SingleDomainInteractor: SingleDomainLogic {
     private var domain: CGADomainsModels.Domain
     private var cgaId: UUID?
     private var testsStatus: [Test: TestStatus] = [:]
+    private var statusViewModel: CGAModels.StatusViewModel?
 
     // MARK: - Init
 
@@ -76,6 +77,11 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(sarcopeniaScreeningStatus == .done ? sarcopeniaAssessmentStatus : sarcopeniaScreeningStatus,
                                     forKey: .sarcopeniaScreening)
         }
+
+        statusViewModel = .init(patientName: cga.patient?.name,
+                                patientBirthDate: cga.patient?.birthDate,
+                                cgaCreationDate: cga.creationDate ?? Date(),
+                                cgaLastModifiedDate: cga.lastModification ?? Date())
     }
 
     private func createViewModel() -> SingleDomainModels.ControllerViewModel {
@@ -111,7 +117,7 @@ class SingleDomainInteractor: SingleDomainLogic {
                                                                           status: testsStatus[$0] ?? .done)
         }
 
-        return SingleDomainModels.ControllerViewModel(domain: domain, tests: testsViewModel, sections: 1)
+        return SingleDomainModels.ControllerViewModel(domain: domain, tests: testsViewModel, statusViewModel: statusViewModel, sections: 1)
     }
 
     // MARK: - Tests Status Check

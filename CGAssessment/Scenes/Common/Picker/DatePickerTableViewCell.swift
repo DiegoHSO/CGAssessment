@@ -31,6 +31,7 @@ class DatePickerTableViewCell: UITableViewCell {
 
     func setup(viewModel: CGAModels.DatePickerViewModel) {
         titleLabel?.text = viewModel.title
+        titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
 
         if let date = viewModel.date { datePicker?.setDate(date, animated: true) }

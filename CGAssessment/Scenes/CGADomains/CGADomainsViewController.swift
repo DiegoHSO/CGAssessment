@@ -12,11 +12,13 @@ protocol CGADomainsDisplayLogic: AnyObject {
     func presentData(viewModel: CGADomainsModels.ControllerViewModel)
 }
 
-class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
+class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic, StatusViewProtocol {
 
     // MARK: - Private Properties
 
-    @IBOutlet private weak var tableView: UITableView?
+    @IBOutlet internal weak var tableView: UITableView?
+    internal var isSelected: Bool = false
+    internal var statusViewModel: CGAModels.StatusViewModel? { viewModel?.statusViewModel }
 
     private typealias Domain = CGADomainsModels.Domain
 
@@ -29,6 +31,7 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupBarButtonItem()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,19 +42,6 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
         title = LocalizedTable.domains.localized
-    }
-
-    // MARK: - Private Methods
-
-    private func setupViews() {
-        title = LocalizedTable.cgaDomains.localized
-
-        tableView?.dataSource = self
-        tableView?.delegate = self
-        tableView?.contentInsetAdjustmentBehavior = .never
-
-        tableView?.register(headerType: TooltipHeaderView.self)
-        tableView?.register(cellType: CGADomainTableViewCell.self)
     }
 
     // MARK: - Public Methods
@@ -74,6 +64,33 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic {
         title = LocalizedTable.cgaDomains.localized
         tabBarController?.tabBar.isHidden = true
         tableView?.reloadData()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupViews() {
+        title = LocalizedTable.cgaDomains.localized
+
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        tableView?.contentInsetAdjustmentBehavior = .never
+
+        tableView?.register(headerType: StatusHeaderView.self)
+        tableView?.register(headerType: TooltipHeaderView.self)
+        tableView?.register(cellType: CGADomainTableViewCell.self)
+    }
+
+    private func setupBarButtonItem() {
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                        style: .plain, target: self,
+                                        action: #selector(infoButtonTapped))
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+
+    @objc private func infoButtonTapped() {
+        isSelected.toggle()
+        tableView?.tableHeaderView = currentHeader
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: isSelected ? "info.circle.fill" : "info.circle")
     }
 
 }

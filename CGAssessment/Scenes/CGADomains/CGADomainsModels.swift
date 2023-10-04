@@ -13,6 +13,7 @@ struct CGADomainsModels {
 
     struct ControllerViewModel {
         let domains: [Domain: Tests]
+        let statusViewModel: CGAModels.StatusViewModel?
     }
 
     struct DomainViewModel {
