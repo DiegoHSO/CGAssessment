@@ -67,6 +67,7 @@
 		F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F42ACCD7C50015B2A3 /* PatientsViewController.swift */; };
 		F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */; };
 		F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */; };
+		F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F168B7FF2ACD23CF0015B2A3 /* InfoPlist.strings */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -302,6 +303,8 @@
 		F168B7F42ACCD7C50015B2A3 /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
 		F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
 		F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		F168B7FE2ACD23CF0015B2A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F168B8002ACD23D10015B2A3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -772,6 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				F1AEEB912AA995600038968E /* Localizable.strings */,
+				F168B7FF2ACD23CF0015B2A3 /* InfoPlist.strings */,
 				F1AEEB932AA995AA0038968E /* LocalizedTable.swift */,
 			);
 			path = LocalizedStrings;
@@ -1277,6 +1281,7 @@
 				F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */,
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
 				F1A9FBD92AAA60170048E31F /* SF-Compact-Display-Heavy.otf in Resources */,
+				F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */,
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
@@ -1558,6 +1563,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F168B7FF2ACD23CF0015B2A3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F168B7FE2ACD23CF0015B2A3 /* en */,
+				F168B8002ACD23D10015B2A3 /* pt-BR */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F177F7F22AA793BE00C1EB32 /* Dashboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1717,6 +1731,7 @@
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1752,6 +1767,7 @@
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

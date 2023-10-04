@@ -177,9 +177,4 @@ extension PatientsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel?.sections.keys.count ?? 0
     }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let currentSection = Section(rawValue: section) else { return nil }
-        return nil
-    }
 }
