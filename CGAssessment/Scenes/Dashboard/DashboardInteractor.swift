@@ -19,15 +19,17 @@ class DashboardInteractor: DashboardLogic {
 
     private var presenter: DashboardPresentationLogic?
     private var worker: DashboardWorker?
+    private var resultsWorker: ResultsWorker?
     private var recentCGA: DashboardModels.LatestCGAViewModel?
     private var todoEvaluations: [DashboardModels.TodoEvaluationViewModel] = []
     private var didRemoteChange = NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange).receive(on: RunLoop.main)
 
     // MARK: - Init
 
-    init(presenter: DashboardPresentationLogic, worker: DashboardWorker) {
+    init(presenter: DashboardPresentationLogic, worker: DashboardWorker, resultsWorker: ResultsWorker? = ResultsWorker()) {
         self.presenter = presenter
         self.worker = worker
+        self.resultsWorker = resultsWorker
     }
 
     // MARK: - Public Methods
@@ -114,10 +116,75 @@ class DashboardInteractor: DashboardLogic {
         guard let todoEvaluations = try? worker?.getClosestCGAs() else { return }
 
         self.todoEvaluations = todoEvaluations.compactMap({ evaluation in
-            guard let patientName = evaluation.patient?.name, let birthDate = evaluation.patient?.birthDate,
+            guard let patient = evaluation.patient, let patientName = patient.name, let birthDate = patient.birthDate,
                   let lastModification = evaluation.lastModification, let id = evaluation.cgaId else { return nil }
 
-            let alteredDomains: Int = 3
+            let gender = Gender(rawValue: patient.gender) ?? .female
+            var alteredDomains = 0
+
+            // MARK: - Mobility domains test results check
+
+            var isMobilityDomainAltered: Bool = false
+            var timedUpAndGoResults: TimedUpAndGoModels.TestResults?
+            var walkingSpeedResults: WalkingSpeedModels.TestResults?
+            var calfCircumferenceResults: CalfCircumferenceModels.TestResults?
+            var gripStrengthResults: GripStrengthModels.TestResults?
+
+            if let timedUpAndGo = evaluation.timedUpAndGo, timedUpAndGo.isDone {
+                timedUpAndGoResults = TimedUpAndGoModels.TestResults(elapsedTime: timedUpAndGo.hasStopwatch ?
+                                                                        timedUpAndGo.typedTime as? Double ?? 0 :
+                                                                        timedUpAndGo.measuredTime as? Double ?? 0)
+                let resultsTuple = resultsWorker?.getResults(for: .timedUpAndGo,
+                                                             results: timedUpAndGoResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isMobilityDomainAltered = true }
+            }
+
+            if let walkingSpeed = evaluation.walkingSpeed, walkingSpeed.isDone, !isMobilityDomainAltered {
+                if walkingSpeed.hasStopwatch {
+                    walkingSpeedResults = WalkingSpeedModels.TestResults(firstElapsedTime: walkingSpeed.firstTypedTime as? Double ?? 0,
+                                                                         secondElapsedTime: walkingSpeed.secondTypedTime as? Double ?? 0,
+                                                                         thirdElapsedTime: walkingSpeed.thirdTypedTime as? Double ?? 0)
+                } else {
+                    walkingSpeedResults = WalkingSpeedModels.TestResults(firstElapsedTime: walkingSpeed.firstMeasuredTime as? Double ?? 0,
+                                                                         secondElapsedTime: walkingSpeed.secondMeasuredTime as? Double ?? 0,
+                                                                         thirdElapsedTime: walkingSpeed.thirdMeasuredTime as? Double ?? 0)
+                }
+
+                let resultsTuple = resultsWorker?.getResults(for: .walkingSpeed,
+                                                             results: walkingSpeedResults)
+                if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
+            }
+
+            if let calfCircumference = evaluation.calfCircumference, calfCircumference.isDone, !isMobilityDomainAltered {
+                calfCircumferenceResults = CalfCircumferenceModels.TestResults(circumference: calfCircumference.measuredCircumference as? Double ?? 0)
+                let resultsTuple = resultsWorker?.getResults(for: .calfCircumference,
+                                                             results: calfCircumferenceResults)
+                if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
+            }
+
+            if let gripStrength = evaluation.gripStrength, gripStrength.isDone, !isMobilityDomainAltered {
+                gripStrengthResults = GripStrengthModels.TestResults(firstMeasurement: gripStrength.firstMeasurement as? Double ?? 0,
+                                                                     secondMeasurement: gripStrength.secondMeasurement as? Double ?? 0,
+                                                                     thirdMeasurement: gripStrength.thirdMeasurement as? Double ?? 0,
+                                                                     gender: gender)
+                let resultsTuple = resultsWorker?.getResults(for: .gripStrength,
+                                                             results: gripStrengthResults)
+                if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
+            }
+
+            if let sarcopeniaAssessment = evaluation.sarcopeniaAssessment, sarcopeniaAssessment.isDone, !isMobilityDomainAltered,
+               let timedUpAndGoResults, let walkingSpeedResults, let calfCircumferenceResults, let gripStrengthResults {
+
+                let results = SarcopeniaAssessmentModels.TestResults(gripStrengthResults: gripStrengthResults,
+                                                                     calfCircumferenceResults: calfCircumferenceResults,
+                                                                     timedUpAndGoResults: timedUpAndGoResults,
+                                                                     walkingSpeedResults: walkingSpeedResults)
+                let resultsTuple = resultsWorker?.getResults(for: .sarcopeniaAssessment,
+                                                             results: results)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium || resultsTuple?.1 == .good { isMobilityDomainAltered = true }
+            }
+
+            alteredDomains = isMobilityDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
