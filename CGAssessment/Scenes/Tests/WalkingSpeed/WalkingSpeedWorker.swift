@@ -24,18 +24,10 @@ class WalkingSpeedWorker {
     // MARK: - Public Methods
 
     func getWalkingSpeedProgress() throws -> WalkingSpeed? {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         return try dao.fetchCGATest(test: .walkingSpeed, cgaId: cgaId) as? WalkingSpeed
     }
 
     func updateWalkingSpeedProgress(with data: WalkingSpeedModels.TestData) throws {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

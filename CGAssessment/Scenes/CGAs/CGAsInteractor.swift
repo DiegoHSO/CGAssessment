@@ -82,6 +82,7 @@ class CGAsInteractor: CGAsLogic {
         switch selectedFilter {
         case .recent, .older:
             guard var cgas = try? worker?.getCGAs(for: patientId) else { return }
+            cgas = cgas.filter { $0.cgaId != nil }
             cgas.sort(by: { selectedFilter == .older ? ($0.lastModification ?? Date()) < ($1.lastModification ?? Date())
                         : ($0.lastModification ?? Date()) > ($1.lastModification ?? Date())})
 

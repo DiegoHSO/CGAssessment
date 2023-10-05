@@ -10,6 +10,7 @@ import UIKit
 protocol NewCGADisplayLogic: AnyObject {
     func route(toRoute route: NewCGAModels.Routing)
     func presentData(viewModel: NewCGAModels.ControllerViewModel)
+    func presentAlert()
 }
 
 class NewCGAViewController: UIViewController, NewCGADisplayLogic {
@@ -88,6 +89,17 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
         }
 
         tabBarController?.tabBar.isHidden = true
+    }
+
+    func presentAlert() {
+        let alert = UIAlertController(title: LocalizedTable.alertTitle.localized,
+                                      message: LocalizedTable.alertDescription.localized, preferredStyle: .alert)
+        let action = UIAlertAction(title: LocalizedTable.okKey.localized, style: .default) { _ in
+            self.interactor?.didSelect(option: .secondOption, value: .yesKey)
+        }
+
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }
 

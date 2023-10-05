@@ -25,11 +25,12 @@ class DashboardWorker {
         var cgas = try dao.fetchCGAs()
         cgas.sort(by: { ($0.lastModification ?? Date()) > ($1.lastModification ?? Date()) })
 
-        return cgas.first
+        return cgas.first(where: { $0.cgaId != nil })
     }
 
     func getClosestCGAs() throws -> [CGA] {
-        let cgas = try dao.fetchCGAs()
+        var cgas = try dao.fetchCGAs()
+        cgas = cgas.filter { $0.cgaId != nil }
         return Array(cgas.prefix(3))
     }
 }

@@ -24,18 +24,10 @@ class SarcopeniaScreeningWorker {
     // MARK: - Public Methods
 
     func getSarcopeniaScreeningProgress() throws -> SarcopeniaScreening? {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         return try dao.fetchCGATest(test: .sarcopeniaScreening, cgaId: cgaId) as? SarcopeniaScreening
     }
 
     func getPatientGender() throws -> Gender {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         guard let patient = try dao.fetchPatient(cgaId: cgaId),
               let gender = Gender(rawValue: patient.gender) else {
             throw CoreDataErrors.unableToFetchPatient
@@ -45,10 +37,6 @@ class SarcopeniaScreeningWorker {
     }
 
     func updateSarcopeniaScreeningProgress(with data: SarcopeniaScreeningModels.TestData) throws {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

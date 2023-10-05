@@ -22,7 +22,6 @@ class DashboardInteractor: DashboardLogic {
     private var resultsWorker: ResultsWorker?
     private var recentCGA: DashboardModels.LatestCGAViewModel?
     private var todoEvaluations: [DashboardModels.TodoEvaluationViewModel] = []
-    private var didRemoteChange = NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange).receive(on: RunLoop.main)
 
     // MARK: - Init
 

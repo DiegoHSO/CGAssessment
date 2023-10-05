@@ -24,18 +24,10 @@ class CalfCircumferenceWorker {
     // MARK: - Public Methods
 
     func getCalfCircumferenceProgress() throws -> CalfCircumference? {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         return try dao.fetchCGATest(test: .calfCircumference, cgaId: cgaId) as? CalfCircumference
     }
 
     func updateCalfCircumferenceProgress(with data: CalfCircumferenceModels.TestData) throws {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

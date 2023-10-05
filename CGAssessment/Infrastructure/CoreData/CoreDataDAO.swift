@@ -16,23 +16,25 @@ enum CoreDataErrors: Error, Equatable {
 }
 
 protocol CoreDataDAOProtocol {
+    func addStandaloneCGA() throws
     func addCGA(for patient: Patient) throws -> UUID
     func addPatient(_ patient: NewCGAModels.PatientData) throws -> UUID
     func fetchCGAs() throws -> [CGA]
-    func fetchCGA(cgaId: UUID) throws -> CGA?
+    func fetchCGA(cgaId: UUID?) throws -> CGA?
     func fetchPatientCGAs(patientId: UUID) throws -> [CGA]
     func fetchPatients() throws -> [Patient]
     func fetchPatient(patientId: UUID) throws -> Patient?
-    func fetchPatient(cgaId: UUID) throws -> Patient?
-    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any?
-    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws
-    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws
-    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws
-    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID) throws
-    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID) throws
-    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID) throws
+    func fetchPatient(cgaId: UUID?) throws -> Patient?
+    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID?) throws -> Any?
+    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
 }
 
+// swiftlint:disable type_body_length file_length
 class CoreDataDAO: CoreDataDAOProtocol {
 
     // MARK: - Private Properties
@@ -42,6 +44,61 @@ class CoreDataDAO: CoreDataDAOProtocol {
     }
 
     // MARK: - Public Methods
+
+    func addStandaloneCGA() throws {
+        if try fetchCGA(cgaId: nil) != nil {
+            return
+        }
+
+        let newCGA = CGA(context: context)
+
+        newCGA.patient = Patient(context: context)
+        newCGA.patient?.gender = 1
+
+        newCGA.timedUpAndGo = TimedUpAndGo(context: context)
+        newCGA.timedUpAndGo?.hasStopwatch = false
+        newCGA.timedUpAndGo?.typedTime = 9.25
+        newCGA.timedUpAndGo?.measuredTime = 8.56
+        newCGA.timedUpAndGo?.isDone = true
+
+        newCGA.walkingSpeed = WalkingSpeed(context: context)
+        newCGA.walkingSpeed?.hasStopwatch = false
+        newCGA.walkingSpeed?.firstMeasuredTime = 13.5
+        newCGA.walkingSpeed?.secondMeasuredTime = 10
+        newCGA.walkingSpeed?.thirdMeasuredTime = 12
+        newCGA.walkingSpeed?.firstTypedTime = 11.4
+        newCGA.walkingSpeed?.secondTypedTime = 14.3
+        newCGA.walkingSpeed?.thirdTypedTime = 9.6
+        newCGA.walkingSpeed?.selectedStopwatch = 3
+        newCGA.walkingSpeed?.isDone = true
+
+        newCGA.calfCircumference = CalfCircumference(context: context)
+        newCGA.calfCircumference?.measuredCircumference = 31.3
+        newCGA.calfCircumference?.isDone = true
+
+        newCGA.gripStrength = GripStrength(context: context)
+        newCGA.gripStrength?.firstMeasurement = 27
+        newCGA.gripStrength?.secondMeasurement = 26
+        newCGA.gripStrength?.thirdMeasurement = 27.5
+        newCGA.gripStrength?.isDone = true
+
+        newCGA.sarcopeniaScreening = SarcopeniaScreening(context: context)
+        newCGA.sarcopeniaScreening?.firstQuestionOption = 3
+        newCGA.sarcopeniaScreening?.secondQuestionOption = 2
+        newCGA.sarcopeniaScreening?.thirdQuestionOption = 2
+        newCGA.sarcopeniaScreening?.fourthQuestionOption = 1
+        newCGA.sarcopeniaScreening?.fifthQuestionOption = 2
+        newCGA.sarcopeniaScreening?.sixthQuestionOption = 3
+        newCGA.sarcopeniaScreening?.isDone = true
+
+        newCGA.sarcopeniaAssessment = SarcopeniaAssessment(context: context)
+        newCGA.sarcopeniaAssessment?.isDone = true
+
+        newCGA.lastModification = Date()
+        newCGA.creationDate = Date()
+
+        try context.save()
+    }
 
     func addCGA(for patient: Patient) throws -> UUID {
         let newCGA = CGA(context: context)
@@ -83,11 +140,17 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return try context.fetch(CGA.fetchRequest())
     }
 
-    func fetchCGA(cgaId: UUID) throws -> CGA? {
+    func fetchCGA(cgaId: UUID?) throws -> CGA? {
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
         request.fetchLimit = 1
 
-        let cgaPredicate = NSPredicate(format: "cgaId == %@", cgaId.uuidString)
+        let cgaPredicate: NSPredicate
+
+        if let cgaId {
+            cgaPredicate = NSPredicate(format: "cgaId == %@", cgaId.uuidString)
+        } else {
+            cgaPredicate = NSPredicate(format: "cgaId == nil")
+        }
 
         request.predicate = cgaPredicate
 
@@ -121,7 +184,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return try context.fetch(request).first
     }
 
-    func fetchPatient(cgaId: UUID) throws -> Patient? {
+    func fetchPatient(cgaId: UUID?) throws -> Patient? {
         guard let cga = try fetchCGA(cgaId: cgaId) else {
             throw CoreDataErrors.unableToFetchPatient
         }
@@ -129,7 +192,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         return cga.patient
     }
 
-    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID) throws -> Any? {
+    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID?) throws -> Any? {
         let cga = try fetchCGA(cgaId: cgaId)
 
         switch test {
@@ -184,7 +247,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
     }
 
-    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.timedUpAndGo == nil {
@@ -206,7 +269,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.walkingSpeed == nil {
@@ -245,7 +308,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.calfCircumference == nil {
@@ -262,7 +325,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.gripStrength == nil {
@@ -287,7 +350,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.sarcopeniaScreening == nil {
@@ -307,7 +370,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
-    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID) throws {
+    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
         if cga.sarcopeniaAssessment == nil {
@@ -364,3 +427,4 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 }
+// swiftlint:enable type_body_length file_length
