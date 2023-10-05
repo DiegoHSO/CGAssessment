@@ -33,6 +33,11 @@
 		F13C7B792ACDF58A000D5AC2 /* StatusViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */; };
 		F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */; };
 		F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */; };
+		F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */; };
+		F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */; };
+		F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */; };
+		F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */; };
+		F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -262,6 +267,11 @@
 		F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewProtocol.swift; sourceTree = "<group>"; };
 		F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
+		F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionView.swift; sourceTree = "<group>"; };
+		F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinaryOptionView.xib; sourceTree = "<group>"; };
+		F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsModels.swift; sourceTree = "<group>"; };
+		F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinaryOptionsTableViewCell.xib; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -516,6 +526,18 @@
 				F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */,
 			);
 			path = Status;
+			sourceTree = "<group>";
+		};
+		F13C7B802ACF0977000D5AC2 /* BinaryOptions */ = {
+			isa = PBXGroup;
+			children = (
+				F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */,
+				F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */,
+				F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */,
+				F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */,
+				F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */,
+			);
+			path = BinaryOptions;
 			sourceTree = "<group>";
 		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
@@ -1085,6 +1107,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F13C7B802ACF0977000D5AC2 /* BinaryOptions */,
 				F13C7B732ACDD631000D5AC2 /* Status */,
 				F168B7F82ACCDDD60015B2A3 /* Filter */,
 				F140977A2ABB615900E92005 /* Tooltip */,
@@ -1243,6 +1266,7 @@
 				F18698E12AC4D46300FB5620 /* SarcopeniaScreening.storyboard in Resources */,
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */,
+				F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
@@ -1269,6 +1293,7 @@
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
+				F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */,
 				F1F1E3B12AC0C57C00BC610E /* Results.storyboard in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
@@ -1360,6 +1385,7 @@
 			files = (
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
+				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
@@ -1494,10 +1520,12 @@
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
+				F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */,
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
 				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
+				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
