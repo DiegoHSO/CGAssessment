@@ -10,6 +10,7 @@ import Foundation
 protocol NewCGAPresentationLogic: AnyObject {
     func route(toRoute route: NewCGAModels.Routing)
     func presentData(viewModel: NewCGAModels.ControllerViewModel)
+    func presentAlert()
 }
 
 class NewCGAPresenter: NewCGAPresentationLogic {
@@ -34,4 +35,7 @@ class NewCGAPresenter: NewCGAPresentationLogic {
         viewController?.presentData(viewModel: viewModel)
     }
 
+    func presentAlert() {
+        viewController?.presentAlert()
+    }
 }

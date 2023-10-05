@@ -52,7 +52,7 @@ class CGADomainsInteractor: CGADomainsLogic {
     }
 
     private func computeViewModelData() {
-        guard let cgaId, let cga = try? worker?.getCGA(with: cgaId) else { return }
+        guard let cga = try? worker?.getCGA(with: cgaId) else { return }
 
         domains.updateValue([.timedUpAndGo: cga.timedUpAndGo?.isDone == true,
                              .walkingSpeed: cga.walkingSpeed?.isDone == true,

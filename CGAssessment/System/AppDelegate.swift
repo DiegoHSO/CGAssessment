@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupDependencies()
+        setupExampleCGA()
         return true
     }
 
@@ -95,6 +96,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
+    }
+
+    private func setupExampleCGA() {
+        if !UserDefaults.standard.bool(forKey: LocalStorageKeys.firstTime.rawValue) {
+            UserDefaults.standard.set(true, forKey: LocalStorageKeys.firstTime.rawValue)
+
+            let dao = CoreDataDAO()
+
+            do {
+                try dao.addStandaloneCGA()
+            } catch {
+                fatalError("Unable to create example CGA")
+            }
+        }
     }
 
 }

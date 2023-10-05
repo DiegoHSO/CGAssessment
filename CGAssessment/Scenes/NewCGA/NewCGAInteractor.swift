@@ -76,7 +76,7 @@ class NewCGAInteractor: NewCGALogic {
                          id: id, delegate: self)
         })
 
-        selectedExternalOption = patients.isEmpty ? .firstOption : .secondOption
+        selectedExternalOption = self.patients.isEmpty ? .firstOption : .secondOption
     }
 
     private func sendDataToPresenter(isSearching: Bool = false) {
@@ -110,7 +110,7 @@ extension NewCGAInteractor: SelectableViewDelegate, SearchBarDelegate,
                                                                           birthDate: patientBirthDate, gender: gender))
                 presenter?.route(toRoute: .cgaDomains(patientId: patientId))
             } catch {
-                // TODO: Handle duplicated patient error
+                presenter?.presentAlert()
             }
         case .secondOption:
             guard let selectedPatient else { return }

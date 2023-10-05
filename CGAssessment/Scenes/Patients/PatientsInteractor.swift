@@ -68,7 +68,8 @@ class PatientsInteractor: PatientsLogic {
     // MARK: - Private Methods
 
     private func computeViewModelData() {
-        guard let patients = try? worker?.getPatients() else { return }
+        guard var patients = try? worker?.getPatients() else { return }
+        patients = patients.filter { $0.patientId != nil }
 
         viewModels = patients.compactMap { patient in
             var patientCGAs = patient.cgas?.allObjects as? [CGA]

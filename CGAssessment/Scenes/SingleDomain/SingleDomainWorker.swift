@@ -21,7 +21,7 @@ class SingleDomainWorker {
 
     // MARK: - Public Methods
 
-    func getCGA(with cgaId: UUID) throws -> CGA {
+    func getCGA(with cgaId: UUID?) throws -> CGA {
         guard let cga = try dao.fetchCGA(cgaId: cgaId) else {
             throw CoreDataErrors.unableToFetchCGA
         }

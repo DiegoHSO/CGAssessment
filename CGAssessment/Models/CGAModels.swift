@@ -26,10 +26,17 @@ public enum Gender: Int16, CaseIterable {
 
 struct CGAModels {
 
+    /*
+     typealias Tabs = (
+     home: UIViewController?,
+     cgas: UIViewController?,
+     preferences: UIViewController?
+     )
+     */
+
     typealias Tabs = (
         home: UIViewController?,
-        cgas: UIViewController?,
-        preferences: UIViewController?
+        cgas: UIViewController?
     )
 
     struct DatePickerViewModel {

@@ -247,3 +247,6 @@
 "current_cga_key" = "Aplicação da AGA atual";
 "created_on_key" = "Avaliação criada em";
 "example_cga_key" = "AGA de exemplo (com dados fictícios)";
+"patient_conflict_alert_title_key" = "Erro ao criar paciente";
+"patient_conflict_alert_description_key" = "Já existe um cadastro de paciente com o mesmo nome, data de nascimento e sexo informados. Por favor, verifique os pacientes cadastrados.";
+"ok_key" = "Certo";

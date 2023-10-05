@@ -16,6 +16,12 @@ class StatusHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private weak var creationDateLabel: UILabel?
     @IBOutlet private weak var lastModifiedLabel: UILabel?
 
+    // MARK: - Life Cycle
+
+    override func awakeFromNib() {
+        setupLabels()
+    }
+
     // MARK: - Public Methods
 
     func setup(viewModel: CGAModels.StatusViewModel) {

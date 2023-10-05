@@ -24,18 +24,10 @@ class GripStrengthWorker {
     // MARK: - Public Methods
 
     func getGripStrengthProgress() throws -> GripStrength? {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         return try dao.fetchCGATest(test: .gripStrength, cgaId: cgaId) as? GripStrength
     }
 
     func getPatientGender() throws -> Gender {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         guard let patient = try dao.fetchPatient(cgaId: cgaId),
               let gender = Gender(rawValue: patient.gender) else {
             throw CoreDataErrors.unableToFetchPatient
@@ -45,10 +37,6 @@ class GripStrengthWorker {
     }
 
     func updateGripStrengthProgress(with data: GripStrengthModels.TestData) throws {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

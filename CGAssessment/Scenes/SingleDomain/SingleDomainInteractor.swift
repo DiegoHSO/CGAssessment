@@ -52,7 +52,7 @@ class SingleDomainInteractor: SingleDomainLogic {
     }
 
     private func computeViewModelData(tests: [Test]) {
-        guard let cgaId, let cga = try? worker?.getCGA(with: cgaId) else { return }
+        guard let cga = try? worker?.getCGA(with: cgaId) else { return }
 
         if tests.contains(.timedUpAndGo) {
             testsStatus.updateValue(checkTimedUpAndGoStatus(cga: cga), forKey: .timedUpAndGo)
