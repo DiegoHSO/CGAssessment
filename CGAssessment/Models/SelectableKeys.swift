@@ -24,8 +24,8 @@ enum SelectableKeys: Int16, Comparable {
 enum SelectableBinaryOption: Int16, Comparable {
     case none = 0
     case yes
-    case no
-    
+    case not
+
     static func < (lhs: SelectableBinaryOption, rhs: SelectableBinaryOption) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }

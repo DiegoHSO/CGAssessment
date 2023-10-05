@@ -35,18 +35,18 @@ extension UIImage {
     }
 
     typealias ImageAndColor = (image: UIImage?, color: UIColor?)
-    
+
     struct BinaryOptions {
         static var yesSelected: UIImage? { UIImage(systemName: "checkmark.circle.fill")?
-                .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+            .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
         }
-        
+
         static var noSelected: UIImage? { UIImage(systemName: "xmark.circle.fill")?
-                .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            .withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         }
-        
+
         static var noneSelected: UIImage? { UIImage(systemName: "circle")?
-                .withTintColor(.systemGray3, renderingMode: .alwaysOriginal)
+            .withTintColor(.systemGray3, renderingMode: .alwaysOriginal)
         }
     }
 
