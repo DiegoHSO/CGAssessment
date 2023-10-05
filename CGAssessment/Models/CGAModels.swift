@@ -26,10 +26,17 @@ public enum Gender: Int16, CaseIterable {
 
 struct CGAModels {
 
+    /*
+     typealias Tabs = (
+     home: UIViewController?,
+     cgas: UIViewController?,
+     preferences: UIViewController?
+     )
+     */
+
     typealias Tabs = (
         home: UIViewController?,
-        cgas: UIViewController?,
-        preferences: UIViewController?
+        cgas: UIViewController?
     )
 
     struct DatePickerViewModel {
@@ -53,6 +60,13 @@ struct CGAModels {
 
     struct InstructionsViewModel {
         let instructions: [Instruction]
+    }
+
+    struct StatusViewModel {
+        let patientName: String?
+        let patientBirthDate: Date?
+        let cgaCreationDate: Date
+        let cgaLastModifiedDate: Date
     }
 
     struct Instruction {

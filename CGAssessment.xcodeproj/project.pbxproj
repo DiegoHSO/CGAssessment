@@ -29,6 +29,10 @@
 		F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2572AC94848004E90E2 /* CalfCircumferenceWorker.swift */; };
 		F138F25A2AC94BB6004E90E2 /* SarcopeniaScreeningWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2592AC94BB6004E90E2 /* SarcopeniaScreeningWorker.swift */; };
 		F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F25B2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift */; };
+		F13C7B752ACDD675000D5AC2 /* StatusHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B742ACDD675000D5AC2 /* StatusHeaderView.xib */; };
+		F13C7B792ACDF58A000D5AC2 /* StatusViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */; };
+		F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */; };
+		F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -254,6 +258,10 @@
 		F138F2572AC94848004E90E2 /* CalfCircumferenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceWorker.swift; sourceTree = "<group>"; };
 		F138F2592AC94BB6004E90E2 /* SarcopeniaScreeningWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningWorker.swift; sourceTree = "<group>"; };
 		F138F25B2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentWorker.swift; sourceTree = "<group>"; };
+		F13C7B742ACDD675000D5AC2 /* StatusHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusHeaderView.xib; sourceTree = "<group>"; };
+		F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewProtocol.swift; sourceTree = "<group>"; };
+		F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
+		F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -500,6 +508,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F13C7B732ACDD631000D5AC2 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				F13C7B742ACDD675000D5AC2 /* StatusHeaderView.xib */,
+				F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */,
+				F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +673,7 @@
 		F177F8202AA8295500C1EB32 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -1066,6 +1085,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F13C7B732ACDD631000D5AC2 /* Status */,
 				F168B7F82ACCDDD60015B2A3 /* Filter */,
 				F140977A2ABB615900E92005 /* Tooltip */,
 				F14097652AB7A3B000E92005 /* TitleCell */,
@@ -1270,6 +1290,7 @@
 				F1F295892AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.xib in Resources */,
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
 				F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */,
+				F13C7B752ACDD675000D5AC2 /* StatusHeaderView.xib in Resources */,
 				F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */,
 				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
 			);
@@ -1362,6 +1383,7 @@
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
+				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
@@ -1408,6 +1430,7 @@
 				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
+				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
@@ -1433,6 +1456,7 @@
 				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
 				F1BE9F742AB608AA00250B69 /* Date+Extension.swift in Sources */,
+				F13C7B792ACDF58A000D5AC2 /* StatusViewProtocol.swift in Sources */,
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
 				F1F1E37D2ABEA1FD00BC610E /* SingleDomainViewController.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
@@ -1683,7 +1707,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
@@ -1719,7 +1743,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;

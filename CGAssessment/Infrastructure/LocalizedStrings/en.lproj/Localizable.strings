@@ -20,9 +20,9 @@
 "month_key" = "month";
 "months_key" = "months";
 "today_key" = "Today";
-"altered_domain_key" = "altered domain";
+"altered_domain_key" = "altered domains";
 "altered_domains_key" = "altered domains";
-"none_key" = "None";
+"none_key" = "No";
 "last_application_key" = "Last CGA applied in";
 "no_reapplications_next_key" = "There are no reapplications next";
 "up_to_date_key" = "Assessments up to date!";
@@ -244,3 +244,9 @@
 "z_to_a_key" = "Z to A";
 "older_age_key" = "Older age";
 "younger_age_key" = "Younger age";
+"current_cga_key" = "Current CGA application";
+"created_on_key" = "Assessment created on";
+"example_cga_key" = "CGA example (with fictional data)";
+"patient_conflict_alert_title_key" = "Error creating patient";
+"patient_conflict_alert_description_key" = "There is already a patient record with the same name, birth date and gender provided. Please check the registered patients.";
+"ok_key" = "OK";

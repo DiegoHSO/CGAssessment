@@ -24,18 +24,10 @@ class TimedUpAndGoWorker {
     // MARK: - Public Methods
 
     func getTimedUpAndGoProgress() throws -> TimedUpAndGo? {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToFetchCGA
-        }
-
         return try dao.fetchCGATest(test: .timedUpAndGo, cgaId: cgaId) as? TimedUpAndGo
     }
 
     func updateTimedUpAndGoProgress(with data: TimedUpAndGoModels.TestData) throws {
-        guard let cgaId else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

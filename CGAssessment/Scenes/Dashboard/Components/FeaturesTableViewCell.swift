@@ -38,6 +38,6 @@ class FeaturesTableViewCell: UITableViewCell {
     }
 
     func setupFourthComponent(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
-        fourthComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate)
+        fourthComponentView?.setup(title: title, iconSymbol: iconSymbol, identifier: identifier, delegate: delegate, isEnabled: false)
     }
 }

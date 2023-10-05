@@ -43,13 +43,20 @@ class FeatureComponentView: UIView {
 
     // MARK: - Public Methods
 
-    func setup(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption, delegate: FeatureComponentDelegate?) {
+    func setup(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption,
+               delegate: FeatureComponentDelegate?, isEnabled: Bool = true) {
         titleLabel?.text = title
         titleLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
         iconLabel?.text = iconSymbol
         iconLabel?.font = .compactDisplay(withStyle: .medium, size: 18)
         componentIdentifier = identifier
         self.delegate = delegate
+
+        if !isEnabled {
+            contentView?.backgroundColor = .opaqueSeparator
+            titleLabel?.textColor = .label9
+            iconLabel?.textColor = .label9
+        }
     }
 
     // MARK: - Private Methods

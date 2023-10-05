@@ -19,6 +19,7 @@ class CGADomainsInteractor: CGADomainsLogic {
     private var presenter: CGADomainsPresentationLogic?
     private var worker: CGADomainsWorker?
     private var domains: [CGADomainsModels.Domain: CGADomainsModels.Tests] = [:]
+    private var statusViewModel: CGAModels.StatusViewModel?
     private var patientId: UUID?
     private var cgaId: UUID?
 
@@ -51,7 +52,7 @@ class CGADomainsInteractor: CGADomainsLogic {
     }
 
     private func computeViewModelData() {
-        guard let cgaId, let cga = try? worker?.getCGA(with: cgaId) else { return }
+        guard let cga = try? worker?.getCGA(with: cgaId) else { return }
 
         domains.updateValue([.timedUpAndGo: cga.timedUpAndGo?.isDone == true,
                              .walkingSpeed: cga.walkingSpeed?.isDone == true,
@@ -79,9 +80,15 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue( [.suspectedAbuse: true, .cardiovascularRiskEstimation: false,
                               .chemotherapyToxicityRisk: false], forKey: .other)
+
+        statusViewModel = .init(patientName: cga.patient?.name,
+                                patientBirthDate: cga.patient?.birthDate,
+                                cgaCreationDate: cga.creationDate ?? Date(),
+                                cgaLastModifiedDate: cga.lastModification ?? Date())
     }
 
     private func sendDataToPresenter() {
-        presenter?.presentData(viewModel: .init(domains: domains))
+        presenter?.presentData(viewModel: .init(domains: domains,
+                                                statusViewModel: statusViewModel))
     }
 }

@@ -34,6 +34,7 @@ class TextFieldTableViewCell: UITableViewCell {
     func setup(viewModel: CGAModels.TextFieldViewModel) {
         titleLabel?.text = viewModel.title
         titleLabel?.isHidden = viewModel.title == nil
+        titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         textField?.placeholder = viewModel.placeholder
         textField?.text = viewModel.text
         textField?.keyboardType = viewModel.keyboardType
