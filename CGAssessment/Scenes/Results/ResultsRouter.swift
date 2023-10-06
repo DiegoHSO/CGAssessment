@@ -43,7 +43,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .sarcopeniaScreening:
             routeToSarcopeniaScreening()
         case .miniMentalStateExamination:
-            break
+            routeToMiniMentalStateExam()
         case .verbalFluencyTest:
             break
         case .clockDrawingTest:
@@ -145,5 +145,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let sarcopeniaScreeningController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaScreeningController, animated: true)
+    }
+
+    private func routeToMiniMentalStateExam() {
+        guard let miniMentalStateExamController = MiniMentalStateExamBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniMentalStateExamController, animated: true)
     }
 }

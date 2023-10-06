@@ -10,19 +10,27 @@ import Foundation
 struct BinaryOptionsModels {
 
     struct BinaryOptionViewModel {
-        let question: String
+        let question: LocalizedTable
+        let selectedOption: SelectableBinaryKeys
         let firstOptionTitle: String?
         let secondOptionTitle: String?
         let delegate: BinaryOptionDelegate?
+        let sectionIdentifier: LocalizedTable?
         let identifier: Int
     }
 
     struct BinaryOptionsViewModel {
-        let title: String?
-        let questions: [Int: LocalizedTable]
+        let title: LocalizedTable?
+        let questions: [Int: BinaryOption]
         let firstOptionTitle: String?
         let secondOptionTitle: String?
         let delegate: BinaryOptionDelegate?
         let leadingConstraint: CGFloat = 35
     }
+
+    struct BinaryOption {
+        let question: LocalizedTable
+        let selectedOption: SelectableBinaryKeys
+    }
+
 }

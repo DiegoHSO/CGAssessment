@@ -32,7 +32,7 @@ class BinaryOptionsTableViewCell: UITableViewCell {
     // MARK: - Public Methods
 
     func setup(viewModel: BinaryOptionsModels.BinaryOptionsViewModel) {
-        titleLabel?.text = viewModel.title
+        titleLabel?.text = viewModel.title?.localized
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
@@ -46,10 +46,10 @@ class BinaryOptionsTableViewCell: UITableViewCell {
         }
 
         let viewModels = viewModel.questions.map {
-            BinaryOptionsModels.BinaryOptionViewModel(question: $0.value.localized,
+            BinaryOptionsModels.BinaryOptionViewModel(question: $0.value.question, selectedOption: $0.value.selectedOption,
                                                       firstOptionTitle: $0.key == 1 ? viewModel.firstOptionTitle : nil,
                                                       secondOptionTitle: $0.key == 1 ? viewModel.secondOptionTitle : nil,
-                                                      delegate: viewModel.delegate, identifier: $0.key)
+                                                      delegate: viewModel.delegate, sectionIdentifier: viewModel.title, identifier: $0.key)
         }.sorted(by: { $0.identifier < $1.identifier })
 
         var index: Int = 0

@@ -51,7 +51,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
         } else if timeLeftDays >= 30 {
             let timeLeftMonths = round(timeLeftDays / 30)
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftMonths)) "
-            timeLeftString += "\(timeLeftMonths > 1 ? LocalizedTable.months.localized : LocalizedTable.month.localized)"
+            timeLeftString += "\(timeLeftMonths > 1 ? LocalizedTable.months.localized : LocalizedTable.month.localized.lowercased())"
         }
 
         return timeLeftString

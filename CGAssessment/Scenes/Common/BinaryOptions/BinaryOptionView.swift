@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BinaryOptionDelegate: AnyObject {
-    func didSelect(option: SelectableBinaryOption, identifier: Int)
+    func didSelect(option: SelectableBinaryKeys, numberIdentifier: Int, sectionIdentifier: LocalizedTable)
 }
 
 class BinaryOptionView: UIView {
@@ -23,16 +23,9 @@ class BinaryOptionView: UIView {
     @IBOutlet private weak var yesOptionButton: UIButton?
     @IBOutlet private weak var noOptionButton: UIButton?
     private var delegate: BinaryOptionDelegate?
-    private var identifier: Int?
-    private var selectedOption: SelectableBinaryOption {
-        if yesOptionButton?.isSelected ?? false {
-            return .yes
-        } else if noOptionButton?.isSelected ?? false {
-            return .not
-        } else {
-            return .none
-        }
-    }
+    private var numberIdentifier: Int?
+    private var sectionIdentifier: LocalizedTable?
+    private var selectedOption: SelectableBinaryKeys = .none
 
     // MARK: - Init
 
@@ -57,12 +50,15 @@ class BinaryOptionView: UIView {
     // MARK: - Public Methods
 
     func setup(viewModel: BinaryOptionsModels.BinaryOptionViewModel) {
-        questionLabel?.text = viewModel.question
+        questionLabel?.text = viewModel.question.localized
         firstOptionTitleLabel?.text = viewModel.firstOptionTitle
         secondOptionTitleLabel?.text = viewModel.secondOptionTitle
         labelOptionsStackView?.isHidden = viewModel.firstOptionTitle == nil && viewModel.secondOptionTitle == nil
         delegate = viewModel.delegate
-        identifier = viewModel.identifier
+        numberIdentifier = viewModel.identifier
+        sectionIdentifier = viewModel.sectionIdentifier
+        selectedOption = viewModel.selectedOption
+        updateButtons()
     }
 
     // MARK: - Private Methods
@@ -71,24 +67,32 @@ class BinaryOptionView: UIView {
         questionLabel?.font = .compactDisplay(withStyle: .regular, size: 15)
         firstOptionTitleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         secondOptionTitleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
+    }
 
-        yesOptionButton?.setImage(.BinaryOptions.yesSelected, for: .selected)
-        yesOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
-        noOptionButton?.setImage(.BinaryOptions.noSelected, for: .selected)
-        noOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
+    private func updateButtons() {
+        if selectedOption == .yes {
+            yesOptionButton?.setImage(.BinaryOptions.yesSelected, for: .normal)
+            noOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
+        } else if selectedOption == .not {
+            noOptionButton?.setImage(.BinaryOptions.noSelected, for: .normal)
+            yesOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
+        } else {
+            yesOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
+            noOptionButton?.setImage(.BinaryOptions.noneSelected, for: .normal)
+        }
     }
 
     @IBAction private func yesOptionAction(_ sender: UIButton) {
-        guard let identifier else { return }
-        yesOptionButton?.isSelected = true
-        noOptionButton?.isSelected = false
-        delegate?.didSelect(option: selectedOption, identifier: identifier)
+        guard let numberIdentifier, let sectionIdentifier, selectedOption != .yes else { return }
+        selectedOption = .yes
+        updateButtons()
+        delegate?.didSelect(option: selectedOption, numberIdentifier: numberIdentifier, sectionIdentifier: sectionIdentifier)
     }
 
     @IBAction private func noOptionAction(_ sender: UIButton) {
-        guard let identifier else { return }
-        noOptionButton?.isSelected = true
-        yesOptionButton?.isSelected = false
-        delegate?.didSelect(option: selectedOption, identifier: identifier)
+        guard let numberIdentifier, let sectionIdentifier, selectedOption != .not else { return }
+        selectedOption = .not
+        updateButtons()
+        delegate?.didSelect(option: selectedOption, numberIdentifier: numberIdentifier, sectionIdentifier: sectionIdentifier)
     }
 }

@@ -23,7 +23,6 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="5lD-qG-oeB"/>
                 <outlet property="firstOptionTitleLabel" destination="wqJ-Nh-zwT" id="4tI-ZQ-40e"/>
-                <outlet property="labelOptionsStackView" destination="8Iu-BT-hwh" id="EcU-YL-ZJ8"/>
                 <outlet property="noOptionButton" destination="ZI7-nE-SqD" id="q47-gn-A5M"/>
                 <outlet property="questionLabel" destination="5av-If-5xi" id="M4x-98-u6x"/>
                 <outlet property="secondOptionTitleLabel" destination="89U-8r-01s" id="0Tq-jK-0sk"/>
@@ -35,11 +34,11 @@
             <rect key="frame" x="0.0" y="0.0" width="366" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="nTl-LL-q06">
-                    <rect key="frame" x="0.0" y="19.333333333333336" width="366" height="100.66666666666666"/>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="nTl-LL-q06">
+                    <rect key="frame" x="0.0" y="0.0" width="366" height="120"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sem rotacionar o papel durante o exame?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5av-If-5xi">
-                            <rect key="frame" x="0.0" y="0.0" width="131" height="100.66666666666667"/>
+                            <rect key="frame" x="0.0" y="18" width="131" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="131" id="Zt1-li-0gj"/>
                             </constraints>
@@ -47,52 +46,63 @@
                             <color key="textColor" name="Label-1"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-JK-VFg">
-                            <rect key="frame" x="181" y="0.0" width="185" height="100.66666666666667"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-JK-VFg">
+                            <rect key="frame" x="181" y="0.0" width="185" height="72"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-Zj-2ob">
-                                    <rect key="frame" x="0.0" y="0.0" width="25.666666666666668" height="100.66666666666667"/>
-                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
-                                    <color key="tintColor" systemColor="systemGreenColor"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal">
-                                        <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="large"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="yesOptionAction:" destination="-1" eventType="touchUpInside" id="ach-Ur-UuD"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI7-nE-SqD">
-                                    <rect key="frame" x="125.66666666666667" y="0.0" width="59.333333333333329" height="100.66666666666667"/>
-                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
-                                    <color key="tintColor" systemColor="systemRedColor"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal">
-                                        <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="noOptionAction:" destination="-1" eventType="touchUpInside" id="ZZQ-UQ-Xg5"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="b1q-UL-d9h">
+                                    <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="72"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqJ-Nh-zwT">
+                                            <rect key="frame" x="32.666666666666657" y="0.0" width="27.333333333333329" height="19.333333333333332"/>
+                                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
+                                            <color key="textColor" name="Label-1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-Zj-2ob">
+                                            <rect key="frame" x="29.999999999999996" y="39.333333333333343" width="32.666666666666657" height="32.666666666666657"/>
+                                            <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
+                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="large"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="22"/>
+                                                </preferredSymbolConfiguration>
+                                            </state>
+                                            <connections>
+                                                <action selector="yesOptionAction:" destination="-1" eventType="touchUpInside" id="ach-Ur-UuD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uje-en-RZP">
+                                    <rect key="frame" x="92.666666666666686" y="0.0" width="92.333333333333314" height="72"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89U-8r-01s">
+                                            <rect key="frame" x="32" y="0.0" width="28.333333333333329" height="19.333333333333332"/>
+                                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
+                                            <color key="textColor" name="Label-1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI7-nE-SqD">
+                                            <rect key="frame" x="29.666666666666625" y="39.333333333333343" width="32.666666666666657" height="32.666666666666657"/>
+                                            <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
+                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="22"/>
+                                                </preferredSymbolConfiguration>
+                                            </state>
+                                            <connections>
+                                                <action selector="noOptionAction:" destination="-1" eventType="touchUpInside" id="ZZQ-UQ-Xg5"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                         </stackView>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="8Iu-BT-hwh">
-                    <rect key="frame" x="181" y="0.0" width="185" height="19.333333333333332"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqJ-Nh-zwT">
-                            <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="19.333333333333332"/>
-                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
-                            <color key="textColor" name="Label-1"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89U-8r-01s">
-                            <rect key="frame" x="142.66666666666669" y="0.0" width="42.333333333333343" height="19.333333333333332"/>
-                            <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
-                            <color key="textColor" name="Label-1"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                 </stackView>
             </subviews>
@@ -101,11 +111,8 @@
             <constraints>
                 <constraint firstItem="nTl-LL-q06" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7Z1-4e-5yE"/>
                 <constraint firstAttribute="bottom" secondItem="nTl-LL-q06" secondAttribute="bottom" id="9fl-qs-X8Y"/>
-                <constraint firstAttribute="trailing" secondItem="8Iu-BT-hwh" secondAttribute="trailing" id="G3L-Kj-qgq"/>
-                <constraint firstItem="8Iu-BT-hwh" firstAttribute="centerX" secondItem="uSE-JK-VFg" secondAttribute="centerX" id="Xba-eo-hUX"/>
-                <constraint firstItem="nTl-LL-q06" firstAttribute="top" secondItem="8Iu-BT-hwh" secondAttribute="bottom" id="jqP-px-Kfo"/>
+                <constraint firstItem="nTl-LL-q06" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cTV-Fy-aYm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nTl-LL-q06" secondAttribute="trailing" id="kBx-na-Qao"/>
-                <constraint firstItem="8Iu-BT-hwh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ogU-9V-6cg"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

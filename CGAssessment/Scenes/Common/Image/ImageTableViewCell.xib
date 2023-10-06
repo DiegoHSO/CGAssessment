@@ -35,6 +35,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bottomConstraint" destination="g1j-A3-Dwo" id="2r8-zU-jkO"/>
                 <outlet property="customImageView" destination="B9q-0Y-DDM" id="dj0-MI-jlY"/>
             </connections>
             <point key="canvasLocation" x="79" y="21"/>
