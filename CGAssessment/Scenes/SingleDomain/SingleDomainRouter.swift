@@ -39,7 +39,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .sarcopeniaScreening:
             routeToSarcopeniaAssessment(cgaId: cgaId)
         case .miniMentalStateExamination:
-            break
+            routeToMiniMentalStateExam(cgaId: cgaId)
         case .verbalFluencyTest:
             break
         case .clockDrawingTest:
@@ -107,5 +107,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
+    }
+
+    private func routeToMiniMentalStateExam(cgaId: UUID?) {
+        guard let miniMentalStateExamController = MiniMentalStateExamBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniMentalStateExamController, animated: true)
     }
 }

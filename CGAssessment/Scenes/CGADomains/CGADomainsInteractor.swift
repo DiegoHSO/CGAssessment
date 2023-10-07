@@ -60,7 +60,7 @@ class CGADomainsInteractor: CGADomainsLogic {
                              .gripStrength: cga.gripStrength?.isDone == true,
                              .sarcopeniaScreening: cga.sarcopeniaAssessment?.isDone == true], forKey: .mobility)
 
-        domains.updateValue([.miniMentalStateExamination: true,
+        domains.updateValue([.miniMentalStateExamination: cga.miniMentalStateExam?.isDone == true,
                              .verbalFluencyTest: false,
                              .clockDrawingTest: false,
                              .moca: false,

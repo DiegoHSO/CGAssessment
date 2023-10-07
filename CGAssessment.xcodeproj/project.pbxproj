@@ -38,6 +38,14 @@
 		F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */; };
 		F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */; };
 		F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */; };
+		F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */; };
+		F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */; };
+		F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */; };
+		F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */; };
+		F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */; };
+		F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */; };
+		F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */; };
+		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -272,6 +280,14 @@
 		F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsModels.swift; sourceTree = "<group>"; };
 		F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinaryOptionsTableViewCell.xib; sourceTree = "<group>"; };
+		F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MiniMentalStateExam.storyboard; sourceTree = "<group>"; };
+		F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamViewController.swift; sourceTree = "<group>"; };
+		F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamInteractor.swift; sourceTree = "<group>"; };
+		F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamPresenter.swift; sourceTree = "<group>"; };
+		F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamWorker.swift; sourceTree = "<group>"; };
+		F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamRouter.swift; sourceTree = "<group>"; };
+		F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamModels.swift; sourceTree = "<group>"; };
+		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -538,6 +554,21 @@
 				F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */,
 			);
 			path = BinaryOptions;
+			sourceTree = "<group>";
+		};
+		F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */ = {
+			isa = PBXGroup;
+			children = (
+				F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */,
+				F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */,
+				F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */,
+				F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */,
+				F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */,
+				F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */,
+				F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */,
+				F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */,
+			);
+			path = MiniMentalStateExam;
 			sourceTree = "<group>";
 		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
@@ -1016,6 +1047,7 @@
 				F18698C72AC472B700FB5620 /* GripStrength */,
 				F18698DF2AC4D43E00FB5620 /* SarcopeniaScreening */,
 				F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */,
+				F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1269,6 +1301,7 @@
 				F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
+				F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
@@ -1392,6 +1425,7 @@
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
 				F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */,
+				F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */,
 				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */,
 				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
@@ -1424,6 +1458,7 @@
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
+				F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */,
 				F10DFB9D2ACA523100E1A380 /* CGAsInteractor.swift in Sources */,
@@ -1467,6 +1502,7 @@
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
+				F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
 				F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */,
@@ -1486,6 +1522,7 @@
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
 				F1F1E37D2ABEA1FD00BC610E /* SingleDomainViewController.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
+				F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
 				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
@@ -1519,6 +1556,8 @@
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
+				F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */,
+				F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
 				F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */,
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
@@ -1535,6 +1574,7 @@
 				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
 				F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
+				F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -152,6 +152,42 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isMobilityDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Cognitive domain test results check
+
+            var isCognitiveDomainAltered: Bool = false
+
+            if let miniMentalStateExamProgress = lastCGA?.miniMentalStateExam, miniMentalStateExamProgress.isDone {
+
+                var rawQuestions: MiniMentalStateExamModels.RawQuestions = [:]
+                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = miniMentalStateExamProgress.binaryOptions?.allObjects as? [BinaryOption],
+                      let questionOptions = miniMentalStateExamProgress.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let miniMentalStateExamResults = MiniMentalStateExamModels.TestResults(questions: rawQuestions,
+                                                                                       binaryQuestions: rawBinaryQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .miniMentalStateExamination,
+                                                             results: miniMentalStateExamResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

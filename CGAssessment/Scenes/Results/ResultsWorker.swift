@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable:next type_body_length
 class ResultsWorker {
 
     // MARK: - Private Properties
@@ -44,7 +45,8 @@ class ResultsWorker {
             guard let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults else { return nil }
             return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
         case .miniMentalStateExamination:
-            break
+            guard let miniMentalStateExamResults = results as? MiniMentalStateExamModels.TestResults else { return nil}
+            return getMiniMentalStateExamResults(for: miniMentalStateExamResults)
         case .verbalFluencyTest:
             break
         case .clockDrawingTest:
@@ -210,8 +212,7 @@ class ResultsWorker {
 
     private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
 
-        let selectedOptions = [testResults.firstQuestionOption, testResults.secondQuestionOption, testResults.thirdQuestionOption,
-                               testResults.fourthQuestionOption, testResults.fifthQuestionOption]
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
 
         var score = selectedOptions.reduce(0) { partialResult, option in
             switch option {
@@ -228,9 +229,9 @@ class ResultsWorker {
 
         switch testResults.gender {
         case .female:
-            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
         case .male:
-            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
         }
 
         score += customScore
@@ -288,5 +289,45 @@ class ResultsWorker {
         }
 
         return ([], .excellent)
+    }
+
+    private func getMiniMentalStateExamResults(for testResults: MiniMentalStateExamModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let selectedOptions = testResults.questions.filter({ $0.key != .miniMentalStateExamFirstQuestion }).values.map { $0 as SelectableKeys }
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
+        }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }
+        let selectedOptionsPoints = selectedOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let selectedBinaryOptionsPointed = selectedBinaryOptions.filter { $0 == .yes }
+        let selectedBinaryOptionsPoints = selectedBinaryOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let totalPoints = selectedOptionsPoints + selectedBinaryOptionsPoints
+
+        let resultType: ResultsModels.ResultType = switch testResults.questions[.miniMentalStateExamFirstQuestion] {
+        case .firstOption: // More than eleven years of study
+            totalPoints >= 29 ? .excellent : .bad
+        case .secondOption: // Between nine and eleven years of study
+            totalPoints >= 28 ? .excellent : .bad
+        case .thirdOption: // Between five and eight years of study
+            totalPoints >= 26 ? .excellent : .bad
+        case .fourthOption: // Between one and four years of study
+            totalPoints >= 25 ? .excellent : .bad
+        case .fifthOption: // Illiterate
+            totalPoints >= 20 ? .excellent : .bad
+        default:
+            .bad
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.miniMentalStateExamExcellentResult.localized
+                                                        : LocalizedTable.miniMentalStateExamBadResult.localized)]
+
+        return (results, resultType)
     }
 }

@@ -78,6 +78,10 @@ class SingleDomainInteractor: SingleDomainLogic {
                                     forKey: .sarcopeniaScreening)
         }
 
+        if tests.contains(.miniMentalStateExamination) {
+            testsStatus.updateValue(checkMiniMentalStateExamStatus(cga: cga), forKey: .miniMentalStateExamination)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -186,6 +190,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.sarcopeniaAssessment?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkMiniMentalStateExamStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.miniMentalStateExam?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

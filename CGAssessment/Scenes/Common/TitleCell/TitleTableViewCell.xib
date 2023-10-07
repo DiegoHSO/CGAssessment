@@ -40,7 +40,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="labelBottomConstraint" destination="elP-gM-mWS" id="mch-2E-DXB"/>
                 <outlet property="labelLeadingConstraint" destination="PGV-9l-ZtF" id="nMg-8q-Dph"/>
+                <outlet property="labelTrailingConstraint" destination="dBn-y2-iN0" id="bCH-TG-H2G"/>
                 <outlet property="titleLabel" destination="Uej-OW-kiz" id="Ilo-BG-JCP"/>
             </connections>
             <point key="canvasLocation" x="42.748091603053432" y="14.084507042253522"/>

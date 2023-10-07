@@ -18,6 +18,7 @@ extension Localizable {
     }
 }
 
+// swiftlint:disable:next type_body_length
 enum LocalizedTable: String, Localizable {
     case cga = "cga_key"
     case home = "home_key"
@@ -320,4 +321,78 @@ enum LocalizedTable: String, Localizable {
     case sarcopeniaAssessmentMediumResult = "sarcopenia_assessment_medium_result_key"
     case sarcopeniaAssessmentBadResult = "sarcopenia_assessment_bad_result_key"
 
+    // MARK: - Mini Mental State Examination
+    case miniMentalStateExamFirstQuestion = "mini_mental_state_exam_first_question_key"
+    case miniMentalStateExamSecondQuestion = "mini_mental_state_exam_second_question_key"
+    case miniMentalStateExamThirdQuestion = "mini_mental_state_exam_third_question_key"
+    case miniMentalStateExamFourthQuestion = "mini_mental_state_exam_fourth_question_key"
+    case miniMentalStateExamFifthQuestion = "mini_mental_state_exam_fifth_question_key"
+
+    case miniMentalStateExamFirstSectionQuestion = "mini_mental_state_exam_first_section_question_key"
+    case miniMentalStateExamSecondSectionQuestion = "mini_mental_state_exam_second_section_question_key"
+    case miniMentalStateExamThirdSectionQuestion = "mini_mental_state_exam_third_section_question_key"
+    case miniMentalStateExamFourthSectionQuestion = "mini_mental_state_exam_fourth_section_question_key"
+    case miniMentalStateExamFifthSectionQuestion = "mini_mental_state_exam_fifth_section_question_key"
+    case miniMentalStateExamSixthSectionQuestion = "mini_mental_state_exam_sixth_section_question_key"
+    // swiftlint:disable:next identifier_name
+    case miniMentalStateExamSeventhSectionQuestion = "mini_mental_state_exam_seventh_section_question_key"
+
+    case education = "education_key"
+    case timeOrientation = "time_orientation_key"
+    case spaceOrientation = "space_orientation_key"
+    case immediateMemory = "immediate_memory_key"
+    case attentionAndCalculation = "attention_and_calculation_key"
+    case evocationMemory = "evocation_memory_key"
+    case language = "language_key"
+
+    case informed = "informed_key"
+    case didntInform = "didnt_inform_key"
+    case repeated = "repeated_key"
+    case didntRepeat = "didnt_repeat_key"
+    case gotIt = "got_it_key"
+    case failed = "failed_key"
+    case named = "named_key"
+    case didntName = "didnt_name_key"
+    case carriedOut = "carried_out_key"
+    case didntCarryOut = "didnt_carry_out_key"
+
+    case moreThanElevenYears = "more_than_eleven_years_key"
+    case betweenNineAndElevenYears = "between_nine_and_eleven_years_key"
+    case betweenFiveAndEightYears = "between_five_and_eight_years_key"
+    case betweenOneAndFourYears = "between_one_and_four_years_key"
+    case illiterate = "illiterate_key"
+    case repeatedSentence = "repeated_sentence_key"
+    case couldntRepeatSentence = "couldnt_repeat_sentence_key"
+    case executedTheOrder = "executed_the_order_key"
+    case didntExecuteTheOrder = "didnt_execute_the_order_key"
+    case wroteCorrectly = "wrote_correctly_key"
+    case didntWriteCorrectly = "didnt_write_correctly_key"
+    case copiedTheDrawing = "copied_the_drawing_key"
+    case didntCopyTheDrawing = "didnt_copy_the_drawing_key"
+
+    case year = "year_key"
+    case dayOfMonth = "day_of_month_key"
+    case dayOfWeek = "day_of_week_key"
+    case time = "time_key"
+    case streetOrPlace = "street_or_place_key"
+    case floor = "floor_key"
+    case neighborhoodOrNearStreet = "neighborhood_or_near_street_key"
+    case city = "city_key"
+    case state = "state_key"
+    case car = "car_key"
+    case vase = "vase_key"
+    case brick = "brick_key"
+    case firstCalculation = "first_calculation_key"
+    case secondCalculation = "second_calculation_key"
+    case thirdCalculation = "third_calculation_key"
+    case fourthCalculation = "fourth_calculation_key"
+    case fifthCalculation = "fifth_calculation_key"
+    case clock = "clock_key"
+    case pen = "pen_key"
+    case firstStage = "first_stage_key"
+    case secondStage = "second_stage_key"
+    case thirdStage = "third_stage_key"
+
+    case miniMentalStateExamExcellentResult = "mini_mental_state_exam_excellent_result_key"
+    case miniMentalStateExamBadResult = "mini_mental_state_exam_bad_result_key"
 }

@@ -101,10 +101,18 @@ class DashboardInteractor: DashboardLogic {
 
         var missingDomains: Int = 9
 
+        // MARK: - Mobility domain done check
+
         if let isFirstTestDone = latestCGA.timedUpAndGo?.isDone, isFirstTestDone, let isSecondTestDone = latestCGA.walkingSpeed?.isDone,
            isSecondTestDone, let isThirdTestDone = latestCGA.calfCircumference?.isDone, isThirdTestDone,
            let isFourthTestDone = latestCGA.gripStrength?.isDone, isFourthTestDone,
            let isFifthTestDone = latestCGA.sarcopeniaScreening?.isDone, isFifthTestDone {
+            missingDomains -= 1
+        }
+
+        // MARK: - Cognitive domain done check
+
+        if let isFirstTestDone = latestCGA.miniMentalStateExam?.isDone, isFirstTestDone {
             missingDomains -= 1
         }
 
@@ -121,7 +129,7 @@ class DashboardInteractor: DashboardLogic {
             let gender = Gender(rawValue: patient.gender) ?? .female
             var alteredDomains = 0
 
-            // MARK: - Mobility domains test results check
+            // MARK: - Mobility domain test results check
 
             var isMobilityDomainAltered: Bool = false
             var timedUpAndGoResults: TimedUpAndGoModels.TestResults?
@@ -184,6 +192,42 @@ class DashboardInteractor: DashboardLogic {
             }
 
             alteredDomains = isMobilityDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Cognitive domain test results check
+
+            var isCognitiveDomainAltered: Bool = false
+
+            if let miniMentalStateExamProgress = evaluation.miniMentalStateExam, miniMentalStateExamProgress.isDone {
+
+                var rawQuestions: MiniMentalStateExamModels.RawQuestions = [:]
+                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = miniMentalStateExamProgress.binaryOptions?.allObjects as? [BinaryOption],
+                      let questionOptions = miniMentalStateExamProgress.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let miniMentalStateExamResults = MiniMentalStateExamModels.TestResults(questions: rawQuestions,
+                                                                                       binaryQuestions: rawBinaryQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .miniMentalStateExamination,
+                                                             results: miniMentalStateExamResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
