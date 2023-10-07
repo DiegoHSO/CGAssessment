@@ -317,3 +317,17 @@
 "third_stage_key" = "Colocou no chão";
 "mini_mental_state_exam_excellent_result_key" = "Indivíduo com resultado sugestivo de cognição normal";
 "mini_mental_state_exam_bad_result_key" = "Indivíduo com resultado sugestivo de declínio cognitivo";
+"verbal_fluency_first_instruction_key" = "Peça ao paciente que relacione o maior número de itens possível, dentro de 1 minuto, de uma mesma categoria semântica ou fonêmica.";
+"verbal_fluency_second_instruction_key" = "Por exemplo: frutas, animais, alimentos ou palavras com uma mesma letra. ";
+"verbal_fluency_third_instruction_key" = "Lembre-se que repetições da mesma palavra não pontuam, nem oposições regulares de gênero (ex.: gato/gata, cachorro/cachorra, lobo/loba, etc.). Entretanto, palavras cuja oposição de gênero possuam diferença na estrutura da palavra pontuam duas vezes (ex.: zangão/abelha, bode/cabra, cavalo/égua, etc.).";
+"verbal_fluency_fourth_instruction_key" = "Inicie o temporizador quando o paciente estiver pronto e incremente o contador a medida que o paciente for informando palavras válidas.";
+"verbal_fluency_excellent_result_key" = "Indivíduo com resultado sugestivo de boa fluência verbal";
+"verbal_fluency_bad_result_key" = "Indivíduo sugestivo de possuir deficiência na fluência verbal";
+"counting_key" = "Contagem";
+"number_of_spoken_words_key" = "Número de palavras faladas";
+"eight_or_more_years" = "Oito ou mais anos";
+"eight_or_less_years" = "Menos de oito anos";
+"timer_key" = "Temporizador";
+"number_of_words_key" = "Número de palavras";
+"word_key" = "palavra";
+"words_key" = "palavras";

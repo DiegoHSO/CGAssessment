@@ -61,7 +61,7 @@ class CGADomainsInteractor: CGADomainsLogic {
                              .sarcopeniaScreening: cga.sarcopeniaAssessment?.isDone == true], forKey: .mobility)
 
         domains.updateValue([.miniMentalStateExamination: cga.miniMentalStateExam?.isDone == true,
-                             .verbalFluencyTest: false,
+                             .verbalFluencyTest: cga.verbalFluency?.isDone == true,
                              .clockDrawingTest: false,
                              .moca: false,
                              .geriatricDepressionScale: false], forKey: .cognitive)

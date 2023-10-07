@@ -14,35 +14,37 @@ protocol StepperDelegate: AnyObject {
 class StepperTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var stepperValueLabel: UILabel?
     @IBOutlet private weak var stepper: UIStepper?
     private weak var delegate: StepperDelegate?
-    
+
     // MARK: - Life Cycle
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
     }
 
     // MARK: - Public Methods
-    
-    func setup(title: String?, value: Int) {
+
+    func setup(title: String?, value: Int, delegate: StepperDelegate?) {
         titleLabel?.text = title
         titleLabel?.isHidden = title == nil
         stepperValueLabel?.text = String(value)
         stepper?.value = Double(value)
+
+        self.delegate = delegate
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func setupViews() {
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         stepperValueLabel?.font = .compactDisplay(withStyle: .bold, size: 20)
     }
-    
+
     @IBAction private func didChangeStepperValue(_ sender: UIStepper) {
         stepperValueLabel?.text = String(Int(sender.value))
         delegate?.didChangeValue(value: Int(sender.value))

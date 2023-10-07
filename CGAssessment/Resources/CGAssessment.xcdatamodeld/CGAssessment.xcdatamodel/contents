@@ -22,6 +22,7 @@
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
         <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
+        <relationship name="verbalFluency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VerbalFluency" inverseName="cgas" inverseEntity="VerbalFluency"/>
         <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
     </entity>
     <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
@@ -65,6 +66,13 @@
         <attribute name="measuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="typedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
+    </entity>
+    <entity name="VerbalFluency" representedClassName="VerbalFluency" syncable="YES" codeGenerationType="class">
+        <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="elapsedTime" optional="YES" attributeType="Double" defaultValueString="60" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="verbalFluency" inverseEntity="CGA"/>
     </entity>
     <entity name="WalkingSpeed" representedClassName=".WalkingSpeed" syncable="YES" codeGenerationType="class">
         <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>

@@ -111,13 +111,13 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Cognitive domain done check
 
-                if let miniMentalStateExam = cga.miniMentalStateExam {
-                    if miniMentalStateExam.isDone {
+                if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency {
+                    if miniMentalStateExam.isDone, verbalFluency.isDone {
                         domainsStatus.updateValue(.done, forKey: .cognitive)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                     }
-                } else if cga.miniMentalStateExam == nil {
+                } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .cognitive)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .cognitive)
@@ -166,13 +166,13 @@ class CGAsInteractor: CGAsLogic {
 
                     // MARK: - Cognitive domain done check
 
-                    if let miniMentalStateExam = cga.miniMentalStateExam {
-                        if miniMentalStateExam.isDone {
+                    if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency {
+                        if miniMentalStateExam.isDone, verbalFluency.isDone {
                             domainsStatus.updateValue(.done, forKey: .cognitive)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                         }
-                    } else if cga.miniMentalStateExam == nil {
+                    } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .cognitive)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .cognitive)

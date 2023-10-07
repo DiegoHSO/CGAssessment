@@ -41,7 +41,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .miniMentalStateExamination:
             routeToMiniMentalStateExam(cgaId: cgaId)
         case .verbalFluencyTest:
-            break
+            routeToVerbalFluencyTest(cgaId: cgaId)
         case .clockDrawingTest:
             break
         case .moca:
@@ -113,5 +113,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let miniMentalStateExamController = MiniMentalStateExamBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniMentalStateExamController, animated: true)
+    }
+
+    private func routeToVerbalFluencyTest(cgaId: UUID?) {
+        guard let verbalFluencyController = VerbalFluencyBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(verbalFluencyController, animated: true)
     }
 }

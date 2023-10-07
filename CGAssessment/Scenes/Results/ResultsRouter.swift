@@ -45,7 +45,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .miniMentalStateExamination:
             routeToMiniMentalStateExam()
         case .verbalFluencyTest:
-            break
+            routeToVerbalFluencyTest(cgaId: cgaId)
         case .clockDrawingTest:
             break
         case .moca:
@@ -151,5 +151,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let miniMentalStateExamController = MiniMentalStateExamBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniMentalStateExamController, animated: true)
+    }
+
+    private func routeToVerbalFluencyTest(cgaId: UUID?) {
+        guard let verbalFluencyController = VerbalFluencyBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(verbalFluencyController, animated: true)
     }
 }
