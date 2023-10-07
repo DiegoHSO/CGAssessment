@@ -216,6 +216,7 @@ enum LocalizedTable: String, Localizable {
     // MARK: - Stopwatch
 
     case reset = "reset_key"
+    case clear  = "clear_key"
     case stop = "stop_key"
     case stopwatch = "stopwatch_key"
     case hasStopwatch = "has_stopwatch_key"

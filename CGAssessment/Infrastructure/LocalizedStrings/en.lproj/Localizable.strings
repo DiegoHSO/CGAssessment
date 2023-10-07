@@ -115,6 +115,7 @@
 "chemotherapy_toxicity_risk_description_key" = "Tool that assesses the risk of chemotherapy toxicity in the elderly person through the analysis of (...).";
 "domains_key" = "Domains";
 "reset_key" = "Reset";
+"clear_key" = "Clear";
 "stop_key" = "Stop";
 "see_results_key" = "See result";
 "stopwatch_key" = "Stopwatch";

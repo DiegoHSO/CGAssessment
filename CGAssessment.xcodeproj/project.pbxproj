@@ -46,6 +46,8 @@
 		F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */; };
 		F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */; };
 		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
+		F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */; };
+		F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -288,6 +290,8 @@
 		F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamRouter.swift; sourceTree = "<group>"; };
 		F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamModels.swift; sourceTree = "<group>"; };
 		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
+		F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
+		F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperTableViewCell.xib; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -569,6 +573,15 @@
 				F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */,
 			);
 			path = MiniMentalStateExam;
+			sourceTree = "<group>";
+		};
+		F13CD1052AD1DB1D0011E4DF /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */,
+				F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */,
+			);
+			path = Stepper;
 			sourceTree = "<group>";
 		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
@@ -1154,6 +1167,7 @@
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
 				F1F1E3D32AC2466000BC610E /* Image */,
 				F168B7E12ACBD9650015B2A3 /* EmptyState */,
+				F13CD1052AD1DB1D0011E4DF /* Stepper */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1311,6 +1325,7 @@
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
+				F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */,
 				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
@@ -1443,6 +1458,7 @@
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
+				F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */,
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
