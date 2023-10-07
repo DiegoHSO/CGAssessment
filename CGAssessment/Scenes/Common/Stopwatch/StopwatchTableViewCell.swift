@@ -28,6 +28,9 @@ class StopwatchTableViewCell: UITableViewCell {
     // Variable to keep track of elapsed time
     private var elapsedTime: TimeInterval = 0
 
+    // Variable to keep track if stopwatch is ascending or descending
+    private var isAscending: Bool = true
+
     // Delegate to send elapsed time frontwards
     private weak var delegate: StopwatchDelegate?
 
@@ -49,10 +52,13 @@ class StopwatchTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(delegate: StopwatchDelegate?, description: String? = nil, elapsedTime: TimeInterval? = nil) {
+    func setup(delegate: StopwatchDelegate?, description: String? = nil, elapsedTime: TimeInterval? = nil, isAscending: Bool = true) {
         descriptionLabel?.text = description
         descriptionLabel?.isHidden = description == nil
+        leftButtonLabel?.text = isAscending ? LocalizedTable.reset.localized : LocalizedTable.clear.localized
+
         self.delegate = delegate
+        self.isAscending = isAscending
 
         if let elapsedTime {
             self.elapsedTime = elapsedTime
@@ -65,7 +71,6 @@ class StopwatchTableViewCell: UITableViewCell {
     private func setupViews() {
         stopwatchLabel?.text = "00:00,00"
 
-        leftButtonLabel?.text = LocalizedTable.reset.localized
         leftButtonView?.layer.borderWidth = 1
         leftButtonView?.layer.borderColor = UIColor.label1?.cgColor
         leftButtonView?.layer.cornerRadius = (leftButtonView?.frame.size.width ?? 0) / 2
@@ -88,10 +93,10 @@ class StopwatchTableViewCell: UITableViewCell {
         // If the timer is running
         guard stopwatchTimer == nil else { return }
 
-        elapsedTime = 0
-        stopwatchLabel?.text = "00:00,00"
+        elapsedTime = isAscending ? 0 : 60
+        stopwatchLabel?.text = isAscending ? "00:00,00" : "01:00,00"
 
-        delegate?.didStopCounting(elapsedTime: 0, identifier: descriptionLabel?.text)
+        delegate?.didStopCounting(elapsedTime: elapsedTime, identifier: descriptionLabel?.text)
     }
 
     @objc private func didTapRightButton() {
@@ -109,14 +114,20 @@ class StopwatchTableViewCell: UITableViewCell {
             delegate?.didStopCounting(elapsedTime: elapsedTime, identifier: descriptionLabel?.text)
         } else {
             // Start the timer
+            elapsedTime = !isAscending && elapsedTime <= 0 ? 60 : elapsedTime
+
             stopwatchTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] timer in
                 guard let self else { return }
 
                 // Update the elapsed time
-                self.elapsedTime += timer.timeInterval
+                self.elapsedTime = isAscending ? self.elapsedTime + timer.timeInterval : self.elapsedTime - timer.timeInterval
 
                 self.setupElapsedTimeFormatting()
                 self.leftButtonView?.alpha = 0.4
+
+                if elapsedTime <= 0, !isAscending {
+                    didTapRightButton()
+                }
             }
 
             // Update the button text

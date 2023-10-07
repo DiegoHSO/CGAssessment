@@ -115,6 +115,7 @@
 "chemotherapy_toxicity_risk_description_key" = "Instrumento que avalia o risco de toxicidade à quimioterapia da pessoa idosa através da análise de (...).";
 "domains_key" = "Domínios";
 "reset_key" = "Zerar";
+"clear_key" = "Reiniciar";
 "stop_key" = "Parar";
 "see_results_key" = "Ver resultado";
 "stopwatch_key" = "Cronômetro";
