@@ -311,8 +311,8 @@
 "fifth_calculation_key" = "Calcular 72-7 ou soletrar ’m’";
 "clock_key" = "Relógio";
 "pen_key" = "Caneta";
-"first_stage_key" = "Primeiro estágio";
-"second_stage_key" = "Segundo estágio";
-"third_stage_key" = "Terceiro estágio";
+"first_stage_key" = "Pegou o papel com a mão direita";
+"second_stage_key" = "Dobrou ao meio";
+"third_stage_key" = "Colocou no chão";
 "mini_mental_state_exam_excellent_result_key" = "Indivíduo com resultado sugestivo de cognição normal";
 "mini_mental_state_exam_bad_result_key" = "Indivíduo com resultado sugestivo de declínio cognitivo";

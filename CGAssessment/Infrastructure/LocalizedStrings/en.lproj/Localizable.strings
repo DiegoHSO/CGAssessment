@@ -311,8 +311,8 @@
 "fifth_calculation_key" = "Calculate 72-7 or spell 'w'";
 "clock_key" = "Wristwatch";
 "pen_key" = "Pen";
-"first_stage_key" = "First stage";
-"second_stage_key" = "Second stage";
-"third_stage_key" = "Third stage";
+"first_stage_key" = "Took the paper in their right hand";
+"second_stage_key" = "Folded it in half";
+"third_stage_key" = "Put it on the floor";
 "mini_mental_state_exam_excellent_result_key" = "Individual with results suggestive of normal cognition";
 "mini_mental_state_exam_bad_result_key" = "Individual with results suggestive of cognitive decline";
