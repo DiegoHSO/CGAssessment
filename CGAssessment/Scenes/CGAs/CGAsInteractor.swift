@@ -91,6 +91,8 @@ class CGAsInteractor: CGAsLogic {
             let viewModels: [CGAsModels.CGAViewModel] = cgas.compactMap { cga in
                 var domainsStatus: CGAsModels.DomainsStatus = [:]
 
+                // MARK: - Mobility domain done check
+
                 if let timedUpAndGo = cga.timedUpAndGo, let walkingSpeed = cga.walkingSpeed,
                    let calfCircumference = cga.calfCircumference, let gripStrength = cga.gripStrength,
                    let sarcopeniaAssessment = cga.sarcopeniaAssessment {
@@ -105,6 +107,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.notStarted, forKey: .mobility)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .mobility)
+                }
+
+                // MARK: - Cognitive domain done check
+
+                if let miniMentalStateExam = cga.miniMentalStateExam {
+                    if miniMentalStateExam.isDone {
+                        domainsStatus.updateValue(.done, forKey: .cognitive)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                    }
+                } else if cga.miniMentalStateExam == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .cognitive)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                 }
 
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
@@ -130,6 +146,8 @@ class CGAsInteractor: CGAsLogic {
                 let viewModels: [CGAsModels.CGAViewModel] = cgas.compactMap { cga in
                     var domainsStatus: CGAsModels.DomainsStatus = [:]
 
+                    // MARK: - Mobility domain done check
+
                     if let timedUpAndGo = cga.timedUpAndGo, let walkingSpeed = cga.walkingSpeed,
                        let calfCircumference = cga.calfCircumference, let gripStrength = cga.gripStrength,
                        let sarcopeniaAssessment = cga.sarcopeniaAssessment {
@@ -144,6 +162,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .mobility)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .mobility)
+                    }
+
+                    // MARK: - Cognitive domain done check
+
+                    if let miniMentalStateExam = cga.miniMentalStateExam {
+                        if miniMentalStateExam.isDone {
+                            domainsStatus.updateValue(.done, forKey: .cognitive)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                        }
+                    } else if cga.miniMentalStateExam == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .cognitive)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

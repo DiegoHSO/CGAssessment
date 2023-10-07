@@ -108,6 +108,10 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
+        if let isFirstTestDone = latestCGA.miniMentalStateExam?.isDone, isFirstTestDone {
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
