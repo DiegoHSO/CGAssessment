@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BinaryOptionDelegate: AnyObject {
-    func didSelect(option: SelectableBinaryKeys, numberIdentifier: Int, sectionIdentifier: LocalizedTable)
+    func didSelect(option: SelectableBinaryKeys, numberIdentifier: Int16, sectionIdentifier: LocalizedTable)
 }
 
 class BinaryOptionView: UIView {
@@ -23,7 +23,7 @@ class BinaryOptionView: UIView {
     @IBOutlet private weak var yesOptionButton: UIButton?
     @IBOutlet private weak var noOptionButton: UIButton?
     private var delegate: BinaryOptionDelegate?
-    private var numberIdentifier: Int?
+    private var numberIdentifier: Int16?
     private var sectionIdentifier: LocalizedTable?
     private var selectedOption: SelectableBinaryKeys = .none
 

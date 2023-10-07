@@ -118,23 +118,6 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
         guard let viewModel, let section = Section(rawValue: indexPath.section),
               let row = viewModel.sections[section]?[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
 
-        let selectedQuestion: SelectableKeys
-
-        switch section {
-        case .firstQuestion:
-            selectedQuestion = viewModel.firstQuestionOption
-        case .secondQuestion:
-            selectedQuestion = viewModel.secondQuestionOption
-        case .thirdQuestion:
-            selectedQuestion = viewModel.thirdQuestionOption
-        case .fourthQuestion:
-            selectedQuestion = viewModel.fourthQuestionOption
-        case .fifthQuestion:
-            selectedQuestion = viewModel.fifthQuestionOption
-        default:
-            selectedQuestion = .none
-        }
-
         switch row {
         case .question:
             guard let questionViewModel = viewModel.questions[section] else { return UITableViewCell(frame: .zero) }
@@ -145,7 +128,7 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(title: questionViewModel.question, options: questionViewModel.options,
-                                        delegate: interactor, selectedQuestion: selectedQuestion,
+                                        delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
             return cell

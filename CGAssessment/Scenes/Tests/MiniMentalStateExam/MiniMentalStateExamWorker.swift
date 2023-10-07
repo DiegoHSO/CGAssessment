@@ -23,20 +23,11 @@ class MiniMentalStateExamWorker {
 
     // MARK: - Public Methods
 
-    func getMiniMentalStateExamProgress() throws -> SarcopeniaScreening? {
-        return try dao.fetchCGATest(test: .sarcopeniaScreening, cgaId: cgaId) as? SarcopeniaScreening
+    func getMiniMentalStateExamProgress() throws -> MiniMentalStateExam? {
+        return try dao.fetchCGATest(test: .miniMentalStateExamination, cgaId: cgaId) as? MiniMentalStateExam
     }
 
-    func getPatientGender() throws -> Gender {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId),
-              let gender = Gender(rawValue: patient.gender) else {
-            throw CoreDataErrors.unableToFetchPatient
-        }
-
-        return gender
-    }
-
-    func updateMiniMentalStateExamProgress(with data: SarcopeniaScreeningModels.TestData) throws {
+    func updateMiniMentalStateExamProgress(with data: MiniMentalStateExamModels.TestData) throws {
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 

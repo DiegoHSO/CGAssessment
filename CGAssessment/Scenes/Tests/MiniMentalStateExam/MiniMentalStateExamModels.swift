@@ -11,17 +11,13 @@ struct MiniMentalStateExamModels {
 
     typealias Questions = [Section: QuestionViewModel]
     typealias BinaryQuestions = [Section: BinaryOptionsViewModel]
+    typealias RawBinaryQuestions = [LocalizedTable: [Int16: SelectableBinaryKeys]]
+    typealias RawQuestions = [LocalizedTable: SelectableKeys]
     typealias BinaryOptionsViewModel = BinaryOptionsModels.BinaryOptionsViewModel
-    typealias BinaryOption = BinaryOptionsModels.BinaryOption
 
     struct ControllerViewModel {
         let questions: Questions
         let binaryQuestions: BinaryQuestions
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
         let isResultsButtonEnabled: Bool
 
         var sections: [Section: [Row]] {
@@ -41,24 +37,18 @@ struct MiniMentalStateExamModels {
 
     struct QuestionViewModel {
         let question: LocalizedTable?
+        let selectedOption: SelectableKeys
         let options: Options
     }
 
     struct TestResults {
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
-        let gender: Gender
+        let questions: RawQuestions
+        let binaryQuestions: RawBinaryQuestions
     }
 
     struct TestData {
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
+        let questions: RawQuestions
+        let binaryQuestions: RawBinaryQuestions
         let isDone: Bool
     }
 

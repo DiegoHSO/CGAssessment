@@ -32,6 +32,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -209,7 +210,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .sarcopeniaAssessment:
             return cga?.sarcopeniaAssessment
         case .miniMentalStateExamination:
-            return nil
+            return cga?.miniMentalStateExam
         case .verbalFluencyTest:
             return nil
         case .clockDrawingTest:
@@ -383,6 +384,40 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.miniMentalStateExam == nil {
+            try createMiniMentalStateExamInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.miniMentalStateExam?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.miniMentalStateExam?.selectableOptions = NSSet(array: selectableOptions)
+        cga.miniMentalStateExam?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -423,6 +458,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createSarcopeniaAssessmentInstance(for cga: CGA) throws {
         let newTest = SarcopeniaAssessment(context: context)
         cga.sarcopeniaAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createMiniMentalStateExamInstance(for cga: CGA) throws {
+        let newTest = MiniMentalStateExam(context: context)
+        cga.miniMentalStateExam = newTest
 
         try context.save()
     }

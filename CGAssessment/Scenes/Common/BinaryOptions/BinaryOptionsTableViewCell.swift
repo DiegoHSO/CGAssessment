@@ -46,7 +46,7 @@ class BinaryOptionsTableViewCell: UITableViewCell {
         }
 
         let viewModels = viewModel.questions.map {
-            BinaryOptionsModels.BinaryOptionViewModel(question: $0.value.question, selectedOption: $0.value.selectedOption,
+            BinaryOptionsModels.BinaryOptionViewModel(question: $0.value, selectedOption: viewModel.options[$0.key] ?? .none,
                                                       firstOptionTitle: $0.key == 1 ? viewModel.firstOptionTitle : nil,
                                                       secondOptionTitle: $0.key == 1 ? viewModel.secondOptionTitle : nil,
                                                       delegate: viewModel.delegate, sectionIdentifier: viewModel.title, identifier: $0.key)
