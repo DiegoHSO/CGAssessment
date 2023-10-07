@@ -323,6 +323,7 @@ enum LocalizedTable: String, Localizable {
     case sarcopeniaAssessmentBadResult = "sarcopenia_assessment_bad_result_key"
 
     // MARK: - Mini Mental State Examination
+
     case miniMentalStateExamFirstQuestion = "mini_mental_state_exam_first_question_key"
     case miniMentalStateExamSecondQuestion = "mini_mental_state_exam_second_question_key"
     case miniMentalStateExamThirdQuestion = "mini_mental_state_exam_third_question_key"
@@ -396,4 +397,21 @@ enum LocalizedTable: String, Localizable {
 
     case miniMentalStateExamExcellentResult = "mini_mental_state_exam_excellent_result_key"
     case miniMentalStateExamBadResult = "mini_mental_state_exam_bad_result_key"
+
+    // MARK: - Verbal fluency
+
+    case verbalFluencyFirstInstruction = "verbal_fluency_first_instruction_key"
+    case verbalFluencySecondInstruction = "verbal_fluency_second_instruction_key"
+    case verbalFluencyThirdInstruction = "verbal_fluency_third_instruction_key"
+    case verbalFluencyFourthInstruction = "verbal_fluency_fourth_instruction_key"
+    case verbalFluencyExcellentResult = "verbal_fluency_excellent_result_key"
+    case verbalFluencyBadResult = "verbal_fluency_bad_result_key"
+    case counting = "counting_key"
+    case numberOfSpokenWords = "number_of_spoken_words_key"
+    case eightOrMoreYears = "eight_or_more_years"
+    case eightOrLessYears = "eight_or_less_years"
+    case timer = "timer_key"
+    case numberOfWords = "number_of_words_key"
+    case word = "word_key"
+    case words = "words_key"
 }

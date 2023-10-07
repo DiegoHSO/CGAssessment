@@ -48,7 +48,8 @@ class ResultsWorker {
             guard let miniMentalStateExamResults = results as? MiniMentalStateExamModels.TestResults else { return nil}
             return getMiniMentalStateExamResults(for: miniMentalStateExamResults)
         case .verbalFluencyTest:
-            break
+            guard let verbalFluencyTestResults = results as? VerbalFluencyModels.TestResults else { return nil}
+            return getVerbalFluencyResults(for: verbalFluencyTestResults)
         case .clockDrawingTest:
             break
         case .moca:
@@ -292,7 +293,6 @@ class ResultsWorker {
     }
 
     private func getMiniMentalStateExamResults(for testResults: MiniMentalStateExamModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
-
         let selectedOptions = testResults.questions.filter({ $0.key != .miniMentalStateExamFirstQuestion }).values.map { $0 as SelectableKeys }
         let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
         let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
@@ -327,6 +327,26 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.miniMentalStateExamExcellentResult.localized
                                                         : LocalizedTable.miniMentalStateExamBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getVerbalFluencyResults(for testResults: VerbalFluencyModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let resultType: ResultsModels.ResultType = switch testResults.selectedEducationOption {
+        case .firstOption: // Eight or more years of education
+            testResults.countedWords >= 13 ? .excellent : .bad
+        case .secondOption: // Less than eight years of education
+            testResults.countedWords >= 9 ? .excellent : .bad
+        default:
+            .bad
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.numberOfWords.localized,
+                                                     description: "\(testResults.countedWords) \(testResults.countedWords == 1 ? LocalizedTable.word.localized : LocalizedTable.words.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.verbalFluencyExcellentResult.localized
+                                                        : LocalizedTable.verbalFluencyBadResult.localized)]
 
         return (results, resultType)
     }

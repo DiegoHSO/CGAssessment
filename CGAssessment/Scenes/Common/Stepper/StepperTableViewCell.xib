@@ -27,16 +27,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="FmM-jp-CV4">
-                        <rect key="frame" x="25" y="0.0" width="270" height="74"/>
+                        <rect key="frame" x="30" y="0.0" width="265" height="84"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de palavras faladas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0b-Cy-e7N">
-                                <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="35"/>
                                 <fontDescription key="fontDescription" name="SFCompactDisplay-Medium" family="SF Compact Display" pointSize="16"/>
                                 <color key="textColor" name="Label-1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z50-uX-FOH">
-                                <rect key="frame" x="0.0" y="42" width="134.33333333333334" height="32"/>
+                                <rect key="frame" x="0.0" y="52" width="134.33333333333334" height="32"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWy-zx-4kp">
                                         <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="32"/>
@@ -56,8 +56,8 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="FmM-jp-CV4" secondAttribute="bottom" constant="30" id="1SM-rc-yjp"/>
-                    <constraint firstItem="FmM-jp-CV4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="5LW-9U-zBA"/>
+                    <constraint firstAttribute="bottom" secondItem="FmM-jp-CV4" secondAttribute="bottom" constant="20" id="1SM-rc-yjp"/>
+                    <constraint firstItem="FmM-jp-CV4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="5LW-9U-zBA"/>
                     <constraint firstAttribute="trailing" secondItem="FmM-jp-CV4" secondAttribute="trailing" constant="25" id="OL7-my-lgH"/>
                     <constraint firstItem="FmM-jp-CV4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aSB-x8-Eyk"/>
                 </constraints>

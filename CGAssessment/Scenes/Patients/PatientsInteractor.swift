@@ -100,8 +100,8 @@ class PatientsInteractor: PatientsLogic {
                 timedUpAndGoResults = TimedUpAndGoModels.TestResults(elapsedTime: timedUpAndGo.hasStopwatch ?
                                                                         timedUpAndGo.typedTime as? Double ?? 0 :
                                                                         timedUpAndGo.measuredTime as? Double ?? 0)
-                let resultsTuple = resultsWorker?.getResults(for: .timedUpAndGo,
-                                                             results: timedUpAndGoResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .timedUpAndGo, results: timedUpAndGoResults)
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isMobilityDomainAltered = true }
             }
 
@@ -116,15 +116,14 @@ class PatientsInteractor: PatientsLogic {
                                                                          thirdElapsedTime: walkingSpeed.thirdMeasuredTime as? Double ?? 0)
                 }
 
-                let resultsTuple = resultsWorker?.getResults(for: .walkingSpeed,
-                                                             results: walkingSpeedResults)
+                let resultsTuple = resultsWorker?.getResults(for: .walkingSpeed, results: walkingSpeedResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
             if let calfCircumference = lastCGA?.calfCircumference, calfCircumference.isDone, !isMobilityDomainAltered {
                 calfCircumferenceResults = CalfCircumferenceModels.TestResults(circumference: calfCircumference.measuredCircumference as? Double ?? 0)
-                let resultsTuple = resultsWorker?.getResults(for: .calfCircumference,
-                                                             results: calfCircumferenceResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .calfCircumference, results: calfCircumferenceResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
@@ -133,8 +132,8 @@ class PatientsInteractor: PatientsLogic {
                                                                      secondMeasurement: gripStrength.secondMeasurement as? Double ?? 0,
                                                                      thirdMeasurement: gripStrength.thirdMeasurement as? Double ?? 0,
                                                                      gender: gender)
-                let resultsTuple = resultsWorker?.getResults(for: .gripStrength,
-                                                             results: gripStrengthResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .gripStrength, results: gripStrengthResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
@@ -145,8 +144,8 @@ class PatientsInteractor: PatientsLogic {
                                                                      calfCircumferenceResults: calfCircumferenceResults,
                                                                      timedUpAndGoResults: timedUpAndGoResults,
                                                                      walkingSpeedResults: walkingSpeedResults)
-                let resultsTuple = resultsWorker?.getResults(for: .sarcopeniaAssessment,
-                                                             results: results)
+
+                let resultsTuple = resultsWorker?.getResults(for: .sarcopeniaAssessment, results: results)
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium || resultsTuple?.1 == .good { isMobilityDomainAltered = true }
             }
 
@@ -157,7 +156,6 @@ class PatientsInteractor: PatientsLogic {
             var isCognitiveDomainAltered: Bool = false
 
             if let miniMentalStateExamProgress = lastCGA?.miniMentalStateExam, miniMentalStateExamProgress.isDone {
-
                 var rawQuestions: MiniMentalStateExamModels.RawQuestions = [:]
                 var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
 
@@ -181,8 +179,15 @@ class PatientsInteractor: PatientsLogic {
                 let miniMentalStateExamResults = MiniMentalStateExamModels.TestResults(questions: rawQuestions,
                                                                                        binaryQuestions: rawBinaryQuestions)
 
-                let resultsTuple = resultsWorker?.getResults(for: .miniMentalStateExamination,
-                                                             results: miniMentalStateExamResults)
+                let resultsTuple = resultsWorker?.getResults(for: .miniMentalStateExamination, results: miniMentalStateExamResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let verbalFluency = lastCGA?.verbalFluency, verbalFluency.isDone, !isCognitiveDomainAltered {
+                let verbalFluencyResults = VerbalFluencyModels.TestResults(countedWords: verbalFluency.countedWords,
+                                                                           selectedEducationOption: SelectableKeys(rawValue: verbalFluency.selectedOption) ?? .none)
+
+                let resultsTuple = resultsWorker?.getResults(for: .verbalFluencyTest, results: verbalFluencyResults)
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 

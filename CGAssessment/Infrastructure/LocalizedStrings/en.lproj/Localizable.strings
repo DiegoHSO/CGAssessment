@@ -317,3 +317,17 @@
 "third_stage_key" = "Put it on the floor";
 "mini_mental_state_exam_excellent_result_key" = "Individual with results suggestive of normal cognition";
 "mini_mental_state_exam_bad_result_key" = "Individual with results suggestive of cognitive decline";
+"verbal_fluency_first_instruction_key" = "Ask the patient to list as many items as possible, within 1 minute, from the same semantic or phonemic category.";
+"verbal_fluency_second_instruction_key" = "For example: fruits, animals, foods or words with the same letter.";
+"verbal_fluency_third_instruction_key" = "Remember that repetitions of the same word do not score points, nor do regular gender oppositions (e.g.: cat/cat, dog/dog, wolf/she-wolf, etc.). However, words whose gender opposition has a difference in the structure of the word score twice (e.g.: drone/bee, bull/cow, horse/mare, etc.).";
+"verbal_fluency_fourth_instruction_key" = "Start the timer when the patient is ready and increment the counter as the patient reports valid words.";
+"verbal_fluency_excellent_result_key" = "Individual with results suggestive of good verbal fluency";
+"verbal_fluency_bad_result_key" = "Individual suggestive of having a deficiency in verbal fluency";
+"counting_key" = "Counting";
+"number_of_spoken_words_key" = "Number of words spoken";
+"eight_or_more_years" = "Eight or more years";
+"eight_or_less_years" = "Less than eight years";
+"timer_key" = "Timer";
+"number_of_words_key" = "Number of words";
+"word_key" = "word";
+"words_key" = "words";

@@ -33,6 +33,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -100,6 +101,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                     .miniMentalStateExamFifthSectionQuestion: [1: .yes, 2: .not, 3: .yes],
                                                     .miniMentalStateExamSixthSectionQuestion: [1: .yes, 2: .yes],
                                                     .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -218,7 +221,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .miniMentalStateExamination:
             return cga?.miniMentalStateExam
         case .verbalFluencyTest:
-            return nil
+            return cga?.verbalFluency
         case .clockDrawingTest:
             return nil
         case .moca:
@@ -426,6 +429,25 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.verbalFluency == nil {
+            try createVerbalFluencyInstance(for: cga)
+        }
+
+        if let elapsedTime = test.elapsedTime {
+            cga.verbalFluency?.elapsedTime = NSNumber(value: elapsedTime)
+        }
+
+        cga.verbalFluency?.selectedOption = test.selectedOption.rawValue
+        cga.verbalFluency?.countedWords = test.countedWords
+        cga.verbalFluency?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -473,6 +495,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createMiniMentalStateExamInstance(for cga: CGA) throws {
         let newTest = MiniMentalStateExam(context: context)
         cga.miniMentalStateExam = newTest
+
+        try context.save()
+    }
+
+    private func createVerbalFluencyInstance(for cga: CGA) throws {
+        let newTest = VerbalFluency(context: context)
+        cga.verbalFluency = newTest
 
         try context.save()
     }

@@ -48,6 +48,14 @@
 		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
 		F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */; };
 		F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */; };
+		F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */; };
+		F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */; };
+		F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */; };
+		F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */; };
+		F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */; };
+		F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */; };
+		F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */; };
+		F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -292,6 +300,14 @@
 		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
 		F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
 		F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperTableViewCell.xib; sourceTree = "<group>"; };
+		F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerbalFluency.storyboard; sourceTree = "<group>"; };
+		F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyViewController.swift; sourceTree = "<group>"; };
+		F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyInteractor.swift; sourceTree = "<group>"; };
+		F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyPresenter.swift; sourceTree = "<group>"; };
+		F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyWorker.swift; sourceTree = "<group>"; };
+		F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyRouter.swift; sourceTree = "<group>"; };
+		F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyModels.swift; sourceTree = "<group>"; };
+		F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyBuilder.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -582,6 +598,21 @@
 				F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */,
 			);
 			path = Stepper;
+			sourceTree = "<group>";
+		};
+		F13CD10A2AD1E8640011E4DF /* VerbalFluency */ = {
+			isa = PBXGroup;
+			children = (
+				F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */,
+				F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */,
+				F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */,
+				F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */,
+				F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */,
+				F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */,
+				F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */,
+				F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */,
+			);
+			path = VerbalFluency;
 			sourceTree = "<group>";
 		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
@@ -1061,6 +1092,7 @@
 				F18698DF2AC4D43E00FB5620 /* SarcopeniaScreening */,
 				F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */,
 				F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */,
+				F13CD10A2AD1E8640011E4DF /* VerbalFluency */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1322,6 +1354,7 @@
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
+				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
@@ -1509,15 +1542,18 @@
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
+				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
+				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
+				F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */,
 				F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
@@ -1527,7 +1563,10 @@
 				F138F25A2AC94BB6004E90E2 /* SarcopeniaScreeningWorker.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
+				F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
+				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
+				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
@@ -1548,6 +1587,7 @@
 				F10DFBA12ACA524D00E1A380 /* CGAsPresenter.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
+				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
