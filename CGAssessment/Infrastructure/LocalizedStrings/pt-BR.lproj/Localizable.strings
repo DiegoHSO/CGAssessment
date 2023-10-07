@@ -314,3 +314,5 @@
 "first_stage_key" = "Primeiro estágio";
 "second_stage_key" = "Segundo estágio";
 "third_stage_key" = "Terceiro estágio";
+"mini_mental_state_exam_excellent_result_key" = "Indivíduo com resultado sugestivo de cognição normal";
+"mini_mental_state_exam_bad_result_key" = "Indivíduo com resultado sugestivo de declínio cognitivo";

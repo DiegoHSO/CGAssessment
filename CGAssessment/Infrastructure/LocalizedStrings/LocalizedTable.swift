@@ -392,4 +392,7 @@ enum LocalizedTable: String, Localizable {
     case firstStage = "first_stage_key"
     case secondStage = "second_stage_key"
     case thirdStage = "third_stage_key"
+
+    case miniMentalStateExamExcellentResult = "mini_mental_state_exam_excellent_result_key"
+    case miniMentalStateExamBadResult = "mini_mental_state_exam_bad_result_key"
 }

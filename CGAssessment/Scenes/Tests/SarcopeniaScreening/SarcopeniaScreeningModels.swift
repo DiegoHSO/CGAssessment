@@ -10,15 +10,10 @@ import Foundation
 struct SarcopeniaScreeningModels {
 
     typealias Questions = [Section: QuestionViewModel]
+    typealias RawQuestions = [LocalizedTable: SelectableKeys]
 
     struct ControllerViewModel {
         let questions: Questions
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
-        let sixthQuestionOption: SelectableKeys
         let isResultsButtonEnabled: Bool
 
         var sections: [Section: [Row]] {
@@ -34,27 +29,18 @@ struct SarcopeniaScreeningModels {
     }
 
     struct QuestionViewModel {
-        let question: LocalizedTable
+        let question: LocalizedTable?
+        let selectedOption: SelectableKeys
         let options: Options
     }
 
     struct TestResults {
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
-        let sixthQuestionOption: SelectableKeys
+        let questions: RawQuestions
         let gender: Gender
     }
 
     struct TestData {
-        let firstQuestionOption: SelectableKeys
-        let secondQuestionOption: SelectableKeys
-        let thirdQuestionOption: SelectableKeys
-        let fourthQuestionOption: SelectableKeys
-        let fifthQuestionOption: SelectableKeys
-        let sixthQuestionOption: SelectableKeys
+        let questions: RawQuestions
         let isDone: Bool
     }
 

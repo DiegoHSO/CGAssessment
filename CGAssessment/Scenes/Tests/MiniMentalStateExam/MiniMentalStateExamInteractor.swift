@@ -140,8 +140,8 @@ class MiniMentalStateExamInteractor: MiniMentalStateExamLogic {
 
         let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
         let binaryOptionsDictionaries = rawBinaryQuestions.map { $0.value }
-        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { _, dictionary in
-            dictionary.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
         }
 
         let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({$0 != .none}) && selectedBinaryOptions.allSatisfy({ $0 != .none })
@@ -156,8 +156,8 @@ class MiniMentalStateExamInteractor: MiniMentalStateExamLogic {
 
         let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
         let binaryOptionsDictionaries = rawBinaryQuestions.map { $0.value }
-        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { _, dictionary in
-            dictionary.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
         }
 
         let isAllDone: Bool = selectedOptions.allSatisfy({$0 != .none}) && selectedBinaryOptions.allSatisfy({ $0 != .none })
