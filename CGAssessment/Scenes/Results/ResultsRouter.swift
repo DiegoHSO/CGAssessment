@@ -49,7 +49,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .clockDrawingTest:
             routeToClockDrawingTest()
         case .moca:
-            break
+            routeToMoCA()
         case .geriatricDepressionScale:
             break
         case .visualAcuityAssessment:
@@ -163,5 +163,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let clockDrawingController = ClockDrawingBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(clockDrawingController, animated: true)
+    }
+
+    private func routeToMoCA() {
+        guard let moCAController = MoCABuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(moCAController, animated: true)
     }
 }
