@@ -15,18 +15,19 @@ struct BinaryOptionsModels {
         let firstOptionTitle: String?
         let secondOptionTitle: String?
         let delegate: BinaryOptionDelegate?
-        let sectionIdentifier: LocalizedTable?
+        let sectionIdentifier: LocalizedTable
         let identifier: Int16
     }
 
     struct BinaryOptionsViewModel {
         let title: LocalizedTable?
+        var sectionIdentifier: LocalizedTable?
         let options: [Int16: SelectableBinaryKeys]
         let questions: [Int16: LocalizedTable]
         let firstOptionTitle: String?
         let secondOptionTitle: String?
         let delegate: BinaryOptionDelegate?
-        let leadingConstraint: CGFloat = 35
+        var leadingConstraint: CGFloat = 35
     }
 
 }

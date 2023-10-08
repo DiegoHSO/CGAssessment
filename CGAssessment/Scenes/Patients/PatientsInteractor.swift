@@ -173,6 +173,7 @@ class PatientsInteractor: PatientsLogic {
                 binaryOptions.forEach { option in
                     guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
                           let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
                     rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
                 }
 
@@ -188,6 +189,26 @@ class PatientsInteractor: PatientsLogic {
                                                                            selectedEducationOption: SelectableKeys(rawValue: verbalFluency.selectedOption) ?? .none)
 
                 let resultsTuple = resultsWorker?.getResults(for: .verbalFluencyTest, results: verbalFluencyResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let clockDrawing = lastCGA?.clockDrawing, clockDrawing.isDone, !isCognitiveDomainAltered {
+                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = clockDrawing.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let clockDrawingResults = ClockDrawingModels.TestResults(binaryQuestions: rawBinaryQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .clockDrawingTest, results: clockDrawingResults)
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 

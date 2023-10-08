@@ -111,7 +111,6 @@ extension VerbalFluencyViewController: UITableViewDataSource {
 
         switch viewModel.sections[section]?[safe: indexPath.row] {
         case .instructions:
-
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
                                                            for: indexPath) as? InstructionsTableViewCell else {
                 return UITableViewCell()

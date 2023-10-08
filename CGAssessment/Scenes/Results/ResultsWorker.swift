@@ -51,7 +51,8 @@ class ResultsWorker {
             guard let verbalFluencyTestResults = results as? VerbalFluencyModels.TestResults else { return nil}
             return getVerbalFluencyResults(for: verbalFluencyTestResults)
         case .clockDrawingTest:
-            break
+            guard let clockDrawingTestResults = results as? ClockDrawingModels.TestResults else { return nil}
+            return getClockDrawingResults(for: clockDrawingTestResults)
         case .moca:
             break
         case .geriatricDepressionScale:
@@ -347,6 +348,26 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.verbalFluencyExcellentResult.localized
                                                         : LocalizedTable.verbalFluencyBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getClockDrawingResults(for testResults: ClockDrawingModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
+        }
+
+        let selectedBinaryOptionsPointed = selectedBinaryOptions.filter { $0 == .yes }
+        let totalPoints = selectedBinaryOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let resultType: ResultsModels.ResultType = totalPoints < 11 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.clockDrawingExcellentResult.localized
+                                                        : LocalizedTable.clockDrawingBadResult.localized)]
 
         return (results, resultType)
     }

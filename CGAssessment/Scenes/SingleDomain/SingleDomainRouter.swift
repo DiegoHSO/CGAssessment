@@ -43,7 +43,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .verbalFluencyTest:
             routeToVerbalFluencyTest(cgaId: cgaId)
         case .clockDrawingTest:
-            break
+            routeToClockDrawingTest(cgaId: cgaId)
         case .moca:
             break
         case .geriatricDepressionScale:
@@ -119,5 +119,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let verbalFluencyController = VerbalFluencyBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(verbalFluencyController, animated: true)
+    }
+
+    private func routeToClockDrawingTest(cgaId: UUID?) {
+        guard let clockDrawingController = ClockDrawingBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(clockDrawingController, animated: true)
     }
 }

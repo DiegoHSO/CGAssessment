@@ -16,7 +16,6 @@ class BinaryOptionView: UIView {
     // MARK: - Private Properites
 
     @IBOutlet private var contentView: UIView?
-    @IBOutlet private weak var labelOptionsStackView: UIStackView?
     @IBOutlet private weak var firstOptionTitleLabel: UILabel?
     @IBOutlet private weak var secondOptionTitleLabel: UILabel?
     @IBOutlet private weak var questionLabel: UILabel?
@@ -53,7 +52,6 @@ class BinaryOptionView: UIView {
         questionLabel?.text = viewModel.question.localized
         firstOptionTitleLabel?.text = viewModel.firstOptionTitle
         secondOptionTitleLabel?.text = viewModel.secondOptionTitle
-        labelOptionsStackView?.isHidden = viewModel.firstOptionTitle == nil && viewModel.secondOptionTitle == nil
         delegate = viewModel.delegate
         numberIdentifier = viewModel.identifier
         sectionIdentifier = viewModel.sectionIdentifier

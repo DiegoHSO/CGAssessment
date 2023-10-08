@@ -414,4 +414,28 @@ enum LocalizedTable: String, Localizable {
     case numberOfWords = "number_of_words_key"
     case word = "word_key"
     case words = "words_key"
+
+    // MARK: - Clock drawing
+
+    case clockDrawingFirstInstruction = "clock_drawing_first_instruction_key"
+    case clockDrawingSecondInstruction = "clock_drawing_second_instruction_key"
+    case outline = "outline_key"
+    case numbers = "numbers_key"
+    case pointers = "pointers_key"
+    case clockDrawingFirstSectionFirstQuestion = "clock_drawing_first_section_first_question_key"
+    case clockDrawingFirstSectionSecondQuestion = "clock_drawing_first_section_second_question_key"
+    case clockDrawingSecondSectionFirstQuestion = "clock_drawing_second_section_first_question_key"
+    case clockDrawingSecondSectionSecondQuestion = "clock_drawing_second_section_second_question_key"
+    case clockDrawingSecondSectionThirdQuestion = "clock_drawing_second_section_third_question_key"
+    case clockDrawingSecondSectionFourthQuestion = "clock_drawing_second_section_fourth_question_key"
+    case clockDrawingSecondSectionFifthQuestion = "clock_drawing_second_section_fifth_question_key"
+    case clockDrawingSecondSectionSixthQuestion = "clock_drawing_second_section_sixth_question_key"
+    case clockDrawingThirdSectionFirstQuestion = "clock_drawing_third_section_first_question_key"
+    case clockDrawingThirdSectionSecondQuestion = "clock_drawing_third_section_second_question_key"
+    case clockDrawingThirdSectionThirdQuestion = "clock_drawing_third_section_third_question_key"
+    case clockDrawingThirdSectionFourthQuestion = "clock_drawing_third_section_fourth_question_key"
+    case clockDrawingThirdSectionFifthQuestion = "clock_drawing_third_section_fifth_question_key"
+    case clockDrawingThirdSectionSixthQuestion = "clock_drawing_third_section_sixth_question_key"
+    case clockDrawingExcellentResult = "clock_drawing_excellent_result_key"
+    case clockDrawingBadResult = "clock_drawing_bad_result_key"
 }

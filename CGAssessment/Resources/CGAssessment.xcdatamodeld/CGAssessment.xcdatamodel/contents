@@ -4,6 +4,7 @@
         <attribute name="optionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sectionId" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="binaryOptions" inverseEntity="ClockDrawing"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="binaryOptions" inverseEntity="MiniMentalStateExam"/>
     </entity>
     <entity name="CalfCircumference" representedClassName=".CalfCircumference" syncable="YES" codeGenerationType="class">
@@ -16,6 +17,7 @@
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="718056000" usesScalarValueType="NO"/>
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
+        <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
@@ -24,6 +26,11 @@
         <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
         <relationship name="verbalFluency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VerbalFluency" inverseName="cgas" inverseEntity="VerbalFluency"/>
         <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
+    </entity>
+    <entity name="ClockDrawing" representedClassName="ClockDrawing" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="clockDrawing" inverseEntity="BinaryOption"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="clockDrawing" inverseEntity="CGA"/>
     </entity>
     <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
         <attribute name="firstMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
