@@ -32,13 +32,22 @@ struct MoCAModels {
                   let lionImage = UIImage(named: "moca-3"), let rhinoImage = UIImage(named: "moca-4"),
                   let camelImage = UIImage(named: "moca-5") else { return [:] }
 
-            return [.visuospatial: [1: circlesAppImage, 3: cubeAppImage, 6: UIImage(data: circlesImage ?? Data()),
-                                    7: UIImage(data: watchImage ?? Data())],
-                    .naming: [1: lionImage, 2: rhinoImage, 3: camelImage]]
+            var images: Images = [.visuospatial: [1: circlesAppImage, 3: cubeAppImage],
+                                  .naming: [1: lionImage, 2: rhinoImage, 3: camelImage]]
+
+            if let circlesImage {
+                images[.visuospatial]?.updateValue(UIImage(data: circlesImage), forKey: 6)
+            }
+
+            if let watchImage {
+                images[.visuospatial]?.updateValue(UIImage(data: watchImage), forKey: 7)
+            }
+
+            return images
         }
 
         var instructions: Instructions {
-            return [.visuospatial: [0: .mocaFirstSectionFirstInstruction, 1: nil, 2: .mocaFirstSectionSecondInstruction],
+            return [.visuospatial: [0: .mocaFirstSectionFirstInstruction, 1: nil, 2: .mocaFirstSectionSecondInstruction, 5: .mocaFirstSectionFourthInstruction],
                     .naming: [0: .mocaSecondSectionFirstInstruction],
                     .memory: [0: .mocaThirdSectionFirstInstruction],
                     .attention: [0: .mocaFourthSectionFirstInstruction, 1: nil, 2: .mocaFourthSectionSecondInstruction,
@@ -48,21 +57,20 @@ struct MoCAModels {
         }
 
         var centralTexts: CentralTexts {
-            return [.memory: [1: .firstCentralItem], .attention: [1: .secondCentralItem, 3: .thirdCentralItem, 6: .fourthCentralItem], .language: [1: .fifthCalculation, 2: .sixthCentralItem], .delayedRecall: [1: .firstCentralItem]]
+            return [.memory: [1: .firstCentralItem], .attention: [1: .secondCentralItem, 3: .thirdCentralItem, 6: .fourthCentralItem], .language: [1: .fifthCentralItem, 2: .sixthCentralItem], .delayedRecall: [1: .firstCentralItem]]
         }
-        //        .mocaFifthSectionSecondInstruction stepper section
-        //        .mocaSixthSectionFirstInstruction binaryQuestion section
+
         var sections: [Section: [Row]] {
             let optionsForDoneSection: [Row] = isResultsButtonEnabled ? [.done] : []
 
-            return [.visuospatial: [.instruction, .image, .instruction, .image, .binaryQuestion, .selectionButtons],
+            return [.visuospatial: [.instruction, .image, .instruction, .image, .binaryQuestion, .instruction, .selectionButtons],
                     .naming: [.instruction, .image, .image, .image, .binaryQuestion],
                     .memory: [.instruction, .centralText],
                     .attention: [.instruction, .centralText, .instruction, .centralText, .binaryQuestion,
-                                 .instruction, .centralText, .binaryQuestion, .instruction, .binaryQuestion],
-                    .language: [.instruction, .centralText, .centralText, .binaryQuestion, .instruction, .stepper],
+                                 .instruction, .centralText, .binaryQuestion, .binaryQuestion],
+                    .language: [.instruction, .centralText, .centralText, .binaryQuestion, .stepper],
                     .abstraction: [.binaryQuestion], .delayedRecall: [.instruction, .centralText, .binaryQuestion],
-                    .orientation: [.instruction, .binaryQuestion], .education: [.question], .done: optionsForDoneSection]
+                    .orientation: [.binaryQuestion], .education: [.question], .done: optionsForDoneSection]
         }
     }
 

@@ -18,6 +18,7 @@ class StepperTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var stepperValueLabel: UILabel?
     @IBOutlet private weak var stepper: UIStepper?
+    @IBOutlet private weak var stackleadingConstraint: NSLayoutConstraint?
     private weak var delegate: StepperDelegate?
 
     // MARK: - Life Cycle
@@ -29,11 +30,12 @@ class StepperTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setup(title: String?, value: Int, delegate: StepperDelegate?) {
+    func setup(title: String?, value: Int, delegate: StepperDelegate?, leadingConstraint: CGFloat = 30) {
         titleLabel?.text = title
         titleLabel?.isHidden = title == nil
         stepperValueLabel?.text = String(value)
         stepper?.value = Double(value)
+        stackleadingConstraint?.constant = leadingConstraint
 
         self.delegate = delegate
     }

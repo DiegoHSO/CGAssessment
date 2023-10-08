@@ -67,6 +67,7 @@ class MoCAInteractor: MoCALogic {
 
     func didChangeValue(value: Int) {
         countedWords = Int16(value)
+        updateDatabase()
     }
 
     func didSelect(buttonIdentifier: LocalizedTable) {
@@ -139,33 +140,33 @@ class MoCAInteractor: MoCALogic {
                                                                       sectionIdentifier: .visuospatial,
                                                                       options: rawBinaryQuestions[.visuospatial] ?? [:],
                                                                       questions: firstBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .naming:
                                                             [4: .init(title: nil, sectionIdentifier: .naming, options: rawBinaryQuestions[.naming] ?? [:],
                                                                       questions: secondBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .attention:
                                                             [4: .init(title: nil, sectionIdentifier: .mocaFourthSectionSecondInstruction, options: rawBinaryQuestions[.mocaFourthSectionSecondInstruction] ?? [:],
                                                                       questions: thirdBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25),
+                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30),
                                                              7: .init(title: nil, sectionIdentifier: .mocaFourthSectionThirdInstruction, options: rawBinaryQuestions[.mocaFourthSectionThirdInstruction] ?? [:],
                                                                       questions: fourthBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25),
+                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30),
                                                              8: .init(title: .mocaFourthSectionFourthInstruction, sectionIdentifier: .mocaFourthSectionFourthInstruction, options: rawBinaryQuestions[.mocaFourthSectionFourthInstruction] ?? [:],
                                                                       questions: fifthBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                      secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .language: [3: .init(title: nil, sectionIdentifier: .language, options: rawBinaryQuestions[.language] ?? [:],
                                                                                 questions: sixthBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                                secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                                secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .abstraction: [0: .init(title: .mocaSixthSectionFirstInstruction, sectionIdentifier: .abstraction, options: rawBinaryQuestions[.abstraction] ?? [:],
                                                                                    questions: seventhBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                                   secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                                   secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .delayedRecall: [2: .init(title: nil, sectionIdentifier: .delayedRecall, options: rawBinaryQuestions[.delayedRecall] ?? [:],
                                                                                      questions: eighthBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                                     secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)],
+                                                                                     secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)],
                                                            .orientation: [0: .init(title: .mocaEighthSectionFirstInstruction, sectionIdentifier: .orientation, options: rawBinaryQuestions[.orientation] ?? [:],
                                                                                    questions: ninthBinarySectionQuestions, firstOptionTitle: LocalizedTable.yesKey.localized,
-                                                                                   secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, leadingConstraint: 25)]
+                                                                                   secondOptionTitle: LocalizedTable.noKey.localized, delegate: self, bottomConstraint: 30)]
         ]
 
         let binaryOptionsDictionaries = rawBinaryQuestions.map { $0.value }
@@ -206,6 +207,9 @@ class MoCAInteractor: MoCALogic {
                       let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
                 rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
             }
+
+            countedWords = mocaProgress.countedWords
+            selectedOption = SelectableKeys(rawValue: mocaProgress.selectedOption) ?? .none
 
             if mocaProgress.isDone {
                 handleNavigation()

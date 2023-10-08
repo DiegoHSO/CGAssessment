@@ -44,7 +44,7 @@ class GroupedButtonView: UIView {
 
     func setup(title: LocalizedTable, symbolName: String, delegate: GroupedButtonDelegate?) {
         groupedButton?.setTitle(title.localized, for: .normal)
-        groupedButton?.setImage(UIImage(named: symbolName), for: .normal)
+        groupedButton?.setImage(UIImage(systemName: symbolName), for: .normal)
 
         self.buttonIdentifier = title
         self.delegate = delegate

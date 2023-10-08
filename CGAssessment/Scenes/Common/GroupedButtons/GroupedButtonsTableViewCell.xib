@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76I-6U-4xl">
                         <rect key="frame" x="35" y="0.0" width="250" height="86"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-qw-pmC">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-qw-pmC">
                                 <rect key="frame" x="22" y="14" width="206" height="58"/>
                             </stackView>
                         </subviews>
@@ -31,6 +31,11 @@
                             <constraint firstAttribute="bottom" secondItem="dZn-qw-pmC" secondAttribute="bottom" constant="14" id="Mtw-XI-khn"/>
                             <constraint firstAttribute="trailing" secondItem="dZn-qw-pmC" secondAttribute="trailing" constant="22" id="Te2-Ca-mS0"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

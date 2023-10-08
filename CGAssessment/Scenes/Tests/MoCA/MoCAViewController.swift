@@ -34,7 +34,7 @@ class MoCAViewController: UIViewController, MoCADisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.clockDrawingTest.localized
+        title = LocalizedTable.moca.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -142,7 +142,9 @@ extension MoCAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(title: instruction, fontStyle: .medium, fontSize: 16)
+            let shouldChangeSpacing = section == .attention || section == .language || section == .delayedRecall
+
+            cell.setup(title: instruction, leadingConstraint: 35, bottomConstraint: shouldChangeSpacing ? 0 : 20, fontStyle: .medium, fontSize: 16)
 
             return cell
         case .image:
@@ -153,7 +155,13 @@ extension MoCAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(image: image)
+            let keys = images.keys.sorted()
+
+            if let index = keys.firstIndex(of: indexPath.row), index == keys.count - 1 {
+                cell.setup(image: image, bottomConstraint: 30)
+            } else {
+                cell.setup(image: image)
+            }
 
             return cell
         case .selectionButtons:
@@ -173,7 +181,9 @@ extension MoCAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(text: centralText)
+            let shouldChangeSpacing = section != .memory && section != .language
+
+            cell.setup(text: centralText, bottomConstraint: shouldChangeSpacing ? 40 : 20)
 
             return cell
         case .stepper:
@@ -182,7 +192,7 @@ extension MoCAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(title: LocalizedTable.mocaFifthSectionSecondInstruction.localized, value: Int(viewModel.countedWords), delegate: interactor)
+            cell.setup(title: LocalizedTable.mocaFifthSectionSecondInstruction.localized, value: Int(viewModel.countedWords), delegate: interactor, leadingConstraint: 35)
 
             return cell
         case .question:
@@ -191,7 +201,7 @@ extension MoCAViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: .init(title: viewModel.question.question, options: viewModel.question.options, delegate: interactor, selectedQuestion: viewModel.selectedOption))
+            cell.setup(viewModel: .init(title: viewModel.question.question, options: viewModel.question.options, delegate: interactor, selectedQuestion: viewModel.selectedOption, leadingConstraint: 35))
 
             return cell
         }
@@ -210,13 +220,30 @@ extension MoCAViewController: UITableViewDataSource {
                 return nil
             }
 
-            let headerTitle: String = switch currentSection {
-
+            let headerTitle: LocalizedTable = switch currentSection {
+            case .visuospatial:
+                .visuospatial
+            case .naming:
+                .naming
+            case .memory:
+                .memory
+            case .attention:
+                .attention
+            case .language:
+                .language
+            case .abstraction:
+                .abstraction
+            case .delayedRecall:
+                .delayedRecall
+            case .orientation:
+                .orientation
+            case .education:
+                .education
             default:
-                ""
+                .none
             }
 
-            header.setup(title: headerTitle, backgroundColor: .primary, leadingConstraint: 25)
+            header.setup(title: headerTitle.localized, backgroundColor: .primary, leadingConstraint: 25)
 
             return header
         }

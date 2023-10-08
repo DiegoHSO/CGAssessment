@@ -65,6 +65,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="stackleadingConstraint" destination="5LW-9U-zBA" id="MgR-Xj-Svt"/>
                 <outlet property="stepper" destination="PMA-LW-wku" id="FuP-Qq-Pi9"/>
                 <outlet property="stepperValueLabel" destination="oWy-zx-4kp" id="OuP-zm-F8H"/>
                 <outlet property="titleLabel" destination="a0b-Cy-e7N" id="xdQ-Jl-1ag"/>
