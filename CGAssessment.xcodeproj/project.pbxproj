@@ -103,6 +103,12 @@
 		F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */; };
 		F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */; };
 		F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */; };
+		F16A3FCF2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */; };
+		F16A3FD02AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */; };
+		F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */; };
+		F16A3FD52AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */; };
+		F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */; };
+		F16A3FD92AD23FD0007F4DF7 /* GroupedButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -364,6 +370,12 @@
 		F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingRouter.swift; sourceTree = "<group>"; };
 		F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingModels.swift; sourceTree = "<group>"; };
 		F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingBuilder.swift; sourceTree = "<group>"; };
+		F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralizedTextTableViewCell.swift; sourceTree = "<group>"; };
+		F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CentralizedTextTableViewCell.xib; sourceTree = "<group>"; };
+		F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedButtonsTableViewCell.swift; sourceTree = "<group>"; };
+		F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonsTableViewCell.xib; sourceTree = "<group>"; };
+		F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedButtonView.swift; sourceTree = "<group>"; };
+		F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonView.xib; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -734,6 +746,34 @@
 				F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */,
 			);
 			path = ClockDrawing;
+			sourceTree = "<group>";
+		};
+		F16A3FCB2AD23B5B007F4DF7 /* MoCA */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FCC2AD23B7D007F4DF7 /* Components */,
+			);
+			path = MoCA;
+			sourceTree = "<group>";
+		};
+		F16A3FCC2AD23B7D007F4DF7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */,
+				F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F16A3FD12AD23F6E007F4DF7 /* GroupedButtons */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */,
+				F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */,
+				F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */,
+				F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */,
+			);
+			path = GroupedButtons;
 			sourceTree = "<group>";
 		};
 		F177F7E02AA793BE00C1EB32 = {
@@ -1125,6 +1165,7 @@
 				F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */,
 				F13CD10A2AD1E8640011E4DF /* VerbalFluency */,
 				F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */,
+				F16A3FCB2AD23B5B007F4DF7 /* MoCA */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1232,6 +1273,7 @@
 				F1F1E3D32AC2466000BC610E /* Image */,
 				F168B7E12ACBD9650015B2A3 /* EmptyState */,
 				F13CD1052AD1DB1D0011E4DF /* Stepper */,
+				F16A3FD12AD23F6E007F4DF7 /* GroupedButtons */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1394,6 +1436,7 @@
 				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
+				F16A3FD52AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib in Resources */,
 				F1F2E9C22AAE6B330006075F /* FeaturesTableViewCell.xib in Resources */,
 				F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */,
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
@@ -1411,6 +1454,7 @@
 				F1F1E3B12AC0C57C00BC610E /* Results.storyboard in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
+				F16A3FD92AD23FD0007F4DF7 /* GroupedButtonView.xib in Resources */,
 				F1F1E3AC2AC0A07200BC610E /* SingleResultView.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
@@ -1430,6 +1474,7 @@
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
 				F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */,
 				F13C7B752ACDD675000D5AC2 /* StatusHeaderView.xib in Resources */,
+				F16A3FD02AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib in Resources */,
 				F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */,
 				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
 			);
@@ -1500,6 +1545,7 @@
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
+				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
 				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
@@ -1605,6 +1651,7 @@
 				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
 				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
+				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
@@ -1668,6 +1715,7 @@
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
 				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
 				F16A3FC22AD20F82007F4DF7 /* ClockDrawingPresenter.swift in Sources */,
+				F16A3FCF2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift in Sources */,
 				F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
 				F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */,
