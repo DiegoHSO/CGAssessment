@@ -38,7 +38,7 @@ extension UIImage {
 
     struct BinaryOptions {
         static var yesSelected: UIImage? { UIImage(systemName: "checkmark.circle.fill")?
-            .withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+            .withTintColor(.background18 ?? .systemGreen, renderingMode: .alwaysOriginal)
         }
 
         static var noSelected: UIImage? { UIImage(systemName: "xmark.circle.fill")?

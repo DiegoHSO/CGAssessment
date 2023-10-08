@@ -95,6 +95,14 @@
 		F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */; };
 		F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */; };
 		F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F168B7FF2ACD23CF0015B2A3 /* InfoPlist.strings */; };
+		F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */; };
+		F16A3FBE2AD20F69007F4DF7 /* ClockDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */; };
+		F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */; };
+		F16A3FC22AD20F82007F4DF7 /* ClockDrawingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */; };
+		F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */; };
+		F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */; };
+		F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */; };
+		F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -348,6 +356,14 @@
 		F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		F168B7FE2ACD23CF0015B2A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F168B8002ACD23D10015B2A3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClockDrawing.storyboard; sourceTree = "<group>"; };
+		F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingViewController.swift; sourceTree = "<group>"; };
+		F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingInteractor.swift; sourceTree = "<group>"; };
+		F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingPresenter.swift; sourceTree = "<group>"; };
+		F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingWorker.swift; sourceTree = "<group>"; };
+		F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingRouter.swift; sourceTree = "<group>"; };
+		F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingModels.swift; sourceTree = "<group>"; };
+		F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingBuilder.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -703,6 +719,21 @@
 				F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */,
+				F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */,
+				F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */,
+				F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */,
+				F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */,
+				F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */,
+				F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */,
+				F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */,
+			);
+			path = ClockDrawing;
 			sourceTree = "<group>";
 		};
 		F177F7E02AA793BE00C1EB32 = {
@@ -1093,6 +1124,7 @@
 				F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */,
 				F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */,
 				F13CD10A2AD1E8640011E4DF /* VerbalFluency */,
+				F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1370,6 +1402,7 @@
 				F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */,
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
+				F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
@@ -1467,6 +1500,7 @@
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
+				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
@@ -1491,12 +1525,14 @@
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
+				F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */,
 				F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */,
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
+				F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
@@ -1508,6 +1544,7 @@
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */,
+				F16A3FBE2AD20F69007F4DF7 /* ClockDrawingViewController.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */,
 				F10DFB9D2ACA523100E1A380 /* CGAsInteractor.swift in Sources */,
@@ -1567,6 +1604,7 @@
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
+				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
@@ -1604,6 +1642,7 @@
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */,
+				F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
@@ -1628,6 +1667,7 @@
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
 				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
+				F16A3FC22AD20F82007F4DF7 /* ClockDrawingPresenter.swift in Sources */,
 				F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
 				F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */,

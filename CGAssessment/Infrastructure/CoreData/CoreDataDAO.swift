@@ -34,6 +34,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -103,6 +104,12 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                     .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]], isDone: true), cgaId: nil)
 
         try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(binaryQuestions: [
+            .outline: [1: .yes, 2: .yes],
+            .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
+            .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
+        ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -223,7 +230,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .verbalFluencyTest:
             return cga?.verbalFluency
         case .clockDrawingTest:
-            return nil
+            return cga?.clockDrawing
         case .moca:
             return nil
         case .geriatricDepressionScale:
@@ -448,6 +455,32 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.clockDrawing == nil {
+            try createClockDrawingInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.clockDrawing?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.clockDrawing?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -502,6 +535,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createVerbalFluencyInstance(for cga: CGA) throws {
         let newTest = VerbalFluency(context: context)
         cga.verbalFluency = newTest
+
+        try context.save()
+    }
+
+    private func createClockDrawingInstance(for cga: CGA) throws {
+        let newTest = ClockDrawing(context: context)
+        cga.clockDrawing = newTest
 
         try context.save()
     }

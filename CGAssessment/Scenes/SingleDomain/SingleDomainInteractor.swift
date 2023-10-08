@@ -86,6 +86,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkVerbalFluencyStatus(cga: cga), forKey: .verbalFluencyTest)
         }
 
+        if tests.contains(.clockDrawingTest) {
+            testsStatus.updateValue(checkClockDrawingStatus(cga: cga), forKey: .clockDrawingTest)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -218,6 +222,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.verbalFluency?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkClockDrawingStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.clockDrawing?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
