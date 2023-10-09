@@ -33,6 +33,7 @@ enum LocalizedTable: String, Localizable {
     case currentCGA = "current_cga_key"
     case createdOn = "created_on_key"
     case exampleCGA = "example_cga_key"
+    case outOf = "out_of_key"
 
     // MARK: - Dashboard
 
@@ -438,4 +439,85 @@ enum LocalizedTable: String, Localizable {
     case clockDrawingThirdSectionSixthQuestion = "clock_drawing_third_section_sixth_question_key"
     case clockDrawingExcellentResult = "clock_drawing_excellent_result_key"
     case clockDrawingBadResult = "clock_drawing_bad_result_key"
+
+    // MARK: - MoCA
+
+    case visuospatial = "visuospatial_key"
+    case naming = "naming_key"
+    case memory = "memory_key"
+    case attention = "attention_key"
+    case abstraction = "abstraction_key"
+    case delayedRecall = "delayed_recall_key"
+    case orientation = "orientation_key"
+
+    case mocaFirstSectionFirstInstruction = "moca_first_section_first_instruction_key"
+    case mocaFirstSectionSecondInstruction = "moca_first_section_second_instruction_key"
+    case mocaFirstSectionThirdInstruction = "moca_first_section_third_instruction_key"
+    case mocaFirstSectionFourthInstruction = "moca_first_section_fourth_instruction_key"
+    case mocaSecondSectionFirstInstruction = "moca_second_section_first_instruction_key"
+    case mocaThirdSectionFirstInstruction = "moca_third_section_first_instruction_key"
+    case mocaFourthSectionFirstInstruction = "moca_fourth_section_first_instruction_key"
+    case mocaFourthSectionSecondInstruction = "moca_fourth_section_second_instruction_key"
+    case mocaFourthSectionThirdInstruction = "moca_fourth_section_third_instruction_key"
+    case mocaFourthSectionFourthInstruction = "moca_fourth_section_fourth_instruction_key"
+    case mocaFifthSectionFirstInstruction = "moca_fifth_section_first_instruction_key"
+    case mocaFifthSectionSecondInstruction = "moca_fifth_section_second_instruction_key"
+    case mocaSixthSectionFirstInstruction = "moca_sixth_section_first_instruction_key"
+    case mocaSeventhSectionFirstInstruction = "moca_seventh_section_first_instruction_key"
+    case mocaEighthSectionFirstInstruction = "moca_eighth_section_first_instruction_key"
+
+    case mocaFirstSectionFirstQuestion = "moca_first_section_first_question_key"
+    case mocaFirstSectionSecondQuestion = "moca_first_section_second_question_key"
+    case mocaFirstSectionThirdQuestion = "moca_first_section_third_question_key"
+    case mocaFirstSectionFourthQuestion = "moca_first_section_fourth_question_key"
+    case mocaFirstSectionFifthQuestion = "moca_first_section_fifth_question_key"
+
+    case mocaSecondSectionFirstQuestion = "moca_second_section_first_question_key"
+    case mocaSecondSectionSecondQuestion = "moca_second_section_second_question_key"
+    case mocaSecondSectionThirdQuestion = "moca_second_section_third_question_key"
+
+    case mocaThirdSectionFirstQuestion = "moca_third_section_first_question_key"
+    case mocaThirdSectionSecondQuestion = "moca_third_section_second_question_key"
+
+    case mocaFourthSectionFirstQuestion = "moca_fourth_section_first_question_key"
+
+    case mocaFifthSectionFirstQuestion = "moca_fifth_section_first_question_key"
+    case mocaFifthSectionSecondQuestion = "moca_fifth_section_second_question_key"
+    case mocaFifthSectionThirdQuestion = "moca_fifth_section_third_question_key"
+    case mocaFifthSectionFourthQuestion = "moca_fifth_section_fourth_question_key"
+    case mocaFifthSectionFifthQuestion = "moca_fifth_section_fifth_question_key"
+
+    case mocaSixthSectionFirstQuestion = "moca_sixth_section_first_question_key"
+    case mocaSixthSectionSecondQuestion = "moca_sixth_section_second_question_key"
+
+    case mocaSeventhSectionFirstQuestion = "moca_seventh_section_first_question_key"
+    case mocaSeventhSectionSecondQuestion = "moca_seventh_section_second_question_key"
+
+    case mocaEighthSectionFirstQuestion = "moca_eighth_section_first_question_key"
+    case mocaEighthSectionSecondQuestion = "moca_eighth_section_second_question_key"
+    case mocaEighthSectionThirdQuestion = "moca_eighth_section_third_question_key"
+    case mocaEighthSectionFourthQuestion = "moca_eighth_section_fourth_question_key"
+    case mocaEighthSectionFifthQuestion = "moca_eighth_section_fifth_question_key"
+
+    case mocaNinthSectionFirstQuestion = "moca_nineth_section_first_question_key"
+    case mocaNinthSectionSecondQuestion = "moca_nineth_section_second_question_key"
+    case mocaNinthSectionThirdQuestion = "moca_nineth_section_third_question_key"
+    case mocaNinthSectionFourthQuestion = "moca_nineth_section_fourth_question_key"
+    case mocaNinthSectionFifthQuestion = "moca_nineth_section_fifth_question_key"
+    case mocaNinthSectionSixthQuestion = "moca_nineth_section_sixth_question_key"
+
+    case firstCentralItem = "first_central_item_key"
+    case secondCentralItem = "second_central_item_key"
+    case thirdCentralItem = "third_central_item_key"
+    case fourthCentralItem = "fourth_central_item_key"
+    case fifthCentralItem = "fifth_central_item_key"
+    case sixthCentralItem = "sixth_central_item_key"
+
+    case gallery = "gallery_key"
+    case takePhoto = "take_photo_key"
+
+    case moreThanTwelveYears = "more_than_twelve_years_key"
+    case lessThanTwelveYears = "less_than_twelve_years_key"
+    case moCAExcellentResult = "moca_excellent_result_key"
+    case moCABadResult = "moca_bad_result_key"
 }

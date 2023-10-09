@@ -109,6 +109,14 @@
 		F16A3FD52AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */; };
 		F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */; };
 		F16A3FD92AD23FD0007F4DF7 /* GroupedButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */; };
+		F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */; };
+		F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */; };
+		F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */; };
+		F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */; };
+		F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */; };
+		F16A3FE52AD24CE4007F4DF7 /* MoCARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */; };
+		F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */; };
+		F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -376,6 +384,14 @@
 		F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonsTableViewCell.xib; sourceTree = "<group>"; };
 		F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedButtonView.swift; sourceTree = "<group>"; };
 		F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonView.xib; sourceTree = "<group>"; };
+		F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoCA.storyboard; sourceTree = "<group>"; };
+		F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAViewController.swift; sourceTree = "<group>"; };
+		F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAInteractor.swift; sourceTree = "<group>"; };
+		F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAPresenter.swift; sourceTree = "<group>"; };
+		F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAWorker.swift; sourceTree = "<group>"; };
+		F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCARouter.swift; sourceTree = "<group>"; };
+		F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAModels.swift; sourceTree = "<group>"; };
+		F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCABuilder.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -752,6 +768,14 @@
 			isa = PBXGroup;
 			children = (
 				F16A3FCC2AD23B7D007F4DF7 /* Components */,
+				F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */,
+				F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */,
+				F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */,
+				F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */,
+				F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */,
+				F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */,
+				F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */,
+				F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */,
 			);
 			path = MoCA;
 			sourceTree = "<group>";
@@ -1426,6 +1450,7 @@
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
+				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
@@ -1604,6 +1629,7 @@
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
 				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
+				F16A3FE52AD24CE4007F4DF7 /* MoCARouter.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
@@ -1614,6 +1640,7 @@
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
+				F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
 				F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */,
 				F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */,
@@ -1621,6 +1648,7 @@
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
+				F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
@@ -1654,6 +1682,7 @@
 				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
+				F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
 				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
@@ -1682,6 +1711,7 @@
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
+				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
@@ -1698,6 +1728,7 @@
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
+				F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */,
 				F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */,
 				F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
@@ -1706,6 +1737,7 @@
 				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
+				F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */,
 				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,

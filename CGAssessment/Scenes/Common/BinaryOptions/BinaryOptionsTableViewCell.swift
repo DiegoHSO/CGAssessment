@@ -14,6 +14,7 @@ class BinaryOptionsTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var binaryOptionsStackView: UIStackView?
     @IBOutlet private weak var stackViewLeadingConstraint: NSLayoutConstraint?
+    @IBOutlet private weak var stackViewBottomConstraint: NSLayoutConstraint?
 
     // MARK: - Life Cycle
 
@@ -36,6 +37,7 @@ class BinaryOptionsTableViewCell: UITableViewCell {
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
+        stackViewBottomConstraint?.constant = viewModel.bottomConstraint
 
         var subviews: [BinaryOptionView] = []
 

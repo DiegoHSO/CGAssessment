@@ -6,6 +6,7 @@
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="binaryOptions" inverseEntity="ClockDrawing"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="binaryOptions" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="binaryOptions" inverseEntity="MoCA"/>
     </entity>
     <entity name="CalfCircumference" representedClassName=".CalfCircumference" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -20,6 +21,7 @@
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
@@ -44,6 +46,15 @@
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="miniMentalStateExam" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniMentalStateExam" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniMentalStateExam" inverseEntity="SelectableOption"/>
+    </entity>
+    <entity name="MoCA" representedClassName="MoCA" syncable="YES" codeGenerationType="class">
+        <attribute name="circlesImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="watchImage" optional="YES" attributeType="Binary"/>
+        <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="moCA" inverseEntity="BinaryOption"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="moCA" inverseEntity="CGA"/>
     </entity>
     <entity name="Patient" representedClassName=".Patient" syncable="YES" codeGenerationType="class">
         <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -10,18 +10,18 @@ import UIKit
 class GroupedButtonsTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var groupedButtonsView: UIView?
     @IBOutlet private weak var groupedButtonsStackView: UIStackView?
-    
+
     // MARK: - Life Cycle
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setupViews()
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
 
@@ -29,7 +29,7 @@ class GroupedButtonsTableViewCell: UITableViewCell {
     }
 
     // MARK: - Public Methods
-    
+
     func setup(viewModels: [CGAModels.GroupedButtonViewModel]) {
         var subviews: [GroupedButtonView] = []
 
@@ -41,7 +41,7 @@ class GroupedButtonsTableViewCell: UITableViewCell {
 
         var index: Int = 0
         subviews.forEach {
-            $0.setup(title: viewModels[safe: index]?.title ?? .none, 
+            $0.setup(title: viewModels[safe: index]?.title ?? .none,
                      symbolName: viewModels[safe: index]?.symbolName ?? "",
                      delegate: viewModels[safe: index]?.delegate)
             index += 1
@@ -51,12 +51,12 @@ class GroupedButtonsTableViewCell: UITableViewCell {
 
         groupedButtonsStackView?.layoutIfNeeded()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func setupViews() {
         groupedButtonsView?.layer.borderColor = UIColor.label3?.cgColor
         groupedButtonsView?.layer.borderWidth = 1
     }
-    
+
 }

@@ -79,7 +79,7 @@ struct CGAModels {
         let symbolName: String
         let delegate: GroupedButtonDelegate?
     }
-    
+
     enum FilterOptions {
         case recent
         case older

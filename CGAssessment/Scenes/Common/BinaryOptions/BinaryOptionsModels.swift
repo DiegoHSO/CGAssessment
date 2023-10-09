@@ -28,6 +28,7 @@ struct BinaryOptionsModels {
         let secondOptionTitle: String?
         let delegate: BinaryOptionDelegate?
         var leadingConstraint: CGFloat = 35
+        var bottomConstraint: CGFloat = 20
     }
 
 }

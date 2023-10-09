@@ -45,7 +45,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .clockDrawingTest:
             routeToClockDrawingTest(cgaId: cgaId)
         case .moca:
-            break
+            routeToMoCA(cgaId: cgaId)
         case .geriatricDepressionScale:
             break
         case .visualAcuityAssessment:
@@ -125,5 +125,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let clockDrawingController = ClockDrawingBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(clockDrawingController, animated: true)
+    }
+
+    private func routeToMoCA(cgaId: UUID?) {
+        guard let moCAController = MoCABuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(moCAController, animated: true)
     }
 }

@@ -90,6 +90,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkClockDrawingStatus(cga: cga), forKey: .clockDrawingTest)
         }
 
+        if tests.contains(.moca) {
+            testsStatus.updateValue(checkMoCAStatus(cga: cga), forKey: .moca)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -234,6 +238,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.clockDrawing?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkMoCAStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.moCA?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

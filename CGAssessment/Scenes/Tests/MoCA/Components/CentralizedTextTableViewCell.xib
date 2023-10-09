@@ -41,6 +41,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="labelBottomConstraint" destination="Pbl-mM-MNN" id="gOl-lv-Dug"/>
                 <outlet property="labelLeadingConstraint" destination="jhu-96-6lb" id="3Fg-uf-UMG"/>
                 <outlet property="labelTrailingConstraint" destination="IOY-v3-anh" id="rLD-vG-NTW"/>
                 <outlet property="titleLabel" destination="W55-YP-hJR" id="mxF-ty-6DN"/>

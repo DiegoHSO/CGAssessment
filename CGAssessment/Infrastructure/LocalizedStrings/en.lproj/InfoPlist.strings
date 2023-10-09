@@ -7,3 +7,4 @@
 */
 
 "CFBundleDisplayName" = "CGA";
+"NSCameraUsageDescription" = "We need camera access in order to capture and attach the test images.";

@@ -35,6 +35,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -232,7 +233,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .clockDrawingTest:
             return cga?.clockDrawing
         case .moca:
-            return nil
+            return cga?.moCA
         case .geriatricDepressionScale:
             return nil
         case .visualAcuityAssessment:
@@ -481,6 +482,36 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.moCA == nil {
+            try createMoCAInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.moCA?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.moCA?.circlesImage = test.circlesImage
+        cga.moCA?.watchImage = test.watchImage
+        cga.moCA?.countedWords = test.countedWords
+        cga.moCA?.selectedOption = test.selectedEducationOption.rawValue
+        cga.moCA?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -542,6 +573,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createClockDrawingInstance(for cga: CGA) throws {
         let newTest = ClockDrawing(context: context)
         cga.clockDrawing = newTest
+
+        try context.save()
+    }
+
+    private func createMoCAInstance(for cga: CGA) throws {
+        let newTest = MoCA(context: context)
+        cga.moCA = newTest
 
         try context.save()
     }

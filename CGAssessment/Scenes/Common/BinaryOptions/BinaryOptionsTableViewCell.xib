@@ -49,6 +49,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="binaryOptionsStackView" destination="8gB-ly-5dv" id="dPq-57-azh"/>
+                <outlet property="stackViewBottomConstraint" destination="KKp-Dn-D2X" id="iKq-Ao-6Qj"/>
                 <outlet property="stackViewLeadingConstraint" destination="Yc0-6n-pcf" id="G5a-gq-1Qh"/>
                 <outlet property="titleLabel" destination="CaT-J8-fWZ" id="2IG-qA-hyK"/>
             </connections>
