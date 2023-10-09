@@ -47,7 +47,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .moca:
             routeToMoCA(cgaId: cgaId)
         case .geriatricDepressionScale:
-            break
+            routeToGeriatricDepressionScale(cgaId: cgaId)
         case .visualAcuityAssessment:
             break
         case .hearingLossAssessment:
@@ -131,5 +131,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let moCAController = MoCABuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(moCAController, animated: true)
+    }
+
+    private func routeToGeriatricDepressionScale(cgaId: UUID?) {
+        guard let geriatricDepressionScaleController = GeriatricDepressionScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(geriatricDepressionScaleController, animated: true)
     }
 }

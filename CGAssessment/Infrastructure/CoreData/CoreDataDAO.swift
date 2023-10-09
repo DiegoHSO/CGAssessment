@@ -36,6 +36,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -86,9 +87,9 @@ class CoreDataDAO: CoreDataDAOProtocol {
         newCGA.gripStrength?.thirdMeasurement = 27.5
         newCGA.gripStrength?.isDone = true
 
-        try updateCGA(with: .init(questions: [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
-                                              .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                              .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: true), cgaId: nil)
+        try updateCGA(with: SarcopeniaScreeningModels.TestData(questions: [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
+                                                                           .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                                                           .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: true), cgaId: nil)
 
         newCGA.sarcopeniaAssessment = SarcopeniaAssessment(context: context)
         newCGA.sarcopeniaAssessment?.isDone = true
@@ -110,6 +111,30 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .outline: [1: .yes, 2: .yes],
             .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
             .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
+        ], isDone: true), cgaId: nil)
+
+        let rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [.visuospatial: [1: .yes, 2: .not, 3: .yes, 4: .yes, 5: .yes],
+                                                                 .naming: [1: .not, 2: .yes, 3: .yes],
+                                                                 .mocaFourthSectionSecondInstruction: [1: .yes, 2: .yes],
+                                                                 .mocaFourthSectionThirdInstruction: [1: .yes],
+                                                                 .mocaFourthSectionFourthInstruction: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes],
+                                                                 .language: [1: .yes, 2: .not],
+                                                                 .abstraction: [1: .yes, 2: .yes],
+                                                                 .delayedRecall: [1: .yes, 2: .yes, 3: .not, 4: .yes, 5: .yes],
+                                                                 .orientation: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes, 6: .yes]]
+
+        try updateCGA(with: .init(binaryQuestions: rawBinaryQuestions,
+                                  selectedEducationOption: .firstOption,
+                                  countedWords: 14, circlesImage: nil,
+                                  watchImage: nil, isDone: true), cgaId: nil)
+
+        try updateCGA(with: GeriatricDepressionScaleModels.TestData(questions: [.geriatricDepressionScaleQuestionOne: .firstOption, .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionSix: .secondOption, .geriatricDepressionScaleQuestionSeven: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionEight: .secondOption, .geriatricDepressionScaleQuestionNine: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
         ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
@@ -235,7 +260,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .moca:
             return cga?.moCA
         case .geriatricDepressionScale:
-            return nil
+            return cga?.geriatricDepressionScale
         case .visualAcuityAssessment:
             return nil
         case .hearingLossAssessment:
@@ -512,6 +537,27 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.geriatricDepressionScale == nil {
+            try createGeriatricDepressionScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.geriatricDepressionScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.geriatricDepressionScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -580,6 +626,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createMoCAInstance(for cga: CGA) throws {
         let newTest = MoCA(context: context)
         cga.moCA = newTest
+
+        try context.save()
+    }
+
+    private func createGeriatricDepressionScaleInstance(for cga: CGA) throws {
+        let newTest = GeriatricDepressionScale(context: context)
+        cga.geriatricDepressionScale = newTest
 
         try context.save()
     }

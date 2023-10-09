@@ -37,7 +37,6 @@ class SingleDomainInteractor: SingleDomainLogic {
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
         sendDataToPresenter()
     }
 
@@ -92,6 +91,10 @@ class SingleDomainInteractor: SingleDomainLogic {
 
         if tests.contains(.moca) {
             testsStatus.updateValue(checkMoCAStatus(cga: cga), forKey: .moca)
+        }
+
+        if tests.contains(.geriatricDepressionScale) {
+            testsStatus.updateValue(checkGeriatricDepressionScaleStatus(cga: cga), forKey: .geriatricDepressionScale)
         }
 
         statusViewModel = .init(patientName: cga.patient?.name,
@@ -250,6 +253,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.moCA?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkGeriatricDepressionScaleStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.geriatricDepressionScale?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

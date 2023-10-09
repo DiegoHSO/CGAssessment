@@ -186,6 +186,14 @@
 		F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */; };
 		F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */; };
 		F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339072AB7660000282AF3 /* Collection+Extension.swift */; };
+		F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */; };
+		F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */; };
+		F1EB0FA72AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */; };
+		F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */; };
+		F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */; };
+		F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */; };
+		F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */; };
+		F1EB0FB12AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */; };
 		F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */; };
 		F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */; };
 		F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */; };
@@ -469,6 +477,14 @@
 		F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCGA.storyboard; sourceTree = "<group>"; };
 		F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGABuilder.swift; sourceTree = "<group>"; };
 		F1E339072AB7660000282AF3 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeriatricDepressionScale.storyboard; sourceTree = "<group>"; };
+		F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleViewController.swift; sourceTree = "<group>"; };
+		F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleInteractor.swift; sourceTree = "<group>"; };
+		F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScalePresenter.swift; sourceTree = "<group>"; };
+		F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleWorker.swift; sourceTree = "<group>"; };
+		F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleRouter.swift; sourceTree = "<group>"; };
+		F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleModels.swift; sourceTree = "<group>"; };
+		F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleBuilder.swift; sourceTree = "<group>"; };
 		F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainModels.swift; sourceTree = "<group>"; };
@@ -1133,6 +1149,21 @@
 			path = TitleHeader;
 			sourceTree = "<group>";
 		};
+		F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */,
+				F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */,
+				F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */,
+				F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */,
+				F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */,
+				F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */,
+				F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */,
+				F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */,
+			);
+			path = GeriatricDepressionScale;
+			sourceTree = "<group>";
+		};
 		F1F1E3702ABE289400BC610E /* SingleDomain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1190,6 +1221,7 @@
 				F13CD10A2AD1E8640011E4DF /* VerbalFluency */,
 				F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */,
 				F16A3FCB2AD23B5B007F4DF7 /* MoCA */,
+				F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1454,6 +1486,7 @@
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
+				F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */,
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
@@ -1601,12 +1634,15 @@
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
+				F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */,
+				F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
 				F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
+				F1EB0FA72AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift in Sources */,
 				F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */,
 				F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */,
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
@@ -1693,8 +1729,10 @@
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
 				F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
+				F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */,
 				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
+				F1EB0FB12AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
@@ -1708,6 +1746,7 @@
 				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
+				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
@@ -1742,6 +1781,7 @@
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
+				F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,

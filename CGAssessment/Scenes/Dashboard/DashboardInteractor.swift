@@ -115,9 +115,12 @@ class DashboardInteractor: DashboardLogic {
         if let isFirstTestDone = latestCGA.miniMentalStateExam?.isDone, isFirstTestDone,
            let isSecondTestDone = latestCGA.verbalFluency?.isDone, isSecondTestDone,
            let isThirdTestDone = latestCGA.clockDrawing?.isDone, isThirdTestDone,
-           let isFourthTestDone = latestCGA.moCA?.isDone, isFourthTestDone {
+           let isFourthTestDone = latestCGA.moCA?.isDone, isFourthTestDone,
+           let isFifthTestDone = latestCGA.geriatricDepressionScale?.isDone, isFifthTestDone {
             missingDomains -= 1
         }
+
+        // MARK: - Sensory domain done check
 
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
@@ -198,12 +201,12 @@ class DashboardInteractor: DashboardLogic {
 
             var isCognitiveDomainAltered: Bool = false
 
-            if let miniMentalStateExamProgress = evaluation.miniMentalStateExam, miniMentalStateExamProgress.isDone {
+            if let miniMentalStateExam = evaluation.miniMentalStateExam, miniMentalStateExam.isDone {
                 var rawQuestions: MiniMentalStateExamModels.RawQuestions = [:]
                 var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
 
-                guard let binaryOptions = miniMentalStateExamProgress.binaryOptions?.allObjects as? [BinaryOption],
-                      let questionOptions = miniMentalStateExamProgress.selectableOptions?.allObjects as? [SelectableOption] else {
+                guard let binaryOptions = miniMentalStateExam.binaryOptions?.allObjects as? [BinaryOption],
+                      let questionOptions = miniMentalStateExam.selectableOptions?.allObjects as? [SelectableOption] else {
                     return nil
                 }
 
@@ -275,7 +278,27 @@ class DashboardInteractor: DashboardLogic {
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 
+            if let geriatricDepressionScale = evaluation.miniMentalStateExam, geriatricDepressionScale.isDone, !isCognitiveDomainAltered {
+                var rawQuestions: GeriatricDepressionScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = geriatricDepressionScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let geriatricDepressionScaleResults = GeriatricDepressionScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .geriatricDepressionScale, results: geriatricDepressionScaleResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
             alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Sensory domain test results check
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
