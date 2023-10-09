@@ -60,11 +60,11 @@ class CGADomainsInteractor: CGADomainsLogic {
                              .gripStrength: cga.gripStrength?.isDone == true,
                              .sarcopeniaScreening: cga.sarcopeniaAssessment?.isDone == true], forKey: .mobility)
 
-        domains.updateValue([.miniMentalStateExamination: true,
-                             .verbalFluencyTest: false,
-                             .clockDrawingTest: false,
-                             .moca: false,
-                             .geriatricDepressionScale: false], forKey: .cognitive)
+        domains.updateValue([.miniMentalStateExamination: cga.miniMentalStateExam?.isDone == true,
+                             .verbalFluencyTest: cga.verbalFluency?.isDone == true,
+                             .clockDrawingTest: cga.clockDrawing?.isDone == true,
+                             .moca: cga.moCA?.isDone == true,
+                             .geriatricDepressionScale: cga.geriatricDepressionScale?.isDone == true], forKey: .cognitive)
 
         domains.updateValue([.visualAcuityAssessment: true, .hearingLossAssessment: false], forKey: .sensory)
 

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BinaryOption" representedClassName="BinaryOption" syncable="YES" codeGenerationType="class">
+        <attribute name="optionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sectionId" optional="YES" attributeType="String"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="binaryOptions" inverseEntity="ClockDrawing"/>
+        <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="binaryOptions" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="binaryOptions" inverseEntity="MoCA"/>
+    </entity>
     <entity name="CalfCircumference" representedClassName=".CalfCircumference" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="measuredCircumference" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
@@ -10,12 +18,27 @@
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="718056000" usesScalarValueType="NO"/>
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
+        <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
+        <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
+        <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
         <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
+        <relationship name="verbalFluency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VerbalFluency" inverseName="cgas" inverseEntity="VerbalFluency"/>
         <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
+    </entity>
+    <entity name="ClockDrawing" representedClassName="ClockDrawing" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="clockDrawing" inverseEntity="BinaryOption"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="clockDrawing" inverseEntity="CGA"/>
+    </entity>
+    <entity name="GeriatricDepressionScale" representedClassName="GeriatricDepressionScale" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="geriatricDepressionScale" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="geriatricDepressionScale" inverseEntity="SelectableOption"/>
     </entity>
     <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
         <attribute name="firstMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
@@ -23,6 +46,21 @@
         <attribute name="secondMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="thirdMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="gripStrength" inverseEntity="CGA"/>
+    </entity>
+    <entity name="MiniMentalStateExam" representedClassName="MiniMentalStateExam" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="miniMentalStateExam" inverseEntity="BinaryOption"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniMentalStateExam" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniMentalStateExam" inverseEntity="SelectableOption"/>
+    </entity>
+    <entity name="MoCA" representedClassName="MoCA" syncable="YES" codeGenerationType="class">
+        <attribute name="circlesImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="watchImage" optional="YES" attributeType="Binary"/>
+        <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="moCA" inverseEntity="BinaryOption"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="moCA" inverseEntity="CGA"/>
     </entity>
     <entity name="Patient" representedClassName=".Patient" syncable="YES" codeGenerationType="class">
         <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -33,17 +71,19 @@
     </entity>
     <entity name="SarcopeniaAssessment" representedClassName=".SarcopeniaAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="cgas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaAssessment" inverseEntity="CGA"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaAssessment" inverseEntity="CGA"/>
     </entity>
     <entity name="SarcopeniaScreening" representedClassName=".SarcopeniaScreening" syncable="YES" codeGenerationType="class">
-        <attribute name="fifthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="firstQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="fourthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="secondQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sixthQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="thirdQuestionOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaScreening" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="sarcopeniaScreening" inverseEntity="SelectableOption"/>
+    </entity>
+    <entity name="SelectableOption" representedClassName="SelectableOption" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="selectableOptions" inverseEntity="GeriatricDepressionScale"/>
+        <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="selectableOptions" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="selectableOptions" inverseEntity="SarcopeniaScreening"/>
     </entity>
     <entity name="TimedUpAndGo" representedClassName=".TimedUpAndGo" syncable="YES" codeGenerationType="class">
         <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -51,6 +91,13 @@
         <attribute name="measuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="typedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
+    </entity>
+    <entity name="VerbalFluency" representedClassName="VerbalFluency" syncable="YES" codeGenerationType="class">
+        <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="elapsedTime" optional="YES" attributeType="Double" defaultValueString="60" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="verbalFluency" inverseEntity="CGA"/>
     </entity>
     <entity name="WalkingSpeed" representedClassName=".WalkingSpeed" syncable="YES" codeGenerationType="class">
         <attribute name="firstMeasuredTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>

@@ -100,8 +100,8 @@ class PatientsInteractor: PatientsLogic {
                 timedUpAndGoResults = TimedUpAndGoModels.TestResults(elapsedTime: timedUpAndGo.hasStopwatch ?
                                                                         timedUpAndGo.typedTime as? Double ?? 0 :
                                                                         timedUpAndGo.measuredTime as? Double ?? 0)
-                let resultsTuple = resultsWorker?.getResults(for: .timedUpAndGo,
-                                                             results: timedUpAndGoResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .timedUpAndGo, results: timedUpAndGoResults)
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isMobilityDomainAltered = true }
             }
 
@@ -116,15 +116,14 @@ class PatientsInteractor: PatientsLogic {
                                                                          thirdElapsedTime: walkingSpeed.thirdMeasuredTime as? Double ?? 0)
                 }
 
-                let resultsTuple = resultsWorker?.getResults(for: .walkingSpeed,
-                                                             results: walkingSpeedResults)
+                let resultsTuple = resultsWorker?.getResults(for: .walkingSpeed, results: walkingSpeedResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
             if let calfCircumference = lastCGA?.calfCircumference, calfCircumference.isDone, !isMobilityDomainAltered {
                 calfCircumferenceResults = CalfCircumferenceModels.TestResults(circumference: calfCircumference.measuredCircumference as? Double ?? 0)
-                let resultsTuple = resultsWorker?.getResults(for: .calfCircumference,
-                                                             results: calfCircumferenceResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .calfCircumference, results: calfCircumferenceResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
@@ -133,8 +132,8 @@ class PatientsInteractor: PatientsLogic {
                                                                      secondMeasurement: gripStrength.secondMeasurement as? Double ?? 0,
                                                                      thirdMeasurement: gripStrength.thirdMeasurement as? Double ?? 0,
                                                                      gender: gender)
-                let resultsTuple = resultsWorker?.getResults(for: .gripStrength,
-                                                             results: gripStrengthResults)
+
+                let resultsTuple = resultsWorker?.getResults(for: .gripStrength, results: gripStrengthResults)
                 if resultsTuple?.1 == .bad { isMobilityDomainAltered = true }
             }
 
@@ -145,12 +144,113 @@ class PatientsInteractor: PatientsLogic {
                                                                      calfCircumferenceResults: calfCircumferenceResults,
                                                                      timedUpAndGoResults: timedUpAndGoResults,
                                                                      walkingSpeedResults: walkingSpeedResults)
-                let resultsTuple = resultsWorker?.getResults(for: .sarcopeniaAssessment,
-                                                             results: results)
+
+                let resultsTuple = resultsWorker?.getResults(for: .sarcopeniaAssessment, results: results)
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium || resultsTuple?.1 == .good { isMobilityDomainAltered = true }
             }
 
             alteredDomains = isMobilityDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Cognitive domain test results check
+
+            var isCognitiveDomainAltered: Bool = false
+
+            if let miniMentalStateExamProgress = lastCGA?.miniMentalStateExam, miniMentalStateExamProgress.isDone {
+                var rawQuestions: MiniMentalStateExamModels.RawQuestions = [:]
+                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = miniMentalStateExamProgress.binaryOptions?.allObjects as? [BinaryOption],
+                      let questionOptions = miniMentalStateExamProgress.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let miniMentalStateExamResults = MiniMentalStateExamModels.TestResults(questions: rawQuestions,
+                                                                                       binaryQuestions: rawBinaryQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .miniMentalStateExamination, results: miniMentalStateExamResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let verbalFluency = lastCGA?.verbalFluency, verbalFluency.isDone, !isCognitiveDomainAltered {
+                let verbalFluencyResults = VerbalFluencyModels.TestResults(countedWords: verbalFluency.countedWords,
+                                                                           selectedEducationOption: SelectableKeys(rawValue: verbalFluency.selectedOption) ?? .none)
+
+                let resultsTuple = resultsWorker?.getResults(for: .verbalFluencyTest, results: verbalFluencyResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let clockDrawing = lastCGA?.clockDrawing, clockDrawing.isDone, !isCognitiveDomainAltered {
+                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = clockDrawing.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let clockDrawingResults = ClockDrawingModels.TestResults(binaryQuestions: rawBinaryQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .clockDrawingTest, results: clockDrawingResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let moCA = lastCGA?.moCA, moCA.isDone, !isCognitiveDomainAltered {
+                var rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = moCA.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let moCAResults = MoCAModels.TestResults(binaryQuestions: rawBinaryQuestions, selectedEducationOption: SelectableKeys(rawValue: moCA.selectedOption) ?? .none, countedWords: moCA.countedWords)
+
+                let resultsTuple = resultsWorker?.getResults(for: .moca, results: moCAResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let geriatricDepressionScale = lastCGA?.miniMentalStateExam, geriatricDepressionScale.isDone, !isCognitiveDomainAltered {
+                var rawQuestions: GeriatricDepressionScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = geriatricDepressionScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let geriatricDepressionScaleResults = GeriatricDepressionScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .geriatricDepressionScale, results: geriatricDepressionScaleResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)

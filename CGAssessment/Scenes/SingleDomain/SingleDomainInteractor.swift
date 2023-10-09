@@ -37,7 +37,6 @@ class SingleDomainInteractor: SingleDomainLogic {
     // MARK: - Public Methods
 
     func controllerDidLoad() {
-        // Not fully implemented
         sendDataToPresenter()
     }
 
@@ -76,6 +75,26 @@ class SingleDomainInteractor: SingleDomainLogic {
 
             testsStatus.updateValue(sarcopeniaScreeningStatus == .done ? sarcopeniaAssessmentStatus : sarcopeniaScreeningStatus,
                                     forKey: .sarcopeniaScreening)
+        }
+
+        if tests.contains(.miniMentalStateExamination) {
+            testsStatus.updateValue(checkMiniMentalStateExamStatus(cga: cga), forKey: .miniMentalStateExamination)
+        }
+
+        if tests.contains(.verbalFluencyTest) {
+            testsStatus.updateValue(checkVerbalFluencyStatus(cga: cga), forKey: .verbalFluencyTest)
+        }
+
+        if tests.contains(.clockDrawingTest) {
+            testsStatus.updateValue(checkClockDrawingStatus(cga: cga), forKey: .clockDrawingTest)
+        }
+
+        if tests.contains(.moca) {
+            testsStatus.updateValue(checkMoCAStatus(cga: cga), forKey: .moca)
+        }
+
+        if tests.contains(.geriatricDepressionScale) {
+            testsStatus.updateValue(checkGeriatricDepressionScaleStatus(cga: cga), forKey: .geriatricDepressionScale)
         }
 
         statusViewModel = .init(patientName: cga.patient?.name,
@@ -186,6 +205,66 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.sarcopeniaAssessment?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkMiniMentalStateExamStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.miniMentalStateExam?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkVerbalFluencyStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.verbalFluency?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkClockDrawingStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.clockDrawing?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkMoCAStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.moCA?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkGeriatricDepressionScaleStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.geriatricDepressionScale?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

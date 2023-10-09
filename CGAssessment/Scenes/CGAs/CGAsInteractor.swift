@@ -91,6 +91,8 @@ class CGAsInteractor: CGAsLogic {
             let viewModels: [CGAsModels.CGAViewModel] = cgas.compactMap { cga in
                 var domainsStatus: CGAsModels.DomainsStatus = [:]
 
+                // MARK: - Mobility domain done check
+
                 if let timedUpAndGo = cga.timedUpAndGo, let walkingSpeed = cga.walkingSpeed,
                    let calfCircumference = cga.calfCircumference, let gripStrength = cga.gripStrength,
                    let sarcopeniaAssessment = cga.sarcopeniaAssessment {
@@ -106,6 +108,26 @@ class CGAsInteractor: CGAsLogic {
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .mobility)
                 }
+
+                // MARK: - Cognitive domain done check
+
+                if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency,
+                   let clockDrawing = cga.clockDrawing, let moCA = cga.moCA,
+                   let geriatricDepressionScale = cga.geriatricDepressionScale {
+                    if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone,
+                       moCA.isDone, geriatricDepressionScale.isDone {
+                        domainsStatus.updateValue(.done, forKey: .cognitive)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                    }
+                } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil,
+                          cga.moCA == nil, cga.geriatricDepressionScale == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .cognitive)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                }
+
+                // MARK: - Sensory domain done check
 
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
@@ -130,6 +152,8 @@ class CGAsInteractor: CGAsLogic {
                 let viewModels: [CGAsModels.CGAViewModel] = cgas.compactMap { cga in
                     var domainsStatus: CGAsModels.DomainsStatus = [:]
 
+                    // MARK: - Mobility domain done check
+
                     if let timedUpAndGo = cga.timedUpAndGo, let walkingSpeed = cga.walkingSpeed,
                        let calfCircumference = cga.calfCircumference, let gripStrength = cga.gripStrength,
                        let sarcopeniaAssessment = cga.sarcopeniaAssessment {
@@ -145,6 +169,26 @@ class CGAsInteractor: CGAsLogic {
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .mobility)
                     }
+
+                    // MARK: - Cognitive domain done check
+
+                    if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency,
+                       let clockDrawing = cga.clockDrawing, let moCA = cga.moCA,
+                       let geriatricDepressionScale = cga.geriatricDepressionScale {
+                        if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone,
+                           moCA.isDone, geriatricDepressionScale.isDone {
+                            domainsStatus.updateValue(.done, forKey: .cognitive)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                        }
+                    } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil,
+                              cga.moCA == nil, cga.geriatricDepressionScale == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .cognitive)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .cognitive)
+                    }
+
+                    // MARK: - Sensory domain done check
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),
                                  domainsStatus: domainsStatus, cgaId: cga.cgaId)

@@ -74,6 +74,12 @@ struct CGAModels {
         let description: String
     }
 
+    struct GroupedButtonViewModel {
+        let title: LocalizedTable
+        let symbolName: String
+        let delegate: GroupedButtonDelegate?
+    }
+
     enum FilterOptions {
         case recent
         case older

@@ -32,6 +32,11 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -82,17 +87,55 @@ class CoreDataDAO: CoreDataDAOProtocol {
         newCGA.gripStrength?.thirdMeasurement = 27.5
         newCGA.gripStrength?.isDone = true
 
-        newCGA.sarcopeniaScreening = SarcopeniaScreening(context: context)
-        newCGA.sarcopeniaScreening?.firstQuestionOption = 3
-        newCGA.sarcopeniaScreening?.secondQuestionOption = 2
-        newCGA.sarcopeniaScreening?.thirdQuestionOption = 2
-        newCGA.sarcopeniaScreening?.fourthQuestionOption = 1
-        newCGA.sarcopeniaScreening?.fifthQuestionOption = 2
-        newCGA.sarcopeniaScreening?.sixthQuestionOption = 3
-        newCGA.sarcopeniaScreening?.isDone = true
+        try updateCGA(with: SarcopeniaScreeningModels.TestData(questions: [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
+                                                                           .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                                                           .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: true), cgaId: nil)
 
         newCGA.sarcopeniaAssessment = SarcopeniaAssessment(context: context)
         newCGA.sarcopeniaAssessment?.isDone = true
+
+        try updateCGA(with: .init(questions: [.miniMentalStateExamFirstQuestion: .secondOption, .miniMentalStateExamSecondQuestion: .firstOption,
+                                              .miniMentalStateExamThirdQuestion: .secondOption, .miniMentalStateExamFourthQuestion: .firstOption,
+                                              .miniMentalStateExamFifthQuestion: .firstOption],
+                                  binaryQuestions: [.miniMentalStateExamFirstSectionQuestion: [1: .yes, 2: .not, 3: .not, 4: .yes, 5: .yes],
+                                                    .miniMentalStateExamSecondSectionQuestion: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not],
+                                                    .miniMentalStateExamThirdSectionQuestion: [1: .not, 2: .yes, 3: .yes],
+                                                    .miniMentalStateExamFourthSectionQuestion: [1: .yes, 2: .yes, 3: .yes, 4: .not, 5: .not],
+                                                    .miniMentalStateExamFifthSectionQuestion: [1: .yes, 2: .not, 3: .yes],
+                                                    .miniMentalStateExamSixthSectionQuestion: [1: .yes, 2: .yes],
+                                                    .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(binaryQuestions: [
+            .outline: [1: .yes, 2: .yes],
+            .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
+            .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
+        ], isDone: true), cgaId: nil)
+
+        let rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [.visuospatial: [1: .yes, 2: .not, 3: .yes, 4: .yes, 5: .yes],
+                                                                 .naming: [1: .not, 2: .yes, 3: .yes],
+                                                                 .mocaFourthSectionSecondInstruction: [1: .yes, 2: .yes],
+                                                                 .mocaFourthSectionThirdInstruction: [1: .yes],
+                                                                 .mocaFourthSectionFourthInstruction: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes],
+                                                                 .language: [1: .yes, 2: .not],
+                                                                 .abstraction: [1: .yes, 2: .yes],
+                                                                 .delayedRecall: [1: .yes, 2: .yes, 3: .not, 4: .yes, 5: .yes],
+                                                                 .orientation: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes, 6: .yes]]
+
+        try updateCGA(with: .init(binaryQuestions: rawBinaryQuestions,
+                                  selectedEducationOption: .firstOption,
+                                  countedWords: 14, circlesImage: nil,
+                                  watchImage: nil, isDone: true), cgaId: nil)
+
+        try updateCGA(with: GeriatricDepressionScaleModels.TestData(questions: [.geriatricDepressionScaleQuestionOne: .firstOption, .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionSix: .secondOption, .geriatricDepressionScaleQuestionSeven: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionEight: .secondOption, .geriatricDepressionScaleQuestionNine: .secondOption,
+                                                                                .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
+                                                                                .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
+        ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -209,15 +252,15 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .sarcopeniaAssessment:
             return cga?.sarcopeniaAssessment
         case .miniMentalStateExamination:
-            return nil
+            return cga?.miniMentalStateExam
         case .verbalFluencyTest:
-            return nil
+            return cga?.verbalFluency
         case .clockDrawingTest:
-            return nil
+            return cga?.clockDrawing
         case .moca:
-            return nil
+            return cga?.moCA
         case .geriatricDepressionScale:
-            return nil
+            return cga?.geriatricDepressionScale
         case .visualAcuityAssessment:
             return nil
         case .hearingLossAssessment:
@@ -357,12 +400,14 @@ class CoreDataDAO: CoreDataDAOProtocol {
             try createSarcopeniaScreeningInstance(for: cga)
         }
 
-        cga.sarcopeniaScreening?.firstQuestionOption = test.firstQuestionOption.rawValue
-        cga.sarcopeniaScreening?.secondQuestionOption = test.secondQuestionOption.rawValue
-        cga.sarcopeniaScreening?.thirdQuestionOption = test.thirdQuestionOption.rawValue
-        cga.sarcopeniaScreening?.fourthQuestionOption = test.fourthQuestionOption.rawValue
-        cga.sarcopeniaScreening?.fifthQuestionOption = test.fifthQuestionOption.rawValue
-        cga.sarcopeniaScreening?.sixthQuestionOption = test.sixthQuestionOption.rawValue
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.sarcopeniaScreening?.selectableOptions = NSSet(array: selectableOptions)
 
         cga.sarcopeniaScreening?.isDone = test.isDone
         cga.lastModification = Date()
@@ -378,6 +423,136 @@ class CoreDataDAO: CoreDataDAOProtocol {
         }
 
         cga.sarcopeniaAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.miniMentalStateExam == nil {
+            try createMiniMentalStateExamInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.miniMentalStateExam?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.miniMentalStateExam?.selectableOptions = NSSet(array: selectableOptions)
+        cga.miniMentalStateExam?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.verbalFluency == nil {
+            try createVerbalFluencyInstance(for: cga)
+        }
+
+        if let elapsedTime = test.elapsedTime {
+            cga.verbalFluency?.elapsedTime = NSNumber(value: elapsedTime)
+        }
+
+        cga.verbalFluency?.selectedOption = test.selectedOption.rawValue
+        cga.verbalFluency?.countedWords = test.countedWords
+        cga.verbalFluency?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.clockDrawing == nil {
+            try createClockDrawingInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.clockDrawing?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.clockDrawing?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.moCA == nil {
+            try createMoCAInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.moCA?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.moCA?.circlesImage = test.circlesImage
+        cga.moCA?.watchImage = test.watchImage
+        cga.moCA?.countedWords = test.countedWords
+        cga.moCA?.selectedOption = test.selectedEducationOption.rawValue
+        cga.moCA?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.geriatricDepressionScale == nil {
+            try createGeriatricDepressionScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.geriatricDepressionScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.geriatricDepressionScale?.isDone = test.isDone
         cga.lastModification = Date()
 
         try context.save()
@@ -423,6 +598,41 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createSarcopeniaAssessmentInstance(for cga: CGA) throws {
         let newTest = SarcopeniaAssessment(context: context)
         cga.sarcopeniaAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createMiniMentalStateExamInstance(for cga: CGA) throws {
+        let newTest = MiniMentalStateExam(context: context)
+        cga.miniMentalStateExam = newTest
+
+        try context.save()
+    }
+
+    private func createVerbalFluencyInstance(for cga: CGA) throws {
+        let newTest = VerbalFluency(context: context)
+        cga.verbalFluency = newTest
+
+        try context.save()
+    }
+
+    private func createClockDrawingInstance(for cga: CGA) throws {
+        let newTest = ClockDrawing(context: context)
+        cga.clockDrawing = newTest
+
+        try context.save()
+    }
+
+    private func createMoCAInstance(for cga: CGA) throws {
+        let newTest = MoCA(context: context)
+        cga.moCA = newTest
+
+        try context.save()
+    }
+
+    private func createGeriatricDepressionScaleInstance(for cga: CGA) throws {
+        let newTest = GeriatricDepressionScale(context: context)
+        cga.geriatricDepressionScale = newTest
 
         try context.save()
     }

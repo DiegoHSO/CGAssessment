@@ -18,6 +18,7 @@ extension Localizable {
     }
 }
 
+// swiftlint:disable:next type_body_length
 enum LocalizedTable: String, Localizable {
     case cga = "cga_key"
     case home = "home_key"
@@ -32,6 +33,7 @@ enum LocalizedTable: String, Localizable {
     case currentCGA = "current_cga_key"
     case createdOn = "created_on_key"
     case exampleCGA = "example_cga_key"
+    case outOf = "out_of_key"
 
     // MARK: - Dashboard
 
@@ -215,6 +217,7 @@ enum LocalizedTable: String, Localizable {
     // MARK: - Stopwatch
 
     case reset = "reset_key"
+    case clear  = "clear_key"
     case stop = "stop_key"
     case stopwatch = "stopwatch_key"
     case hasStopwatch = "has_stopwatch_key"
@@ -320,4 +323,222 @@ enum LocalizedTable: String, Localizable {
     case sarcopeniaAssessmentMediumResult = "sarcopenia_assessment_medium_result_key"
     case sarcopeniaAssessmentBadResult = "sarcopenia_assessment_bad_result_key"
 
+    // MARK: - Mini Mental State Examination
+
+    case miniMentalStateExamFirstQuestion = "mini_mental_state_exam_first_question_key"
+    case miniMentalStateExamSecondQuestion = "mini_mental_state_exam_second_question_key"
+    case miniMentalStateExamThirdQuestion = "mini_mental_state_exam_third_question_key"
+    case miniMentalStateExamFourthQuestion = "mini_mental_state_exam_fourth_question_key"
+    case miniMentalStateExamFifthQuestion = "mini_mental_state_exam_fifth_question_key"
+
+    case miniMentalStateExamFirstSectionQuestion = "mini_mental_state_exam_first_section_question_key"
+    case miniMentalStateExamSecondSectionQuestion = "mini_mental_state_exam_second_section_question_key"
+    case miniMentalStateExamThirdSectionQuestion = "mini_mental_state_exam_third_section_question_key"
+    case miniMentalStateExamFourthSectionQuestion = "mini_mental_state_exam_fourth_section_question_key"
+    case miniMentalStateExamFifthSectionQuestion = "mini_mental_state_exam_fifth_section_question_key"
+    case miniMentalStateExamSixthSectionQuestion = "mini_mental_state_exam_sixth_section_question_key"
+    // swiftlint:disable:next identifier_name
+    case miniMentalStateExamSeventhSectionQuestion = "mini_mental_state_exam_seventh_section_question_key"
+
+    case education = "education_key"
+    case timeOrientation = "time_orientation_key"
+    case spaceOrientation = "space_orientation_key"
+    case immediateMemory = "immediate_memory_key"
+    case attentionAndCalculation = "attention_and_calculation_key"
+    case evocationMemory = "evocation_memory_key"
+    case language = "language_key"
+
+    case informed = "informed_key"
+    case didntInform = "didnt_inform_key"
+    case repeated = "repeated_key"
+    case didntRepeat = "didnt_repeat_key"
+    case gotIt = "got_it_key"
+    case failed = "failed_key"
+    case named = "named_key"
+    case didntName = "didnt_name_key"
+    case carriedOut = "carried_out_key"
+    case didntCarryOut = "didnt_carry_out_key"
+
+    case moreThanElevenYears = "more_than_eleven_years_key"
+    case betweenNineAndElevenYears = "between_nine_and_eleven_years_key"
+    case betweenFiveAndEightYears = "between_five_and_eight_years_key"
+    case betweenOneAndFourYears = "between_one_and_four_years_key"
+    case illiterate = "illiterate_key"
+    case repeatedSentence = "repeated_sentence_key"
+    case couldntRepeatSentence = "couldnt_repeat_sentence_key"
+    case executedTheOrder = "executed_the_order_key"
+    case didntExecuteTheOrder = "didnt_execute_the_order_key"
+    case wroteCorrectly = "wrote_correctly_key"
+    case didntWriteCorrectly = "didnt_write_correctly_key"
+    case copiedTheDrawing = "copied_the_drawing_key"
+    case didntCopyTheDrawing = "didnt_copy_the_drawing_key"
+
+    case year = "year_key"
+    case dayOfMonth = "day_of_month_key"
+    case dayOfWeek = "day_of_week_key"
+    case time = "time_key"
+    case streetOrPlace = "street_or_place_key"
+    case floor = "floor_key"
+    case neighborhoodOrNearStreet = "neighborhood_or_near_street_key"
+    case city = "city_key"
+    case state = "state_key"
+    case car = "car_key"
+    case vase = "vase_key"
+    case brick = "brick_key"
+    case firstCalculation = "first_calculation_key"
+    case secondCalculation = "second_calculation_key"
+    case thirdCalculation = "third_calculation_key"
+    case fourthCalculation = "fourth_calculation_key"
+    case fifthCalculation = "fifth_calculation_key"
+    case clock = "clock_key"
+    case pen = "pen_key"
+    case firstStage = "first_stage_key"
+    case secondStage = "second_stage_key"
+    case thirdStage = "third_stage_key"
+
+    case miniMentalStateExamExcellentResult = "mini_mental_state_exam_excellent_result_key"
+    case miniMentalStateExamBadResult = "mini_mental_state_exam_bad_result_key"
+
+    // MARK: - Verbal fluency
+
+    case verbalFluencyFirstInstruction = "verbal_fluency_first_instruction_key"
+    case verbalFluencySecondInstruction = "verbal_fluency_second_instruction_key"
+    case verbalFluencyThirdInstruction = "verbal_fluency_third_instruction_key"
+    case verbalFluencyFourthInstruction = "verbal_fluency_fourth_instruction_key"
+    case verbalFluencyExcellentResult = "verbal_fluency_excellent_result_key"
+    case verbalFluencyBadResult = "verbal_fluency_bad_result_key"
+    case counting = "counting_key"
+    case numberOfSpokenWords = "number_of_spoken_words_key"
+    case eightOrMoreYears = "eight_or_more_years"
+    case eightOrLessYears = "eight_or_less_years"
+    case timer = "timer_key"
+    case numberOfWords = "number_of_words_key"
+    case word = "word_key"
+    case words = "words_key"
+
+    // MARK: - Clock drawing
+
+    case clockDrawingFirstInstruction = "clock_drawing_first_instruction_key"
+    case clockDrawingSecondInstruction = "clock_drawing_second_instruction_key"
+    case outline = "outline_key"
+    case numbers = "numbers_key"
+    case pointers = "pointers_key"
+    case clockDrawingFirstSectionFirstQuestion = "clock_drawing_first_section_first_question_key"
+    case clockDrawingFirstSectionSecondQuestion = "clock_drawing_first_section_second_question_key"
+    case clockDrawingSecondSectionFirstQuestion = "clock_drawing_second_section_first_question_key"
+    case clockDrawingSecondSectionSecondQuestion = "clock_drawing_second_section_second_question_key"
+    case clockDrawingSecondSectionThirdQuestion = "clock_drawing_second_section_third_question_key"
+    case clockDrawingSecondSectionFourthQuestion = "clock_drawing_second_section_fourth_question_key"
+    case clockDrawingSecondSectionFifthQuestion = "clock_drawing_second_section_fifth_question_key"
+    case clockDrawingSecondSectionSixthQuestion = "clock_drawing_second_section_sixth_question_key"
+    case clockDrawingThirdSectionFirstQuestion = "clock_drawing_third_section_first_question_key"
+    case clockDrawingThirdSectionSecondQuestion = "clock_drawing_third_section_second_question_key"
+    case clockDrawingThirdSectionThirdQuestion = "clock_drawing_third_section_third_question_key"
+    case clockDrawingThirdSectionFourthQuestion = "clock_drawing_third_section_fourth_question_key"
+    case clockDrawingThirdSectionFifthQuestion = "clock_drawing_third_section_fifth_question_key"
+    case clockDrawingThirdSectionSixthQuestion = "clock_drawing_third_section_sixth_question_key"
+    case clockDrawingExcellentResult = "clock_drawing_excellent_result_key"
+    case clockDrawingBadResult = "clock_drawing_bad_result_key"
+
+    // MARK: - MoCA
+
+    case visuospatial = "visuospatial_key"
+    case naming = "naming_key"
+    case memory = "memory_key"
+    case attention = "attention_key"
+    case abstraction = "abstraction_key"
+    case delayedRecall = "delayed_recall_key"
+    case orientation = "orientation_key"
+
+    case mocaFirstSectionFirstInstruction = "moca_first_section_first_instruction_key"
+    case mocaFirstSectionSecondInstruction = "moca_first_section_second_instruction_key"
+    case mocaFirstSectionThirdInstruction = "moca_first_section_third_instruction_key"
+    case mocaFirstSectionFourthInstruction = "moca_first_section_fourth_instruction_key"
+    case mocaSecondSectionFirstInstruction = "moca_second_section_first_instruction_key"
+    case mocaThirdSectionFirstInstruction = "moca_third_section_first_instruction_key"
+    case mocaFourthSectionFirstInstruction = "moca_fourth_section_first_instruction_key"
+    case mocaFourthSectionSecondInstruction = "moca_fourth_section_second_instruction_key"
+    case mocaFourthSectionThirdInstruction = "moca_fourth_section_third_instruction_key"
+    case mocaFourthSectionFourthInstruction = "moca_fourth_section_fourth_instruction_key"
+    case mocaFifthSectionFirstInstruction = "moca_fifth_section_first_instruction_key"
+    case mocaFifthSectionSecondInstruction = "moca_fifth_section_second_instruction_key"
+    case mocaSixthSectionFirstInstruction = "moca_sixth_section_first_instruction_key"
+    case mocaSeventhSectionFirstInstruction = "moca_seventh_section_first_instruction_key"
+    case mocaEighthSectionFirstInstruction = "moca_eighth_section_first_instruction_key"
+
+    case mocaFirstSectionFirstQuestion = "moca_first_section_first_question_key"
+    case mocaFirstSectionSecondQuestion = "moca_first_section_second_question_key"
+    case mocaFirstSectionThirdQuestion = "moca_first_section_third_question_key"
+    case mocaFirstSectionFourthQuestion = "moca_first_section_fourth_question_key"
+    case mocaFirstSectionFifthQuestion = "moca_first_section_fifth_question_key"
+
+    case mocaSecondSectionFirstQuestion = "moca_second_section_first_question_key"
+    case mocaSecondSectionSecondQuestion = "moca_second_section_second_question_key"
+    case mocaSecondSectionThirdQuestion = "moca_second_section_third_question_key"
+
+    case mocaThirdSectionFirstQuestion = "moca_third_section_first_question_key"
+    case mocaThirdSectionSecondQuestion = "moca_third_section_second_question_key"
+
+    case mocaFourthSectionFirstQuestion = "moca_fourth_section_first_question_key"
+
+    case mocaFifthSectionFirstQuestion = "moca_fifth_section_first_question_key"
+    case mocaFifthSectionSecondQuestion = "moca_fifth_section_second_question_key"
+    case mocaFifthSectionThirdQuestion = "moca_fifth_section_third_question_key"
+    case mocaFifthSectionFourthQuestion = "moca_fifth_section_fourth_question_key"
+    case mocaFifthSectionFifthQuestion = "moca_fifth_section_fifth_question_key"
+
+    case mocaSixthSectionFirstQuestion = "moca_sixth_section_first_question_key"
+    case mocaSixthSectionSecondQuestion = "moca_sixth_section_second_question_key"
+
+    case mocaSeventhSectionFirstQuestion = "moca_seventh_section_first_question_key"
+    case mocaSeventhSectionSecondQuestion = "moca_seventh_section_second_question_key"
+
+    case mocaEighthSectionFirstQuestion = "moca_eighth_section_first_question_key"
+    case mocaEighthSectionSecondQuestion = "moca_eighth_section_second_question_key"
+    case mocaEighthSectionThirdQuestion = "moca_eighth_section_third_question_key"
+    case mocaEighthSectionFourthQuestion = "moca_eighth_section_fourth_question_key"
+    case mocaEighthSectionFifthQuestion = "moca_eighth_section_fifth_question_key"
+
+    case mocaNinthSectionFirstQuestion = "moca_nineth_section_first_question_key"
+    case mocaNinthSectionSecondQuestion = "moca_nineth_section_second_question_key"
+    case mocaNinthSectionThirdQuestion = "moca_nineth_section_third_question_key"
+    case mocaNinthSectionFourthQuestion = "moca_nineth_section_fourth_question_key"
+    case mocaNinthSectionFifthQuestion = "moca_nineth_section_fifth_question_key"
+    case mocaNinthSectionSixthQuestion = "moca_nineth_section_sixth_question_key"
+
+    case firstCentralItem = "first_central_item_key"
+    case secondCentralItem = "second_central_item_key"
+    case thirdCentralItem = "third_central_item_key"
+    case fourthCentralItem = "fourth_central_item_key"
+    case fifthCentralItem = "fifth_central_item_key"
+    case sixthCentralItem = "sixth_central_item_key"
+
+    case gallery = "gallery_key"
+    case takePhoto = "take_photo_key"
+
+    case moreThanTwelveYears = "more_than_twelve_years_key"
+    case lessThanTwelveYears = "less_than_twelve_years_key"
+    case moCAExcellentResult = "moca_excellent_result_key"
+    case moCABadResult = "moca_bad_result_key"
+
+    // MARK: - Geriatric Depression Scale
+
+    case geriatricDepressionScaleQuestionOne = "geriatric_depression_scale_question_one"
+    case geriatricDepressionScaleQuestionTwo = "geriatric_depression_scale_question_two"
+    case geriatricDepressionScaleQuestionThree = "geriatric_depression_scale_question_three"
+    case geriatricDepressionScaleQuestionFour = "geriatric_depression_scale_question_four"
+    case geriatricDepressionScaleQuestionFive = "geriatric_depression_scale_question_five"
+    case geriatricDepressionScaleQuestionSix = "geriatric_depression_scale_question_six"
+    case geriatricDepressionScaleQuestionSeven = "geriatric_depression_scale_question_seven"
+    case geriatricDepressionScaleQuestionEight = "geriatric_depression_scale_question_eight"
+    case geriatricDepressionScaleQuestionNine = "geriatric_depression_scale_question_nine"
+    case geriatricDepressionScaleQuestionTen = "geriatric_depression_scale_question_ten"
+    case geriatricDepressionScaleQuestionEleven = "geriatric_depression_scale_question_eleven"
+    case geriatricDepressionScaleQuestionTwelve = "geriatric_depression_scale_question_twelve"
+    case geriatricDepressionScaleQuestionThirteen = "geriatric_depression_scale_question_thirteen"
+    case geriatricDepressionScaleQuestionFourteen = "geriatric_depression_scale_question_fourteen"
+    case geriatricDepressionScaleQuestionFifteen = "geriatric_depression_scale_question_fifteen"
+    case geriatricDepressionScaleInstruction = "geriatric_depression_scale_instruction"
+    case geriatricDepressionScaleExcellentResult = "geriatric_depression_scale_excellent_result_key"
+    case geriatricDepressionScaleBadResult = "geriatric_depression_scale_bad_result_key"
 }

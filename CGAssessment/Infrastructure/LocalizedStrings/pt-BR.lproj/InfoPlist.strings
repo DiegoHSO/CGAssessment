@@ -7,3 +7,4 @@
 */
 
 "CFBundleDisplayName" = "AGA";
+"NSCameraUsageDescription" = "Precisamos de acesso à câmera para que você capture e anexe a imagem do teste.";

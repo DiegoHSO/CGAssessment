@@ -19,13 +19,12 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
     private var presenter: SarcopeniaScreeningPresentationLogic?
     private var worker: SarcopeniaScreeningWorker?
     private var cgaId: UUID?
-    private var firstQuestionOption: SelectableKeys = .none
-    private var secondQuestionOption: SelectableKeys = .none
-    private var thirdQuestionOption: SelectableKeys = .none
-    private var fourthQuestionOption: SelectableKeys = .none
-    private var fifthQuestionOption: SelectableKeys = .none
-    private var sixthQuestionOption: SelectableKeys = .none
     private var gender: Gender?
+    private var rawQuestions: MiniMentalStateExamModels.RawQuestions = [
+        .sarcopeniaAssessmentFirstQuestion: .none, .sarcopeniaAssessmentSecondQuestion: .none,
+        .sarcopeniaAssessmentThirdQuestion: .none, .sarcopeniaAssessmentFourthQuestion: .none,
+        .sarcopeniaAssessmentFifthQuestion: .none, .sarcopeniaAssessmentSixthQuestion: .none
+    ]
 
     // MARK: - Init
 
@@ -47,22 +46,7 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
     }
 
     func didSelect(option: SelectableKeys, value: LocalizedTable) {
-        switch value {
-        case .sarcopeniaAssessmentFirstQuestion:
-            firstQuestionOption = option
-        case .sarcopeniaAssessmentSecondQuestion:
-            secondQuestionOption = option
-        case .sarcopeniaAssessmentThirdQuestion:
-            thirdQuestionOption = option
-        case .sarcopeniaAssessmentFourthQuestion:
-            fourthQuestionOption = option
-        case .sarcopeniaAssessmentFifthQuestion:
-            fifthQuestionOption = option
-        case .sarcopeniaAssessmentSixthQuestion:
-            sixthQuestionOption = option
-        default:
-            break
-        }
+        rawQuestions[value] = option
 
         updateDatabase()
         sendDataToPresenter()
@@ -75,43 +59,38 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
     }
 
     private func createViewModel() -> SarcopeniaScreeningModels.ControllerViewModel {
-        let questions: SarcopeniaScreeningModels.Questions = [.firstQuestion: .init(question: .sarcopeniaAssessmentFirstQuestion,
+        let questions: SarcopeniaScreeningModels.Questions = [.firstQuestion: .init(question: .sarcopeniaAssessmentFirstQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentFirstQuestion] ?? .none,
                                                                                     options: [.firstOption: .noneGenderFlexion,
                                                                                               .secondOption: .some,
                                                                                               .thirdOption: .muchOrUnable]),
-                                                              .secondQuestion: .init(question: .sarcopeniaAssessmentSecondQuestion,
+                                                              .secondQuestion: .init(question: .sarcopeniaAssessmentSecondQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentSecondQuestion] ?? .none,
                                                                                      options: [.firstOption: .noneGenderFlexion,
                                                                                                .secondOption: .some,
                                                                                                .thirdOption: .usesSupport]),
-                                                              .thirdQuestion: .init(question: .sarcopeniaAssessmentThirdQuestion,
+                                                              .thirdQuestion: .init(question: .sarcopeniaAssessmentThirdQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentThirdQuestion] ?? .none,
                                                                                     options: [.firstOption: .noneGenderFlexion,
                                                                                               .secondOption: .some,
                                                                                               .thirdOption: .unableWithoutHelp]),
-                                                              .fourthQuestion: .init(question: .sarcopeniaAssessmentFourthQuestion,
+                                                              .fourthQuestion: .init(question: .sarcopeniaAssessmentFourthQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentFourthQuestion] ?? .none,
                                                                                      options: [.firstOption: .noneGenderFlexion,
                                                                                                .secondOption: .some,
                                                                                                .thirdOption: .muchOrUnable]),
-                                                              .fifthQuestion: .init(question: .sarcopeniaAssessmentFifthQuestion,
+                                                              .fifthQuestion: .init(question: .sarcopeniaAssessmentFifthQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentFifthQuestion] ?? .none,
                                                                                     options: [.firstOption: .noneGenderFlexion,
                                                                                               .secondOption: .oneToThreeFalls,
                                                                                               .thirdOption: .fourOrMoreFalls]),
-                                                              .sixthQuestion: .init(question: .sarcopeniaAssessmentSixthQuestion,
+                                                              .sixthQuestion: .init(question: .sarcopeniaAssessmentSixthQuestion, selectedOption: rawQuestions[.sarcopeniaAssessmentSixthQuestion] ?? .none,
                                                                                     options: [.firstOption: gender == .female ? .circumferenceBiggerThanLimitWomen :
                                                                                                 .circumferenceBiggerThanLimitMen,
                                                                                               .secondOption: gender == .female ? .circumferenceLowerThanLimitWomen :
                                                                                                 .circumferenceLowerThanLimitMen])
         ]
 
-        let selectedOptions = [firstQuestionOption, secondQuestionOption, thirdQuestionOption,
-                               fourthQuestionOption, fifthQuestionOption, sixthQuestionOption]
+        let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
 
         let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({$0 != .none})
 
-        return SarcopeniaScreeningModels.ControllerViewModel(questions: questions, firstQuestionOption: firstQuestionOption,
-                                                             secondQuestionOption: secondQuestionOption, thirdQuestionOption: thirdQuestionOption,
-                                                             fourthQuestionOption: fourthQuestionOption, fifthQuestionOption: fifthQuestionOption,
-                                                             sixthQuestionOption: sixthQuestionOption,
-                                                             isResultsButtonEnabled: isResultsButtonEnabled)
+        return SarcopeniaScreeningModels.ControllerViewModel(questions: questions, isResultsButtonEnabled: isResultsButtonEnabled)
     }
 
     private func handleNavigation(updatesDatabase: Bool = false) {
@@ -119,17 +98,10 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
             updateDatabase(isDone: true)
         }
 
-        let selectedOptions = [firstQuestionOption, secondQuestionOption, thirdQuestionOption,
-                               fourthQuestionOption, fifthQuestionOption, sixthQuestionOption]
+        let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
 
         if let gender, selectedOptions.allSatisfy({$0 != .none}) {
-            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(firstQuestionOption: firstQuestionOption,
-                                                                                              secondQuestionOption: secondQuestionOption,
-                                                                                              thirdQuestionOption: thirdQuestionOption,
-                                                                                              fourthQuestionOption: fourthQuestionOption,
-                                                                                              fifthQuestionOption: fifthQuestionOption,
-                                                                                              sixthQuestionOption: sixthQuestionOption,
-                                                                                              gender: gender), cgaId: cgaId))
+            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(questions: rawQuestions, gender: gender), cgaId: cgaId))
         }
     }
 
@@ -137,21 +109,15 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
         gender = try? worker?.getPatientGender()
 
         if let sarcopeniaScreeningProgress = try? worker?.getSarcopeniaScreeningProgress() {
-            guard let firstQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.firstQuestionOption),
-                  let secondQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.secondQuestionOption),
-                  let thirdQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.thirdQuestionOption),
-                  let fourthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.fourthQuestionOption),
-                  let fifthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.fifthQuestionOption),
-                  let sixthQuestionOption = SelectableKeys(rawValue: sarcopeniaScreeningProgress.sixthQuestionOption) else {
+            guard let questionOptions = sarcopeniaScreeningProgress.selectableOptions?.allObjects as? [SelectableOption] else {
                 return
             }
 
-            self.firstQuestionOption = firstQuestionOption
-            self.secondQuestionOption = secondQuestionOption
-            self.thirdQuestionOption = thirdQuestionOption
-            self.fourthQuestionOption = fourthQuestionOption
-            self.fifthQuestionOption = fifthQuestionOption
-            self.sixthQuestionOption = sixthQuestionOption
+            questionOptions.forEach { option in
+                guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                      let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                rawQuestions[identifier] = selectedOption
+            }
 
             if sarcopeniaScreeningProgress.isDone {
                 handleNavigation()
@@ -161,10 +127,7 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
 
     private func updateDatabase(isDone: Bool = false) {
         do {
-            try worker?.updateSarcopeniaScreeningProgress(with: .init(firstQuestionOption: firstQuestionOption, secondQuestionOption: secondQuestionOption,
-                                                                      thirdQuestionOption: thirdQuestionOption, fourthQuestionOption: fourthQuestionOption,
-                                                                      fifthQuestionOption: fifthQuestionOption, sixthQuestionOption: sixthQuestionOption,
-                                                                      isDone: isDone))
+            try worker?.updateSarcopeniaScreeningProgress(with: .init(questions: rawQuestions, isDone: isDone))
         } catch {
             os_log("Error: %@", log: .default, type: .error, String(describing: error))
         }

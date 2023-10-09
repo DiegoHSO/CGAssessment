@@ -125,27 +125,6 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
         guard let viewModel, let section = Section(rawValue: indexPath.section),
               let row = viewModel.sections[section]?[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
 
-        let selectedQuestion: SelectableKeys
-
-        switch section {
-        case .title:
-            selectedQuestion = .none
-        case .firstQuestion:
-            selectedQuestion = viewModel.firstQuestionOption
-        case .secondQuestion:
-            selectedQuestion = viewModel.secondQuestionOption
-        case .thirdQuestion:
-            selectedQuestion = viewModel.thirdQuestionOption
-        case .fourthQuestion:
-            selectedQuestion = viewModel.fourthQuestionOption
-        case .fifthQuestion:
-            selectedQuestion = viewModel.fifthQuestionOption
-        case .sixthQuestion:
-            selectedQuestion = viewModel.sixthQuestionOption
-        case .done:
-            selectedQuestion = .none
-        }
-
         switch row {
         case .question:
             guard let questionViewModel = viewModel.questions[section] else { return UITableViewCell(frame: .zero) }
@@ -156,7 +135,7 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(title: questionViewModel.question, options: questionViewModel.options,
-                                        delegate: interactor, selectedQuestion: selectedQuestion,
+                                        delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
             return cell

@@ -33,6 +33,29 @@
 		F13C7B792ACDF58A000D5AC2 /* StatusViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */; };
 		F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */; };
 		F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */; };
+		F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */; };
+		F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */; };
+		F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */; };
+		F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */; };
+		F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */; };
+		F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */; };
+		F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */; };
+		F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */; };
+		F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */; };
+		F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */; };
+		F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */; };
+		F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */; };
+		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
+		F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */; };
+		F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */; };
+		F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */; };
+		F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */; };
+		F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */; };
+		F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */; };
+		F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */; };
+		F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */; };
+		F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */; };
+		F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */; };
 		F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */; };
 		F14097692AB7A3C100E92005 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */; };
 		F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140976A2AB7B17700E92005 /* DashboardInteractor.swift */; };
@@ -72,6 +95,28 @@
 		F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F168B7F62ACCD7DA0015B2A3 /* Patients.storyboard */; };
 		F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */; };
 		F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F168B7FF2ACD23CF0015B2A3 /* InfoPlist.strings */; };
+		F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */; };
+		F16A3FBE2AD20F69007F4DF7 /* ClockDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */; };
+		F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */; };
+		F16A3FC22AD20F82007F4DF7 /* ClockDrawingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */; };
+		F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */; };
+		F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */; };
+		F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */; };
+		F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */; };
+		F16A3FCF2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */; };
+		F16A3FD02AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */; };
+		F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */; };
+		F16A3FD52AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */; };
+		F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */; };
+		F16A3FD92AD23FD0007F4DF7 /* GroupedButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */; };
+		F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */; };
+		F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */; };
+		F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */; };
+		F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */; };
+		F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */; };
+		F16A3FE52AD24CE4007F4DF7 /* MoCARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */; };
+		F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */; };
+		F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */; };
 		F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */; };
 		F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */; };
 		F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F02AA793BE00C1EB32 /* DashboardViewController.swift */; };
@@ -141,6 +186,14 @@
 		F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */; };
 		F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */; };
 		F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339072AB7660000282AF3 /* Collection+Extension.swift */; };
+		F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */; };
+		F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */; };
+		F1EB0FA72AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */; };
+		F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */; };
+		F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */; };
+		F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */; };
+		F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */; };
+		F1EB0FB12AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */; };
 		F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */; };
 		F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */; };
 		F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */; };
@@ -262,6 +315,29 @@
 		F13C7B782ACDF58A000D5AC2 /* StatusViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewProtocol.swift; sourceTree = "<group>"; };
 		F13C7B7A2ACDF753000D5AC2 /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		F13C7B7E2ACE5B8D000D5AC2 /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
+		F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionView.swift; sourceTree = "<group>"; };
+		F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinaryOptionView.xib; sourceTree = "<group>"; };
+		F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsModels.swift; sourceTree = "<group>"; };
+		F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BinaryOptionsTableViewCell.xib; sourceTree = "<group>"; };
+		F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MiniMentalStateExam.storyboard; sourceTree = "<group>"; };
+		F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamViewController.swift; sourceTree = "<group>"; };
+		F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamInteractor.swift; sourceTree = "<group>"; };
+		F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamPresenter.swift; sourceTree = "<group>"; };
+		F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamWorker.swift; sourceTree = "<group>"; };
+		F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamRouter.swift; sourceTree = "<group>"; };
+		F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamModels.swift; sourceTree = "<group>"; };
+		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
+		F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
+		F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperTableViewCell.xib; sourceTree = "<group>"; };
+		F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerbalFluency.storyboard; sourceTree = "<group>"; };
+		F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyViewController.swift; sourceTree = "<group>"; };
+		F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyInteractor.swift; sourceTree = "<group>"; };
+		F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyPresenter.swift; sourceTree = "<group>"; };
+		F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyWorker.swift; sourceTree = "<group>"; };
+		F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyRouter.swift; sourceTree = "<group>"; };
+		F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyModels.swift; sourceTree = "<group>"; };
+		F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyBuilder.swift; sourceTree = "<group>"; };
 		F14097662AB7A3C100E92005 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		F14097672AB7A3C100E92005 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		F140976A2AB7B17700E92005 /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
@@ -302,6 +378,28 @@
 		F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		F168B7FE2ACD23CF0015B2A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F168B8002ACD23D10015B2A3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClockDrawing.storyboard; sourceTree = "<group>"; };
+		F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingViewController.swift; sourceTree = "<group>"; };
+		F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingInteractor.swift; sourceTree = "<group>"; };
+		F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingPresenter.swift; sourceTree = "<group>"; };
+		F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingWorker.swift; sourceTree = "<group>"; };
+		F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingRouter.swift; sourceTree = "<group>"; };
+		F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingModels.swift; sourceTree = "<group>"; };
+		F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingBuilder.swift; sourceTree = "<group>"; };
+		F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralizedTextTableViewCell.swift; sourceTree = "<group>"; };
+		F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CentralizedTextTableViewCell.xib; sourceTree = "<group>"; };
+		F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedButtonsTableViewCell.swift; sourceTree = "<group>"; };
+		F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonsTableViewCell.xib; sourceTree = "<group>"; };
+		F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedButtonView.swift; sourceTree = "<group>"; };
+		F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupedButtonView.xib; sourceTree = "<group>"; };
+		F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoCA.storyboard; sourceTree = "<group>"; };
+		F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAViewController.swift; sourceTree = "<group>"; };
+		F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAInteractor.swift; sourceTree = "<group>"; };
+		F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAPresenter.swift; sourceTree = "<group>"; };
+		F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAWorker.swift; sourceTree = "<group>"; };
+		F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCARouter.swift; sourceTree = "<group>"; };
+		F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAModels.swift; sourceTree = "<group>"; };
+		F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCABuilder.swift; sourceTree = "<group>"; };
 		F177F7E92AA793BE00C1EB32 /* CGAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F7EC2AA793BE00C1EB32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F177F7EE2AA793BE00C1EB32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -379,6 +477,14 @@
 		F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCGA.storyboard; sourceTree = "<group>"; };
 		F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGABuilder.swift; sourceTree = "<group>"; };
 		F1E339072AB7660000282AF3 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeriatricDepressionScale.storyboard; sourceTree = "<group>"; };
+		F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleViewController.swift; sourceTree = "<group>"; };
+		F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleInteractor.swift; sourceTree = "<group>"; };
+		F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScalePresenter.swift; sourceTree = "<group>"; };
+		F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleWorker.swift; sourceTree = "<group>"; };
+		F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleRouter.swift; sourceTree = "<group>"; };
+		F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleModels.swift; sourceTree = "<group>"; };
+		F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleBuilder.swift; sourceTree = "<group>"; };
 		F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainModels.swift; sourceTree = "<group>"; };
@@ -518,6 +624,57 @@
 			path = Status;
 			sourceTree = "<group>";
 		};
+		F13C7B802ACF0977000D5AC2 /* BinaryOptions */ = {
+			isa = PBXGroup;
+			children = (
+				F13C7B812ACF099A000D5AC2 /* BinaryOptionView.swift */,
+				F13C7B832ACF0A40000D5AC2 /* BinaryOptionView.xib */,
+				F13C7B872ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift */,
+				F13C7B882ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib */,
+				F13C7B852ACF308F000D5AC2 /* BinaryOptionsModels.swift */,
+			);
+			path = BinaryOptions;
+			sourceTree = "<group>";
+		};
+		F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */ = {
+			isa = PBXGroup;
+			children = (
+				F13C7B8C2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard */,
+				F13C7B8E2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift */,
+				F13C7B902ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift */,
+				F13C7B922ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift */,
+				F13C7B942ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift */,
+				F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */,
+				F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */,
+				F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */,
+			);
+			path = MiniMentalStateExam;
+			sourceTree = "<group>";
+		};
+		F13CD1052AD1DB1D0011E4DF /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */,
+				F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */,
+			);
+			path = Stepper;
+			sourceTree = "<group>";
+		};
+		F13CD10A2AD1E8640011E4DF /* VerbalFluency */ = {
+			isa = PBXGroup;
+			children = (
+				F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */,
+				F13CD10D2AD1E8C80011E4DF /* VerbalFluencyViewController.swift */,
+				F13CD10F2AD1E8D70011E4DF /* VerbalFluencyInteractor.swift */,
+				F13CD1112AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift */,
+				F13CD1132AD1E9670011E4DF /* VerbalFluencyWorker.swift */,
+				F13CD1152AD1E9760011E4DF /* VerbalFluencyRouter.swift */,
+				F13CD1172AD1E9820011E4DF /* VerbalFluencyModels.swift */,
+				F13CD1192AD1EE960011E4DF /* VerbalFluencyBuilder.swift */,
+			);
+			path = VerbalFluency;
+			sourceTree = "<group>";
+		};
 		F14097652AB7A3B000E92005 /* TitleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +763,57 @@
 				F10DFB972ACA46B600E1A380 /* FilterTableViewCell.xib */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FBB2AD20F10007F4DF7 /* ClockDrawing.storyboard */,
+				F16A3FBD2AD20F69007F4DF7 /* ClockDrawingViewController.swift */,
+				F16A3FBF2AD20F78007F4DF7 /* ClockDrawingInteractor.swift */,
+				F16A3FC12AD20F82007F4DF7 /* ClockDrawingPresenter.swift */,
+				F16A3FC32AD20F8E007F4DF7 /* ClockDrawingWorker.swift */,
+				F16A3FC52AD20F97007F4DF7 /* ClockDrawingRouter.swift */,
+				F16A3FC72AD20FA2007F4DF7 /* ClockDrawingModels.swift */,
+				F16A3FC92AD20FAA007F4DF7 /* ClockDrawingBuilder.swift */,
+			);
+			path = ClockDrawing;
+			sourceTree = "<group>";
+		};
+		F16A3FCB2AD23B5B007F4DF7 /* MoCA */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FCC2AD23B7D007F4DF7 /* Components */,
+				F16A3FDA2AD24C52007F4DF7 /* MoCA.storyboard */,
+				F16A3FDC2AD24C64007F4DF7 /* MoCAViewController.swift */,
+				F16A3FDE2AD24CC6007F4DF7 /* MoCAInteractor.swift */,
+				F16A3FE02AD24CCF007F4DF7 /* MoCAPresenter.swift */,
+				F16A3FE22AD24CDA007F4DF7 /* MoCAWorker.swift */,
+				F16A3FE42AD24CE4007F4DF7 /* MoCARouter.swift */,
+				F16A3FE62AD24CF8007F4DF7 /* MoCAModels.swift */,
+				F16A3FE82AD24D01007F4DF7 /* MoCABuilder.swift */,
+			);
+			path = MoCA;
+			sourceTree = "<group>";
+		};
+		F16A3FCC2AD23B7D007F4DF7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FCD2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift */,
+				F16A3FCE2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F16A3FD12AD23F6E007F4DF7 /* GroupedButtons */ = {
+			isa = PBXGroup;
+			children = (
+				F16A3FD22AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift */,
+				F16A3FD32AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib */,
+				F16A3FD62AD23FC4007F4DF7 /* GroupedButtonView.swift */,
+				F16A3FD82AD23FD0007F4DF7 /* GroupedButtonView.xib */,
+			);
+			path = GroupedButtons;
 			sourceTree = "<group>";
 		};
 		F177F7E02AA793BE00C1EB32 = {
@@ -941,6 +1149,21 @@
 			path = TitleHeader;
 			sourceTree = "<group>";
 		};
+		F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB0FA22AD3AFBC0087AAB2 /* GeriatricDepressionScale.storyboard */,
+				F1EB0FA42AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift */,
+				F1EB0FA62AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift */,
+				F1EB0FA82AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift */,
+				F1EB0FAA2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift */,
+				F1EB0FAC2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift */,
+				F1EB0FAE2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift */,
+				F1EB0FB02AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift */,
+			);
+			path = GeriatricDepressionScale;
+			sourceTree = "<group>";
+		};
 		F1F1E3702ABE289400BC610E /* SingleDomain */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1217,11 @@
 				F18698C72AC472B700FB5620 /* GripStrength */,
 				F18698DF2AC4D43E00FB5620 /* SarcopeniaScreening */,
 				F18698EE2AC671DF00FB5620 /* SarcopeniaAssessment */,
+				F13C7B8B2ACF5818000D5AC2 /* MiniMentalStateExam */,
+				F13CD10A2AD1E8640011E4DF /* VerbalFluency */,
+				F16A3FBA2AD20EED007F4DF7 /* ClockDrawing */,
+				F16A3FCB2AD23B5B007F4DF7 /* MoCA */,
+				F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1085,6 +1313,7 @@
 		F1F2E9D82AB341F20006075F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F13C7B802ACF0977000D5AC2 /* BinaryOptions */,
 				F13C7B732ACDD631000D5AC2 /* Status */,
 				F168B7F82ACCDDD60015B2A3 /* Filter */,
 				F140977A2ABB615900E92005 /* Tooltip */,
@@ -1099,6 +1328,8 @@
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
 				F1F1E3D32AC2466000BC610E /* Image */,
 				F168B7E12ACBD9650015B2A3 /* EmptyState */,
+				F13CD1052AD1DB1D0011E4DF /* Stepper */,
+				F16A3FD12AD23F6E007F4DF7 /* GroupedButtons */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1243,20 +1474,27 @@
 				F18698E12AC4D46300FB5620 /* SarcopeniaScreening.storyboard in Resources */,
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */,
+				F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */,
 				F1A9FBD82AAA60170048E31F /* SF-Compact-Display-Medium.otf in Resources */,
 				F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */,
+				F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
+				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
+				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
+				F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */,
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
+				F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */,
 				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
+				F16A3FD52AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.xib in Resources */,
 				F1F2E9C22AAE6B330006075F /* FeaturesTableViewCell.xib in Resources */,
 				F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */,
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
@@ -1265,13 +1503,16 @@
 				F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */,
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
+				F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
+				F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */,
 				F1F1E3B12AC0C57C00BC610E /* Results.storyboard in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F140978D2ABBC51500E92005 /* CGADomains.storyboard in Resources */,
+				F16A3FD92AD23FD0007F4DF7 /* GroupedButtonView.xib in Resources */,
 				F1F1E3AC2AC0A07200BC610E /* SingleResultView.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
@@ -1291,6 +1532,7 @@
 				F177F7F42AA793BE00C1EB32 /* Dashboard.storyboard in Resources */,
 				F10DFB912ACA303900E1A380 /* DomainStatusView.xib in Resources */,
 				F13C7B752ACDD675000D5AC2 /* StatusHeaderView.xib in Resources */,
+				F16A3FD02AD23BF2007F4DF7 /* CentralizedTextTableViewCell.xib in Resources */,
 				F18698F92AC6721000FB5620 /* SarcopeniaAssessment.storyboard in Resources */,
 				F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */,
 			);
@@ -1360,12 +1602,16 @@
 			files = (
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
+				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
+				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
+				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
 				F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */,
+				F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */,
 				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */,
 				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
@@ -1383,14 +1629,20 @@
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
 				F1F1E3B32AC0C59400BC610E /* ResultsViewController.swift in Sources */,
 				F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */,
+				F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */,
+				F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */,
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
+				F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */,
+				F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
+				F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
+				F1EB0FA72AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift in Sources */,
 				F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */,
 				F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */,
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
@@ -1398,6 +1650,8 @@
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
+				F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */,
+				F16A3FBE2AD20F69007F4DF7 /* ClockDrawingViewController.swift in Sources */,
 				F1F2E9B82AACE3890006075F /* UITableView+Extension.swift in Sources */,
 				F18698D32AC4734700FB5620 /* GripStrengthModels.swift in Sources */,
 				F10DFB9D2ACA523100E1A380 /* CGAsInteractor.swift in Sources */,
@@ -1411,6 +1665,7 @@
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
 				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
+				F16A3FE52AD24CE4007F4DF7 /* MoCARouter.swift in Sources */,
 				F1AEEB692AA94F000038968E /* FeatureComponentView.swift in Sources */,
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
@@ -1421,6 +1676,7 @@
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
+				F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
 				F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */,
 				F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */,
@@ -1428,19 +1684,24 @@
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
+				F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
+				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
+				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
+				F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */,
+				F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
 				F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */,
 				F1F1E3CE2AC10EFC00BC610E /* WalkingSpeedModels.swift in Sources */,
@@ -1449,9 +1710,15 @@
 				F138F25A2AC94BB6004E90E2 /* SarcopeniaScreeningWorker.swift in Sources */,
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
+				F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
+				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
+				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
+				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
+				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
+				F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
 				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
 				F1F2E9C72AB273D80006075F /* TabBarViewController.swift in Sources */,
@@ -1460,24 +1727,30 @@
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
 				F1F1E37D2ABEA1FD00BC610E /* SingleDomainViewController.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
+				F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
+				F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */,
 				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
+				F1EB0FB12AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
 				F10DFBA12ACA524D00E1A380 /* CGAsPresenter.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
+				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
 				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
+				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
+				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
@@ -1485,6 +1758,7 @@
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */,
+				F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */,
 				F1AEEB942AA995AA0038968E /* LocalizedTable.swift in Sources */,
 				F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */,
 				F1F2E9E42AB35E570006075F /* SelectableModels.swift in Sources */,
@@ -1493,20 +1767,30 @@
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
+				F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */,
+				F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */,
+				F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
+				F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */,
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
 				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
+				F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */,
+				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
+				F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,
 				F18698E52AC4D47E00FB5620 /* SarcopeniaScreeningInteractor.swift in Sources */,
 				F18698D52AC4843600FB5620 /* ResultsBuilder.swift in Sources */,
 				F18698FB2AC6721000FB5620 /* SarcopeniaAssessmentBuilder.swift in Sources */,
+				F16A3FC22AD20F82007F4DF7 /* ClockDrawingPresenter.swift in Sources */,
+				F16A3FCF2AD23BF2007F4DF7 /* CentralizedTextTableViewCell.swift in Sources */,
 				F10DFB932ACA304D00E1A380 /* DomainStatusView.swift in Sources */,
 				F1F1E3BD2AC0CDD600BC610E /* ResultsWorker.swift in Sources */,
+				F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1707,7 +1991,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
@@ -1743,7 +2027,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;

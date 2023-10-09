@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable:next type_body_length
 class ResultsWorker {
 
     // MARK: - Private Properties
@@ -44,15 +45,20 @@ class ResultsWorker {
             guard let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults else { return nil }
             return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
         case .miniMentalStateExamination:
-            break
+            guard let miniMentalStateExamResults = results as? MiniMentalStateExamModels.TestResults else { return nil }
+            return getMiniMentalStateExamResults(for: miniMentalStateExamResults)
         case .verbalFluencyTest:
-            break
+            guard let verbalFluencyTestResults = results as? VerbalFluencyModels.TestResults else { return nil }
+            return getVerbalFluencyResults(for: verbalFluencyTestResults)
         case .clockDrawingTest:
-            break
+            guard let clockDrawingTestResults = results as? ClockDrawingModels.TestResults else { return nil }
+            return getClockDrawingResults(for: clockDrawingTestResults)
         case .moca:
-            break
+            guard let mocaResults = results as? MoCAModels.TestResults else { return nil }
+            return getMoCAResults(for: mocaResults)
         case .geriatricDepressionScale:
-            break
+            guard let geriatricDepressionScaleResults = results as? GeriatricDepressionScaleModels.TestResults else { return nil }
+            return getGeriatricDepressionScaleResults(for: geriatricDepressionScaleResults)
         case .visualAcuityAssessment:
             break
         case .hearingLossAssessment:
@@ -210,8 +216,7 @@ class ResultsWorker {
 
     private func getSarcopeniaScreeningResults(for testResults: SarcopeniaScreeningModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
 
-        let selectedOptions = [testResults.firstQuestionOption, testResults.secondQuestionOption, testResults.thirdQuestionOption,
-                               testResults.fourthQuestionOption, testResults.fifthQuestionOption]
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
 
         var score = selectedOptions.reduce(0) { partialResult, option in
             switch option {
@@ -228,9 +233,9 @@ class ResultsWorker {
 
         switch testResults.gender {
         case .female:
-            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
         case .male:
-            customScore = testResults.sixthQuestionOption == .firstOption ? 0 : 10
+            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
         }
 
         score += customScore
@@ -288,5 +293,187 @@ class ResultsWorker {
         }
 
         return ([], .excellent)
+    }
+
+    private func getMiniMentalStateExamResults(for testResults: MiniMentalStateExamModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.filter({ $0.key != .miniMentalStateExamFirstQuestion }).values.map { $0 as SelectableKeys }
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
+        }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }
+        let selectedOptionsPoints = selectedOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let selectedBinaryOptionsPointed = selectedBinaryOptions.filter { $0 == .yes }
+        let selectedBinaryOptionsPoints = selectedBinaryOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let totalPoints = selectedOptionsPoints + selectedBinaryOptionsPoints
+
+        let resultType: ResultsModels.ResultType = switch testResults.questions[.miniMentalStateExamFirstQuestion] {
+        case .firstOption: // More than eleven years of study
+            totalPoints >= 29 ? .excellent : .bad
+        case .secondOption: // Between nine and eleven years of study
+            totalPoints >= 28 ? .excellent : .bad
+        case .thirdOption: // Between five and eight years of study
+            totalPoints >= 26 ? .excellent : .bad
+        case .fourthOption: // Between one and four years of study
+            totalPoints >= 25 ? .excellent : .bad
+        case .fifthOption: // Illiterate
+            totalPoints >= 20 ? .excellent : .bad
+        default:
+            .bad
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.miniMentalStateExamExcellentResult.localized
+                                                        : LocalizedTable.miniMentalStateExamBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getVerbalFluencyResults(for testResults: VerbalFluencyModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let resultType: ResultsModels.ResultType = switch testResults.selectedEducationOption {
+        case .firstOption: // Eight or more years of education
+            testResults.countedWords >= 13 ? .excellent : .bad
+        case .secondOption: // Less than eight years of education
+            testResults.countedWords >= 9 ? .excellent : .bad
+        default:
+            .bad
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.numberOfWords.localized,
+                                                     description: "\(testResults.countedWords) \(testResults.countedWords == 1 ? LocalizedTable.word.localized : LocalizedTable.words.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.verbalFluencyExcellentResult.localized
+                                                        : LocalizedTable.verbalFluencyBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getClockDrawingResults(for testResults: ClockDrawingModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+        let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.map { $0.value }
+        }
+
+        let selectedBinaryOptionsPointed = selectedBinaryOptions.filter { $0 == .yes }
+        let totalPoints = selectedBinaryOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let resultType: ResultsModels.ResultType = totalPoints < 11 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.clockDrawingExcellentResult.localized
+                                                        : LocalizedTable.clockDrawingBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getMoCAResults(for testResults: MoCAModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int16 = 0
+
+        let visuospatialResults = testResults.binaryQuestions[.visuospatial]?.map { $0.value } ?? []
+        let visuospatialResultsPointed = visuospatialResults.filter { $0 == .yes }
+        let visuospatialTotalPoints = visuospatialResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += visuospatialTotalPoints
+
+        let namingResults = testResults.binaryQuestions[.naming]?.map { $0.value } ?? []
+        let namingResultsPointed = namingResults.filter { $0 == .yes }
+        let namingTotalPoints = namingResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += namingTotalPoints
+
+        let calculationResults = (testResults.binaryQuestions[.mocaFourthSectionFourthInstruction]?.map { $0.value } ?? [])
+        let calculationResultsPointed = calculationResults.filter { $0 == .yes }
+        let calculationTotalPoints = calculationResultsPointed.map { $0.rawValue }.reduce(0, +)
+        let adjustedCalculationTotalPoints = calculationTotalPoints >= 4 ? 3 : calculationTotalPoints >= 2 ? 2 : calculationTotalPoints
+
+        let attentionResults = (testResults.binaryQuestions[.mocaFourthSectionSecondInstruction]?.map { $0.value } ?? []) +
+            (testResults.binaryQuestions[.mocaFourthSectionThirdInstruction]?.map { $0.value } ?? [])
+        let attentionResultsPointed = attentionResults.filter { $0 == .yes }
+        let attentionTotalPoints = adjustedCalculationTotalPoints + attentionResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += attentionTotalPoints
+
+        let languageResults = testResults.binaryQuestions[.language]?.map { $0.value } ?? []
+        let languageResultsPointed = languageResults.filter { $0 == .yes }
+        let totalWordsPoints: Int16 = testResults.countedWords >= 11 ? 1 : 0
+        let languageTotalPoints = totalWordsPoints + languageResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += languageTotalPoints
+
+        let abstractionResults = testResults.binaryQuestions[.abstraction]?.map { $0.value } ?? []
+        let abstractionResultsPointed = abstractionResults.filter { $0 == .yes }
+        let abstractionTotalPoints = abstractionResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += abstractionTotalPoints
+
+        let delayedRecallResults = testResults.binaryQuestions[.delayedRecall]?.map { $0.value } ?? []
+        let delayedRecallResultsPointed = delayedRecallResults.filter { $0 == .yes }
+        let delayedRecallTotalPoints = delayedRecallResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += delayedRecallTotalPoints
+
+        let orientationResults = testResults.binaryQuestions[.orientation]?.map { $0.value } ?? []
+        let orientationResultsPointed = orientationResults.filter { $0 == .yes }
+        let orientationTotalPoints = orientationResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += orientationTotalPoints
+
+        let educationPoint: Int16 = testResults.selectedEducationOption == .secondOption ? 1 : 0
+        totalPoints += educationPoint
+
+        let resultType: ResultsModels.ResultType = totalPoints < 26 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.visuospatial.localized,
+                                                     description: "\(visuospatialTotalPoints) \(LocalizedTable.outOf.localized) 5 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.naming.localized,
+                                                     description: "\(namingTotalPoints) \(LocalizedTable.outOf.localized) 3 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.attention.localized,
+                                                     description: "\(attentionTotalPoints) \(LocalizedTable.outOf.localized) 6 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.language.localized,
+                                                     description: "\(languageTotalPoints) \(LocalizedTable.outOf.localized) 3 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.abstraction.localized,
+                                                     description: "\(abstractionTotalPoints) \(LocalizedTable.outOf.localized) 2 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.delayedRecall.localized,
+                                                     description: "\(delayedRecallTotalPoints) \(LocalizedTable.outOf.localized) 5 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.orientation.localized,
+                                                     description: "\(orientationTotalPoints) \(LocalizedTable.outOf.localized) 6 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.moCAExcellentResult.localized
+                                                        : LocalizedTable.moCABadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getGeriatricDepressionScaleResults(for testResults: GeriatricDepressionScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int = 0
+
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionOne] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTwo] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionThree] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFour] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFive] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionSix] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionSeven] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionEight] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionNine] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionEleven] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTwelve] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionThirteen] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFourteen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFifteen] == .firstOption ? 1 : 0
+
+        let resultType: ResultsModels.ResultType = totalPoints > 5 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.geriatricDepressionScaleExcellentResult.localized
+                                                        : LocalizedTable.geriatricDepressionScaleBadResult.localized)]
+
+        return (results, resultType)
     }
 }

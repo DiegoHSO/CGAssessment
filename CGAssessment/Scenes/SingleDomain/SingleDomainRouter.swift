@@ -39,15 +39,15 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .sarcopeniaScreening:
             routeToSarcopeniaAssessment(cgaId: cgaId)
         case .miniMentalStateExamination:
-            break
+            routeToMiniMentalStateExam(cgaId: cgaId)
         case .verbalFluencyTest:
-            break
+            routeToVerbalFluencyTest(cgaId: cgaId)
         case .clockDrawingTest:
-            break
+            routeToClockDrawingTest(cgaId: cgaId)
         case .moca:
-            break
+            routeToMoCA(cgaId: cgaId)
         case .geriatricDepressionScale:
-            break
+            routeToGeriatricDepressionScale(cgaId: cgaId)
         case .visualAcuityAssessment:
             break
         case .hearingLossAssessment:
@@ -107,5 +107,35 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let sarcopeniaAssessmentController = SarcopeniaScreeningBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(sarcopeniaAssessmentController, animated: true)
+    }
+
+    private func routeToMiniMentalStateExam(cgaId: UUID?) {
+        guard let miniMentalStateExamController = MiniMentalStateExamBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniMentalStateExamController, animated: true)
+    }
+
+    private func routeToVerbalFluencyTest(cgaId: UUID?) {
+        guard let verbalFluencyController = VerbalFluencyBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(verbalFluencyController, animated: true)
+    }
+
+    private func routeToClockDrawingTest(cgaId: UUID?) {
+        guard let clockDrawingController = ClockDrawingBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(clockDrawingController, animated: true)
+    }
+
+    private func routeToMoCA(cgaId: UUID?) {
+        guard let moCAController = MoCABuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(moCAController, animated: true)
+    }
+
+    private func routeToGeriatricDepressionScale(cgaId: UUID?) {
+        guard let geriatricDepressionScaleController = GeriatricDepressionScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(geriatricDepressionScaleController, animated: true)
     }
 }
