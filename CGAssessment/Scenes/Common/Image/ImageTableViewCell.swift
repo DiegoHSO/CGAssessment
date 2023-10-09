@@ -21,10 +21,12 @@ class ImageTableViewCell: UITableViewCell {
         if let image {
             if borderInImage {
                 customImageView?.image = image.generateImageWithBorder(borderSize: 75)
+                customImageView?.layer.borderColor = UIColor.clear.cgColor
             } else {
                 customImageView?.image = image
                 customImageView?.layer.borderColor = UIColor.label3?.cgColor
                 customImageView?.layer.borderWidth = 1
+                customImageView?.layer.cornerRadius = 10
             }
 
             customImageView?.isHidden = false
