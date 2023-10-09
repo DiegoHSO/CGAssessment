@@ -232,6 +232,24 @@ class PatientsInteractor: PatientsLogic {
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 
+            if let geriatricDepressionScale = lastCGA?.miniMentalStateExam, geriatricDepressionScale.isDone, !isCognitiveDomainAltered {
+                var rawQuestions: GeriatricDepressionScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = geriatricDepressionScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let geriatricDepressionScaleResults = GeriatricDepressionScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .geriatricDepressionScale, results: geriatricDepressionScaleResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
             alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,

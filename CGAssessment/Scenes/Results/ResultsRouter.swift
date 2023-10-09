@@ -51,7 +51,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .moca:
             routeToMoCA()
         case .geriatricDepressionScale:
-            break
+            routeToGeriatricDepressionScale()
         case .visualAcuityAssessment:
             break
         case .hearingLossAssessment:
@@ -169,5 +169,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let moCAController = MoCABuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(moCAController, animated: true)
+    }
+
+    private func routeToGeriatricDepressionScale() {
+        guard let geriatricDepressionScaleController = GeriatricDepressionScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(geriatricDepressionScaleController, animated: true)
     }
 }

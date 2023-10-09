@@ -17,7 +17,7 @@ protocol MoCADisplayLogic: AnyObject {
 class MoCAViewController: UIViewController, MoCADisplayLogic {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var tableView: UITableView?
 
     private typealias Section = MoCAModels.Section

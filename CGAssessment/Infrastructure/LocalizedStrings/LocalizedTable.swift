@@ -520,4 +520,25 @@ enum LocalizedTable: String, Localizable {
     case lessThanTwelveYears = "less_than_twelve_years_key"
     case moCAExcellentResult = "moca_excellent_result_key"
     case moCABadResult = "moca_bad_result_key"
+
+    // MARK: - Geriatric Depression Scale
+
+    case geriatricDepressionScaleQuestionOne = "geriatric_depression_scale_question_one"
+    case geriatricDepressionScaleQuestionTwo = "geriatric_depression_scale_question_two"
+    case geriatricDepressionScaleQuestionThree = "geriatric_depression_scale_question_three"
+    case geriatricDepressionScaleQuestionFour = "geriatric_depression_scale_question_four"
+    case geriatricDepressionScaleQuestionFive = "geriatric_depression_scale_question_five"
+    case geriatricDepressionScaleQuestionSix = "geriatric_depression_scale_question_six"
+    case geriatricDepressionScaleQuestionSeven = "geriatric_depression_scale_question_seven"
+    case geriatricDepressionScaleQuestionEight = "geriatric_depression_scale_question_eight"
+    case geriatricDepressionScaleQuestionNine = "geriatric_depression_scale_question_nine"
+    case geriatricDepressionScaleQuestionTen = "geriatric_depression_scale_question_ten"
+    case geriatricDepressionScaleQuestionEleven = "geriatric_depression_scale_question_eleven"
+    case geriatricDepressionScaleQuestionTwelve = "geriatric_depression_scale_question_twelve"
+    case geriatricDepressionScaleQuestionThirteen = "geriatric_depression_scale_question_thirteen"
+    case geriatricDepressionScaleQuestionFourteen = "geriatric_depression_scale_question_fourteen"
+    case geriatricDepressionScaleQuestionFifteen = "geriatric_depression_scale_question_fifteen"
+    case geriatricDepressionScaleInstruction = "geriatric_depression_scale_instruction"
+    case geriatricDepressionScaleExcellentResult = "geriatric_depression_scale_excellent_result_key"
+    case geriatricDepressionScaleBadResult = "geriatric_depression_scale_bad_result_key"
 }

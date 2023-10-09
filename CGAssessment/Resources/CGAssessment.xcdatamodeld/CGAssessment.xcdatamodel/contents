@@ -19,6 +19,7 @@
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
+        <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
         <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
@@ -33,6 +34,11 @@
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="clockDrawing" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="clockDrawing" inverseEntity="CGA"/>
+    </entity>
+    <entity name="GeriatricDepressionScale" representedClassName="GeriatricDepressionScale" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="geriatricDepressionScale" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="geriatricDepressionScale" inverseEntity="SelectableOption"/>
     </entity>
     <entity name="GripStrength" representedClassName=".GripStrength" syncable="YES" codeGenerationType="class">
         <attribute name="firstMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
@@ -75,6 +81,7 @@
     <entity name="SelectableOption" representedClassName="SelectableOption" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="selectableOptions" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="selectableOptions" inverseEntity="MiniMentalStateExam"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="selectableOptions" inverseEntity="SarcopeniaScreening"/>
     </entity>

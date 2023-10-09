@@ -57,7 +57,8 @@ class ResultsWorker {
             guard let mocaResults = results as? MoCAModels.TestResults else { return nil }
             return getMoCAResults(for: mocaResults)
         case .geriatricDepressionScale:
-            break
+            guard let geriatricDepressionScaleResults = results as? GeriatricDepressionScaleModels.TestResults else { return nil }
+            return getGeriatricDepressionScaleResults(for: geriatricDepressionScaleResults)
         case .visualAcuityAssessment:
             break
         case .hearingLossAssessment:
@@ -442,6 +443,36 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.moCAExcellentResult.localized
                                                         : LocalizedTable.moCABadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getGeriatricDepressionScaleResults(for testResults: GeriatricDepressionScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int = 0
+
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionOne] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTwo] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionThree] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFour] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFive] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionSix] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionSeven] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionEight] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionNine] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionEleven] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionTwelve] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionThirteen] == .firstOption ? 0 : 1
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFourteen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.geriatricDepressionScaleQuestionFifteen] == .firstOption ? 1 : 0
+
+        let resultType: ResultsModels.ResultType = totalPoints > 5 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.geriatricDepressionScaleExcellentResult.localized
+                                                        : LocalizedTable.geriatricDepressionScaleBadResult.localized)]
 
         return (results, resultType)
     }
