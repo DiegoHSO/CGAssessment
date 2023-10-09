@@ -112,13 +112,14 @@ class CGAsInteractor: CGAsLogic {
                 // MARK: - Cognitive domain done check
 
                 if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency,
-                   let clockDrawing = cga.clockDrawing {
-                    if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone {
+                   let clockDrawing = cga.clockDrawing, let moCA = cga.moCA {
+                    if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone, moCA.isDone {
                         domainsStatus.updateValue(.done, forKey: .cognitive)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                     }
-                } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil {
+                } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil,
+                          cga.moCA == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .cognitive)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .cognitive)
@@ -168,13 +169,14 @@ class CGAsInteractor: CGAsLogic {
                     // MARK: - Cognitive domain done check
 
                     if let miniMentalStateExam = cga.miniMentalStateExam, let verbalFluency = cga.verbalFluency,
-                       let clockDrawing = cga.clockDrawing {
-                        if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone {
+                       let clockDrawing = cga.clockDrawing, let moCA = cga.moCA {
+                        if miniMentalStateExam.isDone, verbalFluency.isDone, clockDrawing.isDone, moCA.isDone {
                             domainsStatus.updateValue(.done, forKey: .cognitive)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .cognitive)
                         }
-                    } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil {
+                    } else if cga.miniMentalStateExam == nil, cga.verbalFluency == nil, cga.clockDrawing == nil,
+                              cga.moCA == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .cognitive)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .cognitive)

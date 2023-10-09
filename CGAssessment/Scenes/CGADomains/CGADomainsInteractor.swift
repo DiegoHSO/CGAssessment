@@ -63,7 +63,7 @@ class CGADomainsInteractor: CGADomainsLogic {
         domains.updateValue([.miniMentalStateExamination: cga.miniMentalStateExam?.isDone == true,
                              .verbalFluencyTest: cga.verbalFluency?.isDone == true,
                              .clockDrawingTest: cga.clockDrawing?.isDone == true,
-                             .moca: false,
+                             .moca: cga.moCA?.isDone == true,
                              .geriatricDepressionScale: false], forKey: .cognitive)
 
         domains.updateValue([.visualAcuityAssessment: true, .hearingLossAssessment: false], forKey: .sensory)

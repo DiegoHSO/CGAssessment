@@ -45,16 +45,17 @@ class ResultsWorker {
             guard let sarcopeniaAssessmentResults = results as? SarcopeniaAssessmentModels.TestResults else { return nil }
             return getSarcopeniaAssessmentResults(for: sarcopeniaAssessmentResults)
         case .miniMentalStateExamination:
-            guard let miniMentalStateExamResults = results as? MiniMentalStateExamModels.TestResults else { return nil}
+            guard let miniMentalStateExamResults = results as? MiniMentalStateExamModels.TestResults else { return nil }
             return getMiniMentalStateExamResults(for: miniMentalStateExamResults)
         case .verbalFluencyTest:
-            guard let verbalFluencyTestResults = results as? VerbalFluencyModels.TestResults else { return nil}
+            guard let verbalFluencyTestResults = results as? VerbalFluencyModels.TestResults else { return nil }
             return getVerbalFluencyResults(for: verbalFluencyTestResults)
         case .clockDrawingTest:
-            guard let clockDrawingTestResults = results as? ClockDrawingModels.TestResults else { return nil}
+            guard let clockDrawingTestResults = results as? ClockDrawingModels.TestResults else { return nil }
             return getClockDrawingResults(for: clockDrawingTestResults)
         case .moca:
-            break
+            guard let mocaResults = results as? MoCAModels.TestResults else { return nil }
+            return getMoCAResults(for: mocaResults)
         case .geriatricDepressionScale:
             break
         case .visualAcuityAssessment:
@@ -368,6 +369,79 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.clockDrawingExcellentResult.localized
                                                         : LocalizedTable.clockDrawingBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getMoCAResults(for testResults: MoCAModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int16 = 0
+
+        let visuospatialResults = testResults.binaryQuestions[.visuospatial]?.map { $0.value } ?? []
+        let visuospatialResultsPointed = visuospatialResults.filter { $0 == .yes }
+        let visuospatialTotalPoints = visuospatialResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += visuospatialTotalPoints
+
+        let namingResults = testResults.binaryQuestions[.naming]?.map { $0.value } ?? []
+        let namingResultsPointed = namingResults.filter { $0 == .yes }
+        let namingTotalPoints = namingResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += namingTotalPoints
+
+        let calculationResults = (testResults.binaryQuestions[.mocaFourthSectionFourthInstruction]?.map { $0.value } ?? [])
+        let calculationResultsPointed = calculationResults.filter { $0 == .yes }
+        let calculationTotalPoints = calculationResultsPointed.map { $0.rawValue }.reduce(0, +)
+        let adjustedCalculationTotalPoints = calculationTotalPoints >= 4 ? 3 : calculationTotalPoints >= 2 ? 2 : calculationTotalPoints
+
+        let attentionResults = (testResults.binaryQuestions[.mocaFourthSectionSecondInstruction]?.map { $0.value } ?? []) +
+            (testResults.binaryQuestions[.mocaFourthSectionThirdInstruction]?.map { $0.value } ?? [])
+        let attentionResultsPointed = attentionResults.filter { $0 == .yes }
+        let attentionTotalPoints = adjustedCalculationTotalPoints + attentionResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += attentionTotalPoints
+
+        let languageResults = testResults.binaryQuestions[.language]?.map { $0.value } ?? []
+        let languageResultsPointed = languageResults.filter { $0 == .yes }
+        let totalWordsPoints: Int16 = testResults.countedWords >= 11 ? 1 : 0
+        let languageTotalPoints = totalWordsPoints + languageResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += languageTotalPoints
+
+        let abstractionResults = testResults.binaryQuestions[.abstraction]?.map { $0.value } ?? []
+        let abstractionResultsPointed = abstractionResults.filter { $0 == .yes }
+        let abstractionTotalPoints = abstractionResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += abstractionTotalPoints
+
+        let delayedRecallResults = testResults.binaryQuestions[.delayedRecall]?.map { $0.value } ?? []
+        let delayedRecallResultsPointed = delayedRecallResults.filter { $0 == .yes }
+        let delayedRecallTotalPoints = delayedRecallResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += delayedRecallTotalPoints
+
+        let orientationResults = testResults.binaryQuestions[.orientation]?.map { $0.value } ?? []
+        let orientationResultsPointed = orientationResults.filter { $0 == .yes }
+        let orientationTotalPoints = orientationResultsPointed.map { $0.rawValue }.reduce(0, +)
+        totalPoints += orientationTotalPoints
+
+        let educationPoint: Int16 = testResults.selectedEducationOption == .secondOption ? 1 : 0
+        totalPoints += educationPoint
+
+        let resultType: ResultsModels.ResultType = totalPoints < 26 ? .bad : .excellent
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.visuospatial.localized,
+                                                     description: "\(visuospatialTotalPoints) \(LocalizedTable.outOf.localized) 5 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.naming.localized,
+                                                     description: "\(namingTotalPoints) \(LocalizedTable.outOf.localized) 3 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.attention.localized,
+                                                     description: "\(attentionTotalPoints) \(LocalizedTable.outOf.localized) 6 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.language.localized,
+                                                     description: "\(languageTotalPoints) \(LocalizedTable.outOf.localized) 3 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.abstraction.localized,
+                                                     description: "\(abstractionTotalPoints) \(LocalizedTable.outOf.localized) 2 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.delayedRecall.localized,
+                                                     description: "\(delayedRecallTotalPoints) \(LocalizedTable.outOf.localized) 5 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.orientation.localized,
+                                                     description: "\(orientationTotalPoints) \(LocalizedTable.outOf.localized) 6 \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
+                                                        LocalizedTable.moCAExcellentResult.localized
+                                                        : LocalizedTable.moCABadResult.localized)]
 
         return (results, resultType)
     }

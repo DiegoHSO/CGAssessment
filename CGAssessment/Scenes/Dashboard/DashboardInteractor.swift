@@ -114,7 +114,8 @@ class DashboardInteractor: DashboardLogic {
 
         if let isFirstTestDone = latestCGA.miniMentalStateExam?.isDone, isFirstTestDone,
            let isSecondTestDone = latestCGA.verbalFluency?.isDone, isSecondTestDone,
-           let isThirdTestDone = latestCGA.clockDrawing?.isDone, isThirdTestDone {
+           let isThirdTestDone = latestCGA.clockDrawing?.isDone, isThirdTestDone,
+           let isFourthTestDone = latestCGA.moCA?.isDone, isFourthTestDone {
             missingDomains -= 1
         }
 
@@ -235,7 +236,7 @@ class DashboardInteractor: DashboardLogic {
             }
 
             if let clockDrawing = evaluation.clockDrawing, clockDrawing.isDone, !isCognitiveDomainAltered {
-                var rawBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions = [:]
+                var rawBinaryQuestions: ClockDrawingModels.RawBinaryQuestions = [:]
 
                 guard let binaryOptions = clockDrawing.binaryOptions?.allObjects as? [BinaryOption] else {
                     return nil
@@ -251,6 +252,26 @@ class DashboardInteractor: DashboardLogic {
                 let clockDrawingResults = ClockDrawingModels.TestResults(binaryQuestions: rawBinaryQuestions)
 
                 let resultsTuple = resultsWorker?.getResults(for: .clockDrawingTest, results: clockDrawingResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
+            if let moCA = evaluation.moCA, moCA.isDone, !isCognitiveDomainAltered {
+                var rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = moCA.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let moCAResults = MoCAModels.TestResults(binaryQuestions: rawBinaryQuestions, selectedEducationOption: SelectableKeys(rawValue: moCA.selectedOption) ?? .none, countedWords: moCA.countedWords)
+
+                let resultsTuple = resultsWorker?.getResults(for: .moca, results: moCAResults)
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 

@@ -212,6 +212,26 @@ class PatientsInteractor: PatientsLogic {
                 if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
             }
 
+            if let moCA = lastCGA?.moCA, moCA.isDone, !isCognitiveDomainAltered {
+                var rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = moCA.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let moCAResults = MoCAModels.TestResults(binaryQuestions: rawBinaryQuestions, selectedEducationOption: SelectableKeys(rawValue: moCA.selectedOption) ?? .none, countedWords: moCA.countedWords)
+
+                let resultsTuple = resultsWorker?.getResults(for: .moca, results: moCAResults)
+                if resultsTuple?.1 == .bad { isCognitiveDomainAltered = true }
+            }
+
             alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,

@@ -415,3 +415,6 @@
 "take_photo_key" = "Take a picture";
 "more_than_twelve_years_key" = "Over 12 years";
 "less_than_twelve_years_key" = "12 years and under";
+"out_of_key" = "out of";
+"moca_excellent_result_key" = "Individual with results suggestive of normal cognition";
+"moca_bad_result_key" = "Individual with results suggestive of cognitive decline";

@@ -415,3 +415,6 @@
 "take_photo_key" = "Tirar foto";
 "more_than_twelve_years_key" = "Mais de 12 anos";
 "less_than_twelve_years_key" = "12 anos ou menos";
+"out_of_key" = "de";
+"moca_excellent_result_key" = "Indivíduo com resultado sugestivo de cognição normal";
+"moca_bad_result_key" = "Indivíduo com resultado sugestivo de declínio cognitivo";

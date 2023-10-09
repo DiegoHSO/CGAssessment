@@ -33,6 +33,7 @@ enum LocalizedTable: String, Localizable {
     case currentCGA = "current_cga_key"
     case createdOn = "created_on_key"
     case exampleCGA = "example_cga_key"
+    case outOf = "out_of_key"
 
     // MARK: - Dashboard
 
@@ -517,4 +518,6 @@ enum LocalizedTable: String, Localizable {
 
     case moreThanTwelveYears = "more_than_twelve_years_key"
     case lessThanTwelveYears = "less_than_twelve_years_key"
+    case moCAExcellentResult = "moca_excellent_result_key"
+    case moCABadResult = "moca_bad_result_key"
 }

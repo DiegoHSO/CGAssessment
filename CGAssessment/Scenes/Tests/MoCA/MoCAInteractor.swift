@@ -22,7 +22,7 @@ class MoCAInteractor: MoCALogic {
     private var worker: MoCAWorker?
     private var cgaId: UUID?
     private var countedWords: Int16 = 0
-    private var selectedOption: SelectableKeys = .secondOption
+    private var selectedOption: SelectableKeys = .none
     private var selectedCirclesImage: UIImage?
     private var selectedWatchImage: UIImage?
     private var isWatchImageLastSelected: Bool = false
