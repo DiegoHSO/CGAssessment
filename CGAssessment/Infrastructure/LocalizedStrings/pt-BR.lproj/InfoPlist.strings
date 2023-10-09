@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  CGAssessment
+
+  Created by Diego Henrique Silva Oliveira on 04/10/23.
+  
+*/
+
+"CFBundleDisplayName" = "AGA";
+"NSCameraUsageDescription" = "Precisamos de acesso à câmera para que você capture e anexe a imagem do teste.";

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TooltipHeaderVIew"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TooltipHeaderView" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAz-S2-tOB">
+                    <rect key="frame" x="22" y="0.0" width="301" height="58"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zYk-bb-kl1">
+                            <rect key="frame" x="8" y="12" width="285" height="34"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="􀅵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SA7-fD-ErK">
+                                    <rect key="frame" x="0.0" y="0.0" width="13.333333333333334" height="34"/>
+                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
+                                    <color key="textColor" name="Label-1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comece a avaliação selecionando um dos domínios." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a0R-BG-Gsw">
+                                    <rect key="frame" x="18.333333333333343" y="0.0" width="266.66666666666663" height="34"/>
+                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
+                                    <color key="textColor" name="Label-1"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="Background-6"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="zYk-bb-kl1" secondAttribute="trailing" constant="8" id="Pdq-U3-ymM"/>
+                        <constraint firstItem="zYk-bb-kl1" firstAttribute="leading" secondItem="bAz-S2-tOB" secondAttribute="leading" constant="8" id="TiD-Em-EVW"/>
+                        <constraint firstAttribute="bottom" secondItem="zYk-bb-kl1" secondAttribute="bottom" constant="12" id="Unh-Bk-Vgc"/>
+                        <constraint firstItem="zYk-bb-kl1" firstAttribute="top" secondItem="bAz-S2-tOB" secondAttribute="top" constant="12" id="aLi-2t-B83"/>
+                        <constraint firstItem="zYk-bb-kl1" firstAttribute="centerY" secondItem="bAz-S2-tOB" secondAttribute="centerY" id="j7B-WX-GSC"/>
+                        <constraint firstItem="zYk-bb-kl1" firstAttribute="centerX" secondItem="bAz-S2-tOB" secondAttribute="centerX" id="nIZ-ng-3ua"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bAz-S2-tOB" secondAttribute="trailing" constant="22" id="IAQ-RF-5nd"/>
+                <constraint firstItem="bAz-S2-tOB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JvS-8O-8CR"/>
+                <constraint firstItem="bAz-S2-tOB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="b91-Ng-64g"/>
+                <constraint firstAttribute="bottom" secondItem="bAz-S2-tOB" secondAttribute="bottom" constant="30" id="yTk-U0-DTJ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tooltipTextLabel" destination="a0R-BG-Gsw" id="FdV-ir-SHq"/>
+            </connections>
+            <point key="canvasLocation" x="92" y="-240"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

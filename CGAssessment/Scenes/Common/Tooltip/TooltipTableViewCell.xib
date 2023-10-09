@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Display-Semibold.otf">
+            <string>SFCompactDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="78" id="KGk-i7-Jjw" customClass="TooltipTableViewCell" customModule="CGAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="78"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-rb-cZu">
+                        <rect key="frame" x="22" y="0.0" width="301" height="58"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-c4-37L">
+                                <rect key="frame" x="8" y="12" width="285" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="􀅵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-o0-03c">
+                                        <rect key="frame" x="0.0" y="0.0" width="13" height="34"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
+                                        <color key="textColor" name="Label-1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comece a avaliação selecionando um dos domínios." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-K3-cn9">
+                                        <rect key="frame" x="21" y="0.0" width="264" height="34"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
+                                        <color key="textColor" name="Label-1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background-6"/>
+                        <constraints>
+                            <constraint firstItem="oaa-c4-37L" firstAttribute="top" secondItem="0lE-rb-cZu" secondAttribute="top" constant="12" id="7Tp-6M-gwV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oaa-c4-37L" secondAttribute="trailing" constant="8" id="HYz-Vj-7wm"/>
+                            <constraint firstItem="oaa-c4-37L" firstAttribute="centerX" secondItem="0lE-rb-cZu" secondAttribute="centerX" id="XYV-Oy-u3c"/>
+                            <constraint firstItem="oaa-c4-37L" firstAttribute="centerY" secondItem="0lE-rb-cZu" secondAttribute="centerY" id="bEP-iu-SCW"/>
+                            <constraint firstAttribute="bottom" secondItem="oaa-c4-37L" secondAttribute="bottom" constant="12" id="fkO-AF-aJk"/>
+                            <constraint firstItem="oaa-c4-37L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0lE-rb-cZu" secondAttribute="leading" constant="8" id="qdQ-hK-4jw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="0lE-rb-cZu" secondAttribute="bottom" constant="20" id="9fp-Do-ItP"/>
+                    <constraint firstItem="0lE-rb-cZu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BYv-cl-exx"/>
+                    <constraint firstItem="0lE-rb-cZu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="Csw-vg-vDF"/>
+                    <constraint firstAttribute="trailing" secondItem="0lE-rb-cZu" secondAttribute="trailing" constant="22" id="SOL-iy-iZO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="tooltipSymbolLabel" destination="pUJ-o0-03c" id="hJz-kG-bey"/>
+                <outlet property="tooltipTextLabel" destination="MeG-K3-cn9" id="qHa-Lu-4rR"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="31.690140845070424"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Background-6">
+            <color red="0.72156862745098038" green="0.84705882352941175" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label-1">
+            <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

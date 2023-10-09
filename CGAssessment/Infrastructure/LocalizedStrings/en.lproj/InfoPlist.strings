@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  CGAssessment
+
+  Created by Diego Henrique Silva Oliveira on 04/10/23.
+  
+*/
+
+"CFBundleDisplayName" = "CGA";
+"NSCameraUsageDescription" = "We need camera access in order to capture and attach the test images.";
