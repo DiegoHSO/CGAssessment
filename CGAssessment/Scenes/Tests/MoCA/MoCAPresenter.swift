@@ -10,6 +10,7 @@ import Foundation
 protocol MoCAPresentationLogic: AnyObject {
     func route(toRoute route: MoCAModels.Routing)
     func presentData(viewModel: MoCAModels.ControllerViewModel)
+    func dismissPresentingController()
 }
 
 class MoCAPresenter: MoCAPresentationLogic {
@@ -32,6 +33,10 @@ class MoCAPresenter: MoCAPresentationLogic {
 
     func presentData(viewModel: MoCAModels.ControllerViewModel) {
         viewController?.presentData(viewModel: viewModel)
+    }
+
+    func dismissPresentingController() {
+        viewController?.dismissPresentingController()
     }
 
 }

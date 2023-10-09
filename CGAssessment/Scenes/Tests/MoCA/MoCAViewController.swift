@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import PhotosUI
 
 protocol MoCADisplayLogic: AnyObject {
     func route(toRoute route: MoCAModels.Routing)
     func presentData(viewModel: MoCAModels.ControllerViewModel)
+    func dismissPresentingController()
 }
 
 class MoCAViewController: UIViewController, MoCADisplayLogic {
@@ -54,6 +56,10 @@ class MoCAViewController: UIViewController, MoCADisplayLogic {
         switch route {
         case .testResults(let test, let results, let cgaId):
             router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
+        case .imagePicker(let configuration, let delegate):
+            router?.routeToImagePicker(configuration: configuration, delegate: delegate)
+        case .camera:
+            router?.routeToUserCamera(delegate: self)
         }
     }
 
@@ -61,6 +67,10 @@ class MoCAViewController: UIViewController, MoCADisplayLogic {
         self.viewModel = viewModel
 
         tableView?.reloadData()
+    }
+
+    func dismissPresentingController() {
+        router?.dismissPresentingController()
     }
 
     // MARK: - Private Methods
@@ -147,20 +157,28 @@ extension MoCAViewController: UITableViewDataSource {
             cell.setup(title: instruction, leadingConstraint: 35, bottomConstraint: shouldChangeSpacing ? 0 : 20, fontStyle: .medium, fontSize: 16)
 
             return cell
-        case .image:
-            guard let images = viewModel.images[section], let image = images[indexPath.row] else { return UITableViewCell(frame: .zero) }
-
+        case .image, .circlesImage, .watchImage:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
                                                            for: indexPath) as? ImageTableViewCell else {
                 return UITableViewCell()
             }
 
-            let keys = images.keys.sorted()
+            switch row {
+            case .circlesImage:
+                cell.setup(image: viewModel.circlesImage, progress: viewModel.circlesProgress,
+                           borderInImage: false)
+            case .watchImage:
+                cell.setup(image: viewModel.watchImage, bottomConstraint: 30, progress: viewModel.watchProgress,
+                           borderInImage: false)
+            default:
+                guard let images = viewModel.images[section], let image = images[indexPath.row] else { return UITableViewCell(frame: .zero) }
 
-            if let index = keys.firstIndex(of: indexPath.row), index == keys.count - 1 {
-                cell.setup(image: image, bottomConstraint: 30)
-            } else {
-                cell.setup(image: image)
+                let keys = images.keys.sorted()
+                if let index = keys.firstIndex(of: indexPath.row), index == keys.count - 1 {
+                    cell.setup(image: image, bottomConstraint: 30)
+                } else {
+                    cell.setup(image: image)
+                }
             }
 
             return cell
@@ -249,5 +267,13 @@ extension MoCAViewController: UITableViewDataSource {
         }
 
         return nil
+    }
+}
+
+extension MoCAViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        router?.dismissPresentingController()
+
+        interactor?.didCaptureImage(image: info[.editedImage] as? UIImage)
     }
 }

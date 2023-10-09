@@ -502,6 +502,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
         let binaryOptionsReduced = binaryOptions.reduce([], +)
 
         cga.moCA?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.moCA?.circlesImage = test.circlesImage
+        cga.moCA?.watchImage = test.watchImage
         cga.moCA?.countedWords = test.countedWords
         cga.moCA?.selectedOption = test.selectedEducationOption.rawValue
         cga.moCA?.isDone = test.isDone

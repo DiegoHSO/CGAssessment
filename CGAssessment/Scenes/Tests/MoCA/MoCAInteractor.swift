@@ -7,9 +7,11 @@
 
 import Foundation
 import OSLog
+import PhotosUI
 
 protocol MoCALogic: ActionButtonDelegate, BinaryOptionDelegate, StepperDelegate, SelectableViewDelegate, GroupedButtonDelegate {
     func controllerDidLoad()
+    func didCaptureImage(image: UIImage?)
 }
 
 class MoCAInteractor: MoCALogic {
@@ -21,6 +23,9 @@ class MoCAInteractor: MoCALogic {
     private var cgaId: UUID?
     private var countedWords: Int16 = 0
     private var selectedOption: SelectableKeys = .secondOption
+    private var selectedCirclesImage: UIImage?
+    private var selectedWatchImage: UIImage?
+    private var isWatchImageLastSelected: Bool = false
     private var rawBinaryQuestions: MoCAModels.RawBinaryQuestions =  [
         .visuospatial: [1: .none, 2: .none, 3: .none, 4: .none, 5: .none],
         .naming: [1: .none, 2: .none, 3: .none],
@@ -32,6 +37,12 @@ class MoCAInteractor: MoCALogic {
         .delayedRecall: [1: .none, 2: .none, 3: .none, 4: .none, 5: .none],
         .orientation: [1: .none, 2: .none, 3: .none, 4: .none, 5: .none, 6: .none]
     ]
+    private var circlesImageProgress: Progress?
+    private var watchImageProgress: Progress?
+    private var selection = [String: PHPickerResult]()
+    private var selectedAssetIdentifiers = [String]()
+    private var selectedAssetIdentifierIterator: IndexingIterator<[String]>?
+    private var currentAssetIdentifier: String?
 
     // MARK: - Init
 
@@ -54,7 +65,6 @@ class MoCAInteractor: MoCALogic {
 
     func didSelect(option: SelectableBinaryKeys, numberIdentifier: Int16, sectionIdentifier: LocalizedTable) {
         rawBinaryQuestions[sectionIdentifier]?.updateValue(option, forKey: numberIdentifier)
-
         updateDatabase()
         sendDataToPresenter()
     }
@@ -73,12 +83,29 @@ class MoCAInteractor: MoCALogic {
     func didSelect(buttonIdentifier: LocalizedTable) {
         switch buttonIdentifier {
         case .gallery:
-            break
+            presentPicker()
         case .takePhoto:
-            break
+            presentCamera()
         default:
             return
         }
+    }
+
+    func didCaptureImage(image: UIImage?) {
+        if let compressedImage = image?.jpeg(.medium), let newImage = UIImage(data: compressedImage) {
+            if selectedCirclesImage == nil {
+                selectedCirclesImage = newImage
+            } else if selectedWatchImage == nil {
+                selectedWatchImage = newImage
+            } else {
+                isWatchImageLastSelected.toggle()
+                selectedCirclesImage = isWatchImageLastSelected ? newImage : selectedCirclesImage
+                selectedWatchImage = isWatchImageLastSelected ? selectedWatchImage : newImage
+            }
+        }
+
+        updateDatabase()
+        sendDataToPresenter()
     }
 
     // MARK: - Private Methods
@@ -176,7 +203,11 @@ class MoCAInteractor: MoCALogic {
 
         let isResultsButtonEnabled: Bool = selectedBinaryOptions.allSatisfy({ $0 != .none }) && selectedOption != .none
 
-        return .init(question: question, countedWords: countedWords, selectedOption: selectedOption, binaryQuestions: binaryQuestions, circlesImage: nil, watchImage: nil, groupedButtons: groupedButtons, isResultsButtonEnabled: isResultsButtonEnabled)
+        return .init(question: question, countedWords: countedWords, selectedOption: selectedOption,
+                     binaryQuestions: binaryQuestions, circlesImage: selectedCirclesImage,
+                     watchImage: selectedWatchImage, groupedButtons: groupedButtons,
+                     circlesProgress: circlesImageProgress, watchProgress: watchImageProgress,
+                     isResultsButtonEnabled: isResultsButtonEnabled)
     }
 
     private func handleNavigation(updatesDatabase: Bool = false) {
@@ -208,6 +239,8 @@ class MoCAInteractor: MoCALogic {
                 rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
             }
 
+            selectedCirclesImage = UIImage(data: mocaProgress.circlesImage ?? Data())
+            selectedWatchImage = UIImage(data: mocaProgress.watchImage ?? Data())
             countedWords = mocaProgress.countedWords
             selectedOption = SelectableKeys(rawValue: mocaProgress.selectedOption) ?? .none
 
@@ -219,9 +252,92 @@ class MoCAInteractor: MoCALogic {
 
     private func updateDatabase(isDone: Bool = false) {
         do {
-            try worker?.updateMoCAProgress(with: .init(binaryQuestions: rawBinaryQuestions, selectedEducationOption: selectedOption, countedWords: countedWords, images: nil, isDone: isDone))
+            try worker?.updateMoCAProgress(with: .init(binaryQuestions: rawBinaryQuestions, selectedEducationOption: selectedOption, countedWords: countedWords,
+                                                       circlesImage: selectedCirclesImage?.jpeg(.highest), watchImage: selectedWatchImage?.jpeg(.highest), isDone: isDone))
         } catch {
             os_log("Error: %@", log: .default, type: .error, String(describing: error))
         }
+    }
+
+    private func handleImageSelection() {
+        guard let assetIdentifier = selectedAssetIdentifierIterator?.next() else { return }
+        currentAssetIdentifier = assetIdentifier
+
+        guard let itemProvider = selection[assetIdentifier]?.itemProvider else { return }
+
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            circlesImageProgress = itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, _ in
+                DispatchQueue.main.async {
+                    guard let compressedImage = (image as? UIImage)?.jpeg(.medium) else { return }
+                    self?.selectedCirclesImage = UIImage(data: compressedImage)
+                    self?.sendDataToPresenter()
+                    self?.updateDatabase()
+                }
+            }
+        } else {
+            circlesImageProgress = nil
+        }
+
+        guard let assetIdentifier = selectedAssetIdentifierIterator?.next() else { return }
+        currentAssetIdentifier = assetIdentifier
+
+        guard let itemProvider = selection[assetIdentifier]?.itemProvider else { return }
+
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            watchImageProgress = itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, _ in
+                DispatchQueue.main.async {
+                    guard let compressedImage = (image as? UIImage)?.jpeg(.medium) else { return }
+                    self?.selectedWatchImage = UIImage(data: compressedImage)
+                    self?.sendDataToPresenter()
+                    self?.updateDatabase()
+                }
+            }
+        } else {
+            watchImageProgress = nil
+        }
+
+        sendDataToPresenter()
+    }
+
+    private func presentPicker() {
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
+
+        // Set the filter type according to the user’s selection.
+        configuration.filter = .images
+        // Set the mode to avoid transcoding, if possible, if your app supports arbitrary image/video encodings.
+        configuration.preferredAssetRepresentationMode = .current
+        // Set the selection behavior to respect the user’s selection order.
+        configuration.selection = .ordered
+        // Set the selection limit to enable multiselection.
+        configuration.selectionLimit = 2
+        // Set the preselected asset identifiers with the identifiers that the app tracks.
+        configuration.preselectedAssetIdentifiers = selectedAssetIdentifiers
+
+        presenter?.route(toRoute: .imagePicker(configuration: configuration, delegate: self))
+    }
+
+    private func presentCamera() {
+        presenter?.route(toRoute: .camera)
+    }
+}
+
+extension MoCAInteractor: PHPickerViewControllerDelegate {
+    /// Parse ImagePicker results
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        presenter?.dismissPresentingController()
+
+        let existingSelection = self.selection
+        var newSelection = [String: PHPickerResult]()
+        for result in results {
+            let identifier = result.assetIdentifier!
+            newSelection[identifier] = existingSelection[identifier] ?? result
+        }
+
+        // Track the selection in case the user deselects it later.
+        selection = newSelection
+        selectedAssetIdentifiers = results.map(\.assetIdentifier!)
+        selectedAssetIdentifierIterator = selectedAssetIdentifiers.makeIterator()
+
+        handleImageSelection()
     }
 }

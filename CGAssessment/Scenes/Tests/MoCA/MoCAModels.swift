@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 struct MoCAModels {
 
@@ -22,9 +23,11 @@ struct MoCAModels {
         let countedWords: Int16
         let selectedOption: SelectableKeys
         let binaryQuestions: BinaryQuestions
-        let circlesImage: Data?
-        let watchImage: Data?
+        let circlesImage: UIImage?
+        let watchImage: UIImage?
         let groupedButtons: [CGAModels.GroupedButtonViewModel]
+        let circlesProgress: Progress?
+        let watchProgress: Progress?
         let isResultsButtonEnabled: Bool
 
         var images: Images {
@@ -32,18 +35,8 @@ struct MoCAModels {
                   let lionImage = UIImage(named: "moca-3"), let rhinoImage = UIImage(named: "moca-4"),
                   let camelImage = UIImage(named: "moca-5") else { return [:] }
 
-            var images: Images = [.visuospatial: [1: circlesAppImage, 3: cubeAppImage],
-                                  .naming: [1: lionImage, 2: rhinoImage, 3: camelImage]]
-
-            if let circlesImage {
-                images[.visuospatial]?.updateValue(UIImage(data: circlesImage), forKey: 6)
-            }
-
-            if let watchImage {
-                images[.visuospatial]?.updateValue(UIImage(data: watchImage), forKey: 7)
-            }
-
-            return images
+            return [.visuospatial: [1: circlesAppImage, 3: cubeAppImage],
+                    .naming: [1: lionImage, 2: rhinoImage, 3: camelImage]]
         }
 
         var instructions: Instructions {
@@ -63,14 +56,24 @@ struct MoCAModels {
         var sections: [Section: [Row]] {
             let optionsForDoneSection: [Row] = isResultsButtonEnabled ? [.done] : []
 
-            return [.visuospatial: [.instruction, .image, .instruction, .image, .binaryQuestion, .instruction, .selectionButtons],
-                    .naming: [.instruction, .image, .image, .image, .binaryQuestion],
-                    .memory: [.instruction, .centralText],
-                    .attention: [.instruction, .centralText, .instruction, .centralText, .binaryQuestion,
-                                 .instruction, .centralText, .binaryQuestion, .binaryQuestion],
-                    .language: [.instruction, .centralText, .centralText, .binaryQuestion, .stepper],
-                    .abstraction: [.binaryQuestion], .delayedRecall: [.instruction, .centralText, .binaryQuestion],
-                    .orientation: [.binaryQuestion], .education: [.question], .done: optionsForDoneSection]
+            var sections: [Section: [Row]] =  [.visuospatial: [.instruction, .image, .instruction, .image, .binaryQuestion, .instruction, .selectionButtons],
+                                               .naming: [.instruction, .image, .image, .image, .binaryQuestion],
+                                               .memory: [.instruction, .centralText],
+                                               .attention: [.instruction, .centralText, .instruction, .centralText, .binaryQuestion,
+                                                            .instruction, .centralText, .binaryQuestion, .binaryQuestion],
+                                               .language: [.instruction, .centralText, .centralText, .binaryQuestion, .stepper],
+                                               .abstraction: [.binaryQuestion], .delayedRecall: [.instruction, .centralText, .binaryQuestion],
+                                               .orientation: [.binaryQuestion], .education: [.question], .done: optionsForDoneSection]
+
+            if watchImage != nil || watchProgress != nil {
+                sections[.visuospatial]?.append(.watchImage)
+            }
+
+            if circlesImage != nil || circlesProgress != nil {
+                sections[.visuospatial]?.append(.circlesImage)
+            }
+
+            return sections
         }
     }
 
@@ -90,12 +93,15 @@ struct MoCAModels {
         let binaryQuestions: RawBinaryQuestions
         let selectedEducationOption: SelectableKeys
         let countedWords: Int16
-        let images: Data?
+        let circlesImage: Data?
+        let watchImage: Data?
         let isDone: Bool
     }
 
     enum Routing {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
+        case imagePicker(configuration: PHPickerConfiguration, delegate: PHPickerViewControllerDelegate?)
+        case camera
     }
 
     enum Section: Int {
@@ -114,6 +120,8 @@ struct MoCAModels {
     enum Row {
         case instruction
         case image
+        case circlesImage
+        case watchImage
         case binaryQuestion
         case selectionButtons
         case centralText
