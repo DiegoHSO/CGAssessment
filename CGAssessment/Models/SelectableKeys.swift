@@ -15,6 +15,17 @@ enum SelectableKeys: Int16, Comparable {
     case thirdOption = 3
     case fourthOption = 4
     case fifthOption = 5
+    case sixthOption = 6
+    case seventhOption = 7
+    case eighthOption = 8
+    case ninthOption = 9
+    case tenthOption = 10
+    case eleventhOption = 11
+    case twelfthOption = 12
+    case thirteenthOption = 13
+    case fourteenthOption = 14
+    case fifteenthOption = 15
+    case sixteenthOption = 16
 
     static func < (lhs: SelectableKeys, rhs: SelectableKeys) -> Bool {
         return lhs.rawValue < rhs.rawValue
