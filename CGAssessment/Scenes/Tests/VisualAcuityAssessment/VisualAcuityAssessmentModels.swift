@@ -18,10 +18,10 @@ struct VisualAcuityAssessmentModels {
         let isResultsButtonEnabled: Bool
 
         var sections: [Section: [Row]] {
-            let optionsForFirstSection: [Row] = [.instructions, .image, .buttons, .question, .done]
+            let optionsForFirstSection: [Row] = [.instructions, .image, .buttons, .question]
             let optionsForSecondSection: [Row] = isResultsButtonEnabled ? [.done] : []
 
-            return [.test: optionsForFirstSection, .done: optionsForSecondSection]
+            return [.header: [.header], .test: optionsForFirstSection, .done: optionsForSecondSection]
         }
     }
 
@@ -42,19 +42,22 @@ struct VisualAcuityAssessmentModels {
 
     enum Routing {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
+        case printing(fileURL: URL?)
+        case pdfSaving(pdfData: URL?)
     }
 
     enum Section: Int {
+        case header
         case test
         case done
     }
 
     enum Row {
+        case header
         case instructions
         case image
         case buttons
         case question
         case done
     }
-
 }

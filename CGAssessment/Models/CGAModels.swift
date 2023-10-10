@@ -109,4 +109,10 @@ struct CGAModels {
         }
     }
 
+    enum BorderType {
+        case image
+        case imageView
+        case none
+    }
+
 }

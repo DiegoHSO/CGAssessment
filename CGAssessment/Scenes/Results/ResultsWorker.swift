@@ -60,7 +60,8 @@ class ResultsWorker {
             guard let geriatricDepressionScaleResults = results as? GeriatricDepressionScaleModels.TestResults else { return nil }
             return getGeriatricDepressionScaleResults(for: geriatricDepressionScaleResults)
         case .visualAcuityAssessment:
-            break
+            guard let visualAcuityAssessmentResults = results as? VisualAcuityAssessmentModels.TestResults else { return nil }
+            return getVisualAcuityAssessmentResults(for: visualAcuityAssessmentResults)
         case .hearingLossAssessment:
             break
         case .katzScale:
@@ -473,6 +474,103 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.geriatricDepressionScaleExcellentResult.localized
                                                         : LocalizedTable.geriatricDepressionScaleBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getVisualAcuityAssessmentResults(for testResults: VisualAcuityAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let resultType: ResultsModels.ResultType
+
+        let score: Double?
+        let selectedOptionText: String?
+
+        switch testResults.selectedOption {
+        case .none:
+            selectedOptionText = nil
+            score = 0
+            resultType = .bad
+        case .firstOption:
+            selectedOptionText = LocalizedTable.twentySlashTwoHundred.localized
+            score = Double(LocalizedTable.twentySlashTwoHundredValue.localized)
+            resultType = .bad
+        case .secondOption:
+            selectedOptionText = LocalizedTable.twentySlashOneHundred.localized
+            score = Double(LocalizedTable.twentySlashOneHundredValue.localized)
+            resultType = .medium
+        case .thirdOption:
+            selectedOptionText = LocalizedTable.twentySlashSeventy.localized
+            score = Double(LocalizedTable.twentySlashSeventyValue.localized)
+            resultType = .medium
+        case .fourthOption:
+            selectedOptionText = LocalizedTable.twentySlashSixty.localized
+            score = Double(LocalizedTable.twentySlashSixtyValue.localized)
+            resultType = .good
+        case .fifthOption:
+            selectedOptionText = LocalizedTable.twentySlashFifty.localized
+            score = Double(LocalizedTable.twentySlashFiftyValue.localized)
+            resultType = .good
+        case .sixthOption:
+            selectedOptionText = LocalizedTable.twentySlashFourty.localized
+            score = Double(LocalizedTable.twentySlashFourtyValue.localized)
+            resultType = .good
+        case .seventhOption:
+            selectedOptionText = LocalizedTable.twentySlashThirty.localized
+            score = Double(LocalizedTable.twentySlashThirtyValue.localized)
+            resultType = .good
+        case .eighthOption:
+            selectedOptionText = LocalizedTable.twentySlashTwentyFive.localized
+            score = Double(LocalizedTable.twentySlashTwentyFiveValue.localized)
+            resultType = .excellent
+        case .ninthOption:
+            selectedOptionText = LocalizedTable.twentySlashTwenty.localized
+            score = Double(LocalizedTable.twentySlashTwentyValue.localized)
+            resultType = .excellent
+        case .tenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFifteen.localized
+            score = Double(LocalizedTable.twentySlashFifteenValue.localized)
+            resultType = .excellent
+        case .eleventhOption:
+            selectedOptionText = LocalizedTable.twentySlashThirteen.localized
+            score = Double(LocalizedTable.twentySlashThirteenValue.localized)
+            resultType = .excellent
+        case .twelfthOption:
+            selectedOptionText = LocalizedTable.twentySlashTen.localized
+            score = Double(LocalizedTable.twentySlashTenValue.localized)
+            resultType = .excellent
+        case .thirteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashEight.localized
+            score = Double(LocalizedTable.twentySlashEightValue.localized)
+            resultType = .excellent
+        case .fourteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashSix.localized
+            score = Double(LocalizedTable.twentySlashSixValue.localized)
+            resultType = .excellent
+        case .fifteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFive.localized
+            score = Double(LocalizedTable.twentySlashFiveValue.localized)
+            resultType = .excellent
+        case .sixteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFour.localized
+            score = Double(LocalizedTable.twentySlashFourValue.localized)
+            resultType = .excellent
+        }
+
+        let diagnosis: LocalizedTable = switch resultType {
+        case .excellent:
+            .visualAcuityAssessmentExcellentResult
+        case .good:
+            .visualAcuityAssessmentGoodResult
+        case .medium:
+            .visualAcuityAssessmentMediumResult
+        case .bad:
+            .visualAcuityAssessmentBadResult
+        }
+
+        let dynamicResult = LocalizedTable.visualAcuityDynamicResult.localized.replacingOccurrences(of: "%DISTANCE", with: (score ?? 0).regionFormatted(fractionDigits: 1))
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.scoreAchieved.localized, description: selectedOptionText ?? ""),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: "\(diagnosis.localized) \(dynamicResult)")]
 
         return (results, resultType)
     }

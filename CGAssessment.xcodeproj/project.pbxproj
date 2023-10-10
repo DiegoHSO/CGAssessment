@@ -202,6 +202,8 @@
 		F1EB0FBF2AD5B0790087AAB2 /* VisualAcuityAssessmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FBE2AD5B0790087AAB2 /* VisualAcuityAssessmentRouter.swift */; };
 		F1EB0FC12AD5B0830087AAB2 /* VisualAcuityAssessmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FC02AD5B0830087AAB2 /* VisualAcuityAssessmentModels.swift */; };
 		F1EB0FC32AD5B08B0087AAB2 /* VisualAcuityAssessmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FC22AD5B08B0087AAB2 /* VisualAcuityAssessmentBuilder.swift */; };
+		F1EB0FC52AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB0FC42AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift */; };
+		F1EB0FC82AD5E7020087AAB2 /* snellen_chart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F1EB0FC72AD5E7020087AAB2 /* snellen_chart.pdf */; };
 		F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */; };
 		F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */; };
 		F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */; };
@@ -501,6 +503,8 @@
 		F1EB0FBE2AD5B0790087AAB2 /* VisualAcuityAssessmentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentRouter.swift; sourceTree = "<group>"; };
 		F1EB0FC02AD5B0830087AAB2 /* VisualAcuityAssessmentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentModels.swift; sourceTree = "<group>"; };
 		F1EB0FC22AD5B08B0087AAB2 /* VisualAcuityAssessmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentBuilder.swift; sourceTree = "<group>"; };
+		F1EB0FC42AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
+		F1EB0FC72AD5E7020087AAB2 /* snellen_chart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = snellen_chart.pdf; sourceTree = "<group>"; };
 		F1F1E3742ABE296900BC610E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		F1F1E3752ABE296900BC610E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		F1F1E3782ABE38A600BC610E /* SingleDomainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainModels.swift; sourceTree = "<group>"; };
@@ -914,6 +918,7 @@
 		F177F8222AA8298B00C1EB32 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F1EB0FC62AD5E6E00087AAB2 /* Documents */,
 				F1AEEB6B2AA94F150038968E /* Fonts */,
 				F177F7F82AA793C000C1EB32 /* Assets.xcassets */,
 				F177F7FD2AA793C000C1EB32 /* Info.plist */,
@@ -988,6 +993,7 @@
 				F1F1E3BE2AC0D9ED00BC610E /* CaseIterable+Extension.swift */,
 				F1F1E3D12AC134C000BC610E /* Double+Extension.swift */,
 				F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */,
+				F1EB0FC42AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1193,6 +1199,14 @@
 				F1EB0FC22AD5B08B0087AAB2 /* VisualAcuityAssessmentBuilder.swift */,
 			);
 			path = VisualAcuityAssessment;
+			sourceTree = "<group>";
+		};
+		F1EB0FC62AD5E6E00087AAB2 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB0FC72AD5E7020087AAB2 /* snellen_chart.pdf */,
+			);
+			path = Documents;
 			sourceTree = "<group>";
 		};
 		F1F1E3702ABE289400BC610E /* SingleDomain */ = {
@@ -1504,6 +1518,7 @@
 				F1F1E39B2ABFF31900BC610E /* TimedUpAndGo.storyboard in Resources */,
 				F1BE9F7E2AB66F1700250B69 /* ActionButtonTableViewCell.xib in Resources */,
 				F18698E12AC4D46300FB5620 /* SarcopeniaScreening.storyboard in Resources */,
+				F1EB0FC82AD5E7020087AAB2 /* snellen_chart.pdf in Resources */,
 				F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */,
 				F168B7F72ACCD7DA0015B2A3 /* Patients.storyboard in Resources */,
 				F13C7B842ACF0A40000D5AC2 /* BinaryOptionView.xib in Resources */,
@@ -1780,6 +1795,7 @@
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
 				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
+				F1EB0FC52AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
 				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,

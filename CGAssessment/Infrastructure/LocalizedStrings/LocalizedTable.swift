@@ -541,9 +541,9 @@ enum LocalizedTable: String, Localizable {
     case geriatricDepressionScaleInstruction = "geriatric_depression_scale_instruction"
     case geriatricDepressionScaleExcellentResult = "geriatric_depression_scale_excellent_result_key"
     case geriatricDepressionScaleBadResult = "geriatric_depression_scale_bad_result_key"
-    
+
     // MARK: - Visual acuity assessment
-    
+
     case visualAcuityAssessmentFirstInstruction = "visual_acuity_first_instruction_key"
     case visualAcuityAssessmentSecondInstruction = "visual_acuity_second_instruction_key"
     case visualAcuityAssessmentThirdInstruction = "visual_acuity_third_instruction_key"
@@ -552,6 +552,7 @@ enum LocalizedTable: String, Localizable {
     case visualAcuityAssessmentQuestion = "visual_acuity_question_key"
     case visualAcuityDynamicResult = "visual_acuity_dynamic_result_key"
     case visualAcuityAssessmentExcellentResult = "visual_acuity_excellent_result_key"
+    case visualAcuityAssessmentGoodResult = "visual_acuity_good_result_key"
     case visualAcuityAssessmentMediumResult = "visual_acuity_medium_result_key"
     case visualAcuityAssessmentBadResult = "visual_acuity_bad_result_key"
     case scoreAchieved = "score_achieved_key"
@@ -589,5 +590,6 @@ enum LocalizedTable: String, Localizable {
     case twentySlashFourValue = "twenty_slash_four_value_key"
     case print = "print_key"
     case savePDF = "save_pdf_key"
-    
+    case snellenChart = "snellen_chart_key"
+
 }

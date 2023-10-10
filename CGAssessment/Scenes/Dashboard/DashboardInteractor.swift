@@ -122,6 +122,10 @@ class DashboardInteractor: DashboardLogic {
 
         // MARK: - Sensory domain done check
 
+        if let isFirstTestDone = latestCGA.visualAcuityAssessment?.isDone, isFirstTestDone {
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
@@ -299,6 +303,17 @@ class DashboardInteractor: DashboardLogic {
             alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
             // MARK: - Sensory domain test results check
+
+            var isSensoryDomainAltered: Bool = false
+
+            if let visualAcuityAssessment = evaluation.visualAcuityAssessment, visualAcuityAssessment.isDone {
+                let visualAcuityAssessmentResults = VisualAcuityAssessmentModels.TestResults(selectedOption: SelectableKeys(rawValue: visualAcuityAssessment.selectedOption) ?? .none)
+
+                let resultsTuple = resultsWorker?.getResults(for: .visualAcuityAssessment, results: visualAcuityAssessmentResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSensoryDomainAltered = true }
+            }
+
+            alteredDomains = isSensoryDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),

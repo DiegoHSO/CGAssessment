@@ -129,6 +129,18 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Sensory domain done check
 
+                if let visualAcuityAssessment = cga.visualAcuityAssessment {
+                    if visualAcuityAssessment.isDone {
+                        domainsStatus.updateValue(.done, forKey: .sensory)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                    }
+                } else if cga.visualAcuityAssessment == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .sensory)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -189,6 +201,18 @@ class CGAsInteractor: CGAsLogic {
                     }
 
                     // MARK: - Sensory domain done check
+
+                    if let visualAcuityAssessment = cga.visualAcuityAssessment {
+                        if visualAcuityAssessment.isDone {
+                            domainsStatus.updateValue(.done, forKey: .sensory)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                        }
+                    } else if cga.visualAcuityAssessment == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .sensory)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                    }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),
                                  domainsStatus: domainsStatus, cgaId: cga.cgaId)

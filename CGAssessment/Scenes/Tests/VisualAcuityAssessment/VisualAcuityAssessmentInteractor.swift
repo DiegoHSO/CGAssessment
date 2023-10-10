@@ -19,7 +19,7 @@ class VisualAcuityAssessmentInteractor: VisualAcuityAssessmentLogic {
     private var presenter: VisualAcuityAssessmentPresentationLogic?
     private var worker: VisualAcuityAssessmentWorker?
     private var cgaId: UUID?
-    private var selectedOption: SelectableKeys = .secondOption
+    private var selectedOption: SelectableKeys = .none
 
     // MARK: - Init
 
@@ -45,9 +45,22 @@ class VisualAcuityAssessmentInteractor: VisualAcuityAssessmentLogic {
         updateDatabase()
         sendDataToPresenter()
     }
-    
+
     func didSelect(buttonIdentifier: LocalizedTable) {
-        //
+        switch buttonIdentifier {
+        case .print:
+            let fileURL = Bundle.main.url(forResource: "snellen_chart", withExtension: "pdf")
+            presenter?.route(toRoute: .printing(fileURL: fileURL))
+        case .savePDF:
+            let documentPath = Bundle.main.url(forResource: "snellen_chart", withExtension: "pdf")
+            let fileManager = FileManager.default
+
+            if fileManager.fileExists(atPath: documentPath?.relativePath ?? "") {
+                presenter?.route(toRoute: .pdfSaving(pdfData: documentPath))
+            }
+        default:
+            break
+        }
     }
 
     // MARK: - Private Methods
@@ -62,19 +75,18 @@ class VisualAcuityAssessmentInteractor: VisualAcuityAssessmentLogic {
                                                      .init(number: 3, description: LocalizedTable.visualAcuityAssessmentThirdInstruction.localized),
                                                      .init(number: 4, description: LocalizedTable.visualAcuityAssessmentFourthInstruction.localized)]
         let question: VisualAcuityAssessmentModels.QuestionViewModel = .init(question: .visualAcuityAssessmentQuestion, selectedOption: selectedOption,
-                                                                    options: [.firstOption: .twentySlashTwoHundred, .secondOption: .twentySlashOneHundred,
-                                                                              .thirdOption: .twentySlashSeventy, .fourthOption: .twentySlashSixtyValue,
-                                                                              .fifthOption: .twentySlashFifty, .sixthOption: .twentySlashFourty,
-                                                                              .seventhOption: .twentySlashThirty, .eighthOption: .twentySlashTwentyFive,
-                                                                              .ninthOption: .twentySlashTwenty, .tenthOption: .twentySlashFifteen,
-                                                                              .eleventhOption: .twentySlashThirteen, .twelfthOption: .twentySlashTen,
-                                                                              .thirteenthOption: .twentySlashEight, .fourteenthOption: .twentySlashSix,
-                                                                              .fifteenthOption: .twentySlashFive, .sixteenthOption: .twentySlashFour])
-        
+                                                                             options: [.firstOption: .twentySlashTwoHundred, .secondOption: .twentySlashOneHundred,
+                                                                                       .thirdOption: .twentySlashSeventy, .fourthOption: .twentySlashSixty,
+                                                                                       .fifthOption: .twentySlashFifty, .sixthOption: .twentySlashFourty,
+                                                                                       .seventhOption: .twentySlashThirty, .eighthOption: .twentySlashTwentyFive,
+                                                                                       .ninthOption: .twentySlashTwenty, .tenthOption: .twentySlashFifteen,
+                                                                                       .eleventhOption: .twentySlashThirteen, .twelfthOption: .twentySlashTen,
+                                                                                       .thirteenthOption: .twentySlashEight, .fourteenthOption: .twentySlashSix,
+                                                                                       .fifteenthOption: .twentySlashFive, .sixteenthOption: .twentySlashFour])
 
         let groupedButtons: [CGAModels.GroupedButtonViewModel] = [.init(title: .print, symbolName: "printer.fill", delegate: self),
                                                                   .init(title: .savePDF, symbolName: "arrow.down.doc.fill", delegate: self)]
-        
+
         let isResultsButtonEnabled = selectedOption != .none ? true : false
 
         return .init(instructions: instructions, buttons: groupedButtons, question: question,

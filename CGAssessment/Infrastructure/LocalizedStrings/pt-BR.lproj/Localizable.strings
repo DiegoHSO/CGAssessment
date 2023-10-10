@@ -444,7 +444,8 @@
 "visual_acuity_question_key" = "Qual o menor conjunto de letras lido pelo paciente?";
 "visual_acuity_dynamic_result_key" = "A pontuação indica que o paciente consegue ler um conjunto de letras a 6 metros que deveria poder ser lido normalmente a %DISTANCE metros.";
 "visual_acuity_excellent_result_key" = "Indivíduo com resultado sugestivo de visão dentro da normalidade.";
-"visual_acuity_medium_result_key" = "Indivíduo com resultado sugestivo de baixa visão.";
+"visual_acuity_good_result_key" = "Indivíduo com resultado sugestivo de visão próxima da normalidade.";
+"visual_acuity_medium_result_key" = "Indivíduo com resultado sugestivo de baixa visão moderada.";
 "visual_acuity_bad_result_key" = "Indivíduo com resultado sugestivo de baixa visão severa.";
 "score_achieved_key" = "Pontuação alcançada";
 "twenty_slash_two_hundred_key" = "20/200 (60 m)";
@@ -469,7 +470,7 @@
 "twenty_slash_sixty_value_key" = "18";
 "twenty_slash_fifty_value_key" = "15";
 "twenty_slash_fourty_value_key" = "12";
-"twenty_slash_thirty_value_key" = "9"
+"twenty_slash_thirty_value_key" = "9";
 "twenty_slash_twenty_five_value_key" = "7.5";
 "twenty_slash_twenty_value_key" = "6";
 "twenty_slash_fifteen_value_key" = "4,5";
@@ -481,3 +482,4 @@
 "twenty_slash_four_value_key" = "1.2";
 "print_key" = "Imprimir";
 "save_pdf_key" = "Salvar PDF";
+"snellen_chart_key" = "Tabela de Snellen";

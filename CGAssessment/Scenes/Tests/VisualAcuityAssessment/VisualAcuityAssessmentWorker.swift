@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class VisualAcuityAssessmentWorker {
 
     // MARK: - Private Properties
@@ -25,7 +24,7 @@ class VisualAcuityAssessmentWorker {
     // MARK: - Public Methods
 
     func getVisualAcuityAssessmentProgress() throws -> VisualAcuityAssessment? {
-        return try dao.fetchCGATest(test: .verbalFluencyTest, cgaId: cgaId) as? VisualAcuityAssessment
+        return try dao.fetchCGATest(test: .visualAcuityAssessment, cgaId: cgaId) as? VisualAcuityAssessment
     }
 
     func updateVisualAcuityAssessmentProgress(with data: VisualAcuityAssessmentModels.TestData) throws {

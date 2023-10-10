@@ -133,7 +133,7 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(image: UIImage(named: viewModel.imageName ?? ""))
+            cell.setup(image: UIImage(named: viewModel.imageName ?? ""), multiplier: 1)
 
             return cell
         case .textField:

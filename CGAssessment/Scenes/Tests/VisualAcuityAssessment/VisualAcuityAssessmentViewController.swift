@@ -24,16 +24,6 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
     private var viewModel: VisualAcuityAssessmentModels.ControllerViewModel?
     private var interactor: VisualAcuityAssessmentLogic?
     private var router: VisualAcuityAssessmentRoutingLogic?
-    private lazy var tableViewHeader: UIView? = {
-        guard let header = tableView?.dequeueReusableHeaderFooterView(withIdentifier: TooltipHeaderView
-                                                                        .className) as? TooltipHeaderView else {
-            return UIView()
-        }
-
-        header.setup(text: LocalizedTable.visualAcuityAssessmentTootip.localized)
-
-        return header
-    }()
 
     // MARK: - Life Cycle
 
@@ -66,6 +56,10 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
         switch route {
         case .testResults(let test, let results, let cgaId):
             router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
+        case .printing(let fileURL):
+            router?.routeToPrinting(fileURL: fileURL)
+        case .pdfSaving(let fileURL):
+            router?.routeToFileSaving(fileURL: fileURL)
         }
     }
 
@@ -78,19 +72,19 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
     // MARK: - Private Methods
 
     private func setupViews() {
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.contentInsetAdjustmentBehavior = .never
 
         tableView?.register(headerType: TitleHeaderView.self)
-        tableView?.register(headerType: TooltipHeaderView.self)
+        tableView?.register(cellType: TooltipTableViewCell.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: GroupedButtonsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
-        
-        tableView?.tableHeaderView = tableViewHeader
     }
 }
 
@@ -123,6 +117,15 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
         guard let viewModel, let section = Section(rawValue: indexPath.section) else { return UITableViewCell(frame: .zero) }
 
         switch viewModel.sections[section]?[safe: indexPath.row] {
+        case .header:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
+                                                           for: indexPath) as? TooltipTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(text: LocalizedTable.visualAcuityAssessmentTootip.localized, symbol: "􀅵", bottomConstraint: 0)
+
+            return cell
         case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
                                                            for: indexPath) as? InstructionsTableViewCell else {
@@ -137,18 +140,18 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
                                                            for: indexPath) as? GroupedButtonsTableViewCell else {
                 return UITableViewCell()
             }
-            
+
             cell.setup(viewModels: viewModel.buttons)
-            
+
             return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
                                                            for: indexPath) as? ImageTableViewCell else {
                 return UITableViewCell()
             }
-            
-            cell.setup(image: UIImage(named: viewModel.imageName), borderInImage: false)
-            
+
+            cell.setup(image: UIImage(named: viewModel.imageName), multiplier: 1.33, borderType: .none)
+
             return cell
         case .question:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
@@ -182,7 +185,7 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let currentSection = Section(rawValue: section) else { return nil }
 
-        if currentSection != .done {
+        if currentSection == .test {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TitleHeaderView
                                                                             .className) as? TitleHeaderView else {
                 return nil

@@ -139,7 +139,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         ], isDone: true), cgaId: nil)
 
         try updateCGA(with: .init(selectedOption: .ninthOption, isDone: true), cgaId: nil)
-        
+
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
 
@@ -560,7 +560,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try context.save()
     }
-    
+
     func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws {
         guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
 
@@ -653,11 +653,11 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try context.save()
     }
-    
+
     private func createVisualAcuityAssessmentInstance(for cga: CGA) throws {
         let newTest = VisualAcuityAssessment(context: context)
         cga.visualAcuityAssessment = newTest
-        
+
         try context.save()
     }
 }

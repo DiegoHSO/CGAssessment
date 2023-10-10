@@ -444,8 +444,9 @@
 "visual_acuity_question_key" = "What is the smallest set of letters read by the patient?";
 "visual_acuity_dynamic_result_key" = "The score indicates that the patient can read a set of letters at 20 feet that should be able to be read normally at %DISTANCE feet.";
 "visual_acuity_excellent_result_key" = "Individual with results suggestive of normal vision.";
-"visual_acuity_medium_result_key" = "Individual with results suggestive of low vision.";
-"visual_acuity_bad_result_key" = "Individual with results suggestive of severe low vision.";
+"visual_acuity_medium_result_key" = "Individual with results suggestive of moderate vision loss.";
+"visual_acuity_good_result_key" = "Individual with results suggestive of mild vision loss.";
+"visual_acuity_bad_result_key" = "Individual with results suggestive of severe vision loss.";
 "score_achieved_key" = "Score achieved";
 "twenty_slash_two_hundred_key" = "20/200";
 "twenty_slash_one_hundred_key" = "20/100";
@@ -481,3 +482,4 @@
 "twenty_slash_four_value_key" = "4";
 "print_key" = "Print";
 "save_pdf_key" = "Save PDF";
+"snellen_chart_key" = "Snellen Chart";
