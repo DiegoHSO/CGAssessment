@@ -120,7 +120,7 @@ extension LawtonScaleViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(title: questionViewModel.question, options: questionViewModel.options,
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
-                                        leadingConstraint: 35, textStyle: .regular))
+                                        questionsSpacing: 20, leadingConstraint: 35, textStyle: .regular))
 
             return cell
         case .done:
