@@ -36,6 +36,7 @@ class SelectableTableViewCell: UITableViewCell {
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
+        optionsStackView?.spacing = viewModel.questionsSpacing
 
         var subviews: [SelectableView] = []
 

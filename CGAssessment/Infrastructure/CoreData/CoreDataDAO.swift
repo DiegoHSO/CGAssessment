@@ -40,6 +40,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -146,6 +147,11 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try updateCGA(with: KatzScaleModels.TestData(questions: [
             .katzScaleQuestionOne: .firstOption, .katzScaleQuestionTwo: .secondOption, .katzScaleQuestionThree: .firstOption,
             .katzScaleQuestionFour: .firstOption, .katzScaleQuestionFive: .firstOption, .katzScaleQuestionSix: .firstOption
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: LawtonScaleModels.TestData(questions: [
+            .telephone: .thirdOption, .trips: .firstOption, .shopping: .firstOption, .mealPreparation: .firstOption,
+            .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
         ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
@@ -279,7 +285,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .katzScale:
             return cga?.katzScale
         case .lawtonScale:
-            return nil
+            return cga?.lawtonScale
         case .miniNutritionalAssessment:
             return nil
         case .apgarScale:
@@ -617,6 +623,27 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.lawtonScale == nil {
+            try createLawtonScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.lawtonScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.lawtonScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -713,6 +740,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createKatzScaleInstance(for cga: CGA) throws {
         let newTest = KatzScale(context: context)
         cga.katzScale = newTest
+
+        try context.save()
+    }
+
+    private func createLawtonScaleInstance(for cga: CGA) throws {
+        let newTest = LawtonScale(context: context)
+        cga.lawtonScale = newTest
 
         try context.save()
     }

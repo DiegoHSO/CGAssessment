@@ -288,6 +288,25 @@ class PatientsInteractor: PatientsLogic {
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isFunctionalDomainAltered = true }
             }
 
+            if let lawtonScale = lastCGA?.lawtonScale, lawtonScale.isDone, !isFunctionalDomainAltered {
+                var rawQuestions: KatzScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = lawtonScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let lawtonScaleResults = KatzScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .lawtonScale, results: lawtonScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isFunctionalDomainAltered = true }
+            }
+
             alteredDomains = isFunctionalDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,

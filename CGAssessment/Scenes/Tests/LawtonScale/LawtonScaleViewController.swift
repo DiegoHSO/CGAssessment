@@ -1,5 +1,5 @@
 //
-//  KatzScaleViewController.swift
+//  LawtonScaleViewController.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 11/10/23.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol KatzScaleDisplayLogic: AnyObject {
-    func route(toRoute route: KatzScaleModels.Routing)
-    func presentData(viewModel: KatzScaleModels.ControllerViewModel)
+protocol LawtonScaleDisplayLogic: AnyObject {
+    func route(toRoute route: LawtonScaleModels.Routing)
+    func presentData(viewModel: LawtonScaleModels.ControllerViewModel)
 }
 
-class KatzScaleViewController: UIViewController, KatzScaleDisplayLogic {
+class LawtonScaleViewController: UIViewController, LawtonScaleDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = KatzScaleModels.Section
-    private typealias Row = KatzScaleModels.Row
+    private typealias Section = LawtonScaleModels.Section
+    private typealias Row = LawtonScaleModels.Row
 
-    private var viewModel: KatzScaleModels.ControllerViewModel?
-    private var interactor: KatzScaleLogic?
-    private var router: KatzScaleRoutingLogic?
+    private var viewModel: LawtonScaleModels.ControllerViewModel?
+    private var interactor: LawtonScaleLogic?
+    private var router: LawtonScaleRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -36,7 +36,7 @@ class KatzScaleViewController: UIViewController, KatzScaleDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.katzScale.localized
+        title = LocalizedTable.lawtonScale.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,19 +47,19 @@ class KatzScaleViewController: UIViewController, KatzScaleDisplayLogic {
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: KatzScaleLogic, router: KatzScaleRouter) {
+    func setupArchitecture(interactor: LawtonScaleLogic, router: LawtonScaleRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: KatzScaleModels.Routing) {
+    func route(toRoute route: LawtonScaleModels.Routing) {
         switch route {
         case .testResults(let test, let results, let cgaId):
             router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 
-    func presentData(viewModel: KatzScaleModels.ControllerViewModel) {
+    func presentData(viewModel: LawtonScaleModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tableView?.reloadData()
@@ -82,7 +82,7 @@ class KatzScaleViewController: UIViewController, KatzScaleDisplayLogic {
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension KatzScaleViewController: UITableViewDelegate {
+extension LawtonScaleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -97,7 +97,7 @@ extension KatzScaleViewController: UITableViewDelegate {
     }
 }
 
-extension KatzScaleViewController: UITableViewDataSource {
+extension LawtonScaleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
@@ -111,7 +111,7 @@ extension KatzScaleViewController: UITableViewDataSource {
 
         switch row {
         case .question:
-            guard let questionViewModel = viewModel.questions[safe: indexPath.section - 1] else { return UITableViewCell(frame: .zero) }
+            guard let questionViewModel = viewModel.questions[section] else { return UITableViewCell(frame: .zero) }
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
                                                            for: indexPath) as? SelectableTableViewCell else {
@@ -120,7 +120,7 @@ extension KatzScaleViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(title: questionViewModel.question, options: questionViewModel.options,
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
-                                        leadingConstraint: 35, textStyle: .regular))
+                                        questionsSpacing: 20, leadingConstraint: 35, textStyle: .regular))
 
             return cell
         case .done:
