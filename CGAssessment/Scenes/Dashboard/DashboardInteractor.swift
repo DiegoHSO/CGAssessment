@@ -122,7 +122,8 @@ class DashboardInteractor: DashboardLogic {
 
         // MARK: - Sensory domain done check
 
-        if let isFirstTestDone = latestCGA.visualAcuityAssessment?.isDone, isFirstTestDone {
+        if let isFirstTestDone = latestCGA.visualAcuityAssessment?.isDone, isFirstTestDone,
+           let isSecondTestDone = latestCGA.hearingLossAssessment?.isDone, isSecondTestDone {
             missingDomains -= 1
         }
 

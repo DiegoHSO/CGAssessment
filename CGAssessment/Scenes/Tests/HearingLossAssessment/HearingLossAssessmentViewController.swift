@@ -1,29 +1,29 @@
 //
-//  VisualAcuityAssessmentViewController.swift
+//  HearingLossAssessmentViewController.swift
 //  CGAssessment
 //
-//  Created by Diego Henrique Silva Oliveira on 10/10/23.
+//  Created by Diego Henrique Silva Oliveira on 11/10/23.
 //
 
 import UIKit
 
-protocol VisualAcuityAssessmentDisplayLogic: AnyObject {
-    func route(toRoute route: VisualAcuityAssessmentModels.Routing)
-    func presentData(viewModel: VisualAcuityAssessmentModels.ControllerViewModel)
+protocol HearingLossAssessmentDisplayLogic: AnyObject {
+    func route(toRoute route: HearingLossAssessmentModels.Routing)
+    func presentData(viewModel: HearingLossAssessmentModels.ControllerViewModel)
 }
 
-class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssessmentDisplayLogic {
+class HearingLossAssessmentViewController: UIViewController, HearingLossAssessmentDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = VisualAcuityAssessmentModels.Section
-    private typealias Row = VisualAcuityAssessmentModels.Row
+    private typealias Section = HearingLossAssessmentModels.Section
+    private typealias Row = HearingLossAssessmentModels.Row
 
-    private var viewModel: VisualAcuityAssessmentModels.ControllerViewModel?
-    private var interactor: VisualAcuityAssessmentLogic?
-    private var router: VisualAcuityAssessmentRoutingLogic?
+    private var viewModel: HearingLossAssessmentModels.ControllerViewModel?
+    private var interactor: HearingLossAssessmentLogic?
+    private var router: HearingLossAssessmentRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -36,7 +36,7 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.visualAcuityAssessment.localized
+        title = LocalizedTable.hearingLossAssessment.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,23 +47,19 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: VisualAcuityAssessmentLogic, router: VisualAcuityAssessmentRouter) {
+    func setupArchitecture(interactor: HearingLossAssessmentLogic, router: HearingLossAssessmentRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: VisualAcuityAssessmentModels.Routing) {
+    func route(toRoute route: HearingLossAssessmentModels.Routing) {
         switch route {
-        case .testResults(let test, let results, let cgaId):
-            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
-        case .printing(let fileURL):
-            router?.routeToPrinting(fileURL: fileURL)
-        case .pdfSaving(let fileURL):
-            router?.routeToFileSaving(fileURL: fileURL)
+        case .katzScale(let cgaId):
+            router?.routeToKatzScaleTest(cgaId: cgaId)
         }
     }
 
-    func presentData(viewModel: VisualAcuityAssessmentModels.ControllerViewModel) {
+    func presentData(viewModel: HearingLossAssessmentModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tableView?.reloadData()
@@ -81,23 +77,19 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: TooltipTableViewCell.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
-        tableView?.register(cellType: SelectableTableViewCell.self)
-        tableView?.register(cellType: ImageTableViewCell.self)
-        tableView?.register(cellType: GroupedButtonsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
     }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension VisualAcuityAssessmentViewController: UITableViewDelegate {
+extension HearingLossAssessmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let currentSection = Section(rawValue: section) else { return .leastNormalMagnitude }
-        return currentSection == .done ? .leastNormalMagnitude : UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -105,7 +97,7 @@ extension VisualAcuityAssessmentViewController: UITableViewDelegate {
     }
 }
 
-extension VisualAcuityAssessmentViewController: UITableViewDataSource {
+extension HearingLossAssessmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
@@ -123,7 +115,7 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(text: LocalizedTable.visualAcuityAssessmentTooltip.localized, symbol: "􀅵", bottomConstraint: 0)
+            cell.setup(text: LocalizedTable.hearingLossAssessmentTooltip.localized, symbol: "􀅵", bottomConstraint: 0)
 
             return cell
         case .instructions:
@@ -135,42 +127,13 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
             return cell
-        case .buttons:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupedButtonsTableViewCell.className,
-                                                           for: indexPath) as? GroupedButtonsTableViewCell else {
-                return UITableViewCell()
-            }
-
-            cell.setup(viewModels: viewModel.buttons)
-
-            return cell
-        case .image:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
-                                                           for: indexPath) as? ImageTableViewCell else {
-                return UITableViewCell()
-            }
-
-            cell.setup(image: UIImage(named: viewModel.imageName), multiplier: 1.33, borderType: .none)
-
-            return cell
-        case .question:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
-                                                           for: indexPath) as? SelectableTableViewCell else {
-                return UITableViewCell()
-            }
-
-            cell.setup(viewModel: .init(title: viewModel.question.question, options: viewModel.question.options,
-                                        delegate: interactor, selectedQuestion: viewModel.question.selectedOption,
-                                        leadingConstraint: 35))
-
-            return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
                                                            for: indexPath) as? ActionButtonTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+            cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
 
             return cell
         default:

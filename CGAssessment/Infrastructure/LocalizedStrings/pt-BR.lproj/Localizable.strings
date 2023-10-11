@@ -483,3 +483,10 @@
 "print_key" = "Imprimir";
 "save_pdf_key" = "Salvar PDF";
 "snellen_chart_key" = "Tabela de Snellen";
+"hearing_loss_first_instruction_key" = "Antes de iniciar a execução do teste do sussurro, realize uma otoscopia no paciente.";
+"hearing_loss_second_instruction_key" = "Fique fora do campo de visão do paciente, a 33 centímetros de cada orelha (aproximadamente a distância de um braço).";
+"hearing_loss_third_instruction_key" = "Sussurre, em cada lado, uma frase simples, como ”qual é o seu nome?\".";
+"hearing_loss_fourth_instruction_key" = "Caso o paciente não tenha respondido, verifique a existência de possíveis obstruções no canal auditivo. ";
+"hearing_loss_fifth_instruction_key" = "Caso hajam obstruções no canal auditivo, efetue a limpeza do canal ou encaminhe-o a um profissional apto para fazê-lo. Caso negativo, encaminhe-o para exame de audiometria.";
+"hearing_loss_sixth_instruction_key" = "Caso o paciente tenha respondido a questão corretamente, avalie a necessidade de encaminhamento para audiometria.";
+"hearing_loss_tooltip_key" = "Encaminhe o paciente para exame otorrinolaringológico em caso de queixas sobre sua audição.";

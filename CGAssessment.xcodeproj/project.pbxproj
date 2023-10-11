@@ -127,6 +127,14 @@
 		F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */; };
 		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
 		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
+		F17D36A82AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */; };
+		F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */; };
+		F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */; };
+		F17D36AE2AD64DCB00AE5D98 /* HearingLossAssessmentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36AD2AD64DCB00AE5D98 /* HearingLossAssessmentPresenter.swift */; };
+		F17D36B02AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36AF2AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift */; };
+		F17D36B22AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36B12AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift */; };
+		F17D36B42AD64DF700AE5D98 /* HearingLossAssessmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36B32AD64DF700AE5D98 /* HearingLossAssessmentModels.swift */; };
+		F17D36B82AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36B72AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift */; };
 		F18698C92AC472E700FB5620 /* GripStrength.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18698C82AC472E700FB5620 /* GripStrength.storyboard */; };
 		F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698CA2AC472F200FB5620 /* GripStrengthViewController.swift */; };
 		F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698CC2AC4732600FB5620 /* GripStrengthInteractor.swift */; };
@@ -424,6 +432,14 @@
 		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
 		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAsssessmentInteractor.swift; sourceTree = "<group>"; };
+		F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HearingLossAssessment.storyboard; sourceTree = "<group>"; };
+		F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentViewController.swift; sourceTree = "<group>"; };
+		F17D36AD2AD64DCB00AE5D98 /* HearingLossAssessmentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentPresenter.swift; sourceTree = "<group>"; };
+		F17D36AF2AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentWorker.swift; sourceTree = "<group>"; };
+		F17D36B12AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentRouter.swift; sourceTree = "<group>"; };
+		F17D36B32AD64DF700AE5D98 /* HearingLossAssessmentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentModels.swift; sourceTree = "<group>"; };
+		F17D36B72AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentBuilder.swift; sourceTree = "<group>"; };
 		F18698C82AC472E700FB5620 /* GripStrength.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GripStrength.storyboard; sourceTree = "<group>"; };
 		F18698CA2AC472F200FB5620 /* GripStrengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthViewController.swift; sourceTree = "<group>"; };
 		F18698CC2AC4732600FB5620 /* GripStrengthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthInteractor.swift; sourceTree = "<group>"; };
@@ -1008,6 +1024,21 @@
 			path = LocalizedStrings;
 			sourceTree = "<group>";
 		};
+		F17D36A62AD64D3D00AE5D98 /* HearingLossAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */,
+				F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */,
+				F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */,
+				F17D36AD2AD64DCB00AE5D98 /* HearingLossAssessmentPresenter.swift */,
+				F17D36AF2AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift */,
+				F17D36B12AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift */,
+				F17D36B32AD64DF700AE5D98 /* HearingLossAssessmentModels.swift */,
+				F17D36B72AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift */,
+			);
+			path = HearingLossAssessment;
+			sourceTree = "<group>";
+		};
 		F18698C72AC472B700FB5620 /* GripStrength */ = {
 			isa = PBXGroup;
 			children = (
@@ -1268,6 +1299,7 @@
 				F16A3FCB2AD23B5B007F4DF7 /* MoCA */,
 				F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */,
 				F1EB0FB32AD5AFFA0087AAB2 /* VisualAcuityAssessment */,
+				F17D36A62AD64D3D00AE5D98 /* HearingLossAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1552,6 +1584,7 @@
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
+				F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */,
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
@@ -1652,6 +1685,7 @@
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
 				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
+				F17D36B02AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift in Sources */,
 				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
@@ -1741,6 +1775,7 @@
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
+				F17D36B42AD64DF700AE5D98 /* HearingLossAssessmentModels.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
 				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
@@ -1751,6 +1786,7 @@
 				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
+				F17D36B82AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
 				F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */,
@@ -1769,6 +1805,7 @@
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
 				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
 				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
+				F17D36B22AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */,
@@ -1790,9 +1827,11 @@
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
 				F1F1E3912ABFC3BB00BC610E /* InstructionsTableViewCell.swift in Sources */,
+				F17D36AE2AD64DCB00AE5D98 /* HearingLossAssessmentPresenter.swift in Sources */,
 				F10DFBA12ACA524D00E1A380 /* CGAsPresenter.swift in Sources */,
 				F1F1E38E2ABFC38800BC610E /* SingleInstructionView.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
+				F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */,
 				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1EB0FC52AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift in Sources */,
@@ -1831,6 +1870,7 @@
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
 				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
 				F1BE9F7D2AB66F1700250B69 /* ActionButtonTableViewCell.swift in Sources */,
+				F17D36A82AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */,
 				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,

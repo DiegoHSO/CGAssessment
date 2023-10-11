@@ -66,7 +66,7 @@ class CGADomainsInteractor: CGADomainsLogic {
                              .moca: cga.moCA?.isDone == true,
                              .geriatricDepressionScale: cga.geriatricDepressionScale?.isDone == true], forKey: .cognitive)
 
-        domains.updateValue([.visualAcuityAssessment: cga.visualAcuityAssessment?.isDone == true, .hearingLossAssessment: false], forKey: .sensory)
+        domains.updateValue([.visualAcuityAssessment: cga.visualAcuityAssessment?.isDone == true, .hearingLossAssessment: cga.hearingLossAssessment?.isDone == true], forKey: .sensory)
 
         domains.updateValue([.katzScale: true, .lawtonScale: false], forKey: .functional)
 

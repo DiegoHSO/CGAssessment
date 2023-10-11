@@ -129,13 +129,14 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Sensory domain done check
 
-                if let visualAcuityAssessment = cga.visualAcuityAssessment {
-                    if visualAcuityAssessment.isDone {
+                if let visualAcuityAssessment = cga.visualAcuityAssessment,
+                   let hearingLossAssessment = cga.hearingLossAssessment {
+                    if visualAcuityAssessment.isDone, hearingLossAssessment.isDone {
                         domainsStatus.updateValue(.done, forKey: .sensory)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .sensory)
                     }
-                } else if cga.visualAcuityAssessment == nil {
+                } else if cga.visualAcuityAssessment == nil, cga.hearingLossAssessment == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .sensory)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .sensory)
@@ -202,13 +203,14 @@ class CGAsInteractor: CGAsLogic {
 
                     // MARK: - Sensory domain done check
 
-                    if let visualAcuityAssessment = cga.visualAcuityAssessment {
-                        if visualAcuityAssessment.isDone {
+                    if let visualAcuityAssessment = cga.visualAcuityAssessment,
+                       let hearingLossAssessment = cga.hearingLossAssessment {
+                        if visualAcuityAssessment.isDone, hearingLossAssessment.isDone {
                             domainsStatus.updateValue(.done, forKey: .sensory)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .sensory)
                         }
-                    } else if cga.visualAcuityAssessment == nil {
+                    } else if cga.visualAcuityAssessment == nil, cga.hearingLossAssessment == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .sensory)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .sensory)

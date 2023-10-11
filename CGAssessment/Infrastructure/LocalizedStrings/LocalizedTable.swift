@@ -548,7 +548,7 @@ enum LocalizedTable: String, Localizable {
     case visualAcuityAssessmentSecondInstruction = "visual_acuity_second_instruction_key"
     case visualAcuityAssessmentThirdInstruction = "visual_acuity_third_instruction_key"
     case visualAcuityAssessmentFourthInstruction = "visual_acuity_fourth_instruction_key"
-    case visualAcuityAssessmentTootip = "visual_acuity_tooltip_key"
+    case visualAcuityAssessmentTooltip = "visual_acuity_tooltip_key"
     case visualAcuityAssessmentQuestion = "visual_acuity_question_key"
     case visualAcuityDynamicResult = "visual_acuity_dynamic_result_key"
     case visualAcuityAssessmentExcellentResult = "visual_acuity_excellent_result_key"
@@ -591,5 +591,15 @@ enum LocalizedTable: String, Localizable {
     case print = "print_key"
     case savePDF = "save_pdf_key"
     case snellenChart = "snellen_chart_key"
+
+    // MARK: - Hearing loss assessment
+
+    case hearingLossAssessmentFirstInstruction = "hearing_loss_first_instruction_key"
+    case hearingLossAssessmentSecondInstruction = "hearing_loss_second_instruction_key"
+    case hearingLossAssessmentThirdInstruction = "hearing_loss_third_instruction_key"
+    case hearingLossAssessmentFourthInstruction = "hearing_loss_fourth_instruction_key"
+    case hearingLossAssessmentFifthInstruction = "hearing_loss_fifth_instruction_key"
+    case hearingLossAssessmentSixthInstruction = "hearing_loss_sixth_instruction_key"
+    case hearingLossAssessmentTooltip = "hearing_loss_tooltip_key"
 
 }

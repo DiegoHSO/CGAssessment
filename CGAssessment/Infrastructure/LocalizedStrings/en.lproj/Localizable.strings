@@ -483,3 +483,10 @@
 "print_key" = "Print";
 "save_pdf_key" = "Save PDF";
 "snellen_chart_key" = "Snellen Chart";
+"hearing_loss_first_instruction_key" = "Before beginning the whisper test, perform an otoscopy on the patient.";
+"hearing_loss_second_instruction_key" = "Stand out of the patient's field of vision, one foot from each ear (about an arm's length).";
+"hearing_loss_third_instruction_key" = "Whisper, on each side, a simple phrase, such as “what’s your name?”";
+"hearing_loss_fourth_instruction_key" = "If the patient has not responded, check for possible obstructions in the ear canal.";
+"hearing_loss_fifth_instruction_key" = "If there is an obstruction in the ear canal, clean the canal or send it to a professional qualified to do so. If not, send them for audiometry testing.";
+"hearing_loss_sixth_instruction_key" = "If the patient answered the question correctly, evaluate the need for referral for audiometry.";
+"hearing_loss_tooltip_key" = "Refer the patient for an ENT examination in case of complaints about their hearing.";
