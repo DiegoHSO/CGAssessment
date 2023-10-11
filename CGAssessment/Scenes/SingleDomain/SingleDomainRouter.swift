@@ -55,7 +55,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .katzScale:
             routeToKatzScale(cgaId: cgaId)
         case .lawtonScale:
-            break
+            routeToLawtonScale(cgaId: cgaId)
         case .miniNutritionalAssessment:
             break
         case .apgarScale:
@@ -155,5 +155,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
+    }
+
+    private func routeToLawtonScale(cgaId: UUID?) {
+        guard let lawtonScaleController = LawtonScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(lawtonScaleController, animated: true)
     }
 }

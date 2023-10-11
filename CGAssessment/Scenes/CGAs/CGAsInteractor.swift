@@ -144,13 +144,13 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Functional domain done check
 
-                if let katzScale = cga.katzScale {
-                    if katzScale.isDone {
+                if let katzScale = cga.katzScale, let lawtonScale = cga.lawtonScale {
+                    if katzScale.isDone, lawtonScale.isDone {
                         domainsStatus.updateValue(.done, forKey: .functional)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .functional)
                     }
-                } else if cga.katzScale == nil {
+                } else if cga.katzScale == nil, cga.lawtonScale == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .functional)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .functional)
@@ -233,13 +233,13 @@ class CGAsInteractor: CGAsLogic {
 
                     // MARK: - Functional domain done check
 
-                    if let katzScale = cga.katzScale {
-                        if katzScale.isDone {
+                    if let katzScale = cga.katzScale, let lawtonScale = cga.lawtonScale {
+                        if katzScale.isDone, lawtonScale.isDone {
                             domainsStatus.updateValue(.done, forKey: .functional)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .functional)
                         }
-                    } else if cga.katzScale == nil {
+                    } else if cga.katzScale == nil, cga.lawtonScale == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .functional)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .functional)

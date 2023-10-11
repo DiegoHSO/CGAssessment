@@ -109,6 +109,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkKatzScaleStatus(cga: cga), forKey: .katzScale)
         }
 
+        if tests.contains(.lawtonScale) {
+            testsStatus.updateValue(checkLawtonScaleStatus(cga: cga), forKey: .lawtonScale)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -313,6 +317,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.katzScale?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkLawtonScaleStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.lawtonScale?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

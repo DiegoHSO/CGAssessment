@@ -59,7 +59,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .katzScale:
             routeToKatzScale()
         case .lawtonScale:
-            break
+            routeToLawtonScale()
         case .miniNutritionalAssessment:
             break
         case .apgarScale:
@@ -193,5 +193,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
+    }
+
+    private func routeToLawtonScale() {
+        guard let lawtonScaleController = LawtonScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(lawtonScaleController, animated: true)
     }
 }
