@@ -529,8 +529,10 @@
 "lawton_scale_question_seven_option_three_key" = "Completely unable to manage money";
 "lawton_scale_header_key" = "Check with the patient or their caregiver their level of dependence in the following categories:";
 "lawton_scale_excellent_result_key" = "Result suggestive of independence. However, it is worth carrying out a qualitative assessment of the elderly's functional capacity, accompanied by a subjective assessment for analysis.";
-"lawton_scale_medium_result_key" = "Result suggestive of partial dependence. However, it is necessary to carry out a qualitative assessment of the elderly person's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
-"lawton_scale_bad_result_key" = "Result suggestive of total dependence. However, it is necessary to carry out a qualitative assessment of the elderly's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
+"lawton_scale_good_result_key" = "Result suggestive of mild dependence. However, it is necessary to carry out a qualitative assessment of the elderly person's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
+"lawton_scale_medium_result_key" = "Result suggestive of moderate dependence. However, it is necessary to carry out a qualitative assessment of the elderly person's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
+"lawton_scale_bad_result_key" = "Result suggestive of severe dependence. However, it is necessary to carry out a qualitative assessment of the elderly's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
+"lawton_scale_very_bad_result_key" = "Result suggestive of total dependence. However, it is necessary to carry out a qualitative assessment of the elderly's functional capacity, accompanied by a subjective assessment to analyze the circumstances of the functional loss.";
 "telephone_key" = "Telephone";
 "trips_key" = "Trips";
 "shopping_key" = "Shopping";

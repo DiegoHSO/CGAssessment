@@ -101,9 +101,9 @@ class LawtonScaleInteractor: LawtonScaleLogic {
                                                                                       .secondOption: .lawtonScaleQuestionSixOptionTwo,
                                                                                       .thirdOption: .lawtonScaleQuestionSixOptionThree]),
                                                       .seventhQuestion: .init(question: nil, selectedOption: rawQuestions[.money] ?? .none,
-                                                                              options: [.firstOption: .lawtonScaleQuestionOneOptionOne,
-                                                                                        .secondOption: .lawtonScaleQuestionOneOptionTwo,
-                                                                                        .thirdOption: .lawtonScaleQuestionOneOptionThree])
+                                                                              options: [.firstOption: .lawtonScaleQuestionSevenOptionOne,
+                                                                                        .secondOption: .lawtonScaleQuestionSevenOptionTwo,
+                                                                                        .thirdOption: .lawtonScaleQuestionSevenOptionThree])
         ]
 
         let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }

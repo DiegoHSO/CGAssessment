@@ -68,7 +68,8 @@ class ResultsWorker {
             guard let katzScaleResults = results as? KatzScaleModels.TestResults else { return nil }
             return getKatzScaleResults(for: katzScaleResults)
         case .lawtonScale:
-            break
+            guard let lawtonScaleResults = results as? LawtonScaleModels.TestResults else { return nil }
+            return getLawtonScaleResults(for: lawtonScaleResults)
         case .miniNutritionalAssessment:
             break
         case .apgarScale:
@@ -577,7 +578,7 @@ class ResultsWorker {
     }
 
     private func getKatzScaleResults(for testResults: KatzScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
-        let selectedOptions = testResults.questions.filter({ $0.key != .miniMentalStateExamFirstQuestion }).values.map { $0 as SelectableKeys }
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
 
         let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }
         let totalPoints = selectedOptionsPointed.map { $0.rawValue }.reduce(0, +)
@@ -593,6 +594,27 @@ class ResultsWorker {
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
                                                      description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getLawtonScaleResults(for testResults: LawtonScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        let totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 3 + selectedOptions.filter { $0 == .secondOption }.count * 2 + selectedOptions.filter { $0 == .thirdOption }.count
+
+        let resultType: ResultsModels.ResultType = totalPoints > 18 ? .excellent : totalPoints > 14 ? .good : totalPoints > 10 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .lawtonScaleExcellentResult
+        case .good: .lawtonScaleGoodResult
+        case .medium: .lawtonScaleMediumResult
+        case .bad: totalPoints == 7 ? .lawtonScaleVeryBadResult : .lawtonScaleBadResult
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(LocalizedTable.points.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)

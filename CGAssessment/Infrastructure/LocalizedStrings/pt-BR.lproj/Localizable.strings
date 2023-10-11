@@ -529,8 +529,10 @@
 "lawton_scale_question_seven_option_three_key" = "Completamente incapaz de administrar dinheiro";
 "lawton_scale_header_key" = "Verifique com o paciente ou com seu acompanhante o seu nível de dependência nas seguintes categorias:";
 "lawton_scale_excellent_result_key" = "Resultado sugestivo de independência. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise.";
-"lawton_scale_medium_result_key" = "Resultado sugestivo de dependência parcial. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise das circunstâncias da perda funcional.";
-"lawton_scale_bad_result_key" = "Resultado sugestivo de dependência total. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise das circunstâncias da perda funcional.";
+"lawton_scale_good_result_key" = "Resultado sugestivo de dependência leve. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise.";
+"lawton_scale_medium_result_key" = "Resultado sugestivo de dependência moderada. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise das circunstâncias da perda funcional.";
+"lawton_scale_bad_result_key" = "Resultado sugestivo de dependência grave. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise das circunstâncias da perda funcional.";
+"lawton_scale_very_bad_result_key" = "Resultado sugestivo de dependência total. Entretanto, cabe efetuar uma avaliação qualitativa da capacidade funcional do idoso, acompanhada de uma avaliação subjetiva para análise das circunstâncias da perda funcional.";
 "telephone_key" = "Telefone";
 "trips_key" = "Viagens";
 "shopping_key" = "Compras";
