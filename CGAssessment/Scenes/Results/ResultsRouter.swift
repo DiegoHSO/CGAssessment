@@ -55,7 +55,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .visualAcuityAssessment:
             routeToVisualAcuityAssessment()
         case .hearingLossAssessment:
-            break
+            routeToHearingLossAssessment()
         case .katzScale:
             break
         case .lawtonScale:
@@ -181,5 +181,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let visualAcuityAssessmentController = VisualAcuityAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(visualAcuityAssessmentController, animated: true)
+    }
+
+    private func routeToHearingLossAssessment() {
+        guard let hearingLossAssessmentController = HearingLossAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(hearingLossAssessmentController, animated: true)
     }
 }

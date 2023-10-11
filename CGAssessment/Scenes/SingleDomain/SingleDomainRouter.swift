@@ -51,7 +51,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .visualAcuityAssessment:
             routeToVisualAcuityAssessment(cgaId: cgaId)
         case .hearingLossAssessment:
-            break
+            routeToHearingLossAssessment(cgaId: cgaId)
         case .katzScale:
             break
         case .lawtonScale:
@@ -143,5 +143,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let visualAcuityAssessmentController = VisualAcuityAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(visualAcuityAssessmentController, animated: true)
+    }
+
+    private func routeToHearingLossAssessment(cgaId: UUID?) {
+        guard let hearingLossAssessmentController = HearingLossAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(hearingLossAssessmentController, animated: true)
     }
 }

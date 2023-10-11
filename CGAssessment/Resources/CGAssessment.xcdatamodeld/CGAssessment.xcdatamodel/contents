@@ -21,6 +21,7 @@
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
+        <relationship name="hearingLossAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HearingLossAssessment" inverseName="cgas" inverseEntity="HearingLossAssessment"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
         <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
@@ -47,6 +48,10 @@
         <attribute name="secondMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="thirdMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="gripStrength" inverseEntity="CGA"/>
+    </entity>
+    <entity name="HearingLossAssessment" representedClassName="HearingLossAssessment" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="hearingLossAssessment" inverseEntity="CGA"/>
     </entity>
     <entity name="MiniMentalStateExam" representedClassName="MiniMentalStateExam" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

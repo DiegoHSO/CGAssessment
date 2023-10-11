@@ -101,6 +101,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkVisualAcuityAssessmentStatus(cga: cga), forKey: .visualAcuityAssessment)
         }
 
+        if tests.contains(.hearingLossAssessment) {
+            testsStatus.updateValue(checkHearingLossAssessmentStatus(cga: cga), forKey: .hearingLossAssessment)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -281,6 +285,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.visualAcuityAssessment?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkHearingLossAssessmentStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.hearingLossAssessment?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
