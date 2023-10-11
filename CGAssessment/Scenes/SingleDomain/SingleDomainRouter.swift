@@ -53,7 +53,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .hearingLossAssessment:
             routeToHearingLossAssessment(cgaId: cgaId)
         case .katzScale:
-            break
+            routeToKatzScale(cgaId: cgaId)
         case .lawtonScale:
             break
         case .miniNutritionalAssessment:
@@ -149,5 +149,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let hearingLossAssessmentController = HearingLossAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(hearingLossAssessmentController, animated: true)
+    }
+
+    private func routeToKatzScale(cgaId: UUID?) {
+        guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
     }
 }

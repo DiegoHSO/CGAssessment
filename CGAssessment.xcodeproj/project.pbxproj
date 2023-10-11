@@ -169,6 +169,14 @@
 		F1A543162AC3E1EA00D543ED /* CalfCircumferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543152AC3E1EA00D543ED /* CalfCircumferencePresenter.swift */; };
 		F1A543182AC3E1F200D543ED /* CalfCircumferenceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543172AC3E1F200D543ED /* CalfCircumferenceRouter.swift */; };
 		F1A5431A2AC3E23300D543ED /* CalfCircumferenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543192AC3E23300D543ED /* CalfCircumferenceModels.swift */; };
+		F1A8B5012AD6C4EC006FD874 /* KatzScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5002AD6C4EC006FD874 /* KatzScale.storyboard */; };
+		F1A8B5032AD6C4FB006FD874 /* KatzScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5022AD6C4FB006FD874 /* KatzScaleViewController.swift */; };
+		F1A8B5052AD6C65F006FD874 /* KatzScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5042AD6C65F006FD874 /* KatzScaleInteractor.swift */; };
+		F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5062AD6C670006FD874 /* KatzScalePresenter.swift */; };
+		F1A8B5092AD6C67C006FD874 /* KatzScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5082AD6C67C006FD874 /* KatzScaleWorker.swift */; };
+		F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B50A2AD6C686006FD874 /* KatzScaleRouter.swift */; };
+		F1A8B50D2AD6C692006FD874 /* KatzScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B50C2AD6C692006FD874 /* KatzScaleModels.swift */; };
+		F1A8B50F2AD6C69A006FD874 /* KatzScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B50E2AD6C69A006FD874 /* KatzScaleBuilder.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -474,6 +482,14 @@
 		F1A543152AC3E1EA00D543ED /* CalfCircumferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferencePresenter.swift; sourceTree = "<group>"; };
 		F1A543172AC3E1F200D543ED /* CalfCircumferenceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceRouter.swift; sourceTree = "<group>"; };
 		F1A543192AC3E23300D543ED /* CalfCircumferenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceModels.swift; sourceTree = "<group>"; };
+		F1A8B5002AD6C4EC006FD874 /* KatzScale.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KatzScale.storyboard; sourceTree = "<group>"; };
+		F1A8B5022AD6C4FB006FD874 /* KatzScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleViewController.swift; sourceTree = "<group>"; };
+		F1A8B5042AD6C65F006FD874 /* KatzScaleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleInteractor.swift; sourceTree = "<group>"; };
+		F1A8B5062AD6C670006FD874 /* KatzScalePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScalePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5082AD6C67C006FD874 /* KatzScaleWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleWorker.swift; sourceTree = "<group>"; };
+		F1A8B50A2AD6C686006FD874 /* KatzScaleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleRouter.swift; sourceTree = "<group>"; };
+		F1A8B50C2AD6C692006FD874 /* KatzScaleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleModels.swift; sourceTree = "<group>"; };
+		F1A8B50E2AD6C69A006FD874 /* KatzScaleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleBuilder.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1107,6 +1123,21 @@
 			path = CalfCircumference;
 			sourceTree = "<group>";
 		};
+		F1A8B4FF2AD6C4A3006FD874 /* KatzScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5002AD6C4EC006FD874 /* KatzScale.storyboard */,
+				F1A8B5022AD6C4FB006FD874 /* KatzScaleViewController.swift */,
+				F1A8B5042AD6C65F006FD874 /* KatzScaleInteractor.swift */,
+				F1A8B5062AD6C670006FD874 /* KatzScalePresenter.swift */,
+				F1A8B5082AD6C67C006FD874 /* KatzScaleWorker.swift */,
+				F1A8B50A2AD6C686006FD874 /* KatzScaleRouter.swift */,
+				F1A8B50C2AD6C692006FD874 /* KatzScaleModels.swift */,
+				F1A8B50E2AD6C69A006FD874 /* KatzScaleBuilder.swift */,
+			);
+			path = KatzScale;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1300,6 +1331,7 @@
 				F1EB0FA12AD3AF9C0087AAB2 /* GeriatricDepressionScale */,
 				F1EB0FB32AD5AFFA0087AAB2 /* VisualAcuityAssessment */,
 				F17D36A62AD64D3D00AE5D98 /* HearingLossAssessment */,
+				F1A8B4FF2AD6C4A3006FD874 /* KatzScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1563,6 +1595,7 @@
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
+				F1A8B5012AD6C4EC006FD874 /* KatzScale.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
 				F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */,
@@ -1682,6 +1715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14097952ABBC55700E92005 /* CGADomainsRouter.swift in Sources */,
+				F1A8B5052AD6C65F006FD874 /* KatzScaleInteractor.swift in Sources */,
 				F1F1E3962ABFDA1C00BC610E /* StopwatchTableViewCell.swift in Sources */,
 				F13C7B822ACF099A000D5AC2 /* BinaryOptionView.swift in Sources */,
 				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
@@ -1749,6 +1783,7 @@
 				F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
+				F1A8B5032AD6C4FB006FD874 /* KatzScaleViewController.swift in Sources */,
 				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
 				F1EB0FBD2AD5B06F0087AAB2 /* VisualAcuityAssessmentWorker.swift in Sources */,
@@ -1769,6 +1804,7 @@
 				F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */,
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
+				F1A8B50D2AD6C692006FD874 /* KatzScaleModels.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
 				F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */,
@@ -1800,6 +1836,7 @@
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
 				F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */,
+				F1A8B50F2AD6C69A006FD874 /* KatzScaleBuilder.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
@@ -1817,6 +1854,7 @@
 				F13C7B792ACDF58A000D5AC2 /* StatusViewProtocol.swift in Sources */,
 				F1F1E3BF2AC0D9ED00BC610E /* CaseIterable+Extension.swift in Sources */,
 				F1F1E37D2ABEA1FD00BC610E /* SingleDomainViewController.swift in Sources */,
+				F1A8B5092AD6C67C006FD874 /* KatzScaleWorker.swift in Sources */,
 				F14097752AB7D44800E92005 /* NewCGAPresenter.swift in Sources */,
 				F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
@@ -1841,11 +1879,13 @@
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
+				F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
+				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
 				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,

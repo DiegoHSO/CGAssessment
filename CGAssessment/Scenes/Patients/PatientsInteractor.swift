@@ -265,6 +265,31 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isSensoryDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Functional domain test results check
+
+            var isFunctionalDomainAltered: Bool = false
+
+            if let katzScale = lastCGA?.katzScale, katzScale.isDone {
+                var rawQuestions: KatzScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = katzScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let katzScaleResults = KatzScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .katzScale, results: katzScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isFunctionalDomainAltered = true }
+            }
+
+            alteredDomains = isFunctionalDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

@@ -142,9 +142,24 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .sensory)
                 }
 
+                // MARK: - Functional domain done check
+
+                if let katzScale = cga.katzScale {
+                    if katzScale.isDone {
+                        domainsStatus.updateValue(.done, forKey: .functional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .functional)
+                    }
+                } else if cga.katzScale == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .functional)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .functional)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
+
             }
 
             let cgasByDate = Dictionary(grouping: viewModels, by: { CGAsModels.DateFilter(month: $0.lastEditedDate.month, year: $0.lastEditedDate.year) })
@@ -214,6 +229,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .sensory)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                    }
+
+                    // MARK: - Functional domain done check
+
+                    if let katzScale = cga.katzScale {
+                        if katzScale.isDone {
+                            domainsStatus.updateValue(.done, forKey: .functional)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .functional)
+                        }
+                    } else if cga.katzScale == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .functional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .functional)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),
