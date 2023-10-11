@@ -53,7 +53,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .geriatricDepressionScale:
             routeToGeriatricDepressionScale()
         case .visualAcuityAssessment:
-            break
+            routeToVisualAcuityAssessment()
         case .hearingLossAssessment:
             break
         case .katzScale:
@@ -175,5 +175,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let geriatricDepressionScaleController = GeriatricDepressionScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(geriatricDepressionScaleController, animated: true)
+    }
+
+    private func routeToVisualAcuityAssessment() {
+        guard let visualAcuityAssessmentController = VisualAcuityAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(visualAcuityAssessmentController, animated: true)
     }
 }

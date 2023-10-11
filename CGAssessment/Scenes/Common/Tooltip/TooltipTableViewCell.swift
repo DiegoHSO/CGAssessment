@@ -11,14 +11,14 @@ class TooltipTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    @IBOutlet private weak var tooltipSymbolLabel: UILabel?
     @IBOutlet private weak var tooltipTextLabel: UILabel?
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint?
 
     // MARK: - Public Methods
 
-    func setup(text: String, symbol: String) {
-        tooltipTextLabel?.text = text
-        tooltipSymbolLabel?.text = symbol
+    func setup(text: String, symbol: String, bottomConstraint: CGFloat = 20) {
+        tooltipTextLabel?.text = "\(symbol)  \(text)"
+        self.bottomConstraint?.constant = bottomConstraint
     }
 
 }

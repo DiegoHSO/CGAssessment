@@ -97,6 +97,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkGeriatricDepressionScaleStatus(cga: cga), forKey: .geriatricDepressionScale)
         }
 
+        if tests.contains(.visualAcuityAssessment) {
+            testsStatus.updateValue(checkVisualAcuityAssessmentStatus(cga: cga), forKey: .visualAcuityAssessment)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -265,6 +269,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.geriatricDepressionScale?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkVisualAcuityAssessmentStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.visualAcuityAssessment?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
