@@ -26,8 +26,12 @@ class HearingLossAssessmentRouter: HearingLossAssessmentRoutingLogic {
     // MARK: - Public Methods
 
     func routeToKatzScaleTest(cgaId: UUID?) {
-        /* TODO: Add Katz Scale routing
-         viewController?.navigationController?.pushViewController(resultsController, animated: true)
-         */
+        guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
+
+        if let viewController = viewController, let index = viewController.navigationController?.viewControllers.firstIndex(of: viewController) {
+            viewController.navigationController?.viewControllers.remove(at: index)
+        }
     }
 }

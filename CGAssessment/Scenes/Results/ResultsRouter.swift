@@ -57,7 +57,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .hearingLossAssessment:
             routeToHearingLossAssessment()
         case .katzScale:
-            break
+            routeToKatzScale()
         case .lawtonScale:
             break
         case .miniNutritionalAssessment:
@@ -187,5 +187,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let hearingLossAssessmentController = HearingLossAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(hearingLossAssessmentController, animated: true)
+    }
+
+    private func routeToKatzScale() {
+        guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
     }
 }

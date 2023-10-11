@@ -65,7 +65,8 @@ class ResultsWorker {
         case .hearingLossAssessment:
             break
         case .katzScale:
-            break
+            guard let katzScaleResults = results as? KatzScaleModels.TestResults else { return nil }
+            return getKatzScaleResults(for: katzScaleResults)
         case .lawtonScale:
             break
         case .miniNutritionalAssessment:
@@ -571,6 +572,28 @@ class ResultsWorker {
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.scoreAchieved.localized, description: selectedOptionText ?? ""),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: "\(diagnosis.localized) \(dynamicResult)")]
+
+        return (results, resultType)
+    }
+
+    private func getKatzScaleResults(for testResults: KatzScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.filter({ $0.key != .miniMentalStateExamFirstQuestion }).values.map { $0 as SelectableKeys }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }
+        let totalPoints = selectedOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let resultType: ResultsModels.ResultType = totalPoints > 4 ? .excellent : totalPoints > 2 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .katzScaleExcellentResult
+        case .medium: .katzScaleMediumResult
+        case .bad: .katzScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)
     }
