@@ -20,6 +20,7 @@ class EmptyStateTableViewCell: UITableViewCell {
     func setup(title: String, buttonTitle: String, leadingConstraint: CGFloat = 30) {
         emptyStateTitle?.text = title
         actionButton?.setTitle(buttonTitle, for: .normal)
+        actionButton?.titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         cellLeadingConstraint?.constant = leadingConstraint
     }
 

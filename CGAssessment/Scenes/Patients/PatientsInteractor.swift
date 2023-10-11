@@ -252,6 +252,19 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isCognitiveDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Sensory domain test results check
+
+            var isSensoryDomainAltered: Bool = false
+
+            if let visualAcuityAssessment = lastCGA?.visualAcuityAssessment, visualAcuityAssessment.isDone {
+                let visualAcuityAssessmentResults = VisualAcuityAssessmentModels.TestResults(selectedOption: SelectableKeys(rawValue: visualAcuityAssessment.selectedOption) ?? .none)
+
+                let resultsTuple = resultsWorker?.getResults(for: .visualAcuityAssessment, results: visualAcuityAssessmentResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSensoryDomainAltered = true }
+            }
+
+            alteredDomains = isSensoryDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

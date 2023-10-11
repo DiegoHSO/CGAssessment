@@ -26,17 +26,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-rb-cZu">
                         <rect key="frame" x="22" y="0.0" width="301" height="58"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-c4-37L">
-                                <rect key="frame" x="8" y="12" width="285" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-c4-37L">
+                                <rect key="frame" x="40.666666666666657" y="12" width="219.99999999999997" height="34"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="􀅵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-o0-03c">
-                                        <rect key="frame" x="0.0" y="0.0" width="13" height="34"/>
-                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
-                                        <color key="textColor" name="Label-1"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comece a avaliação selecionando um dos domínios." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-K3-cn9">
-                                        <rect key="frame" x="21" y="0.0" width="264" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="256" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="758" text="Comece a avaliação selecionando um dos domínios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-K3-cn9">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="34"/>
                                         <fontDescription key="fontDescription" name="SFCompactDisplay-Semibold" family="SF Compact Display" pointSize="13"/>
                                         <color key="textColor" name="Label-1"/>
                                         <nil key="highlightedColor"/>
@@ -70,7 +64,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="tooltipSymbolLabel" destination="pUJ-o0-03c" id="hJz-kG-bey"/>
+                <outlet property="bottomConstraint" destination="9fp-Do-ItP" id="aoA-n8-894"/>
                 <outlet property="tooltipTextLabel" destination="MeG-K3-cn9" id="qHa-Lu-4rR"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="31.690140845070424"/>

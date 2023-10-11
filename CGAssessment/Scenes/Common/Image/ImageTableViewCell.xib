@@ -42,6 +42,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="aspectRatioConstraint" destination="Ybs-HN-P5S" id="G4X-4c-VLA"/>
                 <outlet property="bottomConstraint" destination="g1j-A3-Dwo" id="2r8-zU-jkO"/>
                 <outlet property="customImageView" destination="B9q-0Y-DDM" id="dj0-MI-jlY"/>
                 <outlet property="progressView" destination="Uw2-mf-3jf" id="AzW-Uu-aKQ"/>

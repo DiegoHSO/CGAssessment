@@ -1,29 +1,29 @@
 //
-//  CalfCircumferenceViewController.swift
+//  VisualAcuityAssessmentViewController.swift
 //  CGAssessment
 //
-//  Created by Diego Henrique Silva Oliveira on 27/09/23.
+//  Created by Diego Henrique Silva Oliveira on 10/10/23.
 //
 
 import UIKit
 
-protocol CalfCircumferenceDisplayLogic: AnyObject {
-    func route(toRoute route: CalfCircumferenceModels.Routing)
-    func presentData(viewModel: CalfCircumferenceModels.ControllerViewModel)
+protocol VisualAcuityAssessmentDisplayLogic: AnyObject {
+    func route(toRoute route: VisualAcuityAssessmentModels.Routing)
+    func presentData(viewModel: VisualAcuityAssessmentModels.ControllerViewModel)
 }
 
-class CalfCircumferenceViewController: UIViewController, CalfCircumferenceDisplayLogic {
+class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssessmentDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = CalfCircumferenceModels.Section
-    private typealias Row = CalfCircumferenceModels.Row
+    private typealias Section = VisualAcuityAssessmentModels.Section
+    private typealias Row = VisualAcuityAssessmentModels.Row
 
-    private var viewModel: CalfCircumferenceModels.ControllerViewModel?
-    private var interactor: CalfCircumferenceLogic?
-    private var router: CalfCircumferenceRoutingLogic?
+    private var viewModel: VisualAcuityAssessmentModels.ControllerViewModel?
+    private var interactor: VisualAcuityAssessmentLogic?
+    private var router: VisualAcuityAssessmentRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -36,7 +36,7 @@ class CalfCircumferenceViewController: UIViewController, CalfCircumferenceDispla
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.calfCircumference.localized
+        title = LocalizedTable.visualAcuityAssessment.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,19 +47,23 @@ class CalfCircumferenceViewController: UIViewController, CalfCircumferenceDispla
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: CalfCircumferenceLogic, router: CalfCircumferenceRouter) {
+    func setupArchitecture(interactor: VisualAcuityAssessmentLogic, router: VisualAcuityAssessmentRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: CalfCircumferenceModels.Routing) {
+    func route(toRoute route: VisualAcuityAssessmentModels.Routing) {
         switch route {
         case .testResults(let test, let results, let cgaId):
             router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
+        case .printing(let fileURL):
+            router?.routeToPrinting(fileURL: fileURL)
+        case .pdfSaving(let fileURL):
+            router?.routeToFileSaving(fileURL: fileURL)
         }
     }
 
-    func presentData(viewModel: CalfCircumferenceModels.ControllerViewModel) {
+    func presentData(viewModel: VisualAcuityAssessmentModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tableView?.reloadData()
@@ -75,16 +79,18 @@ class CalfCircumferenceViewController: UIViewController, CalfCircumferenceDispla
         tableView?.contentInsetAdjustmentBehavior = .never
 
         tableView?.register(headerType: TitleHeaderView.self)
+        tableView?.register(cellType: TooltipTableViewCell.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
+        tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ImageTableViewCell.self)
-        tableView?.register(cellType: TextFieldTableViewCell.self)
+        tableView?.register(cellType: GroupedButtonsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
     }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension CalfCircumferenceViewController: UITableViewDelegate {
+extension VisualAcuityAssessmentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -99,26 +105,28 @@ extension CalfCircumferenceViewController: UITableViewDelegate {
     }
 }
 
-extension CalfCircumferenceViewController: UITableViewDataSource {
+extension VisualAcuityAssessmentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
-        switch currentSection {
-        case .instructions:
-            return viewModel.sections[.instructions]?.count ?? 0
-        case .circumference:
-            return viewModel.sections[.circumference]?.count ?? 0
-        case .done:
-            return viewModel.sections[.done]?.count ?? 0
-        }
+        return viewModel.sections[currentSection]?.count ?? 0
     }
 
+    // swiftlint:disable:next function_body_length cyclomatic_complexity
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel, let section = Section(rawValue: indexPath.section) else { return UITableViewCell(frame: .zero) }
 
         switch viewModel.sections[section]?[safe: indexPath.row] {
-        case .instructions:
+        case .header:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
+                                                           for: indexPath) as? TooltipTableViewCell else {
+                return UITableViewCell()
+            }
 
+            cell.setup(text: LocalizedTable.visualAcuityAssessmentTooltip.localized, symbol: "􀅵", bottomConstraint: 0)
+
+            return cell
+        case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
                                                            for: indexPath) as? InstructionsTableViewCell else {
                 return UITableViewCell()
@@ -127,24 +135,33 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
             return cell
+        case .buttons:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupedButtonsTableViewCell.className,
+                                                           for: indexPath) as? GroupedButtonsTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(viewModels: viewModel.buttons)
+
+            return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
                                                            for: indexPath) as? ImageTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(image: UIImage(named: viewModel.imageName ?? ""), multiplier: 1)
+            cell.setup(image: UIImage(named: viewModel.imageName), multiplier: 1.33, borderType: .none)
 
             return cell
-        case .textField:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
-                                                           for: indexPath) as? TextFieldTableViewCell else {
+        case .question:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
+                                                           for: indexPath) as? SelectableTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: .init(title: nil, text: viewModel.typedCircumference,
-                                        placeholder: LocalizedTable.circumferencePlaceholder.localized,
-                                        delegate: interactor, keyboardType: .decimalPad))
+            cell.setup(viewModel: .init(title: viewModel.question.question, options: viewModel.question.options,
+                                        delegate: interactor, selectedQuestion: viewModel.question.selectedOption,
+                                        leadingConstraint: 35))
 
             return cell
         case .done:
@@ -168,15 +185,14 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let currentSection = Section(rawValue: section) else { return nil }
 
-        if currentSection != .done {
+        if currentSection == .test {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TitleHeaderView
                                                                             .className) as? TitleHeaderView else {
                 return nil
             }
 
-            header.setup(title: currentSection == .instructions ? LocalizedTable.instructions.localized
-                            : LocalizedTable.measurement.localized.capitalized, backgroundColor: .primary,
-                         leadingConstraint: currentSection == .instructions ? 25 : 30)
+            header.setup(title: LocalizedTable.instructions.localized,
+                         backgroundColor: .primary, leadingConstraint: 25)
 
             return header
         }

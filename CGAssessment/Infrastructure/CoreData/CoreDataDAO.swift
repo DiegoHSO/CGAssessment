@@ -37,6 +37,8 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -136,6 +138,9 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                                                 .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
                                                                                 .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
         ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(selectedOption: .ninthOption, isDone: true), cgaId: nil)
+        try updateCGA(with: HearingLossAssessmentModels.TestData.init(isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -262,7 +267,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .geriatricDepressionScale:
             return cga?.geriatricDepressionScale
         case .visualAcuityAssessment:
-            return nil
+            return cga?.visualAcuityAssessment
         case .hearingLossAssessment:
             return nil
         case .katzScale:
@@ -558,6 +563,33 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.visualAcuityAssessment == nil {
+            try createVisualAcuityAssessmentInstance(for: cga)
+        }
+
+        cga.visualAcuityAssessment?.selectedOption = test.selectedOption.rawValue
+        cga.visualAcuityAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.hearingLossAssessment == nil {
+            try createHearingLossAssessmentInstance(for: cga)
+        }
+
+        cga.hearingLossAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -633,6 +665,20 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createGeriatricDepressionScaleInstance(for cga: CGA) throws {
         let newTest = GeriatricDepressionScale(context: context)
         cga.geriatricDepressionScale = newTest
+
+        try context.save()
+    }
+
+    private func createVisualAcuityAssessmentInstance(for cga: CGA) throws {
+        let newTest = VisualAcuityAssessment(context: context)
+        cga.visualAcuityAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createHearingLossAssessmentInstance(for cga: CGA) throws {
+        let newTest = HearingLossAssessment(context: context)
+        cga.hearingLossAssessment = newTest
 
         try context.save()
     }
