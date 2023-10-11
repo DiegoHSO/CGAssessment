@@ -185,7 +185,6 @@
 		F1A8B51E2AD6F684006FD874 /* LawtonScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5162AD6F683006FD874 /* LawtonScaleViewController.swift */; };
 		F1A8B51F2AD6F684006FD874 /* LawtonScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5172AD6F683006FD874 /* LawtonScaleRouter.swift */; };
 		F1A8B5202AD6F684006FD874 /* LawtonScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5182AD6F683006FD874 /* LawtonScale.storyboard */; };
-		F1A8B5222AD7323A006FD874 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5212AD7323A006FD874 /* UILabel+Extension.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -507,7 +506,6 @@
 		F1A8B5162AD6F683006FD874 /* LawtonScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleViewController.swift; sourceTree = "<group>"; };
 		F1A8B5172AD6F683006FD874 /* LawtonScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleRouter.swift; sourceTree = "<group>"; };
 		F1A8B5182AD6F683006FD874 /* LawtonScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LawtonScale.storyboard; sourceTree = "<group>"; };
-		F1A8B5212AD7323A006FD874 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1044,7 +1042,6 @@
 				F1F1E3D12AC134C000BC610E /* Double+Extension.swift */,
 				F168B7F92ACCF17D0015B2A3 /* TimeInterval+Extension.swift */,
 				F1EB0FC42AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift */,
-				F1A8B5212AD7323A006FD874 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1852,7 +1849,6 @@
 				F17D36B42AD64DF700AE5D98 /* HearingLossAssessmentModels.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
 				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
-				F1A8B5222AD7323A006FD874 /* UILabel+Extension.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
