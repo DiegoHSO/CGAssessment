@@ -22,7 +22,10 @@
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
         <relationship name="hearingLossAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HearingLossAssessment" inverseName="cgas" inverseEntity="HearingLossAssessment"/>
+        <relationship name="katzScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KatzScale" inverseName="cgas" inverseEntity="KatzScale"/>
+        <relationship name="lawtonScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LawtonScale" inverseName="cgas" inverseEntity="LawtonScale"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="cgas" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="miniNutritionalAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniNutritionalAssessment" inverseName="cgas" inverseEntity="MiniNutritionalAssessment"/>
         <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
@@ -53,11 +56,29 @@
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="hearingLossAssessment" inverseEntity="CGA"/>
     </entity>
+    <entity name="KatzScale" representedClassName="KatzScale" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="katzScale" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="katzScale" inverseEntity="SelectableOption"/>
+    </entity>
+    <entity name="LawtonScale" representedClassName="LawtonScale" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="lawtonScale" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="lawtonScale" inverseEntity="SelectableOption"/>
+    </entity>
     <entity name="MiniMentalStateExam" representedClassName="MiniMentalStateExam" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="miniMentalStateExam" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniMentalStateExam" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniMentalStateExam" inverseEntity="SelectableOption"/>
+    </entity>
+    <entity name="MiniNutritionalAssessment" representedClassName="MiniNutritionalAssessment" syncable="YES" codeGenerationType="class">
+        <attribute name="height" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isExtraQuestionSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniNutritionalAssessment" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniNutritionalAssessment" inverseEntity="SelectableOption"/>
     </entity>
     <entity name="MoCA" representedClassName="MoCA" syncable="YES" codeGenerationType="class">
         <attribute name="circlesImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
@@ -88,7 +109,10 @@
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="selectableOptions" inverseEntity="GeriatricDepressionScale"/>
+        <relationship name="katzScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KatzScale" inverseName="selectableOptions" inverseEntity="KatzScale"/>
+        <relationship name="lawtonScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LawtonScale" inverseName="selectableOptions" inverseEntity="LawtonScale"/>
         <relationship name="miniMentalStateExam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniMentalStateExam" inverseName="selectableOptions" inverseEntity="MiniMentalStateExam"/>
+        <relationship name="miniNutritionalAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniNutritionalAssessment" inverseName="selectableOptions" inverseEntity="MiniNutritionalAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="selectableOptions" inverseEntity="SarcopeniaScreening"/>
     </entity>
     <entity name="TimedUpAndGo" representedClassName=".TimedUpAndGo" syncable="YES" codeGenerationType="class">

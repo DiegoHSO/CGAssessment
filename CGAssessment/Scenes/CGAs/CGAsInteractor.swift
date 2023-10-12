@@ -142,9 +142,38 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .sensory)
                 }
 
+                // MARK: - Functional domain done check
+
+                if let katzScale = cga.katzScale, let lawtonScale = cga.lawtonScale {
+                    if katzScale.isDone, lawtonScale.isDone {
+                        domainsStatus.updateValue(.done, forKey: .functional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .functional)
+                    }
+                } else if cga.katzScale == nil, cga.lawtonScale == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .functional)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .functional)
+                }
+
+                // MARK: - Nutritional domain done check
+
+                if let miniNutritionalAssessment = cga.miniNutritionalAssessment {
+                    if miniNutritionalAssessment.isDone {
+                        domainsStatus.updateValue(.done, forKey: .nutritional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                    }
+                } else if cga.miniNutritionalAssessment == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .nutritional)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
+
             }
 
             let cgasByDate = Dictionary(grouping: viewModels, by: { CGAsModels.DateFilter(month: $0.lastEditedDate.month, year: $0.lastEditedDate.year) })
@@ -214,6 +243,34 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .sensory)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .sensory)
+                    }
+
+                    // MARK: - Functional domain done check
+
+                    if let katzScale = cga.katzScale, let lawtonScale = cga.lawtonScale {
+                        if katzScale.isDone, lawtonScale.isDone {
+                            domainsStatus.updateValue(.done, forKey: .functional)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .functional)
+                        }
+                    } else if cga.katzScale == nil, cga.lawtonScale == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .functional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .functional)
+                    }
+
+                    // MARK: - Nutritional domain done check
+
+                    if let miniNutritionalAssessment = cga.miniNutritionalAssessment {
+                        if miniNutritionalAssessment.isDone {
+                            domainsStatus.updateValue(.done, forKey: .nutritional)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                        }
+                    } else if cga.miniNutritionalAssessment == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .nutritional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .nutritional)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

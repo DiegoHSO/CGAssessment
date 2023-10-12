@@ -14,6 +14,7 @@ struct SelectableModels {
         let options: Options
         let delegate: SelectableViewDelegate?
         let selectedQuestion: SelectableKeys
+        var questionsSpacing: CGFloat = 10
         var leadingConstraint: CGFloat = 30
         var textStyle: Style = .regular
     }
