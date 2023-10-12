@@ -693,4 +693,5 @@ enum LocalizedTable: String, Localizable {
     case weight = "weight_key"
     case heightPlaceholder = "height_placeholder_key"
     case weightPlaceholder = "weight_placeholder_key"
+    case bmi = "body_mass_index_key"
 }

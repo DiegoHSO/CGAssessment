@@ -570,3 +570,4 @@
 "weight_key" = "Peso";
 "height_placeholder_key" = "Digite a altura (em cm)";
 "weight_placeholder_key" = "Digite o peso (em kg)";
+"body_mass_index_key" = "IMC";

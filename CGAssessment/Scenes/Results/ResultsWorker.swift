@@ -7,7 +7,6 @@
 
 import Foundation
 
-// swiftlint:disable:next type_body_length
 class ResultsWorker {
 
     // MARK: - Private Properties
@@ -71,7 +70,8 @@ class ResultsWorker {
             guard let lawtonScaleResults = results as? LawtonScaleModels.TestResults else { return nil }
             return getLawtonScaleResults(for: lawtonScaleResults)
         case .miniNutritionalAssessment:
-            break
+            guard let miniNutritionalAssessmentResults = results as? MiniNutritionalAssessmentModels.TestResults else { return nil }
+            return getMiniNutritionalAsessmentResults(for: miniNutritionalAssessmentResults)
         case .apgarScale:
             break
         case .zaritScale:
@@ -616,6 +616,55 @@ class ResultsWorker {
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
                                                      description: "\(totalPoints) \(LocalizedTable.points.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getMiniNutritionalAsessmentResults(for testResults: MiniNutritionalAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions: [SelectableKeys]
+        let bmiPoints: Int
+        let bmi: Double
+
+        if testResults.isExtraQuestionSelected {
+            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
+            let extraQuestionOption = testResults.questions[.miniNutritionalAssessmentSeventhQuestion]
+            bmiPoints = extraQuestionOption == .firstOption ? 0 : 3
+            bmi = 0
+        } else {
+            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
+            guard let height = testResults.height, let weight = testResults.weight else { return ([], .bad) }
+
+            bmi = weight / (pow((height / 100), 2))
+
+            // swiftlint:disable switch_case_alignment
+            bmiPoints = switch bmi {
+            case 0..<19: 0
+            case 19..<21: 1
+            case 21..<23: 2
+            case 23...: 3
+            default: 0
+            }
+            // swiftlint:enable switch_case_alignment
+        }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
+            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3
+        let totalPoints = bmiPoints + selectedOptionsPointed
+
+        let resultType: ResultsModels.ResultType = totalPoints < 8 ? .bad : totalPoints < 12 ? .medium : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .miniNutritionalAssessmentExcellentResult
+        case .medium: .miniNutritionalAssessmentMediumResult
+        case .bad: .miniNutritionalAssessmentBadResult
+        case .good: .none
+        }
+
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        if bmi > 0 { results.insert(.init(title: LocalizedTable.bmi.localized, description: "\(bmi.regionFormatted()) kg/m²"), at: 1) }
 
         return (results, resultType)
     }

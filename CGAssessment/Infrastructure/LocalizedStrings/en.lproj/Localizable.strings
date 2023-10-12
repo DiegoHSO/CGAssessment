@@ -565,8 +565,9 @@
 "mini_nutritional_assessment_excellent_result_key" = "Individual has results suggestive of normal nutritional status.";
 "mini_nutritional_assessment_medium_result_key" = "Individual has results suggestive of being at risk of malnutrition.";
 "mini_nutritional_assessment_bad_result_key" = "Individual has results suggestive of malnutrition.";
-"mini_nutritional_assessment_tooltip_key" = "Prevented from measuring patient's height and body mass? Click to view alternative question";
+"mini_nutritional_assessment_tooltip_key" = "Unable to measure patient's height and body mass? Tap to view alternative question";
 "height_key" = "Height";
 "weight_key" = "Weight";
 "height_placeholder_key" = "Enter height (in cm)";
 "weight_placeholder_key" = "Enter weight (in kg)";
+"body_mass_index_key" = "BMI";
