@@ -41,6 +41,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -153,6 +154,12 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .telephone: .thirdOption, .trips: .firstOption, .shopping: .firstOption, .mealPreparation: .firstOption,
             .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
         ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(questions: [
+            .miniNutritionalAssessmentFirstQuestion: .thirdOption, .miniNutritionalAssessmentSecondQuestion: .fourthOption,
+            .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
+            .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
+        ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -287,7 +294,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .lawtonScale:
             return cga?.lawtonScale
         case .miniNutritionalAssessment:
-            return nil
+            return cga?.miniNutritionalAssessment
         case .apgarScale:
             return nil
         case .zaritScale:
@@ -644,6 +651,36 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.miniNutritionalAssessment == nil {
+            try createMiniNutritionalAssessmentInstance(for: cga)
+        }
+
+        if let height = test.height {
+            cga.miniNutritionalAssessment?.height = NSNumber(value: height)
+        }
+
+        if let weight = test.weight {
+            cga.miniNutritionalAssessment?.weight = NSNumber(value: weight)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.miniNutritionalAssessment?.selectableOptions = NSSet(array: selectableOptions)
+        cga.miniNutritionalAssessment?.isExtraQuestionSelected = test.isExtraQuestionSelected
+        cga.miniNutritionalAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -747,6 +784,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createLawtonScaleInstance(for cga: CGA) throws {
         let newTest = LawtonScale(context: context)
         cga.lawtonScale = newTest
+
+        try context.save()
+    }
+
+    private func createMiniNutritionalAssessmentInstance(for cga: CGA) throws {
+        let newTest = MiniNutritionalAssessment(context: context)
+        cga.miniNutritionalAssessment = newTest
 
         try context.save()
     }

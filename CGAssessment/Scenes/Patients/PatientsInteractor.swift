@@ -309,6 +309,33 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isFunctionalDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Nutritional domain test results check
+
+            var isNutritionalDomainAltered: Bool = false
+
+            if let miniNutritionalAssessment = lastCGA?.miniNutritionalAssessment, miniNutritionalAssessment.isDone {
+                var rawQuestions: MiniNutritionalAssessmentModels.RawQuestions = [:]
+
+                guard let questionOptions = miniNutritionalAssessment.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let miniNutritionalAssessmentResults = MiniNutritionalAssessmentModels.TestResults(questions: rawQuestions, height: miniNutritionalAssessment.height as? Double ?? 0,
+                                                                                                   weight: miniNutritionalAssessment.weight as? Double ?? 0,
+                                                                                                   isExtraQuestionSelected: miniNutritionalAssessment.isExtraQuestionSelected)
+
+                let resultsTuple = resultsWorker?.getResults(for: .miniNutritionalAssessment, results: miniNutritionalAssessmentResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isNutritionalDomainAltered = true }
+            }
+
+            alteredDomains = isNutritionalDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

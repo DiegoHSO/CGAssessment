@@ -185,6 +185,18 @@
 		F1A8B51E2AD6F684006FD874 /* LawtonScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5162AD6F683006FD874 /* LawtonScaleViewController.swift */; };
 		F1A8B51F2AD6F684006FD874 /* LawtonScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5172AD6F683006FD874 /* LawtonScaleRouter.swift */; };
 		F1A8B5202AD6F684006FD874 /* LawtonScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5182AD6F683006FD874 /* LawtonScale.storyboard */; };
+		F1A8B5312AD782FD006FD874 /* MiniNutritionalAssessmentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5292AD782FC006FD874 /* MiniNutritionalAssessmentPresenter.swift */; };
+		F1A8B5322AD782FD006FD874 /* MiniNutritionalAssessmentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B52A2AD782FC006FD874 /* MiniNutritionalAssessmentWorker.swift */; };
+		F1A8B5332AD782FD006FD874 /* MiniNutritionalAssessmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B52B2AD782FC006FD874 /* MiniNutritionalAssessmentRouter.swift */; };
+		F1A8B5342AD782FD006FD874 /* MiniNutritionalAssessmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B52C2AD782FC006FD874 /* MiniNutritionalAssessmentBuilder.swift */; };
+		F1A8B5352AD782FD006FD874 /* MiniNutritionalAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B52D2AD782FC006FD874 /* MiniNutritionalAssessment.storyboard */; };
+		F1A8B5362AD782FD006FD874 /* MiniNutritionalAssessmentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B52E2AD782FC006FD874 /* MiniNutritionalAssessmentInteractor.swift */; };
+		F1A8B5372AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B52F2AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift */; };
+		F1A8B5382AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5302AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift */; };
+		F1A8B53C2AD7967B006FD874 /* SheetableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B53A2AD7967B006FD874 /* SheetableTableViewCell.swift */; };
+		F1A8B53D2AD7967B006FD874 /* SheetableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */; };
+		F1A8B53F2AD79A78006FD874 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */; };
+		F1A8B5412AD79A90006FD874 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -506,6 +518,18 @@
 		F1A8B5162AD6F683006FD874 /* LawtonScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleViewController.swift; sourceTree = "<group>"; };
 		F1A8B5172AD6F683006FD874 /* LawtonScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleRouter.swift; sourceTree = "<group>"; };
 		F1A8B5182AD6F683006FD874 /* LawtonScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LawtonScale.storyboard; sourceTree = "<group>"; };
+		F1A8B5292AD782FC006FD874 /* MiniNutritionalAssessmentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentPresenter.swift; sourceTree = "<group>"; };
+		F1A8B52A2AD782FC006FD874 /* MiniNutritionalAssessmentWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentWorker.swift; sourceTree = "<group>"; };
+		F1A8B52B2AD782FC006FD874 /* MiniNutritionalAssessmentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentRouter.swift; sourceTree = "<group>"; };
+		F1A8B52C2AD782FC006FD874 /* MiniNutritionalAssessmentBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentBuilder.swift; sourceTree = "<group>"; };
+		F1A8B52D2AD782FC006FD874 /* MiniNutritionalAssessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MiniNutritionalAssessment.storyboard; sourceTree = "<group>"; };
+		F1A8B52E2AD782FC006FD874 /* MiniNutritionalAssessmentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentInteractor.swift; sourceTree = "<group>"; };
+		F1A8B52F2AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentViewController.swift; sourceTree = "<group>"; };
+		F1A8B5302AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentModels.swift; sourceTree = "<group>"; };
+		F1A8B53A2AD7967B006FD874 /* SheetableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetableTableViewCell.swift; sourceTree = "<group>"; };
+		F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetableTableViewCell.xib; sourceTree = "<group>"; };
+		F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
+		F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1169,6 +1193,32 @@
 			path = LawtonScale;
 			sourceTree = "<group>";
 		};
+		F1A8B5282AD7822A006FD874 /* MiniNutritionalAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B52D2AD782FC006FD874 /* MiniNutritionalAssessment.storyboard */,
+				F1A8B52F2AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift */,
+				F1A8B52E2AD782FC006FD874 /* MiniNutritionalAssessmentInteractor.swift */,
+				F1A8B5292AD782FC006FD874 /* MiniNutritionalAssessmentPresenter.swift */,
+				F1A8B52A2AD782FC006FD874 /* MiniNutritionalAssessmentWorker.swift */,
+				F1A8B52B2AD782FC006FD874 /* MiniNutritionalAssessmentRouter.swift */,
+				F1A8B5302AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift */,
+				F1A8B52C2AD782FC006FD874 /* MiniNutritionalAssessmentBuilder.swift */,
+			);
+			path = MiniNutritionalAssessment;
+			sourceTree = "<group>";
+		};
+		F1A8B5392AD7963C006FD874 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B53A2AD7967B006FD874 /* SheetableTableViewCell.swift */,
+				F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */,
+				F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */,
+				F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1364,6 +1414,7 @@
 				F17D36A62AD64D3D00AE5D98 /* HearingLossAssessment */,
 				F1A8B4FF2AD6C4A3006FD874 /* KatzScale */,
 				F1A8B5102AD6F513006FD874 /* LawtonScale */,
+				F1A8B5282AD7822A006FD874 /* MiniNutritionalAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1472,6 +1523,7 @@
 				F168B7E12ACBD9650015B2A3 /* EmptyState */,
 				F13CD1052AD1DB1D0011E4DF /* Stepper */,
 				F16A3FD12AD23F6E007F4DF7 /* GroupedButtons */,
+				F1A8B5392AD7963C006FD874 /* BottomSheet */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1626,6 +1678,7 @@
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
+				F1A8B5352AD782FD006FD874 /* MiniNutritionalAssessment.storyboard in Resources */,
 				F1F1E37B2ABEA1D600BC610E /* SingleDomain.storyboard in Resources */,
 				F1A8B5012AD6C4EC006FD874 /* KatzScale.storyboard in Resources */,
 				F1A8B5202AD6F684006FD874 /* LawtonScale.storyboard in Resources */,
@@ -1636,6 +1689,7 @@
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
 				F1F1E3922ABFC3BB00BC610E /* InstructionsTableViewCell.xib in Resources */,
 				F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */,
+				F1A8B53F2AD79A78006FD874 /* BottomSheet.storyboard in Resources */,
 				F1F1E3972ABFDA1C00BC610E /* StopwatchTableViewCell.xib in Resources */,
 				F1BE9F792AB6552C00250B69 /* SearchBarTableViewCell.xib in Resources */,
 				F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */,
@@ -1650,6 +1704,7 @@
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
 				F16A3FBC2AD20F10007F4DF7 /* ClockDrawing.storyboard in Resources */,
 				F14097862ABB9C9C00E92005 /* TestNameView.xib in Resources */,
+				F1A8B53D2AD7967B006FD874 /* SheetableTableViewCell.xib in Resources */,
 				F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */,
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
@@ -1770,11 +1825,13 @@
 				F18698E32AC4D47300FB5620 /* SarcopeniaScreeningViewController.swift in Sources */,
 				F140977D2ABB616C00E92005 /* TooltipTableViewCell.swift in Sources */,
 				F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */,
+				F1A8B5332AD782FD006FD874 /* MiniNutritionalAssessmentRouter.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
+				F1A8B5372AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift in Sources */,
 				F10DFB9F2ACA523E00E1A380 /* CGAsWorker.swift in Sources */,
 				F1F1E3BB2AC0C62600BC610E /* ResultsModels.swift in Sources */,
 				F140976F2AB7B26500E92005 /* DashboardPresenter.swift in Sources */,
@@ -1789,6 +1846,7 @@
 				F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */,
 				F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
+				F1A8B5382AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift in Sources */,
 				F18698D12AC4733E00FB5620 /* GripStrengthRouter.swift in Sources */,
 				F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
@@ -1798,6 +1856,7 @@
 				F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */,
 				F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */,
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
+				F1A8B5342AD782FD006FD874 /* MiniNutritionalAssessmentBuilder.swift in Sources */,
 				F1A8B5192AD6F684006FD874 /* LawtonScaleModels.swift in Sources */,
 				F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
@@ -1878,6 +1937,7 @@
 				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
 				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F17D36B22AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift in Sources */,
+				F1A8B5362AD782FD006FD874 /* MiniNutritionalAssessmentInteractor.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
 				F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */,
@@ -1895,6 +1955,7 @@
 				F1A8B51A2AD6F684006FD874 /* LawtonScaleInteractor.swift in Sources */,
 				F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */,
 				F1F1E3762ABE296900BC610E /* TestTableViewCell.swift in Sources */,
+				F1A8B5412AD79A90006FD874 /* BottomSheetViewController.swift in Sources */,
 				F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */,
 				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
@@ -1941,10 +2002,12 @@
 				F14097992ABBE7A200E92005 /* TooltipHeaderView.swift in Sources */,
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
+				F1A8B53C2AD7967B006FD874 /* SheetableTableViewCell.swift in Sources */,
 				F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */,
 				F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */,
 				F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */,
 				F1F1E3CC2AC10EEF00BC610E /* WalkingSpeedRouter.swift in Sources */,
+				F1A8B5322AD782FD006FD874 /* MiniNutritionalAssessmentWorker.swift in Sources */,
 				F13C7B862ACF308F000D5AC2 /* BinaryOptionsModels.swift in Sources */,
 				F18698E92AC4D49400FB5620 /* SarcopeniaScreeningPresenter.swift in Sources */,
 				F18698F72AC6721000FB5620 /* SarcopeniaAssessmentPresenter.swift in Sources */,
@@ -1956,6 +2019,7 @@
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1A8B51D2AD6F684006FD874 /* LawtonScaleBuilder.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
+				F1A8B5312AD782FD006FD874 /* MiniNutritionalAssessmentPresenter.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
 				F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,

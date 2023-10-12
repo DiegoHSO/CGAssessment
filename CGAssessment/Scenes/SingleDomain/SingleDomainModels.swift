@@ -190,7 +190,7 @@ struct SingleDomainModels {
             case .katzScale, .lawtonScale:
                 return .functional
             case .miniNutritionalAssessment:
-                return .nutricional
+                return .nutritional
             case .apgarScale, .zaritScale:
                 return .social
             case .polypharmacyCriteria:

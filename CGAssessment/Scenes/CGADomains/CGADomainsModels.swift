@@ -32,7 +32,7 @@ struct CGADomainsModels {
         case cognitive
         case sensory
         case functional
-        case nutricional
+        case nutritional
         case social
         case polypharmacy
         case comorbidity
@@ -48,8 +48,8 @@ struct CGADomainsModels {
                 return LocalizedTable.sensory.localized
             case .functional:
                 return LocalizedTable.functional.localized
-            case .nutricional:
-                return LocalizedTable.nutricional.localized
+            case .nutritional:
+                return LocalizedTable.nutritional.localized
             case .social:
                 return LocalizedTable.social.localized
             case .polypharmacy:
@@ -71,7 +71,7 @@ struct CGADomainsModels {
                 return "􀵣"
             case .functional:
                 return "􁐑"
-            case .nutricional:
+            case .nutritional:
                 return "􁞲"
             case .social:
                 return "􀝋"

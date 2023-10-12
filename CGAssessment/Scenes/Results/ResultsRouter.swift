@@ -61,7 +61,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .lawtonScale:
             routeToLawtonScale()
         case .miniNutritionalAssessment:
-            break
+            routeToMiniNutritionalAssessment()
         case .apgarScale:
             break
         case .zaritScale:
@@ -199,5 +199,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let lawtonScaleController = LawtonScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(lawtonScaleController, animated: true)
+    }
+
+    private func routeToMiniNutritionalAssessment() {
+        guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
     }
 }

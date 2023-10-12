@@ -113,6 +113,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkLawtonScaleStatus(cga: cga), forKey: .lawtonScale)
         }
 
+        if tests.contains(.miniNutritionalAssessment) {
+            testsStatus.updateValue(checkMiniNutritionalAssessmentStatus(cga: cga), forKey: .miniNutritionalAssessment)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -134,7 +138,7 @@ class SingleDomainInteractor: SingleDomainLogic {
             tests = [.visualAcuityAssessment, .hearingLossAssessment]
         case .functional:
             tests = [.katzScale, .lawtonScale]
-        case .nutricional:
+        case .nutritional:
             tests = [.miniNutritionalAssessment]
         case .social:
             tests = [.apgarScale, .zaritScale]
@@ -329,6 +333,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.lawtonScale?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkMiniNutritionalAssessmentStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.miniNutritionalAssessment?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
