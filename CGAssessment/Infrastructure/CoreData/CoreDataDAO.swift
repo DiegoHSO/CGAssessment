@@ -155,6 +155,12 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
         ], isDone: true), cgaId: nil)
 
+        try updateCGA(with: .init(questions: [
+            .miniNutritionalAssessmentFirstQuestion: .thirdOption, .miniNutritionalAssessmentSecondQuestion: .fourthOption,
+            .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
+            .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
+        ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: nil)
+
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
 

@@ -158,8 +158,15 @@ class MiniNutritionalAssessmentInteractor: MiniNutritionalAssessmentLogic {
             updateDatabase(isDone: true)
         }
 
-        let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
-        let isAllDone: Bool = selectedOptions.allSatisfy({$0 != .none})
+        let isAllDone: Bool
+
+        if isExtraQuestionSelected {
+            let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
+            isAllDone = selectedOptions.allSatisfy { $0 != .none }
+        } else {
+            let selectedOptions = rawQuestions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
+            isAllDone = selectedOptions.allSatisfy({ $0 != .none }) && (height ?? 0) > 0 && (weight ?? 0) > 0
+        }
 
         if isAllDone {
             presenter?.route(toRoute: .testResults(test: .miniNutritionalAssessment, results: .init(questions: rawQuestions, height: height, weight: weight, isExtraQuestionSelected: isExtraQuestionSelected), cgaId: cgaId))

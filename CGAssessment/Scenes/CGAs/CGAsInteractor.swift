@@ -156,6 +156,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .functional)
                 }
 
+                // MARK: - Nutritional domain done check
+
+                if let miniNutritionalAssessment = cga.miniNutritionalAssessment {
+                    if miniNutritionalAssessment.isDone {
+                        domainsStatus.updateValue(.done, forKey: .nutritional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                    }
+                } else if cga.miniNutritionalAssessment == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .nutritional)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -243,6 +257,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .functional)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .functional)
+                    }
+
+                    // MARK: - Nutritional domain done check
+
+                    if let miniNutritionalAssessment = cga.miniNutritionalAssessment {
+                        if miniNutritionalAssessment.isDone {
+                            domainsStatus.updateValue(.done, forKey: .nutritional)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                        }
+                    } else if cga.miniNutritionalAssessment == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .nutritional)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .nutritional)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

@@ -85,7 +85,7 @@ struct CGAModels {
         let pickerName: LocalizedTable?
         let pickerValue: String?
         let delegate: SheetableDelegate?
-        var horizontalConstraint: CGFloat = 35
+        var horizontalConstraint: CGFloat = 25
     }
 
     struct BottomSheetViewModel {

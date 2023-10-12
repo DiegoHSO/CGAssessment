@@ -135,7 +135,7 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(title: questionViewModel.question, options: questionViewModel.options,
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
-                                        leadingConstraint: 35, textStyle: .regular))
+                                        leadingConstraint: 25, textStyle: .regular))
 
             return cell
         case .done:
@@ -182,7 +182,7 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
                 return nil
             }
 
-            header.setup(title: title, textSize: 20, backgroundColor: .primary, leadingConstraint: 35)
+            header.setup(title: title, textSize: 20, backgroundColor: .primary, leadingConstraint: 25)
 
             return header
         }
