@@ -7,7 +7,6 @@
 
 import Foundation
 
-// swiftlint:disable:next type_body_length
 class ResultsWorker {
 
     // MARK: - Private Properties
@@ -60,15 +59,19 @@ class ResultsWorker {
             guard let geriatricDepressionScaleResults = results as? GeriatricDepressionScaleModels.TestResults else { return nil }
             return getGeriatricDepressionScaleResults(for: geriatricDepressionScaleResults)
         case .visualAcuityAssessment:
-            break
+            guard let visualAcuityAssessmentResults = results as? VisualAcuityAssessmentModels.TestResults else { return nil }
+            return getVisualAcuityAssessmentResults(for: visualAcuityAssessmentResults)
         case .hearingLossAssessment:
             break
         case .katzScale:
-            break
+            guard let katzScaleResults = results as? KatzScaleModels.TestResults else { return nil }
+            return getKatzScaleResults(for: katzScaleResults)
         case .lawtonScale:
-            break
+            guard let lawtonScaleResults = results as? LawtonScaleModels.TestResults else { return nil }
+            return getLawtonScaleResults(for: lawtonScaleResults)
         case .miniNutritionalAssessment:
-            break
+            guard let miniNutritionalAssessmentResults = results as? MiniNutritionalAssessmentModels.TestResults else { return nil }
+            return getMiniNutritionalAsessmentResults(for: miniNutritionalAssessmentResults)
         case .apgarScale:
             break
         case .zaritScale:
@@ -473,6 +476,195 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultType == .excellent ?
                                                         LocalizedTable.geriatricDepressionScaleExcellentResult.localized
                                                         : LocalizedTable.geriatricDepressionScaleBadResult.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getVisualAcuityAssessmentResults(for testResults: VisualAcuityAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+
+        let resultType: ResultsModels.ResultType
+
+        let score: Double?
+        let selectedOptionText: String?
+
+        switch testResults.selectedOption {
+        case .none:
+            selectedOptionText = nil
+            score = 0
+            resultType = .bad
+        case .firstOption:
+            selectedOptionText = LocalizedTable.twentySlashTwoHundred.localized
+            score = Double(LocalizedTable.twentySlashTwoHundredValue.localized)
+            resultType = .bad
+        case .secondOption:
+            selectedOptionText = LocalizedTable.twentySlashOneHundred.localized
+            score = Double(LocalizedTable.twentySlashOneHundredValue.localized)
+            resultType = .medium
+        case .thirdOption:
+            selectedOptionText = LocalizedTable.twentySlashSeventy.localized
+            score = Double(LocalizedTable.twentySlashSeventyValue.localized)
+            resultType = .medium
+        case .fourthOption:
+            selectedOptionText = LocalizedTable.twentySlashSixty.localized
+            score = Double(LocalizedTable.twentySlashSixtyValue.localized)
+            resultType = .good
+        case .fifthOption:
+            selectedOptionText = LocalizedTable.twentySlashFifty.localized
+            score = Double(LocalizedTable.twentySlashFiftyValue.localized)
+            resultType = .good
+        case .sixthOption:
+            selectedOptionText = LocalizedTable.twentySlashFourty.localized
+            score = Double(LocalizedTable.twentySlashFourtyValue.localized)
+            resultType = .good
+        case .seventhOption:
+            selectedOptionText = LocalizedTable.twentySlashThirty.localized
+            score = Double(LocalizedTable.twentySlashThirtyValue.localized)
+            resultType = .good
+        case .eighthOption:
+            selectedOptionText = LocalizedTable.twentySlashTwentyFive.localized
+            score = Double(LocalizedTable.twentySlashTwentyFiveValue.localized)
+            resultType = .excellent
+        case .ninthOption:
+            selectedOptionText = LocalizedTable.twentySlashTwenty.localized
+            score = Double(LocalizedTable.twentySlashTwentyValue.localized)
+            resultType = .excellent
+        case .tenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFifteen.localized
+            score = Double(LocalizedTable.twentySlashFifteenValue.localized)
+            resultType = .excellent
+        case .eleventhOption:
+            selectedOptionText = LocalizedTable.twentySlashThirteen.localized
+            score = Double(LocalizedTable.twentySlashThirteenValue.localized)
+            resultType = .excellent
+        case .twelfthOption:
+            selectedOptionText = LocalizedTable.twentySlashTen.localized
+            score = Double(LocalizedTable.twentySlashTenValue.localized)
+            resultType = .excellent
+        case .thirteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashEight.localized
+            score = Double(LocalizedTable.twentySlashEightValue.localized)
+            resultType = .excellent
+        case .fourteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashSix.localized
+            score = Double(LocalizedTable.twentySlashSixValue.localized)
+            resultType = .excellent
+        case .fifteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFive.localized
+            score = Double(LocalizedTable.twentySlashFiveValue.localized)
+            resultType = .excellent
+        case .sixteenthOption:
+            selectedOptionText = LocalizedTable.twentySlashFour.localized
+            score = Double(LocalizedTable.twentySlashFourValue.localized)
+            resultType = .excellent
+        }
+
+        let diagnosis: LocalizedTable = switch resultType {
+        case .excellent:
+            .visualAcuityAssessmentExcellentResult
+        case .good:
+            .visualAcuityAssessmentGoodResult
+        case .medium:
+            .visualAcuityAssessmentMediumResult
+        case .bad:
+            .visualAcuityAssessmentBadResult
+        }
+
+        let dynamicResult = LocalizedTable.visualAcuityDynamicResult.localized.replacingOccurrences(of: "%DISTANCE", with: (score ?? 0).regionFormatted(fractionDigits: 1))
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.scoreAchieved.localized, description: selectedOptionText ?? ""),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: "\(diagnosis.localized) \(dynamicResult)")]
+
+        return (results, resultType)
+    }
+
+    private func getKatzScaleResults(for testResults: KatzScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }
+        let totalPoints = selectedOptionsPointed.map { $0.rawValue }.reduce(0, +)
+
+        let resultType: ResultsModels.ResultType = totalPoints > 4 ? .excellent : totalPoints > 2 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .katzScaleExcellentResult
+        case .medium: .katzScaleMediumResult
+        case .bad: .katzScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getLawtonScaleResults(for testResults: LawtonScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        let totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 3 + selectedOptions.filter { $0 == .secondOption }.count * 2 + selectedOptions.filter { $0 == .thirdOption }.count
+
+        let resultType: ResultsModels.ResultType = totalPoints > 18 ? .excellent : totalPoints > 14 ? .good : totalPoints > 10 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .lawtonScaleExcellentResult
+        case .good: .lawtonScaleGoodResult
+        case .medium: .lawtonScaleMediumResult
+        case .bad: totalPoints == 7 ? .lawtonScaleVeryBadResult : .lawtonScaleBadResult
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getMiniNutritionalAsessmentResults(for testResults: MiniNutritionalAssessmentModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions: [SelectableKeys]
+        let bmiPoints: Int
+        let bmi: Double
+
+        if testResults.isExtraQuestionSelected {
+            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
+            let extraQuestionOption = testResults.questions[.miniNutritionalAssessmentSeventhQuestion]
+            bmiPoints = extraQuestionOption == .firstOption ? 0 : 3
+            bmi = 0
+        } else {
+            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
+            guard let height = testResults.height, let weight = testResults.weight else { return ([], .bad) }
+
+            bmi = weight / (pow((height / 100), 2))
+
+            // swiftlint:disable switch_case_alignment
+            bmiPoints = switch bmi {
+            case 0..<19: 0
+            case 19..<21: 1
+            case 21..<23: 2
+            case 23...: 3
+            default: 0
+            }
+            // swiftlint:enable switch_case_alignment
+        }
+
+        let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
+            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3
+        let totalPoints = bmiPoints + selectedOptionsPointed
+
+        let resultType: ResultsModels.ResultType = totalPoints < 8 ? .bad : totalPoints < 12 ? .medium : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .miniNutritionalAssessmentExcellentResult
+        case .medium: .miniNutritionalAssessmentMediumResult
+        case .bad: .miniNutritionalAssessmentBadResult
+        case .good: .none
+        }
+
+        var results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        if bmi > 0 { results.insert(.init(title: LocalizedTable.bmi.localized, description: "\(bmi.regionFormatted()) kg/m²"), at: 1) }
 
         return (results, resultType)
     }

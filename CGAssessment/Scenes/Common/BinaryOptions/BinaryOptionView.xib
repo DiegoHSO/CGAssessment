@@ -38,7 +38,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="366" height="120"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sem rotacionar o papel durante o exame?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5av-If-5xi">
-                            <rect key="frame" x="0.0" y="18" width="131" height="54"/>
+                            <rect key="frame" x="0.0" y="21.333333333333329" width="131" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="131" id="Zt1-li-0gj"/>
                             </constraints>
@@ -47,10 +47,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-JK-VFg">
-                            <rect key="frame" x="181" y="0.0" width="185" height="72"/>
+                            <rect key="frame" x="181" y="0.0" width="185" height="75.333333333333329"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="b1q-UL-d9h">
-                                    <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="75.333333333333343"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqJ-Nh-zwT">
                                             <rect key="frame" x="32.666666666666657" y="0.0" width="27.333333333333329" height="19.333333333333332"/>
@@ -59,14 +59,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-Zj-2ob">
-                                            <rect key="frame" x="29.999999999999996" y="39.333333333333343" width="32.666666666666657" height="32.666666666666657"/>
+                                            <rect key="frame" x="28.333333333333343" y="39.333333333333336" width="36" height="36.000000000000007"/>
                                             <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="large"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="22"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="24"/>
                                                 </preferredSymbolConfiguration>
                                             </state>
                                             <connections>
@@ -76,7 +76,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uje-en-RZP">
-                                    <rect key="frame" x="92.666666666666686" y="0.0" width="92.333333333333314" height="72"/>
+                                    <rect key="frame" x="92.666666666666686" y="0.0" width="92.333333333333314" height="75.333333333333329"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89U-8r-01s">
                                             <rect key="frame" x="32" y="0.0" width="28.333333333333329" height="19.333333333333332"/>
@@ -85,14 +85,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI7-nE-SqD">
-                                            <rect key="frame" x="29.666666666666625" y="39.333333333333343" width="32.666666666666657" height="32.666666666666657"/>
+                                            <rect key="frame" x="28" y="39.333333333333336" width="36" height="36.000000000000007"/>
                                             <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="20"/>
                                             <color key="tintColor" systemColor="systemRedColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="22"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                                                    <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="24"/>
                                                 </preferredSymbolConfiguration>
                                             </state>
                                             <connections>
@@ -126,10 +126,10 @@
             <color red="0.015686274509803921" green="0.21568627450980393" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

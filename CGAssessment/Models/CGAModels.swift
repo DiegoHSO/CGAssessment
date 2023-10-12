@@ -80,6 +80,21 @@ struct CGAModels {
         let delegate: GroupedButtonDelegate?
     }
 
+    struct SheetableViewModel {
+        let title: String?
+        let pickerName: LocalizedTable?
+        let pickerValue: String?
+        let delegate: SheetableDelegate?
+        var horizontalConstraint: CGFloat = 25
+    }
+
+    struct BottomSheetViewModel {
+        let pickerContent: [String]
+        let identifier: LocalizedTable?
+        let delegate: PickerViewDelegate?
+        let selectedRow: Int
+    }
+
     enum FilterOptions {
         case recent
         case older
@@ -107,6 +122,12 @@ struct CGAModels {
                 return LocalizedTable.youngerAge.localized
             }
         }
+    }
+
+    enum BorderType {
+        case image
+        case imageView
+        case none
     }
 
 }

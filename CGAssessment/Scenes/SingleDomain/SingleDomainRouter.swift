@@ -49,15 +49,15 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .geriatricDepressionScale:
             routeToGeriatricDepressionScale(cgaId: cgaId)
         case .visualAcuityAssessment:
-            break
+            routeToVisualAcuityAssessment(cgaId: cgaId)
         case .hearingLossAssessment:
-            break
+            routeToHearingLossAssessment(cgaId: cgaId)
         case .katzScale:
-            break
+            routeToKatzScale(cgaId: cgaId)
         case .lawtonScale:
-            break
+            routeToLawtonScale(cgaId: cgaId)
         case .miniNutritionalAssessment:
-            break
+            routeToMiniNutritionalAssessment(cgaId: cgaId)
         case .apgarScale:
             break
         case .zaritScale:
@@ -137,5 +137,35 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let geriatricDepressionScaleController = GeriatricDepressionScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(geriatricDepressionScaleController, animated: true)
+    }
+
+    private func routeToVisualAcuityAssessment(cgaId: UUID?) {
+        guard let visualAcuityAssessmentController = VisualAcuityAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(visualAcuityAssessmentController, animated: true)
+    }
+
+    private func routeToHearingLossAssessment(cgaId: UUID?) {
+        guard let hearingLossAssessmentController = HearingLossAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(hearingLossAssessmentController, animated: true)
+    }
+
+    private func routeToKatzScale(cgaId: UUID?) {
+        guard let katzScaleController = KatzScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(katzScaleController, animated: true)
+    }
+
+    private func routeToLawtonScale(cgaId: UUID?) {
+        guard let lawtonScaleController = LawtonScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(lawtonScaleController, animated: true)
+    }
+
+    private func routeToMiniNutritionalAssessment(cgaId: UUID?) {
+        guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
     }
 }

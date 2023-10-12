@@ -168,10 +168,10 @@ extension MoCAViewController: UITableViewDataSource {
             switch row {
             case .circlesImage:
                 cell.setup(image: viewModel.circlesImage, progress: viewModel.circlesProgress,
-                           borderInImage: false)
+                           borderType: .imageView)
             case .watchImage:
                 cell.setup(image: viewModel.watchImage, bottomConstraint: 30, progress: viewModel.watchProgress,
-                           borderInImage: false)
+                           borderType: .imageView)
             default:
                 guard let images = viewModel.images[section], let image = images[indexPath.row] else { return UITableViewCell(frame: .zero) }
 

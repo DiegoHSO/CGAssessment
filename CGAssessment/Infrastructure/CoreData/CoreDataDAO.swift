@@ -37,6 +37,11 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -136,6 +141,25 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                                                 .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
                                                                                 .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
         ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(selectedOption: .ninthOption, isDone: true), cgaId: nil)
+        try updateCGA(with: HearingLossAssessmentModels.TestData.init(isDone: true), cgaId: nil)
+
+        try updateCGA(with: KatzScaleModels.TestData(questions: [
+            .katzScaleQuestionOne: .firstOption, .katzScaleQuestionTwo: .secondOption, .katzScaleQuestionThree: .firstOption,
+            .katzScaleQuestionFour: .firstOption, .katzScaleQuestionFive: .firstOption, .katzScaleQuestionSix: .firstOption
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: LawtonScaleModels.TestData(questions: [
+            .telephone: .thirdOption, .trips: .firstOption, .shopping: .firstOption, .mealPreparation: .firstOption,
+            .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(questions: [
+            .miniNutritionalAssessmentFirstQuestion: .thirdOption, .miniNutritionalAssessmentSecondQuestion: .fourthOption,
+            .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
+            .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
+        ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -262,15 +286,15 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .geriatricDepressionScale:
             return cga?.geriatricDepressionScale
         case .visualAcuityAssessment:
-            return nil
+            return cga?.visualAcuityAssessment
         case .hearingLossAssessment:
-            return nil
+            return cga?.hearingLossAssessment
         case .katzScale:
-            return nil
+            return cga?.katzScale
         case .lawtonScale:
-            return nil
+            return cga?.lawtonScale
         case .miniNutritionalAssessment:
-            return nil
+            return cga?.miniNutritionalAssessment
         case .apgarScale:
             return nil
         case .zaritScale:
@@ -558,6 +582,105 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.visualAcuityAssessment == nil {
+            try createVisualAcuityAssessmentInstance(for: cga)
+        }
+
+        cga.visualAcuityAssessment?.selectedOption = test.selectedOption.rawValue
+        cga.visualAcuityAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.hearingLossAssessment == nil {
+            try createHearingLossAssessmentInstance(for: cga)
+        }
+
+        cga.hearingLossAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.katzScale == nil {
+            try createKatzScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.katzScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.katzScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.lawtonScale == nil {
+            try createLawtonScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.lawtonScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.lawtonScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.miniNutritionalAssessment == nil {
+            try createMiniNutritionalAssessmentInstance(for: cga)
+        }
+
+        if let height = test.height {
+            cga.miniNutritionalAssessment?.height = NSNumber(value: height)
+        }
+
+        if let weight = test.weight {
+            cga.miniNutritionalAssessment?.weight = NSNumber(value: weight)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.miniNutritionalAssessment?.selectableOptions = NSSet(array: selectableOptions)
+        cga.miniNutritionalAssessment?.isExtraQuestionSelected = test.isExtraQuestionSelected
+        cga.miniNutritionalAssessment?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -633,6 +756,41 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createGeriatricDepressionScaleInstance(for cga: CGA) throws {
         let newTest = GeriatricDepressionScale(context: context)
         cga.geriatricDepressionScale = newTest
+
+        try context.save()
+    }
+
+    private func createVisualAcuityAssessmentInstance(for cga: CGA) throws {
+        let newTest = VisualAcuityAssessment(context: context)
+        cga.visualAcuityAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createHearingLossAssessmentInstance(for cga: CGA) throws {
+        let newTest = HearingLossAssessment(context: context)
+        cga.hearingLossAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createKatzScaleInstance(for cga: CGA) throws {
+        let newTest = KatzScale(context: context)
+        cga.katzScale = newTest
+
+        try context.save()
+    }
+
+    private func createLawtonScaleInstance(for cga: CGA) throws {
+        let newTest = LawtonScale(context: context)
+        cga.lawtonScale = newTest
+
+        try context.save()
+    }
+
+    private func createMiniNutritionalAssessmentInstance(for cga: CGA) throws {
+        let newTest = MiniNutritionalAssessment(context: context)
+        cga.miniNutritionalAssessment = newTest
 
         try context.save()
     }
