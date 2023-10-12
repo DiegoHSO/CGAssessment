@@ -80,6 +80,21 @@ struct CGAModels {
         let delegate: GroupedButtonDelegate?
     }
 
+    struct SheetableViewModel {
+        let title: String?
+        let pickerName: LocalizedTable?
+        let pickerValue: String?
+        let delegate: SheetableDelegate?
+        var horizontalConstraint: CGFloat = 35
+    }
+
+    struct BottomSheetViewModel {
+        let pickerContent: [String]
+        let identifier: LocalizedTable?
+        let delegate: PickerViewDelegate?
+        let selectedRow: Int
+    }
+
     enum FilterOptions {
         case recent
         case older

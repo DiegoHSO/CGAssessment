@@ -57,7 +57,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .lawtonScale:
             routeToLawtonScale(cgaId: cgaId)
         case .miniNutritionalAssessment:
-            break
+            routeToMiniNutritionalAssessment(cgaId: cgaId)
         case .apgarScale:
             break
         case .zaritScale:
@@ -161,5 +161,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let lawtonScaleController = LawtonScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(lawtonScaleController, animated: true)
+    }
+
+    private func routeToMiniNutritionalAssessment(cgaId: UUID?) {
+        guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
     }
 }

@@ -70,7 +70,7 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue([.katzScale: cga.katzScale?.isDone == true, .lawtonScale: cga.lawtonScale?.isDone == true], forKey: .functional)
 
-        domains.updateValue([.miniNutritionalAssessment: true], forKey: .nutricional)
+        domains.updateValue([.miniNutritionalAssessment: cga.miniNutritionalAssessment?.isDone == true], forKey: .nutritional)
 
         domains.updateValue([.apgarScale: true, .zaritScale: true], forKey: .social)
 

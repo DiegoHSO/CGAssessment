@@ -137,7 +137,7 @@ enum LocalizedTable: String, Localizable {
     case cognitive = "cognitive_key"
     case sensory = "sensory_key"
     case functional = "functional_key"
-    case nutricional = "nutricional_key"
+    case nutritional = "nutritional_key"
     case social = "social_key"
     case polypharmacy = "polypharmacy_key"
     case comorbidity = "comorbidity_key"
@@ -658,4 +658,39 @@ enum LocalizedTable: String, Localizable {
     case medicine = "medicine_key"
     case money = "money_key"
 
+    // MARK: - Mini nutritional assessment
+
+    case miniNutritionalAssessmentFirstQuestion = "mini_nutritional_assessment_first_question_key"
+    case miniNutritionalAssessmentSecondQuestion = "mini_nutritional_assessment_second_question_key"
+    case miniNutritionalAssessmentThirdQuestion = "mini_nutritional_assessment_third_question_key"
+    case miniNutritionalAssessmentFourthQuestion = "mini_nutritional_assessment_fourth_question_key"
+    case miniNutritionalAssessmentFifthQuestion = "mini_nutritional_assessment_fifth_question_key"
+    case miniNutritionalAssessmentSixthQuestion = "mini_nutritional_assessment_sixth_question_key"
+    case miniNutritionalAssessmentSeventhQuestion = "mini_nutritional_assessment_seventh_question_key"
+
+    case miniNutritionalAssessmentQuestionOneOptionOne = "mini_nutritional_assessment_question_one_option_one_key"
+    case miniNutritionalAssessmentQuestionOneOptionTwo = "mini_nutritional_assessment_question_one_option_two_key"
+    case miniNutritionalAssessmentQuestionOneOptionThree = "mini_nutritional_assessment_question_one_option_three_key"
+    case miniNutritionalAssessmentQuestionTwoOptionOne = "mini_nutritional_assessment_question_two_option_one_key"
+    case miniNutritionalAssessmentQuestionTwoOptionTwo = "mini_nutritional_assessment_question_two_option_two_key"
+    case miniNutritionalAssessmentQuestionTwoOptionThree = "mini_nutritional_assessment_question_two_option_three_key"
+    case miniNutritionalAssessmentQuestionTwoOptionFour = "mini_nutritional_assessment_question_two_option_four_key"
+    case miniNutritionalAssessmentQuestionThreeOptionOne = "mini_nutritional_assessment_question_three_option_one_key"
+    case miniNutritionalAssessmentQuestionThreeOptionTwo = "mini_nutritional_assessment_question_three_option_two_key"
+    case miniNutritionalAssessmentQuestionThreeOptionThree = "mini_nutritional_assessment_question_three_option_three_key"
+    case miniNutritionalAssessmentQuestionFiveOptionOne = "mini_nutritional_assessment_question_five_option_one_key"
+    case miniNutritionalAssessmentQuestionFiveOptionTwo = "mini_nutritional_assessment_question_five_option_two_key"
+    case miniNutritionalAssessmentQuestionFiveOptionThree = "mini_nutritional_assessment_question_five_option_three_key"
+    case miniNutritionalAssessmentQuestionSixOptionOne = "mini_nutritional_assessment_question_six_option_one_key"
+    case miniNutritionalAssessmentQuestionSixOptionTwo = "mini_nutritional_assessment_question_six_option_two_key"
+
+    case miniNutritionalAssessmentExcellentResult = "mini_nutritional_assessment_excellent_result_key"
+    case miniNutritionalAssessmentMediumResult = "mini_nutritional_assessment_medium_result_key"
+    case miniNutritionalAssessmentBadResult = "mini_nutritional_assessment_bad_result_key"
+
+    case miniNutritionalAssessmentTooltip = "mini_nutritional_assessment_tooltip_key"
+    case height = "height_key"
+    case weight = "weight_key"
+    case heightPlaceholder = "height_placeholder_key"
+    case weightPlaceholder = "weight_placeholder_key"
 }
