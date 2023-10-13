@@ -179,7 +179,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try updateCGA(with: CharlsonIndexModels.TestData(binaryQuestions: [
             .charlsonIndexMainQuestion: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .not, 6: .not,
                                          7: .not, 8: .not, 9: .not, 10: .not, 11: .not, 12: .not,
-                                         13: .not, 14: .not, 15: .not]
+                                         13: .not, 14: .not, 15: .not, 16: .not, 17: .not, 18: .not]
         ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()

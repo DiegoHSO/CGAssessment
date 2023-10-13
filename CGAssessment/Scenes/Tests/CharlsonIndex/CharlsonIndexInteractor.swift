@@ -22,7 +22,7 @@ class CharlsonIndexInteractor: CharlsonIndexLogic {
     private var rawBinaryQuestions: CharlsonIndexModels.RawBinaryQuestions =  [
         .charlsonIndexMainQuestion: [1: .none, 2: .none, 3: .none, 4: .none, 5: .none, 6: .none,
                                      7: .none, 8: .none, 9: .none, 10: .none, 11: .none, 12: .none,
-                                     13: .none, 14: .none, 15: .none]
+                                     13: .none, 14: .none, 15: .none, 16: .none, 17: .none, 18: .none]
     ]
 
     // MARK: - Init
@@ -66,7 +66,8 @@ class CharlsonIndexInteractor: CharlsonIndexLogic {
                                                                9: .charlsonIndexQuestionNine, 10: .charlsonIndexQuestionTen,
                                                                11: .charlsonIndexQuestionEleven, 12: .charlsonIndexQuestionTwelve,
                                                                13: .charlsonIndexQuestionThirteen, 14: .charlsonIndexQuestionFourteen,
-                                                               15: .charlsonIndexQuestionFifteen]
+                                                               15: .charlsonIndexQuestionFifteen, 16: .charlsonIndexQuestionSixteen,
+                                                               17: .charlsonIndexQuestionSeventeen, 18: .charlsonIndexQuestionEighteen]
 
         let binaryQuestions: CharlsonIndexModels.BinaryQuestions = [.binaryQuestion:
                                                                         .init(title: .charlsonIndexMainQuestion, sectionIdentifier: .charlsonIndexMainQuestion, options: rawBinaryQuestions[.charlsonIndexMainQuestion] ?? [:],

@@ -737,19 +737,19 @@ class ResultsWorker {
         let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
 
         let weightOneResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
-            partialResult + dictionary.filter { $0.key < 7 }.map { $0.value }
+            partialResult + dictionary.filter { $0.key < 10 }.map { $0.value }
         }
 
         let weightTwoResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
-            partialResult + dictionary.filter { $0.key > 6 && $0.key < 13 }.map { $0.value }
+            partialResult + dictionary.filter { $0.key > 9 && $0.key < 16 }.map { $0.value }
         }
 
         let weightThreeResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
-            partialResult + dictionary.filter { $0.key == 13 }.map { $0.value }
+            partialResult + dictionary.filter { $0.key == 16 }.map { $0.value }
         }
 
         let weightSixResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
-            partialResult + dictionary.filter { $0.key > 13 }.map { $0.value }
+            partialResult + dictionary.filter { $0.key > 16 }.map { $0.value }
         }
 
         let weightOneResultsPointed = weightOneResults.filter { $0 == .yes }.count
