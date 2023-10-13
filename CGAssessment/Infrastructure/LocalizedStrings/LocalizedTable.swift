@@ -694,4 +694,18 @@ enum LocalizedTable: String, Localizable {
     case heightPlaceholder = "height_placeholder_key"
     case weightPlaceholder = "weight_placeholder_key"
     case bmi = "body_mass_index_key"
+
+    // MARK: - Apgar Scale
+
+    case apgarScaleQuestionOne = "apgar_scale_question_one_key"
+    case apgarScaleQuestionTwo = "apgar_scale_question_two_key"
+    case apgarScaleQuestionThree = "apgar_scale_question_three_key"
+    case apgarScaleQuestionFour = "apgar_scale_question_four_key"
+    case apgarScaleQuestionFive = "apgar_scale_question_five_key"
+    case apgarScaleExcellentResult = "apgar_scale_excellent_result_key"
+    case apgarScaleMediumResult = "apgar_scale_medium_result_key"
+    case apgarScaleBadResult = "apgar_scale_bad_result_key"
+    case rarely = "rarely_key"
+    case occasionally = "ocasionally_key"
+    case frequently = "frequently_key"
 }

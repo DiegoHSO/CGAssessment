@@ -59,7 +59,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .miniNutritionalAssessment:
             routeToMiniNutritionalAssessment(cgaId: cgaId)
         case .apgarScale:
-            break
+            routeToApgarScale(cgaId: cgaId)
         case .zaritScale:
             break
         case .polypharmacyCriteria:
@@ -167,5 +167,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
+    }
+
+    private func routeToApgarScale(cgaId: UUID?) {
+        guard let apgarScaleController = ApgarScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(apgarScaleController, animated: true)
     }
 }

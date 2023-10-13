@@ -73,7 +73,8 @@ class ResultsWorker {
             guard let miniNutritionalAssessmentResults = results as? MiniNutritionalAssessmentModels.TestResults else { return nil }
             return getMiniNutritionalAsessmentResults(for: miniNutritionalAssessmentResults)
         case .apgarScale:
-            break
+            guard let apgarScaleResults = results as? ApgarScaleModels.TestResults else { return nil }
+            return getApgarScaleResults(for: apgarScaleResults)
         case .zaritScale:
             break
         case .polypharmacyCriteria:
@@ -665,6 +666,28 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         if bmi > 0 { results.insert(.init(title: LocalizedTable.bmi.localized, description: "\(bmi.regionFormatted()) kg/m²"), at: 1) }
+
+        return (results, resultType)
+    }
+
+    private func getApgarScaleResults(for testResults: ApgarScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        let totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
+            selectedOptions.filter { $0 == .thirdOption }.count * 2
+
+        let resultType: ResultsModels.ResultType = totalPoints < 4 ? .bad : totalPoints < 7 ? .medium : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .apgarScaleExcellentResult
+        case .medium: .apgarScaleMediumResult
+        case .bad: .apgarScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)
     }

@@ -117,6 +117,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkMiniNutritionalAssessmentStatus(cga: cga), forKey: .miniNutritionalAssessment)
         }
 
+        if tests.contains(.apgarScale) {
+            testsStatus.updateValue(checkApgarScaleStatus(cga: cga), forKey: .apgarScale)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -345,6 +349,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.miniNutritionalAssessment?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkApgarScaleStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.apgarScale?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted
