@@ -137,6 +137,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkSuspectedAbuseStatus(cga: cga), forKey: .suspectedAbuse)
         }
 
+        if tests.contains(.chemotherapyToxicityRisk) {
+            testsStatus.updateValue(checkChemotherapyToxicityRiskStatus(cga: cga), forKey: .chemotherapyToxicityRisk)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -167,7 +171,7 @@ class SingleDomainInteractor: SingleDomainLogic {
         case .comorbidity:
             tests = [.charlsonIndex]
         case .other:
-            tests = [.suspectedAbuse, .cardiovascularRiskEstimation, .chemotherapyToxicityRisk]
+            tests = [.suspectedAbuse, .chemotherapyToxicityRisk]
         }
 
         computeViewModelData(tests: tests)
@@ -425,6 +429,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.suspectedAbuse?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkChemotherapyToxicityRiskStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.chemotherapyToxicityRisk?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

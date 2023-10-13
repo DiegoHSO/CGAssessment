@@ -47,6 +47,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -69,6 +70,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         newCGA.patient = Patient(context: context)
         newCGA.patient?.gender = 1
+        newCGA.patient?.birthDate = Date().addingYear(-75)
 
         newCGA.timedUpAndGo = TimedUpAndGo(context: context)
         newCGA.timedUpAndGo?.hasStopwatch = false
@@ -333,7 +335,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .cardiovascularRiskEstimation:
             return nil
         case .chemotherapyToxicityRisk:
-            return nil
+            return cga?.chemotherapyToxicityRisk
         default:
             return nil
         }
@@ -803,6 +805,27 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.chemotherapyToxicityRisk == nil {
+            try createChemotherapyToxicityRiskInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.chemotherapyToxicityRisk?.selectableOptions = NSSet(array: selectableOptions)
+        cga.chemotherapyToxicityRisk?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -948,6 +971,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createSuspectedAbuseInstance(for cga: CGA) throws {
         let newTest = SuspectedAbuse(context: context)
         cga.suspectedAbuse = newTest
+
+        try context.save()
+    }
+
+    private func createChemotherapyToxicityRiskInstance(for cga: CGA) throws {
+        let newTest = ChemotherapyToxicityRisk(context: context)
+        cga.chemotherapyToxicityRisk = newTest
 
         try context.save()
     }

@@ -89,7 +89,8 @@ class ResultsWorker {
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            guard let chemotherapyToxicityRiskResults = results as? ChemotherapyToxicityRiskModels.TestResults else { return nil }
+            return getChemotherapyToxicityRiskResults(for: chemotherapyToxicityRiskResults)
         default:
             break
         }
@@ -789,6 +790,37 @@ class ResultsWorker {
         case .good: .charlsonIndexGoodResult
         case .medium: .charlsonIndexMediumResult
         case .bad: .charlsonIndexBadResult
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getChemotherapyToxicityRiskResults(for testResults: ChemotherapyToxicityRiskModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int = 0
+
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionOne] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionTwo] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionThree] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionFour] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionFive] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionSix] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionSeven] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionEight] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionNine] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionTen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionEleven] == .firstOption ? 2 : 0
+
+        let resultType: ResultsModels.ResultType = totalPoints < 6 ? .excellent : totalPoints < 10 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .chemotherapyToxicityRiskExcellentResult
+        case .medium: .chemotherapyToxicityRiskMediumResult
+        case .bad: .chemotherapyToxicityRiskBadResult
+        case .good: .none
         }
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
