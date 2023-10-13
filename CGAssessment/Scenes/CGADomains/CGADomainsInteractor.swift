@@ -72,7 +72,7 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue([.miniNutritionalAssessment: cga.miniNutritionalAssessment?.isDone == true], forKey: .nutritional)
 
-        domains.updateValue([.apgarScale: cga.apgarScale?.isDone == true, .zaritScale: true], forKey: .social)
+        domains.updateValue([.apgarScale: cga.apgarScale?.isDone == true, .zaritScale: cga.zaritScale?.isDone == true], forKey: .social)
 
         domains.updateValue([.polypharmacyCriteria: true], forKey: .polypharmacy)
 

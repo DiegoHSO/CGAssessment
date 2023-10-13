@@ -142,7 +142,8 @@ class DashboardInteractor: DashboardLogic {
 
         // MARK: - Social domain done check
 
-        if let isFirstTestDone = latestCGA.apgarScale?.isDone, isFirstTestDone {
+        if let isFirstTestDone = latestCGA.apgarScale?.isDone, isFirstTestDone,
+           let isSecondTestDone = latestCGA.zaritScale?.isDone, isSecondTestDone {
             missingDomains -= 1
         }
 
@@ -426,6 +427,25 @@ class DashboardInteractor: DashboardLogic {
                 let apgarScaleResults = ApgarScaleModels.TestResults(questions: rawQuestions)
 
                 let resultsTuple = resultsWorker?.getResults(for: .apgarScale, results: apgarScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
+            }
+
+            if let zaritScale = evaluation.zaritScale, zaritScale.isDone, !isSocialDomainAltered {
+                var rawQuestions: ZaritScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = zaritScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let zaritScaleResults = ZaritScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .zaritScale, results: zaritScaleResults)
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
             }
 

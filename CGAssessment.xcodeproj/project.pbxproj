@@ -205,6 +205,14 @@
 		F1A8B5522AD8BC05006FD874 /* ApgarScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */; };
 		F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */; };
 		F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */; };
+		F1A8B55E2AD8D52F006FD874 /* ZaritScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */; };
+		F1A8B55F2AD8D52F006FD874 /* ZaritScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */; };
+		F1A8B5602AD8D52F006FD874 /* ZaritScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */; };
+		F1A8B5612AD8D52F006FD874 /* ZaritScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */; };
+		F1A8B5622AD8D52F006FD874 /* ZaritScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */; };
+		F1A8B5632AD8D52F006FD874 /* ZaritScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */; };
+		F1A8B5642AD8D52F006FD874 /* ZaritScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */; };
+		F1A8B5652AD8D52F006FD874 /* ZaritScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -546,6 +554,14 @@
 		F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleRouter.swift; sourceTree = "<group>"; };
 		F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleViewController.swift; sourceTree = "<group>"; };
 		F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorker.swift; sourceTree = "<group>"; };
+		F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScalePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleWorker.swift; sourceTree = "<group>"; };
+		F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleInteractor.swift; sourceTree = "<group>"; };
+		F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaritScale.storyboard; sourceTree = "<group>"; };
+		F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleRouter.swift; sourceTree = "<group>"; };
+		F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleModels.swift; sourceTree = "<group>"; };
+		F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleViewController.swift; sourceTree = "<group>"; };
+		F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleBuilder.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1250,6 +1266,21 @@
 			path = ApgarScale;
 			sourceTree = "<group>";
 		};
+		F1A8B5552AD8D4C1006FD874 /* ZaritScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */,
+				F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */,
+				F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */,
+				F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */,
+				F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */,
+				F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */,
+				F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */,
+				F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */,
+			);
+			path = ZaritScale;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1447,6 +1478,7 @@
 				F1A8B5102AD6F513006FD874 /* LawtonScale */,
 				F1A8B5282AD7822A006FD874 /* MiniNutritionalAssessment */,
 				F1A8B5442AD8BAD6006FD874 /* ApgarScale */,
+				F1A8B5552AD8D4C1006FD874 /* ZaritScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1707,6 +1739,7 @@
 				F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
+				F1A8B5612AD8D52F006FD874 /* ZaritScale.storyboard in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
@@ -1842,15 +1875,18 @@
 				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
 				F17D36B02AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift in Sources */,
 				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
+				F1A8B5632AD8D52F006FD874 /* ZaritScaleModels.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
+				F1A8B55E2AD8D52F006FD874 /* ZaritScalePresenter.swift in Sources */,
 				F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */,
 				F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */,
 				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1EB0FBB2AD5B0650087AAB2 /* VisualAcuityAssessmentPresenter.swift in Sources */,
+				F1A8B55F2AD8D52F006FD874 /* ZaritScaleWorker.swift in Sources */,
 				F1EB0FB72AD5B0330087AAB2 /* VisualAcuityAssessmentViewController.swift in Sources */,
 				F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */,
 				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
@@ -1910,6 +1946,7 @@
 				F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
+				F1A8B5642AD8D52F006FD874 /* ZaritScaleViewController.swift in Sources */,
 				F1A8B5032AD6C4FB006FD874 /* KatzScaleViewController.swift in Sources */,
 				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
@@ -1949,9 +1986,11 @@
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
 				F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
+				F1A8B5622AD8D52F006FD874 /* ZaritScaleRouter.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
+				F1A8B5652AD8D52F006FD874 /* ZaritScaleBuilder.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F17D36B82AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
@@ -2028,6 +2067,7 @@
 				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
+				F1A8B5602AD8D52F006FD874 /* ZaritScaleInteractor.swift in Sources */,
 				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,

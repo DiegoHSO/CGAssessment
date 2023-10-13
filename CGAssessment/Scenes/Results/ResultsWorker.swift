@@ -76,7 +76,8 @@ class ResultsWorker {
             guard let apgarScaleResults = results as? ApgarScaleModels.TestResults else { return nil }
             return getApgarScaleResults(for: apgarScaleResults)
         case .zaritScale:
-            break
+            guard let zaritScaleResults = results as? ZaritScaleModels.TestResults else { return nil }
+            return getZaritScaleResults(for: zaritScaleResults)
         case .polypharmacyCriteria:
             break
         case .charlsonIndex:
@@ -682,6 +683,28 @@ class ResultsWorker {
         case .excellent: .apgarScaleExcellentResult
         case .medium: .apgarScaleMediumResult
         case .bad: .apgarScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getZaritScaleResults(for testResults: ZaritScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        var totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 1 + selectedOptions.filter { $0 == .secondOption }.count * 2 + selectedOptions.filter { $0 == .thirdOption }.count * 3
+        totalPoints += selectedOptions.filter { $0 == .fourthOption }.count * 4 + selectedOptions.filter { $0 == .fifthOption }.count * 5
+
+        let resultType: ResultsModels.ResultType = totalPoints < 15 ? .excellent : totalPoints < 22 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .zaritScaleExcellentResult
+        case .medium: .zaritScaleMediumResult
+        case .bad: .zaritScaleBadResult
         case .good: .none
         }
 

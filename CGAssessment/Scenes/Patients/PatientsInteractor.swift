@@ -359,6 +359,25 @@ class PatientsInteractor: PatientsLogic {
                 if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
             }
 
+            if let zaritScale = lastCGA?.zaritScale, zaritScale.isDone, !isSocialDomainAltered {
+                var rawQuestions: ZaritScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = zaritScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let zaritScaleResults = ZaritScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .zaritScale, results: zaritScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
+            }
+
             alteredDomains = isSocialDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,

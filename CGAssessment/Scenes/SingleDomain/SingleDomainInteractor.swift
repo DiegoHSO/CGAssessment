@@ -121,6 +121,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkApgarScaleStatus(cga: cga), forKey: .apgarScale)
         }
 
+        if tests.contains(.zaritScale) {
+            testsStatus.updateValue(checkZaritScaleStatus(cga: cga), forKey: .zaritScale)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -361,6 +365,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.apgarScale?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkZaritScaleStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.zaritScale?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

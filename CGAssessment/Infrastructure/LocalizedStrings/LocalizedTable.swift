@@ -708,4 +708,22 @@ enum LocalizedTable: String, Localizable {
     case rarely = "rarely_key"
     case occasionally = "ocasionally_key"
     case frequently = "frequently_key"
+
+    // MARK: - Zarit Scale
+
+    case zaritScaleQuestionOne = "zarit_scale_question_one_key"
+    case zaritScaleQuestionTwo = "zarit_scale_question_two_key"
+    case zaritScaleQuestionThree = "zarit_scale_question_three_key"
+    case zaritScaleQuestionFour = "zarit_scale_question_four_key"
+    case zaritScaleQuestionFive = "zarit_scale_question_five_key"
+    case zaritScaleQuestionSix = "zarit_scale_question_six_key"
+    case zaritScaleQuestionSeven = "zarit_scale_question_seven_key"
+    case zaritScaleInstruction = "zarit_scale_instruction_key"
+    case zaritScaleExcellentResult = "zarit_scale_excellent_result_key"
+    case zaritScaleMediumResult = "zarit_scale_medium_result_key"
+    case zaritScaleBadResult = "zarit_scale_bad_result_key"
+    case never = "never_key"
+    case hardlyEver = "hardly_ever_key"
+    case sometimes = "sometimes_key"
+    case nearlyAlways = "nearly_always_key"
 }

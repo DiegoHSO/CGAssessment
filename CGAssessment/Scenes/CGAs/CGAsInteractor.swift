@@ -172,13 +172,13 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Social domain done check
 
-                if let apgarScale = cga.apgarScale {
-                    if apgarScale.isDone {
+                if let apgarScale = cga.apgarScale, let zaritScale = cga.zaritScale {
+                    if apgarScale.isDone, zaritScale.isDone {
                         domainsStatus.updateValue(.done, forKey: .social)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .social)
                     }
-                } else if cga.apgarScale == nil {
+                } else if cga.apgarScale == nil, cga.zaritScale == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .social)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .social)
@@ -289,13 +289,13 @@ class CGAsInteractor: CGAsLogic {
 
                     // MARK: - Social domain done check
 
-                    if let apgarScale = cga.apgarScale {
-                        if apgarScale.isDone {
+                    if let apgarScale = cga.apgarScale, let zaritScale = cga.zaritScale {
+                        if apgarScale.isDone, zaritScale.isDone {
                             domainsStatus.updateValue(.done, forKey: .social)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .social)
                         }
-                    } else if cga.apgarScale == nil {
+                    } else if cga.apgarScale == nil, cga.zaritScale == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .social)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .social)
