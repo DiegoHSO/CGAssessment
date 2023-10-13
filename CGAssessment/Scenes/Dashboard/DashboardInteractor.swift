@@ -153,6 +153,12 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
+        // MARK: - Comorbidity domain done check
+
+        if let isTestDone = latestCGA.charlsonIndex?.isDone, isTestDone {
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
@@ -469,6 +475,32 @@ class DashboardInteractor: DashboardLogic {
             }
 
             alteredDomains = isPolypharmacyDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Comorbidity domain test results check
+
+            var isComorbidityDomainAltered: Bool = false
+
+            if let charlsonIndex = evaluation.charlsonIndex, charlsonIndex.isDone {
+                var rawBinaryQuestions: CharlsonIndexModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = charlsonIndex.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let charlsonIndexResults = CharlsonIndexModels.TestResults(binaryQuestions: rawBinaryQuestions, patientBirthDate: birthDate)
+
+                let resultsTuple = resultsWorker?.getResults(for: .charlsonIndex, results: charlsonIndexResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isComorbidityDomainAltered = true }
+            }
+
+            alteredDomains = isComorbidityDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),

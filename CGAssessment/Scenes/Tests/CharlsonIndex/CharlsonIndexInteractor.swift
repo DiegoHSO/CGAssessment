@@ -89,6 +89,7 @@ class CharlsonIndexInteractor: CharlsonIndexLogic {
             updateDatabase(isDone: true)
         }
 
+        let birthDate = try? worker?.getPatientBirthDate()
         let binaryOptionsDictionaries = rawBinaryQuestions.map { $0.value }
         let selectedBinaryOptions = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
             partialResult + dictionary.map { $0.value }
@@ -97,7 +98,7 @@ class CharlsonIndexInteractor: CharlsonIndexLogic {
         let isAllDone: Bool = selectedBinaryOptions.allSatisfy({ $0 != .none })
 
         if isAllDone {
-            presenter?.route(toRoute: .testResults(test: .charlsonIndex, results: .init(binaryQuestions: rawBinaryQuestions), cgaId: cgaId))
+            presenter?.route(toRoute: .testResults(test: .charlsonIndex, results: .init(binaryQuestions: rawBinaryQuestions, patientBirthDate: birthDate), cgaId: cgaId))
         }
     }
 

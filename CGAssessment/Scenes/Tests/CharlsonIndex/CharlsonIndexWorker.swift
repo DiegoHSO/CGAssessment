@@ -31,4 +31,12 @@ class CharlsonIndexWorker {
         try dao.updateCGA(with: data, cgaId: cgaId)
     }
 
+    func getPatientBirthDate() throws -> Date? {
+        guard let patient = try dao.fetchPatient(cgaId: cgaId) else {
+            throw CoreDataErrors.unableToFetchPatient
+        }
+
+        return patient.birthDate
+    }
+
 }

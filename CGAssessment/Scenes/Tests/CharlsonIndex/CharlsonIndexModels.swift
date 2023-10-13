@@ -27,6 +27,7 @@ struct CharlsonIndexModels {
 
     struct TestResults {
         let binaryQuestions: RawBinaryQuestions
+        let patientBirthDate: Date?
     }
 
     struct TestData {

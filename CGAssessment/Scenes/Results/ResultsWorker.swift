@@ -82,7 +82,8 @@ class ResultsWorker {
             guard let polypharmacyCriteriaResults = results as? PolypharmacyCriteriaModels.TestResults else { return nil }
             return getPolypharmacyCriteriaResults(for: polypharmacyCriteriaResults)
         case .charlsonIndex:
-            break
+            guard let charlsonIndexResults = results as? CharlsonIndexModels.TestResults else { return nil }
+            return getCharlsonIndexResults(for: charlsonIndexResults)
         case .suspectedAbuse:
             break
         case .cardiovascularRiskEstimation:
@@ -727,6 +728,71 @@ class ResultsWorker {
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.numberOfMedicines.localized,
                                                      description: "\(testResults.numberOfMedicines) \(testResults.numberOfMedicines == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getCharlsonIndexResults(for testResults: CharlsonIndexModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+
+        let weightOneResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key < 7 }.map { $0.value }
+        }
+
+        let weightTwoResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key > 6 && $0.key < 13 }.map { $0.value }
+        }
+
+        let weightThreeResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key == 13 }.map { $0.value }
+        }
+
+        let weightSixResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key > 13 }.map { $0.value }
+        }
+
+        let weightOneResultsPointed = weightOneResults.filter { $0 == .yes }.count
+        let weightTwoResultsPointed = weightTwoResults.filter { $0 == .yes }.count * 2
+        let weightThreeResultsPointed = weightThreeResults.filter { $0 == .yes }.count * 3
+        let weightSixResultsPointed = weightSixResults.filter { $0 == .yes }.count * 6
+
+        let patientAgePoints: Int
+
+        if let birthDate = testResults.patientBirthDate {
+            switch birthDate.yearSinceCurrentDate {
+            case 0...49:
+                patientAgePoints = 0
+            case 50...59:
+                patientAgePoints = 1
+            case 60...69:
+                patientAgePoints = 2
+            case 70...79:
+                patientAgePoints = 3
+            case 80...89:
+                patientAgePoints = 4
+            case 90...:
+                patientAgePoints = 5
+            default:
+                patientAgePoints = 0
+            }
+        } else {
+            patientAgePoints = 0
+        }
+
+        let totalPoints = weightOneResultsPointed + weightTwoResultsPointed + weightThreeResultsPointed + weightSixResultsPointed + patientAgePoints
+
+        let resultType: ResultsModels.ResultType = totalPoints < 1 ? .excellent : totalPoints < 3 ? .good : totalPoints < 5 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .charlsonIndexExcellentResult
+        case .good: .charlsonIndexGoodResult
+        case .medium: .charlsonIndexMediumResult
+        case .bad: .charlsonIndexBadResult
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)
