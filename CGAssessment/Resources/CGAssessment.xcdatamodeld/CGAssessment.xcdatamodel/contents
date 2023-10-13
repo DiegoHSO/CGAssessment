@@ -39,6 +39,7 @@
         <relationship name="polypharmacyCriteria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PolypharmacyCriteria" inverseName="cgas" inverseEntity="PolypharmacyCriteria"/>
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
+        <relationship name="suspectedAbuse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SuspectedAbuse" inverseName="cgas" inverseEntity="SuspectedAbuse"/>
         <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
         <relationship name="verbalFluency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VerbalFluency" inverseName="cgas" inverseEntity="VerbalFluency"/>
         <relationship name="visualAcuityAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VisualAcuityAssessment" inverseName="cgas" inverseEntity="VisualAcuityAssessment"/>
@@ -136,6 +137,12 @@
         <relationship name="miniNutritionalAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniNutritionalAssessment" inverseName="selectableOptions" inverseEntity="MiniNutritionalAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="selectableOptions" inverseEntity="SarcopeniaScreening"/>
         <relationship name="zaritScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZaritScale" inverseName="selectableOptions" inverseEntity="ZaritScale"/>
+    </entity>
+    <entity name="SuspectedAbuse" representedClassName="SuspectedAbuse" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="typedText" optional="YES" attributeType="String"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="suspectedAbuse" inverseEntity="CGA"/>
     </entity>
     <entity name="TimedUpAndGo" representedClassName=".TimedUpAndGo" syncable="YES" codeGenerationType="class">
         <attribute name="hasStopwatch" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>

@@ -159,6 +159,12 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
+        // MARK: - Other domains done check
+
+        if let isFirstTestDone = latestCGA.suspectedAbuse?.isDone, isFirstTestDone {
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
@@ -501,6 +507,12 @@ class DashboardInteractor: DashboardLogic {
             }
 
             alteredDomains = isComorbidityDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Other domains test results check
+
+            var isOtherDomainsAltered: Bool = false
+
+            alteredDomains = isOtherDomainsAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),

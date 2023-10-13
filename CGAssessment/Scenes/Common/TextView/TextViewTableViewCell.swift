@@ -14,7 +14,7 @@ protocol TextViewDelegate: AnyObject {
 class TextViewTableViewCell: UITableViewCell {
 
     // MARK: - Private Properties
-    
+
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var textView: UITextView?
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint?
@@ -23,56 +23,73 @@ class TextViewTableViewCell: UITableViewCell {
     private var currentText: String = ""
     private var identifier: LocalizedTable?
     private weak var delegate: TextViewDelegate?
-    
+
     // MARK: - Life Cycle
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
     }
-    
+
     // MARK: - Public Methods
-    
+
     func setup(viewModel: CGAModels.TextViewViewModel) {
         titleLabel?.text = viewModel.title
         titleLabel?.font = .compactDisplay(withStyle: .medium, size: 16)
         titleLabel?.isHidden = viewModel.title == nil
         trailingConstraint?.constant = viewModel.horizontalConstraint
         leadingConstraint?.constant = viewModel.horizontalConstraint
-        textView?.text = viewModel.text
         textView?.font = .compactDisplay(withStyle: .regular, size: 16)
-        
+
+        if let text = viewModel.text {
+            textView?.text = text.isEmpty ? viewModel.placeholder : text
+            textView?.textColor = text.isEmpty ? .placeholderText : .label1
+
+        } else {
+            textView?.text = viewModel.placeholder
+            textView?.textColor = .placeholderText
+        }
+
         self.placeholder = viewModel.placeholder
         self.delegate = viewModel.delegate
-        
-        if let textView {
-            self.textView?.selectedTextRange = textView.textRange(from: textView.beginningOfDocument,
-                                                                  to: textView.beginningOfDocument)
-        }
+        self.currentText = viewModel.text ?? ""
+        self.identifier = viewModel.identifier
     }
-    
+
     // MARK: - Private Methods
 
     private func setupViews() {
-        textView?.delegate = self
+        textView?.layer.masksToBounds = true
         textView?.layer.cornerRadius = 15
-        textView?.clipsToBounds = true
         textView?.layer.borderWidth = 2
         textView?.layer.borderColor = UIColor.label3?.cgColor
         textView?.backgroundColor = .background6?.withAlphaComponent(0.4)
-        textView?.becomeFirstResponder()
+        textView?.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        textView?.delegate = self
+
+        textView?.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
     }
-    
+
+    @objc private func doneButtonClicked(_ sender: Any) {
+        self.currentText = textView?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        self.currentText = currentText == placeholder ? "" : currentText
+        delegate?.didChangeText(text: currentText, identifier: identifier)
+    }
 }
 
 // MARK: - UITextViewDelegate extension
 
 extension TextViewTableViewCell: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = textView.text == placeholder ? "" : textView.text
+    }
+
     func textViewDidEndEditing(_ textView: UITextView) {
         self.currentText = textView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        self.currentText = currentText == placeholder ? "" : currentText
         delegate?.didChangeText(text: currentText, identifier: identifier)
     }
-    
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         // Combine the textView text and the replacement text to
@@ -94,7 +111,7 @@ extension TextViewTableViewCell: UITextViewDelegate {
         // length of the replacement string is greater than 0, set
         // the text color to black then set its text to the
         // replacement string
-         else if textView.textColor == UIColor.placeholderText && !text.isEmpty {
+        else if textView.textColor == UIColor.placeholderText && !text.isEmpty {
             textView.textColor = UIColor.label1
             textView.text = text
         }
@@ -109,7 +126,7 @@ extension TextViewTableViewCell: UITextViewDelegate {
         // been made
         return false
     }
-    
+
     func textViewDidChangeSelection(_ textView: UITextView) {
         if self.window != nil {
             if textView.textColor == UIColor.placeholderText {

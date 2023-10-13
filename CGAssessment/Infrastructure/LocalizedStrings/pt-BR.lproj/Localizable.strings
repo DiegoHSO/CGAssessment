@@ -627,3 +627,7 @@
 "charlson_index_good_result_key" = "Indivíduo com resultado sugestivo de 26% de risco de mortalidade em 1 ano";
 "charlson_index_medium_result_key" = "Indivíduo com resultado sugestivo de 54% de risco de mortalidade em 1 ano";
 "charlson_index_bad_result_key" = "Indivíduo com resultado sugestivo de 85% de risco de mortalidade em 1 ano";
+"suspected_abuse_instruction_key" = "Há suspeita de maus tratos com o paciente?";
+"suspected_abuse_text_view_title_key" = "Descreva detalhes (opcional):";
+"suspected_abuse_text_view_placeholder_key" = "Descreva detalhes dos maus tratos";
+"suspected_abuse_example_key" = "Paciente apresenta hematomas contundentes nos braços e cortes nas mãos. O comportamento do paciente também é instrospectivo, aparentando estar com medo de conversar.";

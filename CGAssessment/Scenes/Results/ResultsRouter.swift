@@ -71,7 +71,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .charlsonIndex:
             routeToCharlsonIndex()
         case .suspectedAbuse:
-            break
+            routeToSuspectedAbuse()
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
@@ -229,5 +229,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
+    }
+
+    private func routeToSuspectedAbuse() {
+        guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
     }
 }

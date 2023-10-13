@@ -57,7 +57,7 @@ struct CGAModels {
         var keyboardType: UIKeyboardType = .asciiCapable
         var identifier: LocalizedTable?
     }
-    
+
     struct TextViewViewModel {
         let title: String?
         let text: String?

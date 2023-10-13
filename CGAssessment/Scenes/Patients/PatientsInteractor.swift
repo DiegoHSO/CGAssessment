@@ -419,6 +419,12 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isComorbidityDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Other domains test results check
+
+            var isOtherDomainsAltered: Bool = false
+
+            alteredDomains = isOtherDomainsAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

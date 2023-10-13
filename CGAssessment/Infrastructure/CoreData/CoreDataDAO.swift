@@ -46,6 +46,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -181,6 +182,9 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                          7: .not, 8: .not, 9: .not, 10: .not, 11: .not, 12: .not,
                                          13: .not, 14: .not, 15: .not, 16: .not, 17: .not, 18: .not]
         ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: SuspectedAbuseModels.TestData(selectedOption: .firstOption, typedText: LocalizedTable.suspectedAbuseExample.localized,
+                                                          isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -325,7 +329,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .charlsonIndex:
             return cga?.charlsonIndex
         case .suspectedAbuse:
-            return nil
+            return cga?.suspectedAbuse
         case .cardiovascularRiskEstimation:
             return nil
         case .chemotherapyToxicityRisk:
@@ -784,6 +788,21 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.suspectedAbuse == nil {
+            try createSuspectedAbuseInstance(for: cga)
+        }
+
+        cga.suspectedAbuse?.selectedOption = test.selectedOption.rawValue
+        cga.suspectedAbuse?.typedText = test.typedText
+        cga.suspectedAbuse?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -922,6 +941,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createCharlsonIndexInstance(for cga: CGA) throws {
         let newTest = CharlsonIndex(context: context)
         cga.charlsonIndex = newTest
+
+        try context.save()
+    }
+
+    private func createSuspectedAbuseInstance(for cga: CGA) throws {
+        let newTest = SuspectedAbuse(context: context)
+        cga.suspectedAbuse = newTest
 
         try context.save()
     }

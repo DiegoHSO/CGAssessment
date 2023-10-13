@@ -78,7 +78,7 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue([.charlsonIndex: cga.charlsonIndex?.isDone == true], forKey: .comorbidity)
 
-        domains.updateValue( [.suspectedAbuse: true, .cardiovascularRiskEstimation: false,
+        domains.updateValue( [.suspectedAbuse: cga.suspectedAbuse?.isDone == true, .cardiovascularRiskEstimation: false,
                               .chemotherapyToxicityRisk: false], forKey: .other)
 
         statusViewModel = .init(patientName: cga.patient?.name,
