@@ -67,7 +67,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .zaritScale:
             routeToZaritScale()
         case .polypharmacyCriteria:
-            break
+            routeToPolypharmacyCriteria()
         case .charlsonIndex:
             break
         case .suspectedAbuse:
@@ -217,5 +217,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let zaritScaleController = ZaritScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(zaritScaleController, animated: true)
+    }
+
+    private func routeToPolypharmacyCriteria() {
+        guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
     }
 }

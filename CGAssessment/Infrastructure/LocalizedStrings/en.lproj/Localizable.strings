@@ -597,3 +597,10 @@
 "hardly_ever_key" = "Hardly ever";
 "sometimes_key" = "Sometimes";
 "nearly_always_key" = "Nearly always";
+"polypharmacy_criteria_first_instruction_key" = "Ask the patient the number of medications they are currently taking.";
+"polypharmacy_criteria_second_instruction_key" = "Record the amount in the field below.";
+"medicine_singular_key" = "medicine";
+"medicine_plural_key" = "medicines";
+"number_of_medicines_key" = "Number of medicines";
+"polypharmacy_criteria_excellent_result_key" = "Individual without result suggestive of polypharmacy.";
+"polypharmacy_criteria_bad_result_key" = "Individual with results suggestive of polypharmacy. You should investigate the medications you use and check the effects of combining them.";

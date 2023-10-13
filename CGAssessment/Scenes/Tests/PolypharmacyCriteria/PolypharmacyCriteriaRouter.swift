@@ -1,5 +1,5 @@
 //
-//  MiniNutritionalAssessmentRouter.swift
+//  PolypharmacyCriteriaRouter.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 11/10/23.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol MiniNutritionalAssessmentRoutingLogic {
-    func routeToTestResults(test: SingleDomainModels.Test, results: MiniNutritionalAssessmentModels.TestResults, cgaId: UUID?)
+protocol PolypharmacyCriteriaRoutingLogic {
+    func routeToTestResults(test: SingleDomainModels.Test, results: PolypharmacyCriteriaModels.TestResults, cgaId: UUID?)
     func openBottomSheet(viewModel: CGAModels.BottomSheetViewModel)
 }
 
-class MiniNutritionalAssessmentRouter: MiniNutritionalAssessmentRoutingLogic {
+class PolypharmacyCriteriaRouter: PolypharmacyCriteriaRoutingLogic {
 
     // MARK: - Private Properties
 
@@ -26,7 +26,7 @@ class MiniNutritionalAssessmentRouter: MiniNutritionalAssessmentRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToTestResults(test: SingleDomainModels.Test, results: MiniNutritionalAssessmentModels.TestResults, cgaId: UUID?) {
+    func routeToTestResults(test: SingleDomainModels.Test, results: PolypharmacyCriteriaModels.TestResults, cgaId: UUID?) {
         guard let resultsController = ResultsBuilder.build(test: test, results: results, cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(resultsController, animated: true)

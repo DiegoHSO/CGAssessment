@@ -597,3 +597,10 @@
 "hardly_ever_key" = "Quase nunca";
 "sometimes_key" = "Às vezes";
 "nearly_always_key" = "Quase sempre";
+"polypharmacy_criteria_first_instruction_key" = "Pergunte ao paciente o número de medicamentos que faz uso atualmente.";
+"polypharmacy_criteria_second_instruction_key" = "Registre o valor no campo abaixo.";
+"medicine_singular_key" = "medicamento";
+"medicine_plural_key" = "medicamentos";
+"number_of_medicines_key" = "Número de medicamentos";
+"polypharmacy_criteria_excellent_result_key" = "Indivíduo sem resultado sugestivo de polifarmácia.";
+"polypharmacy_criteria_bad_result_key" = "Indivíduo com resultado sugestivo de polifarmácia. Deve-se investigar os medicamentos que utiliza e verificar os efeitos da combinação deles.";

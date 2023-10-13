@@ -63,7 +63,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .zaritScale:
             routeToZaritScale(cgaId: cgaId)
         case .polypharmacyCriteria:
-            break
+            routeToPolypharmacyCriteria(cgaId: cgaId)
         case .charlsonIndex:
             break
         case .suspectedAbuse:
@@ -179,5 +179,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let zaritScaleController = ZaritScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(zaritScaleController, animated: true)
+    }
+
+    private func routeToPolypharmacyCriteria(cgaId: UUID?) {
+        guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
     }
 }

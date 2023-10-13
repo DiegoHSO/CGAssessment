@@ -79,7 +79,8 @@ class ResultsWorker {
             guard let zaritScaleResults = results as? ZaritScaleModels.TestResults else { return nil }
             return getZaritScaleResults(for: zaritScaleResults)
         case .polypharmacyCriteria:
-            break
+            guard let polypharmacyCriteriaResults = results as? PolypharmacyCriteriaModels.TestResults else { return nil }
+            return getPolypharmacyCriteriaResults(for: polypharmacyCriteriaResults)
         case .charlsonIndex:
             break
         case .suspectedAbuse:
@@ -710,6 +711,22 @@ class ResultsWorker {
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
                                                      description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getPolypharmacyCriteriaResults(for testResults: PolypharmacyCriteriaModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let resultType: ResultsModels.ResultType = testResults.numberOfMedicines > 4 ? .bad : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .polypharmacyCriteriaExcellentResult
+        case .bad: .polypharmacyCriteriaBadResult
+        default: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.numberOfMedicines.localized,
+                                                     description: "\(testResults.numberOfMedicines) \(testResults.numberOfMedicines == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)

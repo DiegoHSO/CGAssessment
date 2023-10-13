@@ -44,6 +44,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ApgarScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -171,6 +172,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                                   .zaritScaleQuestionFour: .firstOption, .zaritScaleQuestionFive: .secondOption, .zaritScaleQuestionSix: .secondOption,
                                                                   .zaritScaleQuestionSeven: .secondOption
         ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(numberOfMedicines: 3, isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -311,7 +314,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .zaritScale:
             return cga?.zaritScale
         case .polypharmacyCriteria:
-            return nil
+            return cga?.polypharmacyCriteria
         case .charlsonIndex:
             return nil
         case .suspectedAbuse:
@@ -734,6 +737,20 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.polypharmacyCriteria == nil {
+            try createPolypharmacyCriteriaInstance(for: cga)
+        }
+
+        cga.polypharmacyCriteria?.numberOfMedicines = test.numberOfMedicines ?? 0
+        cga.polypharmacyCriteria?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -858,6 +875,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createZaritScaleInstance(for cga: CGA) throws {
         let newTest = ZaritScale(context: context)
         cga.zaritScale = newTest
+
+        try context.save()
+    }
+
+    private func createPolypharmacyCriteriaInstance(for cga: CGA) throws {
+        let newTest = PolypharmacyCriteria(context: context)
+        cga.polypharmacyCriteria = newTest
 
         try context.save()
     }
