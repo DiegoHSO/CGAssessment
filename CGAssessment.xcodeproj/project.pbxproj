@@ -230,6 +230,8 @@
 		F1A8B5872AD9035C006FD874 /* CharlsonIndexWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */; };
 		F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */; };
 		F1A8B5892AD9035C006FD874 /* CharlsonIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */; };
+		F1A8B58D2AD9932A006FD874 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */; };
+		F1A8B58E2AD9932A006FD874 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -596,6 +598,8 @@
 		F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexWorker.swift; sourceTree = "<group>"; };
 		F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexModels.swift; sourceTree = "<group>"; };
 		F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexPresenter.swift; sourceTree = "<group>"; };
+		F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1346,6 +1350,15 @@
 			path = CharlsonIndex;
 			sourceTree = "<group>";
 		};
+		F1A8B58A2AD9930D006FD874 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */,
+				F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1647,6 +1660,7 @@
 				F1BE9F752AB6550B00250B69 /* SearchBar */,
 				F1BE9F6A2AB6020500250B69 /* Picker */,
 				F1F2E9F02AB557400006075F /* TextField */,
+				F1A8B58A2AD9930D006FD874 /* TextView */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
 				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
@@ -1854,6 +1868,7 @@
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
 				F1BE9F842AB677E300250B69 /* ResumedPatientTableViewCell.xib in Resources */,
+				F1A8B58E2AD9932A006FD874 /* TextViewTableViewCell.xib in Resources */,
 				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
 				F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */,
 				F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */,
@@ -2005,6 +2020,7 @@
 				F1A8B5192AD6F684006FD874 /* LawtonScaleModels.swift in Sources */,
 				F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
+				F1A8B58D2AD9932A006FD874 /* TextViewTableViewCell.swift in Sources */,
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */,
