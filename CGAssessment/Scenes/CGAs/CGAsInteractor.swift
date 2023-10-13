@@ -198,6 +198,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
                 }
 
+                // MARK: - Comorbidity domain done check
+
+                if let charlsonIndex = cga.charlsonIndex {
+                    if charlsonIndex.isDone {
+                        domainsStatus.updateValue(.done, forKey: .comorbidity)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                    }
+                } else if cga.charlsonIndex == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .comorbidity)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -327,6 +341,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .polypharmacy)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                    }
+
+                    // MARK: - Comorbidity domain done check
+
+                    if let charlsonIndex = cga.charlsonIndex {
+                        if charlsonIndex.isDone {
+                            domainsStatus.updateValue(.done, forKey: .comorbidity)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                        }
+                    } else if cga.charlsonIndex == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .comorbidity)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

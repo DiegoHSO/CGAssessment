@@ -222,6 +222,14 @@
 		F1A8B5752AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B56D2AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift */; };
 		F1A8B5762AD8E707006FD874 /* PolypharmacyCriteria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B56E2AD8E707006FD874 /* PolypharmacyCriteria.storyboard */; };
 		F1A8B5782AD8E742006FD874 /* BottomSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5772AD8E742006FD874 /* BottomSheetBuilder.swift */; };
+		F1A8B5822AD9035C006FD874 /* CharlsonIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */; };
+		F1A8B5832AD9035C006FD874 /* CharlsonIndexBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */; };
+		F1A8B5842AD9035C006FD874 /* CharlsonIndex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */; };
+		F1A8B5852AD9035C006FD874 /* CharlsonIndexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */; };
+		F1A8B5862AD9035C006FD874 /* CharlsonIndexInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */; };
+		F1A8B5872AD9035C006FD874 /* CharlsonIndexWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */; };
+		F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */; };
+		F1A8B5892AD9035C006FD874 /* CharlsonIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -580,6 +588,14 @@
 		F1A8B56D2AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaPresenter.swift; sourceTree = "<group>"; };
 		F1A8B56E2AD8E707006FD874 /* PolypharmacyCriteria.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PolypharmacyCriteria.storyboard; sourceTree = "<group>"; };
 		F1A8B5772AD8E742006FD874 /* BottomSheetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetBuilder.swift; sourceTree = "<group>"; };
+		F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexViewController.swift; sourceTree = "<group>"; };
+		F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexBuilder.swift; sourceTree = "<group>"; };
+		F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CharlsonIndex.storyboard; sourceTree = "<group>"; };
+		F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexRouter.swift; sourceTree = "<group>"; };
+		F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexInteractor.swift; sourceTree = "<group>"; };
+		F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexWorker.swift; sourceTree = "<group>"; };
+		F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexModels.swift; sourceTree = "<group>"; };
+		F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexPresenter.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1315,6 +1331,21 @@
 			path = PolypharmacyCriteria;
 			sourceTree = "<group>";
 		};
+		F1A8B5792AD90333006FD874 /* CharlsonIndex */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */,
+				F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */,
+				F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */,
+				F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */,
+				F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */,
+				F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */,
+				F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */,
+				F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */,
+			);
+			path = CharlsonIndex;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1514,6 +1545,7 @@
 				F1A8B5442AD8BAD6006FD874 /* ApgarScale */,
 				F1A8B5552AD8D4C1006FD874 /* ZaritScale */,
 				F1A8B5662AD8E6DB006FD874 /* PolypharmacyCriteria */,
+				F1A8B5792AD90333006FD874 /* CharlsonIndex */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1799,6 +1831,7 @@
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
 				F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */,
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
+				F1A8B5842AD9035C006FD874 /* CharlsonIndex.storyboard in Resources */,
 				F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */,
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
@@ -1935,6 +1968,8 @@
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */,
 				F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */,
+				F1A8B5822AD9035C006FD874 /* CharlsonIndexViewController.swift in Sources */,
+				F1A8B5872AD9035C006FD874 /* CharlsonIndexWorker.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F1A8B5372AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift in Sources */,
@@ -1948,6 +1983,7 @@
 				F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */,
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
+				F1A8B5852AD9035C006FD874 /* CharlsonIndexRouter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */,
 				F1A8B5742AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift in Sources */,
@@ -2097,6 +2133,7 @@
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
 				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
+				F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
 				F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */,
@@ -2111,6 +2148,7 @@
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
 				F1A8B5602AD8D52F006FD874 /* ZaritScaleInteractor.swift in Sources */,
+				F1A8B5862AD9035C006FD874 /* CharlsonIndexInteractor.swift in Sources */,
 				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
 				F1A8B56F2AD8E707006FD874 /* PolypharmacyCriteriaModels.swift in Sources */,
@@ -2140,10 +2178,12 @@
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */,
 				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,
+				F1A8B5892AD9035C006FD874 /* CharlsonIndexPresenter.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1A8B51D2AD6F684006FD874 /* LawtonScaleBuilder.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F1A8B5312AD782FD006FD874 /* MiniNutritionalAssessmentPresenter.swift in Sources */,
+				F1A8B5832AD9035C006FD874 /* CharlsonIndexBuilder.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
 				F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,

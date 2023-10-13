@@ -393,6 +393,32 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isPolypharmacyDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Comorbidity domain test results check
+
+            var isComorbidityDomainAltered: Bool = false
+
+            if let charlsonIndex = lastCGA?.charlsonIndex, charlsonIndex.isDone {
+                var rawBinaryQuestions: CharlsonIndexModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = charlsonIndex.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let charlsonIndexResults = CharlsonIndexModels.TestResults(binaryQuestions: rawBinaryQuestions, patientBirthDate: patient.birthDate)
+
+                let resultsTuple = resultsWorker?.getResults(for: .charlsonIndex, results: charlsonIndexResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isComorbidityDomainAltered = true }
+            }
+
+            alteredDomains = isComorbidityDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

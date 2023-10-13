@@ -19,7 +19,7 @@ class BottomSheetBuilder {
         bottomSheetController.setupArchitecture(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: bottomSheetController)
 
-        let multiplier = 0.3
+        let multiplier = 0.4
         let detents: [UISheetPresentationController.Detent]
 
         if #available(iOS 16.0, *) {
