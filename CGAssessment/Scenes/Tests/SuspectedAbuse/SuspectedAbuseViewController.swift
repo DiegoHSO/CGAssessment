@@ -1,5 +1,5 @@
 //
-//  CharlsonIndexViewController.swift
+//  SuspectedAbuseViewController.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 13/10/23.
@@ -7,21 +7,23 @@
 
 import UIKit
 
-protocol CharlsonIndexDisplayLogic: AnyObject {
-    func route(toRoute route: CharlsonIndexModels.Routing)
-    func presentData(viewModel: CharlsonIndexModels.ControllerViewModel)
+protocol SuspectedAbuseDisplayLogic: AnyObject {
+    func route(toRoute route: SuspectedAbuseModels.Routing)
+    func presentData(viewModel: SuspectedAbuseModels.ControllerViewModel)
 }
 
-class CharlsonIndexViewController: UIViewController, CharlsonIndexDisplayLogic {
+class SuspectedAbuseViewController: UIViewController, SuspectedAbuseDisplayLogic {
+
+    // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = CharlsonIndexModels.Section
-    private typealias Row = CharlsonIndexModels.Row
+    private typealias Section = SuspectedAbuseModels.Section
+    private typealias Row = SuspectedAbuseModels.Row
 
-    private var viewModel: CharlsonIndexModels.ControllerViewModel?
-    private var interactor: CharlsonIndexLogic?
-    private var router: CharlsonIndexRoutingLogic?
+    private var viewModel: SuspectedAbuseModels.ControllerViewModel?
+    private var interactor: SuspectedAbuseLogic?
+    private var router: SuspectedAbuseRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -34,7 +36,7 @@ class CharlsonIndexViewController: UIViewController, CharlsonIndexDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.charlsonIndex.localized
+        title = LocalizedTable.suspectedAbuse.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,19 +47,19 @@ class CharlsonIndexViewController: UIViewController, CharlsonIndexDisplayLogic {
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: CharlsonIndexLogic, router: CharlsonIndexRouter) {
+    func setupArchitecture(interactor: SuspectedAbuseLogic, router: SuspectedAbuseRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: CharlsonIndexModels.Routing) {
+    func route(toRoute route: SuspectedAbuseModels.Routing) {
         switch route {
-        case .testResults(let test, let results, let cgaId):
-            router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
+        case .cardiovascularRisk(let cgaId):
+            router?.routeToCardiovascularRisk(cgaId: cgaId)
         }
     }
 
-    func presentData(viewModel: CharlsonIndexModels.ControllerViewModel) {
+    func presentData(viewModel: SuspectedAbuseModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tableView?.reloadData()
@@ -73,21 +75,29 @@ class CharlsonIndexViewController: UIViewController, CharlsonIndexDisplayLogic {
         tableView?.contentInsetAdjustmentBehavior = .never
 
         tableView?.register(headerType: TitleHeaderView.self)
-        tableView?.register(cellType: BinaryOptionsTableViewCell.self)
+        tableView?.register(cellType: SelectableTableViewCell.self)
+        tableView?.register(cellType: TextViewTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
     }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension CharlsonIndexViewController: UITableViewDelegate {
+extension SuspectedAbuseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let currentSection = Section(rawValue: section) else { return .leastNormalMagnitude }
-        return currentSection == .done ? .leastNormalMagnitude : UITableView.automaticDimension
+        switch currentSection {
+        case .yes:
+            return UITableView.automaticDimension
+        case .no:
+            return viewModel?.selectedOption == .secondOption || viewModel?.selectedOption == SelectableKeys.none ? .leastNormalMagnitude : UITableView.automaticDimension
+        case .done:
+            return .leastNormalMagnitude
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -95,7 +105,7 @@ extension CharlsonIndexViewController: UITableViewDelegate {
     }
 }
 
-extension CharlsonIndexViewController: UITableViewDataSource {
+extension SuspectedAbuseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
@@ -103,30 +113,49 @@ extension CharlsonIndexViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel, let section = Section(rawValue: indexPath.section),
-              let row = viewModel.sections[section]?[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
+        guard let viewModel, let section = Section(rawValue: indexPath.section) else { return UITableViewCell(frame: .zero) }
 
-        switch row {
+        switch viewModel.sections[section]?[safe: indexPath.row] {
+        case .textView:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.className,
+                                                           for: indexPath) as? TextViewTableViewCell else {
+                return UITableViewCell()
+            }
+
+            cell.setup(viewModel: viewModel.textViewModel)
+
+            return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
                                                            for: indexPath) as? ActionButtonTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+            cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
 
             return cell
-        case .binaryQuestion:
-            guard let questionViewModel = viewModel.binaryQuestions[section] else { return UITableViewCell(frame: .zero) }
-
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BinaryOptionsTableViewCell.className,
-                                                           for: indexPath) as? BinaryOptionsTableViewCell else {
+        case .option:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
+                                                           for: indexPath) as? SelectableTableViewCell else {
                 return UITableViewCell()
             }
 
-            cell.setup(viewModel: questionViewModel)
+            switch section {
+            case .yes:
+                cell.setup(viewModel: .init(title: nil, options: [.firstOption: .yesKey],
+                                            delegate: interactor, selectedQuestion: viewModel.selectedOption,
+                                            leadingConstraint: 30))
+            case .no:
+                cell.setup(viewModel: .init(title: nil, options: [.secondOption: .noKey],
+                                            delegate: interactor, selectedQuestion: viewModel.selectedOption,
+                                            leadingConstraint: 30))
+            case .done:
+                return UITableViewCell(frame: .zero)
+            }
 
             return cell
+        default:
+            return UITableViewCell()
         }
     }
 

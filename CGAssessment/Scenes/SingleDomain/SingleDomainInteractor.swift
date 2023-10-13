@@ -133,6 +133,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkCharlsonIndexStatus(cga: cga), forKey: .charlsonIndex)
         }
 
+        if tests.contains(.suspectedAbuse) {
+            testsStatus.updateValue(checkSuspectedAbuseStatus(cga: cga), forKey: .suspectedAbuse)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -409,6 +413,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.charlsonIndex?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkSuspectedAbuseStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.suspectedAbuse?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

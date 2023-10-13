@@ -627,3 +627,7 @@
 "charlson_index_good_result_key" = "Individual with result suggestive of 26% risk of mortality in 1 year";
 "charlson_index_medium_result_key" = "Individual with result suggestive of 54% risk of mortality in 1 year";
 "charlson_index_bad_result_key" = "Individual with result suggestive of 85% mortality risk in 1 year";
+"suspected_abuse_instruction_key" = "Is there suspicion of mistreatment of the patient?";
+"suspected_abuse_text_view_title_key" = "Describe details (optional):";
+"suspected_abuse_text_view_placeholder_key" = "Describe details of the mistreatment";
+"suspected_abuse_example_key" = "Patient presents blunt bruises on arms and cuts on hands. The patient's behavior is also introspective, appearing afraid to talk.";

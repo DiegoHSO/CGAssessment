@@ -67,7 +67,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .charlsonIndex:
             routeToCharlsonIndex(cgaId: cgaId)
         case .suspectedAbuse:
-            break
+            routeToSuspectedAbuse(cgaId: cgaId)
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
@@ -191,5 +191,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
+    }
+
+    private func routeToSuspectedAbuse(cgaId: UUID?) {
+        guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
     }
 }

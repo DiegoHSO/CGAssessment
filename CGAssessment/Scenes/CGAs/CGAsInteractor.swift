@@ -212,6 +212,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
                 }
 
+                // MARK: - Other domains done check
+
+                if let suspectedAbuse = cga.suspectedAbuse {
+                    if suspectedAbuse.isDone {
+                        domainsStatus.updateValue(.done, forKey: .other)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .other)
+                    }
+                } else if cga.suspectedAbuse == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .other)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .other)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -355,6 +369,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .comorbidity)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                    }
+
+                    // MARK: - Other domains done check
+
+                    if let suspectedAbuse = cga.suspectedAbuse {
+                        if suspectedAbuse.isDone {
+                            domainsStatus.updateValue(.done, forKey: .other)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .other)
+                        }
+                    } else if cga.suspectedAbuse == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .other)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .other)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

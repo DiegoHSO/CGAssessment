@@ -762,4 +762,11 @@ enum LocalizedTable: String, Localizable {
     case charlsonIndexGoodResult = "charlson_index_good_result_key"
     case charlsonIndexMediumResult = "charlson_index_medium_result_key"
     case charlsonIndexBadResult = "charlson_index_bad_result_key"
+
+    // MARK: - Suspected Abuse
+
+    case suspectedAbuseInstruction = "suspected_abuse_instruction_key"
+    case suspectedAbuseTextViewTitle = "suspected_abuse_text_view_title_key"
+    case suspectedAbuseTextViewPlaceholder = "suspected_abuse_text_view_placeholder_key"
+    case suspectedAbuseExample = "suspected_abuse_example_key"
 }
