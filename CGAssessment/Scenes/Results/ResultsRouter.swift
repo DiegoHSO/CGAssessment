@@ -65,7 +65,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .apgarScale:
             routeToApgarScale()
         case .zaritScale:
-            break
+            routeToZaritScale()
         case .polypharmacyCriteria:
             break
         case .charlsonIndex:
@@ -211,5 +211,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let apgarScaleController = ApgarScaleBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(apgarScaleController, animated: true)
+    }
+
+    private func routeToZaritScale() {
+        guard let zaritScaleController = ZaritScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(zaritScaleController, animated: true)
     }
 }

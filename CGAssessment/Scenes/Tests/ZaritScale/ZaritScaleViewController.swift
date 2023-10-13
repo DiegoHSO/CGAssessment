@@ -1,5 +1,5 @@
 //
-//  ApgarScaleViewController.swift
+//  ZaritScaleViewController.swift
 //  CGAssessment
 //
 //  Created by Diego Henrique Silva Oliveira on 12/10/23.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol ApgarScaleDisplayLogic: AnyObject {
-    func route(toRoute route: ApgarScaleModels.Routing)
-    func presentData(viewModel: ApgarScaleModels.ControllerViewModel)
+protocol ZaritScaleDisplayLogic: AnyObject {
+    func route(toRoute route: ZaritScaleModels.Routing)
+    func presentData(viewModel: ZaritScaleModels.ControllerViewModel)
 }
 
-class ApgarScaleViewController: UIViewController, ApgarScaleDisplayLogic {
+class ZaritScaleViewController: UIViewController, ZaritScaleDisplayLogic {
 
     // MARK: - Private Properties
 
     @IBOutlet private weak var tableView: UITableView?
 
-    private typealias Section = ApgarScaleModels.Section
-    private typealias Row = ApgarScaleModels.Row
+    private typealias Section = ZaritScaleModels.Section
+    private typealias Row = ZaritScaleModels.Row
 
-    private var viewModel: ApgarScaleModels.ControllerViewModel?
-    private var interactor: ApgarScaleLogic?
-    private var router: ApgarScaleRoutingLogic?
+    private var viewModel: ZaritScaleModels.ControllerViewModel?
+    private var interactor: ZaritScaleLogic?
+    private var router: ZaritScaleRoutingLogic?
 
     // MARK: - Life Cycle
 
@@ -36,7 +36,7 @@ class ApgarScaleViewController: UIViewController, ApgarScaleDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        title = LocalizedTable.apgarScale.localized
+        title = LocalizedTable.zaritScale.localized
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,19 +47,19 @@ class ApgarScaleViewController: UIViewController, ApgarScaleDisplayLogic {
 
     // MARK: - Public Methods
 
-    func setupArchitecture(interactor: ApgarScaleLogic, router: ApgarScaleRouter) {
+    func setupArchitecture(interactor: ZaritScaleLogic, router: ZaritScaleRouter) {
         self.interactor = interactor
         self.router = router
     }
 
-    func route(toRoute route: ApgarScaleModels.Routing) {
+    func route(toRoute route: ZaritScaleModels.Routing) {
         switch route {
         case .testResults(let test, let results, let cgaId):
             router?.routeToTestResults(test: test, results: results, cgaId: cgaId)
         }
     }
 
-    func presentData(viewModel: ApgarScaleModels.ControllerViewModel) {
+    func presentData(viewModel: ZaritScaleModels.ControllerViewModel) {
         self.viewModel = viewModel
 
         tableView?.reloadData()
@@ -82,7 +82,7 @@ class ApgarScaleViewController: UIViewController, ApgarScaleDisplayLogic {
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
 
-extension ApgarScaleViewController: UITableViewDelegate {
+extension ZaritScaleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -97,7 +97,7 @@ extension ApgarScaleViewController: UITableViewDelegate {
     }
 }
 
-extension ApgarScaleViewController: UITableViewDataSource {
+extension ZaritScaleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentSection = Section(rawValue: section), let viewModel else { return 0 }
 
@@ -148,7 +148,7 @@ extension ApgarScaleViewController: UITableViewDataSource {
                 return nil
             }
 
-            header.setup(title: LocalizedTable.questionsToPatientOrCaregiver.localized,
+            header.setup(title: LocalizedTable.zaritScaleInstruction.localized,
                          backgroundColor: .primary, leadingConstraint: 30)
 
             return header
