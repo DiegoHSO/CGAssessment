@@ -571,3 +571,14 @@
 "height_placeholder_key" = "Enter height (in cm)";
 "weight_placeholder_key" = "Enter weight (in kg)";
 "body_mass_index_key" = "BMI";
+"apgar_scale_question_one_key" = "Are you satisfied and can you count on your family (friends) to solve your problems?";
+"apgar_scale_question_two_key" = "Are you satisfied with the way your family (friends) talk and share their problems with you?";
+"apgar_scale_question_three_key" = "Are you satisfied with the way your family (friends) accept and support your wishes and decisions?";
+"apgar_scale_question_four_key" = "Are you satisfied with the way your family members (friends) express affection and respond to your emotions, such as anger, feelings of guilt, fear, affection?";
+"apgar_scale_question_five_key" = "Are you satisfied with the way you and your family (friends) share your time together?";
+"apgar_scale_excellent_result_key" = "Individual with results suggestive of mild or absent dysfunction in family relationships";
+"apgar_scale_medium_result_key" = "Individual with result suggestive of moderate dysfunction in family relationships";
+"apgar_scale_bad_result_key" = "Individual with result suggestive of marked dysfunction in family relationships";
+"rarely_key" = "Rarely";
+"ocasionally_key" = "Occasionally";
+"frequently_key" = "Often";

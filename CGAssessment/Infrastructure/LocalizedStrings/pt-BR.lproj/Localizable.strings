@@ -571,3 +571,14 @@
 "height_placeholder_key" = "Digite a altura (em cm)";
 "weight_placeholder_key" = "Digite o peso (em kg)";
 "body_mass_index_key" = "IMC";
+"apgar_scale_question_one_key" = "Está satisfeito e pode contar com seus familiares (amigos) para resolver seus problemas?";
+"apgar_scale_question_two_key" = "Está satisfeito com a forma com que seus familiares (amigos) conversam e compartilham os problemas com você?";
+"apgar_scale_question_three_key" = "Está satisfeito com a forma com que seus familiares (amigos) acatam e apoiam suas vontades e decisões?";
+"apgar_scale_question_four_key" = "Está satisfeito com a forma com que seus familiares (amigos) expressam afeição e respondem às suas emoções, como raiva, sentimentos de culpa, medo, afeto?";
+"apgar_scale_question_five_key" = "Está satisfeito com a forma com que você e seus familiares (amigos) compartilham o tempo juntos?";
+"apgar_scale_excellent_result_key" = "Indivíduo com resultado sugestivo de disfunção leve ou ausente nas relações familiares";
+"apgar_scale_medium_result_key" = "Indivíduo com resultado sugestivo de disfunção moderada nas relações familiares";
+"apgar_scale_bad_result_key" = "Indivíduo com resultado sugestivo de disfunção acentuada nas relações familiares";
+"rarely_key" = "Raramente";
+"ocasionally_key" = "Ocasionalmente";
+"frequently_key" = "Frequentemente";

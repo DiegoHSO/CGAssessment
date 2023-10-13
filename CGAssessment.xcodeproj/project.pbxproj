@@ -197,6 +197,14 @@
 		F1A8B53D2AD7967B006FD874 /* SheetableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */; };
 		F1A8B53F2AD79A78006FD874 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */; };
 		F1A8B5412AD79A90006FD874 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */; };
+		F1A8B54D2AD8BC05006FD874 /* ApgarScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */; };
+		F1A8B54E2AD8BC05006FD874 /* ApgarScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */; };
+		F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */; };
+		F1A8B5502AD8BC05006FD874 /* ApgarScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */; };
+		F1A8B5512AD8BC05006FD874 /* ApgarScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */; };
+		F1A8B5522AD8BC05006FD874 /* ApgarScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */; };
+		F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */; };
+		F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -530,6 +538,14 @@
 		F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetableTableViewCell.xib; sourceTree = "<group>"; };
 		F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
 		F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleBuilder.swift; sourceTree = "<group>"; };
+		F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleModels.swift; sourceTree = "<group>"; };
+		F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScalePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApgarScale.storyboard; sourceTree = "<group>"; };
+		F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleInteractor.swift; sourceTree = "<group>"; };
+		F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleRouter.swift; sourceTree = "<group>"; };
+		F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleViewController.swift; sourceTree = "<group>"; };
+		F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorker.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -1219,6 +1235,21 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		F1A8B5442AD8BAD6006FD874 /* ApgarScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */,
+				F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */,
+				F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */,
+				F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */,
+				F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */,
+				F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */,
+				F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */,
+				F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */,
+			);
+			path = ApgarScale;
+			sourceTree = "<group>";
+		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1415,6 +1446,7 @@
 				F1A8B4FF2AD6C4A3006FD874 /* KatzScale */,
 				F1A8B5102AD6F513006FD874 /* LawtonScale */,
 				F1A8B5282AD7822A006FD874 /* MiniNutritionalAssessment */,
+				F1A8B5442AD8BAD6006FD874 /* ApgarScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1710,6 +1742,7 @@
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
 				F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */,
+				F1A8B5502AD8BC05006FD874 /* ApgarScale.storyboard in Resources */,
 				F1F1E3B12AC0C57C00BC610E /* Results.storyboard in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F1EB0FB52AD5B0220087AAB2 /* VisualAcuityAssessment.storyboard in Resources */,
@@ -1829,6 +1862,7 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */,
+				F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F1A8B5372AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift in Sources */,
@@ -1891,6 +1925,7 @@
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */,
 				F1A8B51F2AD6F684006FD874 /* LawtonScaleRouter.swift in Sources */,
+				F1A8B54D2AD8BC05006FD874 /* ApgarScaleBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
 				F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
@@ -1907,10 +1942,12 @@
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
 				F17D36B42AD64DF700AE5D98 /* HearingLossAssessmentModels.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
+				F1A8B5512AD8BC05006FD874 /* ApgarScaleInteractor.swift in Sources */,
 				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
+				F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
@@ -1934,6 +1971,7 @@
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
+				F1A8B5522AD8BC05006FD874 /* ApgarScaleRouter.swift in Sources */,
 				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
 				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F17D36B22AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift in Sources */,
@@ -1969,6 +2007,7 @@
 				F1A8B51E2AD6F684006FD874 /* LawtonScaleViewController.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
 				F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */,
+				F1A8B54E2AD8BC05006FD874 /* ApgarScaleModels.swift in Sources */,
 				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1EB0FC52AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift in Sources */,
@@ -1984,6 +2023,7 @@
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
+				F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,

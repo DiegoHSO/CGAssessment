@@ -336,6 +336,31 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isNutritionalDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Social domain test results check
+
+            var isSocialDomainAltered: Bool = false
+
+            if let apgarScale = lastCGA?.apgarScale, apgarScale.isDone {
+                var rawQuestions: ApgarScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = apgarScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let apgarScaleResults = ApgarScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .apgarScale, results: apgarScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
+            }
+
+            alteredDomains = isSocialDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

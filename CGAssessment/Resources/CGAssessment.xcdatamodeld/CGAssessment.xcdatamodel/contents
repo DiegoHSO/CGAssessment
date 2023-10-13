@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ApgarScale" representedClassName="ApgarScale" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="apgarScale" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="apgarScale" inverseEntity="SelectableOption"/>
+    </entity>
     <entity name="BinaryOption" representedClassName="BinaryOption" syncable="YES" codeGenerationType="class">
         <attribute name="optionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sectionId" optional="YES" attributeType="String"/>
@@ -17,6 +22,7 @@
         <attribute name="cgaId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="718056000" usesScalarValueType="NO"/>
         <attribute name="lastModification" attributeType="Date" defaultDateTimeInterval="717718920" usesScalarValueType="NO"/>
+        <relationship name="apgarScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ApgarScale" inverseName="cgas" inverseEntity="ApgarScale"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
@@ -108,6 +114,7 @@
     <entity name="SelectableOption" representedClassName="SelectableOption" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="apgarScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ApgarScale" inverseName="selectableOptions" inverseEntity="ApgarScale"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="selectableOptions" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="katzScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KatzScale" inverseName="selectableOptions" inverseEntity="KatzScale"/>
         <relationship name="lawtonScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LawtonScale" inverseName="selectableOptions" inverseEntity="LawtonScale"/>

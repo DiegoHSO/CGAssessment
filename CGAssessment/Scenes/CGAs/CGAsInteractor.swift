@@ -170,6 +170,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .nutritional)
                 }
 
+                // MARK: - Social domain done check
+
+                if let apgarScale = cga.apgarScale {
+                    if apgarScale.isDone {
+                        domainsStatus.updateValue(.done, forKey: .social)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .social)
+                    }
+                } else if cga.apgarScale == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .social)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .social)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -271,6 +285,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .nutritional)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                    }
+
+                    // MARK: - Social domain done check
+
+                    if let apgarScale = cga.apgarScale {
+                        if apgarScale.isDone {
+                            domainsStatus.updateValue(.done, forKey: .social)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .social)
+                        }
+                    } else if cga.apgarScale == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .social)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .social)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

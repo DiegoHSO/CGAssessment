@@ -63,7 +63,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .miniNutritionalAssessment:
             routeToMiniNutritionalAssessment()
         case .apgarScale:
-            break
+            routeToApgarScale()
         case .zaritScale:
             break
         case .polypharmacyCriteria:
@@ -205,5 +205,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
+    }
+
+    private func routeToApgarScale() {
+        guard let apgarScaleController = ApgarScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(apgarScaleController, animated: true)
     }
 }
