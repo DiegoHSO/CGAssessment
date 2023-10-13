@@ -147,6 +147,12 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
+        // MARK: - Polypharmacy domain done check
+
+        if let isTestDone = latestCGA.polypharmacyCriteria?.isDone, isTestDone {
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
@@ -450,6 +456,19 @@ class DashboardInteractor: DashboardLogic {
             }
 
             alteredDomains = isSocialDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Polypharmacy domain test results check
+
+            var isPolypharmacyDomainAltered: Bool = false
+
+            if let polypharmacyCriteria = evaluation.polypharmacyCriteria, polypharmacyCriteria.isDone {
+                let polypharmacyCriteriaResults = PolypharmacyCriteriaModels.TestResults(numberOfMedicines: polypharmacyCriteria.numberOfMedicines)
+
+                let resultsTuple = resultsWorker?.getResults(for: .polypharmacyCriteria, results: polypharmacyCriteriaResults)
+                if resultsTuple?.1 == .bad { isPolypharmacyDomainAltered = true }
+            }
+
+            alteredDomains = isPolypharmacyDomainAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),

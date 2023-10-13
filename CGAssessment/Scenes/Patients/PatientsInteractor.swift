@@ -380,6 +380,19 @@ class PatientsInteractor: PatientsLogic {
 
             alteredDomains = isSocialDomainAltered ? alteredDomains + 1 : alteredDomains
 
+            // MARK: - Polypharmacy domain test results check
+
+            var isPolypharmacyDomainAltered: Bool = false
+
+            if let polypharmacyCriteria = lastCGA?.polypharmacyCriteria, polypharmacyCriteria.isDone {
+                let polypharmacyCriteriaResults = PolypharmacyCriteriaModels.TestResults(numberOfMedicines: polypharmacyCriteria.numberOfMedicines)
+
+                let resultsTuple = resultsWorker?.getResults(for: .polypharmacyCriteria, results: polypharmacyCriteriaResults)
+                if resultsTuple?.1 == .bad { isPolypharmacyDomainAltered = true }
+            }
+
+            alteredDomains = isPolypharmacyDomainAltered ? alteredDomains + 1 : alteredDomains
+
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,
                          lastCGADate: lastCGA?.lastModification, alteredDomains: alteredDomains, gender: gender, patientId: patient.patientId)
         }

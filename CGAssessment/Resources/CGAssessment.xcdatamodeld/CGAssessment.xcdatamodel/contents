@@ -34,6 +34,7 @@
         <relationship name="miniNutritionalAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MiniNutritionalAssessment" inverseName="cgas" inverseEntity="MiniNutritionalAssessment"/>
         <relationship name="moCA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoCA" inverseName="cgas" inverseEntity="MoCA"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="cgas" inverseEntity="Patient"/>
+        <relationship name="polypharmacyCriteria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PolypharmacyCriteria" inverseName="cgas" inverseEntity="PolypharmacyCriteria"/>
         <relationship name="sarcopeniaAssessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaAssessment" inverseName="cgas" inverseEntity="SarcopeniaAssessment"/>
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="cgas" inverseEntity="SarcopeniaScreening"/>
         <relationship name="timedUpAndGo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimedUpAndGo" inverseName="cgas" inverseEntity="TimedUpAndGo"/>
@@ -102,6 +103,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="patientId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="patient" inverseEntity="CGA"/>
+    </entity>
+    <entity name="PolypharmacyCriteria" representedClassName="PolypharmacyCriteria" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numberOfMedicines" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="polypharmacyCriteria" inverseEntity="CGA"/>
     </entity>
     <entity name="SarcopeniaAssessment" representedClassName=".SarcopeniaAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

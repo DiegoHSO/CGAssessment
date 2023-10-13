@@ -184,6 +184,20 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .social)
                 }
 
+                // MARK: - Polypharmacy domain done check
+
+                if let polypharmacyCriteria = cga.polypharmacyCriteria {
+                    if polypharmacyCriteria.isDone {
+                        domainsStatus.updateValue(.done, forKey: .polypharmacy)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                    }
+                } else if cga.polypharmacyCriteria == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .polypharmacy)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -299,6 +313,20 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .social)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .social)
+                    }
+
+                    // MARK: - Polypharmacy domain done check
+
+                    if let polypharmacyCriteria = cga.polypharmacyCriteria {
+                        if polypharmacyCriteria.isDone {
+                            domainsStatus.updateValue(.done, forKey: .polypharmacy)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                        }
+                    } else if cga.polypharmacyCriteria == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .polypharmacy)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

@@ -125,6 +125,10 @@ class SingleDomainInteractor: SingleDomainLogic {
             testsStatus.updateValue(checkZaritScaleStatus(cga: cga), forKey: .zaritScale)
         }
 
+        if tests.contains(.polypharmacyCriteria) {
+            testsStatus.updateValue(checkPolypharmacyCriteriaStatus(cga: cga), forKey: .polypharmacyCriteria)
+        }
+
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,
                                 cgaCreationDate: cga.creationDate ?? Date(),
@@ -377,6 +381,18 @@ class SingleDomainInteractor: SingleDomainLogic {
         let status: TestStatus
 
         if let isDone = cga.zaritScale?.isDone {
+            status = isDone ? .done : .incomplete
+        } else {
+            status = .notStarted
+        }
+
+        return status
+    }
+
+    private func checkPolypharmacyCriteriaStatus(cga: CGA) -> TestStatus {
+        let status: TestStatus
+
+        if let isDone = cga.polypharmacyCriteria?.isDone {
             status = isDone ? .done : .incomplete
         } else {
             status = .notStarted

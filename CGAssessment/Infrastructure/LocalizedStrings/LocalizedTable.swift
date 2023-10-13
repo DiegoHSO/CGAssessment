@@ -726,4 +726,14 @@ enum LocalizedTable: String, Localizable {
     case hardlyEver = "hardly_ever_key"
     case sometimes = "sometimes_key"
     case nearlyAlways = "nearly_always_key"
+
+    // MARK: - Polypharmacy Criteria
+
+    case polypharmacyCriteriaFirstInstruction = "polypharmacy_criteria_first_instruction_key"
+    case polypharmacyCriteriaSecondInstruction = "polypharmacy_criteria_second_instruction_key"
+    case medicineSingular = "medicine_singular_key"
+    case medicinePlural = "medicine_plural_key"
+    case numberOfMedicines = "number_of_medicines_key"
+    case polypharmacyCriteriaExcellentResult = "polypharmacy_criteria_excellent_result_key"
+    case polypharmacyCriteriaBadResult = "polypharmacy_criteria_bad_result_key"
 }

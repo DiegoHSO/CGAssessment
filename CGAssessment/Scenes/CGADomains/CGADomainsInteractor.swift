@@ -74,7 +74,7 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue([.apgarScale: cga.apgarScale?.isDone == true, .zaritScale: cga.zaritScale?.isDone == true], forKey: .social)
 
-        domains.updateValue([.polypharmacyCriteria: true], forKey: .polypharmacy)
+        domains.updateValue([.polypharmacyCriteria: cga.polypharmacyCriteria?.isDone == true], forKey: .polypharmacy)
 
         domains.updateValue([.charlsonIndex: true], forKey: .comorbidity)
 
