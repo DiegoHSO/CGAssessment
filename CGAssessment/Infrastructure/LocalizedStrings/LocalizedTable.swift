@@ -736,4 +736,27 @@ enum LocalizedTable: String, Localizable {
     case numberOfMedicines = "number_of_medicines_key"
     case polypharmacyCriteriaExcellentResult = "polypharmacy_criteria_excellent_result_key"
     case polypharmacyCriteriaBadResult = "polypharmacy_criteria_bad_result_key"
+
+    // MARK: - Charlson Index
+
+    case charlsonIndexMainQuestion = "charlson_index_main_question_key"
+    case charlsonIndexQuestionOne = "charlson_index_question_one_key"
+    case charlsonIndexQuestionTwo = "charlson_index_question_two_key"
+    case charlsonIndexQuestionThree = "charlson_index_question_three_key"
+    case charlsonIndexQuestionFour = "charlson_index_question_four_key"
+    case charlsonIndexQuestionFive = "charlson_index_question_five_key"
+    case charlsonIndexQuestionSix = "charlson_index_question_six_key"
+    case charlsonIndexQuestionSeven = "charlson_index_question_seven_key"
+    case charlsonIndexQuestionEight = "charlson_index_question_eight_key"
+    case charlsonIndexQuestionNine = "charlson_index_question_nine_key"
+    case charlsonIndexQuestionTen = "charlson_index_question_ten_key"
+    case charlsonIndexQuestionEleven = "charlson_index_question_eleven_key"
+    case charlsonIndexQuestionTwelve = "charlson_index_question_twelve_key"
+    case charlsonIndexQuestionThirteen = "charlson_index_question_thirteen_key"
+    case charlsonIndexQuestionFourteen = "charlson_index_question_fourteen_key"
+    case charlsonIndexQuestionFifteen = "charlson_index_question_fifteen_key"
+    case charlsonIndexExcellentResult = "charlson_index_excellent_result_key"
+    case charlsonIndexGoodResult = "charlson_index_good_result_key"
+    case charlsonIndexMediumResult = "charlson_index_medium_result_key"
+    case charlsonIndexBadResult = "charlson_index_bad_result_key"
 }

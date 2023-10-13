@@ -65,7 +65,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .polypharmacyCriteria:
             routeToPolypharmacyCriteria(cgaId: cgaId)
         case .charlsonIndex:
-            break
+            routeToCharlsonIndex(cgaId: cgaId)
         case .suspectedAbuse:
             break
         case .cardiovascularRiskEstimation:
@@ -185,5 +185,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
+    }
+
+    private func routeToCharlsonIndex(cgaId: UUID?) {
+        guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
     }
 }

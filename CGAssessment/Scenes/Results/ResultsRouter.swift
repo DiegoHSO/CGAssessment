@@ -69,7 +69,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .polypharmacyCriteria:
             routeToPolypharmacyCriteria()
         case .charlsonIndex:
-            break
+            routeToCharlsonIndex()
         case .suspectedAbuse:
             break
         case .cardiovascularRiskEstimation:
@@ -223,5 +223,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
+    }
+
+    private func routeToCharlsonIndex() {
+        guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
     }
 }

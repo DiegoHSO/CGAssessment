@@ -45,6 +45,7 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: ApgarScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -115,7 +116,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
 
-        try updateCGA(with: .init(binaryQuestions: [
+        try updateCGA(with: ClockDrawingModels.TestData(binaryQuestions: [
             .outline: [1: .yes, 2: .yes],
             .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
             .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
@@ -316,7 +317,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .polypharmacyCriteria:
             return cga?.polypharmacyCriteria
         case .charlsonIndex:
-            return nil
+            return cga?.charlsonIndex
         case .suspectedAbuse:
             return nil
         case .cardiovascularRiskEstimation:
@@ -751,6 +752,32 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.charlsonIndex == nil {
+            try createCharlsonIndexInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.charlsonIndex?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.charlsonIndex?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -882,6 +909,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createPolypharmacyCriteriaInstance(for cga: CGA) throws {
         let newTest = PolypharmacyCriteria(context: context)
         cga.polypharmacyCriteria = newTest
+
+        try context.save()
+    }
+
+    private func createCharlsonIndexInstance(for cga: CGA) throws {
+        let newTest = CharlsonIndex(context: context)
+        cga.charlsonIndex = newTest
 
         try context.save()
     }
