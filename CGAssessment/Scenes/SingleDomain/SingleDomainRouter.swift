@@ -71,7 +71,7 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            routeToChemotherapyToxicityRisk(cgaId: cgaId)
         default:
             break
         }
@@ -197,5 +197,11 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
+    }
+
+    private func routeToChemotherapyToxicityRisk(cgaId: UUID?) {
+        guard let chemotherapyToxicityRiskController = ChemotherapyToxicityRiskBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(chemotherapyToxicityRiskController, animated: true)
     }
 }

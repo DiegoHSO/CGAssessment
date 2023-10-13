@@ -75,7 +75,7 @@ class ResultsRouter: ResultsRoutingLogic {
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            routeToChemotherapyToxicityRisk()
         default:
             break
         }
@@ -235,5 +235,11 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
+    }
+
+    private func routeToChemotherapyToxicityRisk() {
+        guard let chemotherapyToxicityRiskController = ChemotherapyToxicityRiskBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(chemotherapyToxicityRiskController, animated: true)
     }
 }

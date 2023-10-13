@@ -26,6 +26,7 @@
         <relationship name="apgarScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ApgarScale" inverseName="cgas" inverseEntity="ApgarScale"/>
         <relationship name="calfCircumference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalfCircumference" inverseName="cgas" inverseEntity="CalfCircumference"/>
         <relationship name="charlsonIndex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharlsonIndex" inverseName="cgas" inverseEntity="CharlsonIndex"/>
+        <relationship name="chemotherapyToxicityRisk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChemotherapyToxicityRisk" inverseName="cgas" inverseEntity="ChemotherapyToxicityRisk"/>
         <relationship name="clockDrawing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClockDrawing" inverseName="cgas" inverseEntity="ClockDrawing"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="cgas" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="gripStrength" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GripStrength" inverseName="cgas" inverseEntity="GripStrength"/>
@@ -50,6 +51,11 @@
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="charlsonIndex" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="charlsonIndex" inverseEntity="CGA"/>
+    </entity>
+    <entity name="ChemotherapyToxicityRisk" representedClassName="ChemotherapyToxicityRisk" syncable="YES" codeGenerationType="class">
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="chemotherapyToxicityRisk" inverseEntity="CGA"/>
+        <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="chemotherapyToxicityRisk" inverseEntity="SelectableOption"/>
     </entity>
     <entity name="ClockDrawing" representedClassName="ClockDrawing" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -130,6 +136,7 @@
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="apgarScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ApgarScale" inverseName="selectableOptions" inverseEntity="ApgarScale"/>
+        <relationship name="chemotherapyToxicityRisk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChemotherapyToxicityRisk" inverseName="selectableOptions" inverseEntity="ChemotherapyToxicityRisk"/>
         <relationship name="geriatricDepressionScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeriatricDepressionScale" inverseName="selectableOptions" inverseEntity="GeriatricDepressionScale"/>
         <relationship name="katzScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KatzScale" inverseName="selectableOptions" inverseEntity="KatzScale"/>
         <relationship name="lawtonScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LawtonScale" inverseName="selectableOptions" inverseEntity="LawtonScale"/>

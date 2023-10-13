@@ -85,17 +85,13 @@ class SuspectedAbuseInteractor: SuspectedAbuseLogic {
             updateDatabase(isDone: true)
         }
 
-        presenter?.route(toRoute: .cardiovascularRisk(cgaId: cgaId))
+        presenter?.route(toRoute: .chemotherapyToxicityRisk(cgaId: cgaId))
     }
 
     private func computeViewModelData() {
         if let suspectedAbuseProgress = try? worker?.getSuspectedAbuseProgress() {
             typedText = suspectedAbuseProgress.typedText
             selectedOption = SelectableKeys(rawValue: suspectedAbuseProgress.selectedOption) ?? .none
-
-            if suspectedAbuseProgress.isDone {
-                handleNavigation()
-            }
         }
     }
 

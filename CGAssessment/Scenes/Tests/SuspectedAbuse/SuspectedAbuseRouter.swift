@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SuspectedAbuseRoutingLogic {
-    func routeToCardiovascularRisk(cgaId: UUID?)
+    func routeToChemotherapyToxicityRisk(cgaId: UUID?)
 }
 
 class SuspectedAbuseRouter: SuspectedAbuseRoutingLogic {
@@ -25,7 +25,9 @@ class SuspectedAbuseRouter: SuspectedAbuseRoutingLogic {
 
     // MARK: - Public Methods
 
-    func routeToCardiovascularRisk(cgaId: UUID?) {
-        // TODO: Implement test
+    func routeToChemotherapyToxicityRisk(cgaId: UUID?) {
+        guard let chemotherapyToxicityRiskController = ChemotherapyToxicityRiskBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(chemotherapyToxicityRiskController, animated: true)
     }
 }

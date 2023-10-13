@@ -423,6 +423,25 @@ class PatientsInteractor: PatientsLogic {
 
             var isOtherDomainsAltered: Bool = false
 
+            if let chemotherapyToxicityRisk = lastCGA?.chemotherapyToxicityRisk, chemotherapyToxicityRisk.isDone {
+                var rawQuestions: ChemotherapyToxicityRiskModels.RawQuestions = [:]
+
+                guard let questionOptions = chemotherapyToxicityRisk.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let chemotherapyToxicityRiskResults = ChemotherapyToxicityRiskModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .chemotherapyToxicityRisk, results: chemotherapyToxicityRiskResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isOtherDomainsAltered = true }
+            }
+
             alteredDomains = isOtherDomainsAltered ? alteredDomains + 1 : alteredDomains
 
             return .init(name: patient.name ?? "", birthDate: patient.birthDate ?? Date(), hasCGAInProgress: hasCGAInProgress,

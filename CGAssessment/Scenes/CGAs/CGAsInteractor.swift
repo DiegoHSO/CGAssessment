@@ -214,13 +214,14 @@ class CGAsInteractor: CGAsLogic {
 
                 // MARK: - Other domains done check
 
-                if let suspectedAbuse = cga.suspectedAbuse {
-                    if suspectedAbuse.isDone {
+                if let suspectedAbuse = cga.suspectedAbuse,
+                   let chemotherapyToxicityRisk = cga.chemotherapyToxicityRisk {
+                    if suspectedAbuse.isDone, chemotherapyToxicityRisk.isDone {
                         domainsStatus.updateValue(.done, forKey: .other)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .other)
                     }
-                } else if cga.suspectedAbuse == nil {
+                } else if cga.suspectedAbuse == nil, cga.chemotherapyToxicityRisk == nil {
                     domainsStatus.updateValue(.notStarted, forKey: .other)
                 } else {
                     domainsStatus.updateValue(.incomplete, forKey: .other)
@@ -373,13 +374,14 @@ class CGAsInteractor: CGAsLogic {
 
                     // MARK: - Other domains done check
 
-                    if let suspectedAbuse = cga.suspectedAbuse {
-                        if suspectedAbuse.isDone {
+                    if let suspectedAbuse = cga.suspectedAbuse,
+                       let chemotherapyToxicityRisk = cga.chemotherapyToxicityRisk {
+                        if suspectedAbuse.isDone, chemotherapyToxicityRisk.isDone {
                             domainsStatus.updateValue(.done, forKey: .other)
                         } else {
                             domainsStatus.updateValue(.incomplete, forKey: .other)
                         }
-                    } else if cga.suspectedAbuse == nil {
+                    } else if cga.suspectedAbuse == nil, cga.chemotherapyToxicityRisk == nil {
                         domainsStatus.updateValue(.notStarted, forKey: .other)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .other)

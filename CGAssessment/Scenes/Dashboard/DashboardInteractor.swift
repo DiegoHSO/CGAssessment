@@ -161,7 +161,15 @@ class DashboardInteractor: DashboardLogic {
 
         // MARK: - Other domains done check
 
+        var isOtherDomainsDone: Bool = false
+
         if let isFirstTestDone = latestCGA.suspectedAbuse?.isDone, isFirstTestDone {
+            isOtherDomainsDone.toggle()
+            missingDomains -= 1
+        }
+
+        if !isOtherDomainsDone, let isSecondTestDone = latestCGA.chemotherapyToxicityRisk?.isDone, isSecondTestDone {
+            isOtherDomainsDone.toggle()
             missingDomains -= 1
         }
 
@@ -511,6 +519,25 @@ class DashboardInteractor: DashboardLogic {
             // MARK: - Other domains test results check
 
             var isOtherDomainsAltered: Bool = false
+
+            if let chemotherapyToxicityRisk = evaluation.chemotherapyToxicityRisk, chemotherapyToxicityRisk.isDone {
+                var rawQuestions: ChemotherapyToxicityRiskModels.RawQuestions = [:]
+
+                guard let questionOptions = chemotherapyToxicityRisk.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let chemotherapyToxicityRiskResults = ChemotherapyToxicityRiskModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .chemotherapyToxicityRisk, results: chemotherapyToxicityRiskResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isOtherDomainsAltered = true }
+            }
 
             alteredDomains = isOtherDomainsAltered ? alteredDomains + 1 : alteredDomains
 

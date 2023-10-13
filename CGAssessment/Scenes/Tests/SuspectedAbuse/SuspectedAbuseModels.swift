@@ -32,7 +32,7 @@ struct SuspectedAbuseModels {
     }
 
     enum Routing {
-        case cardiovascularRisk(cgaId: UUID?)
+        case chemotherapyToxicityRisk(cgaId: UUID?)
     }
 
     enum Section: Int {
