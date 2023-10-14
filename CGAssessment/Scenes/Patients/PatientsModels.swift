@@ -10,7 +10,7 @@ import Foundation
 struct PatientsModels {
 
     struct ControllerViewModel {
-        let patients: [PatientViewModel]
+        var patients: [PatientViewModel]
         let filterOptions: [CGAModels.FilterOptions]
         let selectedFilter: CGAModels.FilterOptions
         let isSearching: Bool

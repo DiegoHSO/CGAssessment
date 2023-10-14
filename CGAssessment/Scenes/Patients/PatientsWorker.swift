@@ -24,4 +24,12 @@ class PatientsWorker {
     func getPatients() throws -> [Patient] {
         return try dao.fetchPatients()
     }
+
+    func deletePatient(patientId: UUID?) throws {
+        guard let patientId else {
+            throw CoreDataErrors.unableToDeletePatient
+        }
+
+        try dao.deletePatient(patientId: patientId)
+    }
 }

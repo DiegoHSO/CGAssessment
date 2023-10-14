@@ -10,6 +10,8 @@ import Foundation
 protocol PatientsPresentationLogic: AnyObject {
     func route(toRoute route: PatientsModels.Routing)
     func presentData(viewModel: PatientsModels.ControllerViewModel)
+    func presentDeletionAlert(for indexPath: IndexPath)
+    func presentErrorDeletingAlert()
 }
 
 class PatientsPresenter: PatientsPresentationLogic {
@@ -32,6 +34,14 @@ class PatientsPresenter: PatientsPresentationLogic {
 
     func presentData(viewModel: PatientsModels.ControllerViewModel) {
         viewController?.presentData(viewModel: viewModel)
+    }
+
+    func presentDeletionAlert(for indexPath: IndexPath) {
+        viewController?.presentDeletionAlert(for: indexPath)
+    }
+
+    func presentErrorDeletingAlert() {
+        viewController?.presentErrorDeletingAlert()
     }
 
 }

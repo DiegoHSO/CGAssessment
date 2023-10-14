@@ -35,6 +35,7 @@ enum LocalizedTable: String, Localizable {
     case exampleCGA = "example_cga_key"
     case outOf = "out_of_key"
     case questionsToPatientOrCaregiver = "questions_to_patient_or_caregiver_key"
+    case cancel = "cancel_key"
 
     // MARK: - Dashboard
 
@@ -94,6 +95,11 @@ enum LocalizedTable: String, Localizable {
     case finishedDomain = "finished_domain_key"
     case incompleteDomain = "incomplete_domain_key"
     case notStartedDomain = "not_started_domain_key"
+    case deleteCGAQuestion = "delete_cga_question_key"
+    case deleteCGADescription = "delete_cga_description_key"
+    case deleteCGA = "delete_cga_key"
+    case cgaDeletionErrorTitle = "cga_deletion_error_title"
+    case cgaDeletionErrorDescription = "cga_deletion_error_description"
 
     // MARK: - New CGA
 
@@ -127,6 +133,11 @@ enum LocalizedTable: String, Localizable {
     case zToA = "z_to_a_key"
     case olderAge = "older_age_key"
     case youngerAge = "younger_age_key"
+    case deletePatientQuestion = "delete_patient_question_key"
+    case deletePatientDescription = "delete_patient_description_key"
+    case deletePatient = "delete_patient_key"
+    case patientDeletionErrorTitle = "patient_deletion_error_title"
+    case patientDeletionErrorDescription = "patient_deletion_error_description"
 
     // MARK: - CGA Domains
 
