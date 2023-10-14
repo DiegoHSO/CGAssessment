@@ -14,8 +14,8 @@ struct CGAsModels {
     typealias DomainsStatus = [CGADomainsModels.Domain: CompletionStatus]
 
     struct ControllerViewModel {
-        let viewModelsByPatient: CGAsByPatient?
-        let viewModelsByDate: CGAsByDate?
+        var viewModelsByPatient: CGAsByPatient?
+        var viewModelsByDate: CGAsByDate?
         let filterOptions: [CGAModels.FilterOptions]
         let selectedFilter: CGAModels.FilterOptions
         let patientName: String?

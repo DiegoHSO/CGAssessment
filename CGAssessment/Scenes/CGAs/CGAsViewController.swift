@@ -10,6 +10,8 @@ import UIKit
 protocol CGAsDisplayLogic: AnyObject {
     func route(toRoute route: CGAsModels.Routing)
     func presentData(viewModel: CGAsModels.ControllerViewModel)
+    func presentDeletionAlert(for indexPath: IndexPath)
+    func presentErrorDeletingAlert()
 }
 
 class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol {
@@ -111,6 +113,43 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol
         tableView?.reloadData()
     }
 
+    func presentDeletionAlert(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: LocalizedTable.deleteCGAQuestion.localized,
+                                      message: LocalizedTable.deleteCGADescription.localized, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: LocalizedTable.deleteCGA.localized, style: .destructive) { _ in
+            if let viewModelsByDate = self.viewModel?.viewModelsByDate,
+               let dateSection = self.viewModel?.dateSections?[safe: indexPath.section - 1],
+               let viewModel = viewModelsByDate[dateSection]?[indexPath.row] {
+                self.viewModel?.viewModelsByDate?[dateSection]?.remove(at: indexPath.row)
+                self.interactor?.didConfirmDeletion(for: viewModel.cgaId)
+            } else if let viewModelsByPatient = self.viewModel?.viewModelsByPatient,
+                      let patientSection = self.viewModel?.patientSections?[safe: indexPath.section - 1],
+                      let viewModel = viewModelsByPatient[patientSection]?[indexPath.row] {
+                self.viewModel?.viewModelsByPatient?[patientSection]?.remove(at: indexPath.row)
+                self.interactor?.didConfirmDeletion(for: viewModel.cgaId)
+            }
+
+            self.tableView?.deleteRows(at: [indexPath], with: .fade)
+        }
+
+        let cancelAction = UIAlertAction(title: LocalizedTable.cancel.localized, style: .cancel)
+
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true)
+    }
+
+    func presentErrorDeletingAlert() {
+        let alert = UIAlertController(title: LocalizedTable.cgaDeletionErrorTitle.localized,
+                                      message: LocalizedTable.cgaDeletionErrorDescription.localized, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: LocalizedTable.okKey.localized, style: .default)
+
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource extensions
@@ -144,9 +183,29 @@ extension CGAsViewController: UITableViewDelegate {
             interactor?.didTapToStartNewCGA()
         }
     }
+
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 0 {
+            return .none
+        } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section - 1],
+                  viewModelsByDate[dateSection]?[indexPath.row] != nil {
+            return .delete
+        } else if let viewModelsByPatient = viewModel?.viewModelsByPatient, let patientSection = viewModel?.patientSections?[safe: indexPath.section - 1],
+                  viewModelsByPatient[patientSection]?[indexPath.row] != nil {
+            return .delete
+        } else {
+            return .none
+        }
+    }
 }
 
 extension CGAsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            interactor?.didSwipeToDelete(indexPath: indexPath)
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
