@@ -12,11 +12,13 @@ protocol CGAsDisplayLogic: AnyObject {
     func presentData(viewModel: CGAsModels.ControllerViewModel)
 }
 
-class CGAsViewController: UIViewController, CGAsDisplayLogic {
+class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol {
 
     // MARK: - Private Properties
 
-    @IBOutlet private weak var tableView: UITableView?
+    @IBOutlet internal weak var tableView: UITableView?
+    internal var isSelected: Bool = false
+    internal var statusViewModel: CGAModels.StatusViewModel? { nil }
 
     private var viewModel: CGAsModels.ControllerViewModel?
     private var interactor: CGAsLogic?
@@ -27,6 +29,7 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupBarButtonItem()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +41,18 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
         super.viewWillDisappear(animated)
         interactor?.controllerWillDisappear()
         tabBarController?.tabBar.isHidden = navigationController?.viewControllers.first != self
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        guard let headerView = tableView?.tableHeaderView else { return }
+        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        if headerView.frame.size.height != size.height {
+            headerView.frame.size.height = size.height
+            tableView?.tableHeaderView = headerView
+            tableView?.layoutIfNeeded()
+        }
     }
 
     // MARK: - Private Methods
@@ -52,9 +67,23 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic {
 
         tableView?.register(headerType: TooltipHeaderView.self)
         tableView?.register(headerType: TitleHeaderView.self)
+        tableView?.register(headerType: CGAsSubtitleHeaderView.self)
         tableView?.register(cellType: EmptyStateTableViewCell.self)
         tableView?.register(cellType: CGATableViewCell.self)
         tableView?.register(cellType: FilterTableViewCell.self)
+    }
+
+    private func setupBarButtonItem() {
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                        style: .plain, target: self,
+                                        action: #selector(infoButtonTapped))
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+
+    @objc private func infoButtonTapped() {
+        isSelected.toggle()
+        tableView?.tableHeaderView = currentHeader
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: isSelected ? "info.circle.fill" : "info.circle")
     }
 
     // MARK: - Public Methods

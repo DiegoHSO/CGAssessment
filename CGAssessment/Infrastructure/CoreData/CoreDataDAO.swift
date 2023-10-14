@@ -42,6 +42,12 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ApgarScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws
+    func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -64,6 +70,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         newCGA.patient = Patient(context: context)
         newCGA.patient?.gender = 1
+        newCGA.patient?.birthDate = Date().addingYear(-75)
 
         newCGA.timedUpAndGo = TimedUpAndGo(context: context)
         newCGA.timedUpAndGo?.hasStopwatch = false
@@ -112,7 +119,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
 
-        try updateCGA(with: .init(binaryQuestions: [
+        try updateCGA(with: ClockDrawingModels.TestData(binaryQuestions: [
             .outline: [1: .yes, 2: .yes],
             .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
             .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
@@ -160,6 +167,26 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
             .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
         ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: nil)
+
+        try updateCGA(with: ApgarScaleModels.TestData(questions: [.apgarScaleQuestionOne: .secondOption, .apgarScaleQuestionTwo: .thirdOption, .apgarScaleQuestionThree: .thirdOption,
+                                                                  .apgarScaleQuestionFour: .firstOption, .apgarScaleQuestionFive: .thirdOption
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: ZaritScaleModels.TestData(questions: [.zaritScaleQuestionOne: .firstOption, .zaritScaleQuestionTwo: .firstOption, .zaritScaleQuestionThree: .firstOption,
+                                                                  .zaritScaleQuestionFour: .firstOption, .zaritScaleQuestionFive: .secondOption, .zaritScaleQuestionSix: .secondOption,
+                                                                  .zaritScaleQuestionSeven: .secondOption
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: .init(numberOfMedicines: 3, isDone: true), cgaId: nil)
+
+        try updateCGA(with: CharlsonIndexModels.TestData(binaryQuestions: [
+            .charlsonIndexMainQuestion: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .not, 6: .not,
+                                         7: .not, 8: .not, 9: .not, 10: .not, 11: .not, 12: .not,
+                                         13: .not, 14: .not, 15: .not, 16: .not, 17: .not, 18: .not]
+        ], isDone: true), cgaId: nil)
+
+        try updateCGA(with: SuspectedAbuseModels.TestData(selectedOption: .firstOption, typedText: LocalizedTable.suspectedAbuseExample.localized,
+                                                          isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -296,19 +323,19 @@ class CoreDataDAO: CoreDataDAOProtocol {
         case .miniNutritionalAssessment:
             return cga?.miniNutritionalAssessment
         case .apgarScale:
-            return nil
+            return cga?.apgarScale
         case .zaritScale:
-            return nil
+            return cga?.zaritScale
         case .polypharmacyCriteria:
-            return nil
+            return cga?.polypharmacyCriteria
         case .charlsonIndex:
-            return nil
+            return cga?.charlsonIndex
         case .suspectedAbuse:
-            return nil
+            return cga?.suspectedAbuse
         case .cardiovascularRiskEstimation:
             return nil
         case .chemotherapyToxicityRisk:
-            return nil
+            return cga?.chemotherapyToxicityRisk
         default:
             return nil
         }
@@ -681,6 +708,124 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 
+    func updateCGA(with test: ApgarScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.apgarScale == nil {
+            try createApgarScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.apgarScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.apgarScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.zaritScale == nil {
+            try createZaritScaleInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.zaritScale?.selectableOptions = NSSet(array: selectableOptions)
+        cga.zaritScale?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.polypharmacyCriteria == nil {
+            try createPolypharmacyCriteriaInstance(for: cga)
+        }
+
+        cga.polypharmacyCriteria?.numberOfMedicines = test.numberOfMedicines ?? 0
+        cga.polypharmacyCriteria?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.charlsonIndex == nil {
+            try createCharlsonIndexInstance(for: cga)
+        }
+
+        let binaryOptions = test.binaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let binaryOptionsReduced = binaryOptions.reduce([], +)
+
+        cga.charlsonIndex?.binaryOptions = NSSet(array: binaryOptionsReduced)
+        cga.charlsonIndex?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.suspectedAbuse == nil {
+            try createSuspectedAbuseInstance(for: cga)
+        }
+
+        cga.suspectedAbuse?.selectedOption = test.selectedOption.rawValue
+        cga.suspectedAbuse?.typedText = test.typedText
+        cga.suspectedAbuse?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToFetchCGA }
+
+        if cga.chemotherapyToxicityRisk == nil {
+            try createChemotherapyToxicityRiskInstance(for: cga)
+        }
+
+        let selectableOptions = test.questions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        cga.chemotherapyToxicityRisk?.selectableOptions = NSSet(array: selectableOptions)
+        cga.chemotherapyToxicityRisk?.isDone = test.isDone
+        cga.lastModification = Date()
+
+        try context.save()
+    }
+
     // MARK: - Private Methods
 
     private func createTimedUpAndGoInstance(for cga: CGA) throws {
@@ -791,6 +936,48 @@ class CoreDataDAO: CoreDataDAOProtocol {
     private func createMiniNutritionalAssessmentInstance(for cga: CGA) throws {
         let newTest = MiniNutritionalAssessment(context: context)
         cga.miniNutritionalAssessment = newTest
+
+        try context.save()
+    }
+
+    private func createApgarScaleInstance(for cga: CGA) throws {
+        let newTest = ApgarScale(context: context)
+        cga.apgarScale = newTest
+
+        try context.save()
+    }
+
+    private func createZaritScaleInstance(for cga: CGA) throws {
+        let newTest = ZaritScale(context: context)
+        cga.zaritScale = newTest
+
+        try context.save()
+    }
+
+    private func createPolypharmacyCriteriaInstance(for cga: CGA) throws {
+        let newTest = PolypharmacyCriteria(context: context)
+        cga.polypharmacyCriteria = newTest
+
+        try context.save()
+    }
+
+    private func createCharlsonIndexInstance(for cga: CGA) throws {
+        let newTest = CharlsonIndex(context: context)
+        cga.charlsonIndex = newTest
+
+        try context.save()
+    }
+
+    private func createSuspectedAbuseInstance(for cga: CGA) throws {
+        let newTest = SuspectedAbuse(context: context)
+        cga.suspectedAbuse = newTest
+
+        try context.save()
+    }
+
+    private func createChemotherapyToxicityRiskInstance(for cga: CGA) throws {
+        let newTest = ChemotherapyToxicityRisk(context: context)
+        cga.chemotherapyToxicityRisk = newTest
 
         try context.save()
     }

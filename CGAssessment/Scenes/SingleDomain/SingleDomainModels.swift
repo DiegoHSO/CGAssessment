@@ -71,8 +71,8 @@ struct SingleDomainModels {
         case polypharmacyCriteria
         case charlsonIndex
         case suspectedAbuse
-        case cardiovascularRiskEstimation
         case chemotherapyToxicityRisk
+        case cardiovascularRiskEstimation
         case sarcopeniaAssessment
 
         var title: String {

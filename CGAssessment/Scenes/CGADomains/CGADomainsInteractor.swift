@@ -72,14 +72,14 @@ class CGADomainsInteractor: CGADomainsLogic {
 
         domains.updateValue([.miniNutritionalAssessment: cga.miniNutritionalAssessment?.isDone == true], forKey: .nutritional)
 
-        domains.updateValue([.apgarScale: true, .zaritScale: true], forKey: .social)
+        domains.updateValue([.apgarScale: cga.apgarScale?.isDone == true, .zaritScale: cga.zaritScale?.isDone == true], forKey: .social)
 
-        domains.updateValue([.polypharmacyCriteria: true], forKey: .polypharmacy)
+        domains.updateValue([.polypharmacyCriteria: cga.polypharmacyCriteria?.isDone == true], forKey: .polypharmacy)
 
-        domains.updateValue([.charlsonIndex: true], forKey: .comorbidity)
+        domains.updateValue([.charlsonIndex: cga.charlsonIndex?.isDone == true], forKey: .comorbidity)
 
-        domains.updateValue( [.suspectedAbuse: true, .cardiovascularRiskEstimation: false,
-                              .chemotherapyToxicityRisk: false], forKey: .other)
+        domains.updateValue( [.suspectedAbuse: cga.suspectedAbuse?.isDone == true,
+                              .chemotherapyToxicityRisk: cga.chemotherapyToxicityRisk?.isDone == true], forKey: .other)
 
         statusViewModel = .init(patientName: cga.patient?.name,
                                 patientBirthDate: cga.patient?.birthDate,

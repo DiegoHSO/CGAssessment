@@ -197,6 +197,57 @@
 		F1A8B53D2AD7967B006FD874 /* SheetableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */; };
 		F1A8B53F2AD79A78006FD874 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */; };
 		F1A8B5412AD79A90006FD874 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */; };
+		F1A8B54D2AD8BC05006FD874 /* ApgarScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */; };
+		F1A8B54E2AD8BC05006FD874 /* ApgarScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */; };
+		F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */; };
+		F1A8B5502AD8BC05006FD874 /* ApgarScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */; };
+		F1A8B5512AD8BC05006FD874 /* ApgarScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */; };
+		F1A8B5522AD8BC05006FD874 /* ApgarScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */; };
+		F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */; };
+		F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */; };
+		F1A8B55E2AD8D52F006FD874 /* ZaritScalePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */; };
+		F1A8B55F2AD8D52F006FD874 /* ZaritScaleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */; };
+		F1A8B5602AD8D52F006FD874 /* ZaritScaleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */; };
+		F1A8B5612AD8D52F006FD874 /* ZaritScale.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */; };
+		F1A8B5622AD8D52F006FD874 /* ZaritScaleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */; };
+		F1A8B5632AD8D52F006FD874 /* ZaritScaleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */; };
+		F1A8B5642AD8D52F006FD874 /* ZaritScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */; };
+		F1A8B5652AD8D52F006FD874 /* ZaritScaleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */; };
+		F1A8B56F2AD8E707006FD874 /* PolypharmacyCriteriaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5672AD8E706006FD874 /* PolypharmacyCriteriaModels.swift */; };
+		F1A8B5702AD8E707006FD874 /* PolypharmacyCriteriaWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5682AD8E706006FD874 /* PolypharmacyCriteriaWorker.swift */; };
+		F1A8B5712AD8E707006FD874 /* PolypharmacyCriteriaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5692AD8E707006FD874 /* PolypharmacyCriteriaRouter.swift */; };
+		F1A8B5722AD8E707006FD874 /* PolypharmacyCriteriaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B56A2AD8E707006FD874 /* PolypharmacyCriteriaInteractor.swift */; };
+		F1A8B5732AD8E707006FD874 /* PolypharmacyCriteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B56B2AD8E707006FD874 /* PolypharmacyCriteriaViewController.swift */; };
+		F1A8B5742AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B56C2AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift */; };
+		F1A8B5752AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B56D2AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift */; };
+		F1A8B5762AD8E707006FD874 /* PolypharmacyCriteria.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B56E2AD8E707006FD874 /* PolypharmacyCriteria.storyboard */; };
+		F1A8B5782AD8E742006FD874 /* BottomSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5772AD8E742006FD874 /* BottomSheetBuilder.swift */; };
+		F1A8B5822AD9035C006FD874 /* CharlsonIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */; };
+		F1A8B5832AD9035C006FD874 /* CharlsonIndexBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */; };
+		F1A8B5842AD9035C006FD874 /* CharlsonIndex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */; };
+		F1A8B5852AD9035C006FD874 /* CharlsonIndexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */; };
+		F1A8B5862AD9035C006FD874 /* CharlsonIndexInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */; };
+		F1A8B5872AD9035C006FD874 /* CharlsonIndexWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */; };
+		F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */; };
+		F1A8B5892AD9035C006FD874 /* CharlsonIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */; };
+		F1A8B58D2AD9932A006FD874 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */; };
+		F1A8B58E2AD9932A006FD874 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */; };
+		F1A8B5982AD99CF6006FD874 /* SuspectedAbusePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5902AD99CF5006FD874 /* SuspectedAbusePresenter.swift */; };
+		F1A8B5992AD99CF6006FD874 /* SuspectedAbuseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5912AD99CF5006FD874 /* SuspectedAbuseBuilder.swift */; };
+		F1A8B59A2AD99CF6006FD874 /* SuspectedAbuseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5922AD99CF5006FD874 /* SuspectedAbuseInteractor.swift */; };
+		F1A8B59B2AD99CF6006FD874 /* SuspectedAbuseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5932AD99CF6006FD874 /* SuspectedAbuseModels.swift */; };
+		F1A8B59C2AD99CF6006FD874 /* SuspectedAbuse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5942AD99CF6006FD874 /* SuspectedAbuse.storyboard */; };
+		F1A8B59D2AD99CF6006FD874 /* SuspectedAbuseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5952AD99CF6006FD874 /* SuspectedAbuseWorker.swift */; };
+		F1A8B59E2AD99CF6006FD874 /* SuspectedAbuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5962AD99CF6006FD874 /* SuspectedAbuseViewController.swift */; };
+		F1A8B59F2AD99CF6006FD874 /* SuspectedAbuseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5972AD99CF6006FD874 /* SuspectedAbuseRouter.swift */; };
+		F1A8B5A92AD9D73D006FD874 /* ChemotherapyToxicityRiskRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A12AD9D73C006FD874 /* ChemotherapyToxicityRiskRouter.swift */; };
+		F1A8B5AA2AD9D73D006FD874 /* ChemotherapyToxicityRisk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A8B5A22AD9D73C006FD874 /* ChemotherapyToxicityRisk.storyboard */; };
+		F1A8B5AB2AD9D73D006FD874 /* ChemotherapyToxicityRiskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A32AD9D73C006FD874 /* ChemotherapyToxicityRiskViewController.swift */; };
+		F1A8B5AC2AD9D73D006FD874 /* ChemotherapyToxicityRiskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A42AD9D73D006FD874 /* ChemotherapyToxicityRiskPresenter.swift */; };
+		F1A8B5AD2AD9D73D006FD874 /* ChemotherapyToxicityRiskBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A52AD9D73D006FD874 /* ChemotherapyToxicityRiskBuilder.swift */; };
+		F1A8B5AE2AD9D73D006FD874 /* ChemotherapyToxicityRiskWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A62AD9D73D006FD874 /* ChemotherapyToxicityRiskWorker.swift */; };
+		F1A8B5AF2AD9D73D006FD874 /* ChemotherapyToxicityRiskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A72AD9D73D006FD874 /* ChemotherapyToxicityRiskInteractor.swift */; };
+		F1A8B5B02AD9D73D006FD874 /* ChemotherapyToxicityRiskModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A8B5A82AD9D73D006FD874 /* ChemotherapyToxicityRiskModels.swift */; };
 		F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */; };
 		F1A9FBD22AAA60170048E31F /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB732AA9508E0038968E /* SF-Compact-Rounded-Black.otf */; };
 		F1A9FBD42AAA60170048E31F /* SF-Compact-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1AEEB7D2AA950900038968E /* SF-Compact-Display-Regular.otf */; };
@@ -218,6 +269,8 @@
 		F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */; };
 		F1BE9F842AB677E300250B69 /* ResumedPatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F822AB677E300250B69 /* ResumedPatientTableViewCell.xib */; };
 		F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F872AB6846300250B69 /* NewCGAModels.swift */; };
+		F1C31A042ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */; };
+		F1C31A062ADA242700F37A1F /* CGAsSubtitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */; };
 		F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E338FB2AB6A52200282AF3 /* NewCGAViewController.swift */; };
 		F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */; };
 		F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */; };
@@ -530,6 +583,57 @@
 		F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetableTableViewCell.xib; sourceTree = "<group>"; };
 		F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
 		F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleBuilder.swift; sourceTree = "<group>"; };
+		F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleModels.swift; sourceTree = "<group>"; };
+		F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScalePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ApgarScale.storyboard; sourceTree = "<group>"; };
+		F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleInteractor.swift; sourceTree = "<group>"; };
+		F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleRouter.swift; sourceTree = "<group>"; };
+		F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleViewController.swift; sourceTree = "<group>"; };
+		F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorker.swift; sourceTree = "<group>"; };
+		F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScalePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleWorker.swift; sourceTree = "<group>"; };
+		F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleInteractor.swift; sourceTree = "<group>"; };
+		F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaritScale.storyboard; sourceTree = "<group>"; };
+		F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleRouter.swift; sourceTree = "<group>"; };
+		F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleModels.swift; sourceTree = "<group>"; };
+		F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleViewController.swift; sourceTree = "<group>"; };
+		F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleBuilder.swift; sourceTree = "<group>"; };
+		F1A8B5672AD8E706006FD874 /* PolypharmacyCriteriaModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaModels.swift; sourceTree = "<group>"; };
+		F1A8B5682AD8E706006FD874 /* PolypharmacyCriteriaWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaWorker.swift; sourceTree = "<group>"; };
+		F1A8B5692AD8E707006FD874 /* PolypharmacyCriteriaRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaRouter.swift; sourceTree = "<group>"; };
+		F1A8B56A2AD8E707006FD874 /* PolypharmacyCriteriaInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaInteractor.swift; sourceTree = "<group>"; };
+		F1A8B56B2AD8E707006FD874 /* PolypharmacyCriteriaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaViewController.swift; sourceTree = "<group>"; };
+		F1A8B56C2AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaBuilder.swift; sourceTree = "<group>"; };
+		F1A8B56D2AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaPresenter.swift; sourceTree = "<group>"; };
+		F1A8B56E2AD8E707006FD874 /* PolypharmacyCriteria.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PolypharmacyCriteria.storyboard; sourceTree = "<group>"; };
+		F1A8B5772AD8E742006FD874 /* BottomSheetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetBuilder.swift; sourceTree = "<group>"; };
+		F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexViewController.swift; sourceTree = "<group>"; };
+		F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexBuilder.swift; sourceTree = "<group>"; };
+		F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CharlsonIndex.storyboard; sourceTree = "<group>"; };
+		F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexRouter.swift; sourceTree = "<group>"; };
+		F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexInteractor.swift; sourceTree = "<group>"; };
+		F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexWorker.swift; sourceTree = "<group>"; };
+		F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexModels.swift; sourceTree = "<group>"; };
+		F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexPresenter.swift; sourceTree = "<group>"; };
+		F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		F1A8B5902AD99CF5006FD874 /* SuspectedAbusePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbusePresenter.swift; sourceTree = "<group>"; };
+		F1A8B5912AD99CF5006FD874 /* SuspectedAbuseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseBuilder.swift; sourceTree = "<group>"; };
+		F1A8B5922AD99CF5006FD874 /* SuspectedAbuseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseInteractor.swift; sourceTree = "<group>"; };
+		F1A8B5932AD99CF6006FD874 /* SuspectedAbuseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseModels.swift; sourceTree = "<group>"; };
+		F1A8B5942AD99CF6006FD874 /* SuspectedAbuse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SuspectedAbuse.storyboard; sourceTree = "<group>"; };
+		F1A8B5952AD99CF6006FD874 /* SuspectedAbuseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseWorker.swift; sourceTree = "<group>"; };
+		F1A8B5962AD99CF6006FD874 /* SuspectedAbuseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseViewController.swift; sourceTree = "<group>"; };
+		F1A8B5972AD99CF6006FD874 /* SuspectedAbuseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseRouter.swift; sourceTree = "<group>"; };
+		F1A8B5A12AD9D73C006FD874 /* ChemotherapyToxicityRiskRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskRouter.swift; sourceTree = "<group>"; };
+		F1A8B5A22AD9D73C006FD874 /* ChemotherapyToxicityRisk.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChemotherapyToxicityRisk.storyboard; sourceTree = "<group>"; };
+		F1A8B5A32AD9D73C006FD874 /* ChemotherapyToxicityRiskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskViewController.swift; sourceTree = "<group>"; };
+		F1A8B5A42AD9D73D006FD874 /* ChemotherapyToxicityRiskPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskPresenter.swift; sourceTree = "<group>"; };
+		F1A8B5A52AD9D73D006FD874 /* ChemotherapyToxicityRiskBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskBuilder.swift; sourceTree = "<group>"; };
+		F1A8B5A62AD9D73D006FD874 /* ChemotherapyToxicityRiskWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskWorker.swift; sourceTree = "<group>"; };
+		F1A8B5A72AD9D73D006FD874 /* ChemotherapyToxicityRiskInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskInteractor.swift; sourceTree = "<group>"; };
+		F1A8B5A82AD9D73D006FD874 /* ChemotherapyToxicityRiskModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskModels.swift; sourceTree = "<group>"; };
 		F1AEEB672AA94F000038968E /* FeatureComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureComponentView.swift; sourceTree = "<group>"; };
 		F1AEEB6C2AA9508D0038968E /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		F1AEEB6F2AA9508E0038968E /* SF-Compact-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -555,6 +659,8 @@
 		F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumedPatientTableViewCell.swift; sourceTree = "<group>"; };
 		F1BE9F822AB677E300250B69 /* ResumedPatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResumedPatientTableViewCell.xib; sourceTree = "<group>"; };
 		F1BE9F872AB6846300250B69 /* NewCGAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAModels.swift; sourceTree = "<group>"; };
+		F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CGAsSubtitleHeaderView.xib; sourceTree = "<group>"; };
+		F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsSubtitleHeaderView.swift; sourceTree = "<group>"; };
 		F1E338FB2AB6A52200282AF3 /* NewCGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAViewController.swift; sourceTree = "<group>"; };
 		F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCGA.storyboard; sourceTree = "<group>"; };
 		F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGABuilder.swift; sourceTree = "<group>"; };
@@ -702,6 +808,8 @@
 				F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */,
 				F10DFB902ACA303900E1A380 /* DomainStatusView.xib */,
 				F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */,
+				F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */,
+				F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1215,8 +1323,108 @@
 				F1A8B53B2AD7967B006FD874 /* SheetableTableViewCell.xib */,
 				F1A8B53E2AD79A78006FD874 /* BottomSheet.storyboard */,
 				F1A8B5402AD79A90006FD874 /* BottomSheetViewController.swift */,
+				F1A8B5772AD8E742006FD874 /* BottomSheetBuilder.swift */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		F1A8B5442AD8BAD6006FD874 /* ApgarScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5482AD8BC04006FD874 /* ApgarScale.storyboard */,
+				F1A8B54B2AD8BC05006FD874 /* ApgarScaleViewController.swift */,
+				F1A8B5492AD8BC04006FD874 /* ApgarScaleInteractor.swift */,
+				F1A8B5472AD8BC04006FD874 /* ApgarScalePresenter.swift */,
+				F1A8B54C2AD8BC05006FD874 /* ApgarScaleWorker.swift */,
+				F1A8B54A2AD8BC04006FD874 /* ApgarScaleRouter.swift */,
+				F1A8B5462AD8BC04006FD874 /* ApgarScaleModels.swift */,
+				F1A8B5452AD8BC04006FD874 /* ApgarScaleBuilder.swift */,
+			);
+			path = ApgarScale;
+			sourceTree = "<group>";
+		};
+		F1A8B5552AD8D4C1006FD874 /* ZaritScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5592AD8D52F006FD874 /* ZaritScale.storyboard */,
+				F1A8B55C2AD8D52F006FD874 /* ZaritScaleViewController.swift */,
+				F1A8B5582AD8D52F006FD874 /* ZaritScaleInteractor.swift */,
+				F1A8B5562AD8D52E006FD874 /* ZaritScalePresenter.swift */,
+				F1A8B5572AD8D52E006FD874 /* ZaritScaleWorker.swift */,
+				F1A8B55A2AD8D52F006FD874 /* ZaritScaleRouter.swift */,
+				F1A8B55B2AD8D52F006FD874 /* ZaritScaleModels.swift */,
+				F1A8B55D2AD8D52F006FD874 /* ZaritScaleBuilder.swift */,
+			);
+			path = ZaritScale;
+			sourceTree = "<group>";
+		};
+		F1A8B5662AD8E6DB006FD874 /* PolypharmacyCriteria */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B56E2AD8E707006FD874 /* PolypharmacyCriteria.storyboard */,
+				F1A8B56B2AD8E707006FD874 /* PolypharmacyCriteriaViewController.swift */,
+				F1A8B56A2AD8E707006FD874 /* PolypharmacyCriteriaInteractor.swift */,
+				F1A8B56D2AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift */,
+				F1A8B5682AD8E706006FD874 /* PolypharmacyCriteriaWorker.swift */,
+				F1A8B5692AD8E707006FD874 /* PolypharmacyCriteriaRouter.swift */,
+				F1A8B5672AD8E706006FD874 /* PolypharmacyCriteriaModels.swift */,
+				F1A8B56C2AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift */,
+			);
+			path = PolypharmacyCriteria;
+			sourceTree = "<group>";
+		};
+		F1A8B5792AD90333006FD874 /* CharlsonIndex */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B57C2AD9035C006FD874 /* CharlsonIndex.storyboard */,
+				F1A8B57A2AD9035B006FD874 /* CharlsonIndexViewController.swift */,
+				F1A8B57E2AD9035C006FD874 /* CharlsonIndexInteractor.swift */,
+				F1A8B5812AD9035C006FD874 /* CharlsonIndexPresenter.swift */,
+				F1A8B57F2AD9035C006FD874 /* CharlsonIndexWorker.swift */,
+				F1A8B57D2AD9035C006FD874 /* CharlsonIndexRouter.swift */,
+				F1A8B5802AD9035C006FD874 /* CharlsonIndexModels.swift */,
+				F1A8B57B2AD9035C006FD874 /* CharlsonIndexBuilder.swift */,
+			);
+			path = CharlsonIndex;
+			sourceTree = "<group>";
+		};
+		F1A8B58A2AD9930D006FD874 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B58B2AD9932A006FD874 /* TextViewTableViewCell.swift */,
+				F1A8B58C2AD9932A006FD874 /* TextViewTableViewCell.xib */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		F1A8B58F2AD99C3D006FD874 /* SuspectedAbuse */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5942AD99CF6006FD874 /* SuspectedAbuse.storyboard */,
+				F1A8B5962AD99CF6006FD874 /* SuspectedAbuseViewController.swift */,
+				F1A8B5922AD99CF5006FD874 /* SuspectedAbuseInteractor.swift */,
+				F1A8B5902AD99CF5006FD874 /* SuspectedAbusePresenter.swift */,
+				F1A8B5952AD99CF6006FD874 /* SuspectedAbuseWorker.swift */,
+				F1A8B5972AD99CF6006FD874 /* SuspectedAbuseRouter.swift */,
+				F1A8B5932AD99CF6006FD874 /* SuspectedAbuseModels.swift */,
+				F1A8B5912AD99CF5006FD874 /* SuspectedAbuseBuilder.swift */,
+			);
+			path = SuspectedAbuse;
+			sourceTree = "<group>";
+		};
+		F1A8B5A02AD9D2BA006FD874 /* ChemotherapyToxicityRisk */ = {
+			isa = PBXGroup;
+			children = (
+				F1A8B5A22AD9D73C006FD874 /* ChemotherapyToxicityRisk.storyboard */,
+				F1A8B5A32AD9D73C006FD874 /* ChemotherapyToxicityRiskViewController.swift */,
+				F1A8B5A72AD9D73D006FD874 /* ChemotherapyToxicityRiskInteractor.swift */,
+				F1A8B5A42AD9D73D006FD874 /* ChemotherapyToxicityRiskPresenter.swift */,
+				F1A8B5A62AD9D73D006FD874 /* ChemotherapyToxicityRiskWorker.swift */,
+				F1A8B5A12AD9D73C006FD874 /* ChemotherapyToxicityRiskRouter.swift */,
+				F1A8B5A82AD9D73D006FD874 /* ChemotherapyToxicityRiskModels.swift */,
+				F1A8B5A52AD9D73D006FD874 /* ChemotherapyToxicityRiskBuilder.swift */,
+			);
+			path = ChemotherapyToxicityRisk;
 			sourceTree = "<group>";
 		};
 		F1AEEB662AA94EBA0038968E /* Components */ = {
@@ -1415,6 +1623,12 @@
 				F1A8B4FF2AD6C4A3006FD874 /* KatzScale */,
 				F1A8B5102AD6F513006FD874 /* LawtonScale */,
 				F1A8B5282AD7822A006FD874 /* MiniNutritionalAssessment */,
+				F1A8B5442AD8BAD6006FD874 /* ApgarScale */,
+				F1A8B5552AD8D4C1006FD874 /* ZaritScale */,
+				F1A8B5662AD8E6DB006FD874 /* PolypharmacyCriteria */,
+				F1A8B5792AD90333006FD874 /* CharlsonIndex */,
+				F1A8B58F2AD99C3D006FD874 /* SuspectedAbuse */,
+				F1A8B5A02AD9D2BA006FD874 /* ChemotherapyToxicityRisk */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1516,6 +1730,7 @@
 				F1BE9F752AB6550B00250B69 /* SearchBar */,
 				F1BE9F6A2AB6020500250B69 /* Picker */,
 				F1F2E9F02AB557400006075F /* TextField */,
+				F1A8B58A2AD9930D006FD874 /* TextView */,
 				F1F2E9E72AB36A020006075F /* Selectable */,
 				F1F1E3862ABFC23B00BC610E /* Instructions */,
 				F1F1E3932ABFD9FC00BC610E /* Stopwatch */,
@@ -1675,6 +1890,7 @@
 				F13C7B8D2ACF58D8000D5AC2 /* MiniMentalStateExam.storyboard in Resources */,
 				F10DFB992ACA46B600E1A380 /* FilterTableViewCell.xib in Resources */,
 				F1F1E3AA2AC09D5800BC610E /* ResultsTableViewCell.xib in Resources */,
+				F1A8B5612AD8D52F006FD874 /* ZaritScale.storyboard in Resources */,
 				F1F1E3772ABE296900BC610E /* TestTableViewCell.xib in Resources */,
 				F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */,
 				F16A3FDB2AD24C52007F4DF7 /* MoCA.storyboard in Resources */,
@@ -1684,6 +1900,7 @@
 				F1A8B5202AD6F684006FD874 /* LawtonScale.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
+				F1C31A042ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib in Resources */,
 				F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */,
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
@@ -1699,6 +1916,7 @@
 				F1F2E9BA2AACE85E0006075F /* FeatureComponentView.xib in Resources */,
 				F1BE9F722AB6029A00250B69 /* DatePickerTableViewCell.xib in Resources */,
 				F1AEEB8F2AA995600038968E /* Localizable.strings in Resources */,
+				F1A8B5842AD9035C006FD874 /* CharlsonIndex.storyboard in Resources */,
 				F168B7FD2ACD23CF0015B2A3 /* InfoPlist.strings in Resources */,
 				F1F1E3D72AC246D300BC610E /* ImageTableViewCell.xib in Resources */,
 				F1A9FBDE2AAA60170048E31F /* SF-Compact-Rounded-Bold.otf in Resources */,
@@ -1707,9 +1925,12 @@
 				F1A8B53D2AD7967B006FD874 /* SheetableTableViewCell.xib in Resources */,
 				F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */,
 				F168B7E72ACBE8A10015B2A3 /* PatientTableViewCell.xib in Resources */,
+				F1A8B59C2AD99CF6006FD874 /* SuspectedAbuse.storyboard in Resources */,
+				F1A8B5762AD8E707006FD874 /* PolypharmacyCriteria.storyboard in Resources */,
 				F1A9FBE02AAA60170048E31F /* SF-Compact-Display-Bold.otf in Resources */,
 				F1F2E9EB2AB36A540006075F /* SelectableTableViewCell.xib in Resources */,
 				F13C7B8A2ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.xib in Resources */,
+				F1A8B5502AD8BC05006FD874 /* ApgarScale.storyboard in Resources */,
 				F1F1E3B12AC0C57C00BC610E /* Results.storyboard in Resources */,
 				F1F1E38C2ABFC37000BC610E /* SingleInstructionView.xib in Resources */,
 				F1EB0FB52AD5B0220087AAB2 /* VisualAcuityAssessment.storyboard in Resources */,
@@ -1718,7 +1939,9 @@
 				F1F1E3AC2AC0A07200BC610E /* SingleResultView.xib in Resources */,
 				F1A9FBD12AAA60170048E31F /* SF-Compact-Display-Semibold.otf in Resources */,
 				F140977E2ABB616C00E92005 /* TooltipTableViewCell.xib in Resources */,
+				F1A8B5AA2AD9D73D006FD874 /* ChemotherapyToxicityRisk.storyboard in Resources */,
 				F1BE9F842AB677E300250B69 /* ResumedPatientTableViewCell.xib in Resources */,
+				F1A8B58E2AD9932A006FD874 /* TextViewTableViewCell.xib in Resources */,
 				F1F295832AAADC6800E52B92 /* TodoEvaluationTableViewCell.xib in Resources */,
 				F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */,
 				F1F2E9DA2AB342400006075F /* SelectableView.xib in Resources */,
@@ -1809,15 +2032,21 @@
 				F16A3FD72AD23FC4007F4DF7 /* GroupedButtonView.swift in Sources */,
 				F17D36B02AD64DD600AE5D98 /* HearingLossAssessmentWorker.swift in Sources */,
 				F16A3FC42AD20F8E007F4DF7 /* ClockDrawingWorker.swift in Sources */,
+				F1A8B5632AD8D52F006FD874 /* ZaritScaleModels.swift in Sources */,
+				F1A8B5982AD99CF6006FD874 /* SuspectedAbusePresenter.swift in Sources */,
 				F1F1E3A92AC09D5800BC610E /* ResultsTableViewCell.swift in Sources */,
 				F10DFB982ACA46B600E1A380 /* FilterTableViewCell.swift in Sources */,
 				F14097682AB7A3C100E92005 /* TitleTableViewCell.swift in Sources */,
+				F1A8B5B02AD9D73D006FD874 /* ChemotherapyToxicityRiskModels.swift in Sources */,
 				F1F2E9CD2AB275A90006075F /* TabBarRouter.swift in Sources */,
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
+				F1A8B55E2AD8D52F006FD874 /* ZaritScalePresenter.swift in Sources */,
 				F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */,
+				F1C31A062ADA242700F37A1F /* CGAsSubtitleHeaderView.swift in Sources */,
 				F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */,
 				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1EB0FBB2AD5B0650087AAB2 /* VisualAcuityAssessmentPresenter.swift in Sources */,
+				F1A8B55F2AD8D52F006FD874 /* ZaritScaleWorker.swift in Sources */,
 				F1EB0FB72AD5B0330087AAB2 /* VisualAcuityAssessmentViewController.swift in Sources */,
 				F1F2E9BD2AACEBD70006075F /* NoRecentApplicationTableViewCell.swift in Sources */,
 				F1F295822AAADC6800E52B92 /* TodoEvaluationTableViewCell.swift in Sources */,
@@ -1829,6 +2058,9 @@
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
 				F140976B2AB7B17700E92005 /* DashboardInteractor.swift in Sources */,
 				F168B7F32ACCD7AB0015B2A3 /* PatientsWorker.swift in Sources */,
+				F1A8B5542AD8BC05006FD874 /* ApgarScaleWorker.swift in Sources */,
+				F1A8B5822AD9035C006FD874 /* CharlsonIndexViewController.swift in Sources */,
+				F1A8B5872AD9035C006FD874 /* CharlsonIndexWorker.swift in Sources */,
 				F1F2E9B62AACE0B70006075F /* UIView+Extension.swift in Sources */,
 				F14097912ABBC53000E92005 /* CGADomainsInteractor.swift in Sources */,
 				F1A8B5372AD782FD006FD874 /* MiniNutritionalAssessmentViewController.swift in Sources */,
@@ -1840,10 +2072,14 @@
 				F1EB0FBF2AD5B0790087AAB2 /* VisualAcuityAssessmentRouter.swift in Sources */,
 				F16A3FC62AD20F97007F4DF7 /* ClockDrawingRouter.swift in Sources */,
 				F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */,
+				F1A8B5AF2AD9D73D006FD874 /* ChemotherapyToxicityRiskInteractor.swift in Sources */,
 				F13C7B7B2ACDF753000D5AC2 /* StatusHeaderView.swift in Sources */,
 				F168B7EF2ACCD78C0015B2A3 /* PatientsPresenter.swift in Sources */,
+				F1A8B59D2AD99CF6006FD874 /* SuspectedAbuseWorker.swift in Sources */,
+				F1A8B5852AD9035C006FD874 /* CharlsonIndexRouter.swift in Sources */,
 				F1F295882AAAF5E700E52B92 /* NoTodoEvaluationTableViewCell.swift in Sources */,
 				F1EB0FA92AD3AFF00087AAB2 /* GeriatricDepressionScalePresenter.swift in Sources */,
+				F1A8B5742AD8E707006FD874 /* PolypharmacyCriteriaBuilder.swift in Sources */,
 				F1EB0FAB2AD3AFF80087AAB2 /* GeriatricDepressionScaleWorker.swift in Sources */,
 				F1F1E3A32ABFF55400BC610E /* TimedUpAndGoRouter.swift in Sources */,
 				F1A8B5382AD782FD006FD874 /* MiniNutritionalAssessmentModels.swift in Sources */,
@@ -1851,6 +2087,8 @@
 				F16A3FC02AD20F78007F4DF7 /* ClockDrawingInteractor.swift in Sources */,
 				F1BE9F782AB6552C00250B69 /* SearchBarTableViewCell.swift in Sources */,
 				F1F2E9EA2AB36A540006075F /* SelectableTableViewCell.swift in Sources */,
+				F1A8B5752AD8E707006FD874 /* PolypharmacyCriteriaPresenter.swift in Sources */,
+				F1A8B5702AD8E707006FD874 /* PolypharmacyCriteriaWorker.swift in Sources */,
 				F1F2E9D72AB2996B0006075F /* UIColor+Extension.swift in Sources */,
 				F1EB0FA72AD3AFE40087AAB2 /* GeriatricDepressionScaleInteractor.swift in Sources */,
 				F168B7DD2ACBCCE70015B2A3 /* EmptyStateTableViewCell.swift in Sources */,
@@ -1858,8 +2096,10 @@
 				F140978B2ABBAF8700E92005 /* CGADomainsModels.swift in Sources */,
 				F1A8B5342AD782FD006FD874 /* MiniNutritionalAssessmentBuilder.swift in Sources */,
 				F1A8B5192AD6F684006FD874 /* LawtonScaleModels.swift in Sources */,
+				F1A8B5AD2AD9D73D006FD874 /* ChemotherapyToxicityRiskBuilder.swift in Sources */,
 				F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */,
 				F1F2E9CF2AB2794F0006075F /* UIImage+Extension.swift in Sources */,
+				F1A8B58D2AD9932A006FD874 /* TextViewTableViewCell.swift in Sources */,
 				F1F1E37F2ABEA4FB00BC610E /* SingleDomainInteractor.swift in Sources */,
 				F1F1E3D62AC246D300BC610E /* ImageTableViewCell.swift in Sources */,
 				F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */,
@@ -1876,6 +2116,7 @@
 				F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */,
 				F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */,
 				F138F2542AC939CA004E90E2 /* WalkingSpeedWorker.swift in Sources */,
+				F1A8B5642AD8D52F006FD874 /* ZaritScaleViewController.swift in Sources */,
 				F1A8B5032AD6C4FB006FD874 /* KatzScaleViewController.swift in Sources */,
 				F168B7E92ACCACA60015B2A3 /* PatientsModels.swift in Sources */,
 				F177F7F12AA793BE00C1EB32 /* DashboardViewController.swift in Sources */,
@@ -1885,12 +2126,14 @@
 				F1F2E9EF2AB39F5A0006075F /* CGAModels.swift in Sources */,
 				F18698F82AC6721000FB5620 /* SarcopeniaAssessmentInteractor.swift in Sources */,
 				F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */,
+				F1A8B5722AD8E707006FD874 /* PolypharmacyCriteriaInteractor.swift in Sources */,
 				F10DFBA32ACA525A00E1A380 /* CGAsRouter.swift in Sources */,
 				F10DFB9B2ACA521300E1A380 /* CGAsViewController.swift in Sources */,
 				F1F1E3832ABEA51300BC610E /* SingleDomainRouter.swift in Sources */,
 				F1F2E9CB2AB275420006075F /* TabBarBuilder.swift in Sources */,
 				F168B7E62ACBE8A10015B2A3 /* PatientTableViewCell.swift in Sources */,
 				F1A8B51F2AD6F684006FD874 /* LawtonScaleRouter.swift in Sources */,
+				F1A8B54D2AD8BC05006FD874 /* ApgarScaleBuilder.swift in Sources */,
 				F14097712AB7B26E00E92005 /* DashboardRouter.swift in Sources */,
 				F16A3FDD2AD24C64007F4DF7 /* MoCAViewController.swift in Sources */,
 				F18698F62AC6721000FB5620 /* SarcopeniaAssessmentRouter.swift in Sources */,
@@ -1898,27 +2141,35 @@
 				F168B7E02ACBD1730015B2A3 /* CGADomainsBuilder.swift in Sources */,
 				F140978F2ABBC52300E92005 /* CGADomainsViewController.swift in Sources */,
 				F1F2E9D12AB28BFC0006075F /* DashboardBuilder.swift in Sources */,
+				F1A8B59F2AD99CF6006FD874 /* SuspectedAbuseRouter.swift in Sources */,
 				F1A8B50D2AD6C692006FD874 /* KatzScaleModels.swift in Sources */,
 				F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */,
 				F168B7EB2ACCD77B0015B2A3 /* PatientsInteractor.swift in Sources */,
 				F16A3FE72AD24CF8007F4DF7 /* MoCAModels.swift in Sources */,
 				F1F1E3A52ABFF56200BC610E /* TimedUpAndGoModels.swift in Sources */,
 				F168B7F12ACCD7950015B2A3 /* PatientsRouter.swift in Sources */,
+				F1A8B5732AD8E707006FD874 /* PolypharmacyCriteriaViewController.swift in Sources */,
 				F13C7B7F2ACE5B8D000D5AC2 /* LocalStorageKeys.swift in Sources */,
 				F17D36B42AD64DF700AE5D98 /* HearingLossAssessmentModels.swift in Sources */,
 				F18698CF2AC4733300FB5620 /* GripStrengthPresenter.swift in Sources */,
+				F1A8B5512AD8BC05006FD874 /* ApgarScaleInteractor.swift in Sources */,
 				F13CD10E2AD1E8C80011E4DF /* VerbalFluencyViewController.swift in Sources */,
 				F177F7ED2AA793BE00C1EB32 /* AppDelegate.swift in Sources */,
 				F1F1E39D2ABFF32E00BC610E /* TimedUpAndGoViewController.swift in Sources */,
 				F138F2562AC9423B004E90E2 /* GripStrengthWorker.swift in Sources */,
+				F1A8B5532AD8BC05006FD874 /* ApgarScaleViewController.swift in Sources */,
 				F1F2E9ED2AB36AD00006075F /* UIFont+Extension.swift in Sources */,
+				F1A8B59A2AD99CF6006FD874 /* SuspectedAbuseInteractor.swift in Sources */,
+				F1A8B5622AD8D52F006FD874 /* ZaritScaleRouter.swift in Sources */,
 				F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */,
 				F13CD1162AD1E9760011E4DF /* VerbalFluencyRouter.swift in Sources */,
 				F18698EB2AC4D4A200FB5620 /* SarcopeniaScreeningModels.swift in Sources */,
+				F1A8B5652AD8D52F006FD874 /* ZaritScaleBuilder.swift in Sources */,
 				F18698FC2AC6721000FB5620 /* SarcopeniaAssessmentViewController.swift in Sources */,
 				F17D36B82AD64E0A00AE5D98 /* HearingLossAssessmentBuilder.swift in Sources */,
 				F10DFB8E2ACA302D00E1A380 /* CGATableViewCell.swift in Sources */,
 				F18698DB2AC4B53100FB5620 /* CalfCircumferenceBuilder.swift in Sources */,
+				F1A8B5A92AD9D73D006FD874 /* ChemotherapyToxicityRiskRouter.swift in Sources */,
 				F13CD11A2AD1EE960011E4DF /* VerbalFluencyBuilder.swift in Sources */,
 				F13C7B8F2ACF58F2000D5AC2 /* MiniMentalStateExamViewController.swift in Sources */,
 				F1F1E3C82AC10ED900BC610E /* WalkingSpeedInteractor.swift in Sources */,
@@ -1930,17 +2181,21 @@
 				F1F2E9D52AB298CC0006075F /* NavigationBuilder.swift in Sources */,
 				F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */,
 				F13CD1102AD1E8D70011E4DF /* VerbalFluencyInteractor.swift in Sources */,
+				F1A8B5782AD8E742006FD874 /* BottomSheetBuilder.swift in Sources */,
 				F1A8B50F2AD6C69A006FD874 /* KatzScaleBuilder.swift in Sources */,
 				F14097882ABBA24600E92005 /* TestNameView.swift in Sources */,
 				F13CD1182AD1E9820011E4DF /* VerbalFluencyModels.swift in Sources */,
 				F13CD1122AD1E8EA0011E4DF /* VerbalFluencyPresenter.swift in Sources */,
+				F1A8B5522AD8BC05006FD874 /* ApgarScaleRouter.swift in Sources */,
 				F16A3FC82AD20FA2007F4DF7 /* ClockDrawingModels.swift in Sources */,
 				F16A3FD42AD23FAE007F4DF7 /* GroupedButtonsTableViewCell.swift in Sources */,
 				F17D36B22AD64DE000AE5D98 /* HearingLossAssessmentRouter.swift in Sources */,
 				F1A8B5362AD782FD006FD874 /* MiniNutritionalAssessmentInteractor.swift in Sources */,
 				F138F25C2AC9526B004E90E2 /* SarcopeniaAssessmentWorker.swift in Sources */,
 				F1F1E3812ABEA50700BC610E /* SingleDomainPresenter.swift in Sources */,
+				F1A8B5712AD8E707006FD874 /* PolypharmacyCriteriaRouter.swift in Sources */,
 				F16A3FE92AD24D01007F4DF7 /* MoCABuilder.swift in Sources */,
+				F1A8B59E2AD99CF6006FD874 /* SuspectedAbuseViewController.swift in Sources */,
 				F14097832ABB965B00E92005 /* CGADomainTableViewCell.swift in Sources */,
 				F1EB0FB92AD5B04B0087AAB2 /* VisualAcuityAssessmentInteractor.swift in Sources */,
 				F1F1E3D22AC134C000BC610E /* Double+Extension.swift in Sources */,
@@ -1959,6 +2214,7 @@
 				F1EB0FA52AD3AFD20087AAB2 /* GeriatricDepressionScaleViewController.swift in Sources */,
 				F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */,
 				F1BE9F712AB6029A00250B69 /* DatePickerTableViewCell.swift in Sources */,
+				F1A8B5992AD99CF6006FD874 /* SuspectedAbuseBuilder.swift in Sources */,
 				F1EB0FB12AD3B0110087AAB2 /* GeriatricDepressionScaleBuilder.swift in Sources */,
 				F1F1E3792ABE38A600BC610E /* SingleDomainModels.swift in Sources */,
 				F1F1E3CA2AC10EE300BC610E /* WalkingSpeedPresenter.swift in Sources */,
@@ -1969,13 +2225,16 @@
 				F1A8B51E2AD6F684006FD874 /* LawtonScaleViewController.swift in Sources */,
 				F1F1E3AE2AC0A7DB00BC610E /* SingleResultView.swift in Sources */,
 				F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */,
+				F1A8B54E2AD8BC05006FD874 /* ApgarScaleModels.swift in Sources */,
 				F13CD1142AD1E9670011E4DF /* VerbalFluencyWorker.swift in Sources */,
 				F1F2E9E02AB355C90006075F /* SelectableKeys.swift in Sources */,
 				F1EB0FC52AD5DC840087AAB2 /* NSLayoutConstraint+Extension.swift in Sources */,
+				F1A8B59B2AD99CF6006FD874 /* SuspectedAbuseModels.swift in Sources */,
 				F1F2E9DE2AB355130006075F /* SelectableView.swift in Sources */,
 				F14097732AB7D43B00E92005 /* NewCGAInteractor.swift in Sources */,
 				F168B7F52ACCD7C50015B2A3 /* PatientsViewController.swift in Sources */,
 				F18698DD2AC4B5B900FB5620 /* GripStrengthBuilder.swift in Sources */,
+				F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
 				F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */,
@@ -1984,12 +2243,17 @@
 				F18698D72AC4B28700FB5620 /* TimedUpAndGoBuilder.swift in Sources */,
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
+				F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
+				F1A8B5AB2AD9D73D006FD874 /* ChemotherapyToxicityRiskViewController.swift in Sources */,
 				F138F2582AC94848004E90E2 /* CalfCircumferenceWorker.swift in Sources */,
 				F18698CB2AC472F200FB5620 /* GripStrengthViewController.swift in Sources */,
+				F1A8B5602AD8D52F006FD874 /* ZaritScaleInteractor.swift in Sources */,
+				F1A8B5862AD9035C006FD874 /* CharlsonIndexInteractor.swift in Sources */,
 				F18698D92AC4B4DA00FB5620 /* WalkingSpeedBuilder.swift in Sources */,
 				F1F1E3B72AC0C61400BC610E /* ResultsPresenter.swift in Sources */,
+				F1A8B56F2AD8E707006FD874 /* PolypharmacyCriteriaModels.swift in Sources */,
 				F1F295852AAAF3E700E52B92 /* NSAttributedString+Extension.swift in Sources */,
 				F18698CD2AC4732600FB5620 /* GripStrengthInteractor.swift in Sources */,
 				F16A3FCA2AD20FAA007F4DF7 /* ClockDrawingBuilder.swift in Sources */,
@@ -2003,6 +2267,7 @@
 				F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */,
 				F140976D2AB7B20500E92005 /* DashboardModels.swift in Sources */,
 				F1A8B53C2AD7967B006FD874 /* SheetableTableViewCell.swift in Sources */,
+				F1A8B5AC2AD9D73D006FD874 /* ChemotherapyToxicityRiskPresenter.swift in Sources */,
 				F16A3FE32AD24CDA007F4DF7 /* MoCAWorker.swift in Sources */,
 				F13C7B952ACF592D000D5AC2 /* MiniMentalStateExamWorker.swift in Sources */,
 				F13C7B912ACF5917000D5AC2 /* MiniMentalStateExamInteractor.swift in Sources */,
@@ -2015,11 +2280,14 @@
 				F17D36A82AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift in Sources */,
 				F177F7EF2AA793BE00C1EB32 /* SceneDelegate.swift in Sources */,
 				F16A3FE12AD24CCF007F4DF7 /* MoCAPresenter.swift in Sources */,
+				F1A8B5AE2AD9D73D006FD874 /* ChemotherapyToxicityRiskWorker.swift in Sources */,
 				F13C7B892ACF3AF7000D5AC2 /* BinaryOptionsTableViewCell.swift in Sources */,
+				F1A8B5892AD9035C006FD874 /* CharlsonIndexPresenter.swift in Sources */,
 				F1F2958C2AACC0A800E52B92 /* RecentApplicationTableViewCell.swift in Sources */,
 				F1A8B51D2AD6F684006FD874 /* LawtonScaleBuilder.swift in Sources */,
 				F1F1E3B52AC0C60A00BC610E /* ResultsInteractor.swift in Sources */,
 				F1A8B5312AD782FD006FD874 /* MiniNutritionalAssessmentPresenter.swift in Sources */,
+				F1A8B5832AD9035C006FD874 /* CharlsonIndexBuilder.swift in Sources */,
 				F168B7FA2ACCF17D0015B2A3 /* TimeInterval+Extension.swift in Sources */,
 				F1EB0FAD2AD3B0000087AAB2 /* GeriatricDepressionScaleRouter.swift in Sources */,
 				F1F1E3A12ABFF54700BC610E /* TimedUpAndGoPresenter.swift in Sources */,

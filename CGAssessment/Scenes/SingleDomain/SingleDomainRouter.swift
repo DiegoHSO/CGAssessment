@@ -59,19 +59,19 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         case .miniNutritionalAssessment:
             routeToMiniNutritionalAssessment(cgaId: cgaId)
         case .apgarScale:
-            break
+            routeToApgarScale(cgaId: cgaId)
         case .zaritScale:
-            break
+            routeToZaritScale(cgaId: cgaId)
         case .polypharmacyCriteria:
-            break
+            routeToPolypharmacyCriteria(cgaId: cgaId)
         case .charlsonIndex:
-            break
+            routeToCharlsonIndex(cgaId: cgaId)
         case .suspectedAbuse:
-            break
+            routeToSuspectedAbuse(cgaId: cgaId)
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            routeToChemotherapyToxicityRisk(cgaId: cgaId)
         default:
             break
         }
@@ -167,5 +167,41 @@ class SingleDomainRouter: SingleDomainRoutingLogic {
         guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
+    }
+
+    private func routeToApgarScale(cgaId: UUID?) {
+        guard let apgarScaleController = ApgarScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(apgarScaleController, animated: true)
+    }
+
+    private func routeToZaritScale(cgaId: UUID?) {
+        guard let zaritScaleController = ZaritScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(zaritScaleController, animated: true)
+    }
+
+    private func routeToPolypharmacyCriteria(cgaId: UUID?) {
+        guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
+    }
+
+    private func routeToCharlsonIndex(cgaId: UUID?) {
+        guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
+    }
+
+    private func routeToSuspectedAbuse(cgaId: UUID?) {
+        guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
+    }
+
+    private func routeToChemotherapyToxicityRisk(cgaId: UUID?) {
+        guard let chemotherapyToxicityRiskController = ChemotherapyToxicityRiskBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(chemotherapyToxicityRiskController, animated: true)
     }
 }

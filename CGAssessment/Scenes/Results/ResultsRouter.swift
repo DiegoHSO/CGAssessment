@@ -63,19 +63,19 @@ class ResultsRouter: ResultsRoutingLogic {
         case .miniNutritionalAssessment:
             routeToMiniNutritionalAssessment()
         case .apgarScale:
-            break
+            routeToApgarScale()
         case .zaritScale:
-            break
+            routeToZaritScale()
         case .polypharmacyCriteria:
-            break
+            routeToPolypharmacyCriteria()
         case .charlsonIndex:
-            break
+            routeToCharlsonIndex()
         case .suspectedAbuse:
-            break
+            routeToSuspectedAbuse()
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            routeToChemotherapyToxicityRisk()
         default:
             break
         }
@@ -205,5 +205,41 @@ class ResultsRouter: ResultsRoutingLogic {
         guard let miniNutritionalAssessmentController = MiniNutritionalAssessmentBuilder.build(cgaId: cgaId) else { return }
 
         viewController?.navigationController?.pushViewController(miniNutritionalAssessmentController, animated: true)
+    }
+
+    private func routeToApgarScale() {
+        guard let apgarScaleController = ApgarScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(apgarScaleController, animated: true)
+    }
+
+    private func routeToZaritScale() {
+        guard let zaritScaleController = ZaritScaleBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(zaritScaleController, animated: true)
+    }
+
+    private func routeToPolypharmacyCriteria() {
+        guard let polypharmacyCriteriaController = PolypharmacyCriteriaBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(polypharmacyCriteriaController, animated: true)
+    }
+
+    private func routeToCharlsonIndex() {
+        guard let charlsonIndexController = CharlsonIndexBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(charlsonIndexController, animated: true)
+    }
+
+    private func routeToSuspectedAbuse() {
+        guard let suspectedAbuseController = SuspectedAbuseBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(suspectedAbuseController, animated: true)
+    }
+
+    private func routeToChemotherapyToxicityRisk() {
+        guard let chemotherapyToxicityRiskController = ChemotherapyToxicityRiskBuilder.build(cgaId: cgaId) else { return }
+
+        viewController?.navigationController?.pushViewController(chemotherapyToxicityRiskController, animated: true)
     }
 }
