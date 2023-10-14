@@ -849,6 +849,12 @@ class CoreDataDAO: CoreDataDAOProtocol {
     func deletePatient(patientId: UUID) throws {
         guard let patient = try fetchPatient(patientId: patientId) else { throw CoreDataErrors.unableToDeletePatient }
 
+        if let cgas = patient.cgas?.allObjects as? [CGA] {
+            try cgas.forEach { cga in
+                if let cgaId = cga.cgaId { try self.deleteCGA(cgaId: cgaId) }
+            }
+        }
+
         context.delete(patient)
 
         try context.save()

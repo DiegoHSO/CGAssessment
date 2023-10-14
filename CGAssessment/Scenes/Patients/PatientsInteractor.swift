@@ -11,6 +11,8 @@ protocol PatientsLogic: FilterDelegate, SearchBarDelegate {
     func controllerDidLoad()
     func didSelect(patientId: UUID?)
     func didTapToStartNewCGA()
+    func didSwipeToDelete(indexPath: IndexPath)
+    func didConfirmDeletion(for patientId: UUID?)
 }
 
 class PatientsInteractor: PatientsLogic {
@@ -63,6 +65,18 @@ class PatientsInteractor: PatientsLogic {
     func didChange(searchText: String) {
         self.searchText = searchText
         sendDataToPresenter(isSearching: true)
+    }
+
+    func didSwipeToDelete(indexPath: IndexPath) {
+        presenter?.presentDeletionAlert(for: indexPath)
+    }
+
+    func didConfirmDeletion(for patientId: UUID?) {
+        do {
+            try worker?.deletePatient(patientId: patientId)
+        } catch {
+            presenter?.presentErrorDeletingAlert()
+        }
     }
 
     // MARK: - Private Methods

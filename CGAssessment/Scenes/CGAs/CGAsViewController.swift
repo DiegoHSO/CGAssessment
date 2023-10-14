@@ -184,7 +184,7 @@ extension CGAsViewController: UITableViewDelegate {
         }
     }
 
-    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 0 {
             return .none
         } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section - 1],
