@@ -33,34 +33,9 @@ class MiniNutritionalAssessmentRouter: MiniNutritionalAssessmentRoutingLogic {
     }
 
     func openBottomSheet(viewModel: CGAModels.BottomSheetViewModel) {
-        let storyboard = UIStoryboard(name: "BottomSheet", bundle: Bundle.main)
-        guard let bottomSheetController = UIStoryboard
-                .instantiateInitialViewController(storyboard)() as? BottomSheetViewController else {
-            return
-        }
+        guard let bottomSheetController = BottomSheetBuilder.build(viewModel: viewModel,
+                                                                   height: viewController?.view.frame.height ?? 0) else { return }
 
-        bottomSheetController.setupArchitecture(viewModel: viewModel)
-        let navigationController = UINavigationController(rootViewController: bottomSheetController)
-
-        let multiplier = 0.3
-        let height = viewController?.view.frame.height ?? 0
-        let detents: [UISheetPresentationController.Detent]
-
-        if #available(iOS 16.0, *) {
-            let small = UISheetPresentationController.Detent.custom { _ in
-                height * multiplier
-            }
-
-            detents = [small]
-        } else {
-            detents = [.medium()]
-        }
-
-        if let sheet = navigationController.sheetPresentationController {
-            sheet.detents = detents
-            sheet.prefersGrabberVisible = true
-        }
-
-        viewController?.present(navigationController, animated: true, completion: nil)
+        viewController?.present(bottomSheetController, animated: true, completion: nil)
     }
 }

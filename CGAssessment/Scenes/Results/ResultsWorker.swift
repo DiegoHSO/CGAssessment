@@ -73,19 +73,24 @@ class ResultsWorker {
             guard let miniNutritionalAssessmentResults = results as? MiniNutritionalAssessmentModels.TestResults else { return nil }
             return getMiniNutritionalAsessmentResults(for: miniNutritionalAssessmentResults)
         case .apgarScale:
-            break
+            guard let apgarScaleResults = results as? ApgarScaleModels.TestResults else { return nil }
+            return getApgarScaleResults(for: apgarScaleResults)
         case .zaritScale:
-            break
+            guard let zaritScaleResults = results as? ZaritScaleModels.TestResults else { return nil }
+            return getZaritScaleResults(for: zaritScaleResults)
         case .polypharmacyCriteria:
-            break
+            guard let polypharmacyCriteriaResults = results as? PolypharmacyCriteriaModels.TestResults else { return nil }
+            return getPolypharmacyCriteriaResults(for: polypharmacyCriteriaResults)
         case .charlsonIndex:
-            break
+            guard let charlsonIndexResults = results as? CharlsonIndexModels.TestResults else { return nil }
+            return getCharlsonIndexResults(for: charlsonIndexResults)
         case .suspectedAbuse:
             break
         case .cardiovascularRiskEstimation:
             break
         case .chemotherapyToxicityRisk:
-            break
+            guard let chemotherapyToxicityRiskResults = results as? ChemotherapyToxicityRiskModels.TestResults else { return nil }
+            return getChemotherapyToxicityRiskResults(for: chemotherapyToxicityRiskResults)
         default:
             break
         }
@@ -665,6 +670,162 @@ class ResultsWorker {
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         if bmi > 0 { results.insert(.init(title: LocalizedTable.bmi.localized, description: "\(bmi.regionFormatted()) kg/m²"), at: 1) }
+
+        return (results, resultType)
+    }
+
+    private func getApgarScaleResults(for testResults: ApgarScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        let totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
+            selectedOptions.filter { $0 == .thirdOption }.count * 2
+
+        let resultType: ResultsModels.ResultType = totalPoints < 4 ? .bad : totalPoints < 7 ? .medium : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .apgarScaleExcellentResult
+        case .medium: .apgarScaleMediumResult
+        case .bad: .apgarScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getZaritScaleResults(for testResults: ZaritScaleModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let selectedOptions = testResults.questions.values.map { $0 as SelectableKeys }
+
+        var totalPoints = selectedOptions.filter { $0 == .firstOption }.count * 1 + selectedOptions.filter { $0 == .secondOption }.count * 2 + selectedOptions.filter { $0 == .thirdOption }.count * 3
+        totalPoints += selectedOptions.filter { $0 == .fourthOption }.count * 4 + selectedOptions.filter { $0 == .fifthOption }.count * 5
+
+        let resultType: ResultsModels.ResultType = totalPoints < 15 ? .excellent : totalPoints < 22 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .zaritScaleExcellentResult
+        case .medium: .zaritScaleMediumResult
+        case .bad: .zaritScaleBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getPolypharmacyCriteriaResults(for testResults: PolypharmacyCriteriaModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let resultType: ResultsModels.ResultType = testResults.numberOfMedicines > 4 ? .bad : .excellent
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .polypharmacyCriteriaExcellentResult
+        case .bad: .polypharmacyCriteriaBadResult
+        default: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.numberOfMedicines.localized,
+                                                     description: "\(testResults.numberOfMedicines) \(testResults.numberOfMedicines == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getCharlsonIndexResults(for testResults: CharlsonIndexModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        let binaryOptionsDictionaries = testResults.binaryQuestions.map { $0.value }
+
+        let weightOneResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key < 10 }.map { $0.value }
+        }
+
+        let weightTwoResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key > 9 && $0.key < 16 }.map { $0.value }
+        }
+
+        let weightThreeResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key == 16 }.map { $0.value }
+        }
+
+        let weightSixResults = binaryOptionsDictionaries.reduce([]) { partialResult, dictionary in
+            partialResult + dictionary.filter { $0.key > 16 }.map { $0.value }
+        }
+
+        let weightOneResultsPointed = weightOneResults.filter { $0 == .yes }.count
+        let weightTwoResultsPointed = weightTwoResults.filter { $0 == .yes }.count * 2
+        let weightThreeResultsPointed = weightThreeResults.filter { $0 == .yes }.count * 3
+        let weightSixResultsPointed = weightSixResults.filter { $0 == .yes }.count * 6
+
+        let patientAgePoints: Int
+
+        if let birthDate = testResults.patientBirthDate {
+            switch birthDate.yearSinceCurrentDate {
+            case 0...49:
+                patientAgePoints = 0
+            case 50...59:
+                patientAgePoints = 1
+            case 60...69:
+                patientAgePoints = 2
+            case 70...79:
+                patientAgePoints = 3
+            case 80...89:
+                patientAgePoints = 4
+            case 90...:
+                patientAgePoints = 5
+            default:
+                patientAgePoints = 0
+            }
+        } else {
+            patientAgePoints = 0
+        }
+
+        let totalPoints = weightOneResultsPointed + weightTwoResultsPointed + weightThreeResultsPointed + weightSixResultsPointed + patientAgePoints
+
+        let resultType: ResultsModels.ResultType = totalPoints < 1 ? .excellent : totalPoints < 3 ? .good : totalPoints < 5 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .charlsonIndexExcellentResult
+        case .good: .charlsonIndexGoodResult
+        case .medium: .charlsonIndexMediumResult
+        case .bad: .charlsonIndexBadResult
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
+
+        return (results, resultType)
+    }
+
+    private func getChemotherapyToxicityRiskResults(for testResults: ChemotherapyToxicityRiskModels.TestResults) -> ([ResultsModels.Result], ResultsModels.ResultType) {
+        var totalPoints: Int = 0
+
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionOne] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionTwo] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionThree] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionFour] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionFive] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionSix] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionSeven] == .firstOption ? 3 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionEight] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionNine] == .firstOption ? 2 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionTen] == .firstOption ? 1 : 0
+        totalPoints += testResults.questions[.chemotherapyToxicityRiskQuestionEleven] == .firstOption ? 2 : 0
+
+        let resultType: ResultsModels.ResultType = totalPoints < 6 ? .excellent : totalPoints < 10 ? .medium : .bad
+
+        let resultText: LocalizedTable = switch resultType {
+        case .excellent: .chemotherapyToxicityRiskExcellentResult
+        case .medium: .chemotherapyToxicityRiskMediumResult
+        case .bad: .chemotherapyToxicityRiskBadResult
+        case .good: .none
+        }
+
+        let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
+                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                               .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)
     }

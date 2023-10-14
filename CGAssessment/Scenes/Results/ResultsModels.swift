@@ -19,8 +19,8 @@ struct ResultsModels {
             var optionsForFirstSection: [Row] = [.results]
             var optionsForSecondSection: [Row] = [.nextTest, .goBack]
 
-            if isInSpecialFlow {
-                optionsForSecondSection.removeAll(where: { $0 == .nextTest})
+            if isInSpecialFlow || testName == LocalizedTable.chemotherapyToxicityRisk.localized {
+                optionsForSecondSection.removeAll(where: { $0 == .nextTest })
             }
 
             if testName == LocalizedTable.sarcopeniaScreening.localized, resultType == .bad {

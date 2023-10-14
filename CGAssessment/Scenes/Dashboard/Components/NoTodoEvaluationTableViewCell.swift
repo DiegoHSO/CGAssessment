@@ -25,7 +25,7 @@ class NoTodoEvaluationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupLabels()
+        setupViews()
     }
 
     // MARK: - Public Methods
@@ -40,10 +40,14 @@ class NoTodoEvaluationTableViewCell: UITableViewCell {
         delegate?.didTapToReviewCGAs()
     }
 
-    private func setupLabels() {
+    private func setupViews() {
         noReapplicationsNextLabel?.text = LocalizedTable.noReapplicationsNext.localized
+        noReapplicationsNextLabel?.font = .compactDisplay(withStyle: .semibold, size: 15)
         upToDateLabel?.text = LocalizedTable.upToDate.localized
+        upToDateLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         callToActionLabel?.text = LocalizedTable.reviseCGAs.localized
+        callToActionLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         callToActionButton?.setTitle(LocalizedTable.reviseCGAsAction.localized, for: .normal)
+        callToActionButton?.titleLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
     }
 }

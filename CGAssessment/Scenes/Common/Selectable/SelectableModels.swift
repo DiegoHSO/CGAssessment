@@ -17,6 +17,7 @@ struct SelectableModels {
         var questionsSpacing: CGFloat = 10
         var leadingConstraint: CGFloat = 30
         var textStyle: Style = .regular
+        var allowsEditing: Bool = true
     }
 
     struct ComponentViewModel {

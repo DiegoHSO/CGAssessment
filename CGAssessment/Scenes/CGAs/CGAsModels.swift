@@ -68,7 +68,7 @@ struct CGAsModels {
         var color: UIColor? {
             switch self {
             case .incomplete:
-                return .label10
+                return .label11
             case .notStarted:
                 return .label9
             case .done:

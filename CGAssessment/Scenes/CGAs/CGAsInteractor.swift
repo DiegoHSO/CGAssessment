@@ -170,6 +170,63 @@ class CGAsInteractor: CGAsLogic {
                     domainsStatus.updateValue(.incomplete, forKey: .nutritional)
                 }
 
+                // MARK: - Social domain done check
+
+                if let apgarScale = cga.apgarScale, let zaritScale = cga.zaritScale {
+                    if apgarScale.isDone, zaritScale.isDone {
+                        domainsStatus.updateValue(.done, forKey: .social)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .social)
+                    }
+                } else if cga.apgarScale == nil, cga.zaritScale == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .social)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .social)
+                }
+
+                // MARK: - Polypharmacy domain done check
+
+                if let polypharmacyCriteria = cga.polypharmacyCriteria {
+                    if polypharmacyCriteria.isDone {
+                        domainsStatus.updateValue(.done, forKey: .polypharmacy)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                    }
+                } else if cga.polypharmacyCriteria == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .polypharmacy)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                }
+
+                // MARK: - Comorbidity domain done check
+
+                if let charlsonIndex = cga.charlsonIndex {
+                    if charlsonIndex.isDone {
+                        domainsStatus.updateValue(.done, forKey: .comorbidity)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                    }
+                } else if cga.charlsonIndex == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .comorbidity)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                }
+
+                // MARK: - Other domains done check
+
+                if let suspectedAbuse = cga.suspectedAbuse,
+                   let chemotherapyToxicityRisk = cga.chemotherapyToxicityRisk {
+                    if suspectedAbuse.isDone, chemotherapyToxicityRisk.isDone {
+                        domainsStatus.updateValue(.done, forKey: .other)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .other)
+                    }
+                } else if cga.suspectedAbuse == nil, cga.chemotherapyToxicityRisk == nil {
+                    domainsStatus.updateValue(.notStarted, forKey: .other)
+                } else {
+                    domainsStatus.updateValue(.incomplete, forKey: .other)
+                }
+
                 return .init(patientName: patientId == nil ? cga.patient?.name : nil,
                              lastEditedDate: cga.lastModification ?? Date(),
                              domainsStatus: domainsStatus, cgaId: cga.cgaId)
@@ -271,6 +328,63 @@ class CGAsInteractor: CGAsLogic {
                         domainsStatus.updateValue(.notStarted, forKey: .nutritional)
                     } else {
                         domainsStatus.updateValue(.incomplete, forKey: .nutritional)
+                    }
+
+                    // MARK: - Social domain done check
+
+                    if let apgarScale = cga.apgarScale, let zaritScale = cga.zaritScale {
+                        if apgarScale.isDone, zaritScale.isDone {
+                            domainsStatus.updateValue(.done, forKey: .social)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .social)
+                        }
+                    } else if cga.apgarScale == nil, cga.zaritScale == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .social)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .social)
+                    }
+
+                    // MARK: - Polypharmacy domain done check
+
+                    if let polypharmacyCriteria = cga.polypharmacyCriteria {
+                        if polypharmacyCriteria.isDone {
+                            domainsStatus.updateValue(.done, forKey: .polypharmacy)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                        }
+                    } else if cga.polypharmacyCriteria == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .polypharmacy)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .polypharmacy)
+                    }
+
+                    // MARK: - Comorbidity domain done check
+
+                    if let charlsonIndex = cga.charlsonIndex {
+                        if charlsonIndex.isDone {
+                            domainsStatus.updateValue(.done, forKey: .comorbidity)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                        }
+                    } else if cga.charlsonIndex == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .comorbidity)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .comorbidity)
+                    }
+
+                    // MARK: - Other domains done check
+
+                    if let suspectedAbuse = cga.suspectedAbuse,
+                       let chemotherapyToxicityRisk = cga.chemotherapyToxicityRisk {
+                        if suspectedAbuse.isDone, chemotherapyToxicityRisk.isDone {
+                            domainsStatus.updateValue(.done, forKey: .other)
+                        } else {
+                            domainsStatus.updateValue(.incomplete, forKey: .other)
+                        }
+                    } else if cga.suspectedAbuse == nil, cga.chemotherapyToxicityRisk == nil {
+                        domainsStatus.updateValue(.notStarted, forKey: .other)
+                    } else {
+                        domainsStatus.updateValue(.incomplete, forKey: .other)
                     }
 
                     return .init(patientName: nil, lastEditedDate: cga.lastModification ?? Date(),

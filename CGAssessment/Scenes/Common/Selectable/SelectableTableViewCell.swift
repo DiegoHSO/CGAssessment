@@ -37,6 +37,7 @@ class SelectableTableViewCell: UITableViewCell {
         titleLabel?.isHidden = viewModel.title == nil
         stackViewLeadingConstraint?.constant = viewModel.leadingConstraint
         optionsStackView?.spacing = viewModel.questionsSpacing
+        optionsStackView?.isUserInteractionEnabled = viewModel.allowsEditing
 
         var subviews: [SelectableView] = []
 

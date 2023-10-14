@@ -140,6 +140,39 @@ class DashboardInteractor: DashboardLogic {
             missingDomains -= 1
         }
 
+        // MARK: - Social domain done check
+
+        if let isFirstTestDone = latestCGA.apgarScale?.isDone, isFirstTestDone,
+           let isSecondTestDone = latestCGA.zaritScale?.isDone, isSecondTestDone {
+            missingDomains -= 1
+        }
+
+        // MARK: - Polypharmacy domain done check
+
+        if let isTestDone = latestCGA.polypharmacyCriteria?.isDone, isTestDone {
+            missingDomains -= 1
+        }
+
+        // MARK: - Comorbidity domain done check
+
+        if let isTestDone = latestCGA.charlsonIndex?.isDone, isTestDone {
+            missingDomains -= 1
+        }
+
+        // MARK: - Other domains done check
+
+        var isOtherDomainsDone: Bool = false
+
+        if let isFirstTestDone = latestCGA.suspectedAbuse?.isDone, isFirstTestDone {
+            isOtherDomainsDone.toggle()
+            missingDomains -= 1
+        }
+
+        if !isOtherDomainsDone, let isSecondTestDone = latestCGA.chemotherapyToxicityRisk?.isDone, isSecondTestDone {
+            isOtherDomainsDone.toggle()
+            missingDomains -= 1
+        }
+
         recentCGA = .init(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate, missingDomains: missingDomains, id: id)
     }
 
@@ -353,7 +386,7 @@ class DashboardInteractor: DashboardLogic {
             }
 
             if let lawtonScale = evaluation.lawtonScale, lawtonScale.isDone, !isFunctionalDomainAltered {
-                var rawQuestions: KatzScaleModels.RawQuestions = [:]
+                var rawQuestions: LawtonScaleModels.RawQuestions = [:]
 
                 guard let questionOptions = lawtonScale.selectableOptions?.allObjects as? [SelectableOption] else {
                     return nil
@@ -399,6 +432,114 @@ class DashboardInteractor: DashboardLogic {
             }
 
             alteredDomains = isNutritionalDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Social domain test results check
+
+            var isSocialDomainAltered: Bool = false
+
+            if let apgarScale = evaluation.apgarScale, apgarScale.isDone {
+                var rawQuestions: ApgarScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = apgarScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let apgarScaleResults = ApgarScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .apgarScale, results: apgarScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
+            }
+
+            if let zaritScale = evaluation.zaritScale, zaritScale.isDone, !isSocialDomainAltered {
+                var rawQuestions: ZaritScaleModels.RawQuestions = [:]
+
+                guard let questionOptions = zaritScale.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let zaritScaleResults = ZaritScaleModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .zaritScale, results: zaritScaleResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isSocialDomainAltered = true }
+            }
+
+            alteredDomains = isSocialDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Polypharmacy domain test results check
+
+            var isPolypharmacyDomainAltered: Bool = false
+
+            if let polypharmacyCriteria = evaluation.polypharmacyCriteria, polypharmacyCriteria.isDone {
+                let polypharmacyCriteriaResults = PolypharmacyCriteriaModels.TestResults(numberOfMedicines: polypharmacyCriteria.numberOfMedicines)
+
+                let resultsTuple = resultsWorker?.getResults(for: .polypharmacyCriteria, results: polypharmacyCriteriaResults)
+                if resultsTuple?.1 == .bad { isPolypharmacyDomainAltered = true }
+            }
+
+            alteredDomains = isPolypharmacyDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Comorbidity domain test results check
+
+            var isComorbidityDomainAltered: Bool = false
+
+            if let charlsonIndex = evaluation.charlsonIndex, charlsonIndex.isDone {
+                var rawBinaryQuestions: CharlsonIndexModels.RawBinaryQuestions = [:]
+
+                guard let binaryOptions = charlsonIndex.binaryOptions?.allObjects as? [BinaryOption] else {
+                    return nil
+                }
+
+                binaryOptions.forEach { option in
+                    guard let selectedOption = SelectableBinaryKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.sectionId ?? "") else { return }
+                    if rawBinaryQuestions[identifier] == nil { rawBinaryQuestions.updateValue([:], forKey: identifier) }
+                    rawBinaryQuestions[identifier]?.updateValue(selectedOption, forKey: option.optionId)
+                }
+
+                let charlsonIndexResults = CharlsonIndexModels.TestResults(binaryQuestions: rawBinaryQuestions, patientBirthDate: birthDate)
+
+                let resultsTuple = resultsWorker?.getResults(for: .charlsonIndex, results: charlsonIndexResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isComorbidityDomainAltered = true }
+            }
+
+            alteredDomains = isComorbidityDomainAltered ? alteredDomains + 1 : alteredDomains
+
+            // MARK: - Other domains test results check
+
+            var isOtherDomainsAltered: Bool = false
+
+            if let chemotherapyToxicityRisk = evaluation.chemotherapyToxicityRisk, chemotherapyToxicityRisk.isDone {
+                var rawQuestions: ChemotherapyToxicityRiskModels.RawQuestions = [:]
+
+                guard let questionOptions = chemotherapyToxicityRisk.selectableOptions?.allObjects as? [SelectableOption] else {
+                    return nil
+                }
+
+                questionOptions.forEach { option in
+                    guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                          let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                    rawQuestions[identifier] = selectedOption
+                }
+
+                let chemotherapyToxicityRiskResults = ChemotherapyToxicityRiskModels.TestResults(questions: rawQuestions)
+
+                let resultsTuple = resultsWorker?.getResults(for: .chemotherapyToxicityRisk, results: chemotherapyToxicityRiskResults)
+                if resultsTuple?.1 == .bad || resultsTuple?.1 == .medium { isOtherDomainsAltered = true }
+            }
+
+            alteredDomains = isOtherDomainsAltered ? alteredDomains + 1 : alteredDomains
 
             return DashboardModels.TodoEvaluationViewModel(patientName: patientName, patientAge: birthDate.yearSinceCurrentDate,
                                                            alteredDomains: alteredDomains, nextApplicationDate: lastModification.addingMonth(1),
