@@ -665,3 +665,7 @@
 "chemotherapy_toxicity_risk_excellent_result_key" = "Indivíduo com resultado sugestivo de risco baixo de toxicidade à quimioterapia";
 "chemotherapy_toxicity_risk_medium_result_key" = "Indivíduo com resultado sugestivo de risco moderado de toxicidade à quimioterapia";
 "chemotherapy_toxicity_risk_bad_result_key" = "Indivíduo com resultado sugestivo de risco alto de toxicidade à quimioterapia";
+"subtitle_key" = "Legenda";
+"finished_domain_key" = "Domínio finalizado";
+"incomplete_domain_key" = "Domínio incompleto";
+"not_started_domain_key" = "Domínio não iniciado";
