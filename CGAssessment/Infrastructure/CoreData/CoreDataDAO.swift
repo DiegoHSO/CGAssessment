@@ -187,6 +187,14 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try updateCGA(with: SuspectedAbuseModels.TestData(selectedOption: .firstOption, typedText: LocalizedTable.suspectedAbuseExample.localized,
                                                           isDone: true), cgaId: nil)
+        
+        try updateCGA(with: ChemotherapyToxicityRiskModels.TestData(questions: [
+            .chemotherapyToxicityRiskQuestionOne: .secondOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
+            .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
+            .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
+            .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
+            .chemotherapyToxicityRiskQuestionNine: .secondOption,.chemotherapyToxicityRiskQuestionTen: .secondOption
+        ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
