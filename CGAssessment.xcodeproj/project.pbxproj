@@ -269,6 +269,8 @@
 		F1BE9F832AB677E300250B69 /* ResumedPatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */; };
 		F1BE9F842AB677E300250B69 /* ResumedPatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE9F822AB677E300250B69 /* ResumedPatientTableViewCell.xib */; };
 		F1BE9F882AB6846300250B69 /* NewCGAModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE9F872AB6846300250B69 /* NewCGAModels.swift */; };
+		F1C31A042ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */; };
+		F1C31A062ADA242700F37A1F /* CGAsSubtitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */; };
 		F1E338FD2AB6A52200282AF3 /* NewCGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E338FB2AB6A52200282AF3 /* NewCGAViewController.swift */; };
 		F1E339002AB6B2EE00282AF3 /* NewCGA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */; };
 		F1E339022AB6BD3C00282AF3 /* NewCGABuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */; };
@@ -657,6 +659,8 @@
 		F1BE9F812AB677E300250B69 /* ResumedPatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumedPatientTableViewCell.swift; sourceTree = "<group>"; };
 		F1BE9F822AB677E300250B69 /* ResumedPatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResumedPatientTableViewCell.xib; sourceTree = "<group>"; };
 		F1BE9F872AB6846300250B69 /* NewCGAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAModels.swift; sourceTree = "<group>"; };
+		F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CGAsSubtitleHeaderView.xib; sourceTree = "<group>"; };
+		F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsSubtitleHeaderView.swift; sourceTree = "<group>"; };
 		F1E338FB2AB6A52200282AF3 /* NewCGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAViewController.swift; sourceTree = "<group>"; };
 		F1E338FF2AB6B2EE00282AF3 /* NewCGA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCGA.storyboard; sourceTree = "<group>"; };
 		F1E339012AB6BD3C00282AF3 /* NewCGABuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGABuilder.swift; sourceTree = "<group>"; };
@@ -804,6 +808,8 @@
 				F10DFB8D2ACA302D00E1A380 /* CGATableViewCell.xib */,
 				F10DFB902ACA303900E1A380 /* DomainStatusView.xib */,
 				F10DFB922ACA304D00E1A380 /* DomainStatusView.swift */,
+				F1C31A032ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib */,
+				F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1894,6 +1900,7 @@
 				F1A8B5202AD6F684006FD874 /* LawtonScale.storyboard in Resources */,
 				F1F2958D2AACC0A800E52B92 /* RecentApplicationTableViewCell.xib in Resources */,
 				F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */,
+				F1C31A042ADA22E800F37A1F /* CGAsSubtitleHeaderView.xib in Resources */,
 				F1EB0FA32AD3AFBD0087AAB2 /* GeriatricDepressionScale.storyboard in Resources */,
 				F1F1E3D02AC10F5000BC610E /* WalkingSpeed.storyboard in Resources */,
 				F140979B2ABBE7CD00E92005 /* TooltipHeaderView.xib in Resources */,
@@ -2035,6 +2042,7 @@
 				F1E339082AB7660000282AF3 /* Collection+Extension.swift in Sources */,
 				F1A8B55E2AD8D52F006FD874 /* ZaritScalePresenter.swift in Sources */,
 				F18698ED2AC4FF2B00FB5620 /* SarcopeniaScreeningBuilder.swift in Sources */,
+				F1C31A062ADA242700F37A1F /* CGAsSubtitleHeaderView.swift in Sources */,
 				F13C7B932ACF5924000D5AC2 /* MiniMentalStateExamPresenter.swift in Sources */,
 				F1F2E9C12AAE6B330006075F /* FeaturesTableViewCell.swift in Sources */,
 				F1EB0FBB2AD5B0650087AAB2 /* VisualAcuityAssessmentPresenter.swift in Sources */,

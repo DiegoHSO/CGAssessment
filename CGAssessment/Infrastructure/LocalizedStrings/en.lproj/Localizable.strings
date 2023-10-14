@@ -665,3 +665,7 @@
 "chemotherapy_toxicity_risk_excellent_result_key" = "Individual with results suggestive of low risk of toxicity to chemotherapy";
 "chemotherapy_toxicity_risk_medium_result_key" = "Individual with results suggestive of moderate risk of toxicity to chemotherapy";
 "chemotherapy_toxicity_risk_bad_result_key" = "Individual with results suggestive of high risk of toxicity to chemotherapy";
+"subtitle_key" = "Subtitle";
+"finished_domain_key" = "Domain finished";
+"incomplete_domain_key" = "Domain incomplete";
+"not_started_domain_key" = "Domain not started";

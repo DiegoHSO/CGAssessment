@@ -43,7 +43,7 @@ class TodoEvaluationTableViewCell: UITableViewCell {
 
         var timeLeftString: String = ""
 
-        if timeLeftDays == 0 {
+        if timeLeftDays <= 0 {
             timeLeftString = LocalizedTable.today.localized
         } else if timeLeftDays < 30 {
             timeLeftString = "\(LocalizedTable.inKey.localized) \(Int(timeLeftDays)) "

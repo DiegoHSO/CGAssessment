@@ -44,6 +44,18 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic, Status
         title = LocalizedTable.domains.localized
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        guard let headerView = tableView?.tableHeaderView else { return }
+        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        if headerView.frame.size.height != size.height {
+            headerView.frame.size.height = size.height
+            tableView?.tableHeaderView = headerView
+            tableView?.layoutIfNeeded()
+        }
+    }
+
     // MARK: - Public Methods
 
     func setupArchitecture(interactor: CGADomainsLogic, router: CGADomainsRouter) {

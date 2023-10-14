@@ -90,6 +90,10 @@ enum LocalizedTable: String, Localizable {
     case byPatient = "by_patient_key"
     case cgasEmptyState = "cgas_empty_state_key"
     case cgasEmptyStateAction = "cgas_empty_state_action_key"
+    case subtitle = "subtitle_key"
+    case finishedDomain = "finished_domain_key"
+    case incompleteDomain = "incomplete_domain_key"
+    case notStartedDomain = "not_started_domain_key"
 
     // MARK: - New CGA
 
