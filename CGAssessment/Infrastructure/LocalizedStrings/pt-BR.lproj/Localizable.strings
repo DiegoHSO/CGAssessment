@@ -669,3 +669,14 @@
 "finished_domain_key" = "Domínio finalizado";
 "incomplete_domain_key" = "Domínio incompleto";
 "not_started_domain_key" = "Domínio não iniciado";
+"delete_cga_question_key" = "Apagar AGA?";
+"delete_cga_description_key" = "Tem certeza que deseja deletar a AGA? Todo o progresso feito nos domínios e seus testes será perdido.";
+"cancel_key" = "Cancelar";
+"delete_cga_key" = "Apagar AGA";
+"delete_patient_question_key" = "Apagar paciente?";
+"delete_patient_description_key" = "Tem certeza que deseja deletar o paciente? Todas as suas AGAs e seu progresso serão perdidos.";
+"delete_patient_key" = "Apagar paciente";
+"cga_deletion_error_title" = "Erro ao apagar AGA";
+"cga_deletion_error_description" = "Houve um erro ao deletar a AGA. Por favor, tente novamente.";
+"patient_deletion_error_title" = "Erro ao apagar paciente";
+"patient_deletion_error_description" = "Houve um erro ao deletar o paciente. Por favor, tente novamente.";

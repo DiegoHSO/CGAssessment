@@ -13,6 +13,8 @@ enum CoreDataErrors: Error, Equatable {
     case unableToFetchCGA
     case unableToFetchPatient
     case unableToUpdateCGA
+    case unableToDeleteCGA
+    case unableToDeletePatient
 }
 
 protocol CoreDataDAOProtocol {
@@ -48,6 +50,8 @@ protocol CoreDataDAOProtocol {
     func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws
     func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws
+    func deleteCGA(cgaId: UUID) throws
+    func deletePatient(patientId: UUID) throws
 }
 
 // swiftlint:disable type_body_length file_length
@@ -187,13 +191,13 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try updateCGA(with: SuspectedAbuseModels.TestData(selectedOption: .firstOption, typedText: LocalizedTable.suspectedAbuseExample.localized,
                                                           isDone: true), cgaId: nil)
-        
+
         try updateCGA(with: ChemotherapyToxicityRiskModels.TestData(questions: [
             .chemotherapyToxicityRiskQuestionOne: .secondOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
             .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
             .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
             .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
-            .chemotherapyToxicityRiskQuestionNine: .secondOption,.chemotherapyToxicityRiskQuestionTen: .secondOption
+            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption
         ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()
@@ -830,6 +834,28 @@ class CoreDataDAO: CoreDataDAOProtocol {
         cga.chemotherapyToxicityRisk?.selectableOptions = NSSet(array: selectableOptions)
         cga.chemotherapyToxicityRisk?.isDone = test.isDone
         cga.lastModification = Date()
+
+        try context.save()
+    }
+
+    func deleteCGA(cgaId: UUID) throws {
+        guard let cga = try fetchCGA(cgaId: cgaId) else { throw CoreDataErrors.unableToDeleteCGA }
+
+        context.delete(cga)
+
+        try context.save()
+    }
+
+    func deletePatient(patientId: UUID) throws {
+        guard let patient = try fetchPatient(patientId: patientId) else { throw CoreDataErrors.unableToDeletePatient }
+
+        if let cgas = patient.cgas?.allObjects as? [CGA] {
+            try cgas.forEach { cga in
+                if let cgaId = cga.cgaId { try self.deleteCGA(cgaId: cgaId) }
+            }
+        }
+
+        context.delete(patient)
 
         try context.save()
     }

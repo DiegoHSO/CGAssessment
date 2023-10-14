@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import OSLog
 
 protocol CGAsLogic: FilterDelegate {
     func controllerDidLoad()
     func controllerWillDisappear()
     func didSelect(cgaId: UUID?)
     func didTapToStartNewCGA()
+    func didSwipeToDelete(indexPath: IndexPath)
+    func didConfirmDeletion(for cgaId: UUID?)
 }
 
 class CGAsInteractor: CGAsLogic {
@@ -59,6 +62,18 @@ class CGAsInteractor: CGAsLogic {
 
     func didTapToStartNewCGA() {
         presenter?.route(toRoute: .newCGA)
+    }
+
+    func didSwipeToDelete(indexPath: IndexPath) {
+        presenter?.presentDeletionAlert(for: indexPath)
+    }
+
+    func didConfirmDeletion(for cgaId: UUID?) {
+        do {
+            try worker?.deleteCGA(cgaId: cgaId)
+        } catch {
+            presenter?.presentErrorDeletingAlert()
+        }
     }
 
     // MARK: - Private Methods
@@ -394,7 +409,7 @@ class CGAsInteractor: CGAsLogic {
                 patientCGAsViewModel.updateValue(viewModels, forKey: patient)
             }
 
-            self.viewModelsByPatient = patientCGAsViewModel.isEmpty ? nil : patientCGAsViewModel
+            self.viewModelsByPatient = patientCGAsViewModel.values.allSatisfy({ $0.isEmpty }) ? nil : patientCGAsViewModel
             self.viewModelsByDate = nil
         default:
             return

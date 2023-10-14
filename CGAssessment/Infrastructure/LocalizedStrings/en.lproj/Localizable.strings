@@ -669,3 +669,14 @@
 "finished_domain_key" = "Domain finished";
 "incomplete_domain_key" = "Domain incomplete";
 "not_started_domain_key" = "Domain not started";
+"delete_cga_question_key" = "Delete CGA?";
+"delete_cga_description_key" = "Are you sure you want to delete the CGA? All progress made on the domains and their tests will be lost.";
+"cancel_key" = "Cancel";
+"delete_cga_key" = "Delete CGA";
+"delete_patient_question_key" = "Delete patient?";
+"delete_patient_description_key" = "Are you sure you want to delete the patient? All of their CGAs and progress will be lost.";
+"delete_patient_key" = "Delete patient";
+"cga_deletion_error_title" = "Error deleting CGA";
+"cga_deletion_error_description" = "There was an error deleting this CGA. Please, try again";
+"patient_deletion_error_title" = "Error deleting patient";
+"patient_deletion_error_description" = "There was an error deleting this patient. Please, try again";

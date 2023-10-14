@@ -33,4 +33,12 @@ class CGAsWorker {
         return try dao.fetchPatients()
     }
 
+    func deleteCGA(cgaId: UUID?) throws {
+        guard let cgaId else {
+            throw CoreDataErrors.unableToDeleteCGA
+        }
+
+        try dao.deleteCGA(cgaId: cgaId)
+    }
+
 }
