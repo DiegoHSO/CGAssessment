@@ -10,6 +10,8 @@ import Foundation
 protocol CGAsPresentationLogic: AnyObject {
     func route(toRoute route: CGAsModels.Routing)
     func presentData(viewModel: CGAsModels.ControllerViewModel)
+    func presentDeletionAlert(for indexPath: IndexPath)
+    func presentErrorDeletingAlert()
 }
 
 class CGAsPresenter: CGAsPresentationLogic {
@@ -34,4 +36,11 @@ class CGAsPresenter: CGAsPresentationLogic {
         viewController?.presentData(viewModel: viewModel)
     }
 
+    func presentDeletionAlert(for indexPath: IndexPath) {
+        viewController?.presentDeletionAlert(for: indexPath)
+    }
+
+    func presentErrorDeletingAlert() {
+        viewController?.presentErrorDeletingAlert()
+    }
 }
