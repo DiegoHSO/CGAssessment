@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="ApgarScale" representedClassName="ApgarScale" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ApgarScale" representedClassName=".ApgarScale" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="apgarScale" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="apgarScale" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="BinaryOption" representedClassName="BinaryOption" syncable="YES" codeGenerationType="class">
+    <entity name="BinaryOption" representedClassName=".BinaryOption" syncable="YES" codeGenerationType="class">
         <attribute name="optionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sectionId" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -47,22 +47,22 @@
         <relationship name="walkingSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WalkingSpeed" inverseName="cgas" inverseEntity="WalkingSpeed"/>
         <relationship name="zaritScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZaritScale" inverseName="cgas" inverseEntity="ZaritScale"/>
     </entity>
-    <entity name="CharlsonIndex" representedClassName="CharlsonIndex" syncable="YES" codeGenerationType="class">
+    <entity name="CharlsonIndex" representedClassName=".CharlsonIndex" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="charlsonIndex" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="charlsonIndex" inverseEntity="CGA"/>
     </entity>
-    <entity name="ChemotherapyToxicityRisk" representedClassName="ChemotherapyToxicityRisk" syncable="YES" codeGenerationType="class">
+    <entity name="ChemotherapyToxicityRisk" representedClassName=".ChemotherapyToxicityRisk" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="chemotherapyToxicityRisk" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="chemotherapyToxicityRisk" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="ClockDrawing" representedClassName="ClockDrawing" syncable="YES" codeGenerationType="class">
+    <entity name="ClockDrawing" representedClassName=".ClockDrawing" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="clockDrawing" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="clockDrawing" inverseEntity="CGA"/>
     </entity>
-    <entity name="GeriatricDepressionScale" representedClassName="GeriatricDepressionScale" syncable="YES" codeGenerationType="class">
+    <entity name="GeriatricDepressionScale" representedClassName=".GeriatricDepressionScale" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="geriatricDepressionScale" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="geriatricDepressionScale" inverseEntity="SelectableOption"/>
@@ -74,27 +74,27 @@
         <attribute name="thirdMeasurement" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="gripStrength" inverseEntity="CGA"/>
     </entity>
-    <entity name="HearingLossAssessment" representedClassName="HearingLossAssessment" syncable="YES" codeGenerationType="class">
+    <entity name="HearingLossAssessment" representedClassName=".HearingLossAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="hearingLossAssessment" inverseEntity="CGA"/>
     </entity>
-    <entity name="KatzScale" representedClassName="KatzScale" syncable="YES" codeGenerationType="class">
+    <entity name="KatzScale" representedClassName=".KatzScale" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="katzScale" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="katzScale" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="LawtonScale" representedClassName="LawtonScale" syncable="YES" codeGenerationType="class">
+    <entity name="LawtonScale" representedClassName=".LawtonScale" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="lawtonScale" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="lawtonScale" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="MiniMentalStateExam" representedClassName="MiniMentalStateExam" syncable="YES" codeGenerationType="class">
+    <entity name="MiniMentalStateExam" representedClassName=".MiniMentalStateExam" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="binaryOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BinaryOption" inverseName="miniMentalStateExam" inverseEntity="BinaryOption"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniMentalStateExam" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniMentalStateExam" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="MiniNutritionalAssessment" representedClassName="MiniNutritionalAssessment" syncable="YES" codeGenerationType="class">
+    <entity name="MiniNutritionalAssessment" representedClassName=".MiniNutritionalAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="height" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isExtraQuestionSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -102,7 +102,7 @@
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="miniNutritionalAssessment" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="miniNutritionalAssessment" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="MoCA" representedClassName="MoCA" syncable="YES" codeGenerationType="class">
+    <entity name="MoCA" representedClassName=".MoCA" syncable="YES" codeGenerationType="class">
         <attribute name="circlesImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -118,7 +118,7 @@
         <attribute name="patientId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="patient" inverseEntity="CGA"/>
     </entity>
-    <entity name="PolypharmacyCriteria" representedClassName="PolypharmacyCriteria" syncable="YES" codeGenerationType="class">
+    <entity name="PolypharmacyCriteria" representedClassName=".PolypharmacyCriteria" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="numberOfMedicines" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="polypharmacyCriteria" inverseEntity="CGA"/>
@@ -132,7 +132,7 @@
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="sarcopeniaScreening" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="sarcopeniaScreening" inverseEntity="SelectableOption"/>
     </entity>
-    <entity name="SelectableOption" representedClassName="SelectableOption" syncable="YES" codeGenerationType="class">
+    <entity name="SelectableOption" representedClassName=".SelectableOption" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="apgarScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ApgarScale" inverseName="selectableOptions" inverseEntity="ApgarScale"/>
@@ -145,7 +145,7 @@
         <relationship name="sarcopeniaScreening" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SarcopeniaScreening" inverseName="selectableOptions" inverseEntity="SarcopeniaScreening"/>
         <relationship name="zaritScale" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZaritScale" inverseName="selectableOptions" inverseEntity="ZaritScale"/>
     </entity>
-    <entity name="SuspectedAbuse" representedClassName="SuspectedAbuse" syncable="YES" codeGenerationType="class">
+    <entity name="SuspectedAbuse" representedClassName=".SuspectedAbuse" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="typedText" optional="YES" attributeType="String"/>
@@ -158,14 +158,14 @@
         <attribute name="typedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="timedUpAndGo" inverseEntity="CGA"/>
     </entity>
-    <entity name="VerbalFluency" representedClassName="VerbalFluency" syncable="YES" codeGenerationType="class">
+    <entity name="VerbalFluency" representedClassName=".VerbalFluency" syncable="YES" codeGenerationType="class">
         <attribute name="countedWords" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="elapsedTime" optional="YES" attributeType="Double" defaultValueString="60" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="verbalFluency" inverseEntity="CGA"/>
     </entity>
-    <entity name="VisualAcuityAssessment" representedClassName="VisualAcuityAssessment" syncable="YES" codeGenerationType="class">
+    <entity name="VisualAcuityAssessment" representedClassName=".VisualAcuityAssessment" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="selectedOption" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="visualAcuityAssessment" inverseEntity="CGA"/>
@@ -182,7 +182,7 @@
         <attribute name="thirdTypedTime" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="walkingSpeed" inverseEntity="CGA"/>
     </entity>
-    <entity name="ZaritScale" representedClassName="ZaritScale" syncable="YES" codeGenerationType="class">
+    <entity name="ZaritScale" representedClassName=".ZaritScale" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="cgas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CGA" inverseName="zaritScale" inverseEntity="CGA"/>
         <relationship name="selectableOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SelectableOption" inverseName="zaritScale" inverseEntity="SelectableOption"/>
