@@ -93,7 +93,7 @@ class PatientsInteractor: PatientsLogic {
 
             let hasCGAInProgress: Bool
             if let lastModification = lastCGA?.lastModification,
-               lastModification.timeIntervalSince(Date()) > .week {
+               Date().timeIntervalSince(lastModification) > .week {
                 hasCGAInProgress = false
             } else {
                 hasCGAInProgress = true
