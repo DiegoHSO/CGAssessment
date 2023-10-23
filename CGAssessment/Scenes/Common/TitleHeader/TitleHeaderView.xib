@@ -39,6 +39,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="labelBottomConstraint" destination="0Bb-0A-zzW" id="L8W-IZ-b99"/>
                 <outlet property="labelLeadingConstraint" destination="aDb-zN-bDU" id="ocx-8v-Fc8"/>
                 <outlet property="titleLabel" destination="azJ-hD-VAd" id="6Ki-ln-oU2"/>
             </connections>
