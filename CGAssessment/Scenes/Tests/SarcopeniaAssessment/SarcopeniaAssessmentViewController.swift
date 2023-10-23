@@ -132,7 +132,7 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            cell.setup(title: LocalizedTable.muscleHealth.localized, fontSize: 21)
+            cell.setup(title: LocalizedTable.muscleHealth.localized, bottomConstraint: 0, fontSize: 21)
 
             return cell
         case .test:

@@ -13,15 +13,18 @@ class TitleHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var labelLeadingConstraint: NSLayoutConstraint?
+    @IBOutlet weak var labelBottomConstraint: NSLayoutConstraint!
 
     // MARK: - Public Methods
 
     func setup(title: String, textColor: UIColor? = .label1, textSize: CGFloat = 20,
-               backgroundColor: UIColor? = .clear, leadingConstraint: CGFloat = 30) {
+               backgroundColor: UIColor? = .clear, leadingConstraint: CGFloat = 30,
+               bottomConstraint: CGFloat = 20) {
         titleLabel?.text = title
         titleLabel?.textColor = textColor
         titleLabel?.font = .compactDisplay(withStyle: .semibold, size: textSize)
         labelLeadingConstraint?.constant = leadingConstraint
+        labelBottomConstraint.constant = bottomConstraint
         contentView.backgroundColor = backgroundColor
     }
 
