@@ -187,7 +187,8 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
             }
 
             header.setup(title: headerTitle, textSize: currentSection == .title ? 20 : 18,
-                         backgroundColor: .primary, leadingConstraint: 25)
+                         backgroundColor: .primary, leadingConstraint: 25,
+                         bottomConstraint: currentSection == .title ? 0 : 20)
 
             return header
         }

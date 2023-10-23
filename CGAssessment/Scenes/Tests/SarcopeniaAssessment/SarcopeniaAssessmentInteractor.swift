@@ -100,7 +100,7 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             if let firstMeasurement = gripStrengthProgress.firstMeasurement as? Double,
                let secondMeasurement = gripStrengthProgress.secondMeasurement as? Double,
                let thirdMeasurement = gripStrengthProgress.thirdMeasurement as? Double,
-               let gender = try? worker?.getPatientGender() {
+               let gender = try? worker?.getPatientGender(), gripStrengthProgress.isDone {
                 gripStrengthResults = .init(firstMeasurement: firstMeasurement, secondMeasurement: secondMeasurement,
                                             thirdMeasurement: thirdMeasurement, gender: gender)
             }
@@ -112,7 +112,8 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             testsCompletionStatus.updateValue(calfCircumferenceProgress.isDone ? .done : .incomplete,
                                               forKey: .calfCircumference)
 
-            if let circumference = calfCircumferenceProgress.measuredCircumference as? Double {
+            if let circumference = calfCircumferenceProgress.measuredCircumference as? Double,
+               calfCircumferenceProgress.isDone {
                 calfCircumferenceResults = .init(circumference: circumference)
             }
         } else {
@@ -124,11 +125,13 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
                                               forKey: .timedUpAndGo)
 
             if timedUpAndGoProgress.hasStopwatch {
-                if let elapsedTime = timedUpAndGoProgress.typedTime as? Double {
+                if let elapsedTime = timedUpAndGoProgress.typedTime as? Double,
+                   timedUpAndGoProgress.isDone {
                     timedUpAndGoResults = .init(elapsedTime: elapsedTime)
                 }
             } else {
-                if let elapsedTime = timedUpAndGoProgress.measuredTime as? Double {
+                if let elapsedTime = timedUpAndGoProgress.measuredTime as? Double,
+                   timedUpAndGoProgress.isDone {
                     timedUpAndGoResults = .init(elapsedTime: elapsedTime)
                 }
             }
@@ -143,7 +146,8 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             if walkingSpeedProgress.hasStopwatch {
                 if let firstElapsedTime = walkingSpeedProgress.firstTypedTime as? Double,
                    let secondElapsedTime = walkingSpeedProgress.secondTypedTime as? Double,
-                   let thirdElapsedTime = walkingSpeedProgress.thirdTypedTime as? Double {
+                   let thirdElapsedTime = walkingSpeedProgress.thirdTypedTime as? Double,
+                   walkingSpeedProgress.isDone {
                     walkingSpeedResults = .init(firstElapsedTime: firstElapsedTime,
                                                 secondElapsedTime: secondElapsedTime,
                                                 thirdElapsedTime: thirdElapsedTime)
@@ -151,7 +155,8 @@ class SarcopeniaAssessmentInteractor: SarcopeniaAssessmentLogic {
             } else {
                 if let firstElapsedTime = walkingSpeedProgress.firstMeasuredTime as? Double,
                    let secondElapsedTime = walkingSpeedProgress.secondMeasuredTime as? Double,
-                   let thirdElapsedTime = walkingSpeedProgress.thirdMeasuredTime as? Double {
+                   let thirdElapsedTime = walkingSpeedProgress.thirdMeasuredTime as? Double,
+                   walkingSpeedProgress.isDone {
                     walkingSpeedResults = .init(firstElapsedTime: firstElapsedTime,
                                                 secondElapsedTime: secondElapsedTime,
                                                 thirdElapsedTime: thirdElapsedTime)
