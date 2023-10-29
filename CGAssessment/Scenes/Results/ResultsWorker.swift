@@ -630,13 +630,15 @@ class ResultsWorker {
         let bmiPoints: Int
         let bmi: Double
 
+        selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion &&
+                                                        $0.key != .miniNutritionalAssessmentFourthQuestion }).values.map { $0 as SelectableKeys }
+        let fourthQuestionPoints = testResults.questions[.miniNutritionalAssessmentFourthQuestion] == .secondOption ? 2 : 0
+
         if testResults.isExtraQuestionSelected {
-            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
             let extraQuestionOption = testResults.questions[.miniNutritionalAssessmentSeventhQuestion]
             bmiPoints = extraQuestionOption == .firstOption ? 0 : 3
             bmi = 0
         } else {
-            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
             guard let height = testResults.height, let weight = testResults.weight else { return ([], .bad) }
 
             bmi = weight / (pow((height / 100), 2))
@@ -653,7 +655,7 @@ class ResultsWorker {
         }
 
         let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
-            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3
+            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3 + fourthQuestionPoints
         let totalPoints = bmiPoints + selectedOptionsPointed
 
         let resultType: ResultsModels.ResultType = totalPoints < 8 ? .bad : totalPoints < 12 ? .medium : .excellent
