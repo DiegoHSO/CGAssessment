@@ -261,6 +261,8 @@ extension DashboardInteractorTests: DashboardPresentationLogic {
     func presentData(viewModel: DashboardModels.ViewModel) {
         switch currentExpectation?.description {
         case "Call controllerDidLoad", "Call didSelect LastCGA":
+            XCTAssertEqual(viewModel.latestEvaluation?.id, UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3"))
+            XCTAssertEqual(viewModel.todoEvaluations.first?.id, UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3"))
             currentExpectation?.fulfill()
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
