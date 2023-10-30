@@ -5,7 +5,6 @@
 //  Created by Diego Henrique Silva Oliveira on 29/10/23.
 //
 
-import CoreData
 import XCTest
 @testable import CGAssessment
 
@@ -32,8 +31,6 @@ final class DashboardPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call routeTo Patients")
         currentExpectation = newExpectation
 
-        let worker = DashboardWorker()
-
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .patients)
 
@@ -43,8 +40,6 @@ final class DashboardPresenterTests: XCTestCase {
     func testRouteToCGAs() {
         let newExpectation = expectation(description: "Call routeTo CGAs")
         currentExpectation = newExpectation
-
-        let worker = DashboardWorker()
 
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .cgas)
@@ -56,8 +51,6 @@ final class DashboardPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call routeTo NewCGA")
         currentExpectation = newExpectation
 
-        let worker = DashboardWorker()
-
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .newCGA)
 
@@ -67,8 +60,6 @@ final class DashboardPresenterTests: XCTestCase {
     func testRouteToReports() {
         let newExpectation = expectation(description: "Call routeTo Reports")
         currentExpectation = newExpectation
-
-        let worker = DashboardWorker()
 
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .reports)
@@ -80,8 +71,6 @@ final class DashboardPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call routeTo CGADomains")
         currentExpectation = newExpectation
 
-        let worker = DashboardWorker()
-
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .cgaDomains)
 
@@ -92,8 +81,6 @@ final class DashboardPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call routeTo CGA")
         currentExpectation = newExpectation
 
-        let worker = DashboardWorker()
-
         let presenter = DashboardPresenter(viewController: self)
         presenter.route(toRoute: .cga(cgaId: UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3")))
 
@@ -103,8 +90,6 @@ final class DashboardPresenterTests: XCTestCase {
     func testPresentData() {
         let newExpectation = expectation(description: "Call presentData")
         currentExpectation = newExpectation
-
-        let worker = DashboardWorker()
 
         let presenter = DashboardPresenter(viewController: self)
         presenter.presentData(viewModel: .init(latestEvaluation: .init(patientName: "Test CGA", patientAge: 55, missingDomains: 5, id: UUID()),

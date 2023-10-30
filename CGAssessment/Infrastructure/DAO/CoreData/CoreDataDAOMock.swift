@@ -45,7 +45,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         newCGA.patient?.gender = 1
         newCGA.patient?.birthDate = Date().addingYear(-75)
         newCGA.patient?.name = "Mock CGA"
-        newCGA.patient?.patientId = UUID()
+        newCGA.patient?.patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")
 
         newCGA.timedUpAndGo = TimedUpAndGo(context: context)
         newCGA.timedUpAndGo?.hasStopwatch = false
