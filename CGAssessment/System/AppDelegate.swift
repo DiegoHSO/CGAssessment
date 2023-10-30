@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !UserDefaults.standard.bool(forKey: LocalStorageKeys.firstTime.rawValue) {
             UserDefaults.standard.set(true, forKey: LocalStorageKeys.firstTime.rawValue)
 
-            let dao = CoreDataDAO()
+            let dao = DAOFactory.coreDataDAO
 
             do {
                 try dao.addStandaloneCGA()

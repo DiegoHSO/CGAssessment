@@ -15,7 +15,7 @@ class NewCGAWorker {
 
     // MARK: - Init
 
-    init(dao: CoreDataDAOProtocol = CoreDataDAO()) {
+    init(dao: CoreDataDAOProtocol = DAOFactory.coreDataDAO) {
         self.dao = dao
     }
 

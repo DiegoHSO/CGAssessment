@@ -1,80 +1,51 @@
 //
-//  CoreDataDAO.swift
+//  CoreDataDAOMock.swift
 //  CGAssessment
 //
-//  Created by Diego Henrique Silva Oliveira on 29/09/23.
+//  Created by Diego Henrique Silva Oliveira on 29/10/23.
 //
 
 import CoreData
-import UIKit
+import Foundation
 
-enum CoreDataErrors: Error, Equatable {
-    case duplicatedPatient
-    case unableToFetchCGA
-    case unableToFetchPatient
-    case unableToUpdateCGA
-    case unableToDeleteCGA
-    case unableToDeletePatient
-}
-
-protocol CoreDataDAOProtocol {
-    func addStandaloneCGA() throws
-    func addCGA(for patient: Patient) throws -> UUID
-    func addPatient(_ patient: NewCGAModels.PatientData) throws -> UUID
-    func fetchCGAs() throws -> [CGA]
-    func fetchCGA(cgaId: UUID?) throws -> CGA?
-    func fetchPatientCGAs(patientId: UUID) throws -> [CGA]
-    func fetchPatients() throws -> [Patient]
-    func fetchPatient(patientId: UUID) throws -> Patient?
-    func fetchPatient(cgaId: UUID?) throws -> Patient?
-    func fetchCGATest(test: SingleDomainModels.Test, cgaId: UUID?) throws -> Any?
-    func updateCGA(with test: TimedUpAndGoModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: WalkingSpeedModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: CalfCircumferenceModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: GripStrengthModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: SarcopeniaScreeningModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: SarcopeniaAssessmentModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: MiniMentalStateExamModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: VerbalFluencyModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: ClockDrawingModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: MoCAModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: GeriatricDepressionScaleModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: VisualAcuityAssessmentModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: HearingLossAssessmentModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: KatzScaleModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: LawtonScaleModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: MiniNutritionalAssessmentModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: ApgarScaleModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: ZaritScaleModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: PolypharmacyCriteriaModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: CharlsonIndexModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: SuspectedAbuseModels.TestData, cgaId: UUID?) throws
-    func updateCGA(with test: ChemotherapyToxicityRiskModels.TestData, cgaId: UUID?) throws
-    func deleteCGA(cgaId: UUID) throws
-    func deletePatient(patientId: UUID) throws
-}
-
-// swiftlint:disable type_body_length file_length
-class CoreDataDAO: CoreDataDAOProtocol {
+class CoreDataDAOMock: CoreDataDAOProtocol {
 
     // MARK: - Private Properties
 
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let description = NSPersistentStoreDescription()
+        description.url = URL(fileURLWithPath: "/dev/null")
+        let container = NSPersistentCloudKitContainer(name: "CGAssessment")
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores { _, error in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }()
+
     private var context: NSManagedObjectContext {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext ?? .init(concurrencyType: .mainQueueConcurrencyType)
+        persistentContainer.viewContext
     }
 
     // MARK: - Public Methods
 
     func addStandaloneCGA() throws {
-        if try fetchCGA(cgaId: nil) != nil {
+        let mockCgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3")
+
+        if try fetchCGA(cgaId: mockCgaId) != nil {
             return
         }
 
         let newCGA = CGA(context: context)
+        newCGA.cgaId = mockCgaId
 
         newCGA.patient = Patient(context: context)
         newCGA.patient?.gender = 1
         newCGA.patient?.birthDate = Date().addingYear(-75)
+        newCGA.patient?.name = "Mock CGA"
+        newCGA.patient?.patientId = UUID()
 
         newCGA.timedUpAndGo = TimedUpAndGo(context: context)
         newCGA.timedUpAndGo?.hasStopwatch = false
@@ -105,7 +76,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
 
         try updateCGA(with: SarcopeniaScreeningModels.TestData(questions: [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
                                                                            .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                           .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: true), cgaId: nil)
+                                                                           .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: true), cgaId: mockCgaId)
 
         newCGA.sarcopeniaAssessment = SarcopeniaAssessment(context: context)
         newCGA.sarcopeniaAssessment?.isDone = true
@@ -119,15 +90,15 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                     .miniMentalStateExamFourthSectionQuestion: [1: .yes, 2: .yes, 3: .yes, 4: .not, 5: .not],
                                                     .miniMentalStateExamFifthSectionQuestion: [1: .yes, 2: .not, 3: .yes],
                                                     .miniMentalStateExamSixthSectionQuestion: [1: .yes, 2: .yes],
-                                                    .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]], isDone: true), cgaId: nil)
+                                                    .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]], isDone: true), cgaId: mockCgaId)
 
-        try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: nil)
+        try updateCGA(with: .init(elapsedTime: 12.5, selectedOption: .firstOption, countedWords: 19, isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: ClockDrawingModels.TestData(binaryQuestions: [
             .outline: [1: .yes, 2: .yes],
             .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
             .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         let rawBinaryQuestions: MoCAModels.RawBinaryQuestions = [.visuospatial: [1: .yes, 2: .not, 3: .yes, 4: .yes, 5: .yes],
                                                                  .naming: [1: .not, 2: .yes, 3: .yes],
@@ -142,7 +113,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try updateCGA(with: .init(binaryQuestions: rawBinaryQuestions,
                                   selectedEducationOption: .firstOption,
                                   countedWords: 14, circlesImage: nil,
-                                  watchImage: nil, isDone: true), cgaId: nil)
+                                  watchImage: nil, isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: GeriatricDepressionScaleModels.TestData(questions: [.geriatricDepressionScaleQuestionOne: .firstOption, .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
                                                                                 .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
@@ -151,46 +122,46 @@ class CoreDataDAO: CoreDataDAOProtocol {
                                                                                 .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
                                                                                 .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
                                                                                 .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
-        try updateCGA(with: .init(selectedOption: .ninthOption, isDone: true), cgaId: nil)
-        try updateCGA(with: HearingLossAssessmentModels.TestData.init(isDone: true), cgaId: nil)
+        try updateCGA(with: .init(selectedOption: .ninthOption, isDone: true), cgaId: mockCgaId)
+        try updateCGA(with: HearingLossAssessmentModels.TestData.init(isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: KatzScaleModels.TestData(questions: [
             .katzScaleQuestionOne: .firstOption, .katzScaleQuestionTwo: .secondOption, .katzScaleQuestionThree: .firstOption,
             .katzScaleQuestionFour: .firstOption, .katzScaleQuestionFive: .firstOption, .katzScaleQuestionSix: .firstOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: LawtonScaleModels.TestData(questions: [
             .telephone: .thirdOption, .trips: .firstOption, .shopping: .firstOption, .mealPreparation: .firstOption,
             .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: .init(questions: [
             .miniNutritionalAssessmentFirstQuestion: .thirdOption, .miniNutritionalAssessmentSecondQuestion: .fourthOption,
             .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
             .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
-        ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: nil)
+        ], height: 174, weight: 80.5, isExtraQuestionSelected: false, isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: ApgarScaleModels.TestData(questions: [.apgarScaleQuestionOne: .secondOption, .apgarScaleQuestionTwo: .thirdOption, .apgarScaleQuestionThree: .thirdOption,
                                                                   .apgarScaleQuestionFour: .firstOption, .apgarScaleQuestionFive: .thirdOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: ZaritScaleModels.TestData(questions: [.zaritScaleQuestionOne: .firstOption, .zaritScaleQuestionTwo: .firstOption, .zaritScaleQuestionThree: .firstOption,
                                                                   .zaritScaleQuestionFour: .firstOption, .zaritScaleQuestionFive: .secondOption, .zaritScaleQuestionSix: .secondOption,
                                                                   .zaritScaleQuestionSeven: .secondOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
-        try updateCGA(with: .init(numberOfMedicines: 3, isDone: true), cgaId: nil)
+        try updateCGA(with: .init(numberOfMedicines: 3, isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: CharlsonIndexModels.TestData(binaryQuestions: [
             .charlsonIndexMainQuestion: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .not, 6: .not,
                                          7: .not, 8: .not, 9: .not, 10: .not, 11: .not, 12: .not,
                                          13: .not, 14: .not, 15: .not, 16: .not, 17: .not, 18: .not]
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: SuspectedAbuseModels.TestData(selectedOption: .firstOption, typedText: LocalizedTable.suspectedAbuseExample.localized,
-                                                          isDone: true), cgaId: nil)
+                                                          isDone: true), cgaId: mockCgaId)
 
         try updateCGA(with: ChemotherapyToxicityRiskModels.TestData(questions: [
             .chemotherapyToxicityRiskQuestionOne: .secondOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
@@ -198,7 +169,7 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
             .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
             .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption
-        ], isDone: true), cgaId: nil)
+        ], isDone: true), cgaId: mockCgaId)
 
         newCGA.lastModification = Date()
         newCGA.creationDate = Date()
@@ -1016,4 +987,3 @@ class CoreDataDAO: CoreDataDAOProtocol {
         try context.save()
     }
 }
-// swiftlint:enable type_body_length file_length

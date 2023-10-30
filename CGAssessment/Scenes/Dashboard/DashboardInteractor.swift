@@ -51,7 +51,7 @@ class DashboardInteractor: DashboardLogic {
         case .cgas:
             presenter?.route(toRoute: .cgas)
         case .newCGA:
-            presenter?.route(toRoute: .patients)
+            presenter?.route(toRoute: .newCGA)
         case .reports:
             presenter?.route(toRoute: .reports)
         case .cgaDomains:
@@ -97,7 +97,9 @@ class DashboardInteractor: DashboardLogic {
 
     private func computeLatestCGAData() {
         guard let latestCGA = try? worker?.getLatestCGA(), let patientName = latestCGA.patient?.name,
-              let birthDate = latestCGA.patient?.birthDate, let id = latestCGA.cgaId else { return }
+              let birthDate = latestCGA.patient?.birthDate, let id = latestCGA.cgaId else {
+            return
+        }
 
         var missingDomains: Int = 9
 

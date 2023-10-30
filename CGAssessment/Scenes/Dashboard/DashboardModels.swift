@@ -68,7 +68,7 @@ struct DashboardModels {
         case cgas
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case cga(cgaId: UUID?)
         case newCGA
         case patients

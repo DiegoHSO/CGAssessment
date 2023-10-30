@@ -46,6 +46,9 @@
 		F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */; };
 		F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */; };
 		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
+		F13C96F72AEEF6EA00DC35D5 /* CoreDataDAOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */; };
+		F13C96F92AEEF72E00DC35D5 /* CoreDataDAOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */; };
+		F13C96FC2AEF089400DC35D5 /* DAOFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */; };
 		F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */; };
 		F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */; };
 		F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */; };
@@ -163,6 +166,9 @@
 		F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */; };
 		F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699002AC756ED00FB5620 /* CoreDataDAO.swift */; };
 		F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699032AC86C1200FB5620 /* NewCGAWorker.swift */; };
+		F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */; };
+		F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */; };
+		F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */; };
 		F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */; };
 		F1A543122AC3DFD800D543ED /* CalfCircumference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */; };
 		F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */; };
@@ -427,6 +433,9 @@
 		F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamRouter.swift; sourceTree = "<group>"; };
 		F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamModels.swift; sourceTree = "<group>"; };
 		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
+		F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAOProtocol.swift; sourceTree = "<group>"; };
+		F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAOMock.swift; sourceTree = "<group>"; };
+		F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOFactory.swift; sourceTree = "<group>"; };
 		F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
 		F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperTableViewCell.xib; sourceTree = "<group>"; };
 		F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerbalFluency.storyboard; sourceTree = "<group>"; };
@@ -549,6 +558,9 @@
 		F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorker.swift; sourceTree = "<group>"; };
 		F18699002AC756ED00FB5620 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		F18699032AC86C1200FB5620 /* NewCGAWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAWorker.swift; sourceTree = "<group>"; };
+		F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorTests.swift; sourceTree = "<group>"; };
+		F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorkerTests.swift; sourceTree = "<group>"; };
 		F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceViewController.swift; sourceTree = "<group>"; };
 		F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalfCircumference.storyboard; sourceTree = "<group>"; };
 		F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractor.swift; sourceTree = "<group>"; };
@@ -851,6 +863,15 @@
 			path = MiniMentalStateExam;
 			sourceTree = "<group>";
 		};
+		F13C96FA2AEF088200DC35D5 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				F18698FF2AC756AC00FB5620 /* CoreData */,
+				F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		F13CD1052AD1DB1D0011E4DF /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,6 +1074,7 @@
 		F177F8052AA793C000C1EB32 /* CGAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1995E7D2AEF1911009CA257 /* Dashboard */,
 				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
 			);
 			path = CGAssessmentTests;
@@ -1070,7 +1092,7 @@
 		F177F81F2AA8294100C1EB32 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				F18698FF2AC756AC00FB5620 /* CoreData */,
+				F13C96FA2AEF088200DC35D5 /* DAO */,
 				F1F2E9D32AB298C10006075F /* Navigation */,
 				F177F8282AA82A3800C1EB32 /* LocalizedStrings */,
 				F177F8272AA82A2C00C1EB32 /* Extensions */,
@@ -1252,8 +1274,20 @@
 			isa = PBXGroup;
 			children = (
 				F18699002AC756ED00FB5620 /* CoreDataDAO.swift */,
+				F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */,
+				F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F1995E7D2AEF1911009CA257 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */,
+				F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */,
+				F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		F1A5430E2AC3DFAD00D543ED /* CalfCircumference */ = {
@@ -2053,6 +2087,7 @@
 				F1A543162AC3E1EA00D543ED /* CalfCircumferencePresenter.swift in Sources */,
 				F18698E32AC4D47300FB5620 /* SarcopeniaScreeningViewController.swift in Sources */,
 				F140977D2ABB616C00E92005 /* TooltipTableViewCell.swift in Sources */,
+				F13C96F72AEEF6EA00DC35D5 /* CoreDataDAOProtocol.swift in Sources */,
 				F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */,
 				F1A8B5332AD782FD006FD874 /* MiniNutritionalAssessmentRouter.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
@@ -2237,6 +2272,7 @@
 				F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
+				F13C96F92AEEF72E00DC35D5 /* CoreDataDAOMock.swift in Sources */,
 				F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F1A8B51B2AD6F684006FD874 /* LawtonScaleWorker.swift in Sources */,
@@ -2244,6 +2280,7 @@
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
 				F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */,
+				F13C96FC2AEF089400DC35D5 /* DAOFactory.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
 				F1A8B5AB2AD9D73D006FD874 /* ChemotherapyToxicityRiskViewController.swift in Sources */,
@@ -2307,6 +2344,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
+				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
+				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
+				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
