@@ -374,6 +374,12 @@
 		F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */; };
 		F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */; };
 		F1F2E9F72AB567A00006075F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1F2E9F62AB567A00006075F /* IQKeyboardManagerSwift */; };
+		F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */; };
+		F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */; };
+		F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */; };
+		F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */; };
+		F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */; };
+		F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -769,6 +775,12 @@
 		F1F2E9EE2AB39F5A0006075F /* CGAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAModels.swift; sourceTree = "<group>"; };
 		F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAWorkerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1075,6 +1087,8 @@
 			isa = PBXGroup;
 			children = (
 				F1995E7D2AEF1911009CA257 /* Dashboard */,
+				F1FD06C62AF07C6E003CD4CC /* CGAs */,
+				F1FD06CD2AF08D59003CD4CC /* NewCGA */,
 				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
 			);
 			path = CGAssessmentTests;
@@ -1798,6 +1812,26 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		F1FD06C62AF07C6E003CD4CC /* CGAs */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */,
+				F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */,
+				F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */,
+			);
+			path = CGAs;
+			sourceTree = "<group>";
+		};
+		F1FD06CD2AF08D59003CD4CC /* NewCGA */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */,
+				F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */,
+				F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */,
+			);
+			path = NewCGA;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2344,9 +2378,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
+				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
+				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
+				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
+				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
+				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
 				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
+				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

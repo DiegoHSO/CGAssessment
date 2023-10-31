@@ -25,7 +25,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         return container
     }()
 
-    private var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         persistentContainer.viewContext
     }
 
@@ -218,20 +218,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchCGA(cgaId: UUID?) throws -> CGA? {
-        let request = CGA.fetchRequest() as NSFetchRequest<CGA>
-        request.fetchLimit = 1
-
-        let cgaPredicate: NSPredicate
-
-        if let cgaId {
-            cgaPredicate = NSPredicate(format: "cgaId == %@", cgaId.uuidString)
-        } else {
-            cgaPredicate = NSPredicate(format: "cgaId == nil")
-        }
-
-        request.predicate = cgaPredicate
-
-        return try context.fetch(request).first
+        return try fetchCGAs().first(where: { $0.cgaId == cgaId })
     }
 
     func fetchPatientCGAs(patientId: UUID) throws -> [CGA] {
