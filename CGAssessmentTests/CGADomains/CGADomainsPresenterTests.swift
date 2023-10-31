@@ -1,14 +1,14 @@
 //
-//  CGAsPresenterTests.swift
+//  PatientsPresenterTests.swift
 //  CGAssessmentTests
 //
-//  Created by Diego Henrique Silva Oliveira on 30/10/23.
+//  Created by Diego Henrique Silva Oliveira on 31/10/23.
 //
 
 import XCTest
 @testable import CGAssessment
 
-final class CGAsPresenterTests: XCTestCase {
+final class PatientsPresenterTests: XCTestCase {
 
     // MARK: - Private Properties
 
@@ -31,18 +31,18 @@ final class CGAsPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call routeTo NewCGA")
         currentExpectation = newExpectation
 
-        let presenter = CGAsPresenter(viewController: self)
+        let presenter = PatientsPresenter(viewController: self)
         presenter.route(toRoute: .newCGA)
 
         wait(for: [newExpectation], timeout: 1)
     }
 
     func testRouteToCGA() {
-        let newExpectation = expectation(description: "Call routeTo CGA")
+        let newExpectation = expectation(description: "Call routeTo CGAs")
         currentExpectation = newExpectation
 
-        let presenter = CGAsPresenter(viewController: self)
-        presenter.route(toRoute: .cgaDomains(cgaId: UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3")))
+        let presenter = PatientsPresenter(viewController: self)
+        presenter.route(toRoute: .cgas(patientId: UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3")))
 
         wait(for: [newExpectation], timeout: 1)
     }
@@ -51,8 +51,9 @@ final class CGAsPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call presentData")
         currentExpectation = newExpectation
 
-        let presenter = CGAsPresenter(viewController: self)
-        presenter.presentData(viewModel: .init(filterOptions: [.byPatient, .recent, .zToA], selectedFilter: .byPatient, patientName: "Test Patient"))
+        let presenter = PatientsPresenter(viewController: self)
+        presenter.presentData(viewModel: .init(patients: [], filterOptions: [.byPatient, .recent, .zToA],
+                                               selectedFilter: .byPatient, isSearching: true))
 
         wait(for: [newExpectation], timeout: 1)
     }
@@ -61,7 +62,7 @@ final class CGAsPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call presentDeletionAlert")
         currentExpectation = newExpectation
 
-        let presenter = CGAsPresenter(viewController: self)
+        let presenter = PatientsPresenter(viewController: self)
         presenter.presentDeletionAlert(for: IndexPath(row: 0, section: 0))
 
         wait(for: [newExpectation], timeout: 1)
@@ -71,16 +72,16 @@ final class CGAsPresenterTests: XCTestCase {
         let newExpectation = expectation(description: "Call presentErrorDeletingAlert")
         currentExpectation = newExpectation
 
-        let presenter = CGAsPresenter(viewController: self)
+        let presenter = PatientsPresenter(viewController: self)
         presenter.presentErrorDeletingAlert()
 
         wait(for: [newExpectation], timeout: 1)
     }
 }
 
-// MARK: - CGAsPresentationLogic extension
+// MARK: - PatientsPresentationLogic extension
 
-extension CGAsPresenterTests: CGAsDisplayLogic {
+extension PatientsPresenterTests: PatientsDisplayLogic {
     func presentDeletionAlert(for indexPath: IndexPath) {
         XCTAssertEqual(currentExpectation?.description, "Call presentDeletionAlert")
         XCTAssertEqual(indexPath, IndexPath(row: 0, section: 0))
@@ -92,12 +93,12 @@ extension CGAsPresenterTests: CGAsDisplayLogic {
         currentExpectation?.fulfill()
     }
 
-    func route(toRoute route: CGAsModels.Routing) {
+    func route(toRoute route: PatientsModels.Routing) {
         switch currentExpectation?.description {
         case "Call routeTo NewCGA":
             XCTAssertEqual(route, .newCGA)
-        case "Call routeTo CGA":
-            XCTAssertEqual(route, .cgaDomains(cgaId: UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3")))
+        case "Call routeTo CGAs":
+            XCTAssertEqual(route, .cgas(patientId: UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3")))
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
         }
@@ -105,12 +106,13 @@ extension CGAsPresenterTests: CGAsDisplayLogic {
         currentExpectation?.fulfill()
     }
 
-    func presentData(viewModel: CGAsModels.ControllerViewModel) {
+    func presentData(viewModel: PatientsModels.ControllerViewModel) {
         switch currentExpectation?.description {
         case "Call presentData":
-            XCTAssertEqual(viewModel.filterOptions, [.byPatient, .recent, .zToA])
             XCTAssertEqual(viewModel.selectedFilter, .byPatient)
-            XCTAssertEqual(viewModel.patientName, "Test Patient")
+            XCTAssertEqual(viewModel.filterOptions, [.byPatient, .recent, .zToA])
+            XCTAssertTrue(viewModel.isSearching)
+            XCTAssertTrue(viewModel.patients.isEmpty)
             currentExpectation?.fulfill()
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")

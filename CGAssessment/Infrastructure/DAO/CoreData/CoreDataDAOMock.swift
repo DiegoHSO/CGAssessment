@@ -171,8 +171,8 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
             .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption
         ], isDone: true), cgaId: mockCgaId)
 
-        newCGA.lastModification = Date()
-        newCGA.creationDate = Date()
+        newCGA.lastModification = Date().addingMonth(-1)
+        newCGA.creationDate = Date().addingMonth(-2)
 
         try context.save()
     }
