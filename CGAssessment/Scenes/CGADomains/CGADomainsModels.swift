@@ -85,7 +85,7 @@ struct CGADomainsModels {
         }
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case domainTests(domain: Domain, cgaId: UUID?)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PatientsInteractorTests.swift
+//  CGADomainsInteractorTests.swift
 //  CGAssessmentTests
 //
 //  Created by Diego Henrique Silva Oliveira on 31/10/23.
@@ -9,12 +9,14 @@ import CoreData
 import XCTest
 @testable import CGAssessment
 
-final class PatientsInteractorTests: XCTestCase {
+final class CGADomainsInteractorTests: XCTestCase {
 
     // MARK: - Private Properties
 
     private var currentExpectation: XCTestExpectation?
     private var dao: CoreDataDAOMock?
+    private let cgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3")
+    private let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")
 
     // MARK: - Life Cycle
 
@@ -32,181 +34,54 @@ final class PatientsInteractorTests: XCTestCase {
 
     // MARK: - Test Methods
 
-    func testControllerDidLoad() {
-        let newExpectation = expectation(description: "Call controllerDidLoad")
+    func testControllerDidLoadWithCGA() {
+        let newExpectation = expectation(description: "Call controllerDidLoad with CGA")
         currentExpectation = newExpectation
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
+        let interactor = CGADomainsInteractor(presenter: self, worker: worker, patientId: patientId, cgaId: cgaId)
         interactor.controllerDidLoad()
 
         wait(for: [newExpectation], timeout: 1)
     }
 
-    func testDidChangeSearchText() {
-        let didLoadExpectation = expectation(description: "Call controllerDidLoad")
-        currentExpectation = didLoadExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.controllerDidLoad()
-
-        let didChangeExpectation = expectation(description: "Call didChange searchText")
-        currentExpectation = didChangeExpectation
-
-        interactor.didChange(searchText: "Invalid name")
-
-        wait(for: [didLoadExpectation, didChangeExpectation], timeout: 1)
-    }
-
-    func testDidTapToStartNewCGA() {
-        let newExpectation = expectation(description: "Call didTapToStartNewCGA")
+    func testControllerDidLoadWithoutCGA() {
+        let newExpectation = expectation(description: "Call controllerDidLoad without CGA")
         currentExpectation = newExpectation
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didTapToStartNewCGA()
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidConfirmDeletion() {
-        let newExpectation = expectation(forNotification: .NSManagedObjectContextDidSave, object: dao?.context) { _ in
+        let saveExpectation = expectation(forNotification: .NSManagedObjectContextDidSave, object: dao?.context) { _ in
             return true
         }
 
-        currentExpectation = newExpectation
+        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let interactor = CGADomainsInteractor(presenter: self, worker: worker, patientId: patientId)
+        interactor.controllerDidLoad()
 
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didConfirmDeletion(for: UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3"))
-
-        wait(for: [newExpectation], timeout: 1)
+        wait(for: [newExpectation, saveExpectation], timeout: 1)
     }
 
-    func testDidSelectPatient() {
-        let newExpectation = expectation(description: "Call didSelect Patient")
+    func testDidSelectDomain() {
+        let newExpectation = expectation(description: "Call didSelect domain")
         currentExpectation = newExpectation
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(patientId: UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3"))
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSwipeToDelete() {
-        let newExpectation = expectation(description: "Call didSwipeToDelete")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSwipeToDelete(indexPath: IndexPath(row: 0, section: 0))
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectAToZFilter() {
-        let newExpectation = expectation(description: "Call didSelect AToZ Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .aToZ)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectByPatientFilter() {
-        let newExpectation = expectation(description: "Call didSelect byPatient Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .byPatient)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectOlderFilter() {
-        let newExpectation = expectation(description: "Call didSelect older Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .older)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectOlderAgeFilter() {
-        let newExpectation = expectation(description: "Call didSelect olderAge Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .olderAge)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectRecentFilter() {
-        let newExpectation = expectation(description: "Call didSelect recent Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .recent)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectYoungerAgeFilter() {
-        let newExpectation = expectation(description: "Call didSelect youngerAge Filter")
-
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .youngerAge)
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testDidSelectZToAFilter() {
-        let newExpectation = expectation(description: "Call didSelect ZToA Filter")
-        currentExpectation = newExpectation
-
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        let interactor = PatientsInteractor(presenter: self, worker: worker)
-        interactor.didSelect(filterOption: .zToA)
+        let interactor = CGADomainsInteractor(presenter: self, worker: worker, patientId: patientId, cgaId: cgaId)
+        interactor.didSelect(domain: .cognitive)
 
         wait(for: [newExpectation], timeout: 1)
     }
 }
 
-// MARK: - PatientsPresentationLogic extension
+// MARK: - CGADomainsPresentationLogic extension
 
-extension PatientsInteractorTests: PatientsPresentationLogic {
-    func route(toRoute route: PatientsModels.Routing) {
+extension CGADomainsInteractorTests: CGADomainsPresentationLogic {
+    func route(toRoute route: CGADomainsModels.Routing) {
         switch currentExpectation?.description {
-        case "Call didTapToStartNewCGA":
-            XCTAssertEqual(route, .newCGA)
-        case "Call didSelect Patient":
-            XCTAssertEqual(route, .cgas(patientId: UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")))
+        case "Call didSelect domain":
+            XCTAssertEqual(route, .domainTests(domain: .cognitive, cgaId: cgaId))
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
         }
@@ -214,42 +89,18 @@ extension PatientsInteractorTests: PatientsPresentationLogic {
         currentExpectation?.fulfill()
     }
 
-    func presentData(viewModel: PatientsModels.ControllerViewModel) {
+    func presentData(viewModel: CGADomainsModels.ControllerViewModel) {
         switch currentExpectation?.description {
-        case "Call controllerDidLoad":
-            XCTAssertEqual(viewModel.selectedFilter, .aToZ)
-            XCTAssertEqual(viewModel.patients.first?.name, "Mock CGA")
-        case "Call didSelect AToZ Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .aToZ)
-        case "Call didSelect byPatient Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .byPatient)
-        case "Call didSelect older Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .older)
-        case "Call didSelect olderAge Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .olderAge)
-        case "Call didSelect recent Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .recent)
-        case "Call didSelect youngerAge Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .youngerAge)
-        case "Call didSelect ZToA Filter":
-            XCTAssertEqual(viewModel.selectedFilter, .zToA)
-        case "Call didChange searchText":
-            XCTAssertTrue(viewModel.isSearching)
-            XCTAssertTrue(viewModel.patients.isEmpty)
+        case "Call controllerDidLoad with CGA":
+            XCTAssertEqual(viewModel.statusViewModel?.patientName, "Mock CGA")
+            XCTAssertTrue(viewModel.domains.allSatisfy({ $0.value.allSatisfy({ $0.value })}))
+        case "Call controllerDidLoad without CGA":
+            XCTAssertEqual(viewModel.statusViewModel?.patientName, "Mock CGA")
+            XCTAssertTrue(viewModel.domains.allSatisfy({ $0.value.allSatisfy({ !$0.value })}))
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
         }
 
         currentExpectation?.fulfill()
-    }
-
-    func presentDeletionAlert(for indexPath: IndexPath) {
-        XCTAssertEqual(currentExpectation?.description, "Call didSwipeToDelete")
-        XCTAssertEqual(indexPath, IndexPath(row: 0, section: 0))
-        currentExpectation?.fulfill()
-    }
-
-    func presentErrorDeletingAlert() {
-        XCTFail("Should not have been called: \(#function)")
     }
 }

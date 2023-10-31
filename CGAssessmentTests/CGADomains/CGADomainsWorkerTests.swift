@@ -1,5 +1,5 @@
 //
-//  PatientsWorkerTests.swift
+//  CGADomainsWorkerTests.swift
 //  CGAssessmentTests
 //
 //  Created by Diego Henrique Silva Oliveira on 31/10/23.
@@ -9,7 +9,7 @@ import CoreData
 import XCTest
 @testable import CGAssessment
 
-final class PatientsWorkerTests: XCTestCase {
+final class CGADomainsWorkerTests: XCTestCase {
 
     // MARK: - Private Properties
 
@@ -32,22 +32,21 @@ final class PatientsWorkerTests: XCTestCase {
 
     // MARK: - Test Methods
 
-    func testGetPatients() {
-        let newExpectation = expectation(description: "Call getPatients")
+    func testGetCGADomains() {
+        let newExpectation = expectation(description: "Call getCGADomains")
         currentExpectation = newExpectation
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
-        guard let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3") else {
+        guard let cgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3") else {
             XCTFail("Unexpected UUID")
             return
         }
 
         do {
-            let patients = try worker.getPatients()
-            XCTAssertEqual(patients.count, 1)
-            XCTAssertEqual(patients.first?.name, "Mock CGA")
-            XCTAssertEqual(patients.first?.patientId, patientId)
+            let cga = try worker.getCGA(with: cgaId)
+            XCTAssertEqual(cga.cgaId, cgaId)
+            XCTAssertEqual(cga.patient?.name, "Mock CGA")
             currentExpectation?.fulfill()
         } catch {
             XCTFail("Test failed with error \(error.localizedDescription)")
@@ -60,9 +59,10 @@ final class PatientsWorkerTests: XCTestCase {
         let newExpectation = expectation(forNotification: .NSManagedObjectContextDidSave, object: dao?.context) { _ in
             return true
         }
+
         currentExpectation = newExpectation
 
-        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
         guard let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3") else {
             XCTFail("Unexpected UUID")
@@ -70,7 +70,8 @@ final class PatientsWorkerTests: XCTestCase {
         }
 
         do {
-            try worker.deletePatient(patientId: patientId)
+            let uuid = try worker.saveCGA(for: patientId)
+            XCTAssertNotNil(uuid)
         } catch {
             XCTFail("Test failed with error \(error.localizedDescription)")
         }
