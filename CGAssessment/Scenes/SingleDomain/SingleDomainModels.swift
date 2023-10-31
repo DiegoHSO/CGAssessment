@@ -206,7 +206,7 @@ struct SingleDomainModels {
         }
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case domainTest(test: Test, cgaId: UUID?)
     }
 }

@@ -78,4 +78,19 @@ final class PatientsWorkerTests: XCTestCase {
         wait(for: [newExpectation], timeout: 1)
     }
 
+    func testDeleteInvalidPatient() {
+        let newExpectation = expectation(description: "Call deletePatient invalid")
+        currentExpectation = newExpectation
+
+        let worker = PatientsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        do {
+            try worker.deletePatient(patientId: nil)
+        } catch {
+            currentExpectation?.fulfill()
+        }
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
 }

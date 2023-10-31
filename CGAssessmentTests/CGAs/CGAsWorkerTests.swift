@@ -106,7 +106,7 @@ final class CGAsWorkerTests: XCTestCase {
         wait(for: [newExpectation], timeout: 1)
     }
 
-    func testDeletePatient() {
+    func testDeleteCGA() {
         let newExpectation = expectation(forNotification: .NSManagedObjectContextDidSave, object: dao?.context) { _ in
             return true
         }
@@ -123,6 +123,21 @@ final class CGAsWorkerTests: XCTestCase {
             try worker.deleteCGA(cgaId: cgaId)
         } catch {
             XCTFail("Test failed with error \(error.localizedDescription)")
+        }
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testDeleteInvalidCGA() {
+        let newExpectation = expectation(description: "Call deleteCGA invalid")
+        currentExpectation = newExpectation
+
+        let worker = CGAsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        do {
+            try worker.deleteCGA(cgaId: nil)
+        } catch {
+            currentExpectation?.fulfill()
         }
 
         wait(for: [newExpectation], timeout: 1)

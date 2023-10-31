@@ -1,5 +1,5 @@
 //
-//  CGADomainsWorkerTests.swift
+//  SingleDomainWorkerTests.swift
 //  CGAssessmentTests
 //
 //  Created by Diego Henrique Silva Oliveira on 31/10/23.
@@ -9,7 +9,7 @@ import CoreData
 import XCTest
 @testable import CGAssessment
 
-final class CGADomainsWorkerTests: XCTestCase {
+final class SingleDomainWorkerTests: XCTestCase {
 
     // MARK: - Private Properties
 
@@ -32,11 +32,11 @@ final class CGADomainsWorkerTests: XCTestCase {
 
     // MARK: - Test Methods
 
-    func testGetCGADomains() {
-        let newExpectation = expectation(description: "Call getCGADomains")
+    func testGetCGA() {
+        let newExpectation = expectation(description: "Call getCGA")
         currentExpectation = newExpectation
 
-        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = SingleDomainWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
         guard let cgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3") else {
             XCTFail("Unexpected UUID")
@@ -59,7 +59,7 @@ final class CGADomainsWorkerTests: XCTestCase {
         let newExpectation = expectation(description: "Call getInvalidCGA")
         currentExpectation = newExpectation
 
-        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+        let worker = SingleDomainWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
         guard let cgaId = UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3") else {
             XCTFail("Unexpected UUID")
@@ -74,50 +74,4 @@ final class CGADomainsWorkerTests: XCTestCase {
 
         wait(for: [newExpectation], timeout: 1)
     }
-
-    func testSaveCGA() {
-        let newExpectation = expectation(forNotification: .NSManagedObjectContextDidSave, object: dao?.context) { _ in
-            return true
-        }
-
-        currentExpectation = newExpectation
-
-        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        guard let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3") else {
-            XCTFail("Unexpected UUID")
-            return
-        }
-
-        do {
-            let uuid = try worker.saveCGA(for: patientId)
-            XCTAssertNotNil(uuid)
-        } catch {
-            XCTFail("Test failed with error \(error.localizedDescription)")
-        }
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
-    func testSaveInvalidCGA() {
-        let newExpectation = expectation(description: "Call saveInvalidCGA")
-
-        currentExpectation = newExpectation
-
-        let worker = CGADomainsWorker(dao: dao ?? DAOFactory.coreDataDAO)
-
-        guard let patientId = UUID(uuidString: "1334772b-cd5b-4392-9148-7bf1994dd8d3") else {
-            XCTFail("Unexpected UUID")
-            return
-        }
-
-        do {
-            _ = try worker.saveCGA(for: patientId)
-        } catch {
-            currentExpectation?.fulfill()
-        }
-
-        wait(for: [newExpectation], timeout: 1)
-    }
-
 }

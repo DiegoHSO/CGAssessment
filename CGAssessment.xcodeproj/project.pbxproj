@@ -386,6 +386,9 @@
 		F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DC2AF16697003CD4CC /* CGADomainsInteractorTests.swift */; };
 		F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DD2AF16697003CD4CC /* CGADomainsPresenterTests.swift */; };
 		F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DE2AF16697003CD4CC /* CGADomainsWorkerTests.swift */; };
+		F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */; };
+		F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */; };
+		F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -793,6 +796,9 @@
 		F1FD06DC2AF16697003CD4CC /* CGADomainsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD06DD2AF16697003CD4CC /* CGADomainsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD06DE2AF16697003CD4CC /* CGADomainsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1103,6 +1109,7 @@
 				F1FD06CD2AF08D59003CD4CC /* NewCGA */,
 				F1FD06D42AF1214D003CD4CC /* Patients */,
 				F1FD06DB2AF16617003CD4CC /* CGADomains */,
+				F1FD06E22AF17AE3003CD4CC /* SingleDomain */,
 				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
 			);
 			path = CGAssessmentTests;
@@ -1866,6 +1873,16 @@
 			path = CGADomains;
 			sourceTree = "<group>";
 		};
+		F1FD06E22AF17AE3003CD4CC /* SingleDomain */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */,
+				F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */,
+				F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */,
+			);
+			path = SingleDomain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2413,6 +2430,7 @@
 			files = (
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
+				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
@@ -2420,6 +2438,7 @@
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
+				F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */,
 				F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */,
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
@@ -2427,6 +2446,7 @@
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
+				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
