@@ -709,7 +709,7 @@ class ResultsWorker {
         }
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
-                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                                     description: "\(totalPoints) \(LocalizedTable.points.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)
