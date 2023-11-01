@@ -20,7 +20,7 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
     private var worker: SarcopeniaScreeningWorker?
     private var cgaId: UUID?
     private var gender: Gender?
-    private var rawQuestions: MiniMentalStateExamModels.RawQuestions = [
+    private var rawQuestions: SarcopeniaScreeningModels.RawQuestions = [
         .sarcopeniaAssessmentFirstQuestion: .none, .sarcopeniaAssessmentSecondQuestion: .none,
         .sarcopeniaAssessmentThirdQuestion: .none, .sarcopeniaAssessmentFourthQuestion: .none,
         .sarcopeniaAssessmentFifthQuestion: .none, .sarcopeniaAssessmentSixthQuestion: .none

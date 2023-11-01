@@ -239,12 +239,7 @@ class ResultsWorker {
 
         let customScore: Int
 
-        switch testResults.gender {
-        case .female:
-            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
-        case .male:
-            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
-        }
+        customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
 
         score += customScore
 

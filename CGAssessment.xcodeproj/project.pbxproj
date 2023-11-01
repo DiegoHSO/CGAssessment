@@ -389,6 +389,9 @@
 		F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */; };
 		F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */; };
 		F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */; };
+		F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */; };
+		F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */; };
+		F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -799,6 +802,9 @@
 		F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1110,6 +1116,7 @@
 				F1FD06D42AF1214D003CD4CC /* Patients */,
 				F1FD06DB2AF16617003CD4CC /* CGADomains */,
 				F1FD06E22AF17AE3003CD4CC /* SingleDomain */,
+				F1FD06E92AF19641003CD4CC /* Results */,
 				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
 			);
 			path = CGAssessmentTests;
@@ -1883,6 +1890,16 @@
 			path = SingleDomain;
 			sourceTree = "<group>";
 		};
+		F1FD06E92AF19641003CD4CC /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */,
+				F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */,
+				F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2432,6 +2449,7 @@
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
+				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
@@ -2443,10 +2461,12 @@
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
 				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
+				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
+				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
