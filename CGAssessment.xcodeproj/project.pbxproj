@@ -399,6 +399,12 @@
 		F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */; };
 		F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */; };
 		F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07002AF43C06003CD4CC /* TestExpectation.swift */; };
+		F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */; };
+		F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */; };
+		F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */; };
+		F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */; };
+		F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */; };
+		F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -819,6 +825,12 @@
 		F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD07002AF43C06003CD4CC /* TestExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExpectation.swift; sourceTree = "<group>"; };
+		F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferencePresenterTests.swift; sourceTree = "<group>"; };
+		F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1922,6 +1934,7 @@
 				F1FD06F12AF34818003CD4CC /* TimedUpAndGo */,
 				F1FD06F82AF435E1003CD4CC /* WalkingSpeed */,
 				F1FD07022AF44542003CD4CC /* CalfCircumference */,
+				F1FD07092AF456F0003CD4CC /* GripStrength */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1957,8 +1970,21 @@
 		F1FD07022AF44542003CD4CC /* CalfCircumference */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */,
+				F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */,
+				F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */,
 			);
 			path = CalfCircumference;
+			sourceTree = "<group>";
+		};
+		F1FD07092AF456F0003CD4CC /* GripStrength */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */,
+				F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */,
+				F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */,
+			);
+			path = GripStrength;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2507,20 +2533,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
+				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
 				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
 				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
+				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
 				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
+				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
+				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
+				F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */,
 				F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */,
 				F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */,
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
@@ -2532,6 +2563,7 @@
 				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
+				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,

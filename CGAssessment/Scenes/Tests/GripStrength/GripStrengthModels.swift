@@ -26,7 +26,7 @@ struct GripStrengthModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let firstMeasurement: Double
         let secondMeasurement: Double
         let thirdMeasurement: Double
@@ -40,7 +40,7 @@ struct GripStrengthModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
