@@ -61,8 +61,6 @@ class ResultsWorker {
         case .visualAcuityAssessment:
             guard let visualAcuityAssessmentResults = results as? VisualAcuityAssessmentModels.TestResults else { return nil }
             return getVisualAcuityAssessmentResults(for: visualAcuityAssessmentResults)
-        case .hearingLossAssessment:
-            break
         case .katzScale:
             guard let katzScaleResults = results as? KatzScaleModels.TestResults else { return nil }
             return getKatzScaleResults(for: katzScaleResults)
@@ -84,10 +82,6 @@ class ResultsWorker {
         case .charlsonIndex:
             guard let charlsonIndexResults = results as? CharlsonIndexModels.TestResults else { return nil }
             return getCharlsonIndexResults(for: charlsonIndexResults)
-        case .suspectedAbuse:
-            break
-        case .cardiovascularRiskEstimation:
-            break
         case .chemotherapyToxicityRisk:
             guard let chemotherapyToxicityRiskResults = results as? ChemotherapyToxicityRiskModels.TestResults else { return nil }
             return getChemotherapyToxicityRiskResults(for: chemotherapyToxicityRiskResults)
@@ -99,14 +93,6 @@ class ResultsWorker {
     }
 
     func updateSarcopeniaAssessmentProgress(with data: SarcopeniaAssessmentModels.TestData) throws {
-        guard let cgaId, let dao else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
-        try dao.updateCGA(with: data, cgaId: cgaId)
-    }
-
-    func updateSarcopeniaScreeningProgress(with data: SarcopeniaScreeningModels.TestData) throws {
         guard let cgaId, let dao else {
             throw CoreDataErrors.unableToUpdateCGA
         }

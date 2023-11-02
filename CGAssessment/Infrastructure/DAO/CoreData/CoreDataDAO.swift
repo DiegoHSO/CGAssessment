@@ -151,7 +151,8 @@ class CoreDataDAO: CoreDataDAOProtocol {
             .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
             .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
             .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
-            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption
+            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption,
+            .chemotherapyToxicityRiskQuestionEleven: .secondOption
         ], isDone: true), cgaId: nil)
 
         newCGA.lastModification = Date()

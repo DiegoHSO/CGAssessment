@@ -1036,4 +1036,407 @@ final class ResultsWorkerTests: XCTestCase {
 
         wait(for: [newExpectation], timeout: 1)
     }
+
+    func testGetChemotherapyToxicityRiskResults() {
+        let newExpectation = expectation(description: "Call getResults for ChemotherapyToxicityRisk")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .chemotherapyToxicityRisk,
+                                    results: ChemotherapyToxicityRiskModels.TestResults(questions: [
+                                        .chemotherapyToxicityRiskQuestionOne: .secondOption, .chemotherapyToxicityRiskQuestionTwo: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionEleven: .secondOption
+                                    ]))
+
+        XCTAssertEqual(results?.1, .excellent)
+        XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.chemotherapyToxicityRiskExcellentResult.localized }) ?? false)
+
+        results = worker.getResults(for: .chemotherapyToxicityRisk,
+                                    results: ChemotherapyToxicityRiskModels.TestResults(questions: [
+                                        .chemotherapyToxicityRiskQuestionOne: .firstOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionEleven: .secondOption
+                                    ]))
+
+        XCTAssertEqual(results?.1, .medium)
+        XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.chemotherapyToxicityRiskMediumResult.localized }) ?? false)
+
+        results = worker.getResults(for: .chemotherapyToxicityRisk,
+                                    results: ChemotherapyToxicityRiskModels.TestResults(questions: [
+                                        .chemotherapyToxicityRiskQuestionOne: .firstOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionThree: .firstOption, .chemotherapyToxicityRiskQuestionFour: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionFive: .firstOption, .chemotherapyToxicityRiskQuestionSix: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionSeven: .firstOption, .chemotherapyToxicityRiskQuestionEight: .secondOption,
+                                        .chemotherapyToxicityRiskQuestionNine: .firstOption, .chemotherapyToxicityRiskQuestionTen: .firstOption,
+                                        .chemotherapyToxicityRiskQuestionEleven: .firstOption
+                                    ]))
+
+        XCTAssertEqual(results?.1, .bad)
+        XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.chemotherapyToxicityRiskBadResult.localized }) ?? false)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetTimedUpAndGoResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for TimedUpAndGo")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .timedUpAndGo, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetWalkingSpeedResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for WalkingSpeed")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .walkingSpeed, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetCalfCircumferenceResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for CalfCircumference")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .calfCircumference, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetGripStrengthResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for CalfCircumference")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .gripStrength, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetSarcopeniaScreeningResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for SarcopeniaScreening")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .sarcopeniaScreening, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetSarcopeniaAssessmentResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for SarcopeniaAssessment")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .sarcopeniaAssessment, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetMiniMentalStateExamResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for MiniMentalStateExam")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .miniMentalStateExamination, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetVerbalFluencyResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for VerbalFluency")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .verbalFluencyTest, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetClockDrawingResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for ClockDrawing")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .clockDrawingTest, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetMoCAResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for MoCA")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .moca, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetGeriatricDepressionScaleResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for GeriatricDepressionScale")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .geriatricDepressionScale, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetVisualAcuityAssessmentResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for VisualAcuityAssessment")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .visualAcuityAssessment, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetKatzScaleResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for KatzScale")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .katzScale, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetLawtonScaleResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for LawtonScale")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .lawtonScale, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetMiniNutritionalAssessmentResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for MiniNutritionalAssessment")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .miniNutritionalAssessment, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetApgarScaleResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for ApgarScale")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .apgarScale, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetZaritScaleResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for ZaritScale")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .zaritScale, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetPolypharmacyCriteriaResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for PolypharmacyCriteria")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .polypharmacyCriteria, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetCharlsonIndexResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for CharlsonIndex")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .charlsonIndex, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetChemotherapyToxicityResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for ChemotherapyToxicity")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .chemotherapyToxicityRisk, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidGetHearingLossResults() {
+        let newExpectation = expectation(description: "Call getInvalidResults for HearingLoss")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        var results: ([ResultsModels.Result], ResultsModels.ResultType)?
+
+        results = worker.getResults(for: .hearingLossAssessment, results: nil)
+        XCTAssertNil(results)
+
+        currentExpectation?.fulfill()
+
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+    func testInvalidUpdateSarcopeniaAssessment() {
+        let newExpectation = expectation(description: "Call updateInvalid for SarcopeniaAssessment")
+        currentExpectation = newExpectation
+
+        let worker = ResultsWorker(dao: dao ?? DAOFactory.coreDataDAO)
+
+        do {
+            try worker.updateSarcopeniaAssessmentProgress(with: .init(isDone: true))
+        } catch {
+            currentExpectation?.fulfill()
+        }
+
+        wait(for: [newExpectation], timeout: 1)
+    }
 }
