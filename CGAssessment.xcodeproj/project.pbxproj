@@ -392,6 +392,13 @@
 		F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */; };
 		F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */; };
 		F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */; };
+		F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */; };
+		F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */; };
+		F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */; };
+		F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */; };
+		F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */; };
+		F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */; };
+		F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07002AF43C06003CD4CC /* TestExpectation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -805,6 +812,13 @@
 		F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07002AF43C06003CD4CC /* TestExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExpectation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1110,12 +1124,14 @@
 		F177F8052AA793C000C1EB32 /* CGAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD06FF2AF43BF3003CD4CC /* Infrastructure */,
 				F1995E7D2AEF1911009CA257 /* Dashboard */,
 				F1FD06C62AF07C6E003CD4CC /* CGAs */,
 				F1FD06CD2AF08D59003CD4CC /* NewCGA */,
 				F1FD06D42AF1214D003CD4CC /* Patients */,
 				F1FD06DB2AF16617003CD4CC /* CGADomains */,
 				F1FD06E22AF17AE3003CD4CC /* SingleDomain */,
+				F1FD06F02AF3480C003CD4CC /* Tests */,
 				F1FD06E92AF19641003CD4CC /* Results */,
 				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
 			);
@@ -1900,6 +1916,51 @@
 			path = Results;
 			sourceTree = "<group>";
 		};
+		F1FD06F02AF3480C003CD4CC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06F12AF34818003CD4CC /* TimedUpAndGo */,
+				F1FD06F82AF435E1003CD4CC /* WalkingSpeed */,
+				F1FD07022AF44542003CD4CC /* CalfCircumference */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F1FD06F12AF34818003CD4CC /* TimedUpAndGo */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */,
+				F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */,
+				F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */,
+			);
+			path = TimedUpAndGo;
+			sourceTree = "<group>";
+		};
+		F1FD06F82AF435E1003CD4CC /* WalkingSpeed */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */,
+				F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */,
+				F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */,
+			);
+			path = WalkingSpeed;
+			sourceTree = "<group>";
+		};
+		F1FD06FF2AF43BF3003CD4CC /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07002AF43C06003CD4CC /* TestExpectation.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F1FD07022AF44542003CD4CC /* CalfCircumference */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CalfCircumference;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2445,12 +2506,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
+				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
+				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
+				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
@@ -2459,7 +2524,10 @@
 				F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */,
 				F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */,
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
+				F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
+				F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */,
+				F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */,
 				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
 				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
