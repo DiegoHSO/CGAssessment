@@ -414,6 +414,9 @@
 		F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD071F2AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift */; };
 		F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */; };
 		F1FD07242AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07212AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift */; };
+		F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */; };
+		F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */; };
+		F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -849,6 +852,9 @@
 		F1FD071F2AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD07212AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyWorkerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1956,6 +1962,7 @@
 				F1FD07102AF46BEE003CD4CC /* SarcopeniaScreening */,
 				F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */,
 				F1FD071E2AF48A12003CD4CC /* MiniMentalStateExam */,
+				F1FD07252AF4972A003CD4CC /* VerbalFluency */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2036,6 +2043,16 @@
 				F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */,
 			);
 			path = MiniMentalStateExam;
+			sourceTree = "<group>";
+		};
+		F1FD07252AF4972A003CD4CC /* VerbalFluency */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */,
+				F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */,
+				F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */,
+			);
+			path = VerbalFluency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2602,6 +2619,7 @@
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
 				F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */,
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
+				F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */,
 				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
 				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
@@ -2621,10 +2639,12 @@
 				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
+				F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */,
 				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 				F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */,
+				F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
 				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
 			);
