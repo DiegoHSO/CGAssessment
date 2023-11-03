@@ -420,6 +420,9 @@
 		F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */; };
 		F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */; };
 		F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */; };
+		F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */; };
+		F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */; };
+		F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -861,6 +864,9 @@
 		F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1970,6 +1976,7 @@
 				F1FD071E2AF48A12003CD4CC /* MiniMentalStateExam */,
 				F1FD07252AF4972A003CD4CC /* VerbalFluency */,
 				F1FD072C2AF49E90003CD4CC /* ClockDrawing */,
+				F1FD07332AF4A40E003CD4CC /* MoCA */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2070,6 +2077,16 @@
 				F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */,
 			);
 			path = ClockDrawing;
+			sourceTree = "<group>";
+		};
+		F1FD07332AF4A40E003CD4CC /* MoCA */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */,
+				F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */,
+				F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */,
+			);
+			path = MoCA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2617,6 +2634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */,
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
 				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
 				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
@@ -2639,10 +2657,12 @@
 				F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */,
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
 				F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */,
+				F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */,
 				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
 				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
+				F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */,
 				F1FD07242AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift in Sources */,
 				F1FD07162AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift in Sources */,
 				F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */,
