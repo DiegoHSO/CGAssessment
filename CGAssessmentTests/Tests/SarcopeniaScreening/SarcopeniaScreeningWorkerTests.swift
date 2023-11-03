@@ -1,5 +1,5 @@
 //
-//  GripStrengthWorkerTests.swift
+//  SarcopeniaScreeningWorkerTests.swift
 //  CGAssessmentTests
 //
 //  Created by Diego Henrique Silva Oliveira on 01/11/23.
@@ -9,7 +9,7 @@ import CoreData
 import XCTest
 @testable import CGAssessment
 
-final class GripStrengthWorkerTests: XCTestCase {
+final class SarcopeniaScreeningWorkerTests: XCTestCase {
 
     // MARK: - Private Properties
 
@@ -41,13 +41,27 @@ final class GripStrengthWorkerTests: XCTestCase {
             return
         }
 
-        let worker = GripStrengthWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
+        let worker = SarcopeniaScreeningWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
 
         do {
-            let test = try worker.getGripStrengthProgress()
-            XCTAssertEqual(test?.firstMeasurement, 27)
-            XCTAssertEqual(test?.secondMeasurement, 26)
-            XCTAssertEqual(test?.thirdMeasurement, 27.5)
+            let test = try worker.getSarcopeniaScreeningProgress()
+
+            guard let questionOptions = test?.selectableOptions?.allObjects as? [SelectableOption] else {
+                XCTFail("Unable to get selectable options for test")
+                return
+            }
+
+            var rawQuestions: SarcopeniaScreeningModels.RawQuestions = [:]
+
+            questionOptions.forEach { option in
+                guard let selectedOption = SelectableKeys(rawValue: option.selectedOption),
+                      let identifier = LocalizedTable(rawValue: option.identifier ?? "") else { return }
+                rawQuestions[identifier] = selectedOption
+            }
+
+            XCTAssertEqual(rawQuestions, [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
+                                          .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                          .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption])
             XCTAssertEqual(test?.isDone, true)
             currentExpectation?.fulfill()
         } catch {
@@ -70,11 +84,12 @@ final class GripStrengthWorkerTests: XCTestCase {
             return
         }
 
-        let worker = GripStrengthWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
+        let worker = SarcopeniaScreeningWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
 
         do {
-            try worker.updateGripStrengthProgress(with: .init(firstMeasurement: 32.1, secondMeasurement: 28.9,
-                                                              thirdMeasurement: 26.5, isDone: false))
+            try worker.updateSarcopeniaScreeningProgress(with: .init(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .firstOption,
+                                                                                 .sarcopeniaAssessmentThirdQuestion: .thirdOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                                                                 .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], isDone: false))
             currentExpectation?.fulfill()
         } catch {
             XCTFail("Test failed with error \(error.localizedDescription)")
@@ -92,7 +107,7 @@ final class GripStrengthWorkerTests: XCTestCase {
             return
         }
 
-        let worker = GripStrengthWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
+        let worker = SarcopeniaScreeningWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
 
         do {
             let gender = try worker.getPatientGender()
@@ -114,7 +129,7 @@ final class GripStrengthWorkerTests: XCTestCase {
             return
         }
 
-        let worker = GripStrengthWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
+        let worker = SarcopeniaScreeningWorker(dao: dao ?? DAOFactory.coreDataDAO, cgaId: cgaId)
 
         do {
             _ = try worker.getPatientGender()

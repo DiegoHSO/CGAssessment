@@ -355,8 +355,7 @@ final class ResultsInteractorTests: XCTestCase {
         let interactor = ResultsInteractor(presenter: self, worker: worker, test: .sarcopeniaScreening,
                                            results: SarcopeniaScreeningModels.TestResults(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .firstOption,
                                                                                                       .sarcopeniaAssessmentThirdQuestion: .firstOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                                                      .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption],
-                                                                                          gender: .male), isInSpecialFlow: false)
+                                                                                                      .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption]), isInSpecialFlow: false)
         interactor.controllerDidLoad()
 
         wait(for: [newExpectation], timeout: 1)
@@ -371,8 +370,7 @@ final class ResultsInteractorTests: XCTestCase {
         let interactor = ResultsInteractor(presenter: self, worker: worker, test: .sarcopeniaScreening,
                                            results: SarcopeniaScreeningModels.TestResults(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
                                                                                                       .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                                                      .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption],
-                                                                                          gender: .male), isInSpecialFlow: false)
+                                                                                                      .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption]), isInSpecialFlow: false)
         interactor.controllerDidLoad()
 
         wait(for: [newExpectation], timeout: 1)

@@ -88,7 +88,7 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
 
         let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
 
-        let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({$0 != .none})
+        let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({ $0 != .none })
 
         return SarcopeniaScreeningModels.ControllerViewModel(questions: questions, isResultsButtonEnabled: isResultsButtonEnabled)
     }
@@ -100,8 +100,8 @@ class SarcopeniaScreeningInteractor: SarcopeniaScreeningLogic {
 
         let selectedOptions = rawQuestions.values.map { $0 as SelectableKeys }
 
-        if let gender, selectedOptions.allSatisfy({$0 != .none}) {
-            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(questions: rawQuestions, gender: gender), cgaId: cgaId))
+        if selectedOptions.allSatisfy({$0 != .none}) {
+            presenter?.route(toRoute: .testResults(test: .sarcopeniaScreening, results: .init(questions: rawQuestions), cgaId: cgaId))
         }
     }
 

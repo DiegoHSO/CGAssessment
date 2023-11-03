@@ -142,19 +142,19 @@ final class ResultsWorkerTests: XCTestCase {
 
         results = worker.getResults(for: .sarcopeniaScreening, results: SarcopeniaScreeningModels.TestResults(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
                                                                                                                           .sarcopeniaAssessmentThirdQuestion: .thirdOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption], gender: .male))
+                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption]))
         XCTAssertEqual(results?.1, .excellent)
         XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.sarcopeniaScreeningExcellentResult.localized }) ?? false)
 
         results = worker.getResults(for: .sarcopeniaScreening, results: SarcopeniaScreeningModels.TestResults(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
                                                                                                                           .sarcopeniaAssessmentThirdQuestion: .firstOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption], gender: .male))
+                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .firstOption]))
         XCTAssertEqual(results?.1, .excellent)
         XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.sarcopeniaScreeningExcellentResult.localized }) ?? false)
 
         results = worker.getResults(for: .sarcopeniaScreening, results: SarcopeniaScreeningModels.TestResults(questions: [.sarcopeniaAssessmentFirstQuestion: .firstOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
                                                                                                                           .sarcopeniaAssessmentThirdQuestion: .thirdOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
-                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .secondOption], gender: .female))
+                                                                                                                          .sarcopeniaAssessmentFifthQuestion: .firstOption, .sarcopeniaAssessmentSixthQuestion: .secondOption]))
         XCTAssertEqual(results?.1, .bad)
         XCTAssertTrue(results?.0.contains(where: { $0.description == LocalizedTable.sarcopeniaScreeningBadResult.localized }) ?? false)
 
