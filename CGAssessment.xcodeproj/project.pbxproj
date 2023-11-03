@@ -417,6 +417,9 @@
 		F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */; };
 		F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */; };
 		F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */; };
+		F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */; };
+		F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */; };
+		F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -855,6 +858,9 @@
 		F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1963,6 +1969,7 @@
 				F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */,
 				F1FD071E2AF48A12003CD4CC /* MiniMentalStateExam */,
 				F1FD07252AF4972A003CD4CC /* VerbalFluency */,
+				F1FD072C2AF49E90003CD4CC /* ClockDrawing */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2053,6 +2060,16 @@
 				F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */,
 			);
 			path = VerbalFluency;
+			sourceTree = "<group>";
+		};
+		F1FD072C2AF49E90003CD4CC /* ClockDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */,
+				F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */,
+				F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */,
+			);
+			path = ClockDrawing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2610,11 +2627,13 @@
 				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */,
+				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
 				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
+				F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
 				F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */,
@@ -2638,6 +2657,7 @@
 				F1FD07142AF46CAB003CD4CC /* SarcopeniaScreeningInteractorTests.swift in Sources */,
 				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
 				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
+				F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
 				F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */,
 				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
