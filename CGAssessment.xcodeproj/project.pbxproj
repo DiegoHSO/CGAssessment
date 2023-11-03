@@ -408,6 +408,9 @@
 		F1FD07142AF46CAB003CD4CC /* SarcopeniaScreeningInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07112AF46CAA003CD4CC /* SarcopeniaScreeningInteractorTests.swift */; };
 		F1FD07152AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */; };
 		F1FD07162AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07132AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift */; };
+		F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */; };
+		F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */; };
+		F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -837,6 +840,9 @@
 		F1FD07112AF46CAA003CD4CC /* SarcopeniaScreeningInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD07132AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAsssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentWorkerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1942,6 +1948,7 @@
 				F1FD07022AF44542003CD4CC /* CalfCircumference */,
 				F1FD07092AF456F0003CD4CC /* GripStrength */,
 				F1FD07102AF46BEE003CD4CC /* SarcopeniaScreening */,
+				F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2002,6 +2009,16 @@
 				F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */,
 			);
 			path = SarcopeniaScreening;
+			sourceTree = "<group>";
+		};
+		F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */,
+				F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */,
+				F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */,
+			);
+			path = SarcopeniaAssessment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2550,6 +2567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
+				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
 				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
 				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
@@ -2564,6 +2582,7 @@
 				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
 				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
+				F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */,
 				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
 				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
@@ -2587,6 +2606,7 @@
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
+				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

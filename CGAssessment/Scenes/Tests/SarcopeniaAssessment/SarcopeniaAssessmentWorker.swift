@@ -28,7 +28,7 @@ class SarcopeniaAssessmentWorker {
     }
 
     func getPatientGender() throws -> Gender {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId),
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId),
               let gender = Gender(rawValue: patient.gender) else {
             throw CoreDataErrors.unableToFetchPatient
         }
