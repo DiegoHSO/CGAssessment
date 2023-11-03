@@ -429,6 +429,9 @@
 		F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */; };
 		F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */; };
 		F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */; };
+		F1FD074C2AF570F3003CD4CC /* HearingLossAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */; };
+		F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */; };
+		F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -879,6 +882,9 @@
 		F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentWorkerTests.swift; sourceTree = "<group>"; };
 		F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentWorkerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1991,6 +1997,7 @@
 				F1FD07332AF4A40E003CD4CC /* MoCA */,
 				F1FD073A2AF4B497003CD4CC /* GeriatricDepressionScale */,
 				F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */,
+				F1FD07482AF570A6003CD4CC /* HearingLossAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2121,6 +2128,16 @@
 				F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */,
 			);
 			path = VisualAcuityAssessment;
+			sourceTree = "<group>";
+		};
+		F1FD07482AF570A6003CD4CC /* HearingLossAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */,
+				F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */,
+				F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */,
+			);
+			path = HearingLossAssessment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2709,6 +2726,7 @@
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
 				F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
+				F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */,
 				F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */,
 				F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */,
 				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
@@ -2721,9 +2739,11 @@
 				F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */,
 				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
+				F1FD074C2AF570F3003CD4CC /* HearingLossAssessmentPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 				F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */,
 				F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */,
+				F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */,
 				F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
 				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
