@@ -432,6 +432,9 @@
 		F1FD074C2AF570F3003CD4CC /* HearingLossAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */; };
 		F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */; };
 		F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */; };
+		F1FD07532AF587DB003CD4CC /* KatzScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */; };
+		F1FD07542AF587DB003CD4CC /* KatzScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */; };
+		F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -885,6 +888,9 @@
 		F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentPresenterTests.swift; sourceTree = "<group>"; };
 		F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScalePresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1998,6 +2004,7 @@
 				F1FD073A2AF4B497003CD4CC /* GeriatricDepressionScale */,
 				F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */,
 				F1FD07482AF570A6003CD4CC /* HearingLossAssessment */,
+				F1FD074F2AF5875B003CD4CC /* KatzScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2138,6 +2145,16 @@
 				F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */,
 			);
 			path = HearingLossAssessment;
+			sourceTree = "<group>";
+		};
+		F1FD074F2AF5875B003CD4CC /* KatzScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */,
+				F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */,
+				F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */,
+			);
+			path = KatzScale;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2689,6 +2706,7 @@
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
 				F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */,
 				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
+				F1FD07532AF587DB003CD4CC /* KatzScaleWorkerTests.swift in Sources */,
 				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
 				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
@@ -2701,6 +2719,7 @@
 				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
+				F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
 				F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */,
@@ -2725,6 +2744,7 @@
 				F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */,
 				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
 				F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */,
+				F1FD07542AF587DB003CD4CC /* KatzScaleInteractorTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
 				F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */,
 				F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */,

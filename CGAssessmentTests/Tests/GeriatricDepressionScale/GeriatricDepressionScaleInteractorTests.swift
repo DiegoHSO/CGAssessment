@@ -102,13 +102,14 @@ extension GeriatricDepressionScaleInteractorTests: GeriatricDepressionScalePrese
     func route(toRoute route: GeriatricDepressionScaleModels.Routing) {
         switch currentExpectation?.description {
         case "Call controllerDidLoad", "Call didTap action button":
-            XCTAssertEqual(route, .testResults(test: .geriatricDepressionScale, results: .init(questions: [.geriatricDepressionScaleQuestionOne: .firstOption, .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
-                                                                                                           .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
-                                                                                                           .geriatricDepressionScaleQuestionSix: .secondOption, .geriatricDepressionScaleQuestionSeven: .secondOption,
-                                                                                                           .geriatricDepressionScaleQuestionEight: .secondOption, .geriatricDepressionScaleQuestionNine: .secondOption,
-                                                                                                           .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
-                                                                                                           .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
-                                                                                                           .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
+            XCTAssertEqual(route, .testResults(test: .geriatricDepressionScale, results: .init(questions: [.geriatricDepressionScaleQuestionOne: .firstOption, .geriatricDepressionScaleQuestionTwo: .firstOption,
+                                                                                                           .geriatricDepressionScaleQuestionThree: .firstOption, .geriatricDepressionScaleQuestionFour: .firstOption,
+                                                                                                           .geriatricDepressionScaleQuestionFive: .secondOption, .geriatricDepressionScaleQuestionSix: .secondOption,
+                                                                                                           .geriatricDepressionScaleQuestionSeven: .secondOption, .geriatricDepressionScaleQuestionEight: .secondOption,
+                                                                                                           .geriatricDepressionScaleQuestionNine: .secondOption, .geriatricDepressionScaleQuestionTen: .secondOption,
+                                                                                                           .geriatricDepressionScaleQuestionEleven: .firstOption, .geriatricDepressionScaleQuestionTwelve: .firstOption,
+                                                                                                           .geriatricDepressionScaleQuestionThirteen: .firstOption, .geriatricDepressionScaleQuestionFourteen: .firstOption,
+                                                                                                           .geriatricDepressionScaleQuestionFifteen: .secondOption
             ]), cgaId: cgaId))
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
