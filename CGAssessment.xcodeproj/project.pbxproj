@@ -426,6 +426,9 @@
 		F1FD073E2AF53DA3003CD4CC /* GeriatricDepressionScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073B2AF53DA2003CD4CC /* GeriatricDepressionScaleInteractorTests.swift */; };
 		F1FD073F2AF53DA3003CD4CC /* GeriatricDepressionScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073C2AF53DA2003CD4CC /* GeriatricDepressionScalePresenterTests.swift */; };
 		F1FD07402AF53DA3003CD4CC /* GeriatricDepressionScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */; };
+		F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */; };
+		F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */; };
+		F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -873,6 +876,9 @@
 		F1FD073B2AF53DA2003CD4CC /* GeriatricDepressionScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD073C2AF53DA2003CD4CC /* GeriatricDepressionScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScalePresenterTests.swift; sourceTree = "<group>"; };
 		F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1984,6 +1990,7 @@
 				F1FD072C2AF49E90003CD4CC /* ClockDrawing */,
 				F1FD07332AF4A40E003CD4CC /* MoCA */,
 				F1FD073A2AF4B497003CD4CC /* GeriatricDepressionScale */,
+				F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2104,6 +2111,16 @@
 				F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */,
 			);
 			path = GeriatricDepressionScale;
+			sourceTree = "<group>";
+		};
+		F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */,
+				F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */,
+				F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */,
+			);
+			path = VisualAcuityAssessment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2653,6 +2670,7 @@
 			files = (
 				F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */,
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
+				F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */,
 				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
 				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
@@ -2668,6 +2686,7 @@
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
+				F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */,
 				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
 				F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */,
 				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
@@ -2704,6 +2723,7 @@
 				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
 				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
 				F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */,
+				F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */,
 				F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
 				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
