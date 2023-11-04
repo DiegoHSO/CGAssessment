@@ -215,14 +215,26 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchCGAs() throws -> [CGA] {
-        return try context.fetch(CGA.fetchRequest())
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return [getMockedCGAForUITest()]
+        } else {
+            return try context.fetch(CGA.fetchRequest())
+        }
     }
 
     func fetchCGA(cgaId: UUID?) throws -> CGA? {
-        return try fetchCGAs().first(where: { $0.cgaId == cgaId })
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return getMockedCGAForUITest()
+        } else {
+            return try fetchCGAs().first(where: { $0.cgaId == cgaId })
+        }
     }
 
     func fetchPatientCGAs(patientId: UUID) throws -> [CGA] {
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return [getMockedCGAForUITest()]
+        }
+
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
 
         let patientPredicate = NSPredicate(format: "patient.patientId == %@",
@@ -234,10 +246,19 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchPatients() throws -> [Patient] {
-        return try context.fetch(Patient.fetchRequest())
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            guard let patient = getMockedCGAForUITest().patient else { return [] }
+            return [patient]
+        } else {
+            return try context.fetch(Patient.fetchRequest())
+        }
     }
 
     func fetchPatient(patientId: UUID) throws -> Patient? {
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return getMockedCGAForUITest().patient
+        }
+
         let request = Patient.fetchRequest() as NSFetchRequest<Patient>
         request.fetchLimit = 1
 
@@ -973,5 +994,50 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         cga.chemotherapyToxicityRisk = newTest
 
         try context.save()
+    }
+
+    private func getMockedCGAForUITest() -> CGA {
+        let mockCgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3")
+
+        let newCGA = CGA(context: context)
+        newCGA.cgaId = mockCgaId
+
+        newCGA.patient = Patient(context: context)
+        newCGA.patient?.gender = 1
+        newCGA.patient?.birthDate = Date().addingYear(-75).removingTimeComponents()
+        newCGA.patient?.name = "Mock CGA"
+        newCGA.patient?.patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")
+
+        newCGA.timedUpAndGo = TimedUpAndGo(context: context)
+        newCGA.timedUpAndGo?.hasStopwatch = false
+        newCGA.timedUpAndGo?.typedTime = 9.25
+        newCGA.timedUpAndGo?.measuredTime = 8.56
+        newCGA.timedUpAndGo?.isDone = true
+
+        newCGA.walkingSpeed = WalkingSpeed(context: context)
+        newCGA.walkingSpeed?.hasStopwatch = false
+        newCGA.walkingSpeed?.firstMeasuredTime = 13.5
+        newCGA.walkingSpeed?.secondMeasuredTime = 10
+        newCGA.walkingSpeed?.thirdMeasuredTime = 12
+        newCGA.walkingSpeed?.firstTypedTime = 11.4
+        newCGA.walkingSpeed?.secondTypedTime = 14.3
+        newCGA.walkingSpeed?.thirdTypedTime = 9.6
+        newCGA.walkingSpeed?.selectedStopwatch = 3
+        newCGA.walkingSpeed?.isDone = true
+
+        newCGA.calfCircumference = CalfCircumference(context: context)
+        newCGA.calfCircumference?.measuredCircumference = 31.3
+        newCGA.calfCircumference?.isDone = true
+
+        newCGA.gripStrength = GripStrength(context: context)
+        newCGA.gripStrength?.firstMeasurement = 27
+        newCGA.gripStrength?.secondMeasurement = 26
+        newCGA.gripStrength?.thirdMeasurement = 27.5
+        newCGA.gripStrength?.isDone = true
+
+        newCGA.lastModification = Date().addingMonth(-1).removingTimeComponents()
+        newCGA.creationDate = Date().addingMonth(-2).removingTimeComponents()
+
+        return newCGA
     }
 }

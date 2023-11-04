@@ -58,6 +58,8 @@ class PatientsViewController: UIViewController, PatientsDisplayLogic {
         tableView?.register(cellType: SearchBarTableViewCell.self)
         tableView?.register(cellType: FilterTableViewCell.self)
         tableView?.register(cellType: EmptyStateTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "PatientsViewController-tableView"
     }
 
     // MARK: - Public Methods
@@ -98,6 +100,8 @@ class PatientsViewController: UIViewController, PatientsDisplayLogic {
                 self.tableView?.reloadSections(IndexSet(integer: PatientsModels.Section.patients.rawValue), with: .fade)
             }
         }
+
+        deleteAction.accessibilityIdentifier = "PatientsViewController-deleteAction"
 
         let cancelAction = UIAlertAction(title: LocalizedTable.cancel.localized, style: .cancel)
 
@@ -187,6 +191,8 @@ extension PatientsViewController: UITableViewDataSource {
 
             cell.setup(title: nil, placeholder: LocalizedTable.searchPatient.localized, leadingConstraint: 12, trailingConstraint: 12, delegate: interactor)
 
+            cell.accessibilityIdentifier = "CGAsViewController-SearchBarTableViewCell"
+
             return cell
         case .filter:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.className,
@@ -195,6 +201,8 @@ extension PatientsViewController: UITableViewDataSource {
             }
 
             cell.setup(filterOptions: viewModel.filterOptions, selectedOption: viewModel.selectedFilter, delegate: interactor)
+
+            cell.accessibilityIdentifier = "PatientsViewController-FilterTableViewCell"
 
             return cell
         case .patient:
@@ -206,6 +214,8 @@ extension PatientsViewController: UITableViewDataSource {
 
                 cell.setup(viewModel: patient)
 
+                cell.accessibilityIdentifier = "PatientsViewController-PatientTableViewCell-\(indexPath.row)"
+
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyStateTableViewCell.className,
@@ -215,6 +225,8 @@ extension PatientsViewController: UITableViewDataSource {
 
                 cell.setup(title: LocalizedTable.newCgaEmptyState.localized,
                            buttonTitle: LocalizedTable.newCgaEmptyStateAction.localized)
+
+                cell.accessibilityIdentifier = "PatientsViewController-EmptyStateTableViewCell"
 
                 return cell
             }

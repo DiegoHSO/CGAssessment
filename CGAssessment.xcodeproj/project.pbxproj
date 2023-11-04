@@ -39,6 +39,12 @@
 		F1153E402AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3D2AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift */; };
 		F1153E412AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3E2AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift */; };
 		F1153E422AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3F2AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift */; };
+		F1153E442AF698BD00D0B59A /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E432AF698BD00D0B59A /* DashboardUITests.swift */; };
+		F1153E462AF6A23D00D0B59A /* CGAsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */; };
+		F1153E492AF6C5E900D0B59A /* PatientsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */; };
+		F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */; };
+		F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */; };
+		F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -510,6 +516,12 @@
 		F1153E3D2AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskPresenterTests.swift; sourceTree = "<group>"; };
 		F1153E3E2AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskWorkerTests.swift; sourceTree = "<group>"; };
 		F1153E3F2AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E432AF698BD00D0B59A /* DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUITests.swift; sourceTree = "<group>"; };
+		F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsUITests.swift; sourceTree = "<group>"; };
+		F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsUITests.swift; sourceTree = "<group>"; };
+		F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAUITests.swift; sourceTree = "<group>"; };
+		F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsUITests.swift; sourceTree = "<group>"; };
+		F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainUITests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -1320,6 +1332,12 @@
 			children = (
 				F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */,
 				F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */,
+				F1153E432AF698BD00D0B59A /* DashboardUITests.swift */,
+				F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */,
+				F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */,
+				F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */,
+				F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */,
+				F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */,
 			);
 			path = CGAssessmentUITests;
 			sourceTree = "<group>";
@@ -2930,8 +2948,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */,
+				F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */,
 				F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */,
 				F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */,
+				F1153E442AF698BD00D0B59A /* DashboardUITests.swift in Sources */,
+				F1153E462AF6A23D00D0B59A /* CGAsUITests.swift in Sources */,
+				F1153E492AF6C5E900D0B59A /* PatientsUITests.swift in Sources */,
+				F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

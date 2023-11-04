@@ -90,12 +90,16 @@ class CGADomainsViewController: UIViewController, CGADomainsDisplayLogic, Status
         tableView?.register(headerType: StatusHeaderView.self)
         tableView?.register(headerType: TooltipHeaderView.self)
         tableView?.register(cellType: CGADomainTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "CGADomainsViewController-tableView"
     }
 
     private func setupBarButtonItem() {
         let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
                                         style: .plain, target: self,
                                         action: #selector(infoButtonTapped))
+
+        barButton.accessibilityIdentifier = "CGADomainsViewController-infoButton"
         self.navigationItem.rightBarButtonItem = barButton
     }
 
@@ -143,6 +147,8 @@ extension CGADomainsViewController: UITableViewDataSource {
 
         cell.setup(viewModel: .init(name: domain.title, symbol: domain.symbol,
                                     tests: tests))
+
+        cell.accessibilityIdentifier = "CGADomainsViewController-CGADomainTableViewCell-\(indexPath.row)"
 
         return cell
     }

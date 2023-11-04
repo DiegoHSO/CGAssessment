@@ -18,6 +18,7 @@ class TabBarViewController: UITabBarController {
         tabBar.tintColor = .label7
         tabBar.backgroundColor = .background11
         tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        tabBar.accessibilityIdentifier = "TabBarViewController-TabBar"
     }
 
     required init?(coder: NSCoder) {

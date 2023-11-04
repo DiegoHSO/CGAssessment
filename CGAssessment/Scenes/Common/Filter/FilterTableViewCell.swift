@@ -31,11 +31,13 @@ class FilterTableViewCell: UITableViewCell {
         self.delegate = delegate
 
         let menus: [UIAction] = filterOptions.map { filterOption in
-            UIAction(title: filterOption.title ?? "",
-                     state: filterOption == selectedOption ? .on : .off) { [weak self] _ in
+            let action = UIAction(title: filterOption.title ?? "",
+                                  state: filterOption == selectedOption ? .on : .off) { [weak self] _ in
                 guard let self else { return }
                 self.delegate?.didSelect(filterOption: filterOption)
             }
+            action.accessibilityIdentifier = "UIAction-\(filterOption.title ?? "")"
+            return action
         }
 
         filterButton?.menu = UIMenu(children: menus)
