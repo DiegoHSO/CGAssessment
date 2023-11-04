@@ -32,7 +32,7 @@ class ChemotherapyToxicityRiskWorker {
     }
 
     func getPatientBirthDate() throws -> Date? {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId) else {
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId) else {
             throw CoreDataErrors.unableToFetchPatient
         }
 
@@ -40,7 +40,7 @@ class ChemotherapyToxicityRiskWorker {
     }
 
     func getPatientGender() throws -> Gender {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId),
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId),
               let gender = Gender(rawValue: patient.gender) else {
             throw CoreDataErrors.unableToFetchPatient
         }
