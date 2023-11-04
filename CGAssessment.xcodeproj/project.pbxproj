@@ -438,6 +438,9 @@
 		F1FD075A2AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07572AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift */; };
 		F1FD075B2AF58FDC003CD4CC /* LawtonScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07582AF58FDC003CD4CC /* LawtonScalePresenterTests.swift */; };
 		F1FD075C2AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */; };
+		F1FD07612AF59A56003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */; };
+		F1FD07622AF59A56003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */; };
+		F1FD07632AF59A56003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -897,6 +900,9 @@
 		F1FD07572AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleInteractorTests.swift; sourceTree = "<group>"; };
 		F1FD07582AF58FDC003CD4CC /* LawtonScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScalePresenterTests.swift; sourceTree = "<group>"; };
 		F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2012,6 +2018,7 @@
 				F1FD07482AF570A6003CD4CC /* HearingLossAssessment */,
 				F1FD074F2AF5875B003CD4CC /* KatzScale */,
 				F1FD07562AF58FA3003CD4CC /* LawtonScale */,
+				F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2172,6 +2179,16 @@
 				F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */,
 			);
 			path = LawtonScale;
+			sourceTree = "<group>";
+		};
+		F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */,
+				F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */,
+				F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */,
+			);
+			path = MiniNutritionalAssessment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2721,6 +2738,7 @@
 			files = (
 				F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */,
 				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
+				F1FD07622AF59A56003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift in Sources */,
 				F1FD075A2AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift in Sources */,
 				F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */,
 				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
@@ -2733,6 +2751,7 @@
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
 				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
+				F1FD07632AF59A56003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift in Sources */,
 				F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */,
 				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
@@ -2764,6 +2783,7 @@
 				F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */,
 				F1FD07542AF587DB003CD4CC /* KatzScaleInteractorTests.swift in Sources */,
 				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
+				F1FD07612AF59A56003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift in Sources */,
 				F1FD075C2AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift in Sources */,
 				F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */,
 				F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */,
