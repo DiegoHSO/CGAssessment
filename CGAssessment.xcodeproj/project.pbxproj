@@ -24,6 +24,9 @@
 		F1153E1D2AF5E73000D0B59A /* ApgarScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */; };
 		F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */; };
 		F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */; };
+		F1153E242AF5ED6F00D0B59A /* ZaritScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */; };
+		F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */; };
+		F1153E262AF5ED6F00D0B59A /* ZaritScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -481,6 +484,9 @@
 		F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorkerTests.swift; sourceTree = "<group>"; };
 		F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScalePresenterTests.swift; sourceTree = "<group>"; };
 		F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScalePresenterTests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -979,6 +985,9 @@
 		F1153E202AF5EC1600D0B59A /* ZaritScale */ = {
 			isa = PBXGroup;
 			children = (
+				F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */,
+				F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */,
+				F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */,
 			);
 			path = ZaritScale;
 			sourceTree = "<group>";
@@ -2783,6 +2792,7 @@
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
 				F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */,
+				F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */,
 				F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
@@ -2798,6 +2808,7 @@
 				F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */,
 				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
+				F1153E262AF5ED6F00D0B59A /* ZaritScalePresenterTests.swift in Sources */,
 				F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */,
 				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
@@ -2823,6 +2834,7 @@
 				F1FD073F2AF53DA3003CD4CC /* GeriatricDepressionScalePresenterTests.swift in Sources */,
 				F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */,
 				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
+				F1153E242AF5ED6F00D0B59A /* ZaritScaleWorkerTests.swift in Sources */,
 				F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */,
 				F1FD075B2AF58FDC003CD4CC /* LawtonScalePresenterTests.swift in Sources */,
 				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
