@@ -27,6 +27,9 @@
 		F1153E242AF5ED6F00D0B59A /* ZaritScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */; };
 		F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */; };
 		F1153E262AF5ED6F00D0B59A /* ZaritScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */; };
+		F1153E2B2AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */; };
+		F1153E2C2AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */; };
+		F1153E2D2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -487,6 +490,9 @@
 		F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleWorkerTests.swift; sourceTree = "<group>"; };
 		F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleInteractorTests.swift; sourceTree = "<group>"; };
 		F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaPresenterTests.swift; sourceTree = "<group>"; };
+		F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaInteractorTests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -990,6 +996,16 @@
 				F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */,
 			);
 			path = ZaritScale;
+			sourceTree = "<group>";
+		};
+		F1153E272AF5EED400D0B59A /* PolypharmacyCriteria */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */,
+				F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */,
+				F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */,
+			);
+			path = PolypharmacyCriteria;
 			sourceTree = "<group>";
 		};
 		F13C7B732ACDD631000D5AC2 /* Status */ = {
@@ -2053,6 +2069,7 @@
 				F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */,
 				F1153E192AF5E6FE00D0B59A /* ApgarScale */,
 				F1153E202AF5EC1600D0B59A /* ZaritScale */,
+				F1153E272AF5EED400D0B59A /* PolypharmacyCriteria */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2790,6 +2807,8 @@
 				F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */,
 				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
+				F1153E2C2AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift in Sources */,
+				F1153E2B2AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift in Sources */,
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
 				F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */,
 				F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */,
@@ -2814,6 +2833,7 @@
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
 				F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */,
 				F1FD07242AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift in Sources */,
+				F1153E2D2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift in Sources */,
 				F1FD07162AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift in Sources */,
 				F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */,
 				F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */,
