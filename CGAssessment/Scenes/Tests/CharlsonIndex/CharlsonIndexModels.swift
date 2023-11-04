@@ -25,7 +25,7 @@ struct CharlsonIndexModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let binaryQuestions: RawBinaryQuestions
         let patientBirthDate: Date?
     }
@@ -35,7 +35,7 @@ struct CharlsonIndexModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 

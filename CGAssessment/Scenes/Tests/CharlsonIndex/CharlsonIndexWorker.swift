@@ -32,7 +32,7 @@ class CharlsonIndexWorker {
     }
 
     func getPatientBirthDate() throws -> Date? {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId) else {
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId) else {
             throw CoreDataErrors.unableToFetchPatient
         }
 

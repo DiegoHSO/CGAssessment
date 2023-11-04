@@ -167,12 +167,12 @@ extension PolypharmacyCriteriaInteractorTests: PolypharmacyCriteriaPresentationL
             XCTAssertEqual(route, .testResults(test: .polypharmacyCriteria, results: .init(numberOfMedicines: 3), cgaId: cgaId))
         case "Call didTap picker":
             XCTAssertEqual(route, .openBottomSheet(viewModel: .init(
-                pickerContent: Array(0...100).map({ "\($0) \($0 == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)" }),
-                identifier: .numberOfMedicines, delegate: nil, selectedRow: 0)))
+                                                    pickerContent: Array(0...100).map({ "\($0) \($0 == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)" }),
+                                                    identifier: .numberOfMedicines, delegate: nil, selectedRow: 0)))
         case "Call didTap picker single medicine":
             XCTAssertEqual(route, .openBottomSheet(viewModel: .init(
-                pickerContent: Array(0...100).map({ "\($0) \($0 == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)" }),
-                identifier: .numberOfMedicines, delegate: nil, selectedRow: 1)))
+                                                    pickerContent: Array(0...100).map({ "\($0) \($0 == 1 ? LocalizedTable.medicineSingular.localized : LocalizedTable.medicinePlural.localized)" }),
+                                                    identifier: .numberOfMedicines, delegate: nil, selectedRow: 1)))
         default:
             XCTFail("Unexpected description: \(currentExpectation?.description ?? "<nil>")")
         }
