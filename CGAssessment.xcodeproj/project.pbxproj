@@ -21,6 +21,9 @@
 		F10DFBA32ACA525A00E1A380 /* CGAsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */; };
 		F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */; };
 		F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */; };
+		F1153E1D2AF5E73000D0B59A /* ApgarScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */; };
+		F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */; };
+		F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -475,6 +478,9 @@
 		F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsRouter.swift; sourceTree = "<group>"; };
 		F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CGAs.storyboard; sourceTree = "<group>"; };
 		F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsBuilder.swift; sourceTree = "<group>"; };
+		F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleInteractorTests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -958,6 +964,23 @@
 				F1C31A052ADA242700F37A1F /* CGAsSubtitleHeaderView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F1153E192AF5E6FE00D0B59A /* ApgarScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */,
+				F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */,
+				F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */,
+			);
+			path = ApgarScale;
+			sourceTree = "<group>";
+		};
+		F1153E202AF5EC1600D0B59A /* ZaritScale */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ZaritScale;
 			sourceTree = "<group>";
 		};
 		F13C7B732ACDD631000D5AC2 /* Status */ = {
@@ -2019,6 +2042,8 @@
 				F1FD074F2AF5875B003CD4CC /* KatzScale */,
 				F1FD07562AF58FA3003CD4CC /* LawtonScale */,
 				F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */,
+				F1153E192AF5E6FE00D0B59A /* ApgarScale */,
+				F1153E202AF5EC1600D0B59A /* ZaritScale */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2750,12 +2775,14 @@
 				F1FD07402AF53DA3003CD4CC /* GeriatricDepressionScaleWorkerTests.swift in Sources */,
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
 				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
+				F1153E1D2AF5E73000D0B59A /* ApgarScaleWorkerTests.swift in Sources */,
 				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
 				F1FD07632AF59A56003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift in Sources */,
 				F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */,
 				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
 				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
 				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
+				F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */,
 				F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */,
 				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
 				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
@@ -2771,6 +2798,7 @@
 				F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */,
 				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
 				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
+				F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */,
 				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
 				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
 				F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */,
