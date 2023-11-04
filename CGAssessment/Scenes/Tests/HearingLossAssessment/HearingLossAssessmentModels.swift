@@ -25,7 +25,7 @@ struct HearingLossAssessmentModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case katzScale(cgaId: UUID?)
     }
 

@@ -154,7 +154,6 @@ class SingleDomainInteractor: SingleDomainLogic {
         case .mobility:
             tests = [.timedUpAndGo, .walkingSpeed, .calfCircumference,
                      .gripStrength, .sarcopeniaScreening]
-
         case .cognitive:
             tests = [.miniMentalStateExamination, .verbalFluencyTest,
                      .clockDrawingTest, .moca, .geriatricDepressionScale]

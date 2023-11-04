@@ -5,66 +5,80 @@
 //  Created by Diego Henrique Silva Oliveira on 29/10/23.
 //
 
+import CoreData
 import XCTest
 @testable import CGAssessment
 
-/*
- final class DashboardWorkerTests: XCTestCase {
- // MARK: - Private Properties
+final class DashboardWorkerTests: XCTestCase {
 
- private var currentExpectation: XCTestExpectation?
+    // MARK: - Private Properties
 
- // MARK: - Life Cycle
+    private var currentExpectation: XCTestExpectation?
+    private var dao: CoreDataDAOProtocol?
 
- override func tearDown() {
- super.tearDown()
- currentExpectation = nil
- }
+    // MARK: - Life Cycle
 
- // MARK: - Test Methods
+    override func setUp() {
+        super.setUp()
+        dao = CoreDataDAOMock()
+        try? dao?.addStandaloneCGA()
+    }
 
- func testRequestFactoryLines() {
- let newExpectation = expectation(description: "Call requestFactoryLines")
- currentExpectation = newExpectation
- expectedMethodName = "presentFactoryCells(response:)"
+    override func tearDown() {
+        super.tearDown()
+        currentExpectation = nil
+        dao = nil
+    }
 
- newExpectation.expectedFulfillmentCount = 3
+    // MARK: - Test Methods
 
- let worker = WholeFactoryWorker(machineStatesDAO: MachineStateDAOMock())
+    func testGetClosestCGAs() {
+        let newExpectation = expectation(description: "Call getClosestCGAs")
+        currentExpectation = newExpectation
 
- let interactor = WholeFactoryInteractor(presenter: self, worker: worker,
- localStorageManager: localStorageManager)
- interactor.requestFactoryLines()
+        let worker = DashboardWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
- wait(for: [newExpectation], timeout: 1)
- }
+        guard let cgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3"),
+              let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3") else {
+            XCTFail("Unexpected UUID")
+            return
+        }
 
- }
- */
+        do {
+            let cgas = try worker.getClosestCGAs()
+            XCTAssertEqual(cgas.count, 1)
+            XCTAssertEqual(cgas.first?.cgaId, cgaId)
+            XCTAssertEqual(cgas.first?.patient?.patientId, patientId)
+            currentExpectation?.fulfill()
+        } catch {
+            XCTFail("Test failed with error \(error.localizedDescription)")
+        }
 
-// MARK: - WholeFactoryPresentationLogic extension
+        wait(for: [newExpectation], timeout: 1)
+    }
 
-/*
- extension DashboardWorkerTests: WholeFactoryPresentationLogic {
+    func testGetLatestCGA() {
+        let newExpectation = expectation(description: "Call getLatestCGA")
+        currentExpectation = newExpectation
 
- func route(to route: FactoryView.WholeFactoryModels.Routing) {
- switch route {
- case .notificationsList:
- expect(self.currentExpectation?.description) == "Call didTapNotifications"
- currentExpectation?.fulfill()
+        let worker = DashboardWorker(dao: dao ?? DAOFactory.coreDataDAO)
 
- case .settings:
- expect(self.currentExpectation?.description) == "Call didTapSettings"
- currentExpectation?.fulfill()
+        guard let cgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3"),
+              let patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3") else {
+            XCTFail("Unexpected UUID")
+            return
+        }
 
- case .singleLine:
- expect(self.currentExpectation?.description) == "Call didSelectLine"
- currentExpectation?.fulfill()
+        do {
+            let cga = try worker.getLatestCGA()
+            XCTAssertEqual(cga?.cgaId, cgaId)
+            XCTAssertEqual(cga?.patient?.patientId, patientId)
+            currentExpectation?.fulfill()
+        } catch {
+            XCTFail("Test failed with error \(error.localizedDescription)")
+        }
 
- case .singleStation:
- expect(self.currentExpectation?.description) == "Call didSelectStation"
- currentExpectation?.fulfill()
- }
- }
- }
- */
+        wait(for: [newExpectation], timeout: 1)
+    }
+
+}

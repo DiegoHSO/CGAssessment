@@ -39,7 +39,7 @@ struct PatientsModels {
         let patientId: UUID?
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case cgas(patientId: UUID?)
         case newCGA
     }

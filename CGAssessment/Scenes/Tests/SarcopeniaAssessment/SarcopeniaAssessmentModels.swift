@@ -64,7 +64,7 @@ struct SarcopeniaAssessmentModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let gripStrengthResults: GripStrengthModels.TestResults
         let calfCircumferenceResults: CalfCircumferenceModels.TestResults?
         let timedUpAndGoResults: TimedUpAndGoModels.TestResults?
@@ -75,7 +75,7 @@ struct SarcopeniaAssessmentModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case gripStrength(cgaId: UUID?)
         case calfCircumference(cgaId: UUID?)
         case timedUpAndGo(cgaId: UUID?)

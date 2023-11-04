@@ -25,7 +25,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         return container
     }()
 
-    private var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         persistentContainer.viewContext
     }
 
@@ -43,9 +43,9 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
 
         newCGA.patient = Patient(context: context)
         newCGA.patient?.gender = 1
-        newCGA.patient?.birthDate = Date().addingYear(-75)
+        newCGA.patient?.birthDate = Date().addingYear(-75).removingTimeComponents()
         newCGA.patient?.name = "Mock CGA"
-        newCGA.patient?.patientId = UUID()
+        newCGA.patient?.patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")
 
         newCGA.timedUpAndGo = TimedUpAndGo(context: context)
         newCGA.timedUpAndGo?.hasStopwatch = false
@@ -168,11 +168,12 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
             .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
             .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
             .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
-            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption
+            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption,
+            .chemotherapyToxicityRiskQuestionEleven: .secondOption
         ], isDone: true), cgaId: mockCgaId)
 
-        newCGA.lastModification = Date()
-        newCGA.creationDate = Date()
+        newCGA.lastModification = Date().addingMonth(-1).removingTimeComponents()
+        newCGA.creationDate = Date().addingMonth(-2).removingTimeComponents()
 
         try context.save()
     }
@@ -218,20 +219,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchCGA(cgaId: UUID?) throws -> CGA? {
-        let request = CGA.fetchRequest() as NSFetchRequest<CGA>
-        request.fetchLimit = 1
-
-        let cgaPredicate: NSPredicate
-
-        if let cgaId {
-            cgaPredicate = NSPredicate(format: "cgaId == %@", cgaId.uuidString)
-        } else {
-            cgaPredicate = NSPredicate(format: "cgaId == nil")
-        }
-
-        request.predicate = cgaPredicate
-
-        return try context.fetch(request).first
+        return try fetchCGAs().first(where: { $0.cgaId == cgaId })
     }
 
     func fetchPatientCGAs(patientId: UUID) throws -> [CGA] {

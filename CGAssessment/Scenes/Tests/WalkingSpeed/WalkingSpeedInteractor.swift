@@ -71,8 +71,6 @@ class WalkingSpeedInteractor: WalkingSpeedLogic {
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
-        guard let identifier else { return }
-
         switch identifier {
         case .firstMeasurement:
             typedFirstTime = TimeInterval(text.replacingOccurrences(of: ",", with: "."))
