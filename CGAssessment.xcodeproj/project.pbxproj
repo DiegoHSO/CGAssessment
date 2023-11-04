@@ -33,6 +33,9 @@
 		F1153E322AF5F78D00D0B59A /* CharlsonIndexWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */; };
 		F1153E332AF5F78D00D0B59A /* CharlsonIndexInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E302AF5F78C00D0B59A /* CharlsonIndexInteractorTests.swift */; };
 		F1153E342AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E312AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift */; };
+		F1153E392AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */; };
+		F1153E3A2AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */; };
+		F1153E3B2AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -499,6 +502,9 @@
 		F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexWorkerTests.swift; sourceTree = "<group>"; };
 		F1153E302AF5F78C00D0B59A /* CharlsonIndexInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexInteractorTests.swift; sourceTree = "<group>"; };
 		F1153E312AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexPresenterTests.swift; sourceTree = "<group>"; };
+		F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbusePresenterTests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -1022,6 +1028,16 @@
 				F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */,
 			);
 			path = CharlsonIndex;
+			sourceTree = "<group>";
+		};
+		F1153E352AF5FF4100D0B59A /* SuspectedAbuse */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */,
+				F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */,
+				F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */,
+			);
+			path = SuspectedAbuse;
 			sourceTree = "<group>";
 		};
 		F13C7B732ACDD631000D5AC2 /* Status */ = {
@@ -2087,6 +2103,7 @@
 				F1153E202AF5EC1600D0B59A /* ZaritScale */,
 				F1153E272AF5EED400D0B59A /* PolypharmacyCriteria */,
 				F1153E2E2AF5F70A00D0B59A /* CharlsonIndex */,
+				F1153E352AF5FF4100D0B59A /* SuspectedAbuse */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2814,7 +2831,9 @@
 				F1FD07532AF587DB003CD4CC /* KatzScaleWorkerTests.swift in Sources */,
 				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
 				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
+				F1153E3A2AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift in Sources */,
 				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
+				F1153E392AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift in Sources */,
 				F1FD07152AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift in Sources */,
 				F1FD07402AF53DA3003CD4CC /* GeriatricDepressionScaleWorkerTests.swift in Sources */,
 				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
@@ -2886,6 +2905,7 @@
 				F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */,
 				F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */,
 				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
+				F1153E3B2AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift in Sources */,
 				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,7 +31,7 @@ struct SuspectedAbuseModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case chemotherapyToxicityRisk(cgaId: UUID?)
     }
 
