@@ -9,11 +9,11 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
+    // MARK: - Init
+    
     init(tabs: CGAModels.Tabs) {
         super.init(nibName: nil, bundle: nil)
-        /*
-         viewControllers = [tabs.home, tabs.cgas, tabs.preferences].compactMap { $0 }
-         */
+        
         viewControllers = [tabs.home, tabs.cgas].compactMap { $0 }
         tabBar.tintColor = .label7
         tabBar.backgroundColor = .background11

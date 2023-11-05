@@ -1012,7 +1012,7 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         newCGA.timedUpAndGo?.hasStopwatch = false
         newCGA.timedUpAndGo?.typedTime = 9.25
         newCGA.timedUpAndGo?.measuredTime = 8.56
-        newCGA.timedUpAndGo?.isDone = true
+        newCGA.timedUpAndGo?.isDone = false
 
         newCGA.walkingSpeed = WalkingSpeed(context: context)
         newCGA.walkingSpeed?.hasStopwatch = false
@@ -1023,17 +1023,147 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         newCGA.walkingSpeed?.secondTypedTime = 14.3
         newCGA.walkingSpeed?.thirdTypedTime = 9.6
         newCGA.walkingSpeed?.selectedStopwatch = 3
-        newCGA.walkingSpeed?.isDone = true
+        newCGA.walkingSpeed?.isDone = false
 
         newCGA.calfCircumference = CalfCircumference(context: context)
         newCGA.calfCircumference?.measuredCircumference = 31.3
-        newCGA.calfCircumference?.isDone = true
+        newCGA.calfCircumference?.isDone = false
 
         newCGA.gripStrength = GripStrength(context: context)
         newCGA.gripStrength?.firstMeasurement = 27
         newCGA.gripStrength?.secondMeasurement = 26
         newCGA.gripStrength?.thirdMeasurement = 27.5
-        newCGA.gripStrength?.isDone = true
+        newCGA.gripStrength?.isDone = false
+
+        let sarcopeniaScreeningQuestions: SarcopeniaScreeningModels.RawQuestions = [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
+                                                                                    .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                                                                    .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption]
+
+        let sarcopeniaScreeningSelectableOptions = sarcopeniaScreeningQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.sarcopeniaScreening = SarcopeniaScreening(context: context)
+        newCGA.sarcopeniaScreening?.selectableOptions = NSSet(array: sarcopeniaScreeningSelectableOptions)
+        newCGA.sarcopeniaScreening?.isDone = false
+
+        let miniMentalStateExamQuestions: MiniMentalStateExamModels.RawQuestions =  [.miniMentalStateExamFirstQuestion: .secondOption, .miniMentalStateExamSecondQuestion: .firstOption,
+                                                                                     .miniMentalStateExamThirdQuestion: .secondOption, .miniMentalStateExamFourthQuestion: .firstOption,
+                                                                                     .miniMentalStateExamFifthQuestion: .firstOption]
+
+        let miniMentalStateExamBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions =  [.miniMentalStateExamFirstSectionQuestion: [1: .yes, 2: .not, 3: .not, 4: .yes, 5: .yes],
+                                                                                                 .miniMentalStateExamSecondSectionQuestion: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not],
+                                                                                                 .miniMentalStateExamThirdSectionQuestion: [1: .not, 2: .yes, 3: .yes],
+                                                                                                 .miniMentalStateExamFourthSectionQuestion: [1: .yes, 2: .yes, 3: .yes, 4: .not, 5: .not],
+                                                                                                 .miniMentalStateExamFifthSectionQuestion: [1: .yes, 2: .not, 3: .yes],
+                                                                                                 .miniMentalStateExamSixthSectionQuestion: [1: .yes, 2: .yes],
+                                                                                                 .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]]
+
+        let binaryOptions = miniMentalStateExamBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let miniMentalStateExamBinaryOptionsReduced = binaryOptions.reduce([], +)
+
+        let miniMentalStateExamSelectableOptions = miniMentalStateExamQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.miniMentalStateExam = MiniMentalStateExam(context: context)
+        newCGA.miniMentalStateExam?.binaryOptions = NSSet(array: miniMentalStateExamBinaryOptionsReduced)
+        newCGA.miniMentalStateExam?.selectableOptions = NSSet(array: miniMentalStateExamSelectableOptions)
+        newCGA.miniMentalStateExam?.isDone = false
+
+        newCGA.verbalFluency = VerbalFluency(context: context)
+        newCGA.verbalFluency?.elapsedTime = 12.5
+        newCGA.verbalFluency?.selectedOption = 1
+        newCGA.verbalFluency?.countedWords = 19
+        newCGA.verbalFluency?.isDone = false
+
+        let clockDrawingRawBinaryQuestions: ClockDrawingModels.RawBinaryQuestions = [
+            .outline: [1: .yes, 2: .yes],
+            .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
+            .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
+        ]
+
+        let clockDrawingBinaryOptions = clockDrawingRawBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let clockDrawingBinaryOptionsReduced = clockDrawingBinaryOptions.reduce([], +)
+
+        newCGA.clockDrawing = ClockDrawing(context: context)
+        newCGA.clockDrawing?.binaryOptions = NSSet(array: clockDrawingBinaryOptionsReduced)
+        newCGA.clockDrawing?.isDone = false
+
+        let mocaRawBinaryQuestions: MoCAModels.RawBinaryQuestions = [.visuospatial: [1: .yes, 2: .not, 3: .yes, 4: .yes, 5: .yes],
+                                                                     .naming: [1: .not, 2: .yes, 3: .yes],
+                                                                     .mocaFourthSectionSecondInstruction: [1: .yes, 2: .yes],
+                                                                     .mocaFourthSectionThirdInstruction: [1: .yes],
+                                                                     .mocaFourthSectionFourthInstruction: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes],
+                                                                     .language: [1: .yes, 2: .not],
+                                                                     .abstraction: [1: .yes, 2: .yes],
+                                                                     .delayedRecall: [1: .yes, 2: .yes, 3: .not, 4: .yes, 5: .yes],
+                                                                     .orientation: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes, 6: .yes]]
+
+        let mocaBinaryOptions = mocaRawBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let mocaBinaryOptionsReduced = mocaBinaryOptions.reduce([], +)
+
+        newCGA.moCA = MoCA(context: context)
+        newCGA.moCA?.binaryOptions = NSSet(array: mocaBinaryOptionsReduced)
+        newCGA.moCA?.circlesImage = nil
+        newCGA.moCA?.watchImage = nil
+        newCGA.moCA?.countedWords = 14
+        newCGA.moCA?.selectedOption = 1
+        newCGA.moCA?.isDone = false
+
+        let geriatricDepressionScaleQuestions: GeriatricDepressionScaleModels.RawQuestions =  [.geriatricDepressionScaleQuestionOne: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionSix: .secondOption, .geriatricDepressionScaleQuestionSeven: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionEight: .secondOption, .geriatricDepressionScaleQuestionNine: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
+        ]
+
+        let geriatricDepressionScaleSelectableOptions = geriatricDepressionScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.geriatricDepressionScale = GeriatricDepressionScale(context: context)
+        newCGA.geriatricDepressionScale?.selectableOptions = NSSet(array: geriatricDepressionScaleSelectableOptions)
+        newCGA.geriatricDepressionScale?.isDone = false
 
         newCGA.lastModification = Date().addingMonth(-1).removingTimeComponents()
         newCGA.creationDate = Date().addingMonth(-2).removingTimeComponents()

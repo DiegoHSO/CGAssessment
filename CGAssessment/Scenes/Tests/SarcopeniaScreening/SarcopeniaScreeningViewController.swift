@@ -75,6 +75,8 @@ class SarcopeniaScreeningViewController: UIViewController, SarcopeniaScreeningDi
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "SarcopeniaScreeningViewController-tableView"
     }
 }
 
@@ -138,6 +140,8 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "SarcopeniaScreeningViewController-SelectableTableViewCell-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -146,6 +150,8 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "SarcopeniaScreeningViewController-ActionButtonTableViewCell"
 
             return cell
         }

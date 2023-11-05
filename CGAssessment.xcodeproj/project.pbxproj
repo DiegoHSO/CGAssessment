@@ -45,6 +45,16 @@
 		F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */; };
 		F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */; };
 		F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */; };
+		F1153E512AF72A4D00D0B59A /* TimedUpAndGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */; };
+		F1153E532AF737BE00D0B59A /* WalkingSpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */; };
+		F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */; };
+		F1153E572AF740CC00D0B59A /* GripStrengthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */; };
+		F1153E592AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */; };
+		F1153E5B2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */; };
+		F1153E5D2AF750C700D0B59A /* VerbalFluencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */; };
+		F1153E5F2AF7552300D0B59A /* ClockDrawingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */; };
+		F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E602AF757CC00D0B59A /* MoCAUITests.swift */; };
+		F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -522,6 +532,16 @@
 		F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAUITests.swift; sourceTree = "<group>"; };
 		F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsUITests.swift; sourceTree = "<group>"; };
 		F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainUITests.swift; sourceTree = "<group>"; };
+		F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoUITests.swift; sourceTree = "<group>"; };
+		F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedUITests.swift; sourceTree = "<group>"; };
+		F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceUITests.swift; sourceTree = "<group>"; };
+		F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthUITests.swift; sourceTree = "<group>"; };
+		F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentUITests.swift; sourceTree = "<group>"; };
+		F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamUITests.swift; sourceTree = "<group>"; };
+		F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyUITests.swift; sourceTree = "<group>"; };
+		F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingUITests.swift; sourceTree = "<group>"; };
+		F1153E602AF757CC00D0B59A /* MoCAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAUITests.swift; sourceTree = "<group>"; };
+		F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleUITests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -1338,6 +1358,16 @@
 				F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */,
 				F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */,
 				F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */,
+				F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */,
+				F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */,
+				F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */,
+				F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */,
+				F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */,
+				F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */,
+				F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */,
+				F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */,
+				F1153E602AF757CC00D0B59A /* MoCAUITests.swift */,
+				F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */,
 			);
 			path = CGAssessmentUITests;
 			sourceTree = "<group>";
@@ -2950,11 +2980,21 @@
 			files = (
 				F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */,
 				F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */,
+				F1153E5D2AF750C700D0B59A /* VerbalFluencyUITests.swift in Sources */,
+				F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */,
 				F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */,
+				F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */,
+				F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */,
+				F1153E532AF737BE00D0B59A /* WalkingSpeedUITests.swift in Sources */,
 				F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */,
+				F1153E5B2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift in Sources */,
+				F1153E572AF740CC00D0B59A /* GripStrengthUITests.swift in Sources */,
 				F1153E442AF698BD00D0B59A /* DashboardUITests.swift in Sources */,
 				F1153E462AF6A23D00D0B59A /* CGAsUITests.swift in Sources */,
 				F1153E492AF6C5E900D0B59A /* PatientsUITests.swift in Sources */,
+				F1153E592AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift in Sources */,
+				F1153E5F2AF7552300D0B59A /* ClockDrawingUITests.swift in Sources */,
+				F1153E512AF72A4D00D0B59A /* TimedUpAndGoUITests.swift in Sources */,
 				F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
