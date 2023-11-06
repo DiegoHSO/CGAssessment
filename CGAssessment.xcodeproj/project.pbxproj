@@ -173,8 +173,6 @@
 		F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */; };
 		F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F177F7F82AA793C000C1EB32 /* Assets.xcassets */; };
 		F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F177F7FA2AA793C000C1EB32 /* LaunchScreen.storyboard */; };
-		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
-		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
 		F17D36A82AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */; };
 		F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */; };
 		F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */; };
@@ -677,8 +675,6 @@
 		F177F7FD2AA793C000C1EB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F177F8022AA793C000C1EB32 /* CGAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
-		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAsssessmentInteractor.swift; sourceTree = "<group>"; };
 		F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HearingLossAssessment.storyboard; sourceTree = "<group>"; };
 		F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentViewController.swift; sourceTree = "<group>"; };
@@ -1374,8 +1370,6 @@
 		F177F80F2AA793C000C1EB32 /* CGAssessmentUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */,
-				F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */,
 				F1153E432AF698BD00D0B59A /* DashboardUITests.swift */,
 				F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */,
 				F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */,
@@ -3022,11 +3016,9 @@
 				F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */,
 				F1153E672AF7FAA800D0B59A /* KatzScaleUITests.swift in Sources */,
 				F1153E712AF8244800D0B59A /* ZaritScaleUITests.swift in Sources */,
-				F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */,
 				F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */,
 				F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */,
 				F1153E532AF737BE00D0B59A /* WalkingSpeedUITests.swift in Sources */,
-				F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */,
 				F1153E5B2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift in Sources */,
 				F1153E572AF740CC00D0B59A /* GripStrengthUITests.swift in Sources */,
 				F1153E752AF82A2E00D0B59A /* CharlsonIndexUITests.swift in Sources */,
