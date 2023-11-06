@@ -79,6 +79,7 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol
         let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
                                         style: .plain, target: self,
                                         action: #selector(infoButtonTapped))
+        barButton.accessibilityIdentifier = "CGAsViewController-infoButton"
         self.navigationItem.rightBarButtonItem = barButton
     }
 
@@ -111,6 +112,8 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol
 
         tabBarController?.tabBar.isHidden = navigationController?.viewControllers.first != self
         tableView?.reloadData()
+
+        tableView?.accessibilityIdentifier = "CGAsViewController-tableView"
     }
 
     func presentDeletionAlert(for indexPath: IndexPath) {
@@ -131,6 +134,8 @@ class CGAsViewController: UIViewController, CGAsDisplayLogic, StatusViewProtocol
 
             self.tableView?.deleteRows(at: [indexPath], with: .fade)
         }
+
+        deleteAction.accessibilityIdentifier = "CGAsViewController-deleteAction"
 
         let cancelAction = UIAlertAction(title: LocalizedTable.cancel.localized, style: .cancel)
 
@@ -229,6 +234,8 @@ extension CGAsViewController: UITableViewDataSource {
 
             cell.setup(filterOptions: viewModel.filterOptions, selectedOption: viewModel.selectedFilter, delegate: interactor)
 
+            cell.accessibilityIdentifier = "CGAsViewController-FilterTableViewCell"
+
             return cell
         } else if let viewModelsByDate = viewModel?.viewModelsByDate, let dateSection = viewModel?.dateSections?[safe: indexPath.section - 1],
                   let dateViewModel = viewModelsByDate[dateSection]?[indexPath.row] {
@@ -245,6 +252,8 @@ extension CGAsViewController: UITableViewDataSource {
             cell.setup(title: LocalizedTable.cgasEmptyState.localized,
                        buttonTitle: LocalizedTable.cgasEmptyStateAction.localized)
 
+            cell.accessibilityIdentifier = "CGAsViewController-EmptyStateTableViewCell"
+
             return cell
         }
 
@@ -254,6 +263,8 @@ extension CGAsViewController: UITableViewDataSource {
         }
 
         cell.setup(viewModel: cellViewModel)
+
+        cell.accessibilityIdentifier = "CGAsViewController-CGATableViewCell-\(indexPath.row)"
 
         return cell
     }

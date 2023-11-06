@@ -78,6 +78,8 @@ class SuspectedAbuseViewController: UIViewController, SuspectedAbuseDisplayLogic
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: TextViewTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "SuspectedAbuseViewController-tableView"
     }
 }
 
@@ -124,6 +126,8 @@ extension SuspectedAbuseViewController: UITableViewDataSource {
 
             cell.setup(viewModel: viewModel.textViewModel)
 
+            cell.accessibilityIdentifier = "SuspectedAbuseViewController-TextViewTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -132,6 +136,8 @@ extension SuspectedAbuseViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "SuspectedAbuseViewController-ActionButtonTableViewCell"
 
             return cell
         case .option:
@@ -145,11 +151,17 @@ extension SuspectedAbuseViewController: UITableViewDataSource {
                 cell.setup(viewModel: .init(title: nil, options: [.firstOption: .yesKey],
                                             delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                             leadingConstraint: 30))
+
+                cell.accessibilityIdentifier = "SuspectedAbuseViewController-SelectableTableViewCell-yesOption"
             case .no:
                 cell.setup(viewModel: .init(title: nil, options: [.secondOption: .noKey],
                                             delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                             leadingConstraint: 30))
+
+                cell.accessibilityIdentifier = "SuspectedAbuseViewController-SelectableTableViewCell-noOption"
             case .done:
+                cell.accessibilityIdentifier = "SuspectedAbuseViewController-SelectableTableViewCell"
+
                 return UITableViewCell(frame: .zero)
             }
 

@@ -86,6 +86,8 @@ class SarcopeniaAssessmentViewController: UIViewController, SarcopeniaAssessment
         tableView?.register(cellType: TitleTableViewCell.self)
         tableView?.register(cellType: TestTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "SarcopeniaAssessmentViewController-tableView"
     }
 }
 
@@ -134,6 +136,8 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.muscleHealth.localized, bottomConstraint: 0, fontSize: 21)
 
+            cell.accessibilityIdentifier = "SarcopeniaAssessmentViewController-Title"
+
             return cell
         case .test:
             guard let test = viewModel.tests[section]?[indexPath.row],
@@ -152,8 +156,9 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
                 cell.setDisabledState()
             }
 
-            return cell
+            cell.accessibilityIdentifier = "SarcopeniaAssessmentViewController-TestTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
+            return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
                                                            for: indexPath) as? ActionButtonTableViewCell else {
@@ -161,6 +166,8 @@ extension SarcopeniaAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "SarcopeniaAssessmentViewController-ActionButtonTableViewCell"
 
             return cell
         }

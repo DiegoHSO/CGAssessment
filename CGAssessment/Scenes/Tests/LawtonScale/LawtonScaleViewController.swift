@@ -77,6 +77,8 @@ class LawtonScaleViewController: UIViewController, LawtonScaleDisplayLogic {
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "LawtonScaleViewController-tableView"
     }
 }
 
@@ -122,6 +124,8 @@ extension LawtonScaleViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         questionsSpacing: 20, leadingConstraint: 35, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "LawtonScaleViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -130,6 +134,8 @@ extension LawtonScaleViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "LawtonScaleViewController-ActionButtonTableViewCell"
 
             return cell
         }

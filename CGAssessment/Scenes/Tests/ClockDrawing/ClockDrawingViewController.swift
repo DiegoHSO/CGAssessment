@@ -76,6 +76,8 @@ class ClockDrawingViewController: UIViewController, ClockDrawingDisplayLogic {
         tableView?.register(cellType: InstructionsTableViewCell.self)
         tableView?.register(cellType: BinaryOptionsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "ClockDrawingViewController-tableView"
     }
 }
 
@@ -117,6 +119,8 @@ extension ClockDrawingViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
 
+            cell.accessibilityIdentifier = "ClockDrawingViewController-ActionButtonTableViewCell"
+
             return cell
         case .binaryQuestion:
             guard let questionViewModel = viewModel.binaryQuestions[section] else { return UITableViewCell(frame: .zero) }
@@ -128,6 +132,8 @@ extension ClockDrawingViewController: UITableViewDataSource {
 
             cell.setup(viewModel: questionViewModel)
 
+            cell.accessibilityIdentifier = "ClockDrawingViewController-BinaryOptionsTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
@@ -136,6 +142,8 @@ extension ClockDrawingViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
+
+            cell.accessibilityIdentifier = "ClockDrawingViewController-InstructionsTableViewCell"
 
             return cell
         }

@@ -49,5 +49,6 @@ class NoTodoEvaluationTableViewCell: UITableViewCell {
         callToActionLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
         callToActionButton?.setTitle(LocalizedTable.reviseCGAsAction.localized, for: .normal)
         callToActionButton?.titleLabel?.font = .compactDisplay(withStyle: .medium, size: 15)
+        callToActionButton?.accessibilityIdentifier = "NoTodoEvaluationTableViewCell-callToActionButton"
     }
 }

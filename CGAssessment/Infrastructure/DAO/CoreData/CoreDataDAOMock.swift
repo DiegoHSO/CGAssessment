@@ -215,14 +215,26 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchCGAs() throws -> [CGA] {
-        return try context.fetch(CGA.fetchRequest())
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return [getMockedCGAForUITest()]
+        } else {
+            return try context.fetch(CGA.fetchRequest())
+        }
     }
 
     func fetchCGA(cgaId: UUID?) throws -> CGA? {
-        return try fetchCGAs().first(where: { $0.cgaId == cgaId })
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return getMockedCGAForUITest()
+        } else {
+            return try fetchCGAs().first(where: { $0.cgaId == cgaId })
+        }
     }
 
     func fetchPatientCGAs(patientId: UUID) throws -> [CGA] {
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return [getMockedCGAForUITest()]
+        }
+
         let request = CGA.fetchRequest() as NSFetchRequest<CGA>
 
         let patientPredicate = NSPredicate(format: "patient.patientId == %@",
@@ -234,10 +246,19 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
     }
 
     func fetchPatients() throws -> [Patient] {
-        return try context.fetch(Patient.fetchRequest())
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            guard let patient = getMockedCGAForUITest().patient else { return [] }
+            return [patient]
+        } else {
+            return try context.fetch(Patient.fetchRequest())
+        }
     }
 
     func fetchPatient(patientId: UUID) throws -> Patient? {
+        if ProcessInfo.processInfo.arguments.contains("UITestMode") {
+            return getMockedCGAForUITest().patient
+        }
+
         let request = Patient.fetchRequest() as NSFetchRequest<Patient>
         request.fetchLimit = 1
 
@@ -973,5 +994,321 @@ class CoreDataDAOMock: CoreDataDAOProtocol {
         cga.chemotherapyToxicityRisk = newTest
 
         try context.save()
+    }
+
+    private func getMockedCGAForUITest() -> CGA {
+        let mockCgaId = UUID(uuidString: "0734772b-cd5b-4392-9148-7bf1994dd8d3")
+
+        let newCGA = CGA(context: context)
+        newCGA.cgaId = mockCgaId
+
+        newCGA.patient = Patient(context: context)
+        newCGA.patient?.gender = 1
+        newCGA.patient?.birthDate = Date().addingYear(-75).removingTimeComponents()
+        newCGA.patient?.name = "Mock CGA"
+        newCGA.patient?.patientId = UUID(uuidString: "2334772b-cd5b-4392-9148-7bf1994dd8d3")
+
+        newCGA.timedUpAndGo = TimedUpAndGo(context: context)
+        newCGA.timedUpAndGo?.hasStopwatch = false
+        newCGA.timedUpAndGo?.typedTime = 9.25
+        newCGA.timedUpAndGo?.measuredTime = 8.56
+        newCGA.timedUpAndGo?.isDone = false
+
+        newCGA.walkingSpeed = WalkingSpeed(context: context)
+        newCGA.walkingSpeed?.hasStopwatch = false
+        newCGA.walkingSpeed?.firstMeasuredTime = 13.5
+        newCGA.walkingSpeed?.secondMeasuredTime = 10
+        newCGA.walkingSpeed?.thirdMeasuredTime = 12
+        newCGA.walkingSpeed?.firstTypedTime = 11.4
+        newCGA.walkingSpeed?.secondTypedTime = 14.3
+        newCGA.walkingSpeed?.thirdTypedTime = 9.6
+        newCGA.walkingSpeed?.selectedStopwatch = 3
+        newCGA.walkingSpeed?.isDone = false
+
+        newCGA.calfCircumference = CalfCircumference(context: context)
+        newCGA.calfCircumference?.measuredCircumference = 31.3
+        newCGA.calfCircumference?.isDone = false
+
+        newCGA.gripStrength = GripStrength(context: context)
+        newCGA.gripStrength?.firstMeasurement = 27
+        newCGA.gripStrength?.secondMeasurement = 26
+        newCGA.gripStrength?.thirdMeasurement = 27.5
+        newCGA.gripStrength?.isDone = false
+
+        let sarcopeniaScreeningQuestions: SarcopeniaScreeningModels.RawQuestions = [.sarcopeniaAssessmentFirstQuestion: .thirdOption, .sarcopeniaAssessmentSecondQuestion: .secondOption,
+                                                                                    .sarcopeniaAssessmentThirdQuestion: .secondOption, .sarcopeniaAssessmentFourthQuestion: .firstOption,
+                                                                                    .sarcopeniaAssessmentFifthQuestion: .secondOption, .sarcopeniaAssessmentSixthQuestion: .secondOption]
+
+        let sarcopeniaScreeningSelectableOptions = sarcopeniaScreeningQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.sarcopeniaScreening = SarcopeniaScreening(context: context)
+        newCGA.sarcopeniaScreening?.selectableOptions = NSSet(array: sarcopeniaScreeningSelectableOptions)
+        newCGA.sarcopeniaScreening?.isDone = false
+
+        let miniMentalStateExamQuestions: MiniMentalStateExamModels.RawQuestions =  [.miniMentalStateExamFirstQuestion: .secondOption, .miniMentalStateExamSecondQuestion: .firstOption,
+                                                                                     .miniMentalStateExamThirdQuestion: .secondOption, .miniMentalStateExamFourthQuestion: .firstOption,
+                                                                                     .miniMentalStateExamFifthQuestion: .firstOption]
+
+        let miniMentalStateExamBinaryQuestions: MiniMentalStateExamModels.RawBinaryQuestions =  [.miniMentalStateExamFirstSectionQuestion: [1: .yes, 2: .not, 3: .not, 4: .yes, 5: .yes],
+                                                                                                 .miniMentalStateExamSecondSectionQuestion: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not],
+                                                                                                 .miniMentalStateExamThirdSectionQuestion: [1: .not, 2: .yes, 3: .yes],
+                                                                                                 .miniMentalStateExamFourthSectionQuestion: [1: .yes, 2: .yes, 3: .yes, 4: .not, 5: .not],
+                                                                                                 .miniMentalStateExamFifthSectionQuestion: [1: .yes, 2: .not, 3: .yes],
+                                                                                                 .miniMentalStateExamSixthSectionQuestion: [1: .yes, 2: .yes],
+                                                                                                 .miniMentalStateExamSeventhSectionQuestion: [1: .yes, 2: .yes, 3: .not]]
+
+        let miniMentalStateExamBinaryOptions = miniMentalStateExamBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let miniMentalStateExamBinaryOptionsReduced = miniMentalStateExamBinaryOptions.reduce([], +)
+
+        let miniMentalStateExamSelectableOptions = miniMentalStateExamQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.miniMentalStateExam = MiniMentalStateExam(context: context)
+        newCGA.miniMentalStateExam?.binaryOptions = NSSet(array: miniMentalStateExamBinaryOptionsReduced)
+        newCGA.miniMentalStateExam?.selectableOptions = NSSet(array: miniMentalStateExamSelectableOptions)
+        newCGA.miniMentalStateExam?.isDone = false
+
+        newCGA.verbalFluency = VerbalFluency(context: context)
+        newCGA.verbalFluency?.elapsedTime = 12.5
+        newCGA.verbalFluency?.selectedOption = 1
+        newCGA.verbalFluency?.countedWords = 19
+        newCGA.verbalFluency?.isDone = false
+
+        let clockDrawingRawBinaryQuestions: ClockDrawingModels.RawBinaryQuestions = [
+            .outline: [1: .yes, 2: .yes],
+            .numbers: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .yes, 6: .yes],
+            .pointers: [1: .not, 2: .yes, 3: .yes, 4: .yes, 5: .not, 6: .yes]
+        ]
+
+        let clockDrawingBinaryOptions = clockDrawingRawBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let clockDrawingBinaryOptionsReduced = clockDrawingBinaryOptions.reduce([], +)
+
+        newCGA.clockDrawing = ClockDrawing(context: context)
+        newCGA.clockDrawing?.binaryOptions = NSSet(array: clockDrawingBinaryOptionsReduced)
+        newCGA.clockDrawing?.isDone = false
+
+        let mocaRawBinaryQuestions: MoCAModels.RawBinaryQuestions = [.visuospatial: [1: .yes, 2: .not, 3: .yes, 4: .yes, 5: .yes],
+                                                                     .naming: [1: .not, 2: .yes, 3: .yes],
+                                                                     .mocaFourthSectionSecondInstruction: [1: .yes, 2: .yes],
+                                                                     .mocaFourthSectionThirdInstruction: [1: .yes],
+                                                                     .mocaFourthSectionFourthInstruction: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes],
+                                                                     .language: [1: .yes, 2: .not],
+                                                                     .abstraction: [1: .yes, 2: .yes],
+                                                                     .delayedRecall: [1: .yes, 2: .yes, 3: .not, 4: .yes, 5: .yes],
+                                                                     .orientation: [1: .yes, 2: .yes, 3: .yes, 4: .yes, 5: .yes, 6: .yes]]
+
+        let mocaBinaryOptions = mocaRawBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let mocaBinaryOptionsReduced = mocaBinaryOptions.reduce([], +)
+
+        newCGA.moCA = MoCA(context: context)
+        newCGA.moCA?.binaryOptions = NSSet(array: mocaBinaryOptionsReduced)
+        newCGA.moCA?.circlesImage = nil
+        newCGA.moCA?.watchImage = nil
+        newCGA.moCA?.countedWords = 14
+        newCGA.moCA?.selectedOption = 1
+        newCGA.moCA?.isDone = false
+
+        let geriatricDepressionScaleQuestions: GeriatricDepressionScaleModels.RawQuestions =  [.geriatricDepressionScaleQuestionOne: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionTwo: .firstOption, .geriatricDepressionScaleQuestionThree: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionFour: .firstOption, .geriatricDepressionScaleQuestionFive: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionSix: .secondOption, .geriatricDepressionScaleQuestionSeven: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionEight: .secondOption, .geriatricDepressionScaleQuestionNine: .secondOption,
+                                                                                               .geriatricDepressionScaleQuestionTen: .secondOption, .geriatricDepressionScaleQuestionEleven: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionTwelve: .firstOption, .geriatricDepressionScaleQuestionThirteen: .firstOption,
+                                                                                               .geriatricDepressionScaleQuestionFourteen: .firstOption, .geriatricDepressionScaleQuestionFifteen: .secondOption
+        ]
+
+        let geriatricDepressionScaleSelectableOptions = geriatricDepressionScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.geriatricDepressionScale = GeriatricDepressionScale(context: context)
+        newCGA.geriatricDepressionScale?.selectableOptions = NSSet(array: geriatricDepressionScaleSelectableOptions)
+        newCGA.geriatricDepressionScale?.isDone = false
+
+        newCGA.visualAcuityAssessment = VisualAcuityAssessment(context: context)
+        newCGA.visualAcuityAssessment?.selectedOption = 9
+        newCGA.visualAcuityAssessment?.isDone = false
+
+        newCGA.hearingLossAssessment = HearingLossAssessment(context: context)
+        newCGA.hearingLossAssessment?.isDone = false
+
+        let katzScaleQuestions: KatzScaleModels.RawQuestions =  [
+            .katzScaleQuestionOne: .firstOption, .katzScaleQuestionTwo: .secondOption, .katzScaleQuestionThree: .firstOption,
+            .katzScaleQuestionFour: .firstOption, .katzScaleQuestionFive: .firstOption, .katzScaleQuestionSix: .firstOption
+        ]
+
+        let katzScaleSelectableOptions = katzScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.katzScale = KatzScale(context: context)
+        newCGA.katzScale?.selectableOptions = NSSet(array: katzScaleSelectableOptions)
+        newCGA.katzScale?.isDone = false
+
+        let lawtonScaleQuestions: LawtonScaleModels.RawQuestions = [
+            .telephone: .thirdOption, .trips: .firstOption, .shopping: .firstOption, .mealPreparation: .firstOption,
+            .housework: .secondOption, .medicine: .firstOption, .money: .firstOption
+        ]
+
+        let lawtonScaleSelectableOptions = lawtonScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.lawtonScale = LawtonScale(context: context)
+        newCGA.lawtonScale?.selectableOptions = NSSet(array: lawtonScaleSelectableOptions)
+        newCGA.lawtonScale?.isDone = false
+
+        let miniNutritionalAssessmentQuestions: MiniNutritionalAssessmentModels.RawQuestions = [
+            .miniNutritionalAssessmentFirstQuestion: .thirdOption, .miniNutritionalAssessmentSecondQuestion: .fourthOption,
+            .miniNutritionalAssessmentThirdQuestion: .thirdOption, .miniNutritionalAssessmentFourthQuestion: .firstOption,
+            .miniNutritionalAssessmentFifthQuestion: .thirdOption, .miniNutritionalAssessmentSeventhQuestion: .none
+        ]
+
+        let miniNutritionalAssessmentSelectableOptions = miniNutritionalAssessmentQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.miniNutritionalAssessment = MiniNutritionalAssessment(context: context)
+        newCGA.miniNutritionalAssessment?.height = 174
+        newCGA.miniNutritionalAssessment?.weight = 80.5
+        newCGA.miniNutritionalAssessment?.selectableOptions = NSSet(array: miniNutritionalAssessmentSelectableOptions)
+        newCGA.miniNutritionalAssessment?.isExtraQuestionSelected = false
+        newCGA.miniNutritionalAssessment?.isDone = false
+
+        let apgarScaleQuestions: ApgarScaleModels.RawQuestions =  [.apgarScaleQuestionOne: .secondOption, .apgarScaleQuestionTwo: .thirdOption, .apgarScaleQuestionThree: .thirdOption,
+                                                                   .apgarScaleQuestionFour: .firstOption, .apgarScaleQuestionFive: .thirdOption
+        ]
+
+        let apgarScaleSelectableOptions = apgarScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.apgarScale = ApgarScale(context: context)
+        newCGA.apgarScale?.selectableOptions = NSSet(array: apgarScaleSelectableOptions)
+        newCGA.apgarScale?.isDone = false
+
+        let zaritScaleQuestions: ZaritScaleModels.RawQuestions =  [.zaritScaleQuestionOne: .firstOption, .zaritScaleQuestionTwo: .firstOption, .zaritScaleQuestionThree: .firstOption,
+                                                                   .zaritScaleQuestionFour: .firstOption, .zaritScaleQuestionFive: .secondOption, .zaritScaleQuestionSix: .secondOption,
+                                                                   .zaritScaleQuestionSeven: .secondOption
+        ]
+
+        let zaritScaleSelectableOptions = zaritScaleQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.zaritScale = ZaritScale(context: context)
+        newCGA.zaritScale?.selectableOptions = NSSet(array: zaritScaleSelectableOptions)
+        newCGA.zaritScale?.isDone = false
+
+        newCGA.polypharmacyCriteria = PolypharmacyCriteria(context: context)
+        newCGA.polypharmacyCriteria?.numberOfMedicines = 3
+        newCGA.polypharmacyCriteria?.isDone = false
+
+        let charlsonIndexBinaryQuestions: CharlsonIndexModels.RawBinaryQuestions =  [
+            .charlsonIndexMainQuestion: [1: .yes, 2: .not, 3: .yes, 4: .not, 5: .not, 6: .not,
+                                         7: .not, 8: .not, 9: .not, 10: .not, 11: .not, 12: .not,
+                                         13: .not, 14: .not, 15: .not, 16: .not, 17: .not, 18: .not]
+        ]
+
+        let charlsonIndexBinaryOptions = charlsonIndexBinaryQuestions.map { question in
+            question.value.map { option in
+                let binaryOption = BinaryOption(context: context)
+                binaryOption.sectionId = question.key.rawValue
+                binaryOption.optionId = option.key
+                binaryOption.selectedOption = option.value.rawValue
+                return binaryOption
+            }
+        }
+
+        let charlsonIndexBinaryOptionsReduced = charlsonIndexBinaryOptions.reduce([], +)
+
+        newCGA.charlsonIndex = CharlsonIndex(context: context)
+        newCGA.charlsonIndex?.binaryOptions = NSSet(array: charlsonIndexBinaryOptionsReduced)
+        newCGA.charlsonIndex?.isDone = false
+
+        newCGA.suspectedAbuse = SuspectedAbuse(context: context)
+        newCGA.suspectedAbuse?.selectedOption = 1
+        newCGA.suspectedAbuse?.typedText = LocalizedTable.suspectedAbuseExample.localized
+        newCGA.suspectedAbuse?.isDone = false
+
+        let chemotherapyToxicityRiskQuestions: ChemotherapyToxicityRiskModels.RawQuestions = [
+            .chemotherapyToxicityRiskQuestionOne: .secondOption, .chemotherapyToxicityRiskQuestionTwo: .firstOption,
+            .chemotherapyToxicityRiskQuestionThree: .secondOption, .chemotherapyToxicityRiskQuestionFour: .secondOption,
+            .chemotherapyToxicityRiskQuestionFive: .secondOption, .chemotherapyToxicityRiskQuestionSix: .secondOption,
+            .chemotherapyToxicityRiskQuestionSeven: .secondOption, .chemotherapyToxicityRiskQuestionEight: .firstOption,
+            .chemotherapyToxicityRiskQuestionNine: .secondOption, .chemotherapyToxicityRiskQuestionTen: .secondOption,
+            .chemotherapyToxicityRiskQuestionEleven: .secondOption
+        ]
+
+        let chemotherapyToxicityRiskSelectableOptions = chemotherapyToxicityRiskQuestions.map { key, value in
+            let selectableOption = SelectableOption(context: context)
+            selectableOption.identifier = key.rawValue
+            selectableOption.selectedOption = value.rawValue
+            return selectableOption
+        }
+
+        newCGA.chemotherapyToxicityRisk = ChemotherapyToxicityRisk(context: context)
+        newCGA.chemotherapyToxicityRisk?.selectableOptions = NSSet(array: chemotherapyToxicityRiskSelectableOptions)
+        newCGA.chemotherapyToxicityRisk?.isDone = false
+
+        newCGA.lastModification = Date().addingMonth(-1).removingTimeComponents()
+        newCGA.creationDate = Date().addingMonth(-2).removingTimeComponents()
+
+        return newCGA
     }
 }

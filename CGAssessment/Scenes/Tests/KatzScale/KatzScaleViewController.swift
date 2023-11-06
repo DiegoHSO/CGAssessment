@@ -77,6 +77,8 @@ class KatzScaleViewController: UIViewController, KatzScaleDisplayLogic {
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "KatzScaleViewController-tableView"
     }
 }
 
@@ -122,6 +124,8 @@ extension KatzScaleViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "KatzScaleViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -130,6 +134,8 @@ extension KatzScaleViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "KatzScaleViewController-ActionButtonTableViewCell"
 
             return cell
         }

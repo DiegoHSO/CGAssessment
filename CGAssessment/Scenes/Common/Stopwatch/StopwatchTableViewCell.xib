@@ -61,6 +61,10 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="Primary"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="StopwatchTableViewCell-LeftButton">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstItem="bo2-c7-Y0H" firstAttribute="centerX" secondItem="GA3-EO-FhV" secondAttribute="centerX" id="N82-RZ-nyj"/>
                                                     <constraint firstItem="bo2-c7-Y0H" firstAttribute="centerY" secondItem="GA3-EO-FhV" secondAttribute="centerY" id="NUB-OK-tzf"/>
@@ -79,6 +83,10 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="Background-7"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="StopwatchTableViewCell-RightButton">
+                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstItem="fvQ-gZ-uec" firstAttribute="centerY" secondItem="dFO-ri-GvB" secondAttribute="centerY" id="1hc-Zs-D5N"/>
                                                     <constraint firstAttribute="height" constant="60" id="3e1-hP-kAh"/>
