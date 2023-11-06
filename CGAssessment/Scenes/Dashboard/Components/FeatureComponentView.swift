@@ -44,12 +44,14 @@ class FeatureComponentView: UIView {
     // MARK: - Public Methods
 
     func setup(title: String, iconSymbol: String, identifier: DashboardModels.MenuOption,
-               delegate: FeatureComponentDelegate?, isEnabled: Bool = true) {
+               delegate: FeatureComponentDelegate?, isEnabled: Bool = true,
+               accessibilityIdentifier: String) {
         titleLabel?.text = title
         titleLabel?.font = .compactDisplay(withStyle: .semibold, size: 20)
         iconLabel?.text = iconSymbol
         iconLabel?.font = .compactDisplay(withStyle: .medium, size: 18)
         componentIdentifier = identifier
+        contentView?.accessibilityIdentifier = accessibilityIdentifier
         self.delegate = delegate
 
         if !isEnabled {

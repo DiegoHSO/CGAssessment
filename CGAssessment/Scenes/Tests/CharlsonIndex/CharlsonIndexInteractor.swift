@@ -58,7 +58,6 @@ class CharlsonIndexInteractor: CharlsonIndexLogic {
     }
 
     private func createViewModel() -> CharlsonIndexModels.ControllerViewModel {
-
         let binarySectionQuestions: [Int16: LocalizedTable] = [1: .charlsonIndexQuestionOne, 2: .charlsonIndexQuestionTwo,
                                                                3: .charlsonIndexQuestionThree, 4: .charlsonIndexQuestionFour,
                                                                5: .charlsonIndexQuestionFive, 6: .charlsonIndexQuestionSix,

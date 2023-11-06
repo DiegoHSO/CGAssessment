@@ -85,6 +85,8 @@ class VisualAcuityAssessmentViewController: UIViewController, VisualAcuityAssess
         tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: GroupedButtonsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "VisualAcuityAssessmentViewController-tableView"
     }
 }
 
@@ -125,6 +127,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
 
             cell.setup(text: LocalizedTable.visualAcuityAssessmentTooltip.localized, symbol: "􀅵", bottomConstraint: 0)
 
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-TooltipTableViewCell"
+
             return cell
         case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
@@ -133,6 +137,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
+
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-InstructionsTableViewCell"
 
             return cell
         case .buttons:
@@ -143,6 +149,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
 
             cell.setup(viewModels: viewModel.buttons)
 
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-GroupedButtonsTableViewCell"
+
             return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
@@ -151,6 +159,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(image: UIImage(named: viewModel.imageName), multiplier: 1.33, borderType: .none)
+
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-ImageTableViewCell"
 
             return cell
         case .question:
@@ -163,6 +173,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: viewModel.question.selectedOption,
                                         leadingConstraint: 35))
 
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-SelectableTableViewCell-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -171,6 +183,8 @@ extension VisualAcuityAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "VisualAcuityAssessmentViewController-ActionButtonTableViewCell"
 
             return cell
         default:

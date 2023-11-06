@@ -27,7 +27,7 @@ struct TimedUpAndGoModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let elapsedTime: TimeInterval
     }
 
@@ -38,7 +38,7 @@ struct TimedUpAndGoModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 

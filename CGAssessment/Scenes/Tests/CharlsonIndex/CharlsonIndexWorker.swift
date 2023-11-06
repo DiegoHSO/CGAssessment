@@ -16,7 +16,7 @@ class CharlsonIndexWorker {
 
     // MARK: - Init
 
-    init(dao: CoreDataDAOProtocol = CoreDataDAO(), cgaId: UUID?) {
+    init(dao: CoreDataDAOProtocol = DAOFactory.coreDataDAO, cgaId: UUID?) {
         self.dao = dao
         self.cgaId = cgaId
     }
@@ -32,7 +32,7 @@ class CharlsonIndexWorker {
     }
 
     func getPatientBirthDate() throws -> Date? {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId) else {
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId) else {
             throw CoreDataErrors.unableToFetchPatient
         }
 

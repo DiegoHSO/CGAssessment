@@ -55,6 +55,7 @@ class SelectableView: UIView {
         textLabel?.text = viewModel.text
         textLabel?.font = .compactDisplay(withStyle: viewModel.textStyle, size: 15)
         innerCircleView?.isHidden = !viewModel.isSelected
+        contentView?.accessibilityIdentifier = "SelectableView-\(viewModel.contextIdentifier.rawValue)-\(viewModel.componentIdentifier.rawValue)"
     }
 
     // MARK: - Private Methods

@@ -93,6 +93,8 @@ class DashboardViewController: UIViewController, DashboardDisplayLogic {
         tableView?.register(cellType: FeaturesTableViewCell.self)
         tableView?.register(cellType: TodoEvaluationTableViewCell.self)
         tableView?.register(cellType: NoTodoEvaluationTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "DashboardViewController-tableView"
     }
 
     private func setupViews() {
@@ -158,6 +160,8 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.setup(patientName: latestEvaluation.patientName, patientAge: latestEvaluation.patientAge,
                            missingDomains: latestEvaluation.missingDomains)
 
+                cell.accessibilityIdentifier = "DashboardViewController-RecentApplicationTableViewCell"
+
                 return cell
             }
 
@@ -167,6 +171,8 @@ extension DashboardViewController: UITableViewDataSource {
             }
 
             cell.setup(delegate: interactor)
+
+            cell.accessibilityIdentifier = "DashboardViewController-NoRecentApplicationTableViewCell"
 
             return cell
         case .menuOptions:
@@ -195,6 +201,8 @@ extension DashboardViewController: UITableViewDataSource {
                                       identifier: DashboardModels.MenuOption.reports,
                                       delegate: interactor)
 
+            cell.accessibilityIdentifier = "DashboardViewController-FeaturesTableViewCell"
+
             return cell
         case .evaluationToReapply:
             if viewModel.todoEvaluations.isEmpty {
@@ -204,6 +212,8 @@ extension DashboardViewController: UITableViewDataSource {
                 }
 
                 cell.setup(delegate: interactor)
+
+                cell.accessibilityIdentifier = "DashboardViewController-NoTodoEvaluationTableViewCell"
 
                 return cell
             } else {
@@ -217,6 +227,8 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.setup(nextApplicationDate: todoEvaluation.nextApplicationDate, patientName: todoEvaluation.patientName,
                            patientAge: todoEvaluation.patientAge, alteredDomains: todoEvaluation.alteredDomains,
                            lastApplicationDate: todoEvaluation.lastApplicationDate)
+
+                cell.accessibilityIdentifier = "DashboardViewController-TodoEvaluationTableViewCell-\(indexPath.row)"
 
                 return cell
             }

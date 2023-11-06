@@ -77,6 +77,8 @@ class ApgarScaleViewController: UIViewController, ApgarScaleDisplayLogic {
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "ApgarScaleViewController-tableView"
     }
 }
 
@@ -122,6 +124,8 @@ extension ApgarScaleViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 30, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "ApgarScaleViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -130,6 +134,8 @@ extension ApgarScaleViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "ApgarScaleViewController-ActionButtonTableViewCell"
 
             return cell
         }

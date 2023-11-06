@@ -78,6 +78,8 @@ class TimedUpAndGoViewController: UIViewController, TimedUpAndGoDisplayLogic {
         tableView?.register(cellType: TextFieldTableViewCell.self)
         tableView?.register(cellType: StopwatchTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "TimedUpAndGoViewController-tableView"
     }
 }
 
@@ -128,6 +130,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-InstructionsTableViewCell"
+
             return cell
         case .hasStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
@@ -138,6 +142,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(title: nil, options: [.firstOption: LocalizedTable.hasStopwatch],
                                         delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                         textStyle: .medium))
+
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-SelectableTableViewCell-hasStopwatch"
 
             return cell
         case .doesNotHaveStopwatch:
@@ -150,6 +156,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                         textStyle: .medium))
 
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-SelectableTableViewCell-doesNotHaveStopwatch"
+
             return cell
         case .textFieldStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
@@ -161,6 +169,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
                                         placeholder: LocalizedTable.timeTakenSeconds.localized,
                                         delegate: interactor, keyboardType: .decimalPad))
 
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-TextFieldTableViewCell"
+
             return cell
         case .stopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
@@ -170,6 +180,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
 
             cell.setup(delegate: interactor, elapsedTime: viewModel.stopwatchElapsedTime)
 
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-StopwatchTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -178,6 +190,8 @@ extension TimedUpAndGoViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "TimedUpAndGoViewController-ActionButtonTableViewCell"
 
             return cell
         default:

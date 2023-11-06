@@ -78,6 +78,8 @@ class MiniMentalStateExamViewController: UIViewController, MiniMentalStateExamDi
         tableView?.register(cellType: BinaryOptionsTableViewCell.self)
         tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "MiniMentalStateExamViewController-tableView"
     }
 }
 
@@ -131,6 +133,8 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "MiniMentalStateExamViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -139,6 +143,8 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "MiniMentalStateExamViewController-ActionButtonTableViewCell"
 
             return cell
         case .binaryQuestion:
@@ -151,6 +157,8 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
 
             cell.setup(viewModel: questionViewModel)
 
+            cell.accessibilityIdentifier = "MiniMentalStateExamViewController-BinaryOptionsTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .title:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.className,
@@ -160,6 +168,8 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.miniMentalStateExamFifthQuestion.localized, leadingConstraint: 35, bottomConstraint: 0, fontStyle: .medium, fontSize: 16)
 
+            cell.accessibilityIdentifier = "MiniMentalStateExamViewController-TitleTableViewCell"
+
             return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
@@ -168,6 +178,8 @@ extension MiniMentalStateExamViewController: UITableViewDataSource {
             }
 
             cell.setup(image: UIImage(named: "miniMentalStateExam"), bottomConstraint: 0)
+
+            cell.accessibilityIdentifier = "MiniMentalStateExamViewController-ImageTableViewCell"
 
             return cell
         }

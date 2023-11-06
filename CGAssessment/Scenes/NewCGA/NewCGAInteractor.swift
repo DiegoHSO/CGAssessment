@@ -45,8 +45,8 @@ class NewCGAInteractor: NewCGALogic {
         return false
     }
 
-    let externalOptions: Options = [.firstOption: .noKey, .secondOption: .yesKey]
-    let internalOption: LocalizedTable = .gender
+    private let externalOptions: Options = [.firstOption: .noKey, .secondOption: .yesKey]
+    private let internalOption: LocalizedTable = .gender
 
     // MARK: - Init
 

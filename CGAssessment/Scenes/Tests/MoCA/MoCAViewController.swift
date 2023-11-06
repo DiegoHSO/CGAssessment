@@ -93,6 +93,8 @@ class MoCAViewController: UIViewController, MoCADisplayLogic {
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: BinaryOptionsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "MoCAViewController-tableView"
     }
 }
 
@@ -134,6 +136,8 @@ extension MoCAViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
 
+            cell.accessibilityIdentifier = "MoCAViewController-ActionButtonTableViewCell"
+
             return cell
         case .binaryQuestion:
             guard let questionViewModels = viewModel.binaryQuestions[section], let questionViewModel = questionViewModels[indexPath.row], let questionViewModel else { return UITableViewCell(frame: .zero) }
@@ -144,6 +148,8 @@ extension MoCAViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: questionViewModel)
+
+            cell.accessibilityIdentifier = "MoCAViewController-BinaryOptionsTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
             return cell
         case .instruction:
@@ -157,6 +163,8 @@ extension MoCAViewController: UITableViewDataSource {
             let shouldChangeSpacing = section == .attention || section == .language || section == .delayedRecall
 
             cell.setup(title: instruction, leadingConstraint: 35, bottomConstraint: shouldChangeSpacing ? 0 : 20, fontStyle: .medium, fontSize: 16)
+
+            cell.accessibilityIdentifier = "MoCAViewController-TitleTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
             return cell
         case .image, .circlesImage, .watchImage:
@@ -183,6 +191,8 @@ extension MoCAViewController: UITableViewDataSource {
                 }
             }
 
+            cell.accessibilityIdentifier = "MoCAViewController-ImageTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .selectionButtons:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupedButtonsTableViewCell.className,
@@ -191,6 +201,8 @@ extension MoCAViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModels: viewModel.groupedButtons)
+
+            cell.accessibilityIdentifier = "MoCAViewController-GroupedButtonsTableViewCell"
 
             return cell
         case .centralText:
@@ -205,6 +217,8 @@ extension MoCAViewController: UITableViewDataSource {
 
             cell.setup(text: centralText, bottomConstraint: shouldChangeSpacing ? 40 : 20)
 
+            cell.accessibilityIdentifier = "MoCAViewController-CentralizedTextTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .stepper:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StepperTableViewCell.className,
@@ -214,6 +228,8 @@ extension MoCAViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.mocaFifthSectionSecondInstruction.localized, value: Int(viewModel.countedWords), delegate: interactor, leadingConstraint: 35)
 
+            cell.accessibilityIdentifier = "MoCAViewController-StepperTableViewCell"
+
             return cell
         case .question:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
@@ -222,6 +238,8 @@ extension MoCAViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(title: viewModel.question.question, options: viewModel.question.options, delegate: interactor, selectedQuestion: viewModel.selectedOption, leadingConstraint: 35))
+
+            cell.accessibilityIdentifier = "MoCAViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
             return cell
         }

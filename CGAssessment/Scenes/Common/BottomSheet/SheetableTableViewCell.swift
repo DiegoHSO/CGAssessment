@@ -39,6 +39,7 @@ class SheetableTableViewCell: UITableViewCell {
         pickerValueButton?.setTitle(viewModel.pickerValue, for: .normal)
         leadingConstraint?.constant = viewModel.horizontalConstraint
         trailingConstraint?.constant = viewModel.horizontalConstraint
+        pickerValueButton?.accessibilityIdentifier = "SheetableTableViewCell-\(viewModel.pickerName?.rawValue ?? "")"
         identifier = viewModel.pickerName
         delegate = viewModel.delegate
     }

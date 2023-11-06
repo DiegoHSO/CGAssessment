@@ -85,15 +85,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupExampleCGA() {
-        if !UserDefaults.standard.bool(forKey: LocalStorageKeys.firstTime.rawValue) {
-            UserDefaults.standard.set(true, forKey: LocalStorageKeys.firstTime.rawValue)
-
-            let dao = CoreDataDAO()
+        if DAOFactory.coreDataDAO is CoreDataDAOMock {
+            let dao = DAOFactory.coreDataDAO
 
             do {
                 try dao.addStandaloneCGA()
             } catch {
                 fatalError("Unable to create example CGA")
+            }
+        } else {
+            if !UserDefaults.standard.bool(forKey: LocalStorageKeys.firstTime.rawValue) {
+                UserDefaults.standard.set(true, forKey: LocalStorageKeys.firstTime.rawValue)
+
+                let dao = DAOFactory.coreDataDAO
+
+                do {
+                    try dao.addStandaloneCGA()
+                } catch {
+                    fatalError("Unable to create example CGA")
+                }
             }
         }
     }

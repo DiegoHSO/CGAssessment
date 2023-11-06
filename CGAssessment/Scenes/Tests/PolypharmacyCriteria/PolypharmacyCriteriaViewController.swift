@@ -80,6 +80,8 @@ class PolypharmacyCriteriaViewController: UIViewController, PolypharmacyCriteria
         tableView?.register(cellType: SheetableTableViewCell.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "PolypharmacyCriteriaViewController-tableView"
     }
 }
 
@@ -121,6 +123,8 @@ extension PolypharmacyCriteriaViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
 
+            cell.accessibilityIdentifier = "PolypharmacyCriteriaViewController-ActionButtonTableViewCell"
+
             return cell
         case .picker:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SheetableTableViewCell.className,
@@ -130,6 +134,8 @@ extension PolypharmacyCriteriaViewController: UITableViewDataSource {
 
             cell.setup(viewModel: viewModel.picker)
 
+            cell.accessibilityIdentifier = "PolypharmacyCriteriaViewController-SheetableTableViewCell"
+
             return cell
         case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
@@ -138,6 +144,8 @@ extension PolypharmacyCriteriaViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
+
+            cell.accessibilityIdentifier = "PolypharmacyCriteriaViewController-InstructionsTableViewCell"
 
             return cell
         }

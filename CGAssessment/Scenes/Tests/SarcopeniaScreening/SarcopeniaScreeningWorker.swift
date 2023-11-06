@@ -16,7 +16,7 @@ class SarcopeniaScreeningWorker {
 
     // MARK: - Init
 
-    init(dao: CoreDataDAOProtocol = CoreDataDAO(), cgaId: UUID?) {
+    init(dao: CoreDataDAOProtocol = DAOFactory.coreDataDAO, cgaId: UUID?) {
         self.dao = dao
         self.cgaId = cgaId
     }
@@ -28,7 +28,7 @@ class SarcopeniaScreeningWorker {
     }
 
     func getPatientGender() throws -> Gender {
-        guard let patient = try dao.fetchPatient(cgaId: cgaId),
+        guard let patient = try? dao.fetchPatient(cgaId: cgaId),
               let gender = Gender(rawValue: patient.gender) else {
             throw CoreDataErrors.unableToFetchPatient
         }

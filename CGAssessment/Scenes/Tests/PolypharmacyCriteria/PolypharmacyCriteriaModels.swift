@@ -21,7 +21,7 @@ struct PolypharmacyCriteriaModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let numberOfMedicines: Int16
     }
 
@@ -30,7 +30,7 @@ struct PolypharmacyCriteriaModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
         case openBottomSheet(viewModel: CGAModels.BottomSheetViewModel)
     }
