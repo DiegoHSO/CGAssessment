@@ -24,7 +24,7 @@ struct CalfCircumferenceModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let circumference: Double
     }
 
@@ -33,7 +33,7 @@ struct CalfCircumferenceModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 

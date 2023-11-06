@@ -44,7 +44,7 @@ struct CGAsModels {
         let year: Int?
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case cgaDomains(cgaId: UUID?)
         case newCGA
     }

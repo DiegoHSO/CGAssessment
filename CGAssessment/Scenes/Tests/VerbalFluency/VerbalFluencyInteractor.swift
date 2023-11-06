@@ -56,6 +56,7 @@ class VerbalFluencyInteractor: VerbalFluencyLogic {
 
     func didChangeValue(value: Int) {
         countedWords = Int16(value)
+        updateDatabase()
     }
 
     // MARK: - Private Methods

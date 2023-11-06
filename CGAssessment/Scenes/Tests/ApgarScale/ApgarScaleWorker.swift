@@ -16,7 +16,7 @@ class ApgarScaleWorker {
 
     // MARK: - Init
 
-    init(dao: CoreDataDAOProtocol = CoreDataDAO(), cgaId: UUID?) {
+    init(dao: CoreDataDAOProtocol = DAOFactory.coreDataDAO, cgaId: UUID?) {
         self.dao = dao
         self.cgaId = cgaId
     }

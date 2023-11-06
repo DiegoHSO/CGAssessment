@@ -144,7 +144,7 @@ class MiniMentalStateExamInteractor: MiniMentalStateExamLogic {
             partialResult + dictionary.map { $0.value }
         }
 
-        let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({$0 != .none}) && selectedBinaryOptions.allSatisfy({ $0 != .none })
+        let isResultsButtonEnabled: Bool = selectedOptions.allSatisfy({ $0 != .none }) && selectedBinaryOptions.allSatisfy({ $0 != .none })
 
         return .init(questions: questions, binaryQuestions: binaryQuestions, isResultsButtonEnabled: isResultsButtonEnabled)
     }
@@ -160,7 +160,7 @@ class MiniMentalStateExamInteractor: MiniMentalStateExamLogic {
             partialResult + dictionary.map { $0.value }
         }
 
-        let isAllDone: Bool = selectedOptions.allSatisfy({$0 != .none}) && selectedBinaryOptions.allSatisfy({ $0 != .none })
+        let isAllDone: Bool = selectedOptions.allSatisfy({ $0 != .none }) && selectedBinaryOptions.allSatisfy({ $0 != .none })
 
         if isAllDone {
             presenter?.route(toRoute: .testResults(test: .miniMentalStateExamination, results: .init(questions: rawQuestions, binaryQuestions: rawBinaryQuestions), cgaId: cgaId))

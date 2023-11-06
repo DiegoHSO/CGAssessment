@@ -77,6 +77,8 @@ class GeriatricDepressionScaleViewController: UIViewController, GeriatricDepress
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "GeriatricDepressionScaleViewController-tableView"
     }
 }
 
@@ -122,6 +124,8 @@ extension GeriatricDepressionScaleViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "GeriatricDepressionScaleViewController-SelectableTableViewCell-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -130,6 +134,8 @@ extension GeriatricDepressionScaleViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "GeriatricDepressionScaleViewController-ActionButtonTableViewCell"
 
             return cell
         }

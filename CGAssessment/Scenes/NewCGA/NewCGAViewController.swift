@@ -63,6 +63,8 @@ class NewCGAViewController: UIViewController, NewCGADisplayLogic {
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ResumedPatientTableViewCell.self)
         tableView?.register(cellType: EmptyStateTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "NewCGAViewController-tableView"
     }
 
     // MARK: - Public Methods
@@ -164,6 +166,8 @@ extension NewCGAViewController: UITableViewDataSource {
 
             cell.setup(viewModel: viewModel)
 
+            cell.accessibilityIdentifier = "NewCGAViewController-SelectableTableViewCell-NoOption"
+
             return cell
         case .pleaseFillIn:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.className,
@@ -172,6 +176,8 @@ extension NewCGAViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.pleaseFillIn.localized, leadingConstraint: 40)
+
+            cell.accessibilityIdentifier = "NewCGAViewController-TitleTableViewCell"
 
             return cell
         case .name:
@@ -186,6 +192,8 @@ extension NewCGAViewController: UITableViewDataSource {
                                                          delegate: interactor,
                                                          leadingConstraint: 40)
             cell.setup(viewModel: viewModel)
+
+            cell.accessibilityIdentifier = "NewCGAViewController-TextFieldTableViewCell"
 
             return cell
         case .gender:
@@ -203,6 +211,8 @@ extension NewCGAViewController: UITableViewDataSource {
 
             cell.setup(viewModel: viewModel)
 
+            cell.accessibilityIdentifier = "NewCGAViewController-SelectableTableViewCell-Gender"
+
             return cell
         case .birthDate:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerTableViewCell.className,
@@ -216,6 +226,8 @@ extension NewCGAViewController: UITableViewDataSource {
                                                           leadingConstraint: 40)
 
             cell.setup(viewModel: viewModel)
+
+            cell.accessibilityIdentifier = "NewCGAViewController-DatePickerTableViewCell"
 
             return cell
         case .yesOption:
@@ -232,6 +244,8 @@ extension NewCGAViewController: UITableViewDataSource {
 
             cell.setup(viewModel: viewModel)
 
+            cell.accessibilityIdentifier = "NewCGAViewController-SelectableTableViewCell-YesOption"
+
             return cell
         case .searchBar:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarTableViewCell.className,
@@ -243,6 +257,8 @@ extension NewCGAViewController: UITableViewDataSource {
                        placeholder: LocalizedTable.searchPatient.localized,
                        delegate: interactor)
 
+            cell.accessibilityIdentifier = "NewCGAViewController-SearchBarTableViewCell"
+
             return cell
         case .patient:
             if let patient = viewModel.patients[safe: indexPath.row] {
@@ -252,6 +268,8 @@ extension NewCGAViewController: UITableViewDataSource {
                 }
 
                 cell.setup(viewModel: patient, isSelected: viewModel.selectedPatient == patient.id)
+
+                cell.accessibilityIdentifier = "NewCGAViewController-ResumedPatientTableViewCell-\(indexPath.row)"
 
                 return cell
             }
@@ -265,6 +283,8 @@ extension NewCGAViewController: UITableViewDataSource {
                        buttonTitle: LocalizedTable.newCgaEmptyStateAction.localized,
                        leadingConstraint: 40)
 
+            cell.accessibilityIdentifier = "NewCGAViewController-EmptyStateTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -273,6 +293,8 @@ extension NewCGAViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.start.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "NewCGAViewController-ActionButtonTableViewCell"
 
             return cell
         default:

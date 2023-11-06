@@ -25,7 +25,7 @@ class TimedUpAndGoInteractor: TimedUpAndGoLogic {
 
     // MARK: - Init
 
-    init(presenter: TimedUpAndGoPresentationLogic, worker: TimedUpAndGoWorker, cgaId: UUID?) {
+    init(presenter: TimedUpAndGoPresentationLogic, worker: TimedUpAndGoWorker?, cgaId: UUID?) {
         self.presenter = presenter
         self.worker = worker
         self.cgaId = cgaId

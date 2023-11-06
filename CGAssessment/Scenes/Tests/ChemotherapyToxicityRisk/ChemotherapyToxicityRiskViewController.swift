@@ -77,6 +77,8 @@ class ChemotherapyToxicityRiskViewController: UIViewController, ChemotherapyToxi
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: SelectableTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "ChemotherapyToxicityRiskViewController-tableView"
     }
 }
 
@@ -123,6 +125,8 @@ extension ChemotherapyToxicityRiskViewController: UITableViewDataSource {
                                         leadingConstraint: 30, textStyle: .regular,
                                         allowsEditing: questionViewModel.question != .chemotherapyToxicityRiskQuestionEleven))
 
+            cell.accessibilityIdentifier = "ChemotherapyToxicityRiskViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -131,6 +135,8 @@ extension ChemotherapyToxicityRiskViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "ChemotherapyToxicityRiskViewController-ActionButtonTableViewCell"
 
             return cell
         }

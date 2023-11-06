@@ -34,13 +34,13 @@ struct MiniNutritionalAssessmentModels {
         }
     }
 
-    struct QuestionViewModel {
+    struct QuestionViewModel: Equatable {
         let question: LocalizedTable?
         let selectedOption: SelectableKeys
         let options: Options
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let questions: RawQuestions
         let height: Double?
         let weight: Double?
@@ -55,7 +55,7 @@ struct MiniNutritionalAssessmentModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
         case openBottomSheet(viewModel: CGAModels.BottomSheetViewModel)
     }

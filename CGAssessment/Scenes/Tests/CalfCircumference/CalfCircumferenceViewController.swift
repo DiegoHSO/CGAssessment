@@ -79,6 +79,8 @@ class CalfCircumferenceViewController: UIViewController, CalfCircumferenceDispla
         tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: TextFieldTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "CalfCircumferenceViewController-tableView"
     }
 }
 
@@ -126,6 +128,8 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "CalfCircumferenceViewController-InstructionsTableViewCell"
+
             return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
@@ -134,6 +138,8 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
             }
 
             cell.setup(image: UIImage(named: viewModel.imageName ?? ""), multiplier: 1)
+
+            cell.accessibilityIdentifier = "CalfCircumferenceViewController-ImageTableViewCell"
 
             return cell
         case .textField:
@@ -146,6 +152,8 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
                                         placeholder: LocalizedTable.circumferencePlaceholder.localized,
                                         delegate: interactor, keyboardType: .decimalPad))
 
+            cell.accessibilityIdentifier = "CalfCircumferenceViewController-TextFieldTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -154,6 +162,8 @@ extension CalfCircumferenceViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "CalfCircumferenceViewController-ActionButtonTableViewCell"
 
             return cell
         default:

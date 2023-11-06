@@ -79,6 +79,8 @@ class GripStrengthViewController: UIViewController, GripStrengthDisplayLogic {
         tableView?.register(cellType: ImageTableViewCell.self)
         tableView?.register(cellType: TextFieldTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "GripStrengthViewController-tableView"
     }
 }
 
@@ -128,6 +130,8 @@ extension GripStrengthViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "GripStrengthViewController-InstructionsTableViewCell"
+
             return cell
         case .image:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.className,
@@ -136,6 +140,8 @@ extension GripStrengthViewController: UITableViewDataSource {
             }
 
             cell.setup(image: UIImage(named: viewModel.imageName ?? ""), multiplier: 1)
+
+            cell.accessibilityIdentifier = "GripStrengthViewController-ImageTableViewCell"
 
             return cell
         case .firstTextField:
@@ -148,6 +154,8 @@ extension GripStrengthViewController: UITableViewDataSource {
                                         placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
                                         keyboardType: .decimalPad, identifier: .firstMeasurement))
 
+            cell.accessibilityIdentifier = "GripStrengthViewController-FirstTextFieldTableViewCell"
+
             return cell
         case .secondTextField:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
@@ -158,6 +166,8 @@ extension GripStrengthViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(title: LocalizedTable.secondMeasurement.localized, text: viewModel.typedSecondMeasurement,
                                         placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
                                         keyboardType: .decimalPad, identifier: .secondMeasurement))
+
+            cell.accessibilityIdentifier = "GripStrengthViewController-SecondTextFieldTableViewCell"
 
             return cell
         case .thirdTextField:
@@ -170,12 +180,16 @@ extension GripStrengthViewController: UITableViewDataSource {
                                         placeholder: LocalizedTable.strengthPlaceholder.localized, delegate: interactor,
                                         keyboardType: .decimalPad, identifier: .thirdMeasurement))
 
+            cell.accessibilityIdentifier = "GripStrengthViewController-ThirdTextFieldTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
                                                            for: indexPath) as? ActionButtonTableViewCell else {
                 return UITableViewCell()
             }
+
+            cell.accessibilityIdentifier = "GripStrengthViewController-ActionButtonTableViewCell"
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
 

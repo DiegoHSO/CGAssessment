@@ -43,8 +43,6 @@ class GripStrengthInteractor: GripStrengthLogic {
     }
 
     func didChangeText(text: String, identifier: LocalizedTable?) {
-        guard let identifier else { return }
-
         switch identifier {
         case .firstMeasurement:
             typedFirstMeasurement = TimeInterval(text.replacingOccurrences(of: ",", with: "."))

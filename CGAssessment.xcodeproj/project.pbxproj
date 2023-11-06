@@ -21,6 +21,53 @@
 		F10DFBA32ACA525A00E1A380 /* CGAsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */; };
 		F10DFBA52ACA529E00E1A380 /* CGAs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */; };
 		F10DFBA72ACB3C8400E1A380 /* CGAsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */; };
+		F1153E1D2AF5E73000D0B59A /* ApgarScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */; };
+		F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */; };
+		F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */; };
+		F1153E242AF5ED6F00D0B59A /* ZaritScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */; };
+		F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */; };
+		F1153E262AF5ED6F00D0B59A /* ZaritScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */; };
+		F1153E2B2AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */; };
+		F1153E2C2AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */; };
+		F1153E2D2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */; };
+		F1153E322AF5F78D00D0B59A /* CharlsonIndexWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */; };
+		F1153E332AF5F78D00D0B59A /* CharlsonIndexInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E302AF5F78C00D0B59A /* CharlsonIndexInteractorTests.swift */; };
+		F1153E342AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E312AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift */; };
+		F1153E392AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */; };
+		F1153E3A2AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */; };
+		F1153E3B2AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */; };
+		F1153E402AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3D2AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift */; };
+		F1153E412AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3E2AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift */; };
+		F1153E422AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E3F2AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift */; };
+		F1153E442AF698BD00D0B59A /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E432AF698BD00D0B59A /* DashboardUITests.swift */; };
+		F1153E462AF6A23D00D0B59A /* CGAsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */; };
+		F1153E492AF6C5E900D0B59A /* PatientsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */; };
+		F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */; };
+		F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */; };
+		F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */; };
+		F1153E512AF72A4D00D0B59A /* TimedUpAndGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */; };
+		F1153E532AF737BE00D0B59A /* WalkingSpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */; };
+		F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */; };
+		F1153E572AF740CC00D0B59A /* GripStrengthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */; };
+		F1153E592AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */; };
+		F1153E5B2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */; };
+		F1153E5D2AF750C700D0B59A /* VerbalFluencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */; };
+		F1153E5F2AF7552300D0B59A /* ClockDrawingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */; };
+		F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E602AF757CC00D0B59A /* MoCAUITests.swift */; };
+		F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */; };
+		F1153E652AF7F9D800D0B59A /* SarcopeniaScreeningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E642AF7F9D800D0B59A /* SarcopeniaScreeningUITests.swift */; };
+		F1153E672AF7FAA800D0B59A /* KatzScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E662AF7FAA700D0B59A /* KatzScaleUITests.swift */; };
+		F1153E692AF7FC4F00D0B59A /* LawtonScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E682AF7FC4F00D0B59A /* LawtonScaleUITests.swift */; };
+		F1153E6B2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E6A2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift */; };
+		F1153E6D2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E6C2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift */; };
+		F1153E6F2AF8242100D0B59A /* ApgarScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E6E2AF8242100D0B59A /* ApgarScaleUITests.swift */; };
+		F1153E712AF8244800D0B59A /* ZaritScaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E702AF8244800D0B59A /* ZaritScaleUITests.swift */; };
+		F1153E732AF826B700D0B59A /* PolypharmacyCriteriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E722AF826B700D0B59A /* PolypharmacyCriteriaUITests.swift */; };
+		F1153E752AF82A2E00D0B59A /* CharlsonIndexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E742AF82A2E00D0B59A /* CharlsonIndexUITests.swift */; };
+		F1153E772AF8586800D0B59A /* SuspectedAbuseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E762AF8586800D0B59A /* SuspectedAbuseUITests.swift */; };
+		F1153E792AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E782AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift */; };
+		F1153E7B2AF86B3C00D0B59A /* ResultsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E7A2AF86B3C00D0B59A /* ResultsUITests.swift */; };
+		F1153E7D2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -46,6 +93,9 @@
 		F13C7B972ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */; };
 		F13C7B992ACF5948000D5AC2 /* MiniMentalStateExamModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */; };
 		F13C7B9B2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */; };
+		F13C96F72AEEF6EA00DC35D5 /* CoreDataDAOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */; };
+		F13C96F92AEEF72E00DC35D5 /* CoreDataDAOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */; };
+		F13C96FC2AEF089400DC35D5 /* DAOFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */; };
 		F13CD1082AD1DB3E0011E4DF /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */; };
 		F13CD1092AD1DB3E0011E4DF /* StepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */; };
 		F13CD10C2AD1E87D0011E4DF /* VerbalFluency.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */; };
@@ -124,9 +174,6 @@
 		F177F7F72AA793BE00C1EB32 /* CGAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F177F7F52AA793BE00C1EB32 /* CGAssessment.xcdatamodeld */; };
 		F177F7F92AA793C000C1EB32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F177F7F82AA793C000C1EB32 /* Assets.xcassets */; };
 		F177F7FC2AA793C000C1EB32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F177F7FA2AA793C000C1EB32 /* LaunchScreen.storyboard */; };
-		F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */; };
-		F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */; };
-		F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */; };
 		F17D36A82AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */; };
 		F17D36AA2AD64D7900AE5D98 /* HearingLossAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */; };
 		F17D36AC2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */; };
@@ -163,6 +210,9 @@
 		F18698FE2AC7545B00FB5620 /* DashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */; };
 		F18699012AC756ED00FB5620 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699002AC756ED00FB5620 /* CoreDataDAO.swift */; };
 		F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18699032AC86C1200FB5620 /* NewCGAWorker.swift */; };
+		F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */; };
+		F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */; };
+		F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */; };
 		F1A543102AC3DFCF00D543ED /* CalfCircumferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */; };
 		F1A543122AC3DFD800D543ED /* CalfCircumference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */; };
 		F1A543142AC3E1E100D543ED /* CalfCircumferenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */; };
@@ -368,6 +418,73 @@
 		F1F2E9F32AB5578A0006075F /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */; };
 		F1F2E9F42AB5578A0006075F /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */; };
 		F1F2E9F72AB567A00006075F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F1F2E9F62AB567A00006075F /* IQKeyboardManagerSwift */; };
+		F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */; };
+		F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */; };
+		F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */; };
+		F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */; };
+		F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */; };
+		F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */; };
+		F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06D52AF12188003CD4CC /* PatientsPresenterTests.swift */; };
+		F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06D62AF12189003CD4CC /* PatientsWorkerTests.swift */; };
+		F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06D72AF12189003CD4CC /* PatientsInteractorTests.swift */; };
+		F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DC2AF16697003CD4CC /* CGADomainsInteractorTests.swift */; };
+		F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DD2AF16697003CD4CC /* CGADomainsPresenterTests.swift */; };
+		F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06DE2AF16697003CD4CC /* CGADomainsWorkerTests.swift */; };
+		F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */; };
+		F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */; };
+		F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */; };
+		F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */; };
+		F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */; };
+		F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */; };
+		F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */; };
+		F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */; };
+		F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */; };
+		F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */; };
+		F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */; };
+		F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */; };
+		F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07002AF43C06003CD4CC /* TestExpectation.swift */; };
+		F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */; };
+		F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */; };
+		F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */; };
+		F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */; };
+		F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */; };
+		F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */; };
+		F1FD07142AF46CAB003CD4CC /* SarcopeniaScreeningInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07112AF46CAA003CD4CC /* SarcopeniaScreeningInteractorTests.swift */; };
+		F1FD07152AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */; };
+		F1FD07162AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07132AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift */; };
+		F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */; };
+		F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */; };
+		F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */; };
+		F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD071F2AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift */; };
+		F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */; };
+		F1FD07242AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07212AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift */; };
+		F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */; };
+		F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */; };
+		F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */; };
+		F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */; };
+		F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */; };
+		F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */; };
+		F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */; };
+		F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */; };
+		F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */; };
+		F1FD073E2AF53DA3003CD4CC /* GeriatricDepressionScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073B2AF53DA2003CD4CC /* GeriatricDepressionScaleInteractorTests.swift */; };
+		F1FD073F2AF53DA3003CD4CC /* GeriatricDepressionScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073C2AF53DA2003CD4CC /* GeriatricDepressionScalePresenterTests.swift */; };
+		F1FD07402AF53DA3003CD4CC /* GeriatricDepressionScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */; };
+		F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */; };
+		F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */; };
+		F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */; };
+		F1FD074C2AF570F3003CD4CC /* HearingLossAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */; };
+		F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */; };
+		F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */; };
+		F1FD07532AF587DB003CD4CC /* KatzScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */; };
+		F1FD07542AF587DB003CD4CC /* KatzScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */; };
+		F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */; };
+		F1FD075A2AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07572AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift */; };
+		F1FD075B2AF58FDC003CD4CC /* LawtonScalePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07582AF58FDC003CD4CC /* LawtonScalePresenterTests.swift */; };
+		F1FD075C2AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */; };
+		F1FD07612AF59A56003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */; };
+		F1FD07622AF59A56003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */; };
+		F1FD07632AF59A56003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -402,6 +519,53 @@
 		F10DFBA22ACA525A00E1A380 /* CGAsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsRouter.swift; sourceTree = "<group>"; };
 		F10DFBA42ACA529E00E1A380 /* CGAs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CGAs.storyboard; sourceTree = "<group>"; };
 		F10DFBA62ACB3C8400E1A380 /* CGAsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsBuilder.swift; sourceTree = "<group>"; };
+		F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApgarScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZaritScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaPresenterTests.swift; sourceTree = "<group>"; };
+		F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E302AF5F78C00D0B59A /* CharlsonIndexInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E312AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharlsonIndexPresenterTests.swift; sourceTree = "<group>"; };
+		F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectedAbusePresenterTests.swift; sourceTree = "<group>"; };
+		F1153E3D2AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskPresenterTests.swift; sourceTree = "<group>"; };
+		F1153E3E2AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskWorkerTests.swift; sourceTree = "<group>"; };
+		F1153E3F2AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskInteractorTests.swift; sourceTree = "<group>"; };
+		F1153E432AF698BD00D0B59A /* DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUITests.swift; sourceTree = "<group>"; };
+		F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAsUITests.swift; sourceTree = "<group>"; };
+		F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsUITests.swift; sourceTree = "<group>"; };
+		F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAUITests.swift; sourceTree = "<group>"; };
+		F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsUITests.swift; sourceTree = "<group>"; };
+		F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainUITests.swift; sourceTree = "<group>"; };
+		F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoUITests.swift; sourceTree = "<group>"; };
+		F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingSpeedUITests.swift; sourceTree = "<group>"; };
+		F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceUITests.swift; sourceTree = "<group>"; };
+		F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripStrengthUITests.swift; sourceTree = "<group>"; };
+		F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentUITests.swift; sourceTree = "<group>"; };
+		F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamUITests.swift; sourceTree = "<group>"; };
+		F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFluencyUITests.swift; sourceTree = "<group>"; };
+		F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDrawingUITests.swift; sourceTree = "<group>"; };
+		F1153E602AF757CC00D0B59A /* MoCAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCAUITests.swift; sourceTree = "<group>"; };
+		F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleUITests.swift; sourceTree = "<group>"; };
+		F1153E642AF7F9D800D0B59A /* SarcopeniaScreeningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningUITests.swift; sourceTree = "<group>"; };
+		F1153E662AF7FAA700D0B59A /* KatzScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KatzScaleUITests.swift; sourceTree = "<group>"; };
+		F1153E682AF7FC4F00D0B59A /* LawtonScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawtonScaleUITests.swift; sourceTree = "<group>"; };
+		F1153E6A2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentUITests.swift; sourceTree = "<group>"; };
+		F1153E6C2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentUITests.swift; sourceTree = "<group>"; };
+		F1153E6E2AF8242100D0B59A /* ApgarScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApgarScaleUITests.swift; sourceTree = "<group>"; };
+		F1153E702AF8244800D0B59A /* ZaritScaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZaritScaleUITests.swift; sourceTree = "<group>"; };
+		F1153E722AF826B700D0B59A /* PolypharmacyCriteriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolypharmacyCriteriaUITests.swift; sourceTree = "<group>"; };
+		F1153E742AF82A2E00D0B59A /* CharlsonIndexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharlsonIndexUITests.swift; sourceTree = "<group>"; };
+		F1153E762AF8586800D0B59A /* SuspectedAbuseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseUITests.swift; sourceTree = "<group>"; };
+		F1153E782AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskUITests.swift; sourceTree = "<group>"; };
+		F1153E7A2AF86B3C00D0B59A /* ResultsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsUITests.swift; sourceTree = "<group>"; };
+		F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentUITests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -427,6 +591,9 @@
 		F13C7B962ACF5937000D5AC2 /* MiniMentalStateExamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamRouter.swift; sourceTree = "<group>"; };
 		F13C7B982ACF5948000D5AC2 /* MiniMentalStateExamModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamModels.swift; sourceTree = "<group>"; };
 		F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamBuilder.swift; sourceTree = "<group>"; };
+		F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAOProtocol.swift; sourceTree = "<group>"; };
+		F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAOMock.swift; sourceTree = "<group>"; };
+		F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOFactory.swift; sourceTree = "<group>"; };
 		F13CD1062AD1DB3E0011E4DF /* StepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
 		F13CD1072AD1DB3E0011E4DF /* StepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperTableViewCell.xib; sourceTree = "<group>"; };
 		F13CD10B2AD1E87D0011E4DF /* VerbalFluency.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerbalFluency.storyboard; sourceTree = "<group>"; };
@@ -509,10 +676,7 @@
 		F177F7FB2AA793C000C1EB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F177F7FD2AA793C000C1EB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F177F8022AA793C000C1EB32 /* CGAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentTests.swift; sourceTree = "<group>"; };
 		F177F80C2AA793C000C1EB32 /* CGAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITests.swift; sourceTree = "<group>"; };
-		F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F17D36A72AD64D5E00AE5D98 /* HearingLossAsssessmentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAsssessmentInteractor.swift; sourceTree = "<group>"; };
 		F17D36A92AD64D7900AE5D98 /* HearingLossAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HearingLossAssessment.storyboard; sourceTree = "<group>"; };
 		F17D36AB2AD64DB900AE5D98 /* HearingLossAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentViewController.swift; sourceTree = "<group>"; };
@@ -549,6 +713,9 @@
 		F18698FD2AC7545B00FB5620 /* DashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorker.swift; sourceTree = "<group>"; };
 		F18699002AC756ED00FB5620 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		F18699032AC86C1200FB5620 /* NewCGAWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCGAWorker.swift; sourceTree = "<group>"; };
+		F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractorTests.swift; sourceTree = "<group>"; };
+		F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWorkerTests.swift; sourceTree = "<group>"; };
 		F1A5430F2AC3DFCF00D543ED /* CalfCircumferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceViewController.swift; sourceTree = "<group>"; };
 		F1A543112AC3DFD800D543ED /* CalfCircumference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalfCircumference.storyboard; sourceTree = "<group>"; };
 		F1A543132AC3E1E100D543ED /* CalfCircumferenceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractor.swift; sourceTree = "<group>"; };
@@ -757,6 +924,73 @@
 		F1F2E9EE2AB39F5A0006075F /* CGAModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAModels.swift; sourceTree = "<group>"; };
 		F1F2E9F12AB5578A0006075F /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		F1F2E9F22AB5578A0006075F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCGAWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06D52AF12188003CD4CC /* PatientsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06D62AF12189003CD4CC /* PatientsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06D72AF12189003CD4CC /* PatientsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06DC2AF16697003CD4CC /* CGADomainsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06DD2AF16697003CD4CC /* CGADomainsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06DE2AF16697003CD4CC /* CGADomainsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGADomainsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDomainPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkingSpeedPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07002AF43C06003CD4CC /* TestExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExpectation.swift; sourceTree = "<group>"; };
+		F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferenceWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalfCircumferencePresenterTests.swift; sourceTree = "<group>"; };
+		F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripStrengthInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07112AF46CAA003CD4CC /* SarcopeniaScreeningInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07132AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaScreeningPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAsssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SarcopeniaAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD071F2AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07212AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMentalStateExamInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbalFluencyWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockDrawingPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoCAInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD073B2AF53DA2003CD4CC /* GeriatricDepressionScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD073C2AF53DA2003CD4CC /* GeriatricDepressionScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeriatricDepressionScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualAcuityAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentPresenterTests.swift; sourceTree = "<group>"; };
+		F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KatzScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07572AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD07582AF58FDC003CD4CC /* LawtonScalePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScalePresenterTests.swift; sourceTree = "<group>"; };
+		F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LawtonScaleWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentInteractorTests.swift; sourceTree = "<group>"; };
+		F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentWorkerTests.swift; sourceTree = "<group>"; };
+		F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniNutritionalAssessmentPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -814,6 +1048,66 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F1153E192AF5E6FE00D0B59A /* ApgarScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E1C2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift */,
+				F1153E1B2AF5E73000D0B59A /* ApgarScalePresenterTests.swift */,
+				F1153E1A2AF5E72F00D0B59A /* ApgarScaleWorkerTests.swift */,
+			);
+			path = ApgarScale;
+			sourceTree = "<group>";
+		};
+		F1153E202AF5EC1600D0B59A /* ZaritScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E222AF5ED6E00D0B59A /* ZaritScaleInteractorTests.swift */,
+				F1153E232AF5ED6E00D0B59A /* ZaritScalePresenterTests.swift */,
+				F1153E212AF5ED6E00D0B59A /* ZaritScaleWorkerTests.swift */,
+			);
+			path = ZaritScale;
+			sourceTree = "<group>";
+		};
+		F1153E272AF5EED400D0B59A /* PolypharmacyCriteria */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E2A2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift */,
+				F1153E282AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift */,
+				F1153E292AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift */,
+			);
+			path = PolypharmacyCriteria;
+			sourceTree = "<group>";
+		};
+		F1153E2E2AF5F70A00D0B59A /* CharlsonIndex */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E302AF5F78C00D0B59A /* CharlsonIndexInteractorTests.swift */,
+				F1153E312AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift */,
+				F1153E2F2AF5F78C00D0B59A /* CharlsonIndexWorkerTests.swift */,
+			);
+			path = CharlsonIndex;
+			sourceTree = "<group>";
+		};
+		F1153E352AF5FF4100D0B59A /* SuspectedAbuse */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E372AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift */,
+				F1153E382AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift */,
+				F1153E362AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift */,
+			);
+			path = SuspectedAbuse;
+			sourceTree = "<group>";
+		};
+		F1153E3C2AF604F400D0B59A /* ChemotherapyToxicityRisk */ = {
+			isa = PBXGroup;
+			children = (
+				F1153E3F2AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift */,
+				F1153E3D2AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift */,
+				F1153E3E2AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift */,
+			);
+			path = ChemotherapyToxicityRisk;
+			sourceTree = "<group>";
+		};
 		F13C7B732ACDD631000D5AC2 /* Status */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +1143,15 @@
 				F13C7B9A2ACF5BFB000D5AC2 /* MiniMentalStateExamBuilder.swift */,
 			);
 			path = MiniMentalStateExam;
+			sourceTree = "<group>";
+		};
+		F13C96FA2AEF088200DC35D5 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				F18698FF2AC756AC00FB5620 /* CoreData */,
+				F13C96FB2AEF089400DC35D5 /* DAOFactory.swift */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 		F13CD1052AD1DB1D0011E4DF /* Stepper */ = {
@@ -1053,7 +1356,15 @@
 		F177F8052AA793C000C1EB32 /* CGAssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				F177F8062AA793C000C1EB32 /* CGAssessmentTests.swift */,
+				F1FD06FF2AF43BF3003CD4CC /* Infrastructure */,
+				F1995E7D2AEF1911009CA257 /* Dashboard */,
+				F1FD06C62AF07C6E003CD4CC /* CGAs */,
+				F1FD06CD2AF08D59003CD4CC /* NewCGA */,
+				F1FD06D42AF1214D003CD4CC /* Patients */,
+				F1FD06DB2AF16617003CD4CC /* CGADomains */,
+				F1FD06E22AF17AE3003CD4CC /* SingleDomain */,
+				F1FD06F02AF3480C003CD4CC /* Tests */,
+				F1FD06E92AF19641003CD4CC /* Results */,
 			);
 			path = CGAssessmentTests;
 			sourceTree = "<group>";
@@ -1061,8 +1372,35 @@
 		F177F80F2AA793C000C1EB32 /* CGAssessmentUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F177F8102AA793C000C1EB32 /* CGAssessmentUITests.swift */,
-				F177F8122AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift */,
+				F1153E432AF698BD00D0B59A /* DashboardUITests.swift */,
+				F1153E452AF6A23D00D0B59A /* CGAsUITests.swift */,
+				F1153E482AF6C5E900D0B59A /* PatientsUITests.swift */,
+				F1153E4A2AF6D00600D0B59A /* NewCGAUITests.swift */,
+				F1153E4C2AF6EEE800D0B59A /* CGADomainsUITests.swift */,
+				F1153E4E2AF6F4F500D0B59A /* SingleDomainUITests.swift */,
+				F1153E502AF72A4D00D0B59A /* TimedUpAndGoUITests.swift */,
+				F1153E522AF737BE00D0B59A /* WalkingSpeedUITests.swift */,
+				F1153E542AF73A8200D0B59A /* CalfCircumferenceUITests.swift */,
+				F1153E562AF740CC00D0B59A /* GripStrengthUITests.swift */,
+				F1153E642AF7F9D800D0B59A /* SarcopeniaScreeningUITests.swift */,
+				F1153E582AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift */,
+				F1153E5A2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift */,
+				F1153E5C2AF750C700D0B59A /* VerbalFluencyUITests.swift */,
+				F1153E5E2AF7552300D0B59A /* ClockDrawingUITests.swift */,
+				F1153E602AF757CC00D0B59A /* MoCAUITests.swift */,
+				F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */,
+				F1153E6A2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift */,
+				F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */,
+				F1153E662AF7FAA700D0B59A /* KatzScaleUITests.swift */,
+				F1153E682AF7FC4F00D0B59A /* LawtonScaleUITests.swift */,
+				F1153E6C2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift */,
+				F1153E6E2AF8242100D0B59A /* ApgarScaleUITests.swift */,
+				F1153E702AF8244800D0B59A /* ZaritScaleUITests.swift */,
+				F1153E722AF826B700D0B59A /* PolypharmacyCriteriaUITests.swift */,
+				F1153E742AF82A2E00D0B59A /* CharlsonIndexUITests.swift */,
+				F1153E762AF8586800D0B59A /* SuspectedAbuseUITests.swift */,
+				F1153E782AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift */,
+				F1153E7A2AF86B3C00D0B59A /* ResultsUITests.swift */,
 			);
 			path = CGAssessmentUITests;
 			sourceTree = "<group>";
@@ -1070,7 +1408,7 @@
 		F177F81F2AA8294100C1EB32 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				F18698FF2AC756AC00FB5620 /* CoreData */,
+				F13C96FA2AEF088200DC35D5 /* DAO */,
 				F1F2E9D32AB298C10006075F /* Navigation */,
 				F177F8282AA82A3800C1EB32 /* LocalizedStrings */,
 				F177F8272AA82A2C00C1EB32 /* Extensions */,
@@ -1252,8 +1590,20 @@
 			isa = PBXGroup;
 			children = (
 				F18699002AC756ED00FB5620 /* CoreDataDAO.swift */,
+				F13C96F62AEEF6E900DC35D5 /* CoreDataDAOProtocol.swift */,
+				F13C96F82AEEF72E00DC35D5 /* CoreDataDAOMock.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F1995E7D2AEF1911009CA257 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F1995E7E2AEF1925009CA257 /* DashboardInteractorTests.swift */,
+				F1995E802AEF1932009CA257 /* DashboardPresenterTests.swift */,
+				F1995E822AEF193F009CA257 /* DashboardWorkerTests.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		F1A5430E2AC3DFAD00D543ED /* CalfCircumference */ = {
@@ -1764,6 +2114,263 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		F1FD06C62AF07C6E003CD4CC /* CGAs */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06C72AF07C6E003CD4CC /* CGAsPresenterTests.swift */,
+				F1FD06C82AF07C6E003CD4CC /* CGAsWorkerTests.swift */,
+				F1FD06C92AF07C6E003CD4CC /* CGAsInteractorTests.swift */,
+			);
+			path = CGAs;
+			sourceTree = "<group>";
+		};
+		F1FD06CD2AF08D59003CD4CC /* NewCGA */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06CE2AF08D97003CD4CC /* NewCGAInteractorTests.swift */,
+				F1FD06CF2AF08D97003CD4CC /* NewCGAPresenterTests.swift */,
+				F1FD06D02AF08D97003CD4CC /* NewCGAWorkerTests.swift */,
+			);
+			path = NewCGA;
+			sourceTree = "<group>";
+		};
+		F1FD06D42AF1214D003CD4CC /* Patients */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06D72AF12189003CD4CC /* PatientsInteractorTests.swift */,
+				F1FD06D52AF12188003CD4CC /* PatientsPresenterTests.swift */,
+				F1FD06D62AF12189003CD4CC /* PatientsWorkerTests.swift */,
+			);
+			path = Patients;
+			sourceTree = "<group>";
+		};
+		F1FD06DB2AF16617003CD4CC /* CGADomains */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06DC2AF16697003CD4CC /* CGADomainsInteractorTests.swift */,
+				F1FD06DD2AF16697003CD4CC /* CGADomainsPresenterTests.swift */,
+				F1FD06DE2AF16697003CD4CC /* CGADomainsWorkerTests.swift */,
+			);
+			path = CGADomains;
+			sourceTree = "<group>";
+		};
+		F1FD06E22AF17AE3003CD4CC /* SingleDomain */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06E42AF17B16003CD4CC /* SingleDomainInteractorTests.swift */,
+				F1FD06E52AF17B16003CD4CC /* SingleDomainPresenterTests.swift */,
+				F1FD06E32AF17B16003CD4CC /* SingleDomainWorkerTests.swift */,
+			);
+			path = SingleDomain;
+			sourceTree = "<group>";
+		};
+		F1FD06E92AF19641003CD4CC /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06EA2AF19993003CD4CC /* ResultsInteractorTests.swift */,
+				F1FD06EC2AF19993003CD4CC /* ResultsPresenterTests.swift */,
+				F1FD06EB2AF19993003CD4CC /* ResultsWorkerTests.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		F1FD06F02AF3480C003CD4CC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06F12AF34818003CD4CC /* TimedUpAndGo */,
+				F1FD06F82AF435E1003CD4CC /* WalkingSpeed */,
+				F1FD07022AF44542003CD4CC /* CalfCircumference */,
+				F1FD07092AF456F0003CD4CC /* GripStrength */,
+				F1FD07102AF46BEE003CD4CC /* SarcopeniaScreening */,
+				F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */,
+				F1FD071E2AF48A12003CD4CC /* MiniMentalStateExam */,
+				F1FD07252AF4972A003CD4CC /* VerbalFluency */,
+				F1FD072C2AF49E90003CD4CC /* ClockDrawing */,
+				F1FD07332AF4A40E003CD4CC /* MoCA */,
+				F1FD073A2AF4B497003CD4CC /* GeriatricDepressionScale */,
+				F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */,
+				F1FD07482AF570A6003CD4CC /* HearingLossAssessment */,
+				F1FD074F2AF5875B003CD4CC /* KatzScale */,
+				F1FD07562AF58FA3003CD4CC /* LawtonScale */,
+				F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */,
+				F1153E192AF5E6FE00D0B59A /* ApgarScale */,
+				F1153E202AF5EC1600D0B59A /* ZaritScale */,
+				F1153E272AF5EED400D0B59A /* PolypharmacyCriteria */,
+				F1153E2E2AF5F70A00D0B59A /* CharlsonIndex */,
+				F1153E352AF5FF4100D0B59A /* SuspectedAbuse */,
+				F1153E3C2AF604F400D0B59A /* ChemotherapyToxicityRisk */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F1FD06F12AF34818003CD4CC /* TimedUpAndGo */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06F32AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift */,
+				F1FD06F42AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift */,
+				F1FD06F22AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift */,
+			);
+			path = TimedUpAndGo;
+			sourceTree = "<group>";
+		};
+		F1FD06F82AF435E1003CD4CC /* WalkingSpeed */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD06FA2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift */,
+				F1FD06FB2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift */,
+				F1FD06F92AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift */,
+			);
+			path = WalkingSpeed;
+			sourceTree = "<group>";
+		};
+		F1FD06FF2AF43BF3003CD4CC /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07002AF43C06003CD4CC /* TestExpectation.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F1FD07022AF44542003CD4CC /* CalfCircumference */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07032AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift */,
+				F1FD07052AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift */,
+				F1FD07042AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift */,
+			);
+			path = CalfCircumference;
+			sourceTree = "<group>";
+		};
+		F1FD07092AF456F0003CD4CC /* GripStrength */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD070C2AF45734003CD4CC /* GripStrengthInteractorTests.swift */,
+				F1FD070A2AF45734003CD4CC /* GripStrengthPresenterTests.swift */,
+				F1FD070B2AF45734003CD4CC /* GripStrengthWorkerTests.swift */,
+			);
+			path = GripStrength;
+			sourceTree = "<group>";
+		};
+		F1FD07102AF46BEE003CD4CC /* SarcopeniaScreening */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07112AF46CAA003CD4CC /* SarcopeniaScreeningInteractorTests.swift */,
+				F1FD07132AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift */,
+				F1FD07122AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift */,
+			);
+			path = SarcopeniaScreening;
+			sourceTree = "<group>";
+		};
+		F1FD07172AF47FFD003CD4CC /* SarcopeniaAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07182AF48037003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift */,
+				F1FD07192AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift */,
+				F1FD071A2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift */,
+			);
+			path = SarcopeniaAssessment;
+			sourceTree = "<group>";
+		};
+		F1FD071E2AF48A12003CD4CC /* MiniMentalStateExam */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07212AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift */,
+				F1FD071F2AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift */,
+				F1FD07202AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift */,
+			);
+			path = MiniMentalStateExam;
+			sourceTree = "<group>";
+		};
+		F1FD07252AF4972A003CD4CC /* VerbalFluency */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07272AF49789003CD4CC /* VerbalFluencyInteractorTests.swift */,
+				F1FD07262AF49789003CD4CC /* VerbalFluencyPresenterTests.swift */,
+				F1FD07282AF49789003CD4CC /* VerbalFluencyWorkerTests.swift */,
+			);
+			path = VerbalFluency;
+			sourceTree = "<group>";
+		};
+		F1FD072C2AF49E90003CD4CC /* ClockDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD072D2AF49F3D003CD4CC /* ClockDrawingInteractorTests.swift */,
+				F1FD072F2AF49F3D003CD4CC /* ClockDrawingPresenterTests.swift */,
+				F1FD072E2AF49F3D003CD4CC /* ClockDrawingWorkerTests.swift */,
+			);
+			path = ClockDrawing;
+			sourceTree = "<group>";
+		};
+		F1FD07332AF4A40E003CD4CC /* MoCA */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07362AF4A46B003CD4CC /* MoCAInteractorTests.swift */,
+				F1FD07352AF4A46A003CD4CC /* MoCAPresenterTests.swift */,
+				F1FD07342AF4A46A003CD4CC /* MoCAWorkerTests.swift */,
+			);
+			path = MoCA;
+			sourceTree = "<group>";
+		};
+		F1FD073A2AF4B497003CD4CC /* GeriatricDepressionScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD073B2AF53DA2003CD4CC /* GeriatricDepressionScaleInteractorTests.swift */,
+				F1FD073C2AF53DA2003CD4CC /* GeriatricDepressionScalePresenterTests.swift */,
+				F1FD073D2AF53DA2003CD4CC /* GeriatricDepressionScaleWorkerTests.swift */,
+			);
+			path = GeriatricDepressionScale;
+			sourceTree = "<group>";
+		};
+		F1FD07412AF549D5003CD4CC /* VisualAcuityAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07442AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift */,
+				F1FD07422AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift */,
+				F1FD07432AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift */,
+			);
+			path = VisualAcuityAssessment;
+			sourceTree = "<group>";
+		};
+		F1FD07482AF570A6003CD4CC /* HearingLossAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD074A2AF570F2003CD4CC /* HearingLossAssessmentInteractorTests.swift */,
+				F1FD07492AF570F2003CD4CC /* HearingLossAssessmentPresenterTests.swift */,
+				F1FD074B2AF570F2003CD4CC /* HearingLossAssessmentWorkerTests.swift */,
+			);
+			path = HearingLossAssessment;
+			sourceTree = "<group>";
+		};
+		F1FD074F2AF5875B003CD4CC /* KatzScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07512AF587DB003CD4CC /* KatzScaleInteractorTests.swift */,
+				F1FD07522AF587DB003CD4CC /* KatzScalePresenterTests.swift */,
+				F1FD07502AF587DB003CD4CC /* KatzScaleWorkerTests.swift */,
+			);
+			path = KatzScale;
+			sourceTree = "<group>";
+		};
+		F1FD07562AF58FA3003CD4CC /* LawtonScale */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD07572AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift */,
+				F1FD07582AF58FDC003CD4CC /* LawtonScalePresenterTests.swift */,
+				F1FD07592AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift */,
+			);
+			path = LawtonScale;
+			sourceTree = "<group>";
+		};
+		F1FD075D2AF59A22003CD4CC /* MiniNutritionalAssessment */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD075E2AF59A55003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift */,
+				F1FD07602AF59A55003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift */,
+				F1FD075F2AF59A55003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift */,
+			);
+			path = MiniNutritionalAssessment;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2053,6 +2660,7 @@
 				F1A543162AC3E1EA00D543ED /* CalfCircumferencePresenter.swift in Sources */,
 				F18698E32AC4D47300FB5620 /* SarcopeniaScreeningViewController.swift in Sources */,
 				F140977D2ABB616C00E92005 /* TooltipTableViewCell.swift in Sources */,
+				F13C96F72AEEF6EA00DC35D5 /* CoreDataDAOProtocol.swift in Sources */,
 				F10DFB952ACA36C900E1A380 /* CGAsModels.swift in Sources */,
 				F1A8B5332AD782FD006FD874 /* MiniNutritionalAssessmentRouter.swift in Sources */,
 				F1AEEB832AA98BCF0038968E /* CircularProgressBarView.swift in Sources */,
@@ -2237,6 +2845,7 @@
 				F1A8B5882AD9035C006FD874 /* CharlsonIndexModels.swift in Sources */,
 				F18699042AC86C1200FB5620 /* NewCGAWorker.swift in Sources */,
 				F1EB0FAF2AD3B0080087AAB2 /* GeriatricDepressionScaleModels.swift in Sources */,
+				F13C96F92AEEF72E00DC35D5 /* CoreDataDAOMock.swift in Sources */,
 				F1A8B5072AD6C670006FD874 /* KatzScalePresenter.swift in Sources */,
 				F18698E72AC4D48A00FB5620 /* SarcopeniaScreeningRouter.swift in Sources */,
 				F1A8B51B2AD6F684006FD874 /* LawtonScaleWorker.swift in Sources */,
@@ -2244,6 +2853,7 @@
 				F1F2E9B22AACDBC40006075F /* TitleHeaderView.swift in Sources */,
 				F16A3FDF2AD24CC6007F4DF7 /* MoCAInteractor.swift in Sources */,
 				F1A8B54F2AD8BC05006FD874 /* ApgarScalePresenter.swift in Sources */,
+				F13C96FC2AEF089400DC35D5 /* DAOFactory.swift in Sources */,
 				F14097772AB7D45400E92005 /* NewCGARouter.swift in Sources */,
 				F1A8B50B2AD6C686006FD874 /* KatzScaleRouter.swift in Sources */,
 				F1A8B5AB2AD9D73D006FD874 /* ChemotherapyToxicityRiskViewController.swift in Sources */,
@@ -2306,7 +2916,94 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F177F8072AA793C000C1EB32 /* CGAssessmentTests.swift in Sources */,
+				F1FD07392AF4A46B003CD4CC /* MoCAInteractorTests.swift in Sources */,
+				F1FD07012AF43C06003CD4CC /* TestExpectation.swift in Sources */,
+				F1153E322AF5F78D00D0B59A /* CharlsonIndexWorkerTests.swift in Sources */,
+				F1FD07622AF59A56003CD4CC /* MiniNutritionalAssessmentWorkerTests.swift in Sources */,
+				F1FD075A2AF58FDC003CD4CC /* LawtonScaleInteractorTests.swift in Sources */,
+				F1FD07462AF54A41003CD4CC /* VisualAcuityAssessmentWorkerTests.swift in Sources */,
+				F1FD071C2AF48038003CD4CC /* SarcopeniaAssessmentPresenterTests.swift in Sources */,
+				F1FD07532AF587DB003CD4CC /* KatzScaleWorkerTests.swift in Sources */,
+				F1FD07062AF44F2F003CD4CC /* CalfCircumferenceInteractorTests.swift in Sources */,
+				F1153E3A2AF5FFE400D0B59A /* SuspectedAbuseInteractorTests.swift in Sources */,
+				F1FD06F62AF34866003CD4CC /* TimedUpAndGoInteractorTests.swift in Sources */,
+				F1153E392AF5FFE400D0B59A /* SuspectedAbuseWorkerTests.swift in Sources */,
+				F1FD07152AF46CAB003CD4CC /* SarcopeniaScreeningWorkerTests.swift in Sources */,
+				F1FD07402AF53DA3003CD4CC /* GeriatricDepressionScaleWorkerTests.swift in Sources */,
+				F1FD06E02AF16697003CD4CC /* CGADomainsPresenterTests.swift in Sources */,
+				F1153E412AF6056400D0B59A /* ChemotherapyToxicityRiskWorkerTests.swift in Sources */,
+				F1153E342AF5F78D00D0B59A /* CharlsonIndexPresenterTests.swift in Sources */,
+				F1FD06FD2AF437BA003CD4CC /* WalkingSpeedInteractorTests.swift in Sources */,
+				F1153E1D2AF5E73000D0B59A /* ApgarScaleWorkerTests.swift in Sources */,
+				F1FD06E72AF17B16003CD4CC /* SingleDomainInteractorTests.swift in Sources */,
+				F1FD07632AF59A56003CD4CC /* MiniNutritionalAssessmentPresenterTests.swift in Sources */,
+				F1FD07232AF48AAD003CD4CC /* MiniMentalStateExamWorkerTests.swift in Sources */,
+				F1FD07312AF49F3E003CD4CC /* ClockDrawingWorkerTests.swift in Sources */,
+				F1FD06D12AF08D97003CD4CC /* NewCGAInteractorTests.swift in Sources */,
+				F1153E2C2AF5EF3A00D0B59A /* PolypharmacyCriteriaWorkerTests.swift in Sources */,
+				F1153E2B2AF5EF3A00D0B59A /* PolypharmacyCriteriaPresenterTests.swift in Sources */,
+				F1FD070E2AF45734003CD4CC /* GripStrengthWorkerTests.swift in Sources */,
+				F1153E1F2AF5E73000D0B59A /* ApgarScaleInteractorTests.swift in Sources */,
+				F1153E252AF5ED6F00D0B59A /* ZaritScaleInteractorTests.swift in Sources */,
+				F1FD07552AF587DB003CD4CC /* KatzScalePresenterTests.swift in Sources */,
+				F1153E332AF5F78D00D0B59A /* CharlsonIndexInteractorTests.swift in Sources */,
+				F1FD06EE2AF19993003CD4CC /* ResultsWorkerTests.swift in Sources */,
+				F1FD06D22AF08D97003CD4CC /* NewCGAPresenterTests.swift in Sources */,
+				F1FD07472AF54A41003CD4CC /* VisualAcuityAssessmentInteractorTests.swift in Sources */,
+				F1FD06FC2AF437BA003CD4CC /* WalkingSpeedWorkerTests.swift in Sources */,
+				F1FD07322AF49F3E003CD4CC /* ClockDrawingPresenterTests.swift in Sources */,
+				F1FD06CC2AF07C6E003CD4CC /* CGAsInteractorTests.swift in Sources */,
+				F1FD06D82AF12189003CD4CC /* PatientsPresenterTests.swift in Sources */,
+				F1FD071D2AF48038003CD4CC /* SarcopeniaAssessmentWorkerTests.swift in Sources */,
+				F1153E422AF6056400D0B59A /* ChemotherapyToxicityRiskInteractorTests.swift in Sources */,
+				F1FD06DA2AF12189003CD4CC /* PatientsInteractorTests.swift in Sources */,
+				F1FD073E2AF53DA3003CD4CC /* GeriatricDepressionScaleInteractorTests.swift in Sources */,
+				F1FD072B2AF49789003CD4CC /* VerbalFluencyWorkerTests.swift in Sources */,
+				F1FD07382AF4A46B003CD4CC /* MoCAPresenterTests.swift in Sources */,
+				F1FD070F2AF45734003CD4CC /* GripStrengthInteractorTests.swift in Sources */,
+				F1FD06DF2AF16697003CD4CC /* CGADomainsInteractorTests.swift in Sources */,
+				F1153E262AF5ED6F00D0B59A /* ZaritScalePresenterTests.swift in Sources */,
+				F1153E1E2AF5E73000D0B59A /* ApgarScalePresenterTests.swift in Sources */,
+				F1FD070D2AF45734003CD4CC /* GripStrengthPresenterTests.swift in Sources */,
+				F1FD06D32AF08D97003CD4CC /* NewCGAWorkerTests.swift in Sources */,
+				F1FD07372AF4A46B003CD4CC /* MoCAWorkerTests.swift in Sources */,
+				F1FD07242AF48AAD003CD4CC /* MiniMentalStateExamInteractorTests.swift in Sources */,
+				F1153E2D2AF5EF3A00D0B59A /* PolypharmacyCriteriaInteractorTests.swift in Sources */,
+				F1FD07162AF46CAB003CD4CC /* SarcopeniaScreeningPresenterTests.swift in Sources */,
+				F1FD07072AF44F2F003CD4CC /* CalfCircumferenceWorkerTests.swift in Sources */,
+				F1FD06E82AF17B16003CD4CC /* SingleDomainPresenterTests.swift in Sources */,
+				F1FD06E12AF16697003CD4CC /* CGADomainsWorkerTests.swift in Sources */,
+				F1FD06CB2AF07C6E003CD4CC /* CGAsWorkerTests.swift in Sources */,
+				F1FD06F52AF34866003CD4CC /* TimedUpAndGoWorkerTests.swift in Sources */,
+				F1FD07542AF587DB003CD4CC /* KatzScaleInteractorTests.swift in Sources */,
+				F1995E812AEF1932009CA257 /* DashboardPresenterTests.swift in Sources */,
+				F1FD07612AF59A56003CD4CC /* MiniNutritionalAssessmentInteractorTests.swift in Sources */,
+				F1FD075C2AF58FDC003CD4CC /* LawtonScaleWorkerTests.swift in Sources */,
+				F1FD074D2AF570F3003CD4CC /* HearingLossAssessmentInteractorTests.swift in Sources */,
+				F1FD06F72AF34866003CD4CC /* TimedUpAndGoPresenterTests.swift in Sources */,
+				F1FD06FE2AF437BA003CD4CC /* WalkingSpeedPresenterTests.swift in Sources */,
+				F1995E832AEF193F009CA257 /* DashboardWorkerTests.swift in Sources */,
+				F1FD07142AF46CAB003CD4CC /* SarcopeniaScreeningInteractorTests.swift in Sources */,
+				F1FD06ED2AF19993003CD4CC /* ResultsInteractorTests.swift in Sources */,
+				F1FD06D92AF12189003CD4CC /* PatientsWorkerTests.swift in Sources */,
+				F1FD073F2AF53DA3003CD4CC /* GeriatricDepressionScalePresenterTests.swift in Sources */,
+				F1153E402AF6056400D0B59A /* ChemotherapyToxicityRiskPresenterTests.swift in Sources */,
+				F1FD07302AF49F3E003CD4CC /* ClockDrawingInteractorTests.swift in Sources */,
+				F1995E7F2AEF1925009CA257 /* DashboardInteractorTests.swift in Sources */,
+				F1153E242AF5ED6F00D0B59A /* ZaritScaleWorkerTests.swift in Sources */,
+				F1FD07292AF49789003CD4CC /* VerbalFluencyPresenterTests.swift in Sources */,
+				F1FD075B2AF58FDC003CD4CC /* LawtonScalePresenterTests.swift in Sources */,
+				F1FD07082AF44F2F003CD4CC /* CalfCircumferencePresenterTests.swift in Sources */,
+				F1FD06CA2AF07C6E003CD4CC /* CGAsPresenterTests.swift in Sources */,
+				F1FD074C2AF570F3003CD4CC /* HearingLossAssessmentPresenterTests.swift in Sources */,
+				F1FD06E62AF17B16003CD4CC /* SingleDomainWorkerTests.swift in Sources */,
+				F1FD07222AF48AAD003CD4CC /* MiniMentalStateExamPresenterTests.swift in Sources */,
+				F1FD07452AF54A41003CD4CC /* VisualAcuityAssessmentPresenterTests.swift in Sources */,
+				F1FD074E2AF570F3003CD4CC /* HearingLossAssessmentWorkerTests.swift in Sources */,
+				F1FD072A2AF49789003CD4CC /* VerbalFluencyInteractorTests.swift in Sources */,
+				F1FD06EF2AF19993003CD4CC /* ResultsPresenterTests.swift in Sources */,
+				F1153E3B2AF5FFE400D0B59A /* SuspectedAbusePresenterTests.swift in Sources */,
+				F1FD071B2AF48038003CD4CC /* SarcopeniaAsssessmentInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2314,8 +3011,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F177F8112AA793C000C1EB32 /* CGAssessmentUITests.swift in Sources */,
-				F177F8132AA793C000C1EB32 /* CGAssessmentUITestsLaunchTests.swift in Sources */,
+				F1153E792AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift in Sources */,
+				F1153E4B2AF6D00600D0B59A /* NewCGAUITests.swift in Sources */,
+				F1153E4D2AF6EEE800D0B59A /* CGADomainsUITests.swift in Sources */,
+				F1153E6B2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift in Sources */,
+				F1153E5D2AF750C700D0B59A /* VerbalFluencyUITests.swift in Sources */,
+				F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */,
+				F1153E672AF7FAA800D0B59A /* KatzScaleUITests.swift in Sources */,
+				F1153E7D2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift in Sources */,
+				F1153E712AF8244800D0B59A /* ZaritScaleUITests.swift in Sources */,
+				F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */,
+				F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */,
+				F1153E532AF737BE00D0B59A /* WalkingSpeedUITests.swift in Sources */,
+				F1153E5B2AF74A8900D0B59A /* MiniMentalStateExamUITests.swift in Sources */,
+				F1153E572AF740CC00D0B59A /* GripStrengthUITests.swift in Sources */,
+				F1153E752AF82A2E00D0B59A /* CharlsonIndexUITests.swift in Sources */,
+				F1153E772AF8586800D0B59A /* SuspectedAbuseUITests.swift in Sources */,
+				F1153E692AF7FC4F00D0B59A /* LawtonScaleUITests.swift in Sources */,
+				F1153E6F2AF8242100D0B59A /* ApgarScaleUITests.swift in Sources */,
+				F1153E6D2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift in Sources */,
+				F1153E7B2AF86B3C00D0B59A /* ResultsUITests.swift in Sources */,
+				F1153E732AF826B700D0B59A /* PolypharmacyCriteriaUITests.swift in Sources */,
+				F1153E442AF698BD00D0B59A /* DashboardUITests.swift in Sources */,
+				F1153E462AF6A23D00D0B59A /* CGAsUITests.swift in Sources */,
+				F1153E652AF7F9D800D0B59A /* SarcopeniaScreeningUITests.swift in Sources */,
+				F1153E492AF6C5E900D0B59A /* PatientsUITests.swift in Sources */,
+				F1153E592AF7429800D0B59A /* SarcopeniaAssessmentUITests.swift in Sources */,
+				F1153E5F2AF7552300D0B59A /* ClockDrawingUITests.swift in Sources */,
+				F1153E512AF72A4D00D0B59A /* TimedUpAndGoUITests.swift in Sources */,
+				F1153E4F2AF6F4F500D0B59A /* SingleDomainUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2499,7 +3223,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;
@@ -2535,7 +3259,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CGAssessment/CGAssessment.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = TA9GQL43ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CGAssessment/Resources/Info.plist;

@@ -63,7 +63,7 @@ struct ResultsModels {
         }
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case nextTest(test: SingleDomainModels.Test)
         case routeBack(domain: CGADomainsModels.Domain?)
         case sarcopeniaAssessment

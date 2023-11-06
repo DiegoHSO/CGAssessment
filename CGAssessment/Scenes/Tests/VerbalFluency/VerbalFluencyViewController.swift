@@ -78,6 +78,8 @@ class VerbalFluencyViewController: UIViewController, VerbalFluencyDisplayLogic {
         tableView?.register(cellType: StepperTableViewCell.self)
         tableView?.register(cellType: StopwatchTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "VerbalFluencyViewController-tableView"
     }
 }
 
@@ -118,6 +120,8 @@ extension VerbalFluencyViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "VerbalFluencyViewController-InstructionsTableViewCell"
+
             return cell
         case .stopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
@@ -128,6 +132,8 @@ extension VerbalFluencyViewController: UITableViewDataSource {
             cell.setup(delegate: interactor, description: LocalizedTable.timer.localized,
                        elapsedTime: viewModel.elapsedTime, isAscending: false)
 
+            cell.accessibilityIdentifier = "VerbalFluencyViewController-StopwatchTableViewCell"
+
             return cell
         case .stepper:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StepperTableViewCell.className,
@@ -137,6 +143,8 @@ extension VerbalFluencyViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.numberOfSpokenWords.localized, value: Int(viewModel.countedWords),
                        delegate: interactor)
+
+            cell.accessibilityIdentifier = "VerbalFluencyViewController-StepperTableViewCell"
 
             return cell
         case .question:
@@ -149,6 +157,8 @@ extension VerbalFluencyViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: viewModel.question.selectedOption,
                                         leadingConstraint: 25))
 
+            cell.accessibilityIdentifier = "VerbalFluencyViewController-SelectableTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -157,6 +167,8 @@ extension VerbalFluencyViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "VerbalFluencyViewController-ActionButtonTableViewCell"
 
             return cell
         default:

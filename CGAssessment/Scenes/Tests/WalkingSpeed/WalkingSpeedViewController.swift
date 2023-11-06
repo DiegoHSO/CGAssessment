@@ -79,6 +79,8 @@ class WalkingSpeedViewController: UIViewController, WalkingSpeedDisplayLogic {
         tableView?.register(cellType: StopwatchTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
         tableView?.register(cellType: TooltipTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "WalkingSpeedViewController-tableView"
     }
 }
 
@@ -145,6 +147,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-InstructionsTableViewCell"
+
             return cell
         case .hasStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectableTableViewCell.className,
@@ -155,6 +159,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(title: nil, options: [.firstOption: LocalizedTable.hasStopwatch],
                                         delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                         textStyle: .medium))
+
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-SelectableTableViewCell-hasStopwatch"
 
             return cell
         case .doesNotHaveStopwatch:
@@ -167,6 +173,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: viewModel.selectedOption,
                                         textStyle: .medium))
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-SelectableTableViewCell-doesNotHaveStopwatch"
+
             return cell
         case .firstTextFieldStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
@@ -177,6 +185,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(title: LocalizedTable.firstMeasurement.localized,
                                         text: viewModel.typedFirstTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
                                         delegate: interactor, keyboardType: .decimalPad, identifier: .firstMeasurement))
+
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-FirstTextFieldTableViewCell"
 
             return cell
         case .secondTextFieldStopwatch:
@@ -189,6 +199,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
                                         text: viewModel.typedSecondTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
                                         delegate: interactor, keyboardType: .decimalPad, identifier: .secondMeasurement))
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-SecondTextFieldTableViewCell"
+
             return cell
         case .thirdTextFieldStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.className,
@@ -200,6 +212,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
                                         text: viewModel.typedThirdTime, placeholder: LocalizedTable.timeTakenSeconds.localized,
                                         delegate: interactor, keyboardType: .decimalPad, identifier: .thirdMeasurement))
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-ThirdTextFieldTableViewCell"
+
             return cell
         case .firstStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
@@ -209,6 +223,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
 
             cell.setup(delegate: interactor, description: LocalizedTable.firstMeasurement.localized,
                        elapsedTime: viewModel.firstStopwatchTime)
+
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-FirstStopwatchTableViewCell"
 
             return cell
         case .secondStopwatch:
@@ -220,6 +236,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             cell.setup(delegate: interactor, description: LocalizedTable.secondMeasurement.localized,
                        elapsedTime: viewModel.secondStopwatchTime)
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-SecondStopwatchTableViewCell"
+
             return cell
         case .thirdStopwatch:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StopwatchTableViewCell.className,
@@ -230,6 +248,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             cell.setup(delegate: interactor, description: LocalizedTable.thirdMeasurement.localized,
                        elapsedTime: viewModel.thirdStopwatchTime)
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-ThirdStopwatchTableViewCell"
+
             return cell
         case .firstStopwatchTooltip:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
@@ -238,6 +258,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             }
 
             cell.setup(text: LocalizedTable.firstMeasurement.localized, symbol: "􀐬")
+
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-FirstTooltipTableViewCell"
 
             return cell
         case .secondStopwatchTooltip:
@@ -248,6 +270,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
 
             cell.setup(text: LocalizedTable.secondMeasurement.localized, symbol: "􀐬")
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-SecondTooltipTableViewCell"
+
             return cell
         case .thirdStopwatchTooltip:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TooltipTableViewCell.className,
@@ -257,6 +281,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
 
             cell.setup(text: LocalizedTable.thirdMeasurement.localized, symbol: "􀐬")
 
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-ThirdTooltipTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -265,6 +291,8 @@ extension WalkingSpeedViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "WalkingSpeedViewController-ActionButtonTableViewCell"
 
             return cell
         default:

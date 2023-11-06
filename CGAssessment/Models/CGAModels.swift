@@ -26,14 +26,6 @@ public enum Gender: Int16, CaseIterable {
 
 struct CGAModels {
 
-    /*
-     typealias Tabs = (
-     home: UIViewController?,
-     cgas: UIViewController?,
-     preferences: UIViewController?
-     )
-     */
-
     typealias Tabs = (
         home: UIViewController?,
         cgas: UIViewController?
@@ -97,11 +89,18 @@ struct CGAModels {
         var horizontalConstraint: CGFloat = 25
     }
 
-    struct BottomSheetViewModel {
+    struct BottomSheetViewModel: Equatable {
         let pickerContent: [String]
         let identifier: LocalizedTable?
         let delegate: PickerViewDelegate?
         let selectedRow: Int
+
+        static func == (lhs: CGAModels.BottomSheetViewModel, rhs: CGAModels.BottomSheetViewModel) -> Bool {
+            if lhs.pickerContent == rhs.pickerContent, lhs.identifier == rhs.identifier, lhs.selectedRow == rhs.selectedRow {
+                return true
+            }
+            return false
+        }
     }
 
     enum FilterOptions {

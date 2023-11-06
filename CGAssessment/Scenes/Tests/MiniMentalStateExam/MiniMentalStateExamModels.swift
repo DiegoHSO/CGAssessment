@@ -35,13 +35,13 @@ struct MiniMentalStateExamModels {
         }
     }
 
-    struct QuestionViewModel {
+    struct QuestionViewModel: Equatable {
         let question: LocalizedTable?
         let selectedOption: SelectableKeys
         let options: Options
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let questions: RawQuestions
         let binaryQuestions: RawBinaryQuestions
     }
@@ -52,7 +52,7 @@ struct MiniMentalStateExamModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 

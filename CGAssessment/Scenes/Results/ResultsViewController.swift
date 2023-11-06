@@ -78,6 +78,8 @@ class ResultsViewController: UIViewController, ResultsDisplayLogic {
         tableView?.register(cellType: ResultsTableViewCell.self)
         tableView?.register(cellType: TitleTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "ResultsViewController-tableView"
     }
 }
 
@@ -118,8 +120,9 @@ extension ResultsViewController: UITableViewDataSource {
             cell.setup(viewModel: .init(testName: viewModel.testName, results: viewModel.results,
                                         resultType: viewModel.resultType))
 
-            return cell
+            cell.accessibilityIdentifier = "ResultsViewController-ResultsTableViewCell"
 
+            return cell
         case .label:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.className,
                                                            for: indexPath) as? TitleTableViewCell else {
@@ -127,6 +130,8 @@ extension ResultsViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.sarcopeniaAssessmentNextStep.localized, fontStyle: .medium)
+
+            cell.accessibilityIdentifier = "ResultsViewController-TitleTableViewCell"
 
             return cell
         case .nextTest:
@@ -141,6 +146,8 @@ extension ResultsViewController: UITableViewDataSource {
                 cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
             }
 
+            cell.accessibilityIdentifier = "ResultsViewController-ActionButtonTableViewCell-nextTest"
+
             return cell
         case .goBack:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -151,6 +158,8 @@ extension ResultsViewController: UITableViewDataSource {
             cell.setup(title: LocalizedTable.returnKey.localized,
                        backgroundColor: .background12?.withAlphaComponent(0.17),
                        delegate: interactor)
+
+            cell.accessibilityIdentifier = "ResultsViewController-ActionButtonTableViewCell-goBack"
 
             return cell
         default:

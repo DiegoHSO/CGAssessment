@@ -28,15 +28,14 @@ struct SarcopeniaScreeningModels {
         }
     }
 
-    struct QuestionViewModel {
+    struct QuestionViewModel: Equatable {
         let question: LocalizedTable?
         let selectedOption: SelectableKeys
         let options: Options
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let questions: RawQuestions
-        let gender: Gender
     }
 
     struct TestData {
@@ -44,7 +43,7 @@ struct SarcopeniaScreeningModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 

@@ -61,8 +61,6 @@ class ResultsWorker {
         case .visualAcuityAssessment:
             guard let visualAcuityAssessmentResults = results as? VisualAcuityAssessmentModels.TestResults else { return nil }
             return getVisualAcuityAssessmentResults(for: visualAcuityAssessmentResults)
-        case .hearingLossAssessment:
-            break
         case .katzScale:
             guard let katzScaleResults = results as? KatzScaleModels.TestResults else { return nil }
             return getKatzScaleResults(for: katzScaleResults)
@@ -84,10 +82,6 @@ class ResultsWorker {
         case .charlsonIndex:
             guard let charlsonIndexResults = results as? CharlsonIndexModels.TestResults else { return nil }
             return getCharlsonIndexResults(for: charlsonIndexResults)
-        case .suspectedAbuse:
-            break
-        case .cardiovascularRiskEstimation:
-            break
         case .chemotherapyToxicityRisk:
             guard let chemotherapyToxicityRiskResults = results as? ChemotherapyToxicityRiskModels.TestResults else { return nil }
             return getChemotherapyToxicityRiskResults(for: chemotherapyToxicityRiskResults)
@@ -99,14 +93,6 @@ class ResultsWorker {
     }
 
     func updateSarcopeniaAssessmentProgress(with data: SarcopeniaAssessmentModels.TestData) throws {
-        guard let cgaId, let dao else {
-            throw CoreDataErrors.unableToUpdateCGA
-        }
-
-        try dao.updateCGA(with: data, cgaId: cgaId)
-    }
-
-    func updateSarcopeniaScreeningProgress(with data: SarcopeniaScreeningModels.TestData) throws {
         guard let cgaId, let dao else {
             throw CoreDataErrors.unableToUpdateCGA
         }
@@ -239,12 +225,7 @@ class ResultsWorker {
 
         let customScore: Int
 
-        switch testResults.gender {
-        case .female:
-            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
-        case .male:
-            customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
-        }
+        customScore = testResults.questions[.sarcopeniaAssessmentSixthQuestion] == .firstOption ? 0 : 10
 
         score += customScore
 
@@ -630,13 +611,15 @@ class ResultsWorker {
         let bmiPoints: Int
         let bmi: Double
 
+        selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion &&
+                                                        $0.key != .miniNutritionalAssessmentFourthQuestion }).values.map { $0 as SelectableKeys }
+        let fourthQuestionPoints = testResults.questions[.miniNutritionalAssessmentFourthQuestion] == .secondOption ? 2 : 0
+
         if testResults.isExtraQuestionSelected {
-            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
             let extraQuestionOption = testResults.questions[.miniNutritionalAssessmentSeventhQuestion]
             bmiPoints = extraQuestionOption == .firstOption ? 0 : 3
             bmi = 0
         } else {
-            selectedOptions = testResults.questions.filter({ $0.key != .miniNutritionalAssessmentSeventhQuestion }).values.map { $0 as SelectableKeys }
             guard let height = testResults.height, let weight = testResults.weight else { return ([], .bad) }
 
             bmi = weight / (pow((height / 100), 2))
@@ -653,7 +636,7 @@ class ResultsWorker {
         }
 
         let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
-            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3
+            selectedOptions.filter { $0 == .thirdOption }.count * 2 + selectedOptions.filter { $0 == .fourthOption }.count * 3 + fourthQuestionPoints
         let totalPoints = bmiPoints + selectedOptionsPointed
 
         let resultType: ResultsModels.ResultType = totalPoints < 8 ? .bad : totalPoints < 12 ? .medium : .excellent
@@ -712,7 +695,7 @@ class ResultsWorker {
         }
 
         let results: [ResultsModels.Result] = [.init(title: LocalizedTable.totalScore.localized,
-                                                     description: "\(totalPoints) \(totalPoints == 1 ? LocalizedTable.point.localized : LocalizedTable.points.localized)"),
+                                                     description: "\(totalPoints) \(LocalizedTable.points.localized)"),
                                                .init(title: LocalizedTable.suggestedDiagnosis.localized, description: resultText.localized)]
 
         return (results, resultType)

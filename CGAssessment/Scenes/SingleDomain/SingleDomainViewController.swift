@@ -86,12 +86,16 @@ class SingleDomainViewController: UIViewController, SingleDomainDisplayLogic, St
         tableView?.register(headerType: StatusHeaderView.self)
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: TestTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "SingleDomainViewController-tableView"
     }
 
     private func setupBarButtonItem() {
         let barButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
                                         style: .plain, target: self,
                                         action: #selector(infoButtonTapped))
+
+        barButton.accessibilityIdentifier = "SingleDomainViewController-infoButton"
         self.navigationItem.rightBarButtonItem = barButton
     }
 
@@ -137,6 +141,8 @@ extension SingleDomainViewController: UITableViewDataSource {
         }
 
         cell.setup(viewModel: test)
+
+        cell.accessibilityIdentifier = "SingleDomainViewController-TestTableViewCell-\(indexPath.row)"
 
         return cell
     }

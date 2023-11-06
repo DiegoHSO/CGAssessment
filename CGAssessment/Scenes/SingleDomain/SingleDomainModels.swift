@@ -50,7 +50,7 @@ struct SingleDomainModels {
     }
 
     @objc
-    public enum Test: Int16, CaseIterable {
+    public enum Test: Int16, CaseIterable, Equatable {
         case timedUpAndGo = 1
         case walkingSpeed
         case calfCircumference
@@ -206,7 +206,7 @@ struct SingleDomainModels {
         }
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case domainTest(test: Test, cgaId: UUID?)
     }
 }

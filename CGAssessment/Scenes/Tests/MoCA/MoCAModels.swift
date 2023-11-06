@@ -77,13 +77,13 @@ struct MoCAModels {
         }
     }
 
-    struct QuestionViewModel {
+    struct QuestionViewModel: Equatable {
         let question: LocalizedTable?
         let selectedOption: SelectableKeys
         let options: Options
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let binaryQuestions: RawBinaryQuestions
         let selectedEducationOption: SelectableKeys
         let countedWords: Int16
@@ -98,10 +98,28 @@ struct MoCAModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
         case imagePicker(configuration: PHPickerConfiguration, delegate: PHPickerViewControllerDelegate?)
         case camera
+
+        static func == (lhs: MoCAModels.Routing, rhs: MoCAModels.Routing) -> Bool {
+            if case MoCAModels.Routing.imagePicker = lhs {
+                if case MoCAModels.Routing.imagePicker = rhs { return true }
+            }
+
+            if case MoCAModels.Routing.camera = lhs {
+                if case MoCAModels.Routing.camera = rhs { return true }
+            }
+
+            if case MoCAModels.Routing.testResults(let lhsTest, let lhsResults, let lhsCgaId) = lhs {
+                if case MoCAModels.Routing.testResults(let rhsTest, let rhsResults, let rhsCgaId) = rhs {
+                    if lhsTest == rhsTest, lhsResults == rhsResults, lhsCgaId == rhsCgaId { return true }
+                }
+            }
+
+            return false
+        }
     }
 
     enum Section: Int {

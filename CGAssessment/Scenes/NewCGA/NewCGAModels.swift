@@ -75,7 +75,7 @@ struct NewCGAModels {
         case done
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case cgaDomains(patientId: UUID)
     }
 }

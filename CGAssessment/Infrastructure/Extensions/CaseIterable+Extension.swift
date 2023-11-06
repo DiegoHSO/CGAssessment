@@ -14,11 +14,4 @@ extension CaseIterable where Self: Equatable {
         let next = all.index(after: idx)
         return all[next == all.endIndex ? all.startIndex : next]
     }
-
-    func back() -> Self {
-        let all = Self.allCases
-        let idx = all.firstIndex(of: self)!
-        let previous = idx == all.startIndex ? all.index(all.endIndex, offsetBy: -1) : all.index(idx, offsetBy: -1)
-        return all[previous]
-    }
 }

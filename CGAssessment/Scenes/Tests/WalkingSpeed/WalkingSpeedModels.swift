@@ -42,7 +42,7 @@ struct WalkingSpeedModels {
         }
     }
 
-    struct TestResults {
+    struct TestResults: Equatable {
         let firstElapsedTime: TimeInterval
         let secondElapsedTime: TimeInterval
         let thirdElapsedTime: TimeInterval
@@ -60,7 +60,7 @@ struct WalkingSpeedModels {
         let isDone: Bool
     }
 
-    enum Routing {
+    enum Routing: Equatable {
         case testResults(test: SingleDomainModels.Test, results: TestResults, cgaId: UUID?)
     }
 
