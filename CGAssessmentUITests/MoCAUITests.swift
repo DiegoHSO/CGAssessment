@@ -73,6 +73,14 @@ final class MoCAUITests: XCTestCase {
 
         XCTAssertTrue(app.cells["MoCAViewController-ActionButtonTableViewCell"].isHittable)
         app.cells["MoCAViewController-ActionButtonTableViewCell"].tap()
+
+        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
+            XCTFail("Results tableView was not presented")
+            return
+        }
+
+        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
+        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
     }
 
     func testLifeCycleOpeningGallery() throws {

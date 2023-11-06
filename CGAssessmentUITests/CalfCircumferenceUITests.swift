@@ -54,6 +54,14 @@ final class CalfCircumferenceUITests: XCTestCase {
 
         XCTAssertTrue(app.cells["CalfCircumferenceViewController-ActionButtonTableViewCell"].isHittable)
         app.cells["CalfCircumferenceViewController-ActionButtonTableViewCell"].tap()
+
+        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
+            XCTFail("Results tableView was not presented")
+            return
+        }
+
+        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
+        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
     }
 
 }

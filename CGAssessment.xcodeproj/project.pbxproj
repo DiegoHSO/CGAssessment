@@ -67,6 +67,7 @@
 		F1153E772AF8586800D0B59A /* SuspectedAbuseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E762AF8586800D0B59A /* SuspectedAbuseUITests.swift */; };
 		F1153E792AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E782AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift */; };
 		F1153E7B2AF86B3C00D0B59A /* ResultsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E7A2AF86B3C00D0B59A /* ResultsUITests.swift */; };
+		F1153E7D2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */; };
 		F138F24E2AC8CD60004E90E2 /* CGADomainsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */; };
 		F138F2502AC90D73004E90E2 /* SingleDomainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */; };
 		F138F2522AC9279A004E90E2 /* TimedUpAndGoWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */; };
@@ -564,6 +565,7 @@
 		F1153E762AF8586800D0B59A /* SuspectedAbuseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspectedAbuseUITests.swift; sourceTree = "<group>"; };
 		F1153E782AF867CB00D0B59A /* ChemotherapyToxicityRiskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemotherapyToxicityRiskUITests.swift; sourceTree = "<group>"; };
 		F1153E7A2AF86B3C00D0B59A /* ResultsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsUITests.swift; sourceTree = "<group>"; };
+		F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearingLossAssessmentUITests.swift; sourceTree = "<group>"; };
 		F138F24D2AC8CD60004E90E2 /* CGADomainsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGADomainsWorker.swift; sourceTree = "<group>"; };
 		F138F24F2AC90D73004E90E2 /* SingleDomainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDomainWorker.swift; sourceTree = "<group>"; };
 		F138F2512AC9279A004E90E2 /* TimedUpAndGoWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedUpAndGoWorker.swift; sourceTree = "<group>"; };
@@ -1388,6 +1390,7 @@
 				F1153E602AF757CC00D0B59A /* MoCAUITests.swift */,
 				F1153E622AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift */,
 				F1153E6A2AF7FF5500D0B59A /* VisualAcuityAssessmentUITests.swift */,
+				F1153E7C2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift */,
 				F1153E662AF7FAA700D0B59A /* KatzScaleUITests.swift */,
 				F1153E682AF7FC4F00D0B59A /* LawtonScaleUITests.swift */,
 				F1153E6C2AF817FF00D0B59A /* MiniNutritionalAssessmentUITests.swift */,
@@ -3015,6 +3018,7 @@
 				F1153E5D2AF750C700D0B59A /* VerbalFluencyUITests.swift in Sources */,
 				F1153E632AF7604D00D0B59A /* GeriatricDepressionScaleUITests.swift in Sources */,
 				F1153E672AF7FAA800D0B59A /* KatzScaleUITests.swift in Sources */,
+				F1153E7D2AF88C5100D0B59A /* HearingLossAssessmentUITests.swift in Sources */,
 				F1153E712AF8244800D0B59A /* ZaritScaleUITests.swift in Sources */,
 				F1153E552AF73A8200D0B59A /* CalfCircumferenceUITests.swift in Sources */,
 				F1153E612AF757CC00D0B59A /* MoCAUITests.swift in Sources */,

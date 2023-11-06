@@ -78,6 +78,8 @@ class HearingLossAssessmentViewController: UIViewController, HearingLossAssessme
         tableView?.register(cellType: TooltipTableViewCell.self)
         tableView?.register(cellType: InstructionsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "HearingLossAssessmentViewController-tableView"
     }
 }
 
@@ -117,6 +119,8 @@ extension HearingLossAssessmentViewController: UITableViewDataSource {
 
             cell.setup(text: LocalizedTable.hearingLossAssessmentTooltip.localized, symbol: "􀅵", bottomConstraint: 0)
 
+            cell.accessibilityIdentifier = "HearingLossAssessmentViewController-TooltipTableViewCell"
+
             return cell
         case .instructions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InstructionsTableViewCell.className,
@@ -126,6 +130,8 @@ extension HearingLossAssessmentViewController: UITableViewDataSource {
 
             cell.setup(viewModel: .init(instructions: viewModel.instructions))
 
+            cell.accessibilityIdentifier = "HearingLossAssessmentViewController-InstructionsTableViewCell"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -134,6 +140,8 @@ extension HearingLossAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.nextTest.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "HearingLossAssessmentViewController-ActionButtonTableViewCell"
 
             return cell
         default:

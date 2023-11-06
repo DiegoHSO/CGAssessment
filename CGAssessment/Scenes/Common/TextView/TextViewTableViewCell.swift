@@ -100,7 +100,6 @@ extension TextViewTableViewCell: UITextViewDelegate {
         // If updated text view will be empty, add the placeholder
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
-
             textView.text = placeholder
             textView.textColor = UIColor.placeholderText
 

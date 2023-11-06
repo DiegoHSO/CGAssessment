@@ -56,6 +56,14 @@ final class CharlsonIndexUITests: XCTestCase {
 
         XCTAssertTrue(app.cells["CharlsonIndexViewController-ActionButtonTableViewCell"].isHittable)
         app.cells["CharlsonIndexViewController-ActionButtonTableViewCell"].tap()
+
+        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
+            XCTFail("Results tableView was not presented")
+            return
+        }
+
+        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
+        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
     }
 
 }

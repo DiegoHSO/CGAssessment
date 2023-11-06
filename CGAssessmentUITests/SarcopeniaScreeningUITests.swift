@@ -51,6 +51,14 @@ final class SarcopeniaScreeningUITests: XCTestCase {
         app.tables["SarcopeniaScreeningViewController-tableView"].swipeUp(velocity: .fast)
 
         app.cells["SarcopeniaScreeningViewController-ActionButtonTableViewCell"].tap()
+
+        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
+            XCTFail("Results tableView was not presented")
+            return
+        }
+
+        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
+        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
     }
 
     func testLifeCycleWithGoodResult() throws {
@@ -103,6 +111,14 @@ final class SarcopeniaScreeningUITests: XCTestCase {
         app.buttons["SelectableView-sarcopenia_assessment_sixth_question_key-1"].tap()
 
         app.cells["SarcopeniaScreeningViewController-ActionButtonTableViewCell"].tap()
+
+        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
+            XCTFail("Results tableView was not presented")
+            return
+        }
+
+        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
+        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
     }
 
 }
