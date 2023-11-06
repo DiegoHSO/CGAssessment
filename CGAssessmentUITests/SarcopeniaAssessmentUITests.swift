@@ -45,7 +45,7 @@ final class SarcopeniaAssessmentUITests: XCTestCase {
             return
         }
 
-        XCTAssertTrue(app.cells["SarcopeniaScreeningViewController-SelectableTableViewCell-0-0"].exists)
+        XCTAssertTrue(app.cells["SarcopeniaScreeningViewController-SelectableTableViewCell-1-0"].exists)
         XCTAssertTrue(app.cells["SarcopeniaScreeningViewController-ActionButtonTableViewCell"].exists)
 
         app.tables["SarcopeniaScreeningViewController-tableView"].swipeUp(velocity: .fast)

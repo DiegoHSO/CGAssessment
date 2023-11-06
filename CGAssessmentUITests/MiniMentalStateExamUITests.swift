@@ -55,6 +55,7 @@ final class MiniMentalStateExamUITests: XCTestCase {
         app.tables["MiniMentalStateExamViewController-tableView"].swipeUp(velocity: .fast)
         app.tables["MiniMentalStateExamViewController-tableView"].swipeUp(velocity: .fast)
         app.tables["MiniMentalStateExamViewController-tableView"].swipeUp(velocity: .fast)
+        app.tables["MiniMentalStateExamViewController-tableView"].swipeUp(velocity: .fast)
 
         XCTAssertTrue(app.cells["MiniMentalStateExamViewController-ActionButtonTableViewCell"].isHittable)
         app.cells["MiniMentalStateExamViewController-ActionButtonTableViewCell"].tap()
