@@ -8,21 +8,21 @@
 import UIKit
 
 class TabBarRouter {
-    
+
     // MARK: - Private Properties
-    
+
     private var submodules: Submodules
     private weak var viewController: UIViewController?
-    
+
     // MARK: - Public Properties
-    
+
     typealias Submodules = (
         home: UIViewController?,
         cgas: UIViewController?
     )
 
     // MARK: - Init
-    
+
     init(viewController: UIViewController?, submodules: Submodules) {
         self.viewController = viewController
         self.submodules = submodules

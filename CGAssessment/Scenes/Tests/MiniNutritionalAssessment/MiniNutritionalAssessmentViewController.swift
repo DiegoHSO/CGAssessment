@@ -81,6 +81,8 @@ class MiniNutritionalAssessmentViewController: UIViewController, MiniNutritional
         tableView?.register(cellType: SheetableTableViewCell.self)
         tableView?.register(cellType: TooltipTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "MiniNutritionalAssessmentViewController-tableView"
     }
 }
 
@@ -137,6 +139,8 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 25, textStyle: .regular))
 
+            cell.accessibilityIdentifier = "MiniNutritionalAssessmentViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
+
             return cell
         case .done:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ActionButtonTableViewCell.className,
@@ -145,6 +149,8 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
+
+            cell.accessibilityIdentifier = "MiniNutritionalAssessmentViewController-ActionButtonTableViewCell"
 
             return cell
         case .tooltip:
@@ -155,6 +161,8 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
 
             cell.setup(text: LocalizedTable.miniNutritionalAssessmentTooltip.localized, symbol: "􀅵")
 
+            cell.accessibilityIdentifier = "MiniNutritionalAssessmentViewController-TooltipTableViewCell"
+
             return cell
         case .picker:
             guard let sheetableViewModel = viewModel.pickers[safe: indexPath.row] else { return UITableViewCell(frame: .zero) }
@@ -164,6 +172,8 @@ extension MiniNutritionalAssessmentViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: sheetableViewModel)
+
+            cell.accessibilityIdentifier = "MiniNutritionalAssessmentViewController-SheetableTableViewCell-\(indexPath.row)"
 
             return cell
         }

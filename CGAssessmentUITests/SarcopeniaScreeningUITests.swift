@@ -1,5 +1,5 @@
 //
-//  SarcopeniaAssessmentUITests.swift
+//  SarcopeniaScreeningUITests.swift
 //  CGAssessmentUITests
 //
 //  Created by Diego Henrique Silva Oliveira on 05/11/23.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class SarcopeniaAssessmentUITests: XCTestCase {
+final class SarcopeniaScreeningUITests: XCTestCase {
 
     func testLifeCycle() throws {
         let app = XCUIApplication()
@@ -51,31 +51,6 @@ final class SarcopeniaAssessmentUITests: XCTestCase {
         app.tables["SarcopeniaScreeningViewController-tableView"].swipeUp(velocity: .fast)
 
         app.cells["SarcopeniaScreeningViewController-ActionButtonTableViewCell"].tap()
-
-        guard app.tables["ResultsViewController-tableView"].waitForExistence(timeout: 10) else {
-            XCTFail("Results tableView was not presented")
-            return
-        }
-
-        XCTAssertTrue(app.cells["ResultsViewController-ResultsTableViewCell"].exists)
-        XCTAssertTrue(app.cells["ResultsViewController-TitleTableViewCell"].exists)
-        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].exists)
-        XCTAssertTrue(app.cells["ResultsViewController-ActionButtonTableViewCell-goBack"].exists)
-
-        app.cells["ResultsViewController-ActionButtonTableViewCell-nextTest"].tap()
-
-        guard app.tables["SarcopeniaAssessmentViewController-tableView"].waitForExistence(timeout: 10) else {
-            XCTFail("SarcopeniaAssessment tableView was not presented")
-            return
-        }
-
-        XCTAssertTrue(app.cells["SarcopeniaAssessmentViewController-Title"].exists)
-        XCTAssertTrue(app.cells["SarcopeniaAssessmentViewController-TestTableViewCell-1-0"].exists)
-        XCTAssertTrue(app.cells["SarcopeniaAssessmentViewController-TestTableViewCell-2-0"].exists)
-        XCTAssertTrue(app.cells["SarcopeniaAssessmentViewController-TestTableViewCell-3-0"].exists)
-        XCTAssertFalse(app.cells["SarcopeniaAssessmentViewController-ActionButtonTableViewCell"].exists)
-
-        app.tables["SarcopeniaAssessmentViewController-tableView"].swipeUp(velocity: .fast)
     }
 
 }

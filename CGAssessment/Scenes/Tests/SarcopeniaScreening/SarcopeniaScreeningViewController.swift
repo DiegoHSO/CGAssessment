@@ -140,7 +140,7 @@ extension SarcopeniaScreeningViewController: UITableViewDataSource {
                                         delegate: interactor, selectedQuestion: questionViewModel.selectedOption,
                                         leadingConstraint: 35, textStyle: .regular))
 
-            cell.accessibilityIdentifier = "SarcopeniaScreeningViewController-SelectableTableViewCell-\(indexPath.row)"
+            cell.accessibilityIdentifier = "SarcopeniaScreeningViewController-SelectableTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
             return cell
         case .done:

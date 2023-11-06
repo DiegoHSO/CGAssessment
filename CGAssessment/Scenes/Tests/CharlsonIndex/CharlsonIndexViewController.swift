@@ -75,6 +75,8 @@ class CharlsonIndexViewController: UIViewController, CharlsonIndexDisplayLogic {
         tableView?.register(headerType: TitleHeaderView.self)
         tableView?.register(cellType: BinaryOptionsTableViewCell.self)
         tableView?.register(cellType: ActionButtonTableViewCell.self)
+
+        tableView?.accessibilityIdentifier = "CharlsonIndexViewController-tableView"
     }
 }
 
@@ -115,6 +117,8 @@ extension CharlsonIndexViewController: UITableViewDataSource {
 
             cell.setup(title: LocalizedTable.seeResults.localized, backgroundColor: .primary, delegate: interactor)
 
+            cell.accessibilityIdentifier = "CharlsonIndexViewController-ActionButtonTableViewCell"
+
             return cell
         case .binaryQuestion:
             guard let questionViewModel = viewModel.binaryQuestions[section] else { return UITableViewCell(frame: .zero) }
@@ -125,6 +129,8 @@ extension CharlsonIndexViewController: UITableViewDataSource {
             }
 
             cell.setup(viewModel: questionViewModel)
+
+            cell.accessibilityIdentifier = "CharlsonIndexViewController-BinaryOptionsTableViewCell-\(indexPath.section)-\(indexPath.row)"
 
             return cell
         }
