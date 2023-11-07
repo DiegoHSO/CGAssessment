@@ -9,10 +9,23 @@ import XCTest
 
 final class CGADomainsUITests: XCTestCase {
 
+    // MARK: - Life Cycle
+
+    override func setUp() {
+        super.setUp()
+
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode"]
+    }
+
+    // MARK: - Test Methods
+
     func testLifeCycleThroughNewCGA() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -48,7 +61,7 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughCGADomains() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -73,7 +86,7 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughRecentApplication() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -98,7 +111,6 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughNoRecentApplication() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -123,7 +135,7 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughEvaluationToReapply() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -148,7 +160,7 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughPatientCGAs() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -189,7 +201,7 @@ final class CGADomainsUITests: XCTestCase {
     func testLifeCycleThroughCGAs() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["UITestMode"]
         app.launch()
 
         guard app.tabBars["TabBarViewController-TabBar"].waitForExistence(timeout: 10) else {

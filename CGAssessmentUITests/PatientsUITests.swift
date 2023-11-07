@@ -9,6 +9,17 @@ import XCTest
 
 final class PatientsUITests: XCTestCase {
 
+    // MARK: - Life Cycle
+
+    override func setUp() {
+        super.setUp()
+
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode"]
+    }
+
     // MARK: - Test Methods
 
     func testLifeCycle() throws {
