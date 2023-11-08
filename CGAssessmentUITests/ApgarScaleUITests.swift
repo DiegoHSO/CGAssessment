@@ -9,11 +9,23 @@ import XCTest
 
 final class ApgarScaleUITests: XCTestCase {
 
+    // MARK: - Life Cycle
+
+    override func setUp() {
+        super.setUp()
+
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode", "UITestMode"]
+
+        app.launch()
+    }
+
+    // MARK: - Test Methods
+
     func testLifeCycle() throws {
         let app = XCUIApplication()
-
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
