@@ -9,11 +9,23 @@ import XCTest
 
 final class SingleDomainUITests: XCTestCase {
 
+    // MARK: - Life Cycle
+
+    override func setUp() {
+        super.setUp()
+
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode", "UITestMode"]
+
+        app.launch()
+    }
+
+    // MARK: - Test Methods
+
     func testLifeCycleThroughNewCGA() throws {
         let app = XCUIApplication()
-
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
@@ -56,9 +68,6 @@ final class SingleDomainUITests: XCTestCase {
     func testLifeCycleThroughCGADomains() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
-
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
             return
@@ -89,9 +98,6 @@ final class SingleDomainUITests: XCTestCase {
     func testLifeCycleThroughRecentApplication() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
-
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
             return
@@ -121,9 +127,6 @@ final class SingleDomainUITests: XCTestCase {
 
     func testLifeCycleThroughEvaluationToReapply() throws {
         let app = XCUIApplication()
-
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
@@ -156,9 +159,6 @@ final class SingleDomainUITests: XCTestCase {
 
     func testLifeCycleThroughPatientCGAs() throws {
         let app = XCUIApplication()
-
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
             XCTFail("Dashboard tableView was not presented")
@@ -207,9 +207,6 @@ final class SingleDomainUITests: XCTestCase {
 
     func testLifeCycleThroughCGAs() throws {
         let app = XCUIApplication()
-
-        app.launchArguments = ["testMode", "UITestMode"]
-        app.launch()
 
         guard app.tabBars["TabBarViewController-TabBar"].waitForExistence(timeout: 10) else {
             XCTFail("Tab bar was not presented")
