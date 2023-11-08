@@ -9,23 +9,15 @@ import XCTest
 
 final class PatientsUITests: XCTestCase {
 
-    // MARK: - Life Cycle
-
-    override func setUp() {
-        super.setUp()
-
-        let app = XCUIApplication()
-        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
-        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
-        app.launchArguments += ["testMode"]
-    }
-
     // MARK: - Test Methods
 
     func testLifeCycle() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode"]
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode"]
+
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -52,7 +44,10 @@ final class PatientsUITests: XCTestCase {
     func testLifeCycleWithMockData() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode", "UITestMode"]
+
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
@@ -85,7 +80,10 @@ final class PatientsUITests: XCTestCase {
     func testLifeCycleWithMockDataAndSearch() throws {
         let app = XCUIApplication()
 
-        app.launchArguments = ["testMode", "UITestMode"]
+        app.launchArguments += ["-AppleLanguages", "(pt-BR)"]
+        app.launchArguments += ["-AppleLocale", "\"pt-BR\""]
+        app.launchArguments += ["testMode", "UITestMode"]
+
         app.launch()
 
         guard app.tables["DashboardViewController-tableView"].waitForExistence(timeout: 10) else {
