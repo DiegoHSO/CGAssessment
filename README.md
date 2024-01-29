@@ -1,7 +1,7 @@
 # CGAssessment
 An iOS app that applies the Comprehensive Geriatric Assessment.
 
-This app was implemented to assist help professionals on applying the *Comprehensive Geriatric Assessment* within their patients.
+This app was implemented to assist health professionals on applying the *Comprehensive Geriatric Assessment* within their patients.
 
 ## Building the Project
 Before running the project, ensure that you meet the following requirement:
