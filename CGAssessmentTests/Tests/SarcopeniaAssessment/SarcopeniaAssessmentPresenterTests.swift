@@ -14,12 +14,6 @@ final class SarcopeniaAssessmentPresenterTests: XCTestCase {
 
     private var currentExpectation: XCTestExpectation?
 
-    // MARK: - Life Cycle
-
-    override func setUp() {
-        super.setUp()
-    }
-
     override func tearDown() {
         super.tearDown()
         currentExpectation = nil

@@ -624,7 +624,6 @@ class ResultsWorker {
 
             bmi = weight / (pow((height / 100), 2))
 
-            // swiftlint:disable switch_case_alignment
             bmiPoints = switch bmi {
             case 0..<19: 0
             case 19..<21: 1
@@ -632,7 +631,6 @@ class ResultsWorker {
             case 23...: 3
             default: 0
             }
-            // swiftlint:enable switch_case_alignment
         }
 
         let selectedOptionsPointed = selectedOptions.filter { $0 == .firstOption }.count * 0 + selectedOptions.filter { $0 == .secondOption }.count * 1 +
